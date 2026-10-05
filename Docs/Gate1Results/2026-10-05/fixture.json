@@ -1,0 +1,48 @@
+{
+  "map": "/Game/Maps/Gate1Test.Gate1Test",
+  "game_mode": "/Script/RVSurvival.RVGameMode",
+  "starts": [
+    {
+      "name": "PlayerStart_0",
+      "location": [
+        -600.0,
+        -670.0,
+        100.0
+      ],
+      "capsule_bottom": 8.0,
+      "floor_top": -0.5,
+      "clear_of_floor": true,
+      "aim_trace_cube_entry_cm": 257.74799277157865,
+      "within_300cm": true
+    },
+    {
+      "name": "PlayerStart_2",
+      "location": [
+        -600.0,
+        -450.0,
+        100.0
+      ],
+      "capsule_bottom": 8.0,
+      "floor_top": -0.5,
+      "clear_of_floor": true,
+      "aim_trace_cube_entry_cm": 190.0,
+      "within_300cm": true
+    },
+    {
+      "name": "PlayerStart_4",
+      "location": [
+        -600.0,
+        -230.0,
+        100.0
+      ],
+      "capsule_bottom": 8.0,
+      "floor_top": -0.5,
+      "clear_of_floor": true,
+      "aim_trace_cube_entry_cm": 257.74799277157865,
+      "within_300cm": true
+    }
+  ],
+  "visibility_blocking": true,
+  "query_collision": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>",
+  "target_location": "<Struct 'Vector' (0x0000012D8EF463B0) {x: -360.000000, y: -450.000000, z: 150.000000}>"
+}

@@ -1,0 +1,7 @@
+[2026.10.05-20.17.31:308][718]LogPython: GATE3_GATE1_REGRESSION_DONE True
+[2026.10.05-20.17.31:314][718]LogPython: GATE3_RELEASED_RUNNERS_GC_OK 33
+[2026.10.05-20.17.31:314][718]Cmd: QUIT_EDITOR
+[2026.10.05-20.17.31:314][718]LogCore: Engine exit requested (reason: UUnrealEdEngine::CloseEditor())
+[2026.10.05-20.17.31:317][719]LogCore: Engine exit requested (reason: EngineExit() was called; note: exit was already requested)
+[2026.10.05-20.17.34:048][719]LogExit: Exiting.
+[2026.10.05-20.17.34:058][719]Log file closed, 10/05/26 16:17:34

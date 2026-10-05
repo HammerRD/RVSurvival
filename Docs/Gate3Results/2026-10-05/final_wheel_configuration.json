@@ -1,0 +1,26 @@
+[
+  {
+    "bone": "PhysWheel_FL",
+    "reference": "<Struct 'Vector' (0x000001D6B20E98B0) {x: 168.199997, y: -124.099998, z: 51.100002}>",
+    "target": "<Struct 'Vector' (0x000001D6DF1A3BC0) {x: 296.000000, y: -88.000000, z: 39.000000}>",
+    "additional": "<Struct 'Vector' (0x000001D6DF1A2A40) {x: 127.800003, y: 36.099998, z: -12.100002}>"
+  },
+  {
+    "bone": "PhysWheel_FR",
+    "reference": "<Struct 'Vector' (0x000001D6B20E94C0) {x: 168.199997, y: 124.099998, z: 51.100002}>",
+    "target": "<Struct 'Vector' (0x000001D6DF1A3260) {x: 296.000000, y: 88.000000, z: 39.000000}>",
+    "additional": "<Struct 'Vector' (0x000001D6DF1A2B80) {x: 127.800003, y: -36.099998, z: -12.100002}>"
+  },
+  {
+    "bone": "PhysWheel_BL",
+    "reference": "<Struct 'Vector' (0x000001D6B20E9B80) {x: -135.199997, y: -139.800003, z: 50.799999}>",
+    "target": "<Struct 'Vector' (0x000001D6DF1A3120) {x: -115.000000, y: -93.000000, z: 39.000000}>",
+    "additional": "<Struct 'Vector' (0x000001D6DF1A2A40) {x: 20.199997, y: 46.800003, z: -11.799999}>"
+  },
+  {
+    "bone": "PhysWheel_BR",
+    "reference": "<Struct 'Vector' (0x000001D6B20E9DC0) {x: -135.199997, y: 139.800003, z: 50.799999}>",
+    "target": "<Struct 'Vector' (0x000001D6DF1A2F40) {x: -115.000000, y: 93.000000, z: 39.000000}>",
+    "additional": "<Struct 'Vector' (0x000001D6DF1A2B80) {x: 20.199997, y: -46.800003, z: -11.799999}>"
+  }
+]

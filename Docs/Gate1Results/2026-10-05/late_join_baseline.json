@@ -1,0 +1,5 @@
+{
+  "case": "late_join_existing_count",
+  "pass": true,
+  "count": 4
+}

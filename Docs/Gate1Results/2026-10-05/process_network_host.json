@@ -1,0 +1,52 @@
+[
+  {
+    "case": "reset_count",
+    "pass": true,
+    "detail": "0"
+  },
+  {
+    "case": "host_independent_movement",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x0000012D8EF6FE90) {x: -651.760315, y: -522.943684, z: 89.650000}>"
+  },
+  {
+    "case": "client_independent_movement",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x0000012D8EF6F8F0) {x: -651.760315, y: -522.943684, z: 89.650000}>"
+  },
+  {
+    "case": "host_completion_replicated",
+    "pass": true,
+    "detail": "1"
+  },
+  {
+    "case": "remote_completion_replicated",
+    "pass": true,
+    "detail": "2"
+  },
+  {
+    "case": "simultaneous_two_increments",
+    "pass": true,
+    "detail": "4"
+  },
+  {
+    "case": "continued_hold_no_repeat",
+    "pass": true,
+    "detail": "4"
+  },
+  {
+    "case": "remote_early_release",
+    "pass": true,
+    "detail": "4"
+  },
+  {
+    "case": "remote_look_away_cancel",
+    "pass": true,
+    "detail": "4"
+  },
+  {
+    "case": "disconnect_during_hold_no_late_completion",
+    "pass": true,
+    "detail": "4"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "different_processes": true,
+  "server_pid": 30680,
+  "client_pid": 49076,
+  "station_counts_agree": true,
+  "max_capsule_error_cm": 27.03485646838414,
+  "max_visual_error_cm": 26.26056977999387,
+  "samples": 1328,
+  "limit_cm": 75,
+  "pass": true
+}

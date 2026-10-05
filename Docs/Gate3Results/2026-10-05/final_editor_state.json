@@ -1,0 +1,9 @@
+{
+  "map": "/Game/Maps/Gate3MovingInteriorTest.Gate3MovingInteriorTest",
+  "players": 2,
+  "one_process": true,
+  "network_emulation": false,
+  "additional_parameters": "",
+  "vendor_parts": 54,
+  "stations": 6
+}

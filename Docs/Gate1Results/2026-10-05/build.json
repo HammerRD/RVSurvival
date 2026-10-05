@@ -1,0 +1,19 @@
+{
+  "TargetName": "RVSurvivalEditor",
+  "Platform": "Win64",
+  "Configuration": "Development",
+  "TargetType": "Editor",
+  "Version": {
+    "MajorVersion": 5,
+    "MinorVersion": 8,
+    "PatchVersion": 3,
+    "Changelist": 58210709,
+    "CompatibleChangelist": 55116800,
+    "IsLicenseeVersion": 0,
+    "IsPromotedBuild": 0,
+    "BranchName": "++UE5+Release-5.8",
+    "BuildId": "55116800"
+  },
+  "BuildDllLastWriteTime": "2026-10-05 09:23:25",
+  "CompilationResult": "User reported successful Visual Studio Development Editor / Win64 build before validation; receipt and loaded Editor module verified. No rebuild required: C++ unchanged."
+}

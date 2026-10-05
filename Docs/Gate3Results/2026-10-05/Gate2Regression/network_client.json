@@ -1,0 +1,246 @@
+{
+  "results": [
+    {
+      "case": "fresh_empty",
+      "pass": true,
+      "detail": "{'DriverSeat': None, 'PassengerSeat': None}"
+    },
+    {
+      "case": "host_driver",
+      "pass": true,
+      "detail": "{'DriverSeat': <Object '/Game/Maps/Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.RVSurvivorCharacter_1' (0x0000017500B83200) Class 'RVSurvivorCharacter'>, 'PassengerSeat': None}"
+    },
+    {
+      "case": "occupied_driver_rejects_client",
+      "pass": true,
+      "detail": "{'DriverSeat': <Object '/Game/Maps/Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.RVSurvivorCharacter_1' (0x0000017500B83200) Class 'RVSurvivorCharacter'>, 'PassengerSeat': None}"
+    },
+    {
+      "case": "host_driver_client_passenger",
+      "pass": true,
+      "detail": "{'DriverSeat': <Object '/Game/Maps/Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.RVSurvivorCharacter_1' (0x0000017500B83200) Class 'RVSurvivorCharacter'>, 'PassengerSeat': <Object '/Game/Maps/Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.RVSurvivorCharacter_0' (0x0000017500B89600) Class 'RVSurvivorCharacter'>}"
+    },
+    {
+      "case": "host_drives",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x00000175256E9A50) {x: 1066.002193, y: 0.158524, z: 14.976220}>"
+    },
+    {
+      "case": "host_stops",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x00000175256E9730) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+    },
+    {
+      "case": "both_exit_free",
+      "pass": true,
+      "detail": "{'DriverSeat': None, 'PassengerSeat': None}"
+    },
+    {
+      "case": "client_driver",
+      "pass": true,
+      "detail": "{'DriverSeat': <Object '/Game/Maps/Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.RVSurvivorCharacter_0' (0x0000017500B89600) Class 'RVSurvivorCharacter'>, 'PassengerSeat': None}"
+    },
+    {
+      "case": "client_driver_host_passenger",
+      "pass": true,
+      "detail": "{'DriverSeat': <Object '/Game/Maps/Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.RVSurvivorCharacter_0' (0x0000017500B89600) Class 'RVSurvivorCharacter'>, 'PassengerSeat': <Object '/Game/Maps/Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.RVSurvivorCharacter_1' (0x0000017500B83200) Class 'RVSurvivorCharacter'>}"
+    },
+    {
+      "case": "client_drives",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x00000175256E9AA0) {x: 1023.362546, y: 0.203840, z: 14.787845}>"
+    },
+    {
+      "case": "client_stops",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x00000175256EB300) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+    },
+    {
+      "case": "passenger_exit_frees_seat",
+      "pass": true,
+      "detail": "{'DriverSeat': <Object '/Game/Maps/Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.RVSurvivorCharacter_0' (0x0000017500B89600) Class 'RVSurvivorCharacter'>, 'PassengerSeat': None}"
+    }
+  ],
+  "samples": {
+    "fresh": {
+      "proxy_gravity_enabled": false,
+      "position": [
+        2.9999999999999956,
+        0.06,
+        14.36
+      ],
+      "velocity": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "seats": {
+        "DriverSeat": false,
+        "PassengerSeat": false
+      },
+      "pawn": "RVSurvivorCharacter"
+    },
+    "host_driver": {
+      "proxy_gravity_enabled": false,
+      "position": [
+        2.9999999999999956,
+        0.06,
+        14.36
+      ],
+      "velocity": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "seats": {
+        "DriverSeat": true,
+        "PassengerSeat": false
+      },
+      "pawn": "RVSurvivorCharacter"
+    },
+    "both_host_driving": {
+      "proxy_gravity_enabled": false,
+      "position": [
+        2.9999999999999956,
+        0.06,
+        14.36
+      ],
+      "velocity": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "seats": {
+        "DriverSeat": true,
+        "PassengerSeat": true
+      },
+      "pawn": "RVSurvivorCharacter"
+    },
+    "host_drive": {
+      "proxy_gravity_enabled": false,
+      "position": [
+        1066.00219262026,
+        0.1585235902220039,
+        14.976220428885867
+      ],
+      "velocity": [
+        753.10888671875,
+        0.05395042151212692,
+        0.023618120700120926
+      ],
+      "seats": {
+        "DriverSeat": true,
+        "PassengerSeat": true
+      },
+      "pawn": "RVSurvivorCharacter"
+    },
+    "host_stopped": {
+      "proxy_gravity_enabled": false,
+      "position": [
+        4223.958456475066,
+        0.28239650069307,
+        14.985835893893835
+      ],
+      "velocity": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "seats": {
+        "DriverSeat": true,
+        "PassengerSeat": true
+      },
+      "pawn": "RVSurvivorCharacter"
+    },
+    "both_exited": {
+      "proxy_gravity_enabled": false,
+      "position": [
+        4223.958456475066,
+        0.28239650069307,
+        14.985835893893835
+      ],
+      "velocity": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "seats": {
+        "DriverSeat": false,
+        "PassengerSeat": false
+      },
+      "pawn": "RVSurvivorCharacter"
+    },
+    "client_driver": {
+      "proxy_gravity_enabled": false,
+      "position": [
+        5.737950264828131,
+        0.09527135581101182,
+        -7.2842420104756656
+      ],
+      "velocity": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "seats": {
+        "DriverSeat": true,
+        "PassengerSeat": false
+      },
+      "pawn": "BP_PrototypeMotorhome_C"
+    },
+    "both_client_driving": {
+      "proxy_gravity_enabled": false,
+      "position": [
+        5.737950264828131,
+        0.09527135581101182,
+        -7.2842420104756656
+      ],
+      "velocity": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "seats": {
+        "DriverSeat": true,
+        "PassengerSeat": true
+      },
+      "pawn": "BP_PrototypeMotorhome_C"
+    },
+    "client_drive": {
+      "proxy_gravity_enabled": false,
+      "position": [
+        1023.3625463543389,
+        0.20384019643608864,
+        14.787845219959436
+      ],
+      "velocity": [
+        735.5551147460938,
+        0.11339759826660156,
+        0.34649235010147095
+      ],
+      "seats": {
+        "DriverSeat": true,
+        "PassengerSeat": true
+      },
+      "pawn": "BP_PrototypeMotorhome_C"
+    },
+    "client_stopped": {
+      "proxy_gravity_enabled": false,
+      "position": [
+        4209.0502325089665,
+        1.0214117322506704,
+        14.985429541742292
+      ],
+      "velocity": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "seats": {
+        "DriverSeat": true,
+        "PassengerSeat": true
+      },
+      "pawn": "BP_PrototypeMotorhome_C"
+    }
+  }
+}

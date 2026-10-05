@@ -1,0 +1,42 @@
+[
+  {
+    "case": "reset_count",
+    "pass": true,
+    "detail": "[0, 0]"
+  },
+  {
+    "case": "host_moves_independently",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x0000012D8EF6FE40) {x: -652.574295, y: -523.147236, z: 89.650000}>, <Struct 'Vector' (0x0000012D8EF6FF30) {x: -600.000000, y: -390.000000, z: 89.650000}>]"
+  },
+  {
+    "case": "client_moves_independently",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x0000012D8EF6F530) {x: -652.574295, y: -523.147236, z: 89.650000}>, <Struct 'Vector' (0x0000012D8EF6EEF0) {x: -652.534510, y: -376.863728, z: 89.650000}>]"
+  },
+  {
+    "case": "host_interacts_and_replicates",
+    "pass": true,
+    "detail": "[1, 1]"
+  },
+  {
+    "case": "remote_interacts_and_replicates",
+    "pass": true,
+    "detail": "[2, 2]"
+  },
+  {
+    "case": "simultaneous_two_increments",
+    "pass": true,
+    "detail": "[4, 4]"
+  },
+  {
+    "case": "both_continued_holds_no_duplicate",
+    "pass": true,
+    "detail": "[4, 4]"
+  },
+  {
+    "case": "remote_early_release",
+    "pass": true,
+    "detail": "[4, 4]"
+  }
+]

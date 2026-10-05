@@ -1,0 +1,51 @@
+LogCsvProfiler: Display: Metadata set : commandline="" D:/GitHub/RVSurvival/RVSurvival/RVSurvival.uproject -ExecCmds="py D:/GitHub/RVSurvival/RVSurvival/Saved/Gate3Validation/run_owned_host.py"""
+LogInit: Command Line: -ExecCmds="py D:/GitHub/RVSurvival/RVSurvival/Saved/Gate3Validation/run_owned_host.py"
+[2026.10.05-20.22.24:582][  0]Cmd: py D:/GitHub/RVSurvival/RVSurvival/Saved/Gate3Validation/run_owned_host.py
+[2026.10.05-20.22.33:069][702]LogPython: GATE3_SUITE {"case": "natural_entry", "pass": true, "detail": "[126.7824170987776, 11.432855363776392, 177.20477582841505]"}
+[2026.10.05-20.22.33:268][714]LogPython: GATE3_SUITE {"case": "driver_possession", "pass": true, "detail": ""}
+[2026.10.05-20.22.38:377][ 20]LogPython: GATE3_SUITE {"case": "stationary_station_Workbench", "pass": true, "detail": "{'before': 0, 'server': 1, 'client': 1, 'passenger': [-191.10020425645848, 11.443749790747944, 191.43174047140226], 'speed': 0.0}"}
+[2026.10.05-20.22.43:377][320]LogPython: GATE3_SUITE {"case": "stationary_station_Medical", "pass": true, "detail": "{'before': 0, 'server': 1, 'client': 1, 'passenger': [-146.55210393733717, 11.443757959081394, 191.4430599415785], 'speed': 0.0}"}
+[2026.10.05-20.22.48:379][620]LogPython: GATE3_SUITE {"case": "stationary_station_Kitchen", "pass": true, "detail": "{'before': 0, 'server': 1, 'client': 1, 'passenger': [-38.66781787561034, 11.432962526234126, 177.3423537261346], 'speed': 0.0}"}
+[2026.10.05-20.22.53:377][920]LogPython: GATE3_SUITE {"case": "stationary_station_Storage", "pass": true, "detail": "{'before': 0, 'server': 1, 'client': 1, 'passenger': [-193.21815496520796, 11.44386929265193, 191.58781721094982], 'speed': 0.0}"}
+[2026.10.05-20.22.58:378][220]LogPython: GATE3_SUITE {"case": "stationary_station_Power", "pass": true, "detail": "{'before': 0, 'server': 1, 'client': 1, 'passenger': [61.33170066460204, 11.43298086335067, 177.3677647422288], 'speed': 0.0}"}
+[2026.10.05-20.23.03:379][520]LogPython: GATE3_SUITE {"case": "stationary_station_Navigation", "pass": true, "detail": "{'before': 0, 'server': 1, 'client': 1, 'passenger': [129.21283114006388, 11.432993310025273, 177.3850130295057], 'speed': 0.0}"}
+[2026.10.05-20.23.10:080][922]LogPython: GATE3_SUITE {"case": "low_speed", "pass": true, "detail": "<Struct 'Vector' (0x0000021C3C917990) {x: 489.142639, y: 2.814951, z: 0.037863}>"}
+[2026.10.05-20.23.12:078][ 42]LogPython: GATE3_SUITE {"case": "low_speed_front", "pass": true, "detail": "[129.23624336212478, 11.37645056101963, 177.3398169746415]"}
+[2026.10.05-20.23.15:079][222]LogPython: GATE3_SUITE {"case": "low_speed_rear", "pass": true, "detail": "[-188.64168656592565, 11.376450562217016, 191.54617835316205]"}
+[2026.10.05-20.23.20:078][522]LogPython: GATE3_SUITE {"case": "moderate_speed", "pass": true, "detail": "<Struct 'Vector' (0x0000021C3C982EF0) {x: 2502.520020, y: 13.865975, z: 0.103291}>"}
+[2026.10.05-20.23.23:079][702]LogPython: GATE3_SUITE {"case": "moving_front", "pass": true, "detail": "[129.22922741336407, 11.376450640388851, 177.34544597878843]"}
+[2026.10.05-20.23.26:080][882]LogPython: GATE3_SUITE {"case": "moving_rear", "pass": true, "detail": "[-188.66459361173182, 11.376451122908486, 191.54810520798546]"}
+[2026.10.05-20.23.28:072][  1]LogPython: GATE3_SUITE {"case": "highway_speed", "pass": true, "detail": "<Struct 'Vector' (0x0000021C5D63F850) {x: 2669.976562, y: 14.742882, z: -0.963816}>"}
+[2026.10.05-20.23.33:372][319]LogPython: GATE3_SUITE {"case": "moving_station_Workbench", "pass": true, "detail": "{'before': 1, 'server': 2, 'client': 2, 'passenger': [-188.65602053431488, 11.376451327052035, 191.54810691287852], 'speed': 2670.8555895177856}"}
+[2026.10.05-20.23.38:372][619]LogPython: GATE3_SUITE {"case": "moving_station_Medical", "pass": true, "detail": "{'before': 1, 'server': 2, 'client': 2, 'passenger': [-144.08662085015155, 11.37645111935448, 191.53508843839393], 'speed': 2670.603399997935}"}
+[2026.10.05-20.23.43:372][919]LogPython: GATE3_SUITE {"case": "moving_station_Kitchen", "pass": true, "detail": "{'before': 1, 'server': 2, 'client': 2, 'passenger': [-39.49666920052393, 11.37645618290194, 177.33347889436865], 'speed': 2673.242601290895}"}
+[2026.10.05-20.23.48:373][219]LogPython: GATE3_SUITE {"case": "moving_station_Storage", "pass": true, "detail": "{'before': 1, 'server': 2, 'client': 2, 'passenger': [-194.04092421086148, 11.376453759479485, 191.40954639465187], 'speed': 2681.306046228371}"}
+[2026.10.05-20.23.53:372][519]LogPython: GATE3_SUITE {"case": "moving_station_Power", "pass": true, "detail": "{'before': 1, 'server': 2, 'client': 2, 'passenger': [60.56559151822459, 11.376451538911613, 177.32195489748005], 'speed': 2678.8998620886455}"}
+[2026.10.05-20.23.58:372][819]LogPython: GATE3_SUITE {"case": "moving_station_Navigation", "pass": true, "detail": "{'before': 1, 'server': 2, 'client': 2, 'passenger': [128.43824583827765, 11.376451080744621, 177.3252496480437], 'speed': 2682.6891538977666}"}
+[2026.10.05-20.24.01:922][ 32]LogPython: GATE3_SUITE {"case": "moving_early_release_cancel", "pass": true, "detail": "2"}
+[2026.10.05-20.24.03:072][101]LogPython: GATE3_SUITE {"case": "sideways_walk", "pass": true, "detail": "[-146.2530623061749, 32.596727427016354, 191.60332926398715]"}
+[2026.10.05-20.24.03:672][137]LogPython: GATE3_SUITE {"case": "moving_mouse_MouseX", "pass": true, "detail": "<Struct 'Rotator' (0x0000021C3CB34A10) {pitch: 0.000000, yaw: 1.925000, roll: 0.000000}>"}
+[2026.10.05-20.24.03:923][152]LogPython: GATE3_SUITE {"case": "moving_mouse_MouseY", "pass": true, "detail": "<Struct 'Rotator' (0x0000021C3CB34BF0) {pitch: 1.925000, yaw: 0.000000, roll: 0.000000}>"}
+[2026.10.05-20.24.05:972][275]LogPython: GATE3_SUITE {"case": "gentle_turn_occurred", "pass": true, "detail": "<Struct 'Rotator' (0x0000021C3CB357D0) {pitch: 0.326296, yaw: 8.101408, roll: -0.324421}>"}
+[2026.10.05-20.24.07:372][359]LogPython: GATE3_SUITE {"case": "turning_station_Medical", "pass": true, "detail": "{'before': 2, 'server': 3, 'client': 3, 'passenger': [-146.18103129475406, 9.170543729103013, 191.57568801950865], 'speed': 2670.4944226802227}"}
+[2026.10.05-20.24.08:573][431]LogPython: GATE3_SUITE {"case": "moving_look_away_cancel", "pass": true, "detail": "3"}
+[2026.10.05-20.24.09:973][515]LogPython: GATE3_SUITE {"case": "strong_turn_occurred", "pass": true, "detail": "<Struct 'Rotator' (0x0000021C3CB36D10) {pitch: 0.479887, yaw: -43.944395, roll: 0.659200}>"}
+[2026.10.05-20.24.16:072][881]LogPython: GATE3_SUITE {"case": "vehicle_stopped", "pass": true, "detail": "<Struct 'Vector' (0x0000021C3D800D30) {x: 0.400030, y: -2.471052, z: -1.951540}>"}
+[2026.10.05-20.24.20:072][121]LogPython: GATE3_SUITE {"case": "resume_driving", "pass": true, "detail": "<Struct 'Vector' (0x0000021C3D8021D0) {x: 217.880920, y: -1479.540649, z: 0.080168}>"}
+[2026.10.05-20.24.32:080][841]LogPython: GATE3_SUITE {"case": "ordinary_world_movement_restored", "pass": true, "detail": "[124.07476713377196, 624.0203940315427, 72.39869824483395]"}
+[2026.10.05-20.24.36:079][ 81]LogPython: GATE3_SUITE {"case": "reentry", "pass": true, "detail": "[127.55056182272003, 9.754869128724664, 177.26769230930483]"}
+[2026.10.05-20.24.38:081][201]LogPython: GATE3_SUITE {"case": "low_speed_stand_stable", "pass": true, "detail": "{'drift_cm': 0.16215863112538362, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"}
+[2026.10.05-20.24.38:081][201]LogPython: GATE3_SUITE {"case": "acceleration_stand_stable", "pass": true, "detail": "{'drift_cm': 0.061763936315011564, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"}
+[2026.10.05-20.24.38:081][201]LogPython: GATE3_SUITE {"case": "highway_stand_stable", "pass": true, "detail": "{'drift_cm': 0.08359010146903313, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"}
+[2026.10.05-20.24.38:081][201]LogPython: GATE3_SUITE {"case": "gentle_turn_stable", "pass": true, "detail": "{'drift_cm': 0.11361924834750749, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"}
+[2026.10.05-20.24.38:081][201]LogPython: GATE3_SUITE {"case": "strong_turn_stable", "pass": true, "detail": "{'drift_cm': 2.269238636710378, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"}
+[2026.10.05-20.24.38:081][201]LogPython: GATE3_SUITE {"case": "braking_stand_stable", "pass": true, "detail": "{'drift_cm': 2.162826737704334, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"}
+[2026.10.05-20.24.38:081][201]LogPython: GATE3_SUITE {"case": "resume_stand_stable", "pass": true, "detail": "{'drift_cm': 0.16305512560469732, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"}
+[2026.10.05-20.24.38:082][201]LogPython: GATE3_SUITE {"case": "floor_and_observer", "pass": true, "detail": "{'min_z': 177.31336415166965, 'max_z': 191.61629364809653, 'max_observer_local_error_cm': 5.685063792427191}"}
+[2026.10.05-20.24.38:082][201]LogPython: GATE3_SUITE {"case": "visible_observer", "pass": true, "detail": "{'max_visual_local_error_cm': 10.244776817085548}"}
+[2026.10.05-20.24.38:145][201]LogPython: GATE3_SUITE_DONE owned_runner_host
+[2026.10.05-20.24.42:180][438]LogPython: GATE3_OWNED_HOST_PASS_AND_CLEANUP 0
+[2026.10.05-20.24.42:180][438]LogCore: Engine exit requested (reason: UUnrealEdEngine::CloseEditor())
+[2026.10.05-20.24.42:182][439]LogCore: Engine exit requested (reason: EngineExit() was called; note: exit was already requested)
+[2026.10.05-20.24.44:615][439]LogExit: Exiting.
+[2026.10.05-20.24.44:631][439]Log file closed, 10/05/26 16:24:44

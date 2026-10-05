@@ -1,0 +1,117 @@
+{
+  "map": "/Game/Maps/Gate2VehicleTest.Gate2VehicleTest",
+  "game_mode": "<Object '/Script/RVSurvival.RVGameMode' (0x00000196F7713E80) Class 'Class'>",
+  "mesh": "<Object '/Game/Vehicles/OffroadCar/SKM_Offroad.SKM_Offroad' (0x00000196EA3D0A00) Class 'SkeletalMesh'>",
+  "animation": "<Object '/Game/Vehicles/OffroadCar/Offroad_AnimBP.Offroad_AnimBP_C' (0x0000019738243800) Class 'AnimBlueprintGeneratedClass'>",
+  "mass_kg": "3500.0",
+  "center_of_mass_override": "<Struct 'Vector' (0x000001973824B7D8) {x: 0.000000, y: 0.000000, z: 10.000000}>",
+  "entry_exit_speed_cm_s": "150.0",
+  "physics_settings": {
+    "bEnablePhysicsPrediction": "False",
+    "bTickPhysicsAsync": "False",
+    "DefaultGravityZ": "-980.0"
+  },
+  "wheels": [
+    {
+      "bone": "PhysWheel_FL",
+      "class": "<Object '/Script/RVSurvival.RVVehicleWheelFront' (0x00000196F7716900) Class 'Class'>",
+      "settings": {
+        "WheelRadius": "50.0",
+        "WheelWidth": "30.0",
+        "SpringRate": "1000.0",
+        "SuspensionDampingRatio": "0.699999988079071",
+        "SuspensionMaxRaise": "10.0",
+        "SuspensionMaxDrop": "20.0",
+        "MaxSteerAngle": "32.0",
+        "bAffectedByEngine": "False",
+        "bAffectedBySteering": "True",
+        "bAffectedByHandbrake": "False"
+      }
+    },
+    {
+      "bone": "PhysWheel_FR",
+      "class": "<Object '/Script/RVSurvival.RVVehicleWheelFront' (0x00000196F7716900) Class 'Class'>",
+      "settings": {
+        "WheelRadius": "50.0",
+        "WheelWidth": "30.0",
+        "SpringRate": "1000.0",
+        "SuspensionDampingRatio": "0.699999988079071",
+        "SuspensionMaxRaise": "10.0",
+        "SuspensionMaxDrop": "20.0",
+        "MaxSteerAngle": "32.0",
+        "bAffectedByEngine": "False",
+        "bAffectedBySteering": "True",
+        "bAffectedByHandbrake": "False"
+      }
+    },
+    {
+      "bone": "PhysWheel_BL",
+      "class": "<Object '/Script/RVSurvival.RVVehicleWheelRear' (0x00000196F7716B80) Class 'Class'>",
+      "settings": {
+        "WheelRadius": "50.0",
+        "WheelWidth": "30.0",
+        "SpringRate": "1000.0",
+        "SuspensionDampingRatio": "0.699999988079071",
+        "SuspensionMaxRaise": "10.0",
+        "SuspensionMaxDrop": "20.0",
+        "MaxSteerAngle": "50.0",
+        "bAffectedByEngine": "True",
+        "bAffectedBySteering": "False",
+        "bAffectedByHandbrake": "True"
+      }
+    },
+    {
+      "bone": "PhysWheel_BR",
+      "class": "<Object '/Script/RVSurvival.RVVehicleWheelRear' (0x00000196F7716B80) Class 'Class'>",
+      "settings": {
+        "WheelRadius": "50.0",
+        "WheelWidth": "30.0",
+        "SpringRate": "1000.0",
+        "SuspensionDampingRatio": "0.699999988079071",
+        "SuspensionMaxRaise": "10.0",
+        "SuspensionMaxDrop": "20.0",
+        "MaxSteerAngle": "50.0",
+        "bAffectedByEngine": "True",
+        "bAffectedBySteering": "False",
+        "bAffectedByHandbrake": "True"
+      }
+    }
+  ],
+  "seats": [
+    {
+      "bDriverSeat": "True",
+      "EntryOffset": "<Struct 'Vector' (0x00000197386698A8) {x: 90.000000, y: -170.000000, z: 90.000000}>",
+      "ExitOffset": "<Struct 'Vector' (0x00000197386698C0) {x: 90.000000, y: -300.000000, z: 0.000000}>",
+      "SeatLabel": "Driver"
+    },
+    {
+      "bDriverSeat": "False",
+      "EntryOffset": "<Struct 'Vector' (0x000001973866A7A8) {x: 90.000000, y: 170.000000, z: 90.000000}>",
+      "ExitOffset": "<Struct 'Vector' (0x000001973866A7C0) {x: 90.000000, y: 300.000000, z: 0.000000}>",
+      "SeatLabel": "Passenger"
+    }
+  ],
+  "starts": [
+    "<Struct 'Vector' (0x000001973C3C5550) {x: -100.000000, y: -430.000000, z: 100.000000}>",
+    "<Struct 'Vector' (0x000001973C3C5550) {x: -100.000000, y: 430.000000, z: 100.000000}>"
+  ],
+  "EngineSetup": {
+    "MaxTorque": "850.0",
+    "MaxRPM": "4500.0",
+    "EngineIdleRPM": "800.0",
+    "EngineRevUpMOI": "5.0",
+    "EngineRevDownRate": "600.0"
+  },
+  "DifferentialSetup": {
+    "DifferentialType": "<VehicleDifferential.REAR_WHEEL_DRIVE: 3>"
+  },
+  "TransmissionSetup": {
+    "bUseAutomaticGears": "True",
+    "bUseAutoReverse": "True",
+    "GearChangeTime": "0.4000000059604645",
+    "FinalRatio": "3.0799999237060547",
+    "ForwardGearRatios": "[2.850000, 2.020000, 1.350000, 1.000000, 2.850000, 2.020000, 1.350000, 1.000000]",
+    "ReverseGearRatios": "[2.860000, 2.860000]"
+  },
+  "physics_asset": "<Object '/Game/Vehicles/OffroadCar/SKM_Offroad_PhysicsAsset.SKM_Offroad_PhysicsAsset' (0x000001973E50BE00) Class 'PhysicsAsset'>"
+}

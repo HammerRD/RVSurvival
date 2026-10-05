@@ -1,0 +1,596 @@
+[
+  {
+    "component": "RV_Cab",
+    "mesh": "/Game/RV/Meshes/SM_RV_Cab.SM_RV_Cab",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Cab_Emissive_OFF.MI_RV_Cab_Emissive_OFF"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Cab_Door_L",
+    "mesh": "/Game/RV/Meshes/SM_RV_Cab_Door_L.SM_RV_Cab_Door_L",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Cab_Emissive_OFF.MI_RV_Cab_Emissive_OFF"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Cab_Door_R",
+    "mesh": "/Game/RV/Meshes/SM_RV_Cab_Door_R.SM_RV_Cab_Door_R",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Cab_Emissive_OFF.MI_RV_Cab_Emissive_OFF"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Cab_SteeringWheel",
+    "mesh": "/Game/RV/Meshes/SM_RV_Cab_SteeringWheel.SM_RV_Cab_SteeringWheel",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Cab_Emissive_OFF.MI_RV_Cab_Emissive_OFF"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Chassis1",
+    "mesh": "/Game/RV/Meshes/SM_RV_Chassis.SM_RV_Chassis",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Chassis_Emissive_OFF.MI_RV_Chassis_Emissive_OFF"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Chassis_Door_L",
+    "mesh": "/Game/RV/Meshes/SM_RV_Chassis_Door_L.SM_RV_Chassis_Door_L",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Chassis_Emissive_OFF.MI_RV_Chassis_Emissive_OFF"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Chassis_Door_R",
+    "mesh": "/Game/RV/Meshes/SM_RV_Chassis_Door_R.SM_RV_Chassis_Door_R",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Chassis_Emissive_OFF.MI_RV_Chassis_Emissive_OFF"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Chassis_Hood",
+    "mesh": "/Game/RV/Meshes/SM_RV_Chassis_Hood.SM_RV_Chassis_Hood",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Chassis_Emissive_OFF.MI_RV_Chassis_Emissive_OFF"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Glass",
+    "mesh": "/Game/RV/Meshes/SM_RV_Glass.SM_RV_Glass",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Glass_Door_Back",
+    "mesh": "/Game/RV/Meshes/SM_RV_Glass_Door_Back.SM_RV_Glass_Door_Back",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Glass_Door_L",
+    "mesh": "/Game/RV/Meshes/SM_RV_Glass_Door_L.SM_RV_Glass_Door_L",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Glass_Door_R",
+    "mesh": "/Game/RV/Meshes/SM_RV_Glass_Door_R.SM_RV_Glass_Door_R",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Glass_Window_01",
+    "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_01.SM_RV_Glass_Window_01",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Glass_Window_02",
+    "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_02.SM_RV_Glass_Window_02",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Glass_Window_03",
+    "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_03.SM_RV_Glass_Window_03",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Glass_Window_04",
+    "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_04.SM_RV_Glass_Window_04",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Glass_Window_05",
+    "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_05.SM_RV_Glass_Window_05",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Glass_Window_06",
+    "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_06.SM_RV_Glass_Window_06",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Glass_Window_07",
+    "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_07.SM_RV_Glass_Window_07",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Glass_Window_08",
+    "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_08.SM_RV_Glass_Window_08",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Glass_Window_09",
+    "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_09.SM_RV_Glass_Window_09",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Glass_Window_10",
+    "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_10.SM_RV_Glass_Window_10",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Glass_Window_11",
+    "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_11.SM_RV_Glass_Window_11",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Glass_Window_12",
+    "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_12.SM_RV_Glass_Window_12",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Interior",
+    "mesh": "/Game/RV/Meshes/SM_RV_Interior.SM_RV_Interior",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Interior.MI_RV_Interior"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Interior_Blind_01",
+    "mesh": "/Game/RV/Meshes/SM_RV_Interior_Blind_01.SM_RV_Interior_Blind_01",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Interior.MI_RV_Interior"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Interior_Blind_02",
+    "mesh": "/Game/RV/Meshes/SM_RV_Interior_Blind_02.SM_RV_Interior_Blind_02",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Interior.MI_RV_Interior"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Interior_Blind_03",
+    "mesh": "/Game/RV/Meshes/SM_RV_Interior_Blind_03.SM_RV_Interior_Blind_03",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Interior.MI_RV_Interior"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Interior_Blind_04",
+    "mesh": "/Game/RV/Meshes/SM_RV_Interior_Blind_04.SM_RV_Interior_Blind_04",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Interior.MI_RV_Interior"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van.SM_RV_Van",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Compartment_01",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_01.SM_RV_Van_Compartment_01",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Compartment_02",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_02.SM_RV_Van_Compartment_02",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Compartment_03",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_03.SM_RV_Van_Compartment_03",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Compartment_04",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_04.SM_RV_Van_Compartment_04",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Compartment_05",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_05.SM_RV_Van_Compartment_05",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Compartment_06",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_06.SM_RV_Van_Compartment_06",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Compartment_07",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_07.SM_RV_Van_Compartment_07",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Door_Back",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Door_Back.SM_RV_Van_Door_Back",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Window_01",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_01.SM_RV_Van_Window_01",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Window_02",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_02.SM_RV_Van_Window_02",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Window_03",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_03.SM_RV_Van_Window_03",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Window_04",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_04.SM_RV_Van_Window_04",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Window_05",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_05.SM_RV_Van_Window_05",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Window_06",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_06.SM_RV_Van_Window_06",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Window_07",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_07.SM_RV_Van_Window_07",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Window_08",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_08.SM_RV_Van_Window_08",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Window_09",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_09.SM_RV_Van_Window_09",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Window_10",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_10.SM_RV_Van_Window_10",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Window_11",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_11.SM_RV_Van_Window_11",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Van_Window_12",
+    "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_12.SM_RV_Van_Window_12",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Wheels_BL",
+    "mesh": "/Game/RV/Meshes/SM_RV_Wheels_BL.SM_RV_Wheels_BL",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Wheels.MI_RV_Wheels"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Wheels_BR",
+    "mesh": "/Game/RV/Meshes/SM_RV_Wheels_BR.SM_RV_Wheels_BR",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Wheels.MI_RV_Wheels"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Wheels_FL",
+    "mesh": "/Game/RV/Meshes/SM_RV_Wheels_FL.SM_RV_Wheels_FL",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Wheels.MI_RV_Wheels"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  },
+  {
+    "component": "RV_Wheels_FR",
+    "mesh": "/Game/RV/Meshes/SM_RV_Wheels_FR.SM_RV_Wheels_FR",
+    "vendor_materials": [
+      "/Game/RV/Materials/MI_RV_Wheels.MI_RV_Wheels"
+    ],
+    "mesh_materials": [
+      null
+    ],
+    "override_required": true
+  }
+]

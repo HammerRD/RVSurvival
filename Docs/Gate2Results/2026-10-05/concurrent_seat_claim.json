@@ -1,0 +1,12 @@
+[
+  {
+    "case": "simultaneous_driver_claim_has_one_winner",
+    "pass": true,
+    "detail": "[[True, False], <Object '/Game/Maps/UEDPIE_0_Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.RVSurvivorCharacter_0' (0x000001976F49E600) Class 'RVSurvivorCharacter'>, <Object '/Game/Maps/UEDPIE_1_Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.RVSurvivorCharacter_1' (0x000001973CF3F000) Class 'RVSurvivorCharacter'>]"
+  },
+  {
+    "case": "race_winner_exit_frees_driver",
+    "pass": true,
+    "detail": "[\"/Script/RVSurvival.RVVehicleSeatComponent'/Game/Maps/UEDPIE_0_Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.BP_PrototypeMotorhome_C_0.DriverSeat'\", \"/Script/RVSurvival.RVVehicleSeatComponent'/Game/Maps/UEDPIE_0_Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.BP_PrototypeMotorhome_C_0.PassengerSeat'\"]"
+  }
+]

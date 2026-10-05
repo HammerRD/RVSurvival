@@ -1,0 +1,182 @@
+[
+  {
+    "case": "separate_process_fresh_replication",
+    "pass": true,
+    "distance_cm": 0.0036906348508776526,
+    "limit_cm": 100,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "separate_process_host_driver_replication",
+    "pass": true,
+    "distance_cm": 0.0036906348508776526,
+    "limit_cm": 100,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "separate_process_both_host_driving_replication",
+    "pass": true,
+    "distance_cm": 0.0036906348508776526,
+    "limit_cm": 100,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "separate_process_host_drive_replication",
+    "pass": true,
+    "distance_cm": 9.330183300677568,
+    "limit_cm": 100,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "separate_process_host_stopped_replication",
+    "pass": true,
+    "distance_cm": 2.4748330987522786,
+    "limit_cm": 100,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "separate_process_both_exited_replication",
+    "pass": true,
+    "distance_cm": 2.4748330987522786,
+    "limit_cm": 100,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "separate_process_client_driver_replication",
+    "pass": true,
+    "distance_cm": 1.1360291035194583,
+    "limit_cm": 100,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "separate_process_both_client_driving_replication",
+    "pass": true,
+    "distance_cm": 1.1360291035194583,
+    "limit_cm": 100,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "separate_process_client_drive_replication",
+    "pass": true,
+    "distance_cm": 9.418384046091761,
+    "limit_cm": 100,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "separate_process_client_stopped_replication",
+    "pass": true,
+    "distance_cm": 2.4657720488931374,
+    "limit_cm": 100,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "network_fresh_replication",
+    "pass": true,
+    "distance_cm": 0.0037272361690148773,
+    "limit_cm": 100,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "network_host_driver_replication",
+    "pass": true,
+    "distance_cm": 0.0037272361690148773,
+    "limit_cm": 100,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "network_both_host_driving_replication",
+    "pass": true,
+    "distance_cm": 0.0037272361690148773,
+    "limit_cm": 100,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "network_host_drive_replication",
+    "pass": true,
+    "distance_cm": 80.53567364216649,
+    "limit_cm": 250,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "network_host_stopped_replication",
+    "pass": true,
+    "distance_cm": 3.531847985167454,
+    "limit_cm": 100,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "network_both_exited_replication",
+    "pass": true,
+    "distance_cm": 3.531847985167454,
+    "limit_cm": 100,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "network_client_driver_replication",
+    "pass": true,
+    "distance_cm": 9.662661628031154,
+    "limit_cm": 100,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "network_both_client_driving_replication",
+    "pass": true,
+    "distance_cm": 9.662661628031154,
+    "limit_cm": 100,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "network_client_drive_replication",
+    "pass": true,
+    "distance_cm": 78.45812434087074,
+    "limit_cm": 250,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  },
+  {
+    "case": "network_client_stopped_replication",
+    "pass": true,
+    "distance_cm": 3.32132844112253,
+    "limit_cm": 100,
+    "seat_occupancy_agrees": true,
+    "server_gravity": true,
+    "client_gravity": false
+  }
+]

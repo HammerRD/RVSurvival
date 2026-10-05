@@ -1,0 +1,68 @@
+[
+  {
+    "file": "listen_server.json",
+    "passed": 24,
+    "failed": 0,
+    "total": 24
+  },
+  {
+    "file": "concurrent_seat_claim.json",
+    "passed": 2,
+    "failed": 0,
+    "total": 2
+  },
+  {
+    "file": "separate_process_host.json",
+    "passed": 15,
+    "failed": 0,
+    "total": 15
+  },
+  {
+    "file": "separate_process_client.json",
+    "passed": 12,
+    "failed": 0,
+    "total": 12
+  },
+  {
+    "file": "network_host.json",
+    "passed": 15,
+    "failed": 0,
+    "total": 15
+  },
+  {
+    "file": "network_client.json",
+    "passed": 12,
+    "failed": 0,
+    "total": 12
+  },
+  {
+    "file": "passenger_disconnect_host.json",
+    "passed": 7,
+    "failed": 0,
+    "total": 7
+  },
+  {
+    "file": "passenger_disconnect_client.json",
+    "passed": 3,
+    "failed": 0,
+    "total": 3
+  },
+  {
+    "file": "gate1_regression_single.json",
+    "passed": 15,
+    "failed": 0,
+    "total": 15
+  },
+  {
+    "file": "gate1_regression_multi.json",
+    "passed": 8,
+    "failed": 0,
+    "total": 8
+  },
+  {
+    "file": "replication_comparison.json",
+    "passed": 20,
+    "failed": 0,
+    "total": 20
+  }
+]

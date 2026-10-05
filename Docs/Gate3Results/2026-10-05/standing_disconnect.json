@@ -1,0 +1,47 @@
+[
+  {
+    "case": "natural_entry_before_disconnect",
+    "pass": true,
+    "detail": "[127.24208476126876, 11.106296293494346, 177.32877841074537]"
+  },
+  {
+    "case": "moving_station_prompt_before_disconnect",
+    "pass": true,
+    "detail": "[-143.9035296037604, 11.157657071636123, 191.58697077803055]"
+  },
+  {
+    "case": "standing_passenger_destroyed",
+    "pass": true,
+    "detail": "remaining=1"
+  },
+  {
+    "case": "disconnect_hold_no_late_completion",
+    "pass": true,
+    "detail": "0"
+  },
+  {
+    "case": "driver_and_vehicle_survive",
+    "pass": true,
+    "detail": "seat cleanup"
+  },
+  {
+    "case": "fully_stopped_before_exit",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x000001972E111A00) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "case": "driver_exit_after_standing_disconnect",
+    "pass": true,
+    "detail": "possession"
+  },
+  {
+    "case": "outside_walking_after_disconnect",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x000001972E111280) {x: 20654.458250, y: -195.117790, z: 90.150004}>"
+  },
+  {
+    "case": "outside_jump_after_disconnect",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x000001972E1121D0) {x: 20654.458250, y: -195.117790, z: 150.681080}>"
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "case": "fresh_seats",
+    "pass": true,
+    "detail": "{'DriverSeat': None, 'PassengerSeat': None}"
+  },
+  {
+    "case": "host_driver",
+    "pass": true,
+    "detail": "{'DriverSeat': <Object '/Game/Maps/UEDPIE_0_Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.RVSurvivorCharacter_0' (0x000001CEABD2E600) Class 'RVSurvivorCharacter'>, 'PassengerSeat': None}"
+  },
+  {
+    "case": "remote_passenger",
+    "pass": true,
+    "detail": "{'DriverSeat': <Object '/Game/Maps/UEDPIE_0_Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.RVSurvivorCharacter_0' (0x000001CEABD2E600) Class 'RVSurvivorCharacter'>, 'PassengerSeat': <Object '/Game/Maps/UEDPIE_0_Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.RVSurvivorCharacter_1' (0x000001CE96603200) Class 'RVSurvivorCharacter'>}"
+  },
+  {
+    "case": "passenger_disconnect_frees_only_passenger",
+    "pass": true,
+    "detail": "{'DriverSeat': <Object '/Game/Maps/UEDPIE_0_Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.RVSurvivorCharacter_0' (0x000001CEABD2E600) Class 'RVSurvivorCharacter'>, 'PassengerSeat': None}"
+  },
+  {
+    "case": "host_exit_after_passenger_disconnect",
+    "pass": true,
+    "detail": "{'DriverSeat': None, 'PassengerSeat': None}"
+  },
+  {
+    "case": "walking_input_restored_after_seats",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x000001CE4316BA80) {x: 325.735077, y: -299.881856, z: 90.150000}>"
+  },
+  {
+    "case": "jump_input_restored_after_seats",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x000001CE4316BA80) {x: 325.735077, y: -299.881856, z: 150.680644}>"
+  }
+]

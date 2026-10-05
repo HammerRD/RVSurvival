@@ -1,8 +1,27 @@
 # Technical architecture
-One runtime C++ module, with Core, Player, Interaction and UI boundaries. Future Inventory, Equipment, Survival, Vehicles, Crafting, AI, World, Encounters, Factions, Save and Debug areas are added when their gates require them, not as speculative managers.
+One runtime C++ module, with Core, Player, Interaction, UI and Vehicles boundaries. Future Inventory, Equipment, Survival, Crafting, AI, World, Encounters, Factions, Save and Debug areas are added when their gates require them, not as speculative managers.
 
-GameInstance is a campaign/session lifecycle extension point. GameMode chooses pawn/controller/state/HUD classes and owns server rules. GameState and PlayerState are typed framework extension points; they deliberately add no speculative replicated state. Character composes Camera and Interaction and uses stock CharacterMovement network prediction. PlayerController remains the ownership/input framework boundary.
+GameInstance is a campaign/session lifecycle extension point. GameMode chooses pawn/controller/state/HUD classes and owns server rules. GameState and PlayerState are typed framework extension points; they deliberately add no speculative replicated state. Character composes Camera and Interaction and retains native CharacterMovement network prediction. PlayerController remains the ownership/input framework boundary.
 
 IRVInteractable offers side-effect-free permission/text/duration queries and authority-only start/complete/cancel events. URVInteractionComponent performs local focus queries and authoritative retraces. RVTestInteractable owns a replicated counter. Temporary HUD only reads prompt state; UMG content replaces presentation later. Gameplay never depends on the HUD.
 
 Enhanced Input mappings are transient assets created per pawn, retained by UPROPERTY, installed only in its local-player subsystem, and removed at teardown. No plugin beyond Enhanced Input is needed for Gate 1. Chaos, World Partition, Gameplay Tags and Data Assets enter the architecture when their concrete gate requires them.
+
+Gate 2 adds ChaosVehiclesPlugin and the ChaosVehicles/PhysicsCore module dependencies. ARVVehicleBase extends Unreal's AWheeledVehiclePawn and owns seat lifecycle, safe exit queries and input routing. ARVMotorhome composes named driver/passenger URVVehicleSeatComponent default subobjects, a chase camera and clearly labeled prototype primitives. Additional seats use the same component/lifecycle path. ARVVehicleEntryPoint adapts each seat to IRVInteractable; the Gate 1 interaction component is unchanged.
+
+URVVehicleMovementComponent uses supported Chaos wheeled simulation on authority and native rigid-body replication on clients. ARVPlayerController owns driving/exit RPCs, validates through the assigned seat, and releases the RV before the default disconnect path can destroy the possessed pawn. The survivor persists while driving; passengers retain survivor possession with movement/collision disabled and attachment to a seat. Survivor and vehicle mappings are removed on unpossession/controller changes as well as teardown.
+
+BP_PrototypeMotorhome contains rig, physics-asset, animation and wheel-bone configuration. Gameplay does not load the off-road art asset by path. Primitive prototype shell/cab configuration is exposed through native component properties; replace these and the rig in content when production art arrives. Gate 2 did not implement moving interiors; the Gate 3 reference-frame boundary is described below. Future survival subsystem managers remain unimplemented.
+
+## Gate 3 moving mobile-base foundation (accepted)
+
+ARVInteriorMotorhome extends ARVMotorhome with content-configured visual parts, simplified query collision, tagged passenger floors and fixed station locations. It leaves driver possession, seat authority and Chaos control routing in the accepted vehicle classes. `/Game/Vehicles/Gate3/BP_ClassCMotorhome` uses the purchased `/Game/RV` Class C assembly as its visual and dimensional basis. All 54 mesh parts remain independent; the invisible skeletal Chaos rig, project-side chassis physics asset and wheel configuration are replaceable. Vendor art has no gameplay collision. Doors/compartments/wheels/steering are separate presentation parts, without new survival systems or detailed dressing.
+
+URVPassengerReferenceFrameComponent observes tagged native CharacterMovement bases. Unreal carries the capsule using based movement, base-relative network moves, prediction and smoothing; walking passengers are not attached or warped every tick. The component applies reversible interior movement policy and records local position, base/frame changes and client corrections. URVCharacterMovementComponent only adds correction instrumentation. It does not replace the native movement solver or accept client transform RPCs.
+
+Six ARVInteriorStation placeholders reuse the Gate 1 interaction contract and replicated completion counter: workbench, medical, kitchen/food preparation, storage, electrical/power and navigation/radio. They are attached fixed endpoints, not implementations of crafting, treatment, cooking, containers, electrical power or navigation. Future equipment can compose behavior behind the existing interface, with authoritative permission checks and replicated state. Layout and station configuration belong to content, not hard-coded purchased mesh paths in gameplay.
+
+The motorhome remains a mobile survival base. Later gates must preserve local interior coordinates and fixed interaction endpoints for food/water, hunger/thirst, fatigue/sleep, injuries/medicine, generator/solar/battery power, maintenance/repairs, crafting and long-term storage. Those systems are deliberately absent here. Additional standing passengers should use the same per-character component and native bases rather than a vehicle-owned list of transform overrides.
+
+
+

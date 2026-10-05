@@ -1,0 +1,74 @@
+[
+  {
+    "run": "final_material_host",
+    "checks": 40,
+    "failed": 0,
+    "max_standing_drift_cm": 2.311639483438921,
+    "max_measured_correction_cm": 0.0,
+    "max_phase_correction_count": 0
+  },
+  {
+    "run": "final_material_client",
+    "checks": 40,
+    "failed": 0,
+    "max_standing_drift_cm": 2.4494493756089204,
+    "max_measured_correction_cm": 0.0,
+    "max_phase_correction_count": 0
+  },
+  {
+    "run": "process_host_driver_client",
+    "checks": 40,
+    "failed": 0,
+    "max_standing_drift_cm": 2.354095228415014,
+    "max_measured_correction_cm": 0.0,
+    "max_phase_correction_count": 0
+  },
+  {
+    "run": "process_client_driver_server",
+    "checks": 42,
+    "failed": 0,
+    "max_standing_drift_cm": 2.2912869498817487,
+    "max_measured_correction_cm": 0.0,
+    "max_phase_correction_count": 0
+  },
+  {
+    "run": "network_host_driver_client",
+    "checks": 42,
+    "failed": 0,
+    "max_standing_drift_cm": 3.620162029811816,
+    "max_measured_correction_cm": 1.8543710708618164,
+    "max_phase_correction_count": 4
+  },
+  {
+    "run": "network_client_driver_server",
+    "checks": 42,
+    "failed": 0,
+    "max_standing_drift_cm": 2.426203071718669,
+    "max_measured_correction_cm": 0.0,
+    "max_phase_correction_count": 0
+  },
+  {
+    "run": "final_material_network_client_server",
+    "checks": 40,
+    "failed": 0,
+    "max_standing_drift_cm": 2.4781898794649715,
+    "max_measured_correction_cm": 0.0,
+    "max_phase_correction_count": 0
+  },
+  {
+    "run": "soak_host",
+    "checks": 10,
+    "failed": 0,
+    "max_standing_drift_cm": 2.1718603113355117,
+    "max_measured_correction_cm": 0.0,
+    "max_phase_correction_count": 0
+  },
+  {
+    "run": "soak_client",
+    "checks": 10,
+    "failed": 0,
+    "max_standing_drift_cm": 1.3535910187988962,
+    "max_measured_correction_cm": 0.0,
+    "max_phase_correction_count": 0
+  }
+]

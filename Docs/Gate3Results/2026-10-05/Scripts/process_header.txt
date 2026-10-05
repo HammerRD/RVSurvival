@@ -1,0 +1,11 @@
+import unreal,json,math,time,os
+B='D:/GitHub/RVSurvival/RVSurvival/Saved/Gate3Validation/'
+session=json.load(open(B+'process_session.json'));config=session['config'];role=config['driver']
+VC=unreal.load_class(None,'/Script/RVSurvival.RVInteriorMotorhome');CC=unreal.load_class(None,'/Script/RVSurvival.RVSurvivorCharacter');FC=unreal.load_class(None,'/Script/RVSurvival.RVPassengerReferenceFrameComponent');EC=unreal.load_class(None,'/Script/RVSurvival.RVVehicleEntryPoint');SC=unreal.load_class(None,'/Script/RVSurvival.RVInteriorStation')
+world=next(w for w in unreal.ObjectIterator(unreal.World) if w.get_name()=='Gate3MovingInteriorTest' and unreal.GameplayStatics.get_player_controller(w,0) and unreal.GameplayStatics.get_player_controller(w,0).get_controlled_pawn())
+isServer=unreal.GameplayStatics.get_game_mode(world) is not None;own=unreal.GameplayStatics.get_player_controller(world,0);chars=unreal.GameplayStatics.get_all_actors_of_class(world,CC);ownpawn=own.get_controlled_pawn();other=next(a for a in chars if a!=ownpawn)
+sw=cw=world;sv=cv=v=unreal.GameplayStatics.get_all_actors_of_class(world,VC)[0]
+host=own if isServer else None;client=None if isServer else own;hp=ownpawn if isServer else other;cp=other if isServer else ownpawn;sp=cp;chp=hp
+out=config['name']+('_server' if isServer else '_client')
+driver=host if role=='host' else client;walker=client if role=='host' else host;wp=cp if role=='host' else hp;swp=wp;observer=wp;wv=v
+ss=cs=st={str(a.get_editor_property('StationName')):a for a in unreal.GameplayStatics.get_all_actors_of_class(world,SC)}

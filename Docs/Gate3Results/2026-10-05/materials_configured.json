@@ -1,0 +1,488 @@
+[
+  {
+    "part": "Art_RV_Wheels_FR",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Wheels.MI_RV_Wheels"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Wheels_FL",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Wheels.MI_RV_Wheels"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Wheels_BR",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Wheels.MI_RV_Wheels"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Wheels_BL",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Wheels.MI_RV_Wheels"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Window_12",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Window_11",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Window_10",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Window_09",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Window_08",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Window_07",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Window_06",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Window_05",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Window_04",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Window_03",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Window_02",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Window_01",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Door_Back",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Compartment_07",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Compartment_06",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Compartment_05",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Compartment_04",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Compartment_03",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Compartment_02",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van_Compartment_01",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Van",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Interior_Blind_04",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Interior.MI_RV_Interior"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Interior_Blind_03",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Interior.MI_RV_Interior"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Interior_Blind_02",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Interior.MI_RV_Interior"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Interior_Blind_01",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Interior.MI_RV_Interior"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Interior",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Interior.MI_RV_Interior"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Glass_Window_12",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Glass_Window_11",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Glass_Window_10",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Glass_Window_09",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Glass_Window_08",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Glass_Window_07",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Glass_Window_06",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Glass_Window_05",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Glass_Window_04",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Glass_Window_03",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Glass_Window_02",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Glass_Window_01",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Glass_Door_R",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Glass_Door_L",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Glass_Door_Back",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Glass",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Chassis_Hood",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Chassis_Emissive_OFF.MI_RV_Chassis_Emissive_OFF"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Chassis_Door_R",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Chassis_Emissive_OFF.MI_RV_Chassis_Emissive_OFF"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Chassis_Door_L",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Chassis_Emissive_OFF.MI_RV_Chassis_Emissive_OFF"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Chassis1",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Chassis_Emissive_OFF.MI_RV_Chassis_Emissive_OFF"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Cab_SteeringWheel",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Cab_Emissive_OFF.MI_RV_Cab_Emissive_OFF"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Cab_Door_R",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Cab_Emissive_OFF.MI_RV_Cab_Emissive_OFF"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Cab_Door_L",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Cab_Emissive_OFF.MI_RV_Cab_Emissive_OFF"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  },
+  {
+    "part": "Art_RV_Cab",
+    "materials": [
+      "/Game/RV/Materials/MI_RV_Cab_Emissive_OFF.MI_RV_Cab_Emissive_OFF"
+    ],
+    "matches_vendor": true,
+    "disallow_nanite": false,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+  }
+]

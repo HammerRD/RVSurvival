@@ -1,0 +1,832 @@
+{
+  "vehicle": {
+    "Mass": "3500.0",
+    "EngineSetup": "<Struct 'VehicleEngineConfig' (0x00000197EB82C000) {}>",
+    "TransmissionSetup": "<Struct 'VehicleTransmissionConfig' (0x00000197EB82C0D8) {}>",
+    "DifferentialSetup": "<Struct 'VehicleDifferentialConfig' (0x00000197EB82C0C8) {}>",
+    "WheelSetups": "[{}, {}, {}, {}]",
+    "CenterOfMassOverride": "<Struct 'Vector' (0x00000197EB82B7D8) {x: -20.000000, y: 0.000000, z: 55.000000}>",
+    "bEnableCenterOfMassOverride": "True",
+    "engine": {
+      "MaxTorque": "1100.0",
+      "MaxRPM": "6000.0",
+      "EngineIdleRPM": "800.0",
+      "EngineBrakeEffect": "0.05000000074505806",
+      "EngineRevUpMOI": "5.0",
+      "EngineRevDownRate": "600.0"
+    },
+    "transmission": {
+      "bUseAutomaticGears": "True",
+      "bUseAutoReverse": "True",
+      "FinalRatio": "3.0799999237060547",
+      "ForwardGearRatios": "[2.850000, 2.020000, 1.350000, 1.000000, 2.850000, 2.020000, 1.350000, 1.000000]",
+      "ReverseGearRatios": "[2.860000, 2.860000]",
+      "ChangeUpRPM": "4500.0",
+      "ChangeDownRPM": "2000.0",
+      "GearChangeTime": "0.4000000059604645",
+      "TransmissionEfficiency": "0.8999999761581421"
+    },
+    "differential": {
+      "DifferentialType": "<VehicleDifferential.REAR_WHEEL_DRIVE: 3>",
+      "FrontRearSplit": "0.5"
+    }
+  },
+  "visuals": [
+    {
+      "name": "Art_RV_Cab",
+      "mesh": "/Game/RV/Meshes/SM_RV_Cab.SM_RV_Cab",
+      "transform": "<Struct 'Transform' (0x00000197FBBDDAE0) {rotation: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}, translation: {x: 0.000000, y: 0.000000, z: 0.000000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Cab_Emissive_OFF.MI_RV_Cab_Emissive_OFF"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Cab_Door_L",
+      "mesh": "/Game/RV/Meshes/SM_RV_Cab_Door_L.SM_RV_Cab_Door_L",
+      "transform": "<Struct 'Transform' (0x00000197FBBDCF00) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 253.276000, y: -97.838000, z: 108.730000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Cab_Emissive_OFF.MI_RV_Cab_Emissive_OFF"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Cab_Door_R",
+      "mesh": "/Game/RV/Meshes/SM_RV_Cab_Door_R.SM_RV_Cab_Door_R",
+      "transform": "<Struct 'Transform' (0x00000197FBBDC280) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 253.269000, y: 97.840000, z: 108.730000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Cab_Emissive_OFF.MI_RV_Cab_Emissive_OFF"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Cab_SteeringWheel",
+      "mesh": "/Game/RV/Meshes/SM_RV_Cab_SteeringWheel.SM_RV_Cab_SteeringWheel",
+      "transform": "<Struct 'Transform' (0x00000197FBBD50C0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 216.429000, y: -48.805000, z: 141.685000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Cab_Emissive_OFF.MI_RV_Cab_Emissive_OFF"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Chassis1",
+      "mesh": "/Game/RV/Meshes/SM_RV_Chassis.SM_RV_Chassis",
+      "transform": "<Struct 'Transform' (0x00000197FBBD0DE0) {rotation: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}, translation: {x: 0.000000, y: 0.000000, z: 0.000000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Chassis_Emissive_OFF.MI_RV_Chassis_Emissive_OFF"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Chassis_Door_L",
+      "mesh": "/Game/RV/Meshes/SM_RV_Chassis_Door_L.SM_RV_Chassis_Door_L",
+      "transform": "<Struct 'Transform' (0x00000197FBBDD360) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 253.274000, y: -97.835000, z: 120.338000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Chassis_Emissive_OFF.MI_RV_Chassis_Emissive_OFF"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Chassis_Door_R",
+      "mesh": "/Game/RV/Meshes/SM_RV_Chassis_Door_R.SM_RV_Chassis_Door_R",
+      "transform": "<Struct 'Transform' (0x00000197FBBD5AC0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 253.272000, y: 97.838000, z: 120.338000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Chassis_Emissive_OFF.MI_RV_Chassis_Emissive_OFF"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Chassis_Hood",
+      "mesh": "/Game/RV/Meshes/SM_RV_Chassis_Hood.SM_RV_Chassis_Hood",
+      "transform": "<Struct 'Transform' (0x00000197FBBDD720) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 258.325000, y: 0.000000, z: 141.455000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Chassis_Emissive_OFF.MI_RV_Chassis_Emissive_OFF"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Glass",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass.SM_RV_Glass",
+      "transform": "<Struct 'Transform' (0x00000197FBBD7500) {rotation: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}, translation: {x: 0.000000, y: 0.000000, z: 0.000000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+      ],
+      "disallow_nanite": true
+    },
+    {
+      "name": "Art_RV_Glass_Door_Back",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Door_Back.SM_RV_Glass_Door_Back",
+      "transform": "<Struct 'Transform' (0x00000197FBBDD720) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 126.384000, y: 124.383000, z: 203.803000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+      ],
+      "disallow_nanite": true
+    },
+    {
+      "name": "Art_RV_Glass_Door_L",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Door_L.SM_RV_Glass_Door_L",
+      "transform": "<Struct 'Transform' (0x00000197FBBD5AC0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 253.271000, y: -97.830000, z: 166.954000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+      ],
+      "disallow_nanite": true
+    },
+    {
+      "name": "Art_RV_Glass_Door_R",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Door_R.SM_RV_Glass_Door_R",
+      "transform": "<Struct 'Transform' (0x00000197FBBDD360) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 253.269000, y: 97.839000, z: 166.954000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+      ],
+      "disallow_nanite": true
+    },
+    {
+      "name": "Art_RV_Glass_Window_01",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_01.SM_RV_Glass_Window_01",
+      "transform": "<Struct 'Transform' (0x00000197FBBD5700) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 225.271000, y: -120.863000, z: 263.528000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+      ],
+      "disallow_nanite": true
+    },
+    {
+      "name": "Art_RV_Glass_Window_02",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_02.SM_RV_Glass_Window_02",
+      "transform": "<Struct 'Transform' (0x00000197FBBD0D40) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 184.997000, y: -123.119000, z: 263.528000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+      ],
+      "disallow_nanite": true
+    },
+    {
+      "name": "Art_RV_Glass_Window_03",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_03.SM_RV_Glass_Window_03",
+      "transform": "<Struct 'Transform' (0x00000197FBBDDA40) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 54.311000, y: -120.911000, z: 212.161000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+      ],
+      "disallow_nanite": true
+    },
+    {
+      "name": "Art_RV_Glass_Window_04",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_04.SM_RV_Glass_Window_04",
+      "transform": "<Struct 'Transform' (0x00000197FBBDC280) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -18.058000, y: -123.184000, z: 212.161000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+      ],
+      "disallow_nanite": true
+    },
+    {
+      "name": "Art_RV_Glass_Window_05",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_05.SM_RV_Glass_Window_05",
+      "transform": "<Struct 'Transform' (0x00000197FBBD8E00) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -361.194000, y: 22.535000, z: 235.041000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+      ],
+      "disallow_nanite": true
+    },
+    {
+      "name": "Art_RV_Glass_Window_06",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_06.SM_RV_Glass_Window_06",
+      "transform": "<Struct 'Transform' (0x00000197FBBD89A0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -363.452000, y: 73.714000, z: 235.041000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+      ],
+      "disallow_nanite": true
+    },
+    {
+      "name": "Art_RV_Glass_Window_07",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_07.SM_RV_Glass_Window_07",
+      "transform": "<Struct 'Transform' (0x00000197FBBD2DC0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -278.003000, y: 120.865000, z: 232.629000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+      ],
+      "disallow_nanite": true
+    },
+    {
+      "name": "Art_RV_Glass_Window_08",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_08.SM_RV_Glass_Window_08",
+      "transform": "<Struct 'Transform' (0x00000197FBBD6C40) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -220.861000, y: 123.122000, z: 232.629000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+      ],
+      "disallow_nanite": true
+    },
+    {
+      "name": "Art_RV_Glass_Window_09",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_09.SM_RV_Glass_Window_09",
+      "transform": "<Struct 'Transform' (0x00000197FBBD5D40) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 20.299000, y: 120.950000, z: 231.794000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+      ],
+      "disallow_nanite": true
+    },
+    {
+      "name": "Art_RV_Glass_Window_10",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_10.SM_RV_Glass_Window_10",
+      "transform": "<Struct 'Transform' (0x00000197FBBDA520) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 20.299000, y: 123.208000, z: 201.124000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+      ],
+      "disallow_nanite": true
+    },
+    {
+      "name": "Art_RV_Glass_Window_11",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_11.SM_RV_Glass_Window_11",
+      "transform": "<Struct 'Transform' (0x00000197FBBD7DC0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 184.997000, y: 123.137000, z: 263.528000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+      ],
+      "disallow_nanite": true
+    },
+    {
+      "name": "Art_RV_Glass_Window_12",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_12.SM_RV_Glass_Window_12",
+      "transform": "<Struct 'Transform' (0x00000197FBBD4E40) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 225.271000, y: 120.863000, z: 263.528000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Glass.MI_RV_Glass"
+      ],
+      "disallow_nanite": true
+    },
+    {
+      "name": "Art_RV_Interior",
+      "mesh": "/Game/RV/Meshes/SM_RV_Interior.SM_RV_Interior",
+      "transform": "<Struct 'Transform' (0x00000197FBBDBC40) {rotation: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}, translation: {x: 0.000000, y: 0.000000, z: 0.000000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Interior.MI_RV_Interior"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Interior_Blind_01",
+      "mesh": "/Game/RV/Meshes/SM_RV_Interior_Blind_01.SM_RV_Interior_Blind_01",
+      "transform": "<Struct 'Transform' (0x00000197FBBDC6E0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 18.194000, y: -116.170000, z: 270.469000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Interior.MI_RV_Interior"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Interior_Blind_02",
+      "mesh": "/Game/RV/Meshes/SM_RV_Interior_Blind_02.SM_RV_Interior_Blind_02",
+      "transform": "<Struct 'Transform' (0x00000197FBBD1560) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 20.248000, y: 116.282000, z: 265.111000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Interior.MI_RV_Interior"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Interior_Blind_03",
+      "mesh": "/Game/RV/Meshes/SM_RV_Interior_Blind_03.SM_RV_Interior_Blind_03",
+      "transform": "<Struct 'Transform' (0x00000197FBBD9440) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -356.975000, y: 48.191000, z: 278.888000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Interior.MI_RV_Interior"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Interior_Blind_04",
+      "mesh": "/Game/RV/Meshes/SM_RV_Interior_Blind_04.SM_RV_Interior_Blind_04",
+      "transform": "<Struct 'Transform' (0x00000197FBBDD9A0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -249.386000, y: 116.164000, z: 287.328000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Interior.MI_RV_Interior"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van.SM_RV_Van",
+      "transform": "<Struct 'Transform' (0x00000197FBBD9620) {rotation: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}, translation: {x: 0.000000, y: 0.000000, z: 0.000000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Compartment_01",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_01.SM_RV_Van_Compartment_01",
+      "transform": "<Struct 'Transform' (0x00000197FBBD6F60) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 91.486000, y: -124.756000, z: 84.804000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Compartment_02",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_02.SM_RV_Van_Compartment_02",
+      "transform": "<Struct 'Transform' (0x00000197FBBD6380) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -20.648000, y: -124.770000, z: 84.832000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Compartment_03",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_03.SM_RV_Van_Compartment_03",
+      "transform": "<Struct 'Transform' (0x00000197FBBD2280) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -228.078000, y: -124.757000, z: 90.182000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Compartment_04",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_04.SM_RV_Van_Compartment_04",
+      "transform": "<Struct 'Transform' (0x00000197FBBDAB60) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -314.057000, y: -124.765000, z: 98.670000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Compartment_05",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_05.SM_RV_Van_Compartment_05",
+      "transform": "<Struct 'Transform' (0x00000197FBBD78C0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -7.355000, y: 124.678000, z: 95.575000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Compartment_06",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_06.SM_RV_Van_Compartment_06",
+      "transform": "<Struct 'Transform' (0x00000197FBBD8680) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -225.726000, y: 124.675000, z: 95.578000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Compartment_07",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_07.SM_RV_Van_Compartment_07",
+      "transform": "<Struct 'Transform' (0x00000197FBBD9C60) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -290.249000, y: 124.675000, z: 103.489000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Door_Back",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Door_Back.SM_RV_Van_Door_Back",
+      "transform": "<Struct 'Transform' (0x00000197FBBDB600) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 126.384000, y: 124.383000, z: 140.933000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Window_01",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_01.SM_RV_Van_Window_01",
+      "transform": "<Struct 'Transform' (0x00000197FBBD20A0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 224.571000, y: -120.928000, z: 263.440000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Window_02",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_02.SM_RV_Van_Window_02",
+      "transform": "<Struct 'Transform' (0x00000197FBBD3220) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 185.632000, y: -123.156000, z: 263.440000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Window_03",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_03.SM_RV_Van_Window_03",
+      "transform": "<Struct 'Transform' (0x00000197FBBDD220) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 53.699000, y: -120.917000, z: 212.073000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Window_04",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_04.SM_RV_Van_Window_04",
+      "transform": "<Struct 'Transform' (0x00000197FBBD62E0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -17.293000, y: -123.170000, z: 212.073000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Window_05",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_05.SM_RV_Van_Window_05",
+      "transform": "<Struct 'Transform' (0x00000197FBBD2D20) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -361.304000, y: 23.084000, z: 235.146000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Window_06",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_06.SM_RV_Van_Window_06",
+      "transform": "<Struct 'Transform' (0x00000197FBBD5C00) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -363.557000, y: 73.083000, z: 235.146000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Window_07",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_07.SM_RV_Van_Window_07",
+      "transform": "<Struct 'Transform' (0x00000197FBBD6420) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -277.246000, y: 120.832000, z: 232.746000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Window_08",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_08.SM_RV_Van_Window_08",
+      "transform": "<Struct 'Transform' (0x00000197FBBDED00) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -221.609000, y: 123.085000, z: 232.746000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Window_09",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_09.SM_RV_Van_Window_09",
+      "transform": "<Struct 'Transform' (0x00000197FBBDF3E0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 20.291000, y: 120.829000, z: 231.148000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Window_10",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_10.SM_RV_Van_Window_10",
+      "transform": "<Struct 'Transform' (0x00000197FBBD30E0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 20.291000, y: 123.084000, z: 201.839000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Window_11",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_11.SM_RV_Van_Window_11",
+      "transform": "<Struct 'Transform' (0x00000197FBBDDFE0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 185.632000, y: 123.153000, z: 263.440000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Van_Window_12",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_12.SM_RV_Van_Window_12",
+      "transform": "<Struct 'Transform' (0x00000197FBBDB100) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 224.571000, y: 120.926000, z: 263.440000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Van.MI_RV_Van"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Wheels_BL",
+      "mesh": "/Game/RV/Meshes/SM_RV_Wheels_BL.SM_RV_Wheels_BL",
+      "transform": "<Struct 'Transform' (0x00000197FBBD34A0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -115.062000, y: -92.924000, z: 39.144000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Wheels.MI_RV_Wheels"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Wheels_BR",
+      "mesh": "/Game/RV/Meshes/SM_RV_Wheels_BR.SM_RV_Wheels_BR",
+      "transform": "<Struct 'Transform' (0x00000197FBBD3860) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -115.118000, y: 92.922000, z: 39.121000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Wheels.MI_RV_Wheels"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Wheels_FL",
+      "mesh": "/Game/RV/Meshes/SM_RV_Wheels_FL.SM_RV_Wheels_FL",
+      "transform": "<Struct 'Transform' (0x00000197FBBDCB40) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 296.447000, y: -88.419000, z: 39.128000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Wheels.MI_RV_Wheels"
+      ],
+      "disallow_nanite": false
+    },
+    {
+      "name": "Art_RV_Wheels_FR",
+      "mesh": "/Game/RV/Meshes/SM_RV_Wheels_FR.SM_RV_Wheels_FR",
+      "transform": "<Struct 'Transform' (0x00000197FBBD8EA0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 296.317000, y: 88.382000, z: 39.203000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "materials": [
+        "/Game/RV/Materials/MI_RV_Wheels.MI_RV_Wheels"
+      ],
+      "disallow_nanite": false
+    }
+  ],
+  "collision": [
+    {
+      "name": "LeftWall",
+      "center": [
+        -65.0,
+        -122.0,
+        190.0
+      ],
+      "extent": [
+        290.0,
+        5.0,
+        105.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "RightWallRear",
+      "center": [
+        -140.0,
+        122.0,
+        190.0
+      ],
+      "extent": [
+        215.0,
+        5.0,
+        105.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "RightWallFront",
+      "center": [
+        197.0,
+        122.0,
+        190.0
+      ],
+      "extent": [
+        28.0,
+        5.0,
+        105.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "RearWall",
+      "center": [
+        -359.0,
+        0.0,
+        190.0
+      ],
+      "extent": [
+        5.0,
+        122.0,
+        105.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "FrontWall",
+      "center": [
+        230.0,
+        0.0,
+        195.0
+      ],
+      "extent": [
+        5.0,
+        120.0,
+        105.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "Ceiling",
+      "center": [
+        -65.0,
+        0.0,
+        301.0
+      ],
+      "extent": [
+        290.0,
+        122.0,
+        5.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "RearFloor",
+      "center": [
+        -155.0,
+        -30.0,
+        96.49
+      ],
+      "extent": [
+        80.0,
+        90.0,
+        5.0
+      ],
+      "floor": true
+    },
+    {
+      "name": "Bed",
+      "center": [
+        -295.0,
+        0.0,
+        140.0
+      ],
+      "extent": [
+        60.0,
+        115.0,
+        40.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "KitchenCabinet",
+      "center": [
+        20.0,
+        -80.0,
+        130.0
+      ],
+      "extent": [
+        65.0,
+        35.0,
+        43.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "Dinette",
+      "center": [
+        20.0,
+        85.0,
+        130.0
+      ],
+      "extent": [
+        75.0,
+        30.0,
+        43.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "Bathroom",
+      "center": [
+        -155.0,
+        90.0,
+        200.0
+      ],
+      "extent": [
+        78.0,
+        25.0,
+        100.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "RearCabinet",
+      "center": [
+        -170.0,
+        -101.0,
+        190.0
+      ],
+      "extent": [
+        55.0,
+        15.0,
+        90.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "EntryStepLow",
+      "center": [
+        122.0,
+        220.0,
+        10.0
+      ],
+      "extent": [
+        48.0,
+        30.0,
+        10.0
+      ],
+      "floor": true
+    },
+    {
+      "name": "EntryStepMid",
+      "center": [
+        122.0,
+        170.0,
+        30.0
+      ],
+      "extent": [
+        48.0,
+        25.0,
+        30.0
+      ],
+      "floor": true
+    },
+    {
+      "name": "EntryStepHigh",
+      "center": [
+        122.0,
+        133.0,
+        42.0
+      ],
+      "extent": [
+        48.0,
+        14.0,
+        42.0
+      ],
+      "floor": true
+    },
+    {
+      "name": "DriverChair",
+      "center": [
+        190.0,
+        -49.0,
+        140.0
+      ],
+      "extent": [
+        25.0,
+        25.0,
+        50.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "PassengerChair",
+      "center": [
+        190.0,
+        49.0,
+        140.0
+      ],
+      "extent": [
+        25.0,
+        25.0,
+        50.0
+      ],
+      "floor": false
+    }
+  ],
+  "stations": [
+    {
+      "name": "Workbench",
+      "position": [
+        -190.0,
+        -78.0,
+        155.0
+      ]
+    },
+    {
+      "name": "Medical",
+      "position": [
+        -145.0,
+        58.0,
+        155.0
+      ]
+    },
+    {
+      "name": "Kitchen",
+      "position": [
+        -40.0,
+        -40.0,
+        155.0
+      ]
+    },
+    {
+      "name": "Storage",
+      "position": [
+        -200.0,
+        55.0,
+        155.0
+      ]
+    },
+    {
+      "name": "Power",
+      "position": [
+        60.0,
+        49.0,
+        155.0
+      ]
+    },
+    {
+      "name": "Navigation",
+      "position": [
+        150.0,
+        0.0,
+        155.0
+      ]
+    }
+  ],
+  "wheels": {
+    "Front": {
+      "WheelRadius": "39.25",
+      "WheelWidth": "35.79999923706055",
+      "SpringRate": "2000.0",
+      "SuspensionDampingRatio": "0.699999988079071",
+      "SuspensionMaxRaise": "10.0",
+      "SuspensionMaxDrop": "20.0",
+      "MaxSteerAngle": "32.0"
+    },
+    "Rear": {
+      "WheelRadius": "39.25",
+      "WheelWidth": "35.79999923706055",
+      "SpringRate": "2000.0",
+      "SuspensionDampingRatio": "0.699999988079071",
+      "SuspensionMaxRaise": "10.0",
+      "SuspensionMaxDrop": "20.0",
+      "MaxSteerAngle": "50.0"
+    }
+  }
+}

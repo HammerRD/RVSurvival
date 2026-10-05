@@ -9,7 +9,15 @@
 #include "InputActionValue.h"
 #include "Engine/LocalPlayer.h"
 #include "GameFramework/PlayerController.h"
-ARVSurvivorCharacter::ARVSurvivorCharacter()
+#include "Player/RVPlayerController.h"
+#include "Vehicles/RVVehicleBase.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "Components/CapsuleComponent.h"
+#include "Net/UnrealNetwork.h"
+#include "Player/RVCharacterMovementComponent.h"
+#include "Player/RVPassengerReferenceFrameComponent.h"
+ARVSurvivorCharacter::ARVSurvivorCharacter(const FObjectInitializer& Init)
+    : Super(Init.SetDefaultSubobjectClass<URVCharacterMovementComponent>(ACharacter::CharacterMovementComponentName))
 {
     bReplicates = true;
     bUseControllerRotationYaw = true;
@@ -19,6 +27,7 @@ ARVSurvivorCharacter::ARVSurvivorCharacter()
     Camera->SetRelativeLocation(FVector(0, 0, BaseEyeHeight));
     Camera->bUsePawnControlRotation = true;
     Interaction = CreateDefaultSubobject<URVInteractionComponent>(TEXT("Interaction"));
+    PassengerReferenceFrame = CreateDefaultSubobject<URVPassengerReferenceFrameComponent>(TEXT("PassengerReferenceFrame"));
 }
 void ARVSurvivorCharacter::CreateInput()
 {
@@ -51,7 +60,7 @@ void ARVSurvivorCharacter::PawnClientRestart()
     if (APlayerController* PC = Cast<APlayerController>(Controller))
         if (ULocalPlayer* Local = PC->GetLocalPlayer())
             if (auto* Input = Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
-            { Input->RemoveMappingContext(Mapping); Input->AddMappingContext(Mapping, 0); }
+            { InputLocalPlayer = Local; Input->RemoveMappingContext(Mapping); Input->AddMappingContext(Mapping, 0); }
 }
 void ARVSurvivorCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
@@ -73,9 +82,13 @@ void ARVSurvivorCharacter::MoveForward(const FInputActionValue& V) { AddMovement
 void ARVSurvivorCharacter::MoveRight(const FInputActionValue& V) { AddMovementInput(FRotationMatrix(FRotator(0, GetControlRotation().Yaw, 0)).GetUnitAxis(EAxis::Y), V.Get<float>()); }
 void ARVSurvivorCharacter::LookYaw(const FInputActionValue& V) { AddControllerYawInput(V.Get<float>()); }
 void ARVSurvivorCharacter::LookPitch(const FInputActionValue& V) { AddControllerPitchInput(V.Get<float>()); }
-void ARVSurvivorCharacter::StartJump() { Jump(); }
+void ARVSurvivorCharacter::StartJump() { if (!SeatedVehicle) Jump(); }
 void ARVSurvivorCharacter::StopJump() { StopJumping(); }
-void ARVSurvivorCharacter::StartInteract() { Interaction->BeginInteraction(); }
+void ARVSurvivorCharacter::StartInteract()
+{
+    if (SeatedVehicle) { if (auto* PC = Cast<ARVPlayerController>(Controller)) PC->ServerExitVehicle(); }
+    else Interaction->BeginInteraction();
+}
 void ARVSurvivorCharacter::StopInteract() { Interaction->EndInteraction(); }
 void ARVSurvivorCharacter::GetActorEyesViewPoint(FVector& Location, FRotator& Rotation) const
 {
@@ -85,9 +98,26 @@ void ARVSurvivorCharacter::GetActorEyesViewPoint(FVector& Location, FRotator& Ro
 }
 void ARVSurvivorCharacter::EndPlay(const EEndPlayReason::Type Reason)
 {
-    if (APlayerController* PC = Cast<APlayerController>(Controller))
-        if (ULocalPlayer* Local = PC->GetLocalPlayer())
-            if (auto* Input = Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
-                if (Mapping) Input->RemoveMappingContext(Mapping);
+    RemoveInput();
     Super::EndPlay(Reason);
+}
+void ARVSurvivorCharacter::RemoveInput()
+{
+    if (auto* Local = InputLocalPlayer.Get())
+        if (auto* Input = Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
+            if (Mapping) Input->RemoveMappingContext(Mapping);
+    InputLocalPlayer.Reset();
+}
+void ARVSurvivorCharacter::UnPossessed() { RemoveInput(); Super::UnPossessed(); }
+void ARVSurvivorCharacter::OnRep_Controller() { Super::OnRep_Controller(); if (!IsLocallyControlled()) RemoveInput(); }
+void ARVSurvivorCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{ Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(ARVSurvivorCharacter, SeatedVehicle); }
+void ARVSurvivorCharacter::SetVehicleSeat(ARVVehicleBase* Vehicle)
+{ check(HasAuthority()); SeatedVehicle = Vehicle; OnRep_VehicleSeat(); ForceNetUpdate(); }
+void ARVSurvivorCharacter::OnRep_VehicleSeat()
+{
+    bUseControllerRotationYaw = !SeatedVehicle;
+    GetCapsuleComponent()->SetCollisionEnabled(SeatedVehicle ? ECollisionEnabled::NoCollision : ECollisionEnabled::QueryAndPhysics);
+    if (SeatedVehicle) { StopJumping(); GetCharacterMovement()->StopMovementImmediately(); GetCharacterMovement()->DisableMovement(); }
+    else GetCharacterMovement()->SetMovementMode(MOVE_Walking);
 }

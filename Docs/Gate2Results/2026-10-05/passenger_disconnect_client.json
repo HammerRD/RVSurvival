@@ -1,0 +1,17 @@
+[
+  {
+    "case": "fresh_seats",
+    "pass": true,
+    "detail": "{'DriverSeat': None, 'PassengerSeat': None}"
+  },
+  {
+    "case": "host_driver",
+    "pass": true,
+    "detail": "{'DriverSeat': <Object '/Game/Maps/Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.RVSurvivorCharacter_1' (0x000001BA689DD200) Class 'RVSurvivorCharacter'>, 'PassengerSeat': None}"
+  },
+  {
+    "case": "remote_passenger",
+    "pass": true,
+    "detail": "{'DriverSeat': <Object '/Game/Maps/Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.RVSurvivorCharacter_1' (0x000001BA689DD200) Class 'RVSurvivorCharacter'>, 'PassengerSeat': <Object '/Game/Maps/Gate2VehicleTest.Gate2VehicleTest:PersistentLevel.RVSurvivorCharacter_0' (0x000001BA689D0A00) Class 'RVSurvivorCharacter'>}"
+  }
+]

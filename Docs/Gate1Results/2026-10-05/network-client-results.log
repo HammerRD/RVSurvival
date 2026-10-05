@@ -1,0 +1,12 @@
+[2026.10.05-14.06.57:404][306]LogPython: GATE1_PROCESS_CLIENT {"case": "reset_count", "pass": true, "detail": "0"}
+[2026.10.05-14.06.58:404][366]LogPython: GATE1_PROCESS_CLIENT {"case": "host_independent_movement", "pass": true, "detail": "<Struct 'Vector' (0x0000029A9FE06040) {x: -600.000000, y: -390.000000, z: 89.650000}>"}
+[2026.10.05-14.06.59:404][426]LogPython: GATE1_PROCESS_CLIENT {"case": "client_independent_movement", "pass": true, "detail": "<Struct 'Vector' (0x0000029A9FE06040) {x: -651.779782, y: -377.052448, z: 89.650000}>"}
+[2026.10.05-14.07.02:104][588]LogPython: GATE1_PROCESS_CLIENT {"case": "host_completion_replicated", "pass": true, "detail": "1"}
+[2026.10.05-14.07.04:204][714]LogPython: GATE1_PROCESS_CLIENT {"case": "remote_completion_replicated", "pass": true, "detail": "2"}
+[2026.10.05-14.07.06:404][846]LogPython: GATE1_PROCESS_CLIENT {"case": "simultaneous_two_increments", "pass": true, "detail": "4"}
+[2026.10.05-14.07.07:404][906]LogPython: GATE1_PROCESS_CLIENT {"case": "continued_hold_no_repeat", "pass": true, "detail": "4"}
+[2026.10.05-14.07.10:404][ 86]LogPython: GATE1_PROCESS_CLIENT {"case": "remote_early_release", "pass": true, "detail": "4"}
+[2026.10.05-14.07.12:204][194]LogPython: GATE1_PROCESS_CLIENT {"case": "remote_look_away_cancel", "pass": true, "detail": "4"}
+[2026.10.05-14.07.14:104][308]LogPython: GATE1_PROCESS_DONE client
+[2026.10.05-14.07.14:717][340]LogRVNetworking: Shared counter 1; interactor RVSurvivorCharacter_0
+[2026.10.05-14.09.04:604][927]LogPython: GATE1_LATE_JOIN {"case": "late_join_existing_count", "pass": true, "count": 4}

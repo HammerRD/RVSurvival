@@ -1,0 +1,58 @@
+[2026.10.05-15.52.11:840][819]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.10.05-15.52.13:902][819]LogWindows: Error: === Critical error: ===
+[2026.10.05-15.52.13:902][819]LogWindows: Error: 
+[2026.10.05-15.52.13:902][819]LogWindows: Error: Fatal error!
+[2026.10.05-15.52.13:902][819]LogWindows: Error: 
+[2026.10.05-15.52.13:902][819]LogWindows: Error: Unhandled Exception: EXCEPTION_ACCESS_VIOLATION writing address 0x00007ffc1bd18148
+[2026.10.05-15.52.13:902][819]LogWindows: Error: 
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc1bda8b0d python311.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc1bcdcb2a python311.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc1bcdc795 python311.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc1bd9b452 python311.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x000001969e64d863 UnrealEditor-PythonScriptPlugin.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x000001969e630e6e UnrealEditor-PythonScriptPlugin.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc0a336cf1 UnrealEditor-CoreUObject.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc0a308b40 UnrealEditor-CoreUObject.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc0a38c2d4 UnrealEditor-CoreUObject.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc0a337d3b UnrealEditor-CoreUObject.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc0208f5df UnrealEditor-UnrealEd.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc020f5fa5 UnrealEditor-UnrealEd.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc02126e0a UnrealEditor-UnrealEd.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc02113ebd UnrealEditor-UnrealEd.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc020f9acf UnrealEditor-UnrealEd.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc0b20e066 UnrealEditor-Core.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc064ab1ff UnrealEditor-Engine.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc02bb51ad UnrealEditor-UnrealEd.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc024f1bf2 UnrealEditor-UnrealEd.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc024f25ce UnrealEditor-UnrealEd.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffbfab802a4 UnrealEditor-LevelEditor.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffbfabb821d UnrealEditor-LevelEditor.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc0a2d7b2c UnrealEditor-CoreUObject.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc0a6519b2 UnrealEditor-CoreUObject.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x000001969e645863 UnrealEditor-PythonScriptPlugin.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x000001969e69473e UnrealEditor-PythonScriptPlugin.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x000001969e69384e UnrealEditor-PythonScriptPlugin.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x000001969e695a95 UnrealEditor-PythonScriptPlugin.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x000001969e5a937e UnrealEditor-PythonScriptPlugin.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc1bce1263 python311.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc1bce48df python311.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc1bce60b2 python311.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc1bd16f94 python311.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc1bd60773 python311.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x000001969e616f42 UnrealEditor-PythonScriptPlugin.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x000001969e63090d UnrealEditor-PythonScriptPlugin.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc099ea374 UnrealEditor-Slate.dll!UnknownFunction []
+[2026.10.05-15.52.13:902][819]LogWindows: Error: [Callstack] 0x00007ffc09a21a3d UnrealEditor-Slate.dll!UnknownFunction []
+[2026.10.05-15.52.13:903][819]LogWindows: Error: [Callstack] 0x00007ffc09a214ce UnrealEditor-Slate.dll!UnknownFunction []
+[2026.10.05-15.52.13:903][819]LogWindows: Error: [Callstack] 0x00007ff70da72de2 UnrealEditor.exe!UnknownFunction []
+[2026.10.05-15.52.13:903][819]LogWindows: Error: [Callstack] 0x00007ff70da5c4ac UnrealEditor.exe!UnknownFunction []
+[2026.10.05-15.52.13:903][819]LogWindows: Error: [Callstack] 0x00007ff70da5c5ba UnrealEditor.exe!UnknownFunction []
+[2026.10.05-15.52.13:903][819]LogWindows: Error: [Callstack] 0x00007ff70da61256 UnrealEditor.exe!UnknownFunction []
+[2026.10.05-15.52.13:903][819]LogWindows: Error: [Callstack] 0x00007ff70da75c74 UnrealEditor.exe!UnknownFunction []
+[2026.10.05-15.52.13:903][819]LogWindows: Error: [Callstack] 0x00007ff70da7902a UnrealEditor.exe!UnknownFunction []
+[2026.10.05-15.52.13:903][819]LogWindows: Error: [Callstack] 0x00007ffd6f3ecdf7 KERNEL32.DLL!UnknownFunction []
+[2026.10.05-15.52.13:903][819]LogWindows: Error: 
+[2026.10.05-15.52.13:907][819]LogExit: Executing StaticShutdownAfterError
+[2026.10.05-15.52.13:935][819]LogWindows: FPlatformMisc::RequestExit(1, LaunchWindowsStartup.ExceptionHandler)
+[2026.10.05-15.52.13:935][819]LogWindows: FPlatformMisc::RequestExitWithStatus(1, 3, LaunchWindowsStartup.ExceptionHandler)
+[2026.10.05-15.52.13:935][819]LogCore: Engine exit requested (reason: Win RequestExit)

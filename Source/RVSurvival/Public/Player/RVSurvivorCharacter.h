@@ -6,6 +6,8 @@ class UCameraComponent;
 class URVInteractionComponent;
 class UInputAction;
 class UInputMappingContext;
+class ULocalPlayer;
+class ARVVehicleBase;
 struct FInputActionValue;
 /** Uses Unreal CharacterMovement prediction/replication; camera never dictates server position. */
 UCLASS()
@@ -13,17 +15,26 @@ class RVSURVIVAL_API ARVSurvivorCharacter : public ACharacter
 {
     GENERATED_BODY()
 public:
-    ARVSurvivorCharacter();
+    ARVSurvivorCharacter(const FObjectInitializer& Initializer = FObjectInitializer::Get());
     virtual void PawnClientRestart() override;
+    virtual void UnPossessed() override;
+    virtual void OnRep_Controller() override;
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out) const override;
     virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
     virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
     virtual void GetActorEyesViewPoint(FVector& OutLocation, FRotator& OutRotation) const override;
     URVInteractionComponent* GetInteraction() const { return Interaction; }
+    void SetVehicleSeat(ARVVehicleBase* Vehicle);
+    UPROPERTY(ReplicatedUsing=OnRep_VehicleSeat, BlueprintReadOnly, Category="RV|Seats") TObjectPtr<ARVVehicleBase> SeatedVehicle;
 protected:
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<class URVPassengerReferenceFrameComponent> PassengerReferenceFrame;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<UCameraComponent> Camera;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<URVInteractionComponent> Interaction;
 private:
     void CreateInput();
+    void RemoveInput();
+    UFUNCTION() void OnRep_VehicleSeat();
+    TWeakObjectPtr<ULocalPlayer> InputLocalPlayer;
     void MoveForward(const FInputActionValue& Value);
     void MoveRight(const FInputActionValue& Value);
     void LookYaw(const FInputActionValue& Value);

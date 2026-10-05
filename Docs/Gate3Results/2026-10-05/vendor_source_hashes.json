@@ -1,0 +1,434 @@
+[
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Blueprints\\BP_RV.uasset",
+    "Hash": "1FA3017BAD3809AB7273C2B726572E374301C94BE2FB1E9F2A6483D50F3E8AC2"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Maps\\RV_Demo_Map.umap",
+    "Hash": "AD78AF6EA5CBDBB98DDF6B16A5C68AB324C38F91397AB4DA7DAF021A3D5D4615"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\M_RV_Cab_Master.uasset",
+    "Hash": "8ECD5C3C28B030E96234B03D828A640FF041A3005B20439412635471E00AE65E"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\M_RV_Chassis_Master.uasset",
+    "Hash": "974842A265A47A3916C6A450DBB9FF551A8478739CE1CD262970DDF83097BAB1"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\M_RV_Glass_Master.uasset",
+    "Hash": "F9BFE74E42C6B79D658CE3D1CC54264344F4439E657629291B576F9252C10820"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\M_RV_Interior_Master.uasset",
+    "Hash": "134C6C15CB5E1CB7983982D594D1A9CD5839A004718D2D9E367FEEA7B271454F"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\M_RV_Van_Master.uasset",
+    "Hash": "80116CCEA7B5203A31DEB618130A5FEE382F042DFA9A5EAE786469DAE7FC54B9"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\M_RV_Wheels_Master.uasset",
+    "Hash": "D4A78A10AE8AD79D407318D0DC1159D155D25C7E4595FB803E6100D7E221F6E0"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\MI_RV_Cab_Emissive_OFF.uasset",
+    "Hash": "1766572D64328EBB4ADA0FC219504DFDF661B5AD8E5524706BFD247BD4105146"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\MI_RV_Cab_Emissive_ON.uasset",
+    "Hash": "26C70F2998CF351337FF5420D3E3DFD9CE41F4A73EBA64AD67BF6C917F01EE05"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\MI_RV_Chassis_Emissive_OFF.uasset",
+    "Hash": "E0FDAE401CDCE791E25834F877ED8856050CE65797646AA2955CC92E59839437"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\MI_RV_Chassis_Emissive_ON.uasset",
+    "Hash": "8C804AC2064355A2F851CC5CC34187E0D9A27EA75457ADE0DAFCA62C7333483A"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\MI_RV_Glass.uasset",
+    "Hash": "D8F51D8BFAF33AB794AFBC684E897171CDBA281D29B3B84AD9108F7A74C43F02"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\MI_RV_Interior.uasset",
+    "Hash": "73C16F383A59F9E5F9C36975B2B006E456E44B15977139EBF3C1C39D2FB3E7ED"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\MI_RV_Van.uasset",
+    "Hash": "D51959AA79BCCBACDA3DA85329AE37F55345ED99D41796DDC59A5D1C5F29B394"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\MI_RV_Wheels.uasset",
+    "Hash": "6051B68F9C7BB373937FE1EBA5D543321B934F4E559D2F1F4D650BB561FCBFBC"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Cab_Door_L.uasset",
+    "Hash": "B370A894E69240107FA7D19331B1E18BF10A63D87648526BA77CEFE860C3CEF8"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Cab_Door_R.uasset",
+    "Hash": "4049784B7850DBD4B1AA7EA0D471D9F3FE3CA9BD6872E14BED6EA1A497FAC058"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Cab_SteeringWheel.uasset",
+    "Hash": "B10F7D73CD7AC3B9F3DB52E68F3A8FDC47D1F0618A8E773661D5854C94DFCA7D"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Cab.uasset",
+    "Hash": "3B39E5432056318338EB91DFF7BA094F37E2F9D393E3A72285A535B6A86980E4"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Chassis_Door_L.uasset",
+    "Hash": "30A29D66174915BCA51EB21125BECD6EAA7458BC1058E2061007056837269725"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Chassis_Door_R.uasset",
+    "Hash": "2236A0BA52A2ED7CE423A68ABA1A801BA8BD975FBE665E3915989B00B1EC1773"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Chassis_Hood.uasset",
+    "Hash": "EE1E0F30E75D1240944B32CF1E03EF26E88BA2A5603DE91F27550A01E928FDEE"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Chassis.uasset",
+    "Hash": "6D8887E78E04DBDF02E0F6CFAADA34FB5AE6DED897C530190B302B2D29645FC9"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Door_Back.uasset",
+    "Hash": "49380E0F69A60DB53A19ECA021EE3135A35898E9BB493AECA2D5541CC8649A7B"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Door_L.uasset",
+    "Hash": "AF06C7ADFF2DCAFBC0A0F123546707B7195DC5A7B13B77831DFDEFC54E799B23"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Door_R.uasset",
+    "Hash": "6E574E4952519394E48FA89045DA41C7A86EF27AB1C93BAF84AFDD620649FC56"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_01.uasset",
+    "Hash": "A2BB0332B8258B86CF2BE80AFF74A59793E71E4ED30C85B18E418C5F25E23844"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_02.uasset",
+    "Hash": "35BABC1A909CA5412D9891DC6AB849EC7BB6FC8E6C887762DF360D73EE48426B"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_03.uasset",
+    "Hash": "21E9B1B101605B8512C60D2212C3E071039DA2D8466A710CAA937DB8C7E98604"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_04.uasset",
+    "Hash": "CC472169A5222A7FD03E2BC1F0F5650701701ABC4910C88D6234CDA84641B9A5"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_05.uasset",
+    "Hash": "AB6447ADF7874944EDB85B4AF5313ED1E51A3BA46CCB70D4AB23EFA51E2B11C3"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_06.uasset",
+    "Hash": "0848952BF2FFAA66C00235EFF766F06D05D1D96D40F0B52B7C8FA3381B1A5EEE"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_07.uasset",
+    "Hash": "6E12E354EEEBEC41E0CF340CFDA5270B39BF64E2B275F9D25E7DAB829E16C061"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_08.uasset",
+    "Hash": "C1D922B40A105A251037AD7D8039EF4643A7D7372D10BA389BCC6EA1BD307A62"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_09.uasset",
+    "Hash": "86EAE6D9CAC651881BDB79A9DAD8EEBA39F63732FBD3D7D36D6D7A6386C26A28"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_10.uasset",
+    "Hash": "4C88A91256BDDBB9691BCB061A2B4E4025ACA7B7E889E33C39D23D2D48FD9B4B"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_11.uasset",
+    "Hash": "8F9B735480F8F840671F76EA43C62CC0E47737CAFDEF4007671E1903FC4A68BF"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_12.uasset",
+    "Hash": "8D335131663FA5F35591808C765ED953BECC89A5E0E3B1691B1CF93A2A6FCDB8"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass.uasset",
+    "Hash": "23616F13A079977161B71D987D7A93F2F959726BE25FBCA365F82C76CD2CED9E"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Interior_Blind_01.uasset",
+    "Hash": "E1CB527A1415F5A21D064A3C7060AFD95852DA88DA4E880855804DD4789A97DB"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Interior_Blind_02.uasset",
+    "Hash": "821AC92BFE2E8100B7907404FD7590DA406EC97DE1A1A47F344100D7D5A61AB2"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Interior_Blind_03.uasset",
+    "Hash": "8131EE1AC2BD47738C863F2096B1F66422A521AFA50662003863A598618E907D"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Interior_Blind_04.uasset",
+    "Hash": "9448AC18B2D68A0564313A182B78CCD96614D8ADBC08415963DBF6065C0616D8"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Interior.uasset",
+    "Hash": "79C4EAB3B16AAB2C263B81D3B58E42A0A83331ACA43734483748273BE10D2221"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Compartment_01.uasset",
+    "Hash": "EE9941A134A86C477F72C03FCA56F873913FF3455325E652CE71C96189D354AB"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Compartment_02.uasset",
+    "Hash": "BAE8DC27CFFD41E75BAF31F830F8ECE3D12F62EE7C34C890B94D526F375D80EE"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Compartment_03.uasset",
+    "Hash": "66344A7EF2F6FB4E7332B316786FC16D023B6BA98FC3FD1C35AEF493D96A0841"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Compartment_04.uasset",
+    "Hash": "484A690A77C523483FCAAFEFB502B4901F900B32ED805021BFBE18444C72847F"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Compartment_05.uasset",
+    "Hash": "224AE14CD15484BBC50378F9A3824EE28A06311029CFF0CC105BA6C491593C91"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Compartment_06.uasset",
+    "Hash": "3B17484965735B4E48F07F9F6BF9AD30A7061EB3995416E0259B0AED3DF6FF99"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Compartment_07.uasset",
+    "Hash": "21BC57E669A36CD1EB7497CCE6AE0B4C1A4411E291092ACC173D4FAFA1F4C259"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Door_Back.uasset",
+    "Hash": "1CC0315181E4957049BE142891E941AE09A507E5CA5C899C5FE8268ABA6DA5CA"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_01.uasset",
+    "Hash": "D070A9EAB5D67F3D849390AC832B613C2F507C5C5067E917E3E95913406588E4"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_02.uasset",
+    "Hash": "A725DD8F744DF4917F3494BBD7A6A896544F3751CC07B2134963D04710455C1D"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_03.uasset",
+    "Hash": "F1206618A07E45E7F8FE9A8E2B740F856F1C5A880CCF4568B7EB948C7FE570F3"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_04.uasset",
+    "Hash": "8F9A98ADE6DC320CC8D9563555D301939F4EBC4D3089E4AEBBD42A3D69CAB8F2"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_05.uasset",
+    "Hash": "60100A99E8D6BEC1D2129C8465CFD888765A8F5D30DC18D602D5A58E9FEE58D3"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_06.uasset",
+    "Hash": "53BDD5BC97DD50C1052CA58F03A278317D3337811769BB430DD7A3810AF9B064"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_07.uasset",
+    "Hash": "39F19B1AA4CC18199C5A50F362535A69833334E0554B5D6FA8A4034BE03A09A2"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_08.uasset",
+    "Hash": "76B2343916E9F16544F6C22A3D514AF3554D1C5B7089E0068BB0F11F3FE4371A"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_09.uasset",
+    "Hash": "5538CAF7B3FFFBDDDABA3EBE69FE9BB29F50D88691E6558501515B37CDFFC081"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_10.uasset",
+    "Hash": "BDF408F458F77096CE51478B5D9436DF1420D13E216843AFB644EA7C0A041D21"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_11.uasset",
+    "Hash": "F2F925E4AB7E1C50BFC408C72AF3B2DE4B83BCA21787D360ECBA5C30A9BD89D9"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_12.uasset",
+    "Hash": "2D39D4DEB52B4D11B8B7F399A380755B7727E4B8EB8A69D96DCEA75CCA383789"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van.uasset",
+    "Hash": "CE3723E5B5054116A52E9700F65B359714B76A37E450F9664956EDCF8BD162CD"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Wheels_BL.uasset",
+    "Hash": "5FC80CFD5C71E981E071B545D24836ABA24F889FF4732B4331863D808800CD27"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Wheels_BR.uasset",
+    "Hash": "37A14B970A1A7CFEE739C1D635F6A7C7ECA4DDA60ED0B93B5177043D703EEF21"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Wheels_FL.uasset",
+    "Hash": "1FA8C63E6FE1313B54ECDA08C61517D210B51A94DD3F097AE408BE3FC861A9E4"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Wheels_FR.uasset",
+    "Hash": "442D14D3FCAAD3DC04130D5480E31F8D8871D9559415B830042F82C4104AEFAB"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Cab_AO.uasset",
+    "Hash": "FFB3B310CC4EEF13B9E1AD10037B3BA59D53A89424AA08593E49281AE1AF3781"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Cab_BaseColor.uasset",
+    "Hash": "85801BF9FC5721D46D1384FBAA20417274686F710877F55E7F69155C61C55A41"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Cab_Emissive.uasset",
+    "Hash": "ECD8174AE98307416E4806C4C01E2DF65A31F12361BE7B32A698A237F4D61652"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Cab_Metallic.uasset",
+    "Hash": "488683DB4562DB14E6A37F8D496AF5B5399ED698F44B020796060D5EA9EAAEF2"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Cab_Normal.uasset",
+    "Hash": "166954EF0EE391305814F1D4C2DDB0A8418E28EBCB75A302A7472200CCC9793D"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Cab_ORM.uasset",
+    "Hash": "E938AD116B0C433AFE5FA189BD9217FFD849690A219857B3D211F926DB1953B8"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Cab_Roughness.uasset",
+    "Hash": "311F0B55A27197AAF79305D6FF8E24D8FAC357B11D66859EE71CC32AD10A11BA"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Chassis_AO.uasset",
+    "Hash": "287FB188D1B3B1B736BBF59AD399FF84AEFBF89CE8637CCF5920C393EC86491E"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Chassis_BaseColor.uasset",
+    "Hash": "0B035188A74E193494F42CA4B16929222D834C73E300C3E0F14575EBFD514DD1"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Chassis_Emissive.uasset",
+    "Hash": "0DC05537D101FF0C4E18AA6822A1E91FAA5CC3A8B42156A71F34261E95D4E80B"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Chassis_Metallic.uasset",
+    "Hash": "B72EC10E29C4AF16CC7D019E4CCCBF5BE551E1EFAC655E384BE9B350870F60C3"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Chassis_Normal.uasset",
+    "Hash": "4D0C69A2EFDC15D0BE7BADE5E91B33753DD0494904E8E470D3207F12E681A9A7"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Chassis_ORM.uasset",
+    "Hash": "EE2D6712770DF0E9633AC2DB2E0B0FF5CB84BBB8281D37EBB16C6AE0E1DE2903"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Chassis_Roughness.uasset",
+    "Hash": "AF292FF08040FACCEF7445E6397A4DA6039C3C2FFE0D5CC3CEC4FF4DB830EFC6"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Glass_AO.uasset",
+    "Hash": "5A5BE6A70D8DBD4CCB5FC808330A755F6878E2F0EE66B704AEBE07E37C14C438"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Glass_BaseColor.uasset",
+    "Hash": "93E6ECC8721BB43B52CE269DF7F4B0C256AEB09FB1D76B231D66B598FFB5A54D"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Glass_Metallic.uasset",
+    "Hash": "E4B55A6C1BF3497FAA7177257BE5CD622CAAE4B84A88B14B047310E5918BFAC5"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Glass_Normal.uasset",
+    "Hash": "0EBA01A040138085F764449E38CE3CEB46CD0D1351DD2E152BD6408AAAE4C53D"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Glass_ORM.uasset",
+    "Hash": "9211431AA3729B85E35CAF3BB7C479630A256B03DB657F7104D90BE3BD54CDBA"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Glass_Roughness.uasset",
+    "Hash": "0A4A9CA9E53D3CE5D2E64C65CB95EC4D51D9E1D1949439DE92BBC2100D6E2EC1"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Interior_AO.uasset",
+    "Hash": "9557841767D497DDC8871E771D8DC0337CF9DAB0D5D1B7201915544A2E64CE73"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Interior_BaseColor.uasset",
+    "Hash": "A89103E10805B05FFBDB0DE5CA741F0D2771622303B1744FD9225221A64F2492"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Interior_Metallic.uasset",
+    "Hash": "4562209BACB0A7981780932BCBC4D71844C7A8B7055045E29B425420EF2F3F38"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Interior_Normal.uasset",
+    "Hash": "9D819580B301E3BADEE49BDAD6FB6002DD2D30C208AF3823666BF9201FF2CE00"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Interior_ORM.uasset",
+    "Hash": "BD87FDD071AFAF0C6DBA9ECABAFFF29388D2E5906F53E70640ADAE8363C47DAE"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Interior_Roughness.uasset",
+    "Hash": "916CE47E66450A6AD1248D6EA089D0C271103DF36EDD8BA692CDF2050CC114AD"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Van_AO.uasset",
+    "Hash": "612ACDF87089E6E4724CAA0B0938C5DFE5020D978CA24302C069C5C70DFB889F"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Van_BaseColor.uasset",
+    "Hash": "2528ACEC554C32DEE5269DA76967D9B8539F5D403EA40DAA64A641126A0E2665"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Van_Metallic.uasset",
+    "Hash": "5A7750E0D5CC640C5B3C1F14614B5EEB98470ED4C3CE8DFD1576D50F8FBF60FF"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Van_Normal.uasset",
+    "Hash": "DA36E25C4FF926DF7B48D5E2F387702F479208147F742A01694F59009608E4D7"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Van_ORM.uasset",
+    "Hash": "4675277A0435A5E8AF0C7A0CC4E9327BDEDF589B2DE553C53C73778AA3EE8775"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Van_Roughness.uasset",
+    "Hash": "A6680859582D432B7B018DC33E6D77599F2512F7139CB03F49EB6E079441516F"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Wheels_AO.uasset",
+    "Hash": "0D53905A6D148D4EB2ABA0C7CA552DAEFF85DC341F3E312824381B080850D6F8"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Wheels_BaseColor.uasset",
+    "Hash": "752276B67763414A7BF96BD500AA8A010AB4405F1D95EFC72AD0BE25BEF20F26"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Wheels_Metallic.uasset",
+    "Hash": "C3E51DAFBDA63D8328900A3B629526C77BB56192470434D2B6D6368013C78866"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Wheels_Normal.uasset",
+    "Hash": "16431DBC46FBFB42E5327A0EDACD517B63EF889B06C62A6E7E55781A264919A3"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Wheels_ORM.uasset",
+    "Hash": "EA32776A3A916EE3C8780F8CED473E65903C9C9F766D4EBAF771354B5DE24AC4"
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Wheels_Roughness.uasset",
+    "Hash": "4DCD0F6E00C55D2DC0DD9CCE78B1BFCCEF54DCBC43FE282AF714932A9D5494DB"
+  }
+]

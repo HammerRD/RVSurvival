@@ -1,0 +1,18 @@
+LogPluginManager: Mounting Engine plugin PythonScriptPlugin
+LogModuleManager: InternalLoadLibrary: 'PythonScriptPluginPreload' ('D:/Epic Games/UE_5.8/Engine/Plugins/Experimental/PythonScriptPlugin/Binaries/Win64/UnrealEditor-PythonScriptPluginPreload.dll')
+[2026.10.05-19.53.03:950][  0]LogModuleManager: InternalLoadLibrary: 'PythonScriptPlugin' ('D:/Epic Games/UE_5.8/Engine/Plugins/Experimental/PythonScriptPlugin/Binaries/Win64/UnrealEditor-PythonScriptPlugin.dll')
+[2026.10.05-19.54.03:926][722]LogPython: GATE3_GATE1_REGRESSION_DONE True
+[2026.10.05-19.54.03:926][722]Cmd: QUIT_EDITOR
+[2026.10.05-19.54.03:926][722]LogCore: Engine exit requested (reason: UUnrealEdEngine::CloseEditor())
+[2026.10.05-19.54.03:929][723]LogCore: Engine exit requested (reason: EngineExit() was called; note: exit was already requested)
+[2026.10.05-19.54.04:294][723]LogExit: Preparing to exit.
+[2026.10.05-19.54.06:322][723]LogWindows: Error: === Critical error: ===
+[2026.10.05-19.54.06:322][723]LogWindows: Error: Unhandled Exception: EXCEPTION_ACCESS_VIOLATION writing address 0x00007ffbef4c8148
+[2026.10.05-19.54.06:322][723]LogWindows: Error: [Callstack] 0x00007ffbef558b0d python311.dll!UnknownFunction []
+[2026.10.05-19.54.06:322][723]LogWindows: Error: [Callstack] 0x00007ffbef48cb2a python311.dll!UnknownFunction []
+[2026.10.05-19.54.06:322][723]LogWindows: Error: [Callstack] 0x00007ffbef48c795 python311.dll!UnknownFunction []
+[2026.10.05-19.54.06:322][723]LogWindows: Error: [Callstack] 0x00007ffbef54b452 python311.dll!UnknownFunction []
+[2026.10.05-19.54.06:322][723]LogWindows: Error: [Callstack] 0x00007ffbef54b211 python311.dll!UnknownFunction []
+[2026.10.05-19.54.06:322][723]LogWindows: Error: [Callstack] 0x00007ffbd2bc1dd3 UnrealEditor-PythonScriptPlugin.dll!UnknownFunction []
+[2026.10.05-19.54.06:322][723]LogWindows: Error: [Callstack] 0x00007ffbd2b90e6e UnrealEditor-PythonScriptPlugin.dll!UnknownFunction []
+[2026.10.05-19.54.06:334][723]LogCore: Engine exit requested (reason: Win RequestExit; note: exit was already requested)
