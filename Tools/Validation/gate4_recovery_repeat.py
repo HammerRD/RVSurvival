@@ -1,6 +1,6 @@
-import unreal,json,gc
+import unreal,json,gc,time
 B='D:/GitHub/RVSurvival/RVSurvival/Saved/Gate4Validation/'
-rows=[]
+rows=[];run_id=str(time.time_ns())
 def check(name,ok,detail=''):
  rows.append({'case':name,'pass':bool(ok),'detail':str(detail)})
  unreal.log('GATE4_RECOVERY '+json.dumps(rows[-1]))
@@ -20,7 +20,7 @@ def load(path):
  check('load_'+path,True)
 for i in range(3):
  load('/Game/Maps/Gate3MovingInteriorTest')
- scratch='/Game/Maps/ValidationRecovery/Gate4Copy_'+str(i)
+ scratch='/Game/Maps/ValidationRecovery/Gate4Copy_'+run_id+'_'+str(i)
  save_copy(scratch)
  load(scratch)
  check('saved_copy_reopened_'+str(i),True)
@@ -31,3 +31,4 @@ json.dump({'results':rows},open(B+'recovery-repeat.json','w'),indent=2)
 gc.collect();unreal.SystemLibrary.collect_garbage()
 unreal.log('GATE4_RECOVERY_REPEAT_COMPLETE')
 unreal.SystemLibrary.quit_editor()
+

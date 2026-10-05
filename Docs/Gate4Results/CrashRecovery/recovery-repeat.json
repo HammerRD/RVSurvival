@@ -1,0 +1,124 @@
+{
+  "results": [
+    {
+      "case": "load_/Game/Maps/Gate3MovingInteriorTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/ValidationRecovery/Gate4Copy_1791237025238820200_0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_copy_reopened_0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate1Test",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate2VehicleTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate3MovingInteriorTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate4InventoryTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gate4_fixture_0",
+      "pass": true,
+      "detail": "{'actors': 61, 'storage': 6, 'pickups': 11}"
+    },
+    {
+      "case": "load_/Game/Maps/Gate3MovingInteriorTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/ValidationRecovery/Gate4Copy_1791237025238820200_1",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_copy_reopened_1",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate1Test",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate2VehicleTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate3MovingInteriorTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate4InventoryTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gate4_fixture_1",
+      "pass": true,
+      "detail": "{'actors': 61, 'storage': 6, 'pickups': 11}"
+    },
+    {
+      "case": "load_/Game/Maps/Gate3MovingInteriorTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/ValidationRecovery/Gate4Copy_1791237025238820200_2",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_copy_reopened_2",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate1Test",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate2VehicleTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate3MovingInteriorTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate4InventoryTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gate4_fixture_2",
+      "pass": true,
+      "detail": "{'actors': 61, 'storage': 6, 'pickups': 11}"
+    }
+  ]
+}

@@ -31,3 +31,10 @@ Final Development Editor / Win64 build passed. Live shared/separate-process host
 Discarded physics/wheel-bone, spring, entry-step, lane-obstacle and harness failures are documented with their actual causes. Python cleanup failures after passing regressions were fixed by module-owned runner namespaces and releasing completed runner references while Unreal/Python are alive; final regression GC and shutdown passed cleanly. No engine files were changed for this workaround.
 
 Updated validation, RV/mobile-base architecture, networking, roadmap, design scope and README. Static wheel/steering presentation, animation and handling remain prototype quality; rough terrain, airborne passengers, larger sessions and interior seat-transfer UX are not validated here. Full survival/workstation systems remain unimplemented. Gate 3 ACCEPTED; stop before Gate 4.
+
+## Gate 4 development and editor recovery — 2026-10-05
+
+- Began inventory/item-instance/shared-container foundation without starting later survival systems. Saved item Data Assets and Gate4InventoryTest; created small, explicitly marked WIP recovery commits.
+- Diagnosed the 21:41 UTC EditorServer world-leak fatal: the generic asset-duplication/load sequence left the initialized Gate4InventoryTest World with standalone keep flags, retaining its package. The reference chain did not identify a Python actor cache/delegate or a PIE world.
+- Replaced map duplication with map-specific Save Map and scoped UObject references. Kept leak detection enabled. Recovered saved fixture and removed only duplicate Gate 4 setup actors.
+- Repeated corrected map-copy/reopen and Gate 1–4 transitions three times: 24 checks passed, normal editor shutdown. See GATE_4_VALIDATION.md and Gate4Results/CrashRecovery. Live gameplay regressions and full Gate 4 acceptance remain pending; Gate 4 is NOT ACCEPTED.
