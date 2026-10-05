@@ -9,4 +9,8 @@ class RVSURVIVAL_API ARVPrototypeHUD : public AHUD
     GENERATED_BODY()
 public:
     virtual void DrawHUD() override;
+private:
+    bool bInventoryVisible = false;
+    bool bSelectContainer = false;
+    int32 SelectedRow = 0;
 };

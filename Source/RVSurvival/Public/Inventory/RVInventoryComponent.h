@@ -44,16 +44,16 @@ class RVSURVIVAL_API URVInventoryComponent : public UActorComponent
 public:
     URVInventoryComponent();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out) const override;
-    UPROPERTY(EditAnywhere, BlueprintReadOnly) float MaxWeightKg = 25;
-    UPROPERTY(EditAnywhere, BlueprintReadOnly) float MaxVolumeLitres = 35;
-    UPROPERTY(EditAnywhere, BlueprintReadOnly) bool bAllowPhysicalCarry = false;
-    UPROPERTY(EditAnywhere, BlueprintReadOnly) FGameplayTagContainer AllowedTags;
-    UPROPERTY(EditAnywhere, BlueprintReadOnly) FText DisplayName;
+    UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly) float MaxWeightKg = 25;
+    UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly) float MaxVolumeLitres = 35;
+    UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly) bool bAllowPhysicalCarry = false;
+    UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly) FGameplayTagContainer AllowedTags;
+    UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly) FText DisplayName;
     UFUNCTION(BlueprintPure) TArray<FRVItemInstance> GetItems() const { return Contents.Items; }
     UFUNCTION(BlueprintPure) float GetWeightKg() const;
     UFUNCTION(BlueprintPure) float GetVolumeLitres() const;
     UFUNCTION(BlueprintPure) FString CanAccept(const FRVItemInstance& Item) const;
-    bool AddAuthority(const FRVItemInstance& Item, FString& Error);
+    UFUNCTION(BlueprintCallable, BlueprintAuthorityOnly) bool AddAuthority(const FRVItemInstance& Item, FString& Error);
     bool TransferAuthority(URVInventoryComponent* Destination, const FGuid& Id, int32 Quantity, FString& Error);
     void OpenContainerAuthority(URVInventoryComponent* Container);
     UPROPERTY(Replicated, BlueprintReadOnly) TObjectPtr<URVInventoryComponent> OpenContainer;
@@ -72,3 +72,5 @@ class RVSURVIVAL_API URVContainerComponent : public URVInventoryComponent
 public:
     URVContainerComponent() { MaxWeightKg = 100; MaxVolumeLitres = 120; bAllowPhysicalCarry = true; }
 };
+
+

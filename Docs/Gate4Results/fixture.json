@@ -1,0 +1,89 @@
+{
+  "map": "/Game/Maps/Gate4InventoryTest",
+  "definitions": [
+    {
+      "id": "Water",
+      "kg": 1.1,
+      "litres": 1.2,
+      "max_stack": 6,
+      "physical_carry": false
+    },
+    {
+      "id": "Food",
+      "kg": 0.45,
+      "litres": 0.5,
+      "max_stack": 10,
+      "physical_carry": false
+    },
+    {
+      "id": "Bandage",
+      "kg": 0.05,
+      "litres": 0.1,
+      "max_stack": 10,
+      "physical_carry": false
+    },
+    {
+      "id": "Medication",
+      "kg": 0.05,
+      "litres": 0.1,
+      "max_stack": 5,
+      "physical_carry": false
+    },
+    {
+      "id": "FuelCan",
+      "kg": 12,
+      "litres": 22,
+      "max_stack": 1,
+      "physical_carry": false
+    },
+    {
+      "id": "EnginePart",
+      "kg": 18,
+      "litres": 8,
+      "max_stack": 1,
+      "physical_carry": false
+    },
+    {
+      "id": "Scrap",
+      "kg": 2,
+      "litres": 1,
+      "max_stack": 10,
+      "physical_carry": false
+    },
+    {
+      "id": "Tool",
+      "kg": 1.5,
+      "litres": 2,
+      "max_stack": 1,
+      "physical_carry": false
+    },
+    {
+      "id": "Ammo",
+      "kg": 1,
+      "litres": 1,
+      "max_stack": 5,
+      "physical_carry": false
+    },
+    {
+      "id": "Bulky",
+      "kg": 2,
+      "litres": 40,
+      "max_stack": 1,
+      "physical_carry": false
+    },
+    {
+      "id": "Battery",
+      "kg": 30,
+      "litres": 25,
+      "max_stack": 1,
+      "physical_carry": true
+    }
+  ],
+  "rv_storage": [
+    "Pantry",
+    "General cabinet",
+    "Medical storage",
+    "Tool storage",
+    "Exterior compartment"
+  ]
+}

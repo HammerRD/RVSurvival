@@ -4,9 +4,9 @@
 #include "GameFramework/Pawn.h"
 #include "Engine/World.h"
 #include "CollisionShape.h"
-URVInventoryComponent::URVInventoryComponent() { SetIsReplicatedByDefault(true); }
+URVInventoryComponent::URVInventoryComponent() { SetIsReplicatedByDefault(true); DisplayName=FText::FromString(TEXT("Player storage")); }
 void URVInventoryComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
-{ Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(URVInventoryComponent, Contents); DOREPLIFETIME_CONDITION(URVInventoryComponent, OpenContainer, COND_OwnerOnly); DOREPLIFETIME_CONDITION(URVInventoryComponent, Feedback, COND_OwnerOnly); }
+{ Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(URVInventoryComponent, Contents); DOREPLIFETIME(URVInventoryComponent, MaxWeightKg); DOREPLIFETIME(URVInventoryComponent, MaxVolumeLitres); DOREPLIFETIME(URVInventoryComponent, bAllowPhysicalCarry); DOREPLIFETIME(URVInventoryComponent, AllowedTags); DOREPLIFETIME(URVInventoryComponent, DisplayName); DOREPLIFETIME_CONDITION(URVInventoryComponent, OpenContainer, COND_OwnerOnly); DOREPLIFETIME_CONDITION(URVInventoryComponent, Feedback, COND_OwnerOnly); }
 float URVInventoryComponent::GetWeightKg() const
 { float Total=0; for(const auto& I:Contents.Items) if(I.Definition) Total+=I.Definition->WeightKg*I.Quantity; return Total; }
 float URVInventoryComponent::GetVolumeLitres() const
@@ -91,4 +91,5 @@ void URVInventoryComponent::ServerDrop_Implementation(FGuid Id, int32 Quantity)
     else { Contents.Items[Index].Quantity-=Quantity; Contents.MarkItemDirty(Contents.Items[Index]); }
     Feedback.Empty(); GetOwner()->ForceNetUpdate();
 }
+
 

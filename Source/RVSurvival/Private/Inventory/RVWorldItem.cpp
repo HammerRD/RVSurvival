@@ -37,7 +37,7 @@ void ARVWorldItem::CompleteInteraction_Implementation(APawn* Pawn)
 }
 ARVStoragePoint::ARVStoragePoint()
 {
-    bAlwaysRelevant=true;
+    bAlwaysRelevant=true; SetReplicateMovement(true);
     Container=CreateDefaultSubobject<URVContainerComponent>(TEXT("Container"));
     Mesh->SetRelativeScale3D(FVector(.2));
     Mesh->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
@@ -52,4 +52,5 @@ void ARVStoragePoint::CompleteInteraction_Implementation(APawn* Pawn)
     if(!HasAuthority() || !IsValid(Pawn)) return;
     if(auto* Inventory=Pawn->FindComponentByClass<URVInventoryComponent>()) Inventory->OpenContainerAuthority(Container);
 }
+
 
