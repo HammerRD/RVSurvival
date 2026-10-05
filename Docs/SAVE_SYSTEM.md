@@ -1,0 +1,2 @@
+# Save system plan
+No save implementation in Gate 1. Introduce URVSaveSubsystem with explicit SaveVersion and campaign identity when persistence enters scope. Stable FGuid identities for persistent actors/items; never pointer addresses or display names. Separate serialized state from actor lifetime so World Partition actors restore on load. Campaign schema eventually covers time, region, players, RV, inventories, factions, settlements, named NPCs and objectives. Migration and round-trip tests are prerequisites for claiming persistence works.
