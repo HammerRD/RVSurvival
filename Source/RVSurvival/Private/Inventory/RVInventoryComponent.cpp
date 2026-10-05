@@ -7,6 +7,8 @@
 #include "Core/RVLog.h"
 #include "HAL/IConsoleManager.h"
 #include "TimerManager.h"
+#include "GameFramework/Character.h"
+#include "Components/CapsuleComponent.h"
 static TAutoConsoleVariable<int32> InventoryDebug(TEXT("rv.Inventory.Debug"),0,TEXT("Log authoritative inventory requests"));
 URVInventoryComponent::URVInventoryComponent() { SetIsReplicatedByDefault(true); DisplayName=FText::FromString(TEXT("Player storage")); }
 void URVInventoryComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
@@ -17,6 +19,7 @@ float URVInventoryComponent::GetVolumeLitres() const
 { float Total=0; for(const auto& I:Contents.Items) if(I.Definition) Total+=I.Definition->VolumeLitres*I.Quantity; return Total; }
 FString URVInventoryComponent::CanAccept(const FRVItemInstance& I) const
 {
+    if(!FMath::IsFinite(MaxWeightKg) || !FMath::IsFinite(MaxVolumeLitres) || MaxWeightKg<0 || MaxVolumeLitres<0) return TEXT("Invalid storage capacity configuration");
     if(!I.Definition || !I.Id.IsValid() || I.Quantity<=0 || !FMath::IsFinite(I.Condition) || I.Condition<0 || I.Condition>1) return TEXT("Invalid item");
     const auto* D=I.Definition.Get();
     if(!FMath::IsFinite(D->WeightKg) || !FMath::IsFinite(D->VolumeLitres) || D->WeightKg<0 || D->VolumeLitres<0) return TEXT("Invalid definition");
@@ -100,14 +103,18 @@ void URVInventoryComponent::ServerDrop_Implementation(FGuid Id, int32 Quantity)
     if(Index==INDEX_NONE || Quantity<=0 || Quantity>Contents.Items[Index].Quantity) return;
     FVector Eye; FRotator Rotation; Pawn->GetActorEyesViewPoint(Eye,Rotation);
     FCollisionQueryParams Params(SCENE_QUERY_STAT(RVDrop),false,Pawn);
-    FHitResult Hit; FVector Position; bool bFound=false;
+    FHitResult Hit; FVector Position; bool bFound=false; UPrimitiveComponent* Support=nullptr;
+    const auto* Character=Cast<ACharacter>(Pawn);
+    const float FeetZ=Pawn->GetActorLocation().Z-(Character?Character->GetCapsuleComponent()->GetScaledCapsuleHalfHeight():0.f);
     for(float Offset:{0.f,45.f,-45.f,90.f,-90.f})
     {
         const FVector Candidate=Eye+FRotator(0,Rotation.Yaw+Offset,0).Vector()*100;
-        if(GetWorld()->SweepSingleByChannel(Hit,Eye,Candidate,FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(15),Params)) continue;
+        if(GetWorld()->SweepSingleByChannel(Hit,Eye,Candidate,FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(20),Params)) continue;
         if(!GetWorld()->LineTraceSingleByChannel(Hit,Candidate,Candidate-FVector(0,0,220),ECC_WorldStatic,Params) || Hit.Normal.Z<.7) continue;
-        Position=Hit.Location+FVector(0,0,15);
-        if(GetWorld()->OverlapBlockingTestByChannel(Position,FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(12),Params)) continue;
+        if(Hit.Location.Z<FeetZ-45 || Hit.Location.Z>FeetZ+60) continue;
+        Position=Hit.Location+FVector(0,0,20);
+        if(GetWorld()->OverlapBlockingTestByChannel(Position,FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(18),Params)) continue;
+        Support=Hit.GetComponent();
         bFound=true; break;
     }
     if(!bFound) { Feedback=TEXT("No safe drop location"); return; }
@@ -117,6 +124,8 @@ void URVInventoryComponent::ServerDrop_Implementation(FGuid Id, int32 Quantity)
     Pickup->Item=Contents.Items[Index]; Pickup->Item.Quantity=Quantity;
     if(Quantity<Contents.Items[Index].Quantity) Pickup->Item.Id=FGuid::NewGuid();
     Pickup->FinishSpawning(Transform);
+    if(Support && Support->ComponentHasTag(TEXT("RVPassengerPlatform")))
+        Pickup->AttachToComponent(Support,FAttachmentTransformRules::KeepWorldTransform);
     if(Quantity==Contents.Items[Index].Quantity) { Contents.Items.RemoveAt(Index); Contents.MarkArrayDirty(); }
     else { Contents.Items[Index].Quantity-=Quantity; Contents.MarkItemDirty(Contents.Items[Index]); }
     Feedback.Empty(); GetOwner()->ForceNetUpdate();

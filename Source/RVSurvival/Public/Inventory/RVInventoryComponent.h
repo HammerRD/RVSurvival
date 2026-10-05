@@ -18,11 +18,11 @@ struct FRVItemInstance : public FFastArraySerializerItem
 {
     GENERATED_BODY()
     UPROPERTY(BlueprintReadOnly) FGuid Id;
-    UPROPERTY(BlueprintReadOnly) TObjectPtr<URVItemDefinition> Definition;
-    UPROPERTY(BlueprintReadOnly) int32 Quantity = 1;
-    UPROPERTY(BlueprintReadOnly) float Condition = 1;
-    UPROPERTY(BlueprintReadOnly) FName Location = TEXT("Main");
-    UPROPERTY(BlueprintReadOnly) TArray<FRVItemStateEntry> CustomState;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly) TObjectPtr<URVItemDefinition> Definition;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, meta=(ClampMin="1")) int32 Quantity = 1;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, meta=(ClampMin="0",ClampMax="1")) float Condition = 1;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly) FName Location = TEXT("Main");
+    UPROPERTY(EditAnywhere, BlueprintReadOnly) TArray<FRVItemStateEntry> CustomState;
 };
 
 USTRUCT()

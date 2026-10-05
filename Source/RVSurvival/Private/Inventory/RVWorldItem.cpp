@@ -1,8 +1,19 @@
 #include "Inventory/RVWorldItem.h"
 #include "Components/StaticMeshComponent.h"
-#include "Components/TextRenderComponent.h"
+#include "Engine/StaticMesh.h"
+#include "UObject/ConstructorHelpers.h"
 #include "GameFramework/Pawn.h"
 #include "Net/UnrealNetwork.h"
+ARVInventoryInteractable::ARVInventoryInteractable()
+{
+    bReplicates=true;
+    Mesh=CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh")); SetRootComponent(Mesh);
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> Cube(TEXT("/Engine/BasicShapes/Cube.Cube"));
+    if(Cube.Succeeded()) Mesh->SetStaticMesh(Cube.Object);
+    Mesh->SetMobility(EComponentMobility::Movable);
+}
+bool ARVInventoryInteractable::CanInteract_Implementation(APawn* Pawn) const
+{ return IsValid(Pawn) && Pawn->GetController(); }
 ARVWorldItem::ARVWorldItem()
 {
     SetReplicateMovement(true);
@@ -10,14 +21,15 @@ ARVWorldItem::ARVWorldItem()
     Mesh->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
     Mesh->SetCollisionResponseToAllChannels(ECR_Ignore);
     Mesh->SetCollisionResponseToChannel(ECC_Visibility,ECR_Block);
-    Label->SetVisibility(false);
 }
 void ARVWorldItem::BeginPlay()
 {
     Super::BeginPlay();
     if(HasAuthority() && !Item.Id.IsValid()) Item.Id=FGuid::NewGuid();
-    if(Item.Definition && !Item.Definition->WorldMesh.IsNull()) Mesh->SetStaticMesh(Item.Definition->WorldMesh.LoadSynchronous());
+    OnRep_Item();
 }
+void ARVWorldItem::OnRep_Item()
+{ if(Item.Definition && !Item.Definition->WorldMesh.IsNull()) Mesh->SetStaticMesh(Item.Definition->WorldMesh.LoadSynchronous()); }
 void ARVWorldItem::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 { Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(ARVWorldItem,Item); }
 bool ARVWorldItem::CanInteract_Implementation(APawn* Pawn) const
@@ -33,7 +45,10 @@ void ARVWorldItem::CompleteInteraction_Implementation(APawn* Pawn)
 {
     if(!HasAuthority() || !CanInteract_Implementation(Pawn)) return;
     FString Error;
-    if(Pawn->FindComponentByClass<URVInventoryComponent>()->AddAuthority(Item,Error)) { bClaimed=true; Destroy(); }
+    auto* Inventory=Pawn->FindComponentByClass<URVInventoryComponent>();
+    if(Inventory->AddAuthority(Item,Error)) { Inventory->Feedback.Empty(); bClaimed=true; Destroy(); }
+    else Inventory->Feedback=Error;
+    Pawn->ForceNetUpdate();
 }
 ARVStoragePoint::ARVStoragePoint()
 {
@@ -43,13 +58,12 @@ ARVStoragePoint::ARVStoragePoint()
     Mesh->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
     Mesh->SetCollisionResponseToAllChannels(ECR_Ignore);
     Mesh->SetCollisionResponseToChannel(ECC_Visibility,ECR_Block);
-    Label->SetVisibility(false);
 }
 FText ARVStoragePoint::GetInteractionText_Implementation(APawn*) const
 { return FText::FromString(TEXT("Hold E: open ")+Container->DisplayName.ToString()); }
 void ARVStoragePoint::CompleteInteraction_Implementation(APawn* Pawn)
 {
-    if(!HasAuthority() || !IsValid(Pawn)) return;
+    if(!HasAuthority() || !CanInteract_Implementation(Pawn)) return;
     if(auto* Inventory=Pawn->FindComponentByClass<URVInventoryComponent>()) Inventory->OpenContainerAuthority(Container);
 }
 

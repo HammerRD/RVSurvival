@@ -10,6 +10,7 @@ class RVSURVIVAL_API URVItemDefinition : public UPrimaryDataAsset
 {
     GENERATED_BODY()
 public:
+    UFUNCTION(BlueprintPure, Category="RV|Items") static FGameplayTag FindRegisteredTag(FName Name);
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FName CatalogId;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FText DisplayName;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(MultiLine=true)) FText Description;
