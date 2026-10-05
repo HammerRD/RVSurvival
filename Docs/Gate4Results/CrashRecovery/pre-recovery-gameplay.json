@@ -1,0 +1,49 @@
+{
+  "results": [
+    {
+      "case": "single_host_pickup",
+      "pass": true,
+      "detail": "3"
+    },
+    {
+      "case": "drop_preserves_identity_condition",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "repick",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "non_stackable",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "weight_block",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "volume_block",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "open_container",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "player_to_container",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "runner_exception",
+      "pass": false,
+      "detail": "IndexError(\"Array: Index 0 is out-of-bounds (len: 0) for property 'TransientPythonProperty' (ArrayProperty)\")"
+    }
+  ]
+}

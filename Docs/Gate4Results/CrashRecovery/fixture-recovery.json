@@ -1,0 +1,22 @@
+{
+  "removed_duplicate_fixture_actors": [
+    "/Game/Maps/Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVWorldItem_11",
+    "/Game/Maps/Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVWorldItem_12",
+    "/Game/Maps/Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVWorldItem_13",
+    "/Game/Maps/Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVWorldItem_14",
+    "/Game/Maps/Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVWorldItem_15",
+    "/Game/Maps/Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVWorldItem_16",
+    "/Game/Maps/Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVWorldItem_17",
+    "/Game/Maps/Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVWorldItem_18",
+    "/Game/Maps/Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVWorldItem_19",
+    "/Game/Maps/Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVWorldItem_20",
+    "/Game/Maps/Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVWorldItem_21",
+    "/Game/Maps/Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVStoragePoint_11",
+    "/Game/Maps/Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVStoragePoint_6",
+    "/Game/Maps/Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVStoragePoint_7",
+    "/Game/Maps/Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVStoragePoint_8",
+    "/Game/Maps/Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVStoragePoint_9",
+    "/Game/Maps/Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVStoragePoint_10"
+  ],
+  "retained_gate4_actors": 17
+}
