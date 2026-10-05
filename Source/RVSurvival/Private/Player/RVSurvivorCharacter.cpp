@@ -16,10 +16,12 @@
 #include "Net/UnrealNetwork.h"
 #include "Player/RVCharacterMovementComponent.h"
 #include "Player/RVPassengerReferenceFrameComponent.h"
+#include "Inventory/RVInventoryComponent.h"
 ARVSurvivorCharacter::ARVSurvivorCharacter(const FObjectInitializer& Init)
     : Super(Init.SetDefaultSubobjectClass<URVCharacterMovementComponent>(ACharacter::CharacterMovementComponentName))
 {
     bReplicates = true;
+    Inventory = CreateDefaultSubobject<URVInventoryComponent>(TEXT("Inventory"));
     bUseControllerRotationYaw = true;
     BaseEyeHeight = 64.f;
     Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCamera"));

@@ -1,0 +1,94 @@
+#include "Inventory/RVInventoryComponent.h"
+#include "Net/UnrealNetwork.h"
+#include "Inventory/RVWorldItem.h"
+#include "GameFramework/Pawn.h"
+#include "Engine/World.h"
+#include "CollisionShape.h"
+URVInventoryComponent::URVInventoryComponent() { SetIsReplicatedByDefault(true); }
+void URVInventoryComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{ Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(URVInventoryComponent, Contents); DOREPLIFETIME_CONDITION(URVInventoryComponent, OpenContainer, COND_OwnerOnly); DOREPLIFETIME_CONDITION(URVInventoryComponent, Feedback, COND_OwnerOnly); }
+float URVInventoryComponent::GetWeightKg() const
+{ float Total=0; for(const auto& I:Contents.Items) if(I.Definition) Total+=I.Definition->WeightKg*I.Quantity; return Total; }
+float URVInventoryComponent::GetVolumeLitres() const
+{ float Total=0; for(const auto& I:Contents.Items) if(I.Definition) Total+=I.Definition->VolumeLitres*I.Quantity; return Total; }
+FString URVInventoryComponent::CanAccept(const FRVItemInstance& I) const
+{
+    if(!I.Definition || !I.Id.IsValid() || I.Quantity<=0 || !FMath::IsFinite(I.Condition) || I.Condition<0 || I.Condition>1) return TEXT("Invalid item");
+    const auto* D=I.Definition.Get();
+    if(!FMath::IsFinite(D->WeightKg) || !FMath::IsFinite(D->VolumeLitres) || D->WeightKg<0 || D->VolumeLitres<0) return TEXT("Invalid definition");
+    if(I.Quantity>(D->bStackable?FMath::Max(1,D->MaxStackSize):1)) return TEXT("Invalid stack size");
+    if(D->bRequiresPhysicalCarry && !bAllowPhysicalCarry) return TEXT("Requires physical carrying");
+    if(!AllowedTags.IsEmpty() && !D->Tags.HasAny(AllowedTags)) return TEXT("Item category not allowed");
+    if(GetWeightKg()+D->WeightKg*I.Quantity>MaxWeightKg+KINDA_SMALL_NUMBER) return TEXT("Weight capacity exceeded");
+    if(GetVolumeLitres()+D->VolumeLitres*I.Quantity>MaxVolumeLitres+KINDA_SMALL_NUMBER) return TEXT("Volume capacity exceeded");
+    for(const auto& Existing:Contents.Items) if(Existing.Id==I.Id) return TEXT("Duplicate item identity");
+    return FString();
+}
+bool URVInventoryComponent::AddAuthority(const FRVItemInstance& Item, FString& Error)
+{
+    if(!GetOwner() || !GetOwner()->HasAuthority()) { Error=TEXT("Authority required"); return false; }
+    Error=CanAccept(Item); if(!Error.IsEmpty()) return false;
+    // Reset transport bookkeeping when a record changes owning FastArray.
+    auto& Added=Contents.Items.AddDefaulted_GetRef();
+    Added.Id=Item.Id; Added.Definition=Item.Definition; Added.Quantity=Item.Quantity;
+    Added.Condition=Item.Condition; Added.Location=Item.Location; Added.CustomState=Item.CustomState;
+    Contents.MarkItemDirty(Added); GetOwner()->ForceNetUpdate(); return true;
+}
+bool URVInventoryComponent::TransferAuthority(URVInventoryComponent* Destination, const FGuid& Id, int32 Quantity, FString& Error)
+{
+    if(!GetOwner() || !GetOwner()->HasAuthority() || !Destination || Destination==this || !Destination->GetOwner() || !Destination->GetOwner()->HasAuthority())
+    { Error=TEXT("Invalid authoritative destination"); return false; }
+    const int32 Index=Contents.Items.IndexOfByPredicate([&](const auto& I){ return I.Id==Id; });
+    if(Index==INDEX_NONE || Quantity<=0 || Quantity>Contents.Items[Index].Quantity) { Error=TEXT("Item no longer available"); return false; }
+    FRVItemInstance Moving=Contents.Items[Index]; Moving.Quantity=Quantity;
+    if(Quantity<Contents.Items[Index].Quantity) Moving.Id=FGuid::NewGuid();
+    // Both operations execute serially on the server game thread; no yield between validation and commit.
+    if(!Destination->AddAuthority(Moving,Error)) return false;
+    if(Quantity==Contents.Items[Index].Quantity) { Contents.Items.RemoveAt(Index); Contents.MarkArrayDirty(); }
+    else { Contents.Items[Index].Quantity-=Quantity; Contents.MarkItemDirty(Contents.Items[Index]); }
+    GetOwner()->ForceNetUpdate(); return true;
+}
+void URVInventoryComponent::OpenContainerAuthority(URVInventoryComponent* Container)
+{ if(GetOwner()->HasAuthority()) { OpenContainer=Container; Feedback.Empty(); GetOwner()->ForceNetUpdate(); } }
+void URVInventoryComponent::ServerTransfer_Implementation(FGuid Id, int32 Quantity, bool bToContainer)
+{
+    const APawn* Pawn=Cast<APawn>(GetOwner());
+    if(!Pawn || !Pawn->GetController() || !IsValid(OpenContainer) || !IsValid(OpenContainer->GetOwner())) return;
+    FVector Eye; FRotator Rotation; Pawn->GetActorEyesViewPoint(Eye,Rotation);
+    const FVector Target=OpenContainer->GetOwner()->GetActorLocation();
+    FHitResult Hit; FCollisionQueryParams Params(SCENE_QUERY_STAT(RVStorageAccess),false,Pawn);
+    if(FVector::DistSquared(Eye,Target)>FMath::Square(300.f) ||
+       (GetWorld()->LineTraceSingleByChannel(Hit,Eye,Target,ECC_Visibility,Params) && Hit.GetActor()!=OpenContainer->GetOwner()))
+    { Feedback=TEXT("Container out of reach or obstructed"); OpenContainer=nullptr; return; }
+    auto* Source=bToContainer?this:OpenContainer.Get(); auto* Destination=bToContainer?OpenContainer.Get():this;
+    Source->TransferAuthority(Destination,Id,Quantity,Feedback); GetOwner()->ForceNetUpdate();
+}
+void URVInventoryComponent::ServerDrop_Implementation(FGuid Id, int32 Quantity)
+{
+    const APawn* Pawn=Cast<APawn>(GetOwner()); if(!Pawn || !Pawn->GetController()) return;
+    const int32 Index=Contents.Items.IndexOfByPredicate([&](const auto& I){return I.Id==Id;});
+    if(Index==INDEX_NONE || Quantity<=0 || Quantity>Contents.Items[Index].Quantity) return;
+    FVector Eye; FRotator Rotation; Pawn->GetActorEyesViewPoint(Eye,Rotation);
+    FCollisionQueryParams Params(SCENE_QUERY_STAT(RVDrop),false,Pawn);
+    FHitResult Hit; FVector Position; bool bFound=false;
+    for(float Offset:{0.f,45.f,-45.f,90.f,-90.f})
+    {
+        const FVector Candidate=Eye+FRotator(0,Rotation.Yaw+Offset,0).Vector()*100;
+        if(GetWorld()->SweepSingleByChannel(Hit,Eye,Candidate,FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(15),Params)) continue;
+        if(!GetWorld()->LineTraceSingleByChannel(Hit,Candidate,Candidate-FVector(0,0,220),ECC_WorldStatic,Params) || Hit.Normal.Z<.7) continue;
+        Position=Hit.Location+FVector(0,0,15);
+        if(GetWorld()->OverlapBlockingTestByChannel(Position,FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(12),Params)) continue;
+        bFound=true; break;
+    }
+    if(!bFound) { Feedback=TEXT("No safe drop location"); return; }
+    FTransform Transform(FRotator::ZeroRotator,Position);
+    auto* Pickup=GetWorld()->SpawnActorDeferred<ARVWorldItem>(ARVWorldItem::StaticClass(),Transform);
+    if(!Pickup) { Feedback=TEXT("Drop failed"); return; }
+    Pickup->Item=Contents.Items[Index]; Pickup->Item.Quantity=Quantity;
+    if(Quantity<Contents.Items[Index].Quantity) Pickup->Item.Id=FGuid::NewGuid();
+    Pickup->FinishSpawning(Transform);
+    if(Quantity==Contents.Items[Index].Quantity) { Contents.Items.RemoveAt(Index); Contents.MarkArrayDirty(); }
+    else { Contents.Items[Index].Quantity-=Quantity; Contents.MarkItemDirty(Contents.Items[Index]); }
+    Feedback.Empty(); GetOwner()->ForceNetUpdate();
+}
+

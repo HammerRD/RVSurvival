@@ -1,0 +1,127 @@
+Log started at 10/05/2026 17:38:28 (2026-10-05T21:38:28Z)
+Resolved project argument D:/GitHub/RVSurvival/RVSurvival/RVSurvival.uproject to D:\GitHub\RVSurvival\RVSurvival\RVSurvival.uproject
+No config file at C:\ProgramData\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\bobgo\AppData\Local\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\bobgo\OneDrive\Documents\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Configuration will be read from:
+  C:\Users\bobgo\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\GitHub\RVSurvival\RVSurvival\Intermediate\Build\XmlConfigCache.bin): C:\Users\bobgo\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\GitHub\RVSurvival\RVSurvival\Intermediate\Build\XmlConfigCache.bin): D:\GitHub\RVSurvival\RVSurvival\Saved\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\GitHub\RVSurvival\RVSurvival\Intermediate\Build\XmlConfigCache.bin): C:\Users\bobgo\AppData\Local\UnrealEngine\Intermediate\Build\UnrealBuildTool.Env.BuildConfiguration.xml
+Log file: D:\GitHub\RVSurvival\RVSurvival\Saved\Gate4Validation\build.log
+
+Setting temp directory to 'C:\Users\bobgo\AppData\Local\Temp\UnrealBuildTool\00f34584'
+    Registering build platform: UnrealBuildTool.AndroidPlatformFactory
+    Registering build platform: UnrealBuildTool.IOSPlatformFactory
+    Registering build platform: UnrealBuildTool.LinuxPlatformFactory
+    Registering build platform: UnrealBuildTool.MacPlatformFactory
+    Registering build platform: UnrealBuildTool.TVOSPlatformFactory
+    Registering build platform: UnrealBuildTool.WindowsPlatformFactory
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (1)
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (2)
+Found Universal CRT version 10.0.10240.0 at C:\Program Files (x86)\Windows Kits\10
+Found Windows 10 SDK version 10.0.22621.0 at C:\Program Files (x86)\Windows Kits\10
+Found Universal CRT version 10.0.22621.0 at C:\Program Files (x86)\Windows Kits\10
+Found Windows 10 SDK version 10.0.26100.0 at C:\Program Files (x86)\Windows Kits\10
+Found Universal CRT version 10.0.26100.0 at C:\Program Files (x86)\Windows Kits\10
+Found Windows 10 SDK version 10.0.28000.0 at C:\Program Files (x86)\Windows Kits\10
+Found Universal CRT version 10.0.28000.0 at C:\Program Files (x86)\Windows Kits\10
+Win64 Installed SDK(s): MinVersion_Sdk=10.0.19041.0, MaxVersion_Sdk=10.9.99999.0, CurrentVersion_Sdk=10.0.22621.0, Version_AutoSdk=10.0.22621.0, CurrentVersion_AutoSdk=
+        Registering build platform: Win64 - buildable: True
+    Registering build platform: UnrealBuildTool.VisionOSPlatformFactory
+Command line: "D:\Epic Games\UE_5.8\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" RVSurvivalEditor Win64 Development -Project=D:/GitHub/RVSurvival/RVSurvival/RVSurvival.uproject -WaitMutex -NoXGE -Log=D:/GitHub/RVSurvival/RVSurvival/Saved/Gate4Validation/build.log
+Determining max actions to execute in parallel (16 physical cores, 24 logical cores)
+  Executing up to 16 processes, one per physical core
+Using 'git status' to determine working set for adaptive non-unity build (D:\GitHub\RVSurvival\RVSurvival).
+UbaStorageServer - Database loaded from C:\ProgramData\Epic\UnrealBuildAccelerator\cas\casdb (v32) in <1ms (contained 0 entries estimated to 0b)
+UbaServer - Listening on 0.0.0.0:1345
+Skipping D:\Epic Games\UE_5.8\Engine\Intermediate\Build\BuildRules\UE5Rules.dll: File is installed
+Skipping D:\Epic Games\UE_5.8\Engine\Intermediate\Build\BuildRules\UE5ProgramRules.dll: File is installed
+Building UnrealEditor - RVSurvivalEditor - Win64 - Development
+UnrealHeaderTool needs to run because module RVSurvival had different hash than what was found in timestamps file
+Parsing headers for RVSurvivalEditor
+  Running Internal UnrealHeaderTool D:\GitHub\RVSurvival\RVSurvival\RVSurvival.uproject D:\GitHub\RVSurvival\RVSurvival\Intermediate\Build\Win64\RVSurvivalEditor\RVSurvivalEditor.uhtmanifest -WarningsAsErrors -installed
+UHT compiled-in object format Default
+Step - Parse Headers
+Reading engine version from file: D:\Epic Games\UE_5.8\Engine\Source\Runtime\Launch\Resources\Version.h
+Got engine version 5.8.3
+Step - Populate symbol table
+Step - Exports
+       Exporter Stats skipped
+       Exporter Json skipped
+       Running exporter CodeGen
+UHT processed RVSurvivalEditor in 1.044751 seconds (5 generated files written)
+Checking for live coding mutex: Global\LiveCoding_D++Epic Games+UE_5.8+Engine+Binaries+Win64+UnrealEditor.exe
+Building RVSurvivalEditor...
+===== Toolchain Information =====
+Using ISPC compiler (D:\Epic Games\UE_5.8\Engine\Source\ThirdParty\Intel\ISPC\bin\Windows\ispc.exe)
+  Intel(r) Implicit SPMD Program Compiler (Intel(r) ISPC), 1.24.0 (build commit  @ 20250404, LLVM 18.1.2) 
+Using Visual Studio 14.44.35229 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[Adaptive Build] Excluded from RVSurvival unity file: RVInventoryComponent.cpp, RVWorldItem.cpp, RVSurvivorCharacter.cpp
+=================================
+Using Unreal Build Accelerator local executor to run 7 action(s)
+  CPU 16 physical cores, 24 logical cores
+  Memory 31.79 GB physical, 36.37 GB/42.8 GB committed
+  UBA Storage capacity 40 GB
+  UBA RootDir C:\ProgramData\Epic\UnrealBuildAccelerator
+Cache bucket 3771548721 used. Action: Compile [x64] Module.RVSurvival.cpp ()
+Cache bucket 416513229 used. Action: Link [x64] UnrealEditor-RVSurvival.dll ()
+All processes queued
+[1/7] Compile [x64] Module.RVSurvival.cpp
+[2/7] Compile [x64] RVInventoryComponent.cpp
+[3/7] Compile [x64] RVSurvivorCharacter.cpp
+[4/7] Compile [x64] RVWorldItem.cpp
+[5/7] Link [x64] UnrealEditor-RVSurvival.dll
+[6/7] Link [x64] UnrealEditor-RVSurvival.lib
+[7/7] WriteMetadata RVSurvivalEditor.target [NoUba]
+
+Total time in Unreal Build Accelerator local executor: 16.37 seconds
+Output binary: D:\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealEditor.exe
+UbaStorageServer - Database saved in <1ms (0 file entries, 0 cas entries. deleted 0 dropped cas files)
+WriteFileIfChanged() wrote 0 changed files of 1 requested writes.
+
+Timeline:
+[  0.000]  +0.243 Main
+   0.010          [  0.010]  +0.058 Apply XmlConfig
+   0.075          [  0.075]  +0.046 AddTelemetry
+   0.139          [  0.139]  +0.103 RegisterPlatforms
+[  0.252]  +0.016 ParseCommandLine
+[  0.309]  +0.091 LoadMakefile
+   0.326          [  0.017]  +0.020 EngineRulesPlugins
+   0.348          [  0.039]  +0.004 EngineRulesFetchDirs
+   0.358          [  0.049]  +0.006 EngineRulesAssembly
+   0.364          [  0.055]  +0.000 ProgramRulesAssembly
+   0.365          [  0.056]  +0.001 ProjectRulesAssembly
+   0.367          [  0.058]  +0.208 CreateTargetRules
+   0.401             0.092          [  0.034]  +0.000 FindPlugins
+   0.413             0.104          [  0.045]  +0.020 MakefileValid
+[  0.400]  +0.213 <unknown>
+[  0.613]  +0.003 CppDependencyCache
+[  0.626]  +0.033 RVSurvivalEditor Win64 Development
+[  0.661]  +1.158 UHTWait
+   0.661          [  0.000]  +0.106 UHTManifest
+   0.767          [  0.106]  +1.048 UHT
+   1.817          [  1.156]  +0.027 UHTTimestamps
+[  1.873]  +0.003 CppDependencyCache
+[  1.877]  +0.053 Preparing ActionGraph
+   1.890          [  0.013]  +0.003 LinkActions
+   1.893             0.016          [  0.003]  +0.000 DetectActionGraphCycles
+   1.894          [  0.017]  +0.000 GatherPrerequisiteActions
+   1.895          [  0.018]  +0.000 CppDependencyCacheWait
+   1.895          [  0.018]  +0.024 GatherOutdatedActions
+   1.922          [  0.045]  +0.002 LinkActions
+   1.922             0.045          [  0.000]  +0.000 DetectActionGraphCycles
+   1.926          [  0.049]  +0.000 DeleteOutdatedProducedItems
+   1.926          [  0.049]  +0.003 SaveActionHistory
+   1.929          [  0.052]  +0.000 CreateDirectoriesForProducedItems
+[  1.939]  +0.177 GarbageCollect
+[  2.117] +16.195 <unknown>
+[ 18.312]  +0.000 Deploying targets
+[ 18.313]  +0.000 DisconnectCache
+[ 18.316]  +0.009 SaveCasTable
+[ 18.328]  +0.037 Saving caches
+[ 18.365]  +0.002 TelemetryService.FlushEvents
+[ 18.368]
+
+Result: Succeeded
+Total execution time: 18.37 seconds
