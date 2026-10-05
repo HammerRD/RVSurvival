@@ -7,37 +7,37 @@
   {
     "case": "movement_W",
     "pass": true,
-    "detail": "<Struct 'Vector' (0x000001D6B69FDBE0) {x: -523.123319, y: -450.000000, z: 89.650000}>"
+    "detail": "<Struct 'Vector' (0x00000264FA3ADE60) {x: -521.497406, y: -450.000000, z: 89.650000}>"
   },
   {
     "case": "movement_S",
     "pass": true,
-    "detail": "<Struct 'Vector' (0x000001D6B69D61D0) {x: -604.970182, y: -450.000000, z: 89.650000}>"
+    "detail": "<Struct 'Vector' (0x00000264FA382450) {x: -593.778453, y: -450.000000, z: 89.650000}>"
   },
   {
     "case": "movement_D",
     "pass": true,
-    "detail": "<Struct 'Vector' (0x000001D6B69FDBE0) {x: -604.970182, y: -368.153136, z: 89.650000}>"
+    "detail": "<Struct 'Vector' (0x00000264FA3ADE60) {x: -593.778453, y: -368.349982, z: 89.650000}>"
   },
   {
     "case": "movement_A",
     "pass": true,
-    "detail": "<Struct 'Vector' (0x000001D6B69D61D0) {x: -604.970182, y: -450.000000, z: 89.650000}>"
+    "detail": "<Struct 'Vector' (0x00000264FA382450) {x: -593.778453, y: -450.207333, z: 89.650000}>"
   },
   {
     "case": "jump",
     "pass": true,
-    "detail": "<Struct 'Vector' (0x000001D6B69D61D0) {x: -600.000000, y: -450.000000, z: 152.149661}>"
+    "detail": "<Struct 'Vector' (0x00000264FA382450) {x: -600.000000, y: -450.000000, z: 153.632681}>"
   },
   {
     "case": "mouse_yaw",
     "pass": true,
-    "detail": "<Struct 'Rotator' (0x000001D6B69D61D0) {pitch: 0.000000, yaw: 4.025000, roll: 0.000000}>"
+    "detail": "<Struct 'Rotator' (0x00000264FA382450) {pitch: 0.000000, yaw: 2.975000, roll: 0.000000}>"
   },
   {
     "case": "mouse_pitch",
     "pass": true,
-    "detail": "<Struct 'Rotator' (0x000001D6B69D61D0) {pitch: 4.025000, yaw: 4.025000, roll: 0.000000}>"
+    "detail": "<Struct 'Rotator' (0x00000264FA382450) {pitch: 3.325000, yaw: 2.975000, roll: 0.000000}>"
   },
   {
     "case": "hold_before_half_second",
