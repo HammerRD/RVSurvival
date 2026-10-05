@@ -1,0 +1,124 @@
+{
+  "results": [
+    {
+      "case": "single_host_pickup",
+      "pass": true,
+      "detail": "3"
+    },
+    {
+      "case": "drop_preserves_identity_condition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "repick",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "non_stackable",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "weight_block",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "volume_block",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "open_container",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "player_to_container",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "container_to_player",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_pickup_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shared_container_replication",
+      "pass": true,
+      "detail": "{'server_count': 1, 'client_count': 1, 'client_open': \"<Object '/Game/Maps/UEDPIE_1_Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVStoragePoint_5.Container' (0x00000204ED1B3C00) Class 'RVContainerComponent'>\", 'server_open': \"<Object '/Game/Maps/UEDPIE_0_Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVStoragePoint_5.Container' (0x0000020479AE4380) Class 'RVContainerComponent'>\", 'feedback': ''}"
+    },
+    {
+      "case": "contended_pickup_one_winner",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "condition_after_transfer",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "two_users_same_container",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "container_full_atomic_rejection",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "contended_container_one_winner_no_duplication",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "foreign_item_id_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_drop_replicated_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "drop_immediate_contended_repick_no_duplication",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "unique_runtime_ids",
+      "pass": true,
+      "detail": "['E18D5860473BFCDAD4B91C860CCDB83F', '2B66E39E4C33B8E4CF0463A9C7C5E3F7', '1F129A0F46230EB29A61D4AFB5A81E96', '97324AF549FAE64D6D5592A5469AA612', 'B477036A47C7ED6667908EBF2954641C', '90ECCC7646606EE0F46448A466A117E1', '5B5D0DF84DEB8DC2050D2FA5458B1097']"
+    },
+    {
+      "case": "custom_state_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "physical_carry_excluded_from_backpack",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stale_container_access_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "disconnect_preserves_shared_container",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}
