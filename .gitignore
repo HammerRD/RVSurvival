@@ -5,3 +5,7 @@ Saved/
 .vs/
 *.sln
 *.VC.db
+# Local Python and disposable editor recovery artifacts
+__pycache__/
+*.pyc
+/Content/Maps/ValidationRecovery/
