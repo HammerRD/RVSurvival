@@ -22,7 +22,3 @@ A project-side chassis box and four measured wheel positions adapt the existing 
 Six fixed placeholder endpoints reserve workbench, medical, kitchen/food preparation, storage, power controls and navigation/radio. Their only gameplay is an authority-completed test count. Future mobile-base systems remain modular and absent in this gate: food/water and needs, sleeping/fatigue, injury treatment, automotive/house power, generator/solar/battery, repairs/maintenance, crafting and storage. No detailed art dressing or Gate 4 systems are added.
 
 Standing movement uses URVPassengerReferenceFrameComponent around native CharacterMovement bases. See GATE_3_VALIDATION.md for actual role/speed/correction/workstation results and known limits.
-
-
-
-

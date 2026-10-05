@@ -9,5 +9,3 @@
 8. Vertical slice: 4–6 km region with the cooling repair/scavenge/refuel/leave scenario.
 
 Current work stops after Gate 3. Later gameplay remains unimplemented. See GATE_3_VALIDATION.md for live evidence and known limits.
-
-

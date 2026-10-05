@@ -10,6 +10,3 @@ o=n.get_editor_property('OutPackets')
 o.set_editor_property('MinLatency',100);o.set_editor_property('MaxLatency',100);o.set_editor_property('PacketLossPercentage',2)
 n.set_editor_property('OutPackets',o);s.set_editor_property('NetworkEmulationSettings',n)
 unreal.log('GATE3_PLAY_SETTINGS '+str(n))
-
-
-

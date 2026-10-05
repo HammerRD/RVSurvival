@@ -1,0 +1,2 @@
+# Validation logs retain original engine whitespace as evidence.
+Docs/**/*.log -whitespace

@@ -34,5 +34,3 @@ def tick(dt):
         while i<len(events) and t>=events[i][0]:f=events[i][1];i+=1;f()
     except Exception as e:unreal.log_error('GATE2_RACE_ERROR '+str(e));unreal.unregister_slate_post_tick_callback(handle)
 handle=unreal.register_slate_post_tick_callback(tick)
-
-

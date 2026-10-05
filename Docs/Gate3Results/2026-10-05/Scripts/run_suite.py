@@ -12,5 +12,3 @@ def start(dt):
         unreal.unregister_slate_post_tick_callback(h)
         load_runner('D:/GitHub/RVSurvival/RVSurvival/Saved/Gate3Validation/suite.py')
 h=unreal.register_slate_post_tick_callback(start)
-
-

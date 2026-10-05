@@ -146,23 +146,3 @@ def tick(dt):
   if sample_acc>.05:sample_acc=0;snap()
  except Exception as e:unreal.log_error('GATE3_SUITE_ERROR '+str(e));finish()
 handle=unreal.register_slate_post_tick_callback(tick)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

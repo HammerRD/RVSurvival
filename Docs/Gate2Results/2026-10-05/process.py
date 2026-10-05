@@ -94,5 +94,3 @@ def tick(dt):
     except Exception as e:unreal.log_error('GATE2_PROCESS_ERROR '+role+' '+str(e));finish()
 handle=unreal.register_slate_post_tick_callback(tick)
 unreal.log('GATE2_PROCESS_READY '+role)
-
-

@@ -79,5 +79,3 @@ def tick(dt):
     except Exception as e:
         unreal.log_error('GATE1_TEST_ERROR '+str(e)); unreal.unregister_slate_post_tick_callback(handle)
 handle=unreal.register_slate_post_tick_callback(tick)
-
-

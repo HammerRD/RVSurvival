@@ -22,7 +22,3 @@ def finish(dt):
  log('GATE3_RELEASED_RUNNERS_GC_OK '+str(release_runners()))
  quit_editor()
 h=unreal.register_slate_post_tick_callback(finish)
-
-
-
-

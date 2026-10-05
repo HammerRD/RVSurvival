@@ -5,4 +5,3 @@ def ready(dt):
     unreal.unregister_slate_post_tick_callback(h)
     exec(open('D:/GitHub/RVSurvival/RVSurvival/Saved/Gate2Validation/passenger_disconnect.py').read(),{'__name__':'__main__'})
 h=unreal.register_slate_post_tick_callback(ready)
-

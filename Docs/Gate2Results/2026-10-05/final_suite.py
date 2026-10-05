@@ -50,4 +50,3 @@ def tick(dt):
         unreal.log_error('GATE2_FINAL_SUITE_ERROR '+str(e));unreal.unregister_slate_post_tick_callback(h)
 h=unreal.register_slate_post_tick_callback(tick)
 launch()
-

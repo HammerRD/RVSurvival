@@ -16,4 +16,3 @@ def finish(dt):
  ok=bool(rows) and all(r['pass'] for r in rows);json.dump({'pass':ok,'checks':len(rows),'failures':[r for r in rows if not r['pass']]},open(O+'summary.json','w'),indent=2)
  unreal.unregister_slate_post_tick_callback(h);unreal.log('GATE3_GATE1_REGRESSION_DONE '+str(ok));__import__('gc').collect()
 h=unreal.register_slate_post_tick_callback(finish)
-

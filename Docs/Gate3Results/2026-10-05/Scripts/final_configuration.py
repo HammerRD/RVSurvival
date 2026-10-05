@@ -13,5 +13,3 @@ d['vehicle']['engine']=props(m.get_editor_property('EngineSetup'),['MaxTorque','
 d['vehicle']['transmission']=props(m.get_editor_property('TransmissionSetup'),['bUseAutomaticGears','bUseAutoReverse','FinalRatio','ForwardGearRatios','ReverseGearRatios','ChangeUpRPM','ChangeDownRPM','GearChangeTime','TransmissionEfficiency'])
 d['vehicle']['differential']=props(m.get_editor_property('DifferentialSetup'),['DifferentialType','FrontRearSplit'])
 json.dump(d,open(B+'final_configuration.json','w'),indent=2)
-
-

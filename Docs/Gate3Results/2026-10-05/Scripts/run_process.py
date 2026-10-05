@@ -11,5 +11,3 @@ def start(dt):
  if not ready:return
  unreal.unregister_slate_post_tick_callback(h);json.dump({'id':sid,'start':time.time()+3,'config':config},open(B+'process_session.json','w'));load_runner(B+'process_suite.py')
 h=unreal.register_slate_post_tick_callback(start)
-
-

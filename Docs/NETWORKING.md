@@ -27,4 +27,3 @@ Gate 3 additionally prevents client vehicle physics-state creation and destroys 
 
 
 Final Gate 3 tests passed both walking/driver roles in shared and separate processes, including server outgoing 100 ms/2% loss. Native prediction/corrections remain enabled; the emulated client walker recorded four small strong-turn corrections, maximum 1.85 cm. See GATE_3_VALIDATION.md and permanent paired/telemetry records for measured drift and observer timing limits. No guarantee for larger sessions, airborne passengers or arbitrary network faults is added.
-

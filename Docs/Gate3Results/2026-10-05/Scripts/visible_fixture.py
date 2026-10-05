@@ -7,4 +7,3 @@ c=unreal.get_default_object(bp.generated_class());c.set_editor_property('Default
 w=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world();w.get_world_settings().set_editor_property('default_game_mode',bp.generated_class());assert level.save_current_level()
 unreal.get_default_object(unreal.load_class(None,'/Script/UnrealEd.EditorPerformanceSettings')).set_editor_property('bThrottleCPUWhenNotForeground',False)
 exec(open('D:/GitHub/RVSurvival/RVSurvival/Saved/Gate3Validation/jobs.py').read(),{'__name__':'__main__'})
-

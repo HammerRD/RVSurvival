@@ -24,5 +24,3 @@ foreach ($taskFile in @('shared_multi.json','concurrent_seat_claim.json','separa
 $taskCounts | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $taskEvidence 'assertion_summary.json') -Encoding utf8
 $taskCounts | ForEach-Object { [pscustomobject]$_ } | Format-Table -AutoSize
 $taskRows | ForEach-Object { [pscustomobject]$_ } | Select-Object case,distance_cm,pass | Format-Table -AutoSize
-
-

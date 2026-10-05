@@ -8,4 +8,3 @@ def start(dt):
         unreal.unregister_slate_post_tick_callback(h)
         exec(open('D:/GitHub/RVSurvival/RVSurvival/Saved/Gate3Validation/integration_regression.py').read(),{'__name__':'__main__'})
 h=unreal.register_slate_post_tick_callback(start)
-

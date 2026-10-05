@@ -38,5 +38,3 @@ def tick(dt):
    axis,value=target;d=value-local(wv,wp)[axis];walk_key('W',d>8 if axis==0 else d< -8);walk_key('S',d< -8 if axis==0 else d>8)
  except Exception as e:unreal.log_error('GATE3_DISCONNECT_ERROR '+str(e));finish()
 handle=unreal.register_slate_post_tick_callback(tick)
-
-

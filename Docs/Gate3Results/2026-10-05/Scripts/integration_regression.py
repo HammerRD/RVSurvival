@@ -108,9 +108,3 @@ def tick(dt):
     except Exception as e:
         unreal.log_error('GATE3_INTEGRATION_MULTI_ERROR '+str(e));finish()
 handle=unreal.register_slate_post_tick_callback(tick)
-
-
-
-
-
-

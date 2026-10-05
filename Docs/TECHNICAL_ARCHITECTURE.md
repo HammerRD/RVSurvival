@@ -22,6 +22,3 @@ URVPassengerReferenceFrameComponent observes tagged native CharacterMovement bas
 Six ARVInteriorStation placeholders reuse the Gate 1 interaction contract and replicated completion counter: workbench, medical, kitchen/food preparation, storage, electrical/power and navigation/radio. They are attached fixed endpoints, not implementations of crafting, treatment, cooking, containers, electrical power or navigation. Future equipment can compose behavior behind the existing interface, with authoritative permission checks and replicated state. Layout and station configuration belong to content, not hard-coded purchased mesh paths in gameplay.
 
 The motorhome remains a mobile survival base. Later gates must preserve local interior coordinates and fixed interaction endpoints for food/water, hunger/thirst, fatigue/sleep, injuries/medicine, generator/solar/battery power, maintenance/repairs, crafting and long-term storage. Those systems are deliberately absent here. Additional standing passengers should use the same per-character component and native bases rather than a vehicle-owned list of transform overrides.
-
-
-

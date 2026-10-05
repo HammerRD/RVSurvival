@@ -21,4 +21,3 @@ def tick(dt):
             unreal.log('GATE2_GATE1_REGRESSION_DONE')
     except Exception as e:unreal.log_error('GATE2_REGRESSION_ERROR '+str(e));unreal.unregister_slate_post_tick_callback(h)
 h=unreal.register_slate_post_tick_callback(tick)
-
