@@ -13,4 +13,5 @@ private:
     bool bInventoryVisible = false;
     bool bSelectContainer = false;
     int32 SelectedRow = 0;
+    TWeakObjectPtr<class URVInventoryComponent> LastContainer;
 };

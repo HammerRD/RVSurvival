@@ -46,3 +46,11 @@ Eleven inert logistics definitions include water, food, bandage, pain medication
 Early PIE attempts passed host pickup, non-stackable pickup, and weight/volume blocking, but failed drop identity and selected-container checks with the duplicated fixture. They are development failures, not accepted results. Full reruns after recovery remain required.
 
 
+
+## First passing inventory milestone
+
+After fixture recovery, 13/13 live two-player listen-server inventory checks pass: host pickup; complete drop/re-pick with GUID and condition preserved; non-stackable item; independent weight and volume rejection; container opening; both transfer directions; client pickup replication; client transfer replicated to host and client; simultaneous world-pickup contention yielding one winner; condition preservation.
+
+Client transfer diagnostics initially executed on role 2 because Unreal Python editor execution sets GAllowActorScriptExecutionInEditor, which AActor::GetFunctionCallspace handles as local execution. Local request methods now dispatch through next native-world tick using weak timer delegates, and every server mutation explicitly checks authority. The same unchanged transfer assertion then passed with role 3 server execution. Weak delegates do not retain pawns/worlds and recheck local control after possession changes. Inventory view can now close a container through authoritative intent. Latest build succeeded without the earlier cosmetic float warning.
+
+This is a stable partial milestone, not Gate 4 acceptance. Separate-process, emulated network, expanded contention/disconnect, true standalone and moving-RV storage tests remain required.

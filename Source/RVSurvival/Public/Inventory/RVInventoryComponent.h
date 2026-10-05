@@ -58,8 +58,12 @@ public:
     void OpenContainerAuthority(URVInventoryComponent* Container);
     UPROPERTY(Replicated, BlueprintReadOnly) TObjectPtr<URVInventoryComponent> OpenContainer;
     UPROPERTY(Replicated, BlueprintReadOnly) FString Feedback;
+    UFUNCTION(BlueprintCallable) void RequestTransfer(FGuid Id, int32 Quantity, bool bToContainer);
+    UFUNCTION(BlueprintCallable) void RequestDrop(FGuid Id, int32 Quantity);
+    UFUNCTION(BlueprintCallable) void RequestCloseContainer();
     UFUNCTION(Server, Reliable, BlueprintCallable) void ServerTransfer(FGuid Id, int32 Quantity, bool bToContainer);
     UFUNCTION(Server, Reliable, BlueprintCallable) void ServerDrop(FGuid Id, int32 Quantity);
+    UFUNCTION(Server, Reliable) void ServerCloseContainer();
 protected:
     UPROPERTY(Replicated) FRVInventoryList Contents;
 };

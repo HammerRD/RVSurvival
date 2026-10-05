@@ -4,6 +4,10 @@
 #include "GameFramework/Pawn.h"
 #include "Engine/World.h"
 #include "CollisionShape.h"
+#include "Core/RVLog.h"
+#include "HAL/IConsoleManager.h"
+#include "TimerManager.h"
+static TAutoConsoleVariable<int32> InventoryDebug(TEXT("rv.Inventory.Debug"),0,TEXT("Log authoritative inventory requests"));
 URVInventoryComponent::URVInventoryComponent() { SetIsReplicatedByDefault(true); DisplayName=FText::FromString(TEXT("Player storage")); }
 void URVInventoryComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 { Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(URVInventoryComponent, Contents); DOREPLIFETIME(URVInventoryComponent, MaxWeightKg); DOREPLIFETIME(URVInventoryComponent, MaxVolumeLitres); DOREPLIFETIME(URVInventoryComponent, bAllowPhysicalCarry); DOREPLIFETIME(URVInventoryComponent, AllowedTags); DOREPLIFETIME(URVInventoryComponent, DisplayName); DOREPLIFETIME_CONDITION(URVInventoryComponent, OpenContainer, COND_OwnerOnly); DOREPLIFETIME_CONDITION(URVInventoryComponent, Feedback, COND_OwnerOnly); }
@@ -50,8 +54,33 @@ bool URVInventoryComponent::TransferAuthority(URVInventoryComponent* Destination
 }
 void URVInventoryComponent::OpenContainerAuthority(URVInventoryComponent* Container)
 { if(GetOwner()->HasAuthority()) { OpenContainer=Container; Feedback.Empty(); GetOwner()->ForceNetUpdate(); } }
+void URVInventoryComponent::RequestTransfer(FGuid Id, int32 Quantity, bool bToContainer)
+{
+    const auto* Pawn=Cast<APawn>(GetOwner());
+    if(!Pawn || !Pawn->IsLocallyControlled()) return;
+    // Dispatch in the native world tick. Weak delegates do not keep pawns/worlds alive.
+    // This also avoids editor script guards forcing network functions to execute locally.
+    GetWorld()->GetTimerManager().SetTimerForNextTick(FTimerDelegate::CreateWeakLambda(this,[this,Id,Quantity,bToContainer]
+    { const auto* P=Cast<APawn>(GetOwner()); if(P && P->IsLocallyControlled()) ServerTransfer(Id,Quantity,bToContainer); }));
+}
+void URVInventoryComponent::RequestDrop(FGuid Id, int32 Quantity)
+{
+    const auto* Pawn=Cast<APawn>(GetOwner()); if(!Pawn || !Pawn->IsLocallyControlled()) return;
+    GetWorld()->GetTimerManager().SetTimerForNextTick(FTimerDelegate::CreateWeakLambda(this,[this,Id,Quantity]
+    { const auto* P=Cast<APawn>(GetOwner()); if(P && P->IsLocallyControlled()) ServerDrop(Id,Quantity); }));
+}
+void URVInventoryComponent::RequestCloseContainer()
+{
+    const auto* Pawn=Cast<APawn>(GetOwner()); if(!Pawn || !Pawn->IsLocallyControlled()) return;
+    GetWorld()->GetTimerManager().SetTimerForNextTick(FTimerDelegate::CreateWeakLambda(this,[this]
+    { const auto* P=Cast<APawn>(GetOwner()); if(P && P->IsLocallyControlled()) ServerCloseContainer(); }));
+}
+void URVInventoryComponent::ServerCloseContainer_Implementation()
+{ if(!GetOwner()->HasAuthority()) return; OpenContainer=nullptr; Feedback.Empty(); GetOwner()->ForceNetUpdate(); }
 void URVInventoryComponent::ServerTransfer_Implementation(FGuid Id, int32 Quantity, bool bToContainer)
 {
+    if(!GetOwner()->HasAuthority()) return;
+    if(InventoryDebug.GetValueOnGameThread()) UE_LOG(LogRVNetworking,Log,TEXT("Inventory transfer role=%d owner=%s item=%s quantity=%d"),int32(GetOwner()->GetLocalRole()),*GetOwner()->GetName(),*Id.ToString(),Quantity);
     const APawn* Pawn=Cast<APawn>(GetOwner());
     if(!Pawn || !Pawn->GetController() || !IsValid(OpenContainer) || !IsValid(OpenContainer->GetOwner())) return;
     FVector Eye; FRotator Rotation; Pawn->GetActorEyesViewPoint(Eye,Rotation);
@@ -65,6 +94,7 @@ void URVInventoryComponent::ServerTransfer_Implementation(FGuid Id, int32 Quanti
 }
 void URVInventoryComponent::ServerDrop_Implementation(FGuid Id, int32 Quantity)
 {
+    if(!GetOwner()->HasAuthority()) return;
     const APawn* Pawn=Cast<APawn>(GetOwner()); if(!Pawn || !Pawn->GetController()) return;
     const int32 Index=Contents.Items.IndexOfByPredicate([&](const auto& I){return I.Id==Id;});
     if(Index==INDEX_NONE || Quantity<=0 || Quantity>Contents.Items[Index].Quantity) return;
