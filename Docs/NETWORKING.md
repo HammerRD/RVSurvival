@@ -27,3 +27,11 @@ Gate 3 additionally prevents client vehicle physics-state creation and destroys 
 
 
 Final Gate 3 tests passed both walking/driver roles in shared and separate processes, including server outgoing 100 ms/2% loss. Native prediction/corrections remain enabled; the emulated client walker recorded four small strong-turn corrections, maximum 1.85 cm. See GATE_3_VALIDATION.md and permanent paired/telemetry records for measured drift and observer timing limits. No guarantee for larger sessions, airborne passengers or arbitrary network faults is added.
+
+## Gate 4 inventory/storage (in development)
+
+Owned inventory intent RPCs accept item GUID, quantity and transfer direction. Authority derives the source inventory and selected container and revalidates quantity, capacity, range and line of sight. Serial source-to-destination transactions preserve quantity and instance condition; full-record moves preserve identity, splits receive a new identity. FastArray contents replicate deltas; selected-container/feedback properties are owner-only. Clients do not submit item definitions or fabricated instance data.
+
+All server mutation implementations explicitly reject non-authority execution. Local intent dispatch uses a weak next-tick delegate before invoking the network RPC, because the editor Python script guard otherwise forces actor RPC callspace to local execution. No weak delegate retains a pawn/world. Native object attachment handles dropped items on a moving passenger floor; this adds no passenger transform or movement RPC.
+
+Gate 4 multiplayer acceptance, separate-process results and network-emulation measurements are tracked in GATE_4_VALIDATION.md. The accepted Gate 1–3 architecture is preserved.

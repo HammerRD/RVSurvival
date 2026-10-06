@@ -22,3 +22,9 @@ A project-side chassis box and four measured wheel positions adapt the existing 
 Six fixed placeholder endpoints reserve workbench, medical, kitchen/food preparation, storage, power controls and navigation/radio. Their only gameplay is an authority-completed test count. Future mobile-base systems remain modular and absent in this gate: food/water and needs, sleeping/fatigue, injury treatment, automotive/house power, generator/solar/battery, repairs/maintenance, crafting and storage. No detailed art dressing or Gate 4 systems are added.
 
 Standing movement uses URVPassengerReferenceFrameComponent around native CharacterMovement bases. See GATE_3_VALIDATION.md for actual role/speed/correction/workstation results and known limits.
+
+## Gate 4 storage foundation (in development)
+
+The Gate 4 test map preserves the purchased Class C visual/physical derivative and adds reusable project-side pantry, general, medical, tool and exterior storage points. Storage actors attach to the vehicle mesh and contain URVContainerComponent; no cabinet-specific mutation code was added to ARVMotorhome or passenger movement. The six Gate 3 workstation points remain. Capacity and tag filters are configuration.
+
+Future food/water, medical supplies, repairs, crafting, equipment and long-term storage can consume this data model through separate authoritative systems. Gate 4 adds no survival effects, recipes, fuel usage or electrical simulation. Vendor source assets remain unchanged; cargo mass/handling integration is deferred. See INVENTORY.md and GATE_4_VALIDATION.md for current tests and limitations.
