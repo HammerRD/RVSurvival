@@ -1,0 +1,434 @@
+[
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Blueprints\\BP_RV.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Maps\\RV_Demo_Map.umap",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\M_RV_Cab_Master.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\M_RV_Chassis_Master.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\M_RV_Glass_Master.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\M_RV_Interior_Master.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\M_RV_Van_Master.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\M_RV_Wheels_Master.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\MI_RV_Cab_Emissive_OFF.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\MI_RV_Cab_Emissive_ON.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\MI_RV_Chassis_Emissive_OFF.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\MI_RV_Chassis_Emissive_ON.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\MI_RV_Glass.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\MI_RV_Interior.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\MI_RV_Van.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Materials\\MI_RV_Wheels.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Cab_Door_L.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Cab_Door_R.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Cab_SteeringWheel.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Cab.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Chassis_Door_L.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Chassis_Door_R.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Chassis_Hood.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Chassis.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Door_Back.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Door_L.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Door_R.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_01.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_02.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_03.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_04.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_05.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_06.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_07.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_08.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_09.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_10.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_11.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass_Window_12.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Glass.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Interior_Blind_01.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Interior_Blind_02.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Interior_Blind_03.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Interior_Blind_04.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Interior.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Compartment_01.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Compartment_02.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Compartment_03.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Compartment_04.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Compartment_05.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Compartment_06.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Compartment_07.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Door_Back.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_01.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_02.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_03.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_04.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_05.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_06.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_07.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_08.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_09.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_10.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_11.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van_Window_12.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Van.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Wheels_BL.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Wheels_BR.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Wheels_FL.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Meshes\\SM_RV_Wheels_FR.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Cab_AO.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Cab_BaseColor.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Cab_Emissive.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Cab_Metallic.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Cab_Normal.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Cab_ORM.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Cab_Roughness.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Chassis_AO.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Chassis_BaseColor.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Chassis_Emissive.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Chassis_Metallic.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Chassis_Normal.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Chassis_ORM.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Chassis_Roughness.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Glass_AO.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Glass_BaseColor.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Glass_Metallic.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Glass_Normal.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Glass_ORM.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Glass_Roughness.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Interior_AO.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Interior_BaseColor.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Interior_Metallic.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Interior_Normal.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Interior_ORM.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Interior_Roughness.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Van_AO.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Van_BaseColor.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Van_Metallic.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Van_Normal.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Van_ORM.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Van_Roughness.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Wheels_AO.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Wheels_BaseColor.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Wheels_Metallic.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Wheels_Normal.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Wheels_ORM.uasset",
+    "pass": true
+  },
+  {
+    "Path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\RV\\Textures\\T_RV_Wheels_Roughness.uasset",
+    "pass": true
+  }
+]

@@ -27,11 +27,12 @@ def configure():
      item=pickup.get_editor_property('Item');item.set_editor_property('Definition',asset);item.set_editor_property('Condition',.73)
      item.set_editor_property('Quantity',min(3,stack));pickup.set_editor_property('Item',item)
      manifest.append({'id':key,'kg':kg,'litres':litres,'max_stack':stack,'physical_carry':carry})
-    positions=[('Pantry',unreal.Vector(-40,-62,155)),('General cabinet',unreal.Vector(-200,76,155)),('Medical storage',unreal.Vector(-145,80,155)),('Tool storage',unreal.Vector(-190,-100,155)),('Exterior compartment',unreal.Vector(-180,140,65))]
+    positions=[('Pantry',unreal.Vector(-12,-32,155)),('General cabinet',unreal.Vector(-222,52,155)),('Medical storage',unreal.Vector(-117,52,155)),('Tool storage',unreal.Vector(-220,-73,155)),('Exterior compartment',unreal.Vector(-180,140,65))]
     mesh=rv.get_editor_property('Mesh')
     for name,pos in positions:
      point=next((a for a in actors.get_all_level_actors() if a.get_class()==SC and str(a.get_editor_property('Container').get_editor_property('DisplayName'))==name),None) or actors.spawn_actor_from_class(SC,rv.get_actor_transform().transform_location(pos));point.set_actor_label('Gate4_'+name)
      point.attach_to_component(mesh,'',unreal.AttachmentRule.KEEP_WORLD,unreal.AttachmentRule.KEEP_WORLD,unreal.AttachmentRule.KEEP_WORLD,False)
+     point.set_actor_relative_location(pos,False,False)
      c=point.get_editor_property('Container');c.set_editor_property('DisplayName',name);c.set_editor_property('MaxVolumeLitres',60)
     point=next((a for a in actors.get_all_level_actors() if a.get_class()==SC and str(a.get_editor_property('Container').get_editor_property('DisplayName'))=='External storage'),None) or actors.spawn_actor_from_class(SC,unreal.Vector(600,-350,100));point.set_actor_label('Gate4_ExternalStorage')
     point.get_editor_property('Container').set_editor_property('DisplayName','External storage')
@@ -43,4 +44,5 @@ configure()
 gc.collect()
 unreal.SystemLibrary.collect_garbage()
 unreal.SystemLibrary.quit_editor()
+
 
