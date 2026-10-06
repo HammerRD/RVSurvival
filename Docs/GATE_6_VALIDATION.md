@@ -1,0 +1,19 @@
+# Gate 6 fuel and electrical validation
+
+Status: IN PROGRESS. Gate 5 accepted; Gate 7 is not authorized.
+Baseline recovery checkpoint: 8e80050. Pre-existing Config/DefaultEngine.ini and IDE files remain outside Gate 6 commits.
+
+## Framework review (2026-10-06)
+Use native replicated ActorComponents/default subobjects for fuel, batteries and power bus; Primary Data Assets for immutable tuning; Gameplay Tags for fuel compatibility; Unreal RepNotifies/delegates, owned controller reliable RPCs and TimerManager weak dispatch for intent. Inventory remains the accepted FastArray system. CharacterMovement and Chaos server simulation stay intact. Supported Chaos SetMaxEngineTorque gates propulsion without changing suspension/transmission tuning. No custom replication transport, timer scheduler, movement solver, or generalized effects framework.
+
+Reviewed installed UE 5.8 headers and Epic documentation:
+- [Replicated Actor Components](https://dev.epicgames.com/documentation/unreal-engine/replicating-actor-components-in-unreal-engine?lang=en-US)
+- [Gameplay timers](https://dev.epicgames.com/documentation/en-us/unreal-engine/gameplay-timers-in-unreal-engine)
+- [Data Assets](https://dev.epicgames.com/documentation/en-us/unreal-engine/data-assets-in-unreal-engine)
+
+GAS is not needed for slow machine resource balances and switching: no abilities or stacked medical effects are being introduced. Lyra's component/data-driven separation is relevant; importing its experiences/game features is unnecessary. Existing UMG needs HUD and Canvas inventory remain; the prototype power panel extends readable presentation, with no duplicate UI-owned state. Reflected scalar structs/IDs prepare SaveGame; full persistence is deferred.
+
+## Plan and units
+Fuel in litres, energy in watt-hours, rates in litres/hour and watts, simulation seconds converted centrally to hours. Dedicated Gate 6 vehicle/content derivative preserves prior maps and vendor sources. Main propulsion fuel and optional separate generator source; independent house/chassis battery components; one configurable priority bus supplies reusable domain-tagged loads before charging batteries. Fuel-can state lives on accepted runtime item records, never in a second item actor inventory.
+
+No validation is claimed yet. Actual build, PIE, separate-process, network, stress and regression receipts will be recorded as executed.
