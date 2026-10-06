@@ -125,8 +125,13 @@ def finish():
   if rs:
    a=anchors[p];drift=max(math.dist(r['local'][:2],a[:2]) for r in rs);lost=sum(not r['frame'] for r in rs);cor=max(r['corr'] for r in rs);cm=max(r['maxcorr'] for r in rs)
    check(p+'_stable',drift<10 and lost==0 and cm<10,{'drift_cm':drift,'frame_lost_samples':lost,'corrections':cor,'max_correction_cm':cm})
- rs=[r for r in rows if 37<r['t']<116];check('floor_and_observer',max(math.dist(r['server'],r['client']) for r in rs)<(75 if config.get('network') else 30) and all(165<r['local'][2]<210 and r['frame'] for r in rs),{'min_z':min(r['local'][2] for r in rs),'max_z':max(r['local'][2] for r in rs),'max_observer_local_error_cm':max(math.dist(r['server'],r['client']) for r in rs)})
- check('visible_observer',max(math.dist(r['visual'],r['local']) for r in rs)<(75 if config.get('network') else 30) and all(165<r['visual'][2]<210 and abs(r['visual'][1])<115 for r in rs),{'max_visual_local_error_cm':max(math.dist(r['visual'],r['local']) for r in rs)})
+ rs=[r for r in rows if 37<r['t']<116]
+ if rs:
+  check('floor_and_observer',max(math.dist(r['server'],r['client']) for r in rs)<(75 if config.get('network') else 30) and all(165<r['local'][2]<210 and r['frame'] for r in rs),{'min_z':min(r['local'][2] for r in rs),'max_z':max(r['local'][2] for r in rs),'max_observer_local_error_cm':max(math.dist(r['server'],r['client']) for r in rs)})
+  check('visible_observer',max(math.dist(r['visual'],r['local']) for r in rs)<(75 if config.get('network') else 30) and all(165<r['visual'][2]<210 and abs(r['visual'][1])<115 for r in rs),{'max_visual_local_error_cm':max(math.dist(r['visual'],r['local']) for r in rs)})
+ else:
+  check('floor_and_observer',False,'No movement samples collected')
+  check('visible_observer',False,'No movement samples collected')
  check('completed_moving_storage_sequence',elapsed>=175,elapsed)
  storage_rows=[r for r in rows if 130<r['t']<176]
  check('storage_floor_and_corrections',bool(storage_rows) and all(r['frame'] and 165<r['local'][2]<210 and r['maxcorr']<10 for r in storage_rows))
@@ -216,5 +221,7 @@ def tick(dt):
   if sample_acc>.05:sample_acc=0;snap()
  except Exception as e:check('runner_exception',False,repr(e));unreal.log_error('GATE4_PROCESS_ERROR '+repr(e));finish()
 handle=unreal.register_slate_post_tick_callback(tick)
+
+
 
 
