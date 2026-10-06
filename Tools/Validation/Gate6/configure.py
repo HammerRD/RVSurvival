@@ -30,6 +30,12 @@ def make():
   if a.get_attach_parent_actor()==old:
    a.attach_to_component(new.get_component_by_class(unreal.SkeletalMeshComponent),'',unreal.AttachmentRule.KEEP_WORLD,unreal.AttachmentRule.KEEP_WORLD,unreal.AttachmentRule.KEEP_WORLD,False)
  es.destroy_actor(old);new.refresh_configuration()
+ # Keep the original Gate 4 definition/maps intact, but do not present an inert
+ # legacy can next to the functional fuel fixtures in this Gate 6-only map.
+ for actor in es.get_all_level_actors():
+  if isinstance(actor,unreal.RVWorldItem):
+   definition=actor.get_editor_property('Item').definition
+   if definition and str(definition.get_editor_property('CatalogId'))=='FuelCan' and not definition.get_editor_property('Fuel').get_editor_property('bFuelContainer'):es.destroy_actor(actor)
  defs=[]
  for name,capacity,amount,ftype in [('Full',20,20,'Gasoline'),('Partial',10,3.75,'Gasoline'),('Empty',20,0,'Gasoline'),('Diesel',20,20,'Diesel')]:
   path='/Game/Resources/DA_FuelCan'+name

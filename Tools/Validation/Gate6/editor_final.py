@@ -11,6 +11,7 @@ def inspect(path):
  counts['gamemode']=gm.get_path_name() if gm else None
  if path.endswith('Gate4InventoryTest'):check('gate4_saved_fixture_intact',counts['actors']==61 and counts['pickups']==11 and counts['storage']==6 and counts['rest']==0,counts)
  if path.endswith('Gate5SurvivalTest'):check('gate5_saved_fixture_intact',counts['actors']==62 and counts['pickups']==11 and counts['storage']==5 and counts['rest']==2 and counts['gamemode'].endswith('BP_Gate5GameMode_C'),counts)
+ if path.endswith('Gate6FuelElectricalTest'):check('gate6_saved_fixture_intact',counts['actors']==65 and counts['pickups']==14 and counts['storage']==5 and counts['rest']==2 and counts['gamemode'].endswith('BP_Gate5GameMode_C'),counts)
  check('load_'+path,True);return {'path':path,'counts':counts}
 def inspect_assets():
  for path in ['/Game/Items/DA_Food','/Game/Items/DA_Water','/Game/Survival/DA_NormalNeeds','/Game/Survival/BP_SurvivalPlayerState','/Game/Survival/BP_Gate5GameMode']:

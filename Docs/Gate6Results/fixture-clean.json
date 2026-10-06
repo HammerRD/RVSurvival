@@ -1,0 +1,13 @@
+{
+  "results": [
+    {
+      "case": "remove_only_gate6_legacy_inert_pickup",
+      "pass": true,
+      "detail": [
+        "Gate4_FuelCan"
+      ]
+    }
+  ],
+  "actors": 65,
+  "pickups": 14
+}
