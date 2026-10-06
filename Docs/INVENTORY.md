@@ -1,6 +1,6 @@
 # Inventory foundation — Gate 4
 
-Gate 4 is accepted; actual logistics validation is recorded in GATE_4_VALIDATION.md. Gate 5 adds metadata-driven food/water consumption and is accepted with results recorded separately below. Medicine, crafting, combat and fuel effects remain unimplemented.
+Gate 4 is accepted; actual logistics validation is recorded in GATE_4_VALIDATION.md. Gate 5 adds metadata-driven food/water consumption and is accepted with results recorded separately below. Gate 6 adds typed fuel-can state and refueling; medicine, crafting and combat remain unimplemented.
 
 ## Definitions and instances
 
@@ -58,6 +58,15 @@ The current Gate 5 RV stores primary cargo behind the purchased model's seven lo
 | 06 | Bulky gear | 120 | 140 |
 | 07 | Service / electrical supplies | 80 | 100 |
 
-These are prototype capacities, not measured production usable volumes; current exterior filters are unrestricted. Logical labels do not implement fluids, fuel, generator or electrical gameplay. Definition records identify Art_RV_Van_Compartment_XX and their separate source meshes/pivots for future animation. Vendor assets are not edited.
+These are prototype capacities, not measured production usable volumes; current exterior filters are unrestricted. Compartment labels alone do not implement resource gameplay; Gate 6 composes fuel/electrical systems independently of storage. Definition records identify Art_RV_Van_Compartment_XX and their separate source meshes/pivots for future animation. Vendor assets are not edited.
 
 Inside, pantry/medical/water supplies remain and the general cabinet becomes Personal supplies (10 kg / 12 L). Generic tool cargo moves outside; a small tool can still fit in personal supplies. An 18 kg engine part is correctly rejected by the personal drawer and accepted by the spare-parts exterior compartment. The retained Gate4InventoryTest keeps its historical cabinets/configuration for regression evidence. GUID/condition/custom state, contention protection, owner validation, capacity checks and FastArray replication are unchanged. No full save system or cargo-dependent vehicle mass is added.
+
+## Gate 6 fuel containers (validation in progress)
+Fuel uses the existing URVItemDefinition/FRVItemInstance/FastArray architecture. FRVFuelContainerMetadata supplies enabled flag, exact Gameplay Tag fuel type, per-definition capacity and initial litres. Typed instance fields bFuelInitialized, FuelLitres and FuelRevision accompany the unchanged GUID, condition, quantity, location and custom-state fields. Initialization happens once on authoritative pickup admission/world creation; transfers never refill a partially used can.
+
+Fuel cans are individual nonstackable records. AddAuthority validates finite nonnegative amounts, capacity, quantity and compatibility configuration. RefuelAuthority resolves an owned GUID and expected can revision, then serially adds only tank free capacity and subtracts exactly that amount from the can. Empty hardware remains in inventory; successful refuels advance its revision. Stale duplicate requests cannot drain the can twice. Full inventory/container/drop transfers copy all typed fuel state and preserve full-record GUIDs.
+
+New Gate 6 definitions are separate from the accepted inert DA_FuelCan: 20 L gasoline full/empty cans, 10 L gasoline partial can starting 3.75 L and an incompatible diesel test can. Small-can prototype logistics are 6 kg/12 L; large cans retain 12 kg/22 L. These are fixed prototype item weights, not dynamic fluid-density/payload simulation. The 25 kg/35 L player limits and all prior category filters remain. Pantry/medical storage remains inside; fuel/service supplies use appropriate exterior cargo.
+
+UI displays remaining litres; F requests refueling only through an opened reachable fuel-fill endpoint. No amount/definition/custom payload is accepted from UI. Consumption, storage and capacities remain the accepted systems. Future persistence should serialize GUID/catalog identity, condition, quantity, custom data, remaining litres and revision; no full SaveGame or offline progression is implemented here.
