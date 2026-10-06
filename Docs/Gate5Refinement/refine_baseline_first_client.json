@@ -1,0 +1,111 @@
+{
+  "pid": 46456,
+  "authority": false,
+  "config": {
+    "name": "refine_baseline",
+    "network": false
+  },
+  "results": [
+    {
+      "case": "seven_unique_independent_doors",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host_driver_client_passenger",
+      "pass": true,
+      "detail": "{'driver': \"<Object '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_1' (0x0000025AD47A6E00) Class 'RVInteriorTestCharacter'>\", 'passenger': \"<Object '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_0' (0x0000025AD47A3C00) Class 'RVInteriorTestCharacter'>\"}"
+    },
+    {
+      "case": "initial_possession",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "occupied_swap_rejected",
+      "pass": true,
+      "detail": "{'driver': \"<Object '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_1' (0x0000025AD47A6E00) Class 'RVInteriorTestCharacter'>\", 'passenger': \"<Object '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_0' (0x0000025AD47A3C00) Class 'RVInteriorTestCharacter'>\"}"
+    },
+    {
+      "case": "occupied_feedback",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "passenger_exit_frees_seat",
+      "pass": true,
+      "detail": "{'driver': \"<Object '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_1' (0x0000025AD47A6E00) Class 'RVInteriorTestCharacter'>\", 'passenger': 'None'}"
+    },
+    {
+      "case": "host_switch_to_passenger",
+      "pass": true,
+      "detail": "{'driver': 'None', 'passenger': \"<Object '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_1' (0x0000025AD47A6E00) Class 'RVInteriorTestCharacter'>\"}"
+    },
+    {
+      "case": "client_driver_host_passenger",
+      "pass": true,
+      "detail": "{'driver': \"<Object '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_0' (0x0000025AD47A3C00) Class 'RVInteriorTestCharacter'>\", 'passenger': \"<Object '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_1' (0x0000025AD47A6E00) Class 'RVInteriorTestCharacter'>\"}"
+    },
+    {
+      "case": "swapped_possession",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "occupied_swapped_rejected",
+      "pass": true,
+      "detail": "{'driver': \"<Object '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_0' (0x0000025AD47A3C00) Class 'RVInteriorTestCharacter'>\", 'passenger': \"<Object '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_1' (0x0000025AD47A6E00) Class 'RVInteriorTestCharacter'>\"}"
+    },
+    {
+      "case": "host_passenger_exit_frees",
+      "pass": true,
+      "detail": "{'driver': \"<Object '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_0' (0x0000025AD47A3C00) Class 'RVInteriorTestCharacter'>\", 'passenger': 'None'}"
+    },
+    {
+      "case": "client_driver_to_passenger",
+      "pass": true,
+      "detail": "{'driver': 'None', 'passenger': \"<Object '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_0' (0x0000025AD47A3C00) Class 'RVInteriorTestCharacter'>\"}"
+    },
+    {
+      "case": "client_passenger_to_driver",
+      "pass": true,
+      "detail": "{'driver': \"<Object '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_0' (0x0000025AD47A3C00) Class 'RVInteriorTestCharacter'>\", 'passenger': 'None'}"
+    },
+    {
+      "case": "client_drives_after_switch",
+      "pass": true,
+      "detail": "1541.0751561143413"
+    },
+    {
+      "case": "client_native_V_driver_to_passenger",
+      "pass": true,
+      "detail": "{'driver': 'None', 'passenger': \"<Object '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_0' (0x0000025AD47A3C00) Class 'RVInteriorTestCharacter'>\"}"
+    },
+    {
+      "case": "client_native_V_passenger_to_driver",
+      "pass": true,
+      "detail": "{'driver': \"<Object '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_0' (0x0000025AD47A3C00) Class 'RVInteriorTestCharacter'>\", 'passenger': 'None'}"
+    },
+    {
+      "case": "both_seats_released",
+      "pass": true,
+      "detail": "{'driver': 'None', 'passenger': 'None'}"
+    },
+    {
+      "case": "client_remote_door_entry",
+      "pass": true,
+      "detail": "[129.98478465233936, -0.00019974147796155464, 177.33908283417261]"
+    },
+    {
+      "case": "client_remote_door_exit",
+      "pass": true,
+      "detail": "[87.48567239071868, 240.6594792474122, 72.39237966446899]"
+    },
+    {
+      "case": "exception",
+      "pass": false,
+      "detail": "IndexError(\"Array: Index 0 is out-of-bounds (len: 0) for property 'TransientPythonProperty' (ArrayProperty)\")"
+    }
+  ],
+  "sample_count": 174
+}
