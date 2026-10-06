@@ -1,0 +1,340 @@
+{
+  "config": {
+    "name": "process_moving_client",
+    "driver": "client",
+    "network": false
+  },
+  "server_pid": 37004,
+  "client_pid": 49900,
+  "checks": [
+    {
+      "case": "inventory_at_135.6",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_135.6",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_135.6",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_135.6",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_135.6",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_135.6",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_135.6",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_136.7",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_136.7",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_136.7",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_136.7",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_136.7",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_136.7",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_136.7",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_142.4",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_142.4",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_142.4",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_142.4",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_142.4",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_142.4",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_142.4",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_143.5",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_143.5",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_143.5",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_143.5",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_143.5",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_143.5",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_143.5",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_150.7",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_150.7",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_150.7",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_150.7",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_150.7",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_150.7",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_150.7",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_151.8",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_151.8",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_151.8",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_151.8",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_151.8",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_151.8",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_151.8",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_175",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_175",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_175",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_175",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_175",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_175",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_175",
+      "pass": true
+    },
+    {
+      "case": "workstation_counts_converge",
+      "pass": true
+    },
+    {
+      "case": "paired_passenger_local_position",
+      "pass": true,
+      "max_error_cm": 8.729767359579254,
+      "limit_cm": 30
+    },
+    {
+      "case": "live_assertions_37004",
+      "pass": true,
+      "checks": 63
+    },
+    {
+      "case": "live_assertions_49900",
+      "pass": true,
+      "checks": 56
+    }
+  ],
+  "pass": true
+}

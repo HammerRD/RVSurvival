@@ -28,6 +28,13 @@ void ARVWorldItem::BeginPlay()
     if(HasAuthority() && !Item.Id.IsValid()) Item.Id=FGuid::NewGuid();
     OnRep_Item();
 }
+bool ARVWorldItem::IsNetRelevantFor(const AActor* RealViewer, const AActor* ViewTarget, const FVector& SrcLocation) const
+{
+    // Cabin floors are query components, not skeletal meshes. Keep their cargo relevant
+    // whenever the platform is relevant; unattached pickups retain normal distance culling.
+    if(const AActor* Platform=GetAttachParentActor()) return Platform->IsNetRelevantFor(RealViewer,ViewTarget,SrcLocation);
+    return Super::IsNetRelevantFor(RealViewer,ViewTarget,SrcLocation);
+}
 void ARVWorldItem::OnRep_Item()
 { if(Item.Definition && !Item.Definition->WorldMesh.IsNull()) Mesh->SetStaticMesh(Item.Definition->WorldMesh.LoadSynchronous()); }
 void ARVWorldItem::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const

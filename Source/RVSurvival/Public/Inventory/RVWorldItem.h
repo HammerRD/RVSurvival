@@ -28,6 +28,7 @@ public:
     ARVWorldItem();
     UPROPERTY(EditAnywhere, ReplicatedUsing=OnRep_Item, BlueprintReadOnly) FRVItemInstance Item;
     virtual void BeginPlay() override;
+    virtual bool IsNetRelevantFor(const AActor* RealViewer, const AActor* ViewTarget, const FVector& SrcLocation) const override;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out) const override;
     virtual bool CanInteract_Implementation(APawn* Pawn) const override;
     virtual FText GetInteractionText_Implementation(APawn* Pawn) const override;
