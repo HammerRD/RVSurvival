@@ -1,0 +1,32 @@
+{
+  "map": "/Game/Maps/Gate6FuelElectricalTest",
+  "blueprint": "/Game/Vehicles/Gate6/BP_ClassCSystemsMotorhome",
+  "fuel_cans": [
+    {
+      "asset": "/Game/Resources/DA_FuelCanFull",
+      "capacity_litres": 20,
+      "initial_litres": 20,
+      "type": "Gasoline"
+    },
+    {
+      "asset": "/Game/Resources/DA_FuelCanPartial",
+      "capacity_litres": 10,
+      "initial_litres": 3.75,
+      "type": "Gasoline"
+    },
+    {
+      "asset": "/Game/Resources/DA_FuelCanEmpty",
+      "capacity_litres": 20,
+      "initial_litres": 0,
+      "type": "Gasoline"
+    },
+    {
+      "asset": "/Game/Resources/DA_FuelCanDiesel",
+      "capacity_litres": 20,
+      "initial_litres": 20,
+      "type": "Diesel"
+    }
+  ],
+  "actors": 66,
+  "profile": "/Game/Resources/DA_NormalRVEnergy.DA_NormalRVEnergy"
+}
