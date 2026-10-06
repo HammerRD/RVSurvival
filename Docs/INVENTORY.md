@@ -43,3 +43,21 @@ Inert definitions: bottled water, canned food, bandage, pain medication, fuel ca
 ## Gate 5 integration (accepted)
 
 FRVConsumableMetadata on the existing definition supplies enabled flag, nutrition/hydration gains, minimum condition and future dietary metadata. ServerConsume resolves the requesting PlayerState's survivor inventory, validates owned GUID/metadata/benefit/cooldown, then ConsumeOneAuthority removes one existing runtime quantity serially before applying needs recovery. Definition names do not dispatch behavior. Stored items remain lightweight FastArray records; partial stacks preserve GUID/condition/custom state. Consumables in a shared cabinet must first be authoritatively transferred to the player. No second inventory, spoilage/cooking or medicine effects exist.
+
+## Gate 5 exterior-compartment refinement (2026-10-06)
+
+The current Gate 5 RV stores primary cargo behind the purchased model's seven lower exterior access doors. Every endpoint is an ARVExteriorStoragePoint with its own reusable URVContainerComponent and replicated DoorPartName; no cabinet-specific transaction implementation or new item system exists. Hold E while facing the specific outside door, then use I/Tab/Up/Down/T/G as before. I closes the panel; walking away or explicit close ends access. Capacity, allowed tags and display names remain configuration.
+
+| Mesh suffix | Independent compartment | kg | L |
+| --- | --- | ---: | ---: |
+| 01 | Tools / repair supplies | 80 | 70 |
+| 02 | Fluids / spare supplies | 80 | 70 |
+| 03 | Spare parts | 100 | 90 |
+| 04 | Camping equipment | 80 | 70 |
+| 05 | General cargo | 100 | 100 |
+| 06 | Bulky gear | 120 | 140 |
+| 07 | Service / electrical supplies | 80 | 100 |
+
+These are prototype capacities, not measured production usable volumes; current exterior filters are unrestricted. Logical labels do not implement fluids, fuel, generator or electrical gameplay. Definition records identify Art_RV_Van_Compartment_XX and their separate source meshes/pivots for future animation. Vendor assets are not edited.
+
+Inside, pantry/medical/water supplies remain and the general cabinet becomes Personal supplies (10 kg / 12 L). Generic tool cargo moves outside; a small tool can still fit in personal supplies. An 18 kg engine part is correctly rejected by the personal drawer and accepted by the spare-parts exterior compartment. The retained Gate4InventoryTest keeps its historical cabinets/configuration for regression evidence. GUID/condition/custom state, contention protection, owner validation, capacity checks and FastArray replication are unchanged. No full save system or cargo-dependent vehicle mass is added.

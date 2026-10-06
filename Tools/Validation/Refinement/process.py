@@ -50,7 +50,7 @@ def restored(i):
 def seed_storage():
  if authority:
   add(doors[0].get_editor_property('Container'),'Food')
-  for d in doors[1:]:add(d.get_editor_property('Container'),'Tool')
+  for index,d in enumerate(doors[1:],start=1):add(d.get_editor_property('Container'),'EnginePart' if index==2 else 'Tool')
  prepare_door(0)
 def food_check():
  a=hn.get_editor_property('State').nutrition;b=cn.get_editor_property('State').nutrition
@@ -83,7 +83,7 @@ def client_door_setup():
 def client_door_check(entered):
  f=cp.get_component_by_class(unreal.RVPassengerReferenceFrameComponent);q=v.get_actor_transform().inverse_transform_location(cp.get_actor_location())
  check('client_remote_door_'+('entry' if entered else 'exit'),(f.get_editor_property('ReferenceFrame')==v if entered else f.get_editor_property('ReferenceFrame') is None) and (abs(q.y)<10 if entered else q.y>220),[q.x,q.y,q.z])
-def sample():samples.append({'t':round(time.time()-start,3),'seats':[str(driver.get_editor_property('Occupant')),str(passenger.get_editor_property('Occupant'))],'containers':signatures(),'host_items':[(guid(a.id),a.quantity) for a in hi.get_items()],'client_items':[(guid(a.id),a.quantity) for a in ci.get_items()]})
+def sample():samples.append({'client_position':str(cp.get_actor_location()),'client_local':str(v.get_actor_transform().inverse_transform_location(cp.get_actor_location())),'own_prompt':str(p.get_component_by_class(unreal.RVInteractionComponent).get_prompt()),'control':str(own.get_control_rotation()),'speed':v.get_velocity().length(),'t':round(time.time()-start,3),'seats':[str(driver.get_editor_property('Occupant')),str(passenger.get_editor_property('Occupant'))],'containers':signatures(),'host_items':[(guid(a.id),a.quantity) for a in hi.get_items()],'client_items':[(guid(a.id),a.quantity) for a in ci.get_items()]})
 def finish_client():
  global active
  if authority:return
@@ -107,7 +107,7 @@ at(13,lambda:own.request_switch_seat('DriverSeat' if authority else 'PassengerSe
 at(15,lambda:key('E',True) if authority else None);at(15.3,lambda:key('E',False) if authority else None);at(16,lambda:seat_check('host_passenger_exit_frees',cp,None))
 at(17,lambda:own.request_switch_seat('PassengerSeat') if not authority else None);at(18,lambda:seat_check('client_driver_to_passenger',None,cp));at(19,lambda:own.request_switch_seat('DriverSeat') if not authority else None);at(20,lambda:seat_check('client_passenger_to_driver',cp,None))
 at(21,lambda:key('W',True) if not authority else None);at(24,lambda:check('client_drives_after_switch',v.get_velocity().length()>250,v.get_velocity().length()));at(25,lambda:(key('W',False),key('S',True)) if not authority else None);at(28,lambda:(key('S',False),key('SpaceBar',True)) if not authority else None)
-at(32,lambda:key('V',True) if not authority else None);at(32.2,lambda:key('V',False) if not authority else None);at(33,lambda:seat_check('client_native_V_driver_to_passenger',None,cp));at(34,lambda:key('V',True) if not authority else None);at(34.2,lambda:key('V',False) if not authority else None);at(35,lambda:seat_check('client_native_V_passenger_to_driver',cp,None));at(36,lambda:key('E',True) if not authority else None);at(36.3,lambda:key('E',False) if not authority else None);at(37,lambda:seat_check('both_seats_released',None,None))
+at(31.5,lambda:key('SpaceBar',False) if not authority else None);at(32,lambda:key('V',True) if not authority else None);at(32.2,lambda:key('V',False) if not authority else None);at(33,lambda:seat_check('client_native_V_driver_to_passenger',None,cp));at(34,lambda:key('V',True) if not authority else None);at(34.2,lambda:key('V',False) if not authority else None);at(35,lambda:seat_check('client_native_V_passenger_to_driver',cp,None));at(36,lambda:key('E',True) if not authority else None);at(36.3,lambda:key('E',False) if not authority else None);at(37,lambda:seat_check('both_seats_released',None,None))
 # Test new door transition on a genuine remote client before cargo transactions.
 at(37.2,client_door_setup);at(37.6,lambda:aim(outside) if not authority else None);at(37.95,lambda:key('E',True) if not authority else None);at(38.95,lambda:key('E',False) if not authority else None);at(39.4,lambda:client_door_check(True));at(39.7,lambda:aim(inside) if not authority else None);at(40.05,lambda:key('E',True) if not authority else None);at(41.05,lambda:key('E',False) if not authority else None);at(41.5,lambda:client_door_check(False))
 at(44,seed_storage);at(44.7,lambda:(remember(0),aim(doors[0])));at(45.05,lambda:key('E',True));at(46.05,lambda:key('E',False));at(46.5,lambda:open_check(0));at(47,lambda:withdraw(0));at(48,lambda:winner_check(0));at(49,lambda:needs.request_consume(ids[0]));at(50,food_check);at(50.5,inv.request_close_container)
@@ -117,6 +117,12 @@ for i in range(1,7):
 at(76,check_all);at(77,drop_prepare);at(78,drop_request);at(79,drop_check);at(79.5,lambda:pickup_drop(True));at(80.5,lambda:pickup_drop(False));at(81,repick_check)
 at(82,lambda:place(cp,pe,180));at(82.5,lambda:aim(pe) if not authority else None);at(82.85,lambda:key('E',True) if not authority else None);at(83.85,lambda:key('E',False) if not authority else None);at(84.5,lambda:seat_check('client_seated_before_disconnect',None,cp));at(85,finish_client);at(89,finish_server)
 events.sort(key=lambda a:a[0])
+# Extend the test with true remote interior seat entry and numeric control.
+interior_driver=next(a for a in entries if a.get_editor_property('Seat')==driver and abs(v.get_actor_transform().inverse_transform_location(a.get_actor_location()).y)<100)
+events=[(t+7 if t>=44 else t,f) for t,f in events]
+at(42,client_door_setup);at(42.35,lambda:aim(outside) if not authority else None);at(42.7,lambda:key('E',True) if not authority else None);at(43.7,lambda:key('E',False) if not authority else None);at(43.95,lambda:(client_door_check(True),aim(interior_driver) if not authority else None));at(44.3,lambda:key('E',True) if not authority else None);at(45.3,lambda:key('E',False) if not authority else None);at(45.8,lambda:seat_check('client_standing_interior_driver_entry',cp,None));at(46.1,lambda:key('Two',True) if not authority else None);at(46.3,lambda:key('Two',False) if not authority else None);at(47,lambda:seat_check('client_numeric_passenger_switch',None,cp));at(48,lambda:key('E',True) if not authority else None);at(48.3,lambda:key('E',False) if not authority else None);at(49,lambda:seat_check('interior_entry_switch_exit_releases',None,None))
+events.sort(key=lambda a:a[0])
+
 def tick(dt):
  global idx,next_sample
  if not active:return

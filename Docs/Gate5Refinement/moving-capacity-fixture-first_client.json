@@ -1,0 +1,393 @@
+{
+  "config": {
+    "network": false,
+    "kind": "moving",
+    "driver": "host",
+    "name": "refine_moving_host_baseline"
+  },
+  "process_id": 31796,
+  "authority": false,
+  "station_counts": {
+    "Navigation": 2,
+    "Workbench": 2,
+    "Power": 2,
+    "Storage": 2,
+    "Medical": 3,
+    "Kitchen": 2
+  },
+  "results": [
+    {
+      "case": "natural_entry",
+      "pass": true,
+      "detail": "[87.52161572370522, 11.314876297947603, 177.1154677733338]"
+    },
+    {
+      "case": "driver_possession",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stationary_station_Workbench",
+      "pass": true,
+      "detail": "{'before': 0, 'server': 1, 'client': 1, 'passenger': [-190.37023143242513, 11.314876297947603, 191.63294865276785], 'speed': 0.0}"
+    },
+    {
+      "case": "stationary_station_Medical",
+      "pass": true,
+      "detail": "{'before': 0, 'server': 1, 'client': 1, 'passenger': [-145.81526933909961, 11.314876297947603, 191.63294865276785], 'speed': 0.0}"
+    },
+    {
+      "case": "stationary_station_Kitchen",
+      "pass": true,
+      "detail": "{'before': 0, 'server': 1, 'client': 1, 'passenger': [-41.26753330375294, 11.314876297947603, 177.3399999299285], 'speed': 0.0}"
+    },
+    {
+      "case": "stationary_station_Storage",
+      "pass": true,
+      "detail": "{'before': 0, 'server': 1, 'client': 1, 'passenger': [-195.81430316340257, 11.314876297947603, 191.58189050161573], 'speed': 0.0}"
+    },
+    {
+      "case": "stationary_station_Power",
+      "pass": true,
+      "detail": "{'before': 0, 'server': 1, 'client': 1, 'passenger': [58.73116880187009, 11.314876297947603, 177.33999959432813], 'speed': 0.0}"
+    },
+    {
+      "case": "stationary_station_Navigation",
+      "pass": true,
+      "detail": "{'before': 0, 'server': 1, 'client': 1, 'passenger': [129.94640873122884, 11.314876297947603, 177.33999959432813], 'speed': 0.0}"
+    },
+    {
+      "case": "stationary_eating",
+      "pass": true,
+      "detail": "{'value': 44.92075729370117, 'speed': 0.0, 'local': [-191.2653010656504, 11.314876297947603, 191.48126687048867]}"
+    },
+    {
+      "case": "low_speed",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x0000024E00757850) {x: 483.205597, y: 3.691931, z: -0.006695}>"
+    },
+    {
+      "case": "low_speed_front",
+      "pass": true,
+      "detail": "[129.95538678019355, 11.314876298411878, 177.34027114509158]"
+    },
+    {
+      "case": "low_speed_rear",
+      "pass": true,
+      "detail": "[-191.26512608260552, 11.314876298498705, 191.4806644827069]"
+    },
+    {
+      "case": "moderate_speed",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x0000024E20E7A590) {x: 2462.632324, y: 18.829388, z: 0.037317}>"
+    },
+    {
+      "case": "moving_front",
+      "pass": true,
+      "detail": "[129.89809470104404, 11.314877050952386, 177.35923143531392]"
+    },
+    {
+      "case": "highway_eating",
+      "pass": true,
+      "detail": "{'value': 69.87674713134766, 'speed': 2633.9046054102805, 'local': [-191.24719475725107, 11.314876242951161, 191.46982053842245]}"
+    },
+    {
+      "case": "moving_rear",
+      "pass": true,
+      "detail": "[-191.28319860032815, 11.314883654391355, 191.46981201808873]"
+    },
+    {
+      "case": "highway_speed",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x0000024E002A10F0) {x: 2617.895996, y: 19.610929, z: 1.922099}>"
+    },
+    {
+      "case": "moving_station_Workbench",
+      "pass": true,
+      "detail": "{'before': 1, 'server': 2, 'client': 2, 'passenger': [-191.3051249292099, 11.314876252329906, 191.46979961218523], 'speed': 2639.485625449555}"
+    },
+    {
+      "case": "moving_station_Medical",
+      "pass": true,
+      "detail": "{'before': 1, 'server': 2, 'client': 2, 'passenger': [-146.708496753267, 11.314876581547868, 191.47059813411354], 'speed': 2637.6392536158687}"
+    },
+    {
+      "case": "moving_station_Kitchen",
+      "pass": true,
+      "detail": "{'before': 1, 'server': 2, 'client': 2, 'passenger': [-38.805009589124516, 11.314876585359903, 177.33586294639844], 'speed': 2635.3436342515674}"
+    },
+    {
+      "case": "moving_station_Storage",
+      "pass": true,
+      "detail": "{'before': 1, 'server': 2, 'client': 2, 'passenger': [-193.36131190630675, 11.314876507856539, 191.61428200590643], 'speed': 2632.334930725194}"
+    },
+    {
+      "case": "moving_station_Power",
+      "pass": true,
+      "detail": "{'before': 1, 'server': 2, 'client': 2, 'passenger': [61.24417744301121, 11.314875938560807, 177.33499332967597], 'speed': 2633.378234830437}"
+    },
+    {
+      "case": "moving_station_Navigation",
+      "pass": true,
+      "detail": "{'before': 1, 'server': 2, 'client': 2, 'passenger': [129.18141787226773, 11.31488062189777, 177.33531749033529], 'speed': 2637.688624024487}"
+    },
+    {
+      "case": "moving_early_release_cancel",
+      "pass": true,
+      "detail": "2"
+    },
+    {
+      "case": "sideways_walk",
+      "pass": true,
+      "detail": "[-145.4523939479501, 32.53444285096929, 191.5547359861475]"
+    },
+    {
+      "case": "moving_mouse_MouseX",
+      "pass": true,
+      "detail": "<Struct 'Rotator' (0x0000024E7965CA10) {pitch: 0.000000, yaw: 1.925000, roll: 0.000000}>"
+    },
+    {
+      "case": "moving_mouse_MouseY",
+      "pass": true,
+      "detail": "<Struct 'Rotator' (0x0000024E7965DF00) {pitch: 1.925000, yaw: 0.000000, roll: 0.000000}>"
+    },
+    {
+      "case": "gentle_turn_occurred",
+      "pass": true,
+      "detail": "<Struct 'Rotator' (0x0000024E7969A590) {pitch: 0.026854, yaw: 8.751781, roll: -0.001081}>"
+    },
+    {
+      "case": "turning_station_Medical",
+      "pass": true,
+      "detail": "{'before': 2, 'server': 3, 'client': 3, 'passenger': [-145.40732591306204, 9.185596924483017, 191.52895649207025], 'speed': 2632.9465019383006}"
+    },
+    {
+      "case": "moving_look_away_cancel",
+      "pass": true,
+      "detail": "3"
+    },
+    {
+      "case": "strong_turn_occurred",
+      "pass": true,
+      "detail": "<Struct 'Rotator' (0x0000024E7970B300) {pitch: -0.054071, yaw: -39.735524, roll: -0.000786}>"
+    },
+    {
+      "case": "vehicle_stopped",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x0000024E797D9320) {x: -1.442222, y: 5.186774, z: -1.034048}>"
+    },
+    {
+      "case": "resume_driving",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x0000024E7984E040) {x: 347.275238, y: -1424.071655, z: 0.062457}>"
+    },
+    {
+      "case": "ordinary_world_movement_restored",
+      "pass": true,
+      "detail": "[87.72490391824635, 789.9297574045215, 72.38830821676949]"
+    },
+    {
+      "case": "reentry",
+      "pass": true,
+      "detail": "[86.90227298146064, 11.11264273299026, 177.13873666908037]"
+    },
+    {
+      "case": "sleep_setup_is_parked",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "parked_passenger_sleep",
+      "pass": true,
+      "detail": "{'speed': 0.0, 'distance': 62.877141484605666, 'mode': '<RVRestMode.SLEEPING: 2>', 'local': [-180.9185601457704, 11.114838055689376, 191.44690405203292]}"
+    },
+    {
+      "case": "moving_platform_automatically_wakes_and_frees_rest",
+      "pass": true,
+      "detail": "919.8980225214698"
+    },
+    {
+      "case": "open_Personal supplies",
+      "pass": true,
+      "detail": "[-195.4630968323673, 11.11495996536243, 191.44700612582864]"
+    },
+    {
+      "case": "stationary_rv_storage",
+      "pass": false,
+      "detail": "{'server_quantity': 0, 'client_quantity': 0, 'speed': 0.0, 'passenger_local': [-195.4630968323673, 11.11495996536243, 191.44700612582864], 'corrections': 0}"
+    },
+    {
+      "case": "runner_exception",
+      "pass": false,
+      "detail": "IndexError(\"Array: Index 0 is out-of-bounds (len: 0) for property 'TransientPythonProperty' (ArrayProperty)\")"
+    },
+    {
+      "case": "low_speed_stand_stable",
+      "pass": true,
+      "detail": "{'drift_cm': 0.11388040068063932, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+    },
+    {
+      "case": "acceleration_stand_stable",
+      "pass": true,
+      "detail": "{'drift_cm': 0.059950047545336144, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+    },
+    {
+      "case": "highway_stand_stable",
+      "pass": true,
+      "detail": "{'drift_cm': 0.1024506813121077, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+    },
+    {
+      "case": "gentle_turn_stable",
+      "pass": true,
+      "detail": "{'drift_cm': 0.10204992510553133, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+    },
+    {
+      "case": "strong_turn_stable",
+      "pass": true,
+      "detail": "{'drift_cm': 2.2211609028682826, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+    },
+    {
+      "case": "braking_stand_stable",
+      "pass": true,
+      "detail": "{'drift_cm': 0.14077322044525012, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+    },
+    {
+      "case": "resume_stand_stable",
+      "pass": true,
+      "detail": "{'drift_cm': 0.16323501542892055, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+    },
+    {
+      "case": "floor_and_observer",
+      "pass": true,
+      "detail": "{'min_z': 177.32298833638947, 'max_z': 191.627676716434, 'max_observer_local_error_cm': 0.0}"
+    },
+    {
+      "case": "visible_observer",
+      "pass": true,
+      "detail": "{'max_visual_local_error_cm': 0.0}"
+    },
+    {
+      "case": "completed_moving_storage_sequence",
+      "pass": false,
+      "detail": "143.81190299987793"
+    },
+    {
+      "case": "storage_floor_and_corrections",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "anchors": {
+    "station_Workbench": [
+      -191.22227873564563,
+      11.314876457402166,
+      191.4698178104939
+    ],
+    "station_Medical": [
+      -191.28320253932358,
+      11.314883658493553,
+      191.4698120163516
+    ],
+    "station_Kitchen": [
+      -146.72522885395125,
+      11.314883750483235,
+      191.47059235906215
+    ],
+    "station_Storage": [
+      -38.844418203891955,
+      11.314877187757716,
+      177.3358442689597
+    ],
+    "station_Power": [
+      -193.380466799644,
+      11.314876803009637,
+      191.6142793003811
+    ],
+    "station_Navigation": [
+      61.22320152532436,
+      11.314876266019365,
+      177.33499058499717
+    ],
+    "stationary_return": [
+      129.94640873122884,
+      11.314876297947603,
+      177.33999959432813
+    ],
+    "low_speed_stand": [
+      -191.2653010656504,
+      11.314876297947603,
+      191.48126687048867
+    ],
+    "low_walk_front": [
+      -191.26543503288835,
+      11.314876298498872,
+      191.4812668703868
+    ],
+    "low_walk_rear": [
+      129.95538678019355,
+      11.314876298411878,
+      177.34027114509158
+    ],
+    "acceleration_stand": [
+      -191.26512608260552,
+      11.314876298498705,
+      191.4806644827069
+    ],
+    "moving_walk_front": [
+      -191.26486965815968,
+      11.314876299444437,
+      191.4806644827228
+    ],
+    "moving_walk_rear": [
+      129.89809470104404,
+      11.314877050952386,
+      177.35923143531392
+    ],
+    "highway_stand": [
+      -191.28319860032815,
+      11.314883654391355,
+      191.46981201808873
+    ],
+    "moving_return": [
+      129.13789793641365,
+      11.31487596640293,
+      177.3353268411091
+    ],
+    "sideways": [
+      -145.48236521592796,
+      11.314876846486642,
+      191.554734229099
+    ],
+    "gentle_turn": [
+      -145.41969080082586,
+      11.31488046215648,
+      191.55472723966872
+    ],
+    "strong_turn": [
+      -145.44782229956877,
+      11.256097234957656,
+      191.55471611344848
+    ],
+    "braking_stand": [
+      -145.44749994487395,
+      11.382564383404539,
+      191.5547096644684
+    ],
+    "resume_stand": [
+      -145.45974616007584,
+      11.314722398177807,
+      191.55473663430746
+    ],
+    "exit_approach": [
+      -145.45973560247023,
+      11.314719755593316,
+      191.55473663422623
+    ],
+    "storage_stationary": [
+      -180.91856537706144,
+      11.114839366646038,
+      191.4469040520715
+    ]
+  },
+  "sample_count": 2410
+}
