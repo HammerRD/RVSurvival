@@ -1,0 +1,339 @@
+{
+  "results": [
+    {
+      "case": "real_separate_door_actor",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "door_opens_native_hold",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "door_closes_native_hold",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "door_reopens",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bed_reserved_0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "lying_pose_collision_camera_0",
+      "pass": true,
+      "detail": "{'local': \"<Struct 'Vector' (0x000002528E6FF440) {x: -295.000000, y: 0.000000, z: 205.000000}>\", 'collision': '<CollisionEnabled.NO_COLLISION: 0>'}"
+    },
+    {
+      "case": "bed_position_0",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FF440) {x: -295.000000, y: 0.000000, z: 205.000000}>"
+    },
+    {
+      "case": "single_clean_horizontal_presentation_0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "sleep_mode_0",
+      "pass": true,
+      "detail": "{'mode': '<RVRestMode.SLEEPING: 2>', 'feedback': 'Rear bed'}"
+    },
+    {
+      "case": "safe_wake_0",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FF440) {x: -184.979985, y: 0.000648, z: 191.489571}>"
+    },
+    {
+      "case": "camera_collision_restored_0",
+      "pass": true,
+      "detail": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>"
+    },
+    {
+      "case": "walk_away_after_bed_0",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FF440) {x: 9.869679, y: -0.000783, z: 177.158243}>"
+    },
+    {
+      "case": "bed_reserved_1",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "lying_pose_collision_camera_1",
+      "pass": true,
+      "detail": "{'local': \"<Struct 'Vector' (0x000002528E6FF580) {x: -295.000000, y: 0.000000, z: 205.000000}>\", 'collision': '<CollisionEnabled.NO_COLLISION: 0>'}"
+    },
+    {
+      "case": "bed_position_1",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FF580) {x: -295.000000, y: 0.000000, z: 205.000000}>"
+    },
+    {
+      "case": "single_clean_horizontal_presentation_1",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "sleep_mode_1",
+      "pass": true,
+      "detail": "{'mode': '<RVRestMode.SLEEPING: 2>', 'feedback': 'Rear bed'}"
+    },
+    {
+      "case": "safe_wake_1",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FF530) {x: -184.979985, y: 0.000648, z: 191.489571}>"
+    },
+    {
+      "case": "camera_collision_restored_1",
+      "pass": true,
+      "detail": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>"
+    },
+    {
+      "case": "walk_away_after_bed_1",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FF580) {x: 9.870582, y: -0.000783, z: 177.158240}>"
+    },
+    {
+      "case": "bed_reserved_2",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "lying_pose_collision_camera_2",
+      "pass": true,
+      "detail": "{'local': \"<Struct 'Vector' (0x000002528E6FF670) {x: -295.000000, y: 0.000000, z: 205.000000}>\", 'collision': '<CollisionEnabled.NO_COLLISION: 0>'}"
+    },
+    {
+      "case": "bed_position_2",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FF670) {x: -295.000000, y: 0.000000, z: 205.000000}>"
+    },
+    {
+      "case": "single_clean_horizontal_presentation_2",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "sleep_mode_2",
+      "pass": true,
+      "detail": "{'mode': '<RVRestMode.SLEEPING: 2>', 'feedback': 'Rear bed'}"
+    },
+    {
+      "case": "safe_wake_2",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FF620) {x: -184.979985, y: 0.000648, z: 191.489571}>"
+    },
+    {
+      "case": "camera_collision_restored_2",
+      "pass": true,
+      "detail": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>"
+    },
+    {
+      "case": "walk_away_after_bed_2",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FF670) {x: 9.875543, y: -0.000783, z: 177.158242}>"
+    },
+    {
+      "case": "station_use_Workbench",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "station_walk_away_Workbench",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FF760) {x: -35.156721, y: -0.001768, z: 177.297033}>"
+    },
+    {
+      "case": "station_use_Medical",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "station_walk_away_Medical",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FF800) {x: 9.859390, y: -0.001782, z: 177.158176}>"
+    },
+    {
+      "case": "station_use_Kitchen",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "station_walk_away_Kitchen",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FF8A0) {x: 114.838423, y: -0.001786, z: 177.117117}>"
+    },
+    {
+      "case": "station_use_Storage",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "station_walk_away_Storage",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FDA00) {x: -45.161167, y: -0.001765, z: 177.327875}>"
+    },
+    {
+      "case": "station_use_Power",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "station_walk_away_Power",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FDB90) {x: 146.860061, y: -0.001763, z: 177.339713}>"
+    },
+    {
+      "case": "station_use_Navigation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "station_walk_away_Navigation",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FDD20) {x: -24.949040, y: -0.001729, z: 177.562303}>"
+    },
+    {
+      "case": "station_use_Workbench",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "station_walk_away_Workbench",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FDFA0) {x: -35.161262, y: -0.001768, z: 177.297032}>"
+    },
+    {
+      "case": "station_use_Medical",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "station_walk_away_Medical",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FE3B0) {x: 9.840269, y: -0.001782, z: 177.158244}>"
+    },
+    {
+      "case": "station_use_Kitchen",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "station_walk_away_Kitchen",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FDBE0) {x: 114.875867, y: -0.001786, z: 177.111978}>"
+    },
+    {
+      "case": "station_use_Storage",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "station_walk_away_Storage",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FDEB0) {x: -45.159379, y: -0.001765, z: 177.327875}>"
+    },
+    {
+      "case": "station_use_Power",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "station_walk_away_Power",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FE310) {x: 146.860064, y: -0.001763, z: 177.339713}>"
+    },
+    {
+      "case": "station_use_Navigation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "station_walk_away_Navigation",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FE590) {x: -24.947179, y: -0.001729, z: 177.562305}>"
+    },
+    {
+      "case": "all_RV_debug_targets_hidden",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "case": "bed_reserved_blocked_wake",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "lying_pose_collision_camera_blocked_wake",
+      "pass": true,
+      "detail": "{'local': \"<Struct 'Vector' (0x000002528E6FE7C0) {x: -295.000000, y: 0.000000, z: 205.000000}>\", 'collision': '<CollisionEnabled.NO_COLLISION: 0>'}"
+    },
+    {
+      "case": "bed_position_blocked_wake",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FE310) {x: -295.000000, y: 0.000000, z: 205.000000}>"
+    },
+    {
+      "case": "single_clean_horizontal_presentation_blocked_wake",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "blocked_wake_retains_pose_and_reservation",
+      "pass": true,
+      "detail": "Stand-up aisle occupied. R: retry standing up."
+    },
+    {
+      "case": "safe_wake_retry_E",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FF760) {x: -184.979985, y: 0.000648, z: 191.489571}>"
+    },
+    {
+      "case": "camera_collision_restored_retry_E",
+      "pass": true,
+      "detail": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>"
+    },
+    {
+      "case": "door_detects_player_in_swing",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FF760) {x: 92.400000, y: 140.000000, z: 100.000000}>"
+    },
+    {
+      "case": "obstructed_close_keeps_door_open",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "clear_close_after_obstruction",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "closed_door_center_trace_not_masked",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "ordinary_RV_exit_after_bed_and_stations",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FDA50) {x: 92.620638, y: 240.007143, z: 71.537647}>"
+    },
+    {
+      "case": "rear_obstruction_uses_clear_interior_fallback",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FE310) {x: 129.991332, y: -0.000281, z: 177.189571}>"
+    },
+    {
+      "case": "fallback_wake_movement_unlocked",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002528E6FF940) {x: -64.532524, y: -0.009915, z: 189.861613}>"
+    }
+  ]
+}

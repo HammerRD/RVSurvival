@@ -107,3 +107,7 @@ Frequent saves and local milestones f4c6543, 6369b4e, 92d3699, cd6ca0d, da8ce09,
 - Gate 6 house-door trace fix: disabled closed-door entry marker no longer masks the door; outside surface interaction and moving open/close pass separate-process host/client checks (18 each).
 - Rest presentation cleanly hides/restores the standing proxy instead of rotating the native smoothing mesh; the prototype lying body remains replaceable.
 
+
+- Gate 6 bed trapping refinement: rest now uses validated bed and wake transforms, a replaceable horizontal body/head pose, tunable head camera, and R/E stand-up controls independent of HUD drawing. A blocked rear aisle can use another clear interior floor location; fully obstructed placement is rejected with retry feedback. No collision bypass or exterior recovery teleport is used.
+- Final parked bed/door/station safety: 67 checks pass; clean baseline/emulated role and sleep-disconnect matrix passes. Gate 1–5 representative regressions pass. Full moving-storage regression remains in progress.
+

@@ -54,6 +54,9 @@ public:
     virtual void BeginPlay() override;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="RV|Doors") bool bInteractiveHouseDoor=false;
+    UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="RV|Doors") FName HouseDoorPartName=TEXT("Art_RV_Van_Door_Back");
+    UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="RV|Doors") FName HouseDoorGlassPartName=TEXT("Art_RV_Glass_Door_Back");
+    UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="RV|Doors") float HouseDoorOpenAngle=-90;
     UPROPERTY(Replicated,BlueprintReadOnly,Category="RV|Doors") TObjectPtr<class ARVInteractiveDoor> HouseDoor;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<class UBoxComponent> InteriorFloor;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="RV|Presentation") TArray<FRVVisualPart> VisualParts;

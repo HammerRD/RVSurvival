@@ -21,7 +21,12 @@ void ARVRestPoint::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 bool ARVRestPoint::FindWakePosition(ARVSurvivorCharacter* Character,FVector& Position,UPrimitiveComponent*& Floor) const
 {
     if (auto* RV=Cast<ARVInteriorMotorhome>(GetAttachParentActor()))
-        return RV->FindSafeInteriorPosition(Character,WakeAisleLocation,Position,Floor);
+    {
+        if (RV->FindSafeInteriorPosition(Character,WakeAisleLocation,Position,Floor)) return true;
+        // Another standing passenger must not lock the bed's short rear aisle.
+        // The second candidate set is still supported interior floor, never an outside exit or overlap escape.
+        return RV->FindSafeInteriorPosition(Character,RV->StandingEntryLocation,Position,Floor);
+    }
     return false; // Other rest locations can supply a platform placement policy before enabling lying.
 }
 bool ARVRestPoint::ValidateLyingPosition(ARVSurvivorCharacter* Character) const

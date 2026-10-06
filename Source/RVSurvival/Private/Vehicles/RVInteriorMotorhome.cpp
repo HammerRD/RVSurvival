@@ -72,7 +72,7 @@ void ARVInteriorMotorhome::OnConstruction(const FTransform& Transform)
         for (int32 Index = 0; Index < Def.Materials.Num(); ++Index)
             if (Def.Materials[Index]) Part->SetMaterial(Index, Def.Materials[Index]);
         Part->bDisallowNanite = Def.bDisallowNanite;
-        if (bInteractiveHouseDoor && (Def.Name==TEXT("Art_RV_Van_Door_Back") || Def.Name==TEXT("Art_RV_Glass_Door_Back")))
+        if (bInteractiveHouseDoor && (Def.Name==HouseDoorPartName || Def.Name==HouseDoorGlassPartName))
         { Part->SetVisibility(!GetWorld()->IsGameWorld()); Part->SetRelativeRotation(FRotator::ZeroRotator); }
         Part->SetCollisionEnabled(ECollisionEnabled::NoCollision); Part->RegisterComponent(); GeneratedParts.Add(Part);
     }
@@ -98,18 +98,19 @@ void ARVInteriorMotorhome::OnConstruction(const FTransform& Transform)
 void ARVInteriorMotorhome::BeginPlay()
 {
     Super::BeginPlay();
-    if (bInteractiveHouseDoor) for (const FName Name : {FName(TEXT("Art_RV_Van_Door_Back")),FName(TEXT("Art_RV_Glass_Door_Back"))})
+    if (bInteractiveHouseDoor) for (const FName Name : {HouseDoorPartName,HouseDoorGlassPartName})
         if (auto* Part=FindVisualPart(Name)) Part->SetVisibility(false);
     if (HasAuthority() && bInteractiveHouseDoor)
     {
-        const auto* Door=VisualParts.FindByPredicate([](const FRVVisualPart& P){return P.Name==TEXT("Art_RV_Van_Door_Back");});
-        const auto* Glass=VisualParts.FindByPredicate([](const FRVVisualPart& P){return P.Name==TEXT("Art_RV_Glass_Door_Back");});
+        const auto* Door=VisualParts.FindByPredicate([this](const FRVVisualPart& P){return P.Name==HouseDoorPartName;});
+        const auto* Glass=VisualParts.FindByPredicate([this](const FRVVisualPart& P){return P.Name==HouseDoorGlassPartName;});
         if (Door && Door->Mesh)
         {
             HouseDoor=GetWorld()->SpawnActorDeferred<ARVInteractiveDoor>(ARVInteractiveDoor::StaticClass(),GetActorTransform(),this);
             if (HouseDoor)
             {
                 HouseDoor->DoorMesh=Door->Mesh; HouseDoor->GlassMesh=Glass?Glass->Mesh:nullptr;
+                HouseDoor->OpenAngle=HouseDoorOpenAngle;
                 HouseDoor->DoorMaterials=Door->Materials; if (Glass) HouseDoor->GlassMaterials=Glass->Materials;
                 if (Glass) HouseDoor->GlassOffset=Glass->Transform.GetLocation()-Door->Transform.GetLocation();
                 HouseDoor->FinishSpawning(GetActorTransform());

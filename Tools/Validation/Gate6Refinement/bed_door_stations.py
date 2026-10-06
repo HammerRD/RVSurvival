@@ -62,7 +62,7 @@ def obstruct_wake():
  assert 'UEDPIE_' in blocker.get_path_name()
  blocker_transform=blocker.get_actor_transform()
  mesh=blocker.get_component_by_class(unreal.StaticMeshComponent);mesh.set_mobility(unreal.ComponentMobility.MOVABLE);mesh.set_collision_profile_name('BlockAll')
- blocker.set_actor_rotation(v.get_actor_rotation(),True);blocker.set_actor_scale3d(unreal.Vector(1.9,.8,2.2));blocker.set_actor_location(v.get_actor_transform().transform_location(unreal.Vector(-185,0,191)),False,True)
+ blocker.set_actor_rotation(v.get_actor_rotation(),True);blocker.set_actor_scale3d(unreal.Vector(12,2,2.2));blocker.set_actor_location(v.get_actor_transform().transform_location(unreal.Vector(0,0,191)),False,True)
 def restore_obstacle():blocker.set_actor_transform(blocker_transform,False,True)
 at(104,lambda:place((-180,0,195)));at(104.5,lambda:aim(bed));at(104.7,lambda:key('E',True));at(105.5,lambda:key('E',False));at(106,lambda:bed_check('blocked_wake'))
 at(107,obstruct_wake);at(108,lambda:key('R',True));at(108.2,lambda:key('R',False))
@@ -75,12 +75,19 @@ at(120,lambda:aim(door));at(120.2,lambda:key('E',True));at(121,lambda:key('E',Fa
 inside=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVInteriorAccessPoint) if not a.get_editor_property('bEnter'))
 at(123,lambda:place((130,0,180)));at(124,lambda:aim(inside));at(124.2,lambda:key('E',True));at(125,lambda:key('E',False))
 at(126,lambda:check('ordinary_RV_exit_after_bed_and_stations',awake() and f.get_editor_property('ReferenceFrame') is None and local().y>200,local()))
+at(128,lambda:place((-180,0,195)));at(128.5,lambda:aim(bed));at(128.7,lambda:key('E',True));at(129.5,lambda:key('E',False))
+def obstruct_rear_only():
+ mesh=blocker.get_component_by_class(unreal.StaticMeshComponent);mesh.set_mobility(unreal.ComponentMobility.MOVABLE)
+ blocker.set_actor_rotation(v.get_actor_rotation(),True);blocker.set_actor_scale3d(unreal.Vector(1.9,.8,2.2));blocker.set_actor_location(v.get_actor_transform().transform_location(unreal.Vector(-185,0,191)),False,True)
+at(130.5,obstruct_rear_only);at(131.5,lambda:key('R',True));at(131.7,lambda:key('R',False))
+at(132.5,lambda:check('rear_obstruction_uses_clear_interior_fallback',awake() and bed.get_editor_property('Occupant') is None and f.get_editor_property('ReferenceFrame')==v and 45<local().x<215 and abs(local().y)<5,local()))
+at(133,restore_obstacle);at(133.5,walk);at(134.5,lambda:key('W',False));at(135,lambda:check('fallback_wake_movement_unlocked',awake() and (local().x-before)*walk_direction>60,local()))
 def tick(dt):
  global t,idx
  t+=dt
  try:
   while idx<len(events) and t>=events[idx][0]:events[idx][1]();idx+=1
-  if t>128:unreal.unregister_slate_post_tick_callback(h);json.dump({'results':rows},open(B+'bed_door_stations.json','w'),indent=2)
+  if t>137:unreal.unregister_slate_post_tick_callback(h);json.dump({'results':rows},open(B+'bed_door_stations.json','w'),indent=2)
  except Exception as e:
   check('exception',False,repr(e));unreal.unregister_slate_post_tick_callback(h);json.dump({'results':rows},open(B+'bed_door_stations.json','w'),indent=2)
 h=unreal.register_slate_post_tick_callback(tick)

@@ -1,0 +1,140 @@
+{
+  "pid": 46000,
+  "results": [
+    {
+      "case": "debug_off_by_default",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "debug_authority_enabled",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "tuning_asset_assigned",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "one_hour_idle_drain",
+      "pass": true,
+      "detail": "(34.0, 28.0, 44.0)"
+    },
+    {
+      "case": "invalid_debug_value_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "water_picked_up_through_interaction",
+      "pass": true,
+      "detail": "3"
+    },
+    {
+      "case": "drink_owned_stack",
+      "pass": true,
+      "detail": "(2, 75.0)"
+    },
+    {
+      "case": "remaining_stack_state_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "second_drink",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "last_water_removed_once",
+      "pass": true,
+      "detail": "(0, 45.0)"
+    },
+    {
+      "case": "stale_guid_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "food_picked_up",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "eat_recovers_nutrition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "eat_stack_second",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "food_final_contention_once",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "invalid_guid_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "rest_entered_via_hold",
+      "pass": true,
+      "detail": "<RVRestMode.RESTING: 1>"
+    },
+    {
+      "case": "rest_recovers_fatigue_not_food_water",
+      "pass": true,
+      "detail": "(36.099998474121094, 32.20000076293945, 70.0)"
+    },
+    {
+      "case": "sleep_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "sleep_recovery_and_continued_metabolism",
+      "pass": true,
+      "detail": "(33.099998474121094, 26.200000762939453, 45.0)"
+    },
+    {
+      "case": "rest_movement_restricted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "wake_frees_reservation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "world_movement_policy_restored",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "debug_values_clamped",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "critical_warnings_and_tags",
+      "pass": true,
+      "detail": "Very hungry | Exhausted"
+    },
+    {
+      "case": "critical_movement_consequence",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "24_hour_equivalent_clamped",
+      "pass": true,
+      "detail": "(0.0, 0.0, 100.0, 1.8333333730697632)"
+    }
+  ]
+}
