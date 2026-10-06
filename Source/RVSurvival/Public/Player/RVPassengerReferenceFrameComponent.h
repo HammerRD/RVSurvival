@@ -23,6 +23,7 @@ public:
     UPROPERTY(BlueprintReadOnly, Category="RV|Debug") float MaxCorrectionCm = 0;
     UPROPERTY(BlueprintReadOnly, Category="RV|Debug") float MaxLocalStepCm = 0;
     void RecordCorrection(float Distance);
+    float GetOutsideCapsuleRadius() const { return ReferenceFrame ? PreviousCapsuleRadius : 0.f; }
     UFUNCTION(BlueprintCallable, Category="RV|Debug") void ResetDiagnostics();
 private:
     void RestoreWorldMovement();

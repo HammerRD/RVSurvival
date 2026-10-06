@@ -40,6 +40,8 @@ void ARVPrototypeHUD::DrawHUD()
         const bool Driver = PlayerOwner->GetPawn() == PC->SeatedVehicle;
         DrawText(Driver ? TEXT("PROTOTYPE RV | W: accelerate  S: brake/reverse  A/D: steer  Space: handbrake  E: exit when stopped")
             : TEXT("RV passenger | E: exit when stopped"), FLinearColor::White, 20, 35);
+        DrawText(TEXT("Stopped: 1 driver | 2 passenger | V next free seat"), FLinearColor::White, 20, 60);
+        DrawText(PC->SeatFeedback, FLinearColor::Yellow, 20, 85);
         return;
     }
     if (const auto* Pawn = Cast<ARVSurvivorCharacter>(PlayerOwner->GetPawn()))

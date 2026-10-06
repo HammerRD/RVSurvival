@@ -73,5 +73,9 @@ void ARVStoragePoint::CompleteInteraction_Implementation(APawn* Pawn)
     if(!HasAuthority() || !CanInteract_Implementation(Pawn)) return;
     if(auto* Inventory=Pawn->FindComponentByClass<URVInventoryComponent>()) Inventory->OpenContainerAuthority(Container);
 }
+ARVExteriorStoragePoint::ARVExteriorStoragePoint() { Mesh->SetVisibility(false); }
+void ARVExteriorStoragePoint::ConfigureQueryExtent(FVector Extent) { Mesh->SetRelativeScale3D(Extent/50.f); }
+void ARVExteriorStoragePoint::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{ Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(ARVExteriorStoragePoint,DoorPartName); }
 
 

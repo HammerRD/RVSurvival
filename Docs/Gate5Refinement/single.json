@@ -1,0 +1,4423 @@
+{
+  "results": [
+    {
+      "case": "real_stepwell_layout",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "step_height",
+      "pass": true,
+      "detail": "45.0"
+    },
+    {
+      "case": "natural_visible_step_entry",
+      "pass": true,
+      "detail": "[87.52121676152832, -1.099594131129345, 177.32845559674078]"
+    },
+    {
+      "case": "walk_to_rear",
+      "pass": true,
+      "detail": "[-195.6675030382871, -1.1001214493291527, 191.69131876492412]"
+    },
+    {
+      "case": "walk_back_to_entry_aisle",
+      "pass": true,
+      "detail": "[130.89593727124148, -1.0995578733101115, 177.1012270088002]"
+    },
+    {
+      "case": "natural_side_door_exit",
+      "pass": true,
+      "detail": "[90.01763700684499, 295.54076630313875, 71.56922061259174]"
+    },
+    {
+      "case": "outside_dimensions_restored",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "interaction_entry_clear_aisle",
+      "pass": true,
+      "detail": "[129.9927208052827, 0.00010275669389255049, 177.33979124541813]"
+    },
+    {
+      "case": "entry_then_rear_not_trapped",
+      "pass": true,
+      "detail": "[-196.54143781462338, -0.0004218138491063763, 191.74039945289363]"
+    },
+    {
+      "case": "rear_return_to_door",
+      "pass": true,
+      "detail": "[131.74782213063116, 0.0001438431045080521, 177.09643559680237]"
+    },
+    {
+      "case": "interaction_exit_safe_ground",
+      "pass": true,
+      "detail": "[92.59581145528776, 239.9972358291604, 71.56002385331239]"
+    },
+    {
+      "case": "standing_inside_to_driver",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "driver_to_passenger",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "passenger_to_driver",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "invalid_seat_keeps_occupancy",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native_V_cycles_back_to_driver",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_seat_exit_after_switch",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "samples": [
+    {
+      "t": 0.10152589902281761,
+      "pos": [
+        92.29482433573557,
+        300.00148471142194,
+        71.5631627246138
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 0.20225249975919724,
+      "pos": [
+        92.29482433573557,
+        300.00148471142194,
+        71.5631627246138
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 0.3103935979306698,
+      "pos": [
+        92.29482433573557,
+        300.00148471142194,
+        71.5631627246138
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 0.4107655994594097,
+      "pos": [
+        92.29482433573557,
+        300.00148471142194,
+        71.5631627246138
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 0.5190037973225117,
+      "pos": [
+        92.29482434606608,
+        299.85926021743256,
+        71.56315723083668
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 0.6237416975200176,
+      "pos": [
+        92.29482536685165,
+        285.8056799228037,
+        71.56261437611651
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 0.726224098354578,
+      "pos": [
+        92.2948279306521,
+        250.5087753163144,
+        71.56125094481494
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 0.8272899985313416,
+      "pos": [
+        88.70044867358213,
+        198.00109932039447,
+        75.81799482760329
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.EntryStepLow' (0x000001F816427700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 0.9346865974366665,
+      "pos": [
+        83.14072378342682,
+        173.83575480850985,
+        97.75708629372778
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.EntryStepLow' (0x000001F816427700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 1.035080198198557,
+      "pos": [
+        82.44351456873254,
+        153.8086065000726,
+        98.11236638900827
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.EntryStepLow' (0x000001F816427700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 1.1437750980257988,
+      "pos": [
+        84.73629519754532,
+        132.66631238742926,
+        116.24363420851198
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.EntryStepMid' (0x000001F816427E00) Class 'BoxComponent'>"
+    },
+    {
+      "t": 1.2518393993377686,
+      "pos": [
+        87.04375378679771,
+        111.06923382789371,
+        137.02536119348824
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.EntryStepHigh' (0x000001F816428500) Class 'BoxComponent'>"
+    },
+    {
+      "t": 1.3528661988675594,
+      "pos": [
+        87.3794582437592,
+        91.07163383668167,
+        147.47275921958504
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.EntryStepHigh' (0x000001F816428500) Class 'BoxComponent'>"
+    },
+    {
+      "t": 1.4600070975720882,
+      "pos": [
+        87.50545203269607,
+        69.40382402361928,
+        174.6543765308647
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 1.5683552995324135,
+      "pos": [
+        87.5200376695486,
+        47.73688250382586,
+        177.3303452445785
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 1.6768311001360416,
+      "pos": [
+        87.52106030320742,
+        26.070042087555816,
+        177.32950551467604
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 1.785072598606348,
+      "pos": [
+        87.5212054926026,
+        4.403202385545626,
+        177.3286681857735
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 1.8851120993494987,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 1.9851933978497982,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 2.093936998397112,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 2.201927799731493,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 2.3103922978043556,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 2.418563798069954,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 2.518565498292446,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 2.6186547987163067,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 2.7188796997070312,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 2.8270366974174976,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 2.93534230068326,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 3.0437144972383976,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 3.1519568003714085,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 3.260284800082445,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 3.368777897208929,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 3.476986899971962,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 3.5852052979171276,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 3.68527739867568,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 3.7854133993387222,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 3.89378559961915,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 3.9939242973923683,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 4.1020084992051125,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 4.202221799641848,
+      "pos": [
+        87.52121676152832,
+        -1.099594131129345,
+        177.32845559674078
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 4.310525797307491,
+      "pos": [
+        76.4677615540013,
+        -1.099594226963761,
+        177.35870143838997
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 4.418894898146391,
+      "pos": [
+        54.801002204604444,
+        -1.0995944148164447,
+        177.4179887254897
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 4.519269600510597,
+      "pos": [
+        34.800917339058415,
+        -1.0995945882189149,
+        177.47271545016142
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 4.627153400331736,
+      "pos": [
+        13.134158734716884,
+        -1.099594776071591,
+        177.53200273522245
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 4.735427297651768,
+      "pos": [
+        -8.533288846377332,
+        -1.0995852485070314,
+        177.33977319144617
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 4.8355507999658585,
+      "pos": [
+        -28.53337371192336,
+        -1.0995854219095014,
+        177.3944999161179
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 4.943744298070669,
+      "pos": [
+        -50.196572008209166,
+        -1.0996358688223185,
+        178.75491500812362
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 5.043945699930191,
+      "pos": [
+        -70.16255214582395,
+        -1.1001174918609344,
+        191.27361355332079
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 5.152040999382734,
+      "pos": [
+        -91.82841568792732,
+        -1.1001303148525234,
+        191.66000465886825
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 5.252148497849703,
+      "pos": [
+        -111.82850055347345,
+        -1.100130488254992,
+        191.71473138353994
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 5.360475797206163,
+      "pos": [
+        -133.49525990287032,
+        -1.1001306761076732,
+        191.7740186706397
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 5.468766797333956,
+      "pos": [
+        -155.16201850721194,
+        -1.1001308639603478,
+        191.83330595570072
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 5.5771120972931385,
+      "pos": [
+        -176.8294696581744,
+        -1.1001212860017715,
+        191.63977179034472
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 5.68559879809618,
+      "pos": [
+        -195.30614291956948,
+        -1.1001214461961293,
+        191.69032996633365
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 5.793751399964094,
+      "pos": [
+        -195.6675030382871,
+        -1.1001214493291527,
+        191.69131876492412
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 5.89387109875679,
+      "pos": [
+        -195.6675030382871,
+        -1.1001214493291527,
+        191.69131876492412
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 6.002119697630405,
+      "pos": [
+        -195.6675030382871,
+        -1.1001214493291527,
+        191.69131876492412
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 6.110389098525047,
+      "pos": [
+        -195.6675030382871,
+        -1.1001214493291527,
+        191.69131876492412
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 6.210524100810289,
+      "pos": [
+        -195.6675030382871,
+        -1.1001214493291527,
+        191.69131876492412
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 6.318773400038481,
+      "pos": [
+        -195.6675030382871,
+        -1.1001214493291527,
+        191.69131876492412
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 6.427546497434378,
+      "pos": [
+        -195.6675030382871,
+        -1.1001214493291527,
+        191.69131876492412
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 6.535513199865818,
+      "pos": [
+        -195.6675030382871,
+        -1.1001214493291527,
+        191.69131876492412
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 6.635803498327732,
+      "pos": [
+        -194.81415926840236,
+        -1.100121359133147,
+        191.68898373935824
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 6.7438489980995655,
+      "pos": [
+        -177.9473521002017,
+        -1.1001195763596692,
+        191.6428306796624
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 6.843983698636293,
+      "pos": [
+        -157.91250742606996,
+        -1.1001174587336493,
+        191.5880088409457
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 6.944354098290205,
+      "pos": [
+        -137.91242256052388,
+        -1.100115344781642,
+        191.53328211634894
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 7.052467197179794,
+      "pos": [
+        -116.24566321112695,
+        -1.1001130546668862,
+        191.4739948293304
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 7.160814598202705,
+      "pos": [
+        -94.57890460678533,
+        -1.1001107645522092,
+        191.4147075443506
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 7.2690014988183975,
+      "pos": [
+        -72.91143516343593,
+        -1.10011822501426,
+        191.607847313928
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 7.3775853998959064,
+      "pos": [
+        -51.27569543179639,
+        -1.0996780467139766,
+        180.21232546710254
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 7.485760200768709,
+      "pos": [
+        -29.616111984539458,
+        -1.0995651499178836,
+        177.28960563058328
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 7.594118300825357,
+      "pos": [
+        -7.9493533801978185,
+        -1.099562859803202,
+        177.23031834560348
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 7.702423099428415,
+      "pos": [
+        13.717405969199094,
+        -1.0995605696884427,
+        177.17103105858496
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 7.811126798391342,
+      "pos": [
+        35.38416457354073,
+        -1.0995582795737628,
+        177.11174377360513
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 7.919087897986174,
+      "pos": [
+        57.05162965371797,
+        -1.0995656784431267,
+        177.30328900569623
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 8.027438700199127,
+      "pos": [
+        78.72438893320745,
+        -1.099563387694192,
+        177.2439853009213
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 8.13564470037818,
+      "pos": [
+        100.39116765404138,
+        -1.099561097577386,
+        177.18469796089622
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 8.235943600535393,
+      "pos": [
+        120.39127263607979,
+        -1.099558983623247,
+        177.1299711812542
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 8.344117797911167,
+      "pos": [
+        130.89593727124148,
+        -1.0995578733101115,
+        177.1012270088002
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 8.452454600483179,
+      "pos": [
+        130.89593727124148,
+        -1.0995578733101115,
+        177.1012270088002
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 8.560587797313929,
+      "pos": [
+        130.89593727124148,
+        -1.0995578733101115,
+        177.1012270088002
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 8.660666797310114,
+      "pos": [
+        130.89593727124148,
+        -1.0995578733101115,
+        177.1012270088002
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 8.76108830049634,
+      "pos": [
+        130.89593727124148,
+        -1.0995578733101115,
+        177.1012270088002
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 8.869165800511837,
+      "pos": [
+        130.89593727124148,
+        -1.0995578733101115,
+        177.1012270088002
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 8.977498199790716,
+      "pos": [
+        130.89593727124148,
+        -1.0995578733101115,
+        177.1012270088002
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 9.085674699395895,
+      "pos": [
+        124.49585899710682,
+        -1.099557928799346,
+        177.11873970056828
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 9.185763698071241,
+      "pos": [
+        104.84241841455551,
+        -1.0995580991963827,
+        177.17251789395317
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 9.294090699404478,
+      "pos": [
+        91.00440550577414,
+        -1.099558219173155,
+        177.21038318940336
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 9.394199199974537,
+      "pos": [
+        91.00440550577414,
+        -1.099558219173155,
+        177.21038318940336
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 9.503052297979593,
+      "pos": [
+        91.00440550577414,
+        -1.099558219173155,
+        177.21038318940336
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 9.610726799815893,
+      "pos": [
+        91.00440497189672,
+        9.953938361250474,
+        177.2108101576437
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 9.71090479940176,
+      "pos": [
+        91.00440400590055,
+        29.954098086777552,
+        177.21158271254902
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 9.811244700103998,
+      "pos": [
+        91.00440303984348,
+        49.955518450540694,
+        177.21235531614957
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 9.919317599385977,
+      "pos": [
+        90.99433333418796,
+        71.6225002873414,
+        173.53356335160254
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 10.027775198221207,
+      "pos": [
+        90.92276014563929,
+        93.29655071072943,
+        147.3780954024971
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.EntryStepHigh' (0x000001F816428500) Class 'BoxComponent'>"
+    },
+    {
+      "t": 10.1357356980443,
+      "pos": [
+        90.87792933031416,
+        114.96402325245626,
+        130.99572675767385
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.EntryStepHigh' (0x000001F816428500) Class 'BoxComponent'>"
+    },
+    {
+      "t": 10.235771298408508,
+      "pos": [
+        90.83429214489256,
+        134.96481982995087,
+        115.04948079860425
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.EntryStepMid' (0x000001F816427E00) Class 'BoxComponent'>"
+    },
+    {
+      "t": 10.3359471000731,
+      "pos": [
+        90.78804650453168,
+        154.98259212464166,
+        98.14996624381482
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.EntryStepLow' (0x000001F816427700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 10.444392200559378,
+      "pos": [
+        90.78532752926276,
+        176.64947093997378,
+        97.15752601002237
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.EntryStepLow' (0x000001F816427700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 10.55254339799285,
+      "pos": [
+        90.7233347554646,
+        198.31718574834989,
+        74.50325587764479
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.EntryStepLow' (0x000001F816427700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 10.660874299705029,
+      "pos": [
+        90.01763890840576,
+        228.1136472635767,
+        71.56661607952202
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 10.761113200336695,
+      "pos": [
+        90.01763658221486,
+        276.27550709205104,
+        71.56847644871762
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 10.869256999343634,
+      "pos": [
+        90.01763463486378,
+        319.563902375621,
+        71.5701485680771
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 10.969267699867487,
+      "pos": [
+        90.01763535048208,
+        315.80454348234906,
+        71.57000335221781
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 11.077607098966837,
+      "pos": [
+        90.01763696780456,
+        296.0355929104487,
+        71.56923972651664
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 11.186182398349047,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 11.294277999550104,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 11.394348800182343,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 11.502596400678158,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 11.61098349839449,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 11.719303600490093,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 11.827816098928452,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 11.935931600630283,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 12.035955000668764,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 12.144149098545313,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 12.244187500327826,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 12.344212800264359,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 12.444224797189236,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 12.544249400496483,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 12.644355598837137,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 12.744405299425125,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 12.844544798135757,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 12.952634397894144,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 13.053010299801826,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 13.16109649837017,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 13.26957779750228,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 13.37775319814682,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 13.485966797918081,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 13.586533397436142,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 13.694549299776554,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 13.802924498915672,
+      "pos": [
+        90.01763700684499,
+        295.54076630313875,
+        71.56922061259174
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 13.911360297352076,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 14.019325200468302,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 14.11936179921031,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 14.227741498500109,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 14.335960298776627,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 14.435998797416687,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 14.536001298576593,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 14.636337198317051,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 14.736396100372076,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 14.836476400494576,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 14.944631900638342,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 15.052910398691893,
+      "pos": [
+        127.85936138057113,
+        0.00010273819748145016,
+        177.34562880934084
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 15.15309589728713,
+      "pos": [
+        110.60589690377869,
+        0.00010258860844942099,
+        177.39283988901383
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 15.253756999969482,
+      "pos": [
+        90.60579192174026,
+        0.0001024152058061169,
+        177.44756666873081
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 15.361401297152042,
+      "pos": [
+        68.93817277856134,
+        0.000102227345670303,
+        177.50685630850546
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 15.46149629727006,
+      "pos": [
+        48.93808791301527,
+        0.00010205394320118147,
+        177.56158303317716
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 15.56968479976058,
+      "pos": [
+        27.270594776781603,
+        0.00011166715514232718,
+        177.3671363129696
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 15.67806340008974,
+      "pos": [
+        5.603835427384806,
+        0.00011147930246061097,
+        177.42642360006934
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 15.778233900666237,
+      "pos": [
+        -14.396249438161227,
+        0.00011130589999113567,
+        177.48115032474104
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 15.878276597708464,
+      "pos": [
+        -34.39695493474751,
+        0.00011113249214073496,
+        177.53587874766075
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 15.98662019893527,
+      "pos": [
+        -56.04338353046381,
+        -0.000176043764396477,
+        185.02484321898262
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 16.094830699265003,
+      "pos": [
+        -77.69281829794706,
+        -0.00042078342127330854,
+        191.41519104894797
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 16.203269500285387,
+      "pos": [
+        -99.3604776741106,
+        -0.00042097128175830643,
+        191.47448079881312
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 16.31129179894924,
+      "pos": [
+        -121.0364764539158,
+        -0.00042115921454663973,
+        191.53379336799378
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 16.411324098706245,
+      "pos": [
+        -141.0365613194619,
+        -0.00042133261701608044,
+        191.58852009266548
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 16.5114091001451,
+      "pos": [
+        -161.03666630150033,
+        -0.0004215060196598841,
+        191.64324687238243
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 16.620075900107622,
+      "pos": [
+        -182.70342565089723,
+        -0.0004216938723414893,
+        191.70253415948218
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 16.72807079926133,
+      "pos": [
+        -196.54143781462338,
+        -0.0004218138491063763,
+        191.74039945289363
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 16.82816779986024,
+      "pos": [
+        -196.54143781462338,
+        -0.0004218138491063763,
+        191.74039945289363
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 16.92832539975643,
+      "pos": [
+        -196.54143781462338,
+        -0.0004218138491063763,
+        191.74039945289363
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 17.036619398742914,
+      "pos": [
+        -196.54143781462338,
+        -0.0004218138491063763,
+        191.74039945289363
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 17.14473170042038,
+      "pos": [
+        -196.54143781462338,
+        -0.0004218138491063763,
+        191.74039945289363
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 17.244775500148535,
+      "pos": [
+        -196.54143781462338,
+        -0.0004218138491063763,
+        191.74039945289363
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 17.353468999266624,
+      "pos": [
+        -196.54143781462338,
+        -0.0004218138491063763,
+        191.74039945289363
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 17.461403097957373,
+      "pos": [
+        -193.55473417497694,
+        -0.00042149816303748897,
+        191.73222686219526
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 17.56146129965782,
+      "pos": [
+        -175.48793938706018,
+        -0.00041958855428033824,
+        191.6827902468333
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 17.669917199760675,
+      "pos": [
+        -153.82116066622623,
+        -0.00041729843747357275,
+        191.62350290680826
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 17.770109500735998,
+      "pos": [
+        -133.82107580068012,
+        -0.00041518448546080353,
+        191.56877618221148
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 17.878100000321865,
+      "pos": [
+        -112.15431645128324,
+        -0.0004128943707015387,
+        191.50948889519296
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 17.978191498667,
+      "pos": [
+        -92.15423158573712,
+        -0.00041078041868875556,
+        191.45476217059618
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 18.078201200813055,
+      "pos": [
+        -72.15326606486138,
+        -0.00040866637359320685,
+        191.4000330362406
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 18.1868778988719,
+      "pos": [
+        -50.519698541915055,
+        6.216537565736298e-05,
+        179.2109417371127
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.RearFloor' (0x000001F816424600) Class 'BoxComponent'>"
+    },
+    {
+      "t": 18.295131999999285,
+      "pos": [
+        -28.85096731969334,
+        0.00013655823107439527,
+        177.28502820280704
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 18.403483599424362,
+      "pos": [
+        -7.184208715351701,
+        0.00013884834575490407,
+        177.2257409178272
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 18.511534098535776,
+      "pos": [
+        14.482550634045213,
+        0.00014113846051417458,
+        177.16645363080866
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 18.611750800162554,
+      "pos": [
+        34.48263549959134,
+        0.0001432524125269542,
+        177.11172690621194
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 18.72034129872918,
+      "pos": [
+        56.15262116568241,
+        0.0001358529070509131,
+        177.30328860626994
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 18.828288100659847,
+      "pos": [
+        77.81937977002406,
+        0.00013814302173141888,
+        177.2440013212901
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 18.936995700001717,
+      "pos": [
+        99.49385863707764,
+        0.00014043395242170203,
+        177.1846929111654
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 19.04562360048294,
+      "pos": [
+        121.24315744449605,
+        0.00014273279136662025,
+        177.12517976939586
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 19.1536583006382,
+      "pos": [
+        131.74782213063116,
+        0.0001438431045080521,
+        177.09643559680237
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 19.261854898184538,
+      "pos": [
+        131.74782213063116,
+        0.0001438431045080521,
+        177.09643559680237
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 19.361876897513866,
+      "pos": [
+        131.74782213063116,
+        0.0001438431045080521,
+        177.09643559680237
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 19.461908597499132,
+      "pos": [
+        131.74782213063116,
+        0.0001438431045080521,
+        177.09643559680237
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 19.562032599002123,
+      "pos": [
+        131.74782213063116,
+        0.0001438431045080521,
+        177.09643559680237
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 19.66220659762621,
+      "pos": [
+        131.74782213063116,
+        0.0001438431045080521,
+        177.09643559680237
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 19.77050529792905,
+      "pos": [
+        131.74782213063116,
+        0.0001438431045080521,
+        177.09643559680237
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 19.87055329978466,
+      "pos": [
+        131.74782213063116,
+        0.0001438431045080521,
+        177.09643559680237
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 19.97908889874816,
+      "pos": [
+        131.74782213063116,
+        0.0001438431045080521,
+        177.09643559680237
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 20.087322399020195,
+      "pos": [
+        131.74782213063116,
+        0.0001438431045080521,
+        177.09643559680237
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 20.19549359753728,
+      "pos": [
+        131.74782213063116,
+        0.0001438431045080521,
+        177.09643559680237
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 20.3038197979331,
+      "pos": [
+        131.74782213063116,
+        0.0001438431045080521,
+        177.09643559680237
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 20.404382698237896,
+      "pos": [
+        131.74782213063116,
+        0.0001438431045080521,
+        177.09643559680237
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 20.51218519732356,
+      "pos": [
+        131.74782213063116,
+        0.0001438431045080521,
+        177.09643559680237
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 20.612554900348186,
+      "pos": [
+        131.74782213063116,
+        0.0001438431045080521,
+        177.09643559680237
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 20.720640499144793,
+      "pos": [
+        131.74782213063116,
+        0.0001438431045080521,
+        177.09643559680237
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 20.821492798626423,
+      "pos": [
+        92.60087364184312,
+        239.99716436884444,
+        73.41001873803354
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 20.92890639975667,
+      "pos": [
+        92.59581145528776,
+        239.9972358291604,
+        71.56002385331239
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 21.037203300744295,
+      "pos": [
+        92.59581145528776,
+        239.9972358291604,
+        71.56002385331239
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 21.145565297454596,
+      "pos": [
+        92.59581145528776,
+        239.9972358291604,
+        71.56002385331239
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 21.245670598000288,
+      "pos": [
+        92.59581145528776,
+        239.9972358291604,
+        71.56002385331239
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 21.35388970002532,
+      "pos": [
+        92.59581145528776,
+        239.9972358291604,
+        71.56002385331239
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 21.45400270074606,
+      "pos": [
+        92.59581145528776,
+        239.9972358291604,
+        71.56002385331239
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 21.55411870032549,
+      "pos": [
+        92.59581145528776,
+        239.9972358291604,
+        71.56002385331239
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 21.662154398858547,
+      "pos": [
+        92.59581145528776,
+        239.9972358291604,
+        71.56002385331239
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 21.762229397892952,
+      "pos": [
+        92.59581145528776,
+        239.9972358291604,
+        71.56002385331239
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 21.870986100286245,
+      "pos": [
+        92.59581145528776,
+        239.9972358291604,
+        71.56002385331239
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 21.97879719734192,
+      "pos": [
+        92.59581145528776,
+        239.9972358291604,
+        71.56002385331239
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 22.07901730015874,
+      "pos": [
+        92.59581145528776,
+        239.9972358291604,
+        71.56002385331239
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 22.187356397509575,
+      "pos": [
+        92.59581145528776,
+        239.9972358291604,
+        71.56002385331239
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 22.287463799118996,
+      "pos": [
+        92.59581145528776,
+        239.9972358291604,
+        71.56002385331239
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 22.39568980038166,
+      "pos": [
+        92.59581145528776,
+        239.9972358291604,
+        71.56002385331239
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 22.50414279848337,
+      "pos": [
+        92.59581145528776,
+        239.9972358291604,
+        71.56002385331239
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 22.612568598240614,
+      "pos": [
+        92.59581145528776,
+        239.9972358291604,
+        71.56002385331239
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 22.720690697431564,
+      "pos": [
+        92.59581145528776,
+        239.9972358291604,
+        71.56002385331239
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 22.82908419892192,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 22.937496699392796,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 23.045653399080038,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 23.154078397899866,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 23.254153300076723,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 23.362243700772524,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 23.46230410039425,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 23.562557499855757,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 23.67066629976034,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 23.770708698779345,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 23.87083699926734,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 23.971543297171593,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 24.07970879971981,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 24.187947500497103,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 24.296167097985744,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 24.3962108977139,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 24.496417500078678,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 24.605075497180223,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 24.713182598352432,
+      "pos": [
+        129.9927208052827,
+        0.00010275669389255049,
+        177.33979124541813
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 24.821351297199726,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": true,
+      "radius": 30.0,
+      "mode": "<MovementMode.MOVE_NONE: 0>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.BP_ClassCRefinedMotorhome_C_1.InteriorFloor' (0x000001F816420700) Class 'BoxComponent'>"
+    },
+    {
+      "t": 24.925468500703573,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_NONE: 0>",
+      "base": "None"
+    },
+    {
+      "t": 25.025721099227667,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_NONE: 0>",
+      "base": "None"
+    },
+    {
+      "t": 25.133546497672796,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_NONE: 0>",
+      "base": "None"
+    },
+    {
+      "t": 25.233615398406982,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_NONE: 0>",
+      "base": "None"
+    },
+    {
+      "t": 25.34250359982252,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_NONE: 0>",
+      "base": "None"
+    },
+    {
+      "t": 25.45027869939804,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_NONE: 0>",
+      "base": "None"
+    },
+    {
+      "t": 25.550375297665596,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_NONE: 0>",
+      "base": "None"
+    },
+    {
+      "t": 25.650421798229218,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_NONE: 0>",
+      "base": "None"
+    },
+    {
+      "t": 25.759034898132086,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_NONE: 0>",
+      "base": "None"
+    },
+    {
+      "t": 25.859412498772144,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_NONE: 0>",
+      "base": "None"
+    },
+    {
+      "t": 25.959693800657988,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_NONE: 0>",
+      "base": "None"
+    },
+    {
+      "t": 26.067741099745035,
+      "pos": [
+        189.99543750293958,
+        49.00006440645319,
+        136.33261849775022
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 26.176000598818064,
+      "pos": [
+        189.9627551243723,
+        49.00052576698837,
+        124.38872182214719
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 26.276029400527477,
+      "pos": [
+        189.90465311999148,
+        49.001345963467664,
+        103.1551284488248
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 26.376384399831295,
+      "pos": [
+        189.81973480635745,
+        49.00254471216166,
+        72.12141522554438
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 26.48440169915557,
+      "pos": [
+        189.69746385331467,
+        49.00427074909058,
+        27.43704115023289
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 26.59278479963541,
+      "pos": [
+        189.54372306225906,
+        49.006441029735655,
+        -28.74810214998839
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 26.693236999213696,
+      "pos": [
+        189.37388176876766,
+        49.00883859299435,
+        -90.81723388522052
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 26.801248498260975,
+      "pos": [
+        189.15962557405726,
+        49.01186313885024,
+        -169.11795629018147
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 26.909621499478817,
+      "pos": [
+        188.91389745185737,
+        49.01533195791835,
+        -258.92021152705735
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 27.01781329885125,
+      "pos": [
+        188.63669741906773,
+        49.019245049960126,
+        -360.2239934197842
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 27.126166600733995,
+      "pos": [
+        188.32802545662415,
+        49.0236024152447,
+        -473.02930893543277
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 27.23434839770198,
+      "pos": [
+        187.98788158575525,
+        49.028404053472386,
+        -597.3361503159256
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 27.342716298997402,
+      "pos": [
+        187.61626579638784,
+        49.03364996478538,
+        -733.14452124255
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 27.442814499139786,
+      "pos": [
+        187.24523567004059,
+        49.038887608591054,
+        -868.7388594424867
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 27.550922498106956,
+      "pos": [
+        186.81309193354625,
+        49.04498796218468,
+        -1026.6673935323379
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 27.650993298739195,
+      "pos": [
+        186.38625636746406,
+        49.051013383033215,
+        -1182.6560370230857
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 27.759330198168755,
+      "pos": [
+        185.8935793786452,
+        49.05796825379825,
+        -1362.7066730803551
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 27.85972499847412,
+      "pos": [
+        185.4107126816009,
+        49.064784637658065,
+        -1539.1721015594255
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 27.96782549843192,
+      "pos": [
+        184.85728811404627,
+        49.07259705113158,
+        -1741.4231659673892
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 28.076564099639654,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 28.184588700532913,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 28.293285097926855,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 28.39340230077505,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 28.49345700070262,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 28.601633697748184,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 28.710156697779894,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 28.818113200366497,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 28.918468300253153,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 29.0266302973032,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 29.127576999366283,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 29.227862000465393,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 29.3355753980577,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 29.436294198036194,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 29.536309100687504,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 29.645742900669575,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 29.75141640007496,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 29.859688699245453,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 29.960238497704268,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 30.068392898887396,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 30.176280297338963,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 30.276505198329687,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 30.376750599592924,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 30.484783798456192,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 30.584893200546503,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 30.69309649989009,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 30.801900297403336,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 30.90994269773364,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 31.018277999013662,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 31.126542400568724,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 31.23492179811001,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 31.343243297189474,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 31.45155919715762,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 31.552104000002146,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 31.659692000597715,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 31.75977459922433,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 31.859912399202585,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 31.968252297490835,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 32.06836939975619,
+      "pos": [
+        189.99543750235685,
+        49.00006440646142,
+        136.3326182847869
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 32.1767039000988,
+      "pos": [
+        189.9627551243723,
+        49.00052576698837,
+        124.38872182214719
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 32.28491219878197,
+      "pos": [
+        189.89860082788928,
+        49.00143140060062,
+        100.94329581337621
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 32.39307430014014,
+      "pos": [
+        189.80297460907832,
+        49.00278130735226,
+        65.99633885900057
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 32.49342789873481,
+      "pos": [
+        189.68677060031663,
+        49.00442170031084,
+        23.52915211235577
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 32.601596400141716,
+      "pos": [
+        189.53062130447677,
+        49.00662598059441,
+        -33.53618820983773
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 32.701708398759365,
+      "pos": [
+        189.358549950889,
+        49.00905502447859,
+        -96.42030369285877
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 32.80184939876199,
+      "pos": [
+        189.15966229395866,
+        49.01186262049404,
+        -169.1045368657808
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 32.90995639935136,
+      "pos": [
+        188.91393920552278,
+        49.01533136850307,
+        -258.9049524949059
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 33.01816830039024,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 33.11845589801669,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 33.21848909929395,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 33.32659379765391,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 33.435221299529076,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 33.543272498995066,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 33.65156579762697,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 33.75161769986153,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 33.85182439908385,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 33.952963300049305,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 34.05987799912691,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 34.15996269881725,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 34.260038398206234,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 34.36856249719858,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 34.46952920034528,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 34.57652899995446,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 34.685103099793196,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 34.785195000469685,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 34.885624799877405,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 34.99326929822564,
+      "pos": [
+        190.0,
+        -49.00000000000001,
+        138.0
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_FALLING: 3>",
+      "base": "None"
+    },
+    {
+      "t": 35.09329869970679,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 35.19333039969206,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 35.293462600558996,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 35.40214340016246,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 35.509960897266865,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 35.618421997874975,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 35.72672560065985,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 35.83565749973059,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 35.94351590052247,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 36.05166079849005,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 36.15171619877219,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 36.25980719923973,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 36.3598719984293,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 36.46013439819217,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 36.568295400589705,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 36.676529198884964,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 36.77690779790282,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 36.876991000026464,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 36.985845897346735,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 37.08588109910488,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 37.19360850006342,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 37.29382560029626,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 37.39427839964628,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 37.50285919755697,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 37.610683999955654,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 37.71920520067215,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 37.81946050003171,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    },
+    {
+      "t": 37.91963870078325,
+      "pos": [
+        253.19455190556923,
+        -300.0027463904161,
+        71.0997167289564
+      ],
+      "frame": false,
+      "radius": 34.0,
+      "mode": "<MovementMode.MOVE_WALKING: 1>",
+      "base": "<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x000001F7BC62DC00) Class 'StaticMeshComponent'>"
+    }
+  ]
+}

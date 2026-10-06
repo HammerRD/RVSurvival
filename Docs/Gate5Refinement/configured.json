@@ -1,0 +1,68 @@
+{
+  "camera": {
+    "TargetArmLength": "1400.0",
+    "RelativeLocation": "<Struct 'Vector' (0x000001C1EFCAB580) {x: -70.000000, y: 0.000000, z: 340.000000}>",
+    "RelativeRotation": "<Struct 'Rotator' (0x000001C1EFCAB598) {pitch: -12.000000, yaw: 0.000000, roll: 0.000000}>",
+    "SocketOffset": "<Struct 'Vector' (0x000001C1EFCAB698) {x: 0.000000, y: 0.000000, z: 60.000000}>",
+    "ProbeSize": "16.0"
+  },
+  "compartments": [
+    {
+      "door": "Art_RV_Van_Compartment_01",
+      "name": "01 Tools / repair supplies",
+      "position": "<Struct 'Vector' (0x000001C1BF30ABA0) {x: 91.486000, y: -130.000000, z: 61.881496}>",
+      "extent": "<Struct 'Vector' (0x000001C1BF30ABB8) {x: 33.014046, y: 3.000000, z: 18.920940}>",
+      "kg": 80.0,
+      "litres": 70.0
+    },
+    {
+      "door": "Art_RV_Van_Compartment_02",
+      "name": "02 Fluids / spare supplies",
+      "position": "<Struct 'Vector' (0x000001C1BF307F20) {x: -20.648000, y: -130.000000, z: 61.820586}>",
+      "extent": "<Struct 'Vector' (0x000001C1BF307F38) {x: 32.933113, y: 3.000000, z: 19.008759}>",
+      "kg": 80.0,
+      "litres": 70.0
+    },
+    {
+      "door": "Art_RV_Van_Compartment_03",
+      "name": "03 Spare parts",
+      "position": "<Struct 'Vector' (0x000001C1F1173400) {x: -228.078008, y: -130.000000, z: 67.260770}>",
+      "extent": "<Struct 'Vector' (0x000001C1F1173418) {x: 33.014061, y: 3.000000, z: 18.920940}>",
+      "kg": 100.0,
+      "litres": 90.0
+    },
+    {
+      "door": "Art_RV_Van_Compartment_04",
+      "name": "04 Camping equipment",
+      "position": "<Struct 'Vector' (0x000001C1F1176100) {x: -314.057015, y: -130.000000, z: 75.659609}>",
+      "extent": "<Struct 'Vector' (0x000001C1F1176118) {x: 32.933121, y: 3.000000, z: 19.008759}>",
+      "kg": 80.0,
+      "litres": 70.0
+    },
+    {
+      "door": "Art_RV_Van_Compartment_05",
+      "name": "05 General cargo",
+      "position": "<Struct 'Vector' (0x000001C1F1178720) {x: -7.355000, y: 130.000000, z: 70.184045}>",
+      "extent": "<Struct 'Vector' (0x000001C1F1178738) {x: 38.327606, y: 3.000000, z: 21.389124}>",
+      "kg": 100.0,
+      "litres": 100.0
+    },
+    {
+      "door": "Art_RV_Van_Compartment_06",
+      "name": "06 Bulky gear",
+      "position": "<Struct 'Vector' (0x000001C1F117B2E0) {x: -225.726008, y: 130.000000, z: 70.184497}>",
+      "extent": "<Struct 'Vector' (0x000001C1F117B2F8) {x: 38.327599, y: 3.000000, z: 21.389124}>",
+      "kg": 120.0,
+      "litres": 140.0
+    },
+    {
+      "door": "Art_RV_Van_Compartment_07",
+      "name": "07 Service / electrical supplies",
+      "position": "<Struct 'Vector' (0x000001C1F117FAC0) {x: -319.256492, y: 130.000000, z: 103.489000}>",
+      "extent": "<Struct 'Vector' (0x000001C1F117FAD8) {x: 25.003006, y: 3.000000, z: 47.055710}>",
+      "kg": 80.0,
+      "litres": 100.0
+    }
+  ],
+  "map_actors": 62
+}

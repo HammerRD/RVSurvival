@@ -6,6 +6,16 @@
 #include "PhysicsEngine/PhysicsAsset.h"
 #include "PhysicsEngine/SkeletalBodySetup.h"
 #include "Engine/SkeletalMesh.h"
+#include "Vehicles/RVInteriorAccessPoint.h"
+#include "Vehicles/RVVehicleEntryPoint.h"
+#include "Vehicles/RVVehicleSeatComponent.h"
+#include "Inventory/RVWorldItem.h"
+#include "Player/RVSurvivorCharacter.h"
+#include "Player/RVPlayerState.h"
+#include "Survival/RVNeedsComponent.h"
+#include "Components/CapsuleComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "Engine/StaticMesh.h"
 #if WITH_EDITOR
 #include "StaticMeshAttributes.h"
 #include "Engine/StaticMesh.h"
@@ -68,6 +78,14 @@ void ARVInteriorMotorhome::OnConstruction(const FTransform& Transform)
         Part->SetCollisionProfileName(TEXT("BlockAll")); Part->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
         if (Def.bPassengerFloor) Part->ComponentTags.Add(TEXT("RVPassengerPlatform"));
         Part->SetNetAddressable(); Part->RegisterComponent(); GeneratedParts.Add(Part);
+        if (Def.bVisiblePrototype)
+        {
+            auto* Tread = NewObject<UStaticMeshComponent>(this, FName(*(Def.Name.ToString()+TEXT("_VisibleStep"))));
+            Tread->SetMobility(EComponentMobility::Movable); Tread->SetupAttachment(GetMesh());
+            Tread->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,TEXT("/Engine/BasicShapes/Cube.Cube")));
+            Tread->SetRelativeLocation(Def.Center); Tread->SetRelativeScale3D(Def.Extent/50.f);
+            Tread->SetCollisionEnabled(ECollisionEnabled::NoCollision); Tread->RegisterComponent(); GeneratedParts.Add(Tread);
+        }
     }
 }
 void ARVInteriorMotorhome::BeginPlay()
@@ -81,6 +99,68 @@ void ARVInteriorMotorhome::BeginPlay()
         Station->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale);
         Station->SetActorRelativeLocation(Def.Position); Station->ForceNetUpdate();
     }
+    if (!HasAuthority()) return;
+    for (const auto& Def : ExteriorCompartments)
+    {
+        auto* Point=GetWorld()->SpawnActorDeferred<ARVExteriorStoragePoint>(ARVExteriorStoragePoint::StaticClass(),GetActorTransform(),this);
+        if (!Point) continue;
+        Point->DoorPartName=Def.DoorPartName;
+        Point->Container->DisplayName=Def.DisplayName; Point->Container->MaxWeightKg=Def.MaxWeightKg;
+        Point->Container->MaxVolumeLitres=Def.MaxVolumeLitres; Point->Container->AllowedTags=Def.AllowedTags;
+        Point->ConfigureQueryExtent(Def.QueryExtent); Point->FinishSpawning(GetActorTransform());
+        Point->AttachToComponent(GetMesh(),FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+        Point->SetActorRelativeLocation(Def.Position); Point->ForceNetUpdate();
+    }
+    if (bEnableStandingDoor) for (bool Enter : {true,false})
+    {
+        auto* Point=GetWorld()->SpawnActorDeferred<ARVInteriorAccessPoint>(ARVInteriorAccessPoint::StaticClass(),GetActorTransform(),this);
+        Point->Vehicle=this; Point->bEnter=Enter; Point->FinishSpawning(GetActorTransform());
+        Point->AttachToComponent(GetMesh(),FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+        Point->SetActorRelativeLocation(Enter?OutsideDoorLocation:InsideDoorLocation); Point->ForceNetUpdate();
+    }
+    if (bInteriorSeatAccess) for (auto* Seat : GetSeats())
+    {
+        auto* Point=GetWorld()->SpawnActorDeferred<ARVVehicleEntryPoint>(ARVVehicleEntryPoint::StaticClass(),GetActorTransform(),this);
+        Point->Seat=Seat; Point->FinishSpawning(GetActorTransform());
+        Point->AttachToComponent(GetMesh(),FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+        Point->SetActorRelativeLocation(FVector(150,Seat->bDriverSeat?-40:40,155));
+        CastChecked<UBoxComponent>(Point->GetRootComponent())->SetBoxExtent(FVector(12));
+        for (auto* PanelMesh : TInlineComponentArray<UStaticMeshComponent*>(Point)) PanelMesh->SetRelativeScale3D(FVector(.12));
+        Point->ForceNetUpdate();
+    }
+}
+UStaticMeshComponent* ARVInteriorMotorhome::FindVisualPart(FName Name) const
+{
+    for (const auto& Part : GeneratedParts) if (Part && Part->GetFName()==Name) return Cast<UStaticMeshComponent>(Part.Get());
+    return nullptr;
+}
+bool ARVInteriorMotorhome::TryStandingDoor(ARVSurvivorCharacter* Character, bool Enter)
+{
+    if (!HasAuthority() || !Character || !Character->GetController() || Character->SeatedVehicle
+        || GetVelocity().Size()>MaxEntryExitSpeed) return false;
+    if (const auto* PS=Character->GetPlayerState<ARVPlayerState>(); PS && PS->Needs->State.RestMode!=ERVRestMode::Awake) return false;
+    const FVector Door=GetActorTransform().TransformPosition(Enter?OutsideDoorLocation:InsideDoorLocation);
+    if (FVector::Distance(Character->GetActorLocation(),Door)>300.f) return false;
+    FVector Target;
+    if (Enter)
+    {
+        bool Clear=false;
+        const float Radius=Character->GetCapsuleComponent()->GetScaledCapsuleRadius();
+        const float Half=Character->GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+        FCollisionQueryParams Params(SCENE_QUERY_STAT(RVCabinEntry),false,Character);
+        // Include the RV/furniture and other players in clearance; do not push into occupied space.
+        for (const FVector Offset : {FVector::ZeroVector,FVector(-10,0,0),FVector(10,0,0)})
+        {
+            Target=GetActorTransform().TransformPosition(StandingEntryLocation+Offset);
+            if (!GetWorld()->OverlapBlockingTestByChannel(Target,FQuat::Identity,ECC_Pawn,FCollisionShape::MakeCapsule(Radius,Half),Params))
+            { Clear=true; break; }
+        }
+        if (!Clear) return false;
+    }
+    else if (!FindSafeExitAtOffset(FVector(OutsideDoorLocation.X,240,0),Character,Target)) return false;
+    Character->GetCharacterMovement()->StopMovementImmediately();
+    Character->SetActorLocation(Target,false,nullptr,ETeleportType::TeleportPhysics);
+    Character->GetCharacterMovement()->SetMovementMode(MOVE_Walking); Character->ForceNetUpdate(); return true;
 }
 void ARVInteriorMotorhome::ConfigureProjectChassisCollision(FVector Center, FVector Extent)
 {

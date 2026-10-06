@@ -17,6 +17,7 @@
 #include "Engine/World.h"
 #include "Player/RVPlayerState.h"
 #include "Survival/RVNeedsComponent.h"
+#include "Player/RVPassengerReferenceFrameComponent.h"
 ARVVehicleBase::ARVVehicleBase(const FObjectInitializer& Init)
     : Super(Init.SetDefaultSubobjectClass<URVVehicleMovementComponent>(VehicleMovementComponentName))
 {
@@ -94,13 +95,17 @@ void ARVVehicleBase::Tick(float DT)
     }
 }
 bool ARVVehicleBase::FindSafeExit(URVVehicleSeatComponent* Seat, ARVSurvivorCharacter* Character, FVector& Position) const
+{ return FindSafeExitAtOffset(Seat->ExitOffset,Character,Position); }
+bool ARVVehicleBase::FindSafeExitAtOffset(FVector PreferredOffset, ARVSurvivorCharacter* Character, FVector& Position) const
 {
     FCollisionQueryParams Params(SCENE_QUERY_STAT(RVSeatExit), false, this); Params.AddIgnoredActor(Character);
     TArray<AActor*> Attached; GetAttachedActors(Attached); Params.AddIgnoredActors(Attached);
-    const float Radius = Character->GetCapsuleComponent()->GetScaledCapsuleRadius();
+    float Radius = Character->GetCapsuleComponent()->GetScaledCapsuleRadius();
+    if (const auto* Frame=Character->FindComponentByClass<URVPassengerReferenceFrameComponent>())
+        Radius=FMath::Max(Radius,Frame->GetOutsideCapsuleRadius()*Radius/Character->GetCapsuleComponent()->GetUnscaledCapsuleRadius());
     const float Half = Character->GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
-    const TArray<FVector> Candidates = {Seat->ExitOffset, Seat->ExitOffset + FVector(-100,0,0),
-        Seat->ExitOffset + FVector(100,0,0), FVector(-450,0,0), FVector(0,-350,0), FVector(0,350,0)};
+    const TArray<FVector> Candidates = {PreferredOffset, PreferredOffset + FVector(-100,0,0),
+        PreferredOffset + FVector(100,0,0), FVector(-450,0,0), FVector(0,-350,0), FVector(0,350,0)};
     for (const auto& Offset : Candidates)
     {
         const FVector Base = GetActorTransform().TransformPosition(Offset); FHitResult Ground;
@@ -123,6 +128,37 @@ bool ARVVehicleBase::TryExit(ARVPlayerController* PC)
     for (auto* S : GetSeats()) if (S->Occupant && S->OccupantController.Get() == PC)
     { FVector Position; if (!FindSafeExit(S, S->Occupant, Position)) return false; ReleaseSeat(S, false, Position); return true; }
     return false;
+}
+bool ARVVehicleBase::TrySwitchSeat(ARVPlayerController* PC, FName TargetSeat)
+{
+    if (!HasAuthority() || !PC || PC->SeatedVehicle != this) return false;
+    if (GetVelocity().Size() > MaxEntryExitSpeed)
+    { PC->SeatFeedback = TEXT("Stop the RV before switching seats."); return false; }
+    URVVehicleSeatComponent* Source = nullptr;
+    URVVehicleSeatComponent* Target = nullptr;
+    for (auto* Seat : GetSeats())
+    {
+        if (Seat->Occupant && Seat->OccupantController.Get() == PC) Source = Seat;
+        if (Seat->GetFName() == TargetSeat) Target = Seat;
+    }
+    if (!Source || !Target || Source == Target)
+    { PC->SeatFeedback = TEXT("Choose another seat."); return false; }
+    if (Target->Occupant || (Target->bDriverSeat && GetController()))
+    { PC->SeatFeedback = TEXT("That seat is occupied."); return false; }
+    auto* Character = Source->Occupant.Get();
+    if (!IsValid(Character) || Character->SeatedVehicle != this
+        || PC->GetPawn() != (Source->bDriverSeat ? static_cast<APawn*>(this) : Character)) return false;
+    // Validate first, then transfer serially on the server. Never use the outside-exit path.
+    if (Source->bDriverSeat)
+    { ServerThrottle = ServerSteering = 0; bServerHandbrake = true; PC->Possess(Character); }
+    Target->Occupant = Character; Target->OccupantController = PC;
+    Source->Occupant = nullptr; Source->OccupantController.Reset();
+    Character->AttachToComponent(Target, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+    Character->SetActorRelativeLocation(FVector::ZeroVector);
+    if (Target->bDriverSeat) { PC->Possess(this); LastInputTime = GetWorld()->GetTimeSeconds(); }
+    PC->SeatEntryTime = GetWorld()->GetTimeSeconds();
+    PC->SeatFeedback = FString::Printf(TEXT("Now seated: %s"), *Target->SeatLabel.ToString());
+    Character->ForceNetUpdate(); PC->ForceNetUpdate(); ForceNetUpdate(); return true;
 }
 void ARVVehicleBase::ReleaseSeat(URVVehicleSeatComponent* Seat, bool Disconnect, const FVector& Position)
 {

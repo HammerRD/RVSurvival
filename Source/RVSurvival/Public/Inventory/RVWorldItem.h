@@ -48,3 +48,15 @@ public:
     virtual FText GetInteractionText_Implementation(APawn* Pawn) const override;
     virtual void CompleteInteraction_Implementation(APawn* Pawn) override;
 };
+
+/** A query on a separately named presentation door; contents use the ordinary shared container. */
+UCLASS()
+class RVSURVIVAL_API ARVExteriorStoragePoint : public ARVStoragePoint
+{
+    GENERATED_BODY()
+public:
+    ARVExteriorStoragePoint();
+    UPROPERTY(Replicated, BlueprintReadOnly) FName DoorPartName;
+    UFUNCTION(BlueprintCallable) void ConfigureQueryExtent(FVector Extent);
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out) const override;
+};
