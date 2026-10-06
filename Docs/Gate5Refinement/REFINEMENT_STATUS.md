@@ -1,6 +1,6 @@
 # Gate 5 post-playtest refinement — 2026-10-06
 
-Status: IN PROGRESS. Gate 5 technical acceptance is retained as historical evidence; refinement acceptance requires new live tests. Gate 6 is not authorized.
+Status: ACCEPTED after final post-playtest refinement validation. Gate 6 is not authorized. Historical progress/failure notes below are retained.
 
 User feedback: chase camera too close/low; interior trapping; invisible entry stairs; in-cabin seat switching; actual lower exterior compartments should hold primary general/bulky cargo, with pantry/medical/personal supplies inside. Preserve driving physics, vendor source and prior maps.
 
@@ -25,3 +25,7 @@ Recovery checkpoint 8528379 saves corrected custom baseline/emulated receipts an
 Host-driver/client-walker baseline full route passes 72 server / 73 client checks and its independent-process comparisons. Paired maximum local-position difference 10.33 cm. The native drop log explicitly names Bathroom path obstruction and Bed support approximately 76 cm above the feet; the first request correctly reports No safe drop location with the same owned item. The aisle-facing retry spawns the floor-attached item and repicks its preserved GUID/condition. No collision, interaction, capacity or network threshold was weakened. Other role/emulated routes remain pending.
 
 Client-driver/host-walker first repeat completed all gameplay assertions, but the newly added diagnostic incorrectly required private Inventory.Feedback on the non-owning remote driver. Feedback is intentionally COND_OwnerOnly. Its observer copy correctly remained empty; item GUID/quantity/condition and all later drop/repick/movement checks passed. observer-private-feedback-first_*.json retain the failed test. Corrected diagnostics require detailed feedback only on authority/the owning walker and require conserved replicated item state on every observer. This preserves the accepted replication privacy contract, rather than changing gameplay to satisfy a test.
+
+Checkpoint 40a1ba7 saves the passing full four-case movement matrix. All eight process reports have no measured floor loss and 0 cm recorded correction in movement/storage windows; worst standing-phase horizontal drift 2.502 cm. Largest independent-process local-position difference 28.54 cm under emulation. Representative native movement, workstation cancellation, food/water, rest/wake, storage capacity/filter/transfer/drop/repick checks remain intact. Final entry/shell regression passed 22 checks; other prior-gate regressions and saved-map review continue.
+
+Final: entry/shell 22, camera 17, Gate 1 23, Gate 2 24+4, inventory 24, survival 27 and saved-map audit 30 all pass. Final Development Editor / Win64 build succeeds (up to date). All four separate-process moving routes and baseline/emulated exterior/seat suites pass. All content saved; editors closed. See GATE_5_VALIDATION.md for exact architecture, failures, measurements and limits. Gate 5 remains ACCEPTED; Gate 6 untouched.

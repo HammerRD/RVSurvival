@@ -99,3 +99,69 @@ Checkpoints: `61178dc` foundation; `e518d58` framework/UMG; `7c4c0e6` saved cont
 Vendor SHA-256: 108/108 match accepted import. Accepted Gate 1–4 maps and existing vehicle/fallback files have no diff from `7881ab0`. Existing unrelated `Config/DefaultEngine.ini`, `.vsconfig`, `Automation_RVSurvival.slnx`, `RVSurvival.slnx` are preserved outside commits; the configuration's security token is not reproduced in reports.
 
 Final regression milestone: final single-player 27/27; Gate 1 23/23; Gate 2 24/24 plus 4 inventory-possession checks; Gate 4 expanded inventory 24/24 (including consumable drop/repick, mass/volume, container contention and disconnect integrity); final stress all six aggregate checks passed. Corrected settled reconnect repeats each passed 7 server + 5 client checks under emulation. All completed final regression editors shut down cleanly. Saved-map review passed 23/23 and the final build succeeded. All meaningful Gate 5 requirements passed; Gate 5 is ACCEPTED. Unreal is closed, all content is saved, and Gate 6 has not begun.
+
+## Gate 5 post-manual-playtest refinement — ACCEPTED (2026-10-06)
+
+Gate 5 remains ACCEPTED after this refinement. Gate 6 has not begun. This section supersedes the old Gate 5 fixture counts/configuration while preserving the preceding technical-acceptance history. Evidence and executable harness snapshots are in Docs/Gate5Refinement and Tools/Validation/Refinement; raw timelines/logs remain locally in Saved/Gate5Refinement.
+
+### Feedback, measured cause and entry/collision changes
+
+Manual feedback covered low/close chase camera, getting stuck in the cabin, invisible entry stairs, missing seat switching and exterior cargo storage. The exact original manual stuck position/state was not recorded, so it cannot be conclusively reconstructed. The investigation did confirm concrete geometry/placement defects: the old entry collision was centered at x=122 cm, while the purchased stepwell is centered at x=92.4; a full front-floor slab covered the recessed real treads; and the dinette collision protruded to x=95 while the visible furniture ends around x=51. Native baseline walking at the old approach stopped against an invisible lip. The baseline center aisle itself was walkable; this is not a claim that every original manual symptom was independently reproduced.
+
+The project derivative splits the floor around the well, aligns the doorway to x=55..130 and limits the dinette to x=55. Simple collision follows the real 28.9/57.7 cm interior treads. A visible prototype exterior tread (local top 8 cm) supplies the outside approach; only that tread needs additional prototype art. House door/glass project components are open at -90 degree yaw. Query-only boxes represent the open leaf, cab sides, hood and front fascia. Vendor meshes remain unchanged and supply no per-poly character/Chaos collision.
+
+Hold E at the side entry places a standing character in a full-capsule-clear aisle near local (130,0,180), including other-player/furniture clearance. The exit search is near (92.4,240,0), with full outside capsule radius considered before restoring movement. A first single route exposed the old cab-side exit leaving the character behind the house-door sight line; that actual placement problem was fixed. Natural physical step entry/exit also works. No passenger transform is forced every tick; capsule height 88 cm, outside radius 34 cm and accepted interior radius 30 cm/speed policy are retained. No emergency teleport command substitutes for collision repairs.
+
+### Camera, seats and exterior compartments
+
+The current production/test derivative is /Game/Vehicles/Gate5Refinement/BP_ClassCRefinedMotorhome, used in Gate5SurvivalTest. Tunable native spring-arm settings: length 1400 cm; pivot (-70,0,340); pitch -12 degrees; socket offset (0,0,60); FOV 85; probe radius 16 cm; collision enabled; camera lag/inherited pitch/roll disabled. Default camera local position is approximately (-1425,0,697), well above the roof and about 10.7 m behind the rear bumper. Native sphere sweep retracted approximately 612 cm / 1056 cm for the two obstacle placements and recovered the full arm. Physics/drivetrain/wheel/chassis assets and steady driving controls are unchanged.
+
+Seated controls displayed on HUD: 1 driver, 2 first passenger, V next available seat, E normal exit. Stop before switching (existing configurable 150 cm/s limit). Owned intent RPC validates source controller/pawn/reservation and free target before serial transfer; driving inputs are cleared on leaving the driver seat. The same survivor/needs/inventory is retained; occupancy, possession and cleanup use the accepted native seat system. Additional passenger seats can participate in V cycling. Standing players can Hold E at compact cabin seat markers. Shared constructor defaults make those marker dimensions identical on server/client; an initial server-only dimension adjustment was corrected before final tests.
+
+Seven separate purchased doors SM_RV_Van_Compartment_01..07 now each expose an independent ARVExteriorStoragePoint/URVContainerComponent. The replicated/configurable DoorPartName identifies its corresponding Art_RV_Van_Compartment_XX component and FindVisualPart exposes the existing separate pivot for future animation. Current doors remain closed/static; E opens the container UI. Capacities/labels/positions/tag filters are editable. See INVENTORY.md for the seven-door table. Inside, pantry/medical/water supplies remain and Personal supplies replaces General cabinet at 10 kg / 12 L. Empty generic tool/exterior markers were removed only from this map; all six workstations and two rest locations remain.
+
+Saved map: 62 editor actors, 11 pickups, 5 saved storage actors, 2 rest points and BP_Gate5GameMode. Runtime adds seven exterior compartments, giving 12 storage actors including the standalone outside test container. Accepted Gate 1-4 maps/vehicle/fallback content have no changes from 0e7a2cb. All 108 vendor-file hashes match the accepted import after the final audit.
+
+### Actual validation
+
+| Suite | Result |
+| --- | --- |
+| Native physical entry/aisle/exit, door interaction, seat transitions and exterior shell movement | 22/22 final; earlier targeted route 17/17 |
+| Driving camera: low/road/about 60 mph, turns, reverse, far/near obstacles, recovery and visual review | 17/17; highway 2673 cm/s |
+| Separate-process custom seats/doors/cargo/contention, baseline | 51 server / 48 client, all pass |
+| Same custom suite, outgoing-server 100 ms / 2% packet loss | 51 server / 48 client, all pass |
+| Host driving / client walking, baseline and emulated | 72 server / 73 client in each, all pass |
+| Client driving / host walking, baseline and emulated | 74 server / 67 client in each, all pass |
+| Gate 1 movement/jump/look/interaction regression | 23/23 |
+| Gate 2 seats, possession, both drivers, reverse/exit and disconnect | 24/24 plus 4/4 inventory-possession |
+| Gate 4 inventory/capacity/stacks/containers/contention/drop/repick/disconnect | 24/24 |
+| Gate 5 food/water/quantity/invalid requests/rest/sleep/wake | 27/27 |
+| Saved assets/maps, every Gate 1-5 map reopened twice, save and clean shutdown | 30/30 |
+| Final Development Editor / Win64 build | Succeeded; up to date |
+
+Moving routes use actual native input and approximately 60 mph, stationary/low/road speed, acceleration, braking, gentle/strong turns, stop/resume, mouse look, front/rear/sideways walking, physical door exit/re-entry, all six workstation interactions, cancellation, rest/wake and moving pantry/medical/personal transfers. They also consume food/water while riding and perform actual floor-attached drop/repick. Host/client run in distinct processes. Shared exterior-door contention is tested independently for all seven compartments, including last shared food ownership, preserved GUID/condition/custom state, an 18 kg engine part in compartment 03, occupied-seat rejection, numeric/V controls and disconnect while seated. No duplicated or lost successful transfers were observed.
+
+Measured moving/storage windows (setup/intentional entry/exit excluded): zero floor-loss samples and maximum recorded passenger correction 0 cm in all eight process reports. Worst standing-phase horizontal drift 2.502 cm. Independent-process maximum local differences: host baseline 10.33 cm; client baseline 10.24; host emulated 10.41; client emulated 28.54. These retain the accepted baseline/emulated thresholds; no acceptance limit was relaxed. Native game captures were visually reviewed for chase framing/clipping and the real/visible entry steps. This is automated input/measurement and visual inspection, not a claim of a new human subjective handling playtest.
+
+### Failures, corrections and automation stability
+
+- An initial compile used a nonexistent inherited ShadowMesh field; corrected to the existing Mesh and rebuilt successfully.
+- The first door-exit route exposed the cab-side exit/sight-line problem described above; source was fixed and the complete route rerun.
+- Python fixture setters and unexported camera-spawn wrappers were corrected to reflected setters and safe PIE-only prop reuse. Braking waits check actual speed rather than assuming a delay stops the RV.
+- The old moving fixture tried an 18 kg engine part in the newly limited 10 kg personal drawer. Capacity correctly rejected it; the old test's unconditional item lookup failed. It now asserts bulk rejection, transfers fitting bandages/tools and tests the engine part outside.
+- Facing the rear drawer gave no safe drop path: native logging named Bathroom obstruction and Bed support about 76 cm above the feet. The item was retained with No safe drop location. The revised test asserts conservation, looks toward the clear aisle and retries the same native request; floor attachment and repick must actually pass.
+- A new observer diagnostic incorrectly demanded owner-only inventory feedback on the non-owning driver. The check now respects COND_OwnerOnly while verifying replicated item conservation everywhere.
+- One uninstrumented timed interior-seat run failed. Its original cause is unconfirmed. An instrumented repeat passed; the fixture was also corrected to release Space after braking before character possession. Corrected baseline/emulated repeats pass, and failed receipts remain archived. No speculative gameplay rewrite was used to hide it.
+- A PowerShell result parser misread the Gate 2 array as null rows; the native receipts already passed 24+4. Replaced with a schema-aware Python validator and resumed only unfinished regressions.
+
+No current editor crash, World Memory Leak or Python error occurred in the completed final suites. Temporary callbacks/runners are released, PIE stops before map changes, audit functions return only primitive data and actors/worlds are not held across reloads. Leak detection remains enabled. All final editors shut down cleanly.
+
+### Files, checkpoints and remaining limits
+
+New native classes: ARVInteriorAccessPoint, ARVExteriorStoragePoint, ARVVehicleInteriorSeatPoint; new configurable FRVExteriorCompartmentDefinition. Modified ARVInteriorMotorhome, ARVVehicleBase, ARVPlayerController, ARVPrototypeHUD and only an outside-capsule getter in URVPassengerReferenceFrameComponent. No passenger movement solver, inventory transaction/needs implementation or Chaos tuning was replaced. Content changed only Gate5SurvivalTest and the new refined project Blueprint. Required RV/inventory/network/changelog docs and validation tooling/results are saved.
+
+Local checkpoints: cc05a60 baseline/recovery; 765cc89 saved compiled refinement foundation; 0c0edce initial separate-process seat/storage validation; 5bf48ef native cabin marker fix and passing camera; 8528379 corrected baseline/emulated seats/cargo; d3a15dd first full moving route/safe drop recovery; 40a1ba7 full role/emulation movement matrix. Final regression/documentation checkpoint follows; inspect local Git log for its exact hash.
+
+Known limits: static compartment doors and static open house door/prototype exterior tread; no final animation/art/rebinding; parked seat switching and entry/exit; accepted parked-only rest/sleep and seated-inventory limitations; no full save/cargo-mass/rough-terrain/larger-party claims. The exact original manual stuck pose and original timed harness miss were not conclusively reproduced. Current full routes have no reproduced trapping or networking blocker. A fresh manual usability review of Gate5SurvivalTest is recommended before authorizing Gate 6.
+
+All content is saved. The unrelated pre-existing Config/DefaultEngine.ini, .vsconfig, Automation_RVSurvival.slnx and RVSurvival.slnx are preserved outside refinement commits; security/config values are not copied into this report. No Git push or Gate 6 work was performed.
