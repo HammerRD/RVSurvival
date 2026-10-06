@@ -16,8 +16,10 @@ def aim(a):
 def awake():return n.get_editor_property('State').rest_mode==unreal.RVRestMode.AWAKE and pose.get_editor_property('RestPoint') is None and m.get_editor_property('MovementMode')==unreal.MovementMode.MOVE_WALKING
 def bed_check(i):
  check('bed_reserved_'+str(i),n.get_editor_property('State').rest_mode==unreal.RVRestMode.RESTING and bed.get_editor_property('Occupant')==pc.player_state)
- check('lying_pose_collision_camera_'+str(i),pose.get_editor_property('RestPoint')==bed and str(cap.get_collision_enabled()).find('NO_COLLISION')>=0 and abs(camera.get_editor_property('RelativeLocation').z-35)<.01,{'local':str(local()),'collision':str(cap.get_collision_enabled())})
+ check('lying_pose_collision_camera_'+str(i),pose.get_editor_property('RestPoint')==bed and str(cap.get_collision_enabled()).find('NO_COLLISION')>=0 and abs(camera.get_editor_property('RelativeLocation').z-25)<.01 and abs(camera.get_editor_property('RelativeLocation').x-80)<.01,{'local':str(local()),'collision':str(cap.get_collision_enabled())})
  check('bed_position_'+str(i),-315<local().x<-275 and abs(local().y)<5 and 195<local().z<215,local())
+ check('single_clean_horizontal_presentation_'+str(i),next(c for c in p.get_components_by_class(unreal.StaticMeshComponent) if c.get_name()=='PrototypeLyingBody').get_editor_property('bHiddenInGame') is False and p.get_component_by_class(unreal.SkeletalMeshComponent).get_editor_property('bHiddenInGame') is True)
+ if i==0:unreal.SystemLibrary.execute_console_command(pc,'shot filename='+B+'bed-own.png -nosuffix',pc)
 def wake_check(i):
  check('safe_wake_'+str(i),awake() and bed.get_editor_property('Occupant') is None and f.get_editor_property('ReferenceFrame')==v and -225<local().x<-105 and abs(local().y)<5,local())
  check('camera_collision_restored_'+str(i),abs(camera.get_editor_property('RelativeLocation').z-64)<.01 and str(cap.get_collision_enabled()).find('QUERY_AND_PHYSICS')>=0,str(cap.get_collision_enabled()))
@@ -82,3 +84,4 @@ def tick(dt):
  except Exception as e:
   check('exception',False,repr(e));unreal.unregister_slate_post_tick_callback(h);json.dump({'results':rows},open(B+'bed_door_stations.json','w'),indent=2)
 h=unreal.register_slate_post_tick_callback(tick)
+

@@ -8,6 +8,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Camera/CameraComponent.h"
+#include "GameFramework/PlayerController.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Engine/StaticMesh.h"
 #include "Net/UnrealNetwork.h"
@@ -79,7 +80,10 @@ void URVRestPoseComponent::OnRep_RestPoint()
         PreviousVisualVisibility.Reset();
         for (auto* Child:Children) if (auto* Part=Cast<UPrimitiveComponent>(Child))
         { PreviousVisualVisibility.Emplace(TWeakObjectPtr<UPrimitiveComponent>(Part),bool(Part->bHiddenInGame)); Part->SetHiddenInGame(true); }
-        C->BaseEyeHeight=35; if (Camera) Camera->SetRelativeLocation(FVector(0,0,35));
+        C->BaseEyeHeight=RestPoint->LyingCameraOffset.Z;
+        if (Camera) Camera->SetRelativeLocation(RestPoint->LyingCameraOffset);
+        if (auto* PC=Cast<APlayerController>(C->GetController()); PC && PC->IsLocalController())
+            PC->SetControlRotation(FRotator(-10,RestPoint->GetActorRotation().Yaw+RestPoint->LyingRotation.Yaw+180,0));
     }
     else if (!RestPoint && bPresentationActive)
     {

@@ -18,6 +18,7 @@ public:
     UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category="RV|Bed") FVector LyingOffset=FVector(-70,15,40);
     UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category="RV|Bed") FRotator LyingRotation=FRotator(0,90,0);
     UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category="RV|Bed") FVector WakeAisleLocation=FVector(-185,0,185);
+    UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category="RV|Bed") FVector LyingCameraOffset=FVector(80,0,25);
     bool FindWakePosition(ARVSurvivorCharacter* Character,FVector& Position,class UPrimitiveComponent*& Floor) const;
     bool ValidateLyingPosition(ARVSurvivorCharacter* Character) const;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out) const override;

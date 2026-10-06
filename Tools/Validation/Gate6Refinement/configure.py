@@ -15,6 +15,7 @@ def configure():
    a.set_editor_property('LyingOffset',unreal.Vector(-70,15,50))
    a.set_editor_property('LyingRotation',unreal.Rotator(yaw=90))
    a.set_editor_property('WakeAisleLocation',unreal.Vector(-185,0,185))
+   a.set_editor_property('LyingCameraOffset',unreal.Vector(80,0,25))
  assert unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True,True)
  assert unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).save_current_level()
  json.dump({'interactive_house_door':True,'rear_bed_pose':True,'saved':True},open(B+'configured.json','w'),indent=2)

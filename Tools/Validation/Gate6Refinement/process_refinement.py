@@ -89,7 +89,7 @@ if config.get('disconnect',False):
  def cleaned():
   if not authority:return
   check('disconnect_frees_bed_and_survivor',bed.get_editor_property('Occupant') is None and len(unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVSurvivorCharacter))==1)
-  check('disconnect_keeps_RV_other_needs_and_seats',len(unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVSystemsMotorhome))==1 and hp.get_editor_property('PlayerState').get_component_by_class(unreal.RVNeedsComponent).get_editor_property('State').rest_mode==unreal.RVRestMode.AWAKE and (driver.get_editor_property('Occupant')==hp if config['driver']=='host' else driver.get_editor_property('Occupant') is None))
+  check('disconnect_keeps_RV_other_needs_and_seats',len(unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVSystemsMotorhome))==1 and own.get_editor_property('PlayerState').get_component_by_class(unreal.RVNeedsComponent).get_editor_property('State').rest_mode==unreal.RVRestMode.AWAKE and (driver.get_editor_property('Occupant')==hp if config['driver']=='host' else driver.get_editor_property('Occupant') is None))
  at(80,cleaned);at(82,finish)
 events.sort(key=lambda entry:entry[0])
 def tick(dt):
@@ -99,11 +99,13 @@ def tick(dt):
  if t<0:return
  try:
   while idx<len(events) and t>=events[idx][0]:
-   fn=events[idx][1];idx+=1;fn()
+   fn=events[idx][1];idx+=1;terminating=fn.__name__=='disconnect_client' and not authority;fn()
+   if terminating:return # Runner namespace was released before disconnect; use the captured local guard.
    if not active:return
   if not active:return
   if t>=nextsample:
    nextsample=t+.2;samples.append({'t':t,'passenger':local(wp),'driver_occupant':str(driver.get_editor_property('Occupant')),'passenger_occupant':str(passenger.get_editor_property('Occupant')),'door':door.get_editor_property('bOpen'),'speed':v.get_velocity().length()})
  except Exception as e:check('exception',False,repr(e));finish()
 h=unreal.register_slate_post_tick_callback(tick)
+
 

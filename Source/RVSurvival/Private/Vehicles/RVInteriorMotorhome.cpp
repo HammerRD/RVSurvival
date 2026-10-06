@@ -110,6 +110,7 @@ void ARVInteriorMotorhome::BeginPlay()
             if (HouseDoor)
             {
                 HouseDoor->DoorMesh=Door->Mesh; HouseDoor->GlassMesh=Glass?Glass->Mesh:nullptr;
+                HouseDoor->DoorMaterials=Door->Materials; if (Glass) HouseDoor->GlassMaterials=Glass->Materials;
                 if (Glass) HouseDoor->GlassOffset=Glass->Transform.GetLocation()-Door->Transform.GetLocation();
                 HouseDoor->FinishSpawning(GetActorTransform());
                 HouseDoor->AttachToComponent(GetMesh(),FAttachmentTransformRules::SnapToTargetNotIncludingScale);

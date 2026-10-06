@@ -1,0 +1,112 @@
+{
+  "pid": 26576,
+  "authority": false,
+  "config": {
+    "driver": "client",
+    "name": "refine_client_emulated",
+    "disconnect": true,
+    "network": true
+  },
+  "results": [
+    {
+      "case": "house_door_starts_closed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "both_seats_reserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "occupied_seat_rejected_before_release",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "passenger_to_rear_no_exterior_exit",
+      "pass": true,
+      "detail": "[129.97000000000003, 0.0, 177.19]"
+    },
+    {
+      "case": "rear_back_to_passenger",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_passenger_to_living_area",
+      "pass": true,
+      "detail": "{'pos': [130.05000000000317, -2.3044413860644997e-14, 177.19000000000003], 'speed': 2641.6827453360834}"
+    },
+    {
+      "case": "moving_driver_retains_control",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_door_open_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_walk_to_rear",
+      "pass": true,
+      "detail": "[-204.4200000000085, 1.8914912419438458e-14, 191.85000000000045]"
+    },
+    {
+      "case": "moving_walk_back_to_front",
+      "pass": true,
+      "detail": "[130.0300000001061, -1.7030492720842987e-14, 177.2400000000001]"
+    },
+    {
+      "case": "moving_door_close_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "parked_after_drive",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "bed_pose_and_occupancy_replicate",
+      "pass": true,
+      "detail": "[-295.00050000000255, -1.8722240072453272e-16, 204.99949999999998]"
+    },
+    {
+      "case": "sleep_state_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stand_up_replicates_safe_aisle",
+      "pass": true,
+      "detail": "[-184.95999999999736, -2.2091727449572917e-15, 191.49000000000004]"
+    },
+    {
+      "case": "bed_walk_away",
+      "pass": true,
+      "detail": "[9.510000000002647, -2.0930085675458537e-15, 177.29000000000002]"
+    },
+    {
+      "case": "door_open_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "door_close_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_bed_reserved_before_disconnect",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_sleep_before_disconnect",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

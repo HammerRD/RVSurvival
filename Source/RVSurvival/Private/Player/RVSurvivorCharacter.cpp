@@ -20,6 +20,7 @@
 #include "Player/RVPlayerState.h"
 #include "Survival/RVNeedsComponent.h"
 #include "Survival/RVRestPoseComponent.h"
+#include "Survival/RVRestPoint.h"
 static bool CanMoveWhileAwake(const ARVSurvivorCharacter* Character)
 {
     const auto* PS=Character->GetPlayerState<ARVPlayerState>();
@@ -107,6 +108,7 @@ void ARVSurvivorCharacter::GetActorEyesViewPoint(FVector& Location, FRotator& Ro
 {
     // Same capsule-relative eye origin on authority and client; no client-supplied trace.
     Location = GetActorLocation() + FVector(0, 0, BaseEyeHeight);
+    if (RestPose && RestPose->RestPoint) Location=GetActorTransform().TransformPosition(RestPose->RestPoint->LyingCameraOffset);
     Rotation = GetViewRotation();
 }
 void ARVSurvivorCharacter::EndPlay(const EEndPlayReason::Type Reason)

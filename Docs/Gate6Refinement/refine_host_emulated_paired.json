@@ -1,0 +1,24 @@
+{
+  "name": "refine_host_emulated",
+  "checks": [
+    {
+      "case": "distinct_processes",
+      "pass": true
+    },
+    {
+      "case": "live_server_checks",
+      "pass": true
+    },
+    {
+      "case": "live_client_checks",
+      "pass": true
+    },
+    {
+      "case": "paired_moving_transition_and_walking",
+      "pass": true,
+      "maximum_cm": 24.26525442401354,
+      "limit_cm": 75
+    }
+  ],
+  "pass": true
+}

@@ -1,0 +1,24 @@
+{
+  "name": "refine_host_door_fixed",
+  "checks": [
+    {
+      "case": "distinct_processes",
+      "pass": true
+    },
+    {
+      "case": "live_server_checks",
+      "pass": true
+    },
+    {
+      "case": "live_client_checks",
+      "pass": true
+    },
+    {
+      "case": "paired_moving_transition_and_walking",
+      "pass": true,
+      "maximum_cm": 16.61211195624093,
+      "limit_cm": 30
+    }
+  ],
+  "pass": true
+}

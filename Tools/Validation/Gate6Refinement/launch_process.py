@@ -6,6 +6,7 @@ assert unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).load_level('/Gam
 assert unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True,True)
 s=unreal.get_default_object(unreal.load_class(None,'/Script/UnrealEd.LevelEditorPlaySettings'));s.set_editor_property('RunUnderOneProcess',False);s.set_editor_property('PlayNumberOfClients',2);s.set_editor_property('AdditionalLaunchParameters','-ExecCmds="py D:/GitHub/RVSurvival/RVSurvival/Saved/Gate6Refinement/process_startup.py"')
 n=s.get_editor_property('NetworkEmulationSettings');case=json.load(open(B+'case.json'));n.set_editor_property('bIsNetworkEmulationEnabled',case.get('network',False));o=n.get_editor_property('OutPackets');o.set_editor_property('MinLatency',100);o.set_editor_property('MaxLatency',100);o.set_editor_property('PacketLossPercentage',2);n.set_editor_property('OutPackets',o);s.set_editor_property('NetworkEmulationSettings',n)
+s.set_editor_property('AdditionalLaunchParameters','-ExecCmds="py D:/GitHub/RVSurvival/RVSurvival/Saved/Gate6Refinement/process_startup.py" -abslog="'+B+case['name']+'_child.log"')
 unreal.get_default_object(unreal.load_class(None,'/Script/UnrealEd.EditorPerformanceSettings')).set_editor_property('bThrottleCPUWhenNotForeground',False)
 unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_begin_play()
 t=0;loaded=False;ending=None;start=time.time();sid=start

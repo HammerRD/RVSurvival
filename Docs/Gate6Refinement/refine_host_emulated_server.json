@@ -1,0 +1,122 @@
+{
+  "pid": 53052,
+  "authority": true,
+  "config": {
+    "driver": "host",
+    "name": "refine_host_emulated",
+    "disconnect": true,
+    "network": true
+  },
+  "results": [
+    {
+      "case": "house_door_starts_closed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "both_seats_reserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "occupied_seat_rejected_before_release",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "passenger_to_rear_no_exterior_exit",
+      "pass": true,
+      "detail": "[129.99331239157178, -2.6259299840220842e-05, 177.18974515998133]"
+    },
+    {
+      "case": "rear_back_to_passenger",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_passenger_to_living_area",
+      "pass": true,
+      "detail": "{'pos': [130.04899950802587, 0.0003156074544733152, 177.18804966522578], 'speed': 2737.640211340838}"
+    },
+    {
+      "case": "moving_driver_retains_control",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_door_open_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_walk_to_rear",
+      "pass": true,
+      "detail": "[-204.42634071683463, -0.0004956770573072105, 191.85091454729212]"
+    },
+    {
+      "case": "moving_walk_back_to_front",
+      "pass": true,
+      "detail": "[130.02959423379767, 0.00013462167044000042, 177.2366973858533]"
+    },
+    {
+      "case": "moving_door_close_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "parked_after_drive",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "bed_pose_and_occupancy_replicate",
+      "pass": true,
+      "detail": "[-295.0000000000014, -1.6290137641594704e-15, 205.00000000000003]"
+    },
+    {
+      "case": "sleep_state_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stand_up_replicates_safe_aisle",
+      "pass": true,
+      "detail": "[-184.96329702842698, -0.0003424094538047207, 191.48856005572605]"
+    },
+    {
+      "case": "bed_walk_away",
+      "pass": true,
+      "detail": "[9.502810888528833, 0.0004070691408254595, 177.28615760144757]"
+    },
+    {
+      "case": "door_open_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "door_close_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_bed_reserved_before_disconnect",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_sleep_before_disconnect",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "disconnect_frees_bed_and_survivor",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "disconnect_keeps_RV_other_needs_and_seats",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

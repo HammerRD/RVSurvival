@@ -17,7 +17,7 @@ ARVRestPoint::ARVRestPoint()
 }
 void ARVRestPoint::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 { Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(ARVRestPoint,DisplayName); DOREPLIFETIME(ARVRestPoint,MaximumPlatformSpeed); DOREPLIFETIME(ARVRestPoint,Occupant);
-  DOREPLIFETIME(ARVRestPoint,bUseLyingPose); DOREPLIFETIME(ARVRestPoint,LyingOffset); DOREPLIFETIME(ARVRestPoint,LyingRotation); DOREPLIFETIME(ARVRestPoint,WakeAisleLocation); }
+  DOREPLIFETIME(ARVRestPoint,bUseLyingPose); DOREPLIFETIME(ARVRestPoint,LyingOffset); DOREPLIFETIME(ARVRestPoint,LyingRotation); DOREPLIFETIME(ARVRestPoint,WakeAisleLocation); DOREPLIFETIME(ARVRestPoint,LyingCameraOffset); }
 bool ARVRestPoint::FindWakePosition(ARVSurvivorCharacter* Character,FVector& Position,UPrimitiveComponent*& Floor) const
 {
     if (auto* RV=Cast<ARVInteriorMotorhome>(GetAttachParentActor()))
@@ -26,12 +26,12 @@ bool ARVRestPoint::FindWakePosition(ARVSurvivorCharacter* Character,FVector& Pos
 }
 bool ARVRestPoint::ValidateLyingPosition(ARVSurvivorCharacter* Character) const
 {
-    if (!Character) return false;
+    if (!Character || LyingOffset.ContainsNaN() || LyingRotation.ContainsNaN() || LyingCameraOffset.ContainsNaN()) return false;
     const FVector Position=GetActorLocation()+GetActorQuat().RotateVector(LyingOffset);
     FCollisionQueryParams Params(SCENE_QUERY_STAT(RVBedClearance),false,Character);
-    // The horizontal prototype body is 168 x 32 x 32 cm. Include furniture and other players.
+    // Include the full horizontal prototype body/head and a small clearance margin.
     return !GetWorld()->OverlapBlockingTestByChannel(Position,GetActorQuat()*LyingRotation.Quaternion(),ECC_Pawn,
-        FCollisionShape::MakeBox(FVector(85,18,18)),Params);
+        FCollisionShape::MakeBox(FVector(100,20,20)),Params);
 }
 bool ARVRestPoint::CanContinueRest(const ARVSurvivorCharacter* Character) const
 {

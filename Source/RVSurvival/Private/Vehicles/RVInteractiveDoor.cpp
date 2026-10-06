@@ -21,12 +21,16 @@ void ARVInteractiveDoor::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     DOREPLIFETIME(ARVInteractiveDoor,bOpen); DOREPLIFETIME(ARVInteractiveDoor,OpenAngle);
     DOREPLIFETIME(ARVInteractiveDoor,DoorMesh); DOREPLIFETIME(ARVInteractiveDoor,GlassMesh);
+    DOREPLIFETIME(ARVInteractiveDoor,DoorMaterials); DOREPLIFETIME(ARVInteractiveDoor,GlassMaterials);
     DOREPLIFETIME(ARVInteractiveDoor,GlassOffset); DOREPLIFETIME(ARVInteractiveDoor,CollisionCenter);
     DOREPLIFETIME(ARVInteractiveDoor,CollisionExtent); DOREPLIFETIME(ARVInteractiveDoor,DoorLabel);
 }
 void ARVInteractiveDoor::OnRep_Door()
 {
     Visual->SetStaticMesh(DoorMesh); Glass->SetStaticMesh(GlassMesh); Glass->SetRelativeLocation(GlassOffset);
+    for (int32 Index=0;Index<DoorMaterials.Num();++Index) if (DoorMaterials[Index]) Visual->SetMaterial(Index,DoorMaterials[Index]);
+    for (int32 Index=0;Index<GlassMaterials.Num();++Index) if (GlassMaterials[Index]) Glass->SetMaterial(Index,GlassMaterials[Index]);
+    Glass->bDisallowNanite=true; // Preserve the accepted project-side translucent glass policy.
     DoorCollision->SetRelativeLocation(CollisionCenter); DoorCollision->SetBoxExtent(CollisionExtent);
     Hinge->SetRelativeRotation(FRotator(0,bOpen?OpenAngle:0,0));
 }

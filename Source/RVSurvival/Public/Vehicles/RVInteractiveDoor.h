@@ -20,6 +20,8 @@ public:
     UPROPERTY(EditAnywhere,ReplicatedUsing=OnRep_Door,BlueprintReadOnly) float OpenAngle=-90;
     UPROPERTY(EditAnywhere,ReplicatedUsing=OnRep_Door,BlueprintReadOnly) TObjectPtr<class UStaticMesh> DoorMesh;
     UPROPERTY(EditAnywhere,ReplicatedUsing=OnRep_Door,BlueprintReadOnly) TObjectPtr<class UStaticMesh> GlassMesh;
+    UPROPERTY(EditAnywhere,ReplicatedUsing=OnRep_Door,BlueprintReadOnly) TArray<TObjectPtr<class UMaterialInterface>> DoorMaterials;
+    UPROPERTY(EditAnywhere,ReplicatedUsing=OnRep_Door,BlueprintReadOnly) TArray<TObjectPtr<class UMaterialInterface>> GlassMaterials;
     UPROPERTY(EditAnywhere,ReplicatedUsing=OnRep_Door,BlueprintReadOnly) FVector GlassOffset=FVector(0,0,62.87);
     UPROPERTY(EditAnywhere,ReplicatedUsing=OnRep_Door,BlueprintReadOnly) FVector CollisionCenter=FVector(-34,-2,0);
     UPROPERTY(EditAnywhere,ReplicatedUsing=OnRep_Door,BlueprintReadOnly) FVector CollisionExtent=FVector(34,3,112);
