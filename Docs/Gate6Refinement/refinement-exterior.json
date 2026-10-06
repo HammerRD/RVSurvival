@@ -1,0 +1,249 @@
+{
+  "results": [
+    {
+      "case": "front_center",
+      "pass": true,
+      "detail": "{'position': [441.51173544743006, 0.0004061071843925303, 69.56226513300194], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "front_left",
+      "pass": true,
+      "detail": "{'position': [441.5117359791027, -74.99959388008017, 69.56128852385257], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "front_right",
+      "pass": true,
+      "detail": "{'position': [441.5119639285377, 75.00040609444069, 69.56323962488858], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "front_center_jump",
+      "pass": true,
+      "detail": "{'position': [441.49618931891536, 0.00041208294456177345, 69.56240896047946], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "cab_right",
+      "pass": true,
+      "detail": "{'position': [309.72989990747453, 140.10098986075846, 70.78244064090809], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "cab_left",
+      "pass": true,
+      "detail": "{'position': [309.7298273586232, -140.10029016414552, 70.77878012401574], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "front_wheel_right",
+      "pass": true,
+      "detail": "{'position': [295.73109641330893, 140.10099035741308, 70.91186015892016], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "front_wheel_left",
+      "pass": true,
+      "detail": "{'position': [295.7310239349932, -140.10027870756227, 70.90820727123923], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "front_corner_right",
+      "pass": true,
+      "detail": "{'position': [-258.32232758904047, 161.00910452117586, 76.03434854464051], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "front_corner_left",
+      "pass": true,
+      "detail": "{'position': [-570.8241433274496, -111.58512802912706, 78.92003690344511], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "side_right_middle",
+      "pass": true,
+      "detail": "{'position': [-25.24146927928797, 161.10108538546766, 73.87958230086241], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "side_left_middle",
+      "pass": true,
+      "detail": "{'position': [-25.24154171433316, -161.09999611282964, 73.87538424561416], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "rear_wheel_right",
+      "pass": true,
+      "detail": "{'position': [-115.2337773351407, 161.1010854710285, 74.71157799501678], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "rear_wheel_left",
+      "pass": true,
+      "detail": "{'position': [-115.23384977018584, -161.10000796580465, 74.70737993961279], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "rear_right",
+      "pass": true,
+      "detail": "{'position': [-315.21668417294165, 161.1010876057297, 76.56045222933946], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "rear_left",
+      "pass": true,
+      "detail": "{'position': [-315.2167566570325, -161.10003233889296, 76.55624886900334], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "rear_center",
+      "pass": true,
+      "detail": "{'position': [-398.59737191467997, 0.00029685748209737817, 77.23845890621195], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "rear_corner_right",
+      "pass": true,
+      "detail": "{'position': [-398.51862706444217, -45.92627975493406, 77.16893697494412], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "rear_corner_left",
+      "pass": true,
+      "detail": "{'position': [-398.51859566224323, 46.41956950524695, 77.16869074825614], 'capsule_radius': 34.0}"
+    },
+    {
+      "case": "structural_bumper",
+      "pass": true,
+      "detail": "{'blocking': True}"
+    },
+    {
+      "case": "structural_grille",
+      "pass": true,
+      "detail": "{'blocking': True}"
+    },
+    {
+      "case": "structural_fascia_upper",
+      "pass": true,
+      "detail": "{'blocking': True}"
+    },
+    {
+      "case": "structural_hood",
+      "pass": true,
+      "detail": "{'blocking': True}"
+    },
+    {
+      "case": "structural_engine_side_right",
+      "pass": true,
+      "detail": "{'blocking': True}"
+    },
+    {
+      "case": "structural_engine_side_left",
+      "pass": true,
+      "detail": "{'blocking': True}"
+    },
+    {
+      "case": "structural_firewall",
+      "pass": true,
+      "detail": "{'blocking': True}"
+    },
+    {
+      "case": "structural_rear",
+      "pass": true,
+      "detail": "{'blocking': True}"
+    },
+    {
+      "case": "structural_house_left",
+      "pass": true,
+      "detail": "{'blocking': True}"
+    },
+    {
+      "case": "structural_house_right",
+      "pass": true,
+      "detail": "{'blocking': True}"
+    },
+    {
+      "case": "structural_windshield_cab_boundary",
+      "pass": true,
+      "detail": "{'blocking': True}"
+    },
+    {
+      "case": "structural_under_front_body",
+      "pass": true,
+      "detail": "{'blocking': True}"
+    },
+    {
+      "case": "unchanged_capsule",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "complete_continuous_walkaround",
+      "pass": true,
+      "detail": "{'waypoints_completed': 5, 'position': [464.5142297485995, 16.7716241413403, 69.34982315828218]}"
+    }
+  ],
+  "structural_traces": [
+    {
+      "case": "bumper",
+      "hit": {
+        "blocking": true
+      }
+    },
+    {
+      "case": "grille",
+      "hit": {
+        "blocking": true
+      }
+    },
+    {
+      "case": "fascia_upper",
+      "hit": {
+        "blocking": true
+      }
+    },
+    {
+      "case": "hood",
+      "hit": {
+        "blocking": true
+      }
+    },
+    {
+      "case": "engine_side_right",
+      "hit": {
+        "blocking": true
+      }
+    },
+    {
+      "case": "engine_side_left",
+      "hit": {
+        "blocking": true
+      }
+    },
+    {
+      "case": "firewall",
+      "hit": {
+        "blocking": true
+      }
+    },
+    {
+      "case": "rear",
+      "hit": {
+        "blocking": true
+      }
+    },
+    {
+      "case": "house_left",
+      "hit": {
+        "blocking": true
+      }
+    },
+    {
+      "case": "house_right",
+      "hit": {
+        "blocking": true
+      }
+    },
+    {
+      "case": "windshield_cab_boundary",
+      "hit": {
+        "blocking": true
+      }
+    },
+    {
+      "case": "under_front_body",
+      "hit": {
+        "blocking": true
+      }
+    },
+    {
+      "case": "engine_underside_inspection",
+      "hit": null
+    }
+  ],
+  "trace_api": "X.line_trace_single(world_context_object, start, end, trace_channel, trace_complex, actors_to_ignore, draw_debug_type, ignore_self=True, trace_color=[1.000000, 0.000000, 0.000000, 1.000000], trace_hit_color=[0.000000, 1.000000, 0.000000, 1.000000], draw_time=5.000000) -> HitResult or None\r\nDoes a collision trace along the given line and returns the first blocking hit encountered.\nThis trace finds the objects that RESPONDS to the given TraceChannel\r\n\r\nArgs:\r\n    world_context_object (Object): \r\n    start (Vector): Start of line segment.\r\n    end (Vector): End of line segment.\r\n    trace_channel (TraceTypeQuery): \r\n    trace_complex (bool): True to test against complex collision, false to test against simplified collision.\r\n    actors_to_ignore (Array[Actor]): \r\n    draw_debug_type (DrawDebugTrace): \r\n    ignore_self (bool): \r\n    trace_color (LinearColor): \r\n    trace_hit_color (LinearColor): \r\n    draw_time (float): \r\n\r\nReturns:\r\n    HitResult or None: True if there was a hit, false otherwise.\r\n\r\n    out_hit (HitResult): Properties of the trace hit.",
+  "sweep_api": "X.sphere_trace_single(world_context_object, start, end, radius, trace_channel, trace_complex, actors_to_ignore, draw_debug_type, ignore_self=True, trace_color=[1.000000, 0.000000, 0.000000, 1.000000], trace_hit_color=[0.000000, 1.000000, 0.000000, 1.000000], draw_time=5.000000) -> HitResult or None\r\nSweeps a sphere along the given line and returns the first blocking hit encountered.\nThis trace finds the objects that RESPONDS to the given TraceChannel\r\n\r\nArgs:\r\n    world_context_object (Object): \r\n    start (Vector): Start of line segment.\r\n    end (Vector): End of line segment.\r\n    radius (float): Radius of the sphere to sweep\r\n    trace_channel (TraceTypeQuery): \r\n    trace_complex (bool): True to test against complex collision, false to test against simplified collision.\r\n    actors_to_ignore (Array[Actor]): \r\n    draw_debug_type (DrawDebugTrace): \r\n    ignore_self (bool): \r\n    trace_color (LinearColor): \r\n    trace_hit_color (LinearColor): \r\n    draw_time (float): \r\n\r\nReturns:\r\n    HitResult or None: True if there was a hit, false otherwise.\r\n\r\n    out_hit (HitResult): Properties of the trace hit."
+}
