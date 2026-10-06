@@ -1,0 +1,9 @@
+{
+  "map": "/Game/Maps/Gate5SurvivalTest",
+  "actors": 64,
+  "rest": [
+    "Rear bed",
+    "Dinette rest"
+  ],
+  "profile": "/Game/Survival/DA_NormalNeeds"
+}
