@@ -1,0 +1,41 @@
+{
+  "input": "Native sky keyboard on client PIE window after clicking game viewport",
+  "viewport": "640x480",
+  "visual_checks": [
+    "readable quantity, condition, kg/L capacities",
+    "Tab panel selection",
+    "Up/Down row selection",
+    "I close/reopen"
+  ],
+  "checks": [
+    {
+      "case": "native_deposit",
+      "pass": true
+    },
+    {
+      "case": "native_withdraw",
+      "pass": true
+    },
+    {
+      "case": "native_tool_drop",
+      "pass": true
+    },
+    {
+      "case": "capacity_feedback_no_loss",
+      "pass": true
+    },
+    {
+      "case": "close_container",
+      "pass": true
+    },
+    {
+      "case": "server_client_converge",
+      "pass": true
+    },
+    {
+      "case": "condition_preserved",
+      "pass": true
+    }
+  ],
+  "pass": true
+}
