@@ -26,3 +26,11 @@ The motorhome remains a mobile survival base. Later gates must preserve local in
 ## Gate 4 inventory integration (accepted Gate 4)
 
 Inventory now has its own C++ boundary under Public/Private/Inventory: Primary Data Asset definitions, identified lightweight FastArray records, shared inventory/container capacity transactions, and separate interactable pickup/storage actors. The survivor owns its inventory component; vehicle possession and the passenger movement code remain unchanged. Inventory presentation stays in the temporary HUD. Full persistence/equipment/crafting systems are outside this gate. See INVENTORY.md and GATE_4_VALIDATION.md for the implemented model and current acceptance status.
+
+## Gate 5 needs framework boundary (in progress)
+
+URVNeedsComponent is a replicated PlayerState subobject, independent of character/vehicle possession. FRVNeedsState is reflected scalar data with SaveGame-marked persistent fields; transient rest reservations are not persisted. URVNeedsProfile is a Primary Data Asset for normal tuning. Authority applies hour-based gameplay rules; Unreal owns replication, RPC transport, component ticking, timers and object lifetime. Native CharacterMovement retains prediction/moving-base handling; a derived speed query applies critical-need policy without rewriting its solver.
+
+Framework review: GAS is deferred for Gate 5's simple slow scalar simulation, not replaced by a custom effect framework. Before future injuries, bleeding, medication or stacking/timed effects, reassess PlayerState-owned ASC/AttributeSets/GameplayEffects (Epic Lyra pattern). Native RepNotify notifications and Gameplay Tags expose current derived status. New survival presentation uses UMG; accepted inventory Canvas controls remain pending a later UI-focused migration. No CommonUI menu framework or Lyra experience/game-feature architecture is imported without a demonstrated need.
+
+Future region streaming must not reset PlayerState-owned needs or pause metabolic updates merely because the current pawn is an RV. CopyProperties prepares scalar transfer; actual seamless travel and offline progression are unimplemented and unvalidated.

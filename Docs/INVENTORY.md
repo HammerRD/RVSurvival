@@ -39,3 +39,7 @@ Future workstations can query linked/nearby container components and their item 
 Canvas presentation: I toggles inventory, Tab selects player/container panel, Up/Down selects a row, T transfers one unit, G drops one unit. It displays quantity, kg/L capacity and condition, with authoritative feedback. It does not pause walking or mouse look and uses no rarity colors. Final UMG, icons, rebinding, large-list pagination and seated-driver inventory presentation remain future work.
 
 Inert definitions: bottled water, canned food, bandage, pain medication, fuel can, engine part, scrap metal, hand tool, ammunition box, bulky supply crate and large battery. The tool is marked equipment-eligible; metal/tool crafting tags are metadata only. Prototype instances have a Batch custom-state value for transfer/drop validation.
+
+## Gate 5 integration (in progress)
+
+FRVConsumableMetadata on the existing definition supplies enabled flag, nutrition/hydration gains, minimum condition and future dietary metadata. ServerConsume resolves the requesting PlayerState's survivor inventory, validates owned GUID/metadata/benefit/cooldown, then ConsumeOneAuthority removes one existing runtime quantity serially before applying needs recovery. Definition names do not dispatch behavior. Stored items remain lightweight FastArray records; partial stacks preserve GUID/condition/custom state. Consumables in a shared cabinet must first be authoritatively transferred to the player. No second inventory, spoilage/cooking or medicine effects exist.

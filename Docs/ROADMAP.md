@@ -1,11 +1,12 @@
 # Development gates
-1. Foundation: ACCEPTED on 2026-10-05; full live PIE validation is recorded in GATE_1_VALIDATION.md.
-2. RV basics: ACCEPTED on 2026-10-05; Chaos vehicle, authoritative seats, entry/exit, driver possession and two-player replication validated in GATE_2_VALIDATION.md.
-3. Moving interior: ACCEPTED on 2026-10-05; purchased Class C interior, native networked walking, fixed workstation interactions, role/speed/network matrix and regressions validated in GATE_3_VALIDATION.md.
-4. Inventory: ACCEPTED on 2026-10-05; authoritative pickup/drop, mass/volume, shared storage, contention, moving-RV use and network validation recorded in GATE_4_VALIDATION.md.
-5. Fuel loop: drive, stop, refuel, continue; empty fuel disables propulsion.
-6. Mechanical failure: cooling failure and compatible repair.
-7. Basic combat: one firearm, magazine items, damage, minimal infected.
-8. Vertical slice: 4–6 km region with the cooling repair/scavenge/refuel/leave scenario.
 
-Current work stops after Gate 4. Later gameplay remains unimplemented. See GATE_4_VALIDATION.md for live evidence and known limits.
+1. Foundation: ACCEPTED on 2026-10-05; live PIE evidence in GATE_1_VALIDATION.md.
+2. RV basics: ACCEPTED on 2026-10-05; Chaos vehicle, seats, possession and replication in GATE_2_VALIDATION.md.
+3. Moving interior: ACCEPTED on 2026-10-05; purchased Class C interior and native networked walking in GATE_3_VALIDATION.md.
+4. Inventory: ACCEPTED on 2026-10-05; authoritative logistics, contention and moving storage in GATE_4_VALIDATION.md.
+5. Core survival needs: IN PROGRESS. Nutrition, hydration, fatigue, consumables and rest/sleep; acceptance requires live multiplayer, moving-RV use, stress and Gates 1–4 regression evidence. See GATE_5_VALIDATION.md.
+6. Fuel/electrical gameplay: deferred. Must not begin during Gate 5.
+
+The user's Gate 5 survival brief supersedes the earlier roadmap's fuel-loop assignment. Mechanical failures, combat, full medical systems, regional generation/streaming and campaign content remain later work; this update does not authorize them.
+
+Current work stops after Gate 5. Compile success is not gate acceptance.

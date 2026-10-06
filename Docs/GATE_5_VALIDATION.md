@@ -42,3 +42,11 @@ Sources:
 - https://dev.epicgames.com/documentation/en-us/unreal-engine/abilities-in-lyra-in-unreal-engine
 
 Content setup encountered a Python read-only GameplayTagContainer property error, not a crash. The partially completed Gate 5 map was immediately saved through Editor Save All (All Saved verified). Repair will use the official GameplayTags Blueprint library API and in-place configuration, without recreating the map or its existing rest markers.
+
+## Live validation progress
+
+Single-player corrected run: 27/27 passed, including actual hold-interaction pickups, owned consumption, stack/last-item/stale-GUID handling, condition/custom-state preservation, exclusive rest entry, sleep recovery with continued metabolism, movement restriction/wake cleanup, status tags/warnings, consequences and 24-hour-equivalent clamping. Initial harness errors (live struct alias and non-exported Python movement getter) were repaired; initial evidence retained.
+
+First independent moving host/client run retained the complete accepted Gate 3 movement/workstation route and Gate 4 storage/drop route. Stationary and highway food consumption and turning food consumption passed. A fixed hydration target incorrectly omitted ~0.67 points of genuine drain accumulated over the route. The check now records pre-consumption values and verifies configured gain plus ongoing normal metabolism; no gameplay acceptance limits changed. Paired inventory/container/status receipts matched; maximum independently sampled passenger-local discrepancy was 10.51 cm. The run is not counted accepted until repeated with corrected expectation.
+
+First separate-process survival transaction/rest run passed 11 server and 12 client gameplay checks. Python cleanup cleared the active callback module, but its caller then continued reading cleared globals (NameError after disconnect). The runner now returns immediately after teardown. No crash or leak occurred; a clean repeat is required before counting this sequence complete.

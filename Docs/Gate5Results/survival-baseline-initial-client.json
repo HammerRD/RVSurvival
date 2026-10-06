@@ -1,0 +1,70 @@
+{
+  "pid": 23364,
+  "authority": false,
+  "config": {
+    "name": "survival_baseline",
+    "network": false
+  },
+  "results": [
+    {
+      "case": "two_independent_initial_needs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_debug_cannot_authorize_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "owned_food_first",
+      "pass": true,
+      "detail": "{'nutrition': 65.0, 'hydration': 40.0, 'fatigue': 60.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 3.019869152456522}"
+    },
+    {
+      "case": "owned_food_last_once",
+      "pass": true,
+      "detail": "{'nutrition': 90.0, 'hydration': 40.0, 'fatigue': 60.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 3.019869152456522}"
+    },
+    {
+      "case": "owned_water_first",
+      "pass": true,
+      "detail": "{'nutrition': 90.0, 'hydration': 75.0, 'fatigue': 60.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 3.019869152456522}"
+    },
+    {
+      "case": "owned_water_last_once",
+      "pass": true,
+      "detail": "{'nutrition': 90.0, 'hydration': 100.0, 'fatigue': 60.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 3.019869152456522}"
+    },
+    {
+      "case": "foreign_stale_nonconsumable_invalid_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shared_final_item_transfer_one_winner",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shared_final_item_consumed_without_duplicate",
+      "pass": true,
+      "detail": "({'nutrition': 70.0, 'hydration': 100.0, 'fatigue': 40.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 10.260856065899134}, {'nutrition': 100.0, 'hydration': 100.0, 'fatigue': 60.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 3.019869152456522})"
+    },
+    {
+      "case": "one_rest_reservation_winner",
+      "pass": true,
+      "detail": "[<RVRestMode.RESTING: 1>, <RVRestMode.AWAKE: 0>]"
+    },
+    {
+      "case": "exclusive_sleep_replicated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_sleep_before_disconnect",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}
