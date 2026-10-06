@@ -27,7 +27,12 @@ def tick(dt):
    elif op=='photo':unreal.SystemLibrary.execute_console_command(pc,'shot filename='+str(B/r['name']).replace('\\','/')+' -nosuffix',pc)
   q=v.get_actor_transform().inverse_transform_location(p.get_actor_location())
   row={'time':time.time(),'local':[q.x,q.y,q.z],'look':str(pc.get_control_rotation()),'pawn':p.get_name()}
-  if isinstance(p,unreal.RVSurvivorCharacter):row['prompt']=p.get_interaction().get_prompt().to_string() if hasattr(p,'get_interaction') else ''
+  if isinstance(p,unreal.RVSurvivorCharacter):
+   row['prompt']=str(p.get_component_by_class(unreal.RVInteractionComponent).get_prompt())
+   row['movement']=str(p.get_component_by_class(unreal.CharacterMovementComponent).get_editor_property('MovementMode'))
+   row['capsule']=str(p.get_component_by_class(unreal.CapsuleComponent).get_collision_enabled())
+   row['rest']=str(pc.player_state.get_component_by_class(unreal.RVNeedsComponent).get_editor_property('State').rest_mode)
+   row['pose']=str(p.get_component_by_class(unreal.RVRestPoseComponent).get_editor_property('RestPoint'))
   json.dump(row,open(B/'manual-current.json','w'),indent=2)
  except (StopIteration,IndexError):return
  except Exception as e:unreal.log_error('MANUAL_CONTROL '+repr(e));unreal.unregister_slate_post_tick_callback(h)

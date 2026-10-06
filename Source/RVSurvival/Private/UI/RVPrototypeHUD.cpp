@@ -3,6 +3,8 @@
 #include "Vehicles/RVResourcePoint.h"
 #include "Resources/RVElectricalComponent.h"
 #include "Player/RVSurvivorCharacter.h"
+#include "Player/RVLadderClimbComponent.h"
+#include "Vehicles/RVVehicleSeatComponent.h"
 #include "Interaction/RVInteractionComponent.h"
 #include "Engine/Canvas.h"
 #include "GameFramework/PlayerController.h"
@@ -61,14 +63,18 @@ void ARVPrototypeHUD::DrawHUD()
     if (const auto* PC = Cast<ARVPlayerController>(PlayerOwner); PC && PC->SeatedVehicle)
     {
         const bool Driver = PlayerOwner->GetPawn() == PC->SeatedVehicle;
+        const auto* Character=Cast<ARVSurvivorCharacter>(PlayerOwner->GetPawn());
+        const auto* Seat=Character?Cast<URVVehicleSeatComponent>(Character->GetRootComponent()->GetAttachParent()):nullptr;
         DrawText(Driver ? TEXT("PROTOTYPE RV | W: accelerate  S: brake/reverse  A/D: steer  Space: handbrake  E: exit when stopped")
-            : TEXT("RV passenger | E: exit when stopped"), FLinearColor::White, 20, 35);
+            : Seat && Seat->bInteriorOnly ? TEXT("RV living-area seat | E: stand in aisle") : TEXT("RV passenger | E: exit when stopped"), FLinearColor::White, 20, 35);
         DrawText(TEXT("1 driver | 2 passenger | V next seat (stopped) | 3 living area"), FLinearColor::White, 20, 60);
         DrawText(PC->SeatFeedback, FLinearColor::Yellow, 20, 85);
         return;
     }
     if (const auto* Pawn = Cast<ARVSurvivorCharacter>(PlayerOwner->GetPawn()))
     {
+        if(const auto* Climb=Pawn->FindComponentByClass<URVLadderClimbComponent>();Climb && Climb->Ladder)
+        { DrawText(TEXT("Ladder | W up | S down | E stand at bottom | controlled top, no roof access"),FLinearColor::White,20,35); return; }
         DrawText(Pawn->GetInteraction()->GetPrompt().ToString(), FLinearColor::White,
             Canvas->ClipX * 0.5f - 150.f, Canvas->ClipY * 0.5f + 35.f);
         auto* Inventory=Pawn->FindComponentByClass<URVInventoryComponent>();

@@ -27,7 +27,17 @@ ARVVehicleBase::ARVVehicleBase(const FObjectInitializer& Init)
     GetMesh()->bReplicatePhysicsToAutonomousProxy = true;
 }
 TArray<URVVehicleSeatComponent*> ARVVehicleBase::GetSeats() const
-{ TArray<URVVehicleSeatComponent*> Seats; GetComponents(Seats); Seats.RemoveAll([](const auto* Seat){return !Seat->bEnabled;}); return Seats; }
+{
+    TArray<URVVehicleSeatComponent*> Seats; GetComponents(Seats);
+    Seats.RemoveAll([](const auto* Seat){return !Seat->bEnabled;});
+    Seats.Sort([](const URVVehicleSeatComponent& A,const URVVehicleSeatComponent& B)
+    {
+        const int32 ARank=A.bDriverSeat?0:A.bInteriorOnly?2:1;
+        const int32 BRank=B.bDriverSeat?0:B.bInteriorOnly?2:1;
+        return ARank!=BRank?ARank<BRank:A.GetFName().LexicalLess(B.GetFName());
+    });
+    return Seats;
+}
 void ARVVehicleBase::BeginPlay()
 {
     Super::BeginPlay();
@@ -72,6 +82,11 @@ void ARVVehicleBase::ReceiveDriveInput(ARVPlayerController* PC, float ThrottleVa
     ServerThrottle = FMath::Clamp(ThrottleValue, -1.f, 1.f); ServerSteering = FMath::Clamp(SteeringValue, -1.f, 1.f);
     bServerHandbrake = HB; LastInputTime = GetWorld()->GetTimeSeconds();
 }
+void ARVVehicleBase::SetAuthorityDriveLock(AActor* Requester,bool bLocked)
+{
+    if (!HasAuthority() || !Requester) return;
+    if (bLocked) DriveLocks.Add(Requester); else DriveLocks.Remove(Requester);
+}
 void ARVVehicleBase::Tick(float DT)
 {
     Super::Tick(DT);
@@ -91,7 +106,8 @@ void ARVVehicleBase::Tick(float DT)
     if (HasAuthority())
     {
         for (auto* S : GetSeats()) if (S->Occupant && (!S->OccupantController.IsValid() || !IsValid(S->Occupant))) ReleaseSeat(S, true, FVector::ZeroVector);
-        const bool Active = IsDriver(Cast<ARVPlayerController>(Controller)) && GetWorld()->GetTimeSeconds() - LastInputTime < .5;
+        for (auto It=DriveLocks.CreateIterator();It;++It) if (!It->IsValid()) It.RemoveCurrent();
+        const bool Active = DriveLocks.IsEmpty() && IsDriver(Cast<ARVPlayerController>(Controller)) && GetWorld()->GetTimeSeconds() - LastInputTime < .5;
         GetVehicleMovement()->SetThrottleInput(Active ? FMath::Max(ServerThrottle, 0.f) : 0);
         GetVehicleMovement()->SetBrakeInput(Active ? FMath::Max(-ServerThrottle, 0.f) : 0);
         GetVehicleMovement()->SetSteeringInput(Active ? ServerSteering : 0);

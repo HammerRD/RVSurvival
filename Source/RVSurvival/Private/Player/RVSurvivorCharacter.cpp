@@ -21,6 +21,7 @@
 #include "Survival/RVNeedsComponent.h"
 #include "Survival/RVRestPoseComponent.h"
 #include "Vehicles/RVSeatPoseComponent.h"
+#include "Player/RVLadderClimbComponent.h"
 #include "Survival/RVRestPoint.h"
 static bool CanMoveWhileAwake(const ARVSurvivorCharacter* Character)
 {
@@ -34,6 +35,7 @@ ARVSurvivorCharacter::ARVSurvivorCharacter(const FObjectInitializer& Init)
     Inventory = CreateDefaultSubobject<URVInventoryComponent>(TEXT("Inventory"));
     RestPose = CreateDefaultSubobject<URVRestPoseComponent>(TEXT("RestPose"));
     CreateDefaultSubobject<URVSeatPoseComponent>(TEXT("SeatPose"));
+    CreateDefaultSubobject<URVLadderClimbComponent>(TEXT("LadderClimb"));
     bUseControllerRotationYaw = true;
     BaseEyeHeight = 64.f;
     Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCamera"));
@@ -100,14 +102,15 @@ void ARVSurvivorCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
     Input->BindAction(InteractAction, ETriggerEvent::Completed, this, &ThisClass::StopInteract);
     Input->BindAction(InteractAction, ETriggerEvent::Canceled, this, &ThisClass::StopInteract);
 }
-void ARVSurvivorCharacter::MoveForward(const FInputActionValue& V) { if(CanMoveWhileAwake(this)) AddMovementInput(FRotationMatrix(FRotator(0, GetControlRotation().Yaw, 0)).GetUnitAxis(EAxis::X), V.Get<float>()); }
-void ARVSurvivorCharacter::MoveRight(const FInputActionValue& V) { if(CanMoveWhileAwake(this)) AddMovementInput(FRotationMatrix(FRotator(0, GetControlRotation().Yaw, 0)).GetUnitAxis(EAxis::Y), V.Get<float>()); }
+void ARVSurvivorCharacter::MoveForward(const FInputActionValue& V) { if(auto* Climb=FindComponentByClass<URVLadderClimbComponent>();Climb && Climb->Ladder) { Climb->ClimbInput(V.Get<float>()); return; } if(CanMoveWhileAwake(this)) AddMovementInput(FRotationMatrix(FRotator(0, GetControlRotation().Yaw, 0)).GetUnitAxis(EAxis::X), V.Get<float>()); }
+void ARVSurvivorCharacter::MoveRight(const FInputActionValue& V) { if(auto* Climb=FindComponentByClass<URVLadderClimbComponent>();Climb && Climb->Ladder) return; if(CanMoveWhileAwake(this)) AddMovementInput(FRotationMatrix(FRotator(0, GetControlRotation().Yaw, 0)).GetUnitAxis(EAxis::Y), V.Get<float>()); }
 void ARVSurvivorCharacter::LookYaw(const FInputActionValue& V) { AddControllerYawInput(V.Get<float>()); }
 void ARVSurvivorCharacter::LookPitch(const FInputActionValue& V) { AddControllerPitchInput(V.Get<float>()); }
 void ARVSurvivorCharacter::StartJump() { if (!SeatedVehicle && CanMoveWhileAwake(this)) Jump(); }
 void ARVSurvivorCharacter::StopJump() { StopJumping(); }
 void ARVSurvivorCharacter::StartInteract()
 {
+    if(auto* Climb=FindComponentByClass<URVLadderClimbComponent>();Climb && Climb->Ladder) { Climb->ServerExit(); return; }
     if (const auto* PS=GetPlayerState<ARVPlayerState>(); PS && PS->Needs->State.RestMode!=ERVRestMode::Awake)
     { PS->Needs->RequestRestMode(ERVRestMode::Awake); return; }
     if (SeatedVehicle) { if (auto* PC = Cast<ARVPlayerController>(Controller)) PC->ServerExitVehicle(); }

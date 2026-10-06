@@ -130,3 +130,5 @@ Frequent saves and local milestones f4c6543, 6369b4e, 92d3699, cd6ca0d, da8ce09,
 - A documentation write hit the Windows default encoding on a Unicode arrow. Recovered the full changelog from the latest Git checkpoint and applied the update with byte-preserving writes; verified no historical text was lost.
 
 Gate 6 second refinement in progress: native V possession/restart floor-fall fix checkpointed; saved-map duplicate original door visuals fixed. Rear-seat foundation and bed surface query compile; revised map/storage placements saved but not yet fully validated. No Gate 7 work.
+
+Gate6 refinement milestone: actual mattress E/Z/R and both real dinette cushion E/stand paths visually exercised; corrected bathroom collision that blocked lying; saved bed/cabinet/overhead placements; vendor hashes 108 unchanged. Native ladder prototype awaits validation. Full refinement acceptance remains pending.

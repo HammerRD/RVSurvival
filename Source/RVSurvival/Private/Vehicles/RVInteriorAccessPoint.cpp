@@ -10,7 +10,9 @@ ARVInteriorAccessPoint::ARVInteriorAccessPoint()
 {
     CreateDefaultSubobject<URVInteractionTargetPresentationComponent>(TEXT("TargetPresentation"));
     PrimaryActorTick.bCanEverTick=true; PrimaryActorTick.TickInterval=.1f;
-    bAlwaysRelevant=true; Mesh->SetRelativeScale3D(FVector(.15));
+    // Invisible threshold query spans a standing player's aim height. It is
+    // narrow along the door so it does not mask the swung door/hinge target.
+    bAlwaysRelevant=true; Mesh->SetRelativeScale3D(FVector(.2,.12,2));
     Mesh->SetCollisionEnabled(ECollisionEnabled::QueryOnly); Mesh->SetCollisionResponseToAllChannels(ECR_Ignore);
     Mesh->SetCollisionResponseToChannel(ECC_Visibility,ECR_Block);
 }

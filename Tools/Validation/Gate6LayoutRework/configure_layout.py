@@ -14,8 +14,9 @@ def configure():
     roles={'Kitchen':(-40,60,179),'Workbench':(-18,-30,154),
            'Storage':(-185,-70,155),'Medical':(-130,-70,258)}
     stations=rv.get_editor_property('Stations')
-    for d in stations:
-        if str(d.name) in roles:d.set_editor_property('Position',unreal.Vector(*roles[str(d.name)]))
+    for index,d in enumerate(stations):
+        if str(d.name) in roles:
+            d.set_editor_property('Position',unreal.Vector(*roles[str(d.name)]));stations[index]=d
     rv.set_editor_property('Stations',stations)
     storage={'Water supplies':(45,60,176),'Personal supplies':(-185,-65,262),
              'Pantry':(15,62,269),'Medical storage':(-130,-65,258)}
@@ -58,15 +59,27 @@ def configure():
                'Dinette':((15,-80,125),(45,30,27)),
                'Bathroom':((-175,-100,200),(65,20,100)),
                'Bed':((-255,48,140),(100,70,40))}
-    for d in collision:
+    for index,d in enumerate(collision):
         if str(d.name) in corrected:
             center,extent=corrected[str(d.name)]
             d.set_editor_property('Center',unreal.Vector(*center));d.set_editor_property('Extent',unreal.Vector(*extent))
+            collision[index]=d
     for name,center,extent in [('DinetteFrontBench',(105,-82,123),(20,30,13)),('DinetteRearBench',(-70,-82,123),(20,30,13))]:
         d=next((d for d in collision if str(d.name)==name),None)
-        if d is None:d=unreal.RVInteriorCollision();collision.append(d)
+        if d is None:d=unreal.RVInteriorCollision()
         d.set_editor_property('Name',name);d.set_editor_property('Center',unreal.Vector(*center));d.set_editor_property('Extent',unreal.Vector(*extent))
+        index=next((i for i,item in enumerate(collision) if str(item.name)==name),None)
+        if index is None:collision.append(d)
+        else:collision[index]=d
     rv.set_editor_property('InteriorCollision',collision);rv.refresh_configuration()
+    ladder=next((a for a in actors if isinstance(a,unreal.RVLadder)),None)
+    if ladder is None:
+        ladder=subsystem.spawn_actor_from_class(unreal.RVLadder,rv.get_actor_transform().transform_location(unreal.Vector(-374,75,155)))
+        ladder.attach_to_actor(rv,'',unreal.AttachmentRule.KEEP_WORLD,unreal.AttachmentRule.KEEP_WORLD,unreal.AttachmentRule.KEEP_WORLD,False)
+    ladder.set_editor_property('BottomLocal',unreal.Vector(-415,75,78))
+    ladder.set_editor_property('GroundExitLocal',unreal.Vector(-455,75,110))
+    ladder.set_editor_property('ClimbHeight',180)
+    ladder.set_actor_label('Gate6_RearLadder_ControlledEndpoint')
     assert levels.save_current_level()
     assert unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True,True)
     (B/'layout-configured.json').write_text(json.dumps({'saved':True,'changed':changed,'stations':roles,'visual_validation':'pending'},indent=2),encoding='utf-8')

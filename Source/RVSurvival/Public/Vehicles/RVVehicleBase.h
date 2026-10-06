@@ -30,6 +30,7 @@ public:
     bool TrySwitchSeat(ARVPlayerController* Controller, FName TargetSeat);
     void ReleaseDisconnected(ARVPlayerController* Controller);
     void ReceiveDriveInput(ARVPlayerController* Controller, float Throttle, float Steering, bool Handbrake);
+    void SetAuthorityDriveLock(AActor* Requester,bool bLocked);
     UFUNCTION(BlueprintPure, Category="RV|Seats") bool IsDriver(const ARVPlayerController* PlayerController) const;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="RV|Seats") float MaxEntryExitSpeed = 150.f;
 protected:
@@ -51,6 +52,7 @@ private:
     float ServerThrottle = 0, ServerSteering = 0;
     bool bServerHandbrake = true;
     double LastInputTime = 0;
+    TSet<TWeakObjectPtr<AActor>> DriveLocks;
     UPROPERTY(Transient) TObjectPtr<UInputMappingContext> Mapping;
     UPROPERTY(Transient) TObjectPtr<UInputAction> ThrottleAction;
     UPROPERTY(Transient) TObjectPtr<UInputAction> SteeringAction;

@@ -4,6 +4,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Engine/StaticMesh.h"
+#include "GameFramework/PlayerController.h"
 URVSeatPoseComponent::URVSeatPoseComponent()
 { PrimaryComponentTick.bCanEverTick=true; PrimaryComponentTick.TickInterval=.05f; }
 void URVSeatPoseComponent::BeginPlay()
@@ -33,6 +34,8 @@ void URVSeatPoseComponent::TickComponent(float Delta,ELevelTick Type,FActorCompo
     bActive=Active;
     if (Active)
     {
+        if (auto* PC=Cast<APlayerController>(C->GetController());PC && PC->IsLocalController())
+            PC->SetControlRotation(FRotator(0,Seat->GetComponentRotation().Yaw,0));
         TArray<USceneComponent*> Children; C->GetMesh()->GetChildrenComponents(true,Children); Children.Add(C->GetMesh());
         for (auto* Child:Children) if (auto* Part=Cast<UPrimitiveComponent>(Child))
         { PreviousVisibility.Emplace(TWeakObjectPtr<UPrimitiveComponent>(Part),bool(Part->bHiddenInGame)); Part->SetHiddenInGame(true); }
