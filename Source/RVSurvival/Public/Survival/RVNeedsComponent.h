@@ -91,7 +91,7 @@ public:
     UFUNCTION(Server, Reliable) void ServerConsume(FGuid Id);
     UFUNCTION(Server, Reliable) void ServerRestMode(ERVRestMode Mode);
     bool BeginRestAuthority(ARVRestPoint* Point, ARVSurvivorCharacter* Character);
-    void EndRestAuthority();
+    void EndRestAuthority(bool bForceCleanup=false);
     ARVSurvivorCharacter* ResolveSurvivor() const;
     UFUNCTION(BlueprintCallable, meta=(DevelopmentOnly)) bool DebugSetValues(float Nutrition, float Hydration, float Fatigue);
     UFUNCTION(BlueprintCallable, meta=(DevelopmentOnly)) bool DebugSetTimeScale(float Scale);

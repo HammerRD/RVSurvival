@@ -1,10 +1,12 @@
 #include "Vehicles/RVResourcePoint.h"
+#include "Interaction/RVInteractionTargetPresentationComponent.h"
 #include "Vehicles/RVSystemsMotorhome.h"
 #include "Player/RVPlayerController.h"
 #include "Components/StaticMeshComponent.h"
 #include "Net/UnrealNetwork.h"
 ARVResourcePoint::ARVResourcePoint()
 {
+    CreateDefaultSubobject<URVInteractionTargetPresentationComponent>(TEXT("TargetPresentation"));
     bAlwaysRelevant=true; SetReplicateMovement(true);
     Mesh->SetRelativeScale3D(FVector(.15,.05,.2));
     Mesh->SetCollisionEnabled(ECollisionEnabled::QueryOnly); Mesh->SetCollisionResponseToAllChannels(ECR_Ignore);

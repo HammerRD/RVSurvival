@@ -42,8 +42,11 @@ void ARVVehicleBase::BeginPlay()
 bool ARVVehicleBase::CanEnter(URVVehicleSeatComponent* Seat, ARVSurvivorCharacter* Character) const
 {
     if(Character) if(const auto* PS=Character->GetPlayerState<ARVPlayerState>(); PS && PS->Needs->State.RestMode!=ERVRestMode::Awake) return false;
+    const auto* Frame=Character?Character->FindComponentByClass<URVPassengerReferenceFrameComponent>():nullptr;
+    const bool Inside=Frame && Frame->ReferenceFrame==this;
     return Seat && Seat->GetOwner() == this && !Seat->Occupant && Character && !Character->SeatedVehicle
-        && Cast<ARVPlayerController>(Character->GetController()) && GetVelocity().Size() <= MaxEntryExitSpeed;
+        && Cast<ARVPlayerController>(Character->GetController())
+        && (GetVelocity().Size() <= MaxEntryExitSpeed || Inside);
 }
 bool ARVVehicleBase::TryEnter(URVVehicleSeatComponent* Seat, ARVSurvivorCharacter* Character)
 {

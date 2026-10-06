@@ -1,4 +1,5 @@
 #include "Interaction/RVInteriorStation.h"
+#include "Interaction/RVInteractionTargetPresentationComponent.h"
 #include "Vehicles/RVSystemsMotorhome.h"
 #include "Resources/RVElectricalComponent.h"
 #include "Components/StaticMeshComponent.h"
@@ -9,6 +10,7 @@
 #include "Net/UnrealNetwork.h"
 ARVInteriorStation::ARVInteriorStation()
 {
+    CreateDefaultSubobject<URVInteractionTargetPresentationComponent>(TEXT("TargetPresentation"));
     bAlwaysRelevant = true; Mesh->SetMobility(EComponentMobility::Movable);
     Mesh->SetRelativeScale3D(FVector(.2,.2,.2)); Mesh->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
     Mesh->SetCollisionResponseToAllChannels(ECR_Ignore); Mesh->SetCollisionResponseToChannel(ECC_Visibility,ECR_Block);

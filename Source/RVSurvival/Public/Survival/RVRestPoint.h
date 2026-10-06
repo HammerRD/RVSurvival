@@ -14,6 +14,12 @@ public:
     UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly) FText DisplayName;
     UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly) float MaximumPlatformSpeed = 50;
     UPROPERTY(Replicated, BlueprintReadOnly) TObjectPtr<ARVPlayerState> Occupant;
+    UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category="RV|Bed") bool bUseLyingPose=false;
+    UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category="RV|Bed") FVector LyingOffset=FVector(-70,15,40);
+    UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category="RV|Bed") FRotator LyingRotation=FRotator(0,90,0);
+    UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category="RV|Bed") FVector WakeAisleLocation=FVector(-185,0,185);
+    bool FindWakePosition(ARVSurvivorCharacter* Character,FVector& Position,class UPrimitiveComponent*& Floor) const;
+    bool ValidateLyingPosition(ARVSurvivorCharacter* Character) const;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out) const override;
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
     virtual bool CanInteract_Implementation(APawn* Pawn) const override;

@@ -18,6 +18,8 @@ public:
     UFUNCTION(Server, Reliable) void ServerExitVehicle();
     UFUNCTION(BlueprintCallable, Category="RV|Seats") void RequestSwitchSeat(FName TargetSeat);
     UFUNCTION(Server, Reliable) void ServerSwitchSeat(FName TargetSeat);
+    UFUNCTION(BlueprintCallable, Category="RV|Seats") void RequestLivingArea();
+    UFUNCTION(Server, Reliable) void ServerLivingArea();
     UPROPERTY(Replicated, BlueprintReadOnly, Category="RV|Seats") FString SeatFeedback;
     UPROPERTY(Replicated, BlueprintReadOnly, Category="RV|Seats") TObjectPtr<ARVVehicleBase> SeatedVehicle;
     UPROPERTY(Replicated, BlueprintReadOnly) TObjectPtr<class ARVResourcePoint> ResourcePoint;

@@ -52,6 +52,9 @@ public:
     ARVInteriorMotorhome(const FObjectInitializer& Initializer);
     virtual void OnConstruction(const FTransform& Transform) override;
     virtual void BeginPlay() override;
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+    UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="RV|Doors") bool bInteractiveHouseDoor=false;
+    UPROPERTY(Replicated,BlueprintReadOnly,Category="RV|Doors") TObjectPtr<class ARVInteractiveDoor> HouseDoor;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<class UBoxComponent> InteriorFloor;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="RV|Presentation") TArray<FRVVisualPart> VisualParts;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="RV|Interior") TArray<FRVInteriorCollision> InteriorCollision;
@@ -63,6 +66,8 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="RV|Entry") FVector InsideDoorLocation = FVector(122,75,150);
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="RV|Entry") bool bInteriorSeatAccess = false;
     bool TryStandingDoor(class ARVSurvivorCharacter* Character, bool bEnter);
+    bool FindSafeInteriorPosition(class ARVSurvivorCharacter* Character, FVector PreferredLocal, FVector& Position, class UPrimitiveComponent*& Floor) const;
+    bool TryMoveToLivingArea(class ARVPlayerController* Controller);
     UFUNCTION(BlueprintPure, Category="RV|Presentation") class UStaticMeshComponent* FindVisualPart(FName PartName) const;
     UFUNCTION(BlueprintCallable, Category="RV|Configuration") void ConfigureProjectChassisCollision(FVector Center, FVector Extent);
     UFUNCTION(BlueprintCallable, Category="RV|Configuration") void RefreshConfiguration();

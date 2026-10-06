@@ -19,6 +19,7 @@
 #include "Inventory/RVInventoryComponent.h"
 #include "Player/RVPlayerState.h"
 #include "Survival/RVNeedsComponent.h"
+#include "Survival/RVRestPoseComponent.h"
 static bool CanMoveWhileAwake(const ARVSurvivorCharacter* Character)
 {
     const auto* PS=Character->GetPlayerState<ARVPlayerState>();
@@ -29,6 +30,7 @@ ARVSurvivorCharacter::ARVSurvivorCharacter(const FObjectInitializer& Init)
 {
     bReplicates = true;
     Inventory = CreateDefaultSubobject<URVInventoryComponent>(TEXT("Inventory"));
+    RestPose = CreateDefaultSubobject<URVRestPoseComponent>(TEXT("RestPose"));
     bUseControllerRotationYaw = true;
     BaseEyeHeight = 64.f;
     Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCamera"));

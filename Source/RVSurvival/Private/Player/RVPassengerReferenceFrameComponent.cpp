@@ -38,6 +38,8 @@ void URVPassengerReferenceFrameComponent::TickComponent(float Dt, ELevelTick Typ
     Super::TickComponent(Dt, Type, Fn);
     auto* C = Cast<ACharacter>(GetOwner()); if (!C) return;
     auto* M = C->GetCharacterMovement(); auto* Base = Cast<UPrimitiveComponent>(C->GetMovementBaseObject());
+    if (M->MovementMode==MOVE_None)
+    { RestoreWorldMovement(); CurrentBase=nullptr; return; }
     if (CurrentBase != Base)
     {
         CurrentBase = Base; ++BaseChanges;

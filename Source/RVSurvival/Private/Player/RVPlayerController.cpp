@@ -8,6 +8,7 @@
 #include "Player/RVPlayerState.h"
 #include "Survival/RVNeedsComponent.h"
 #include "Vehicles/RVVehicleSeatComponent.h"
+#include "Vehicles/RVInteriorMotorhome.h"
 #include "TimerManager.h"
 #include "InputCoreTypes.h"
 #include "EnhancedInputComponent.h"
@@ -36,6 +37,15 @@ void ARVPlayerController::ServerSwitchSeat_Implementation(FName TargetSeat)
 void ARVPlayerController::PlayerTick(float DeltaTime)
 {
     Super::PlayerTick(DeltaTime);
+    if (IsLocalController())
+    {
+        if (auto* PS=GetPlayerState<ARVPlayerState>())
+        {
+            if (WasInputKeyJustPressed(EKeys::R)) PS->Needs->RequestRestMode(ERVRestMode::Awake);
+            if (WasInputKeyJustPressed(EKeys::Z)) PS->Needs->RequestRestMode(PS->Needs->State.RestMode==ERVRestMode::Sleeping?ERVRestMode::Resting:ERVRestMode::Sleeping);
+        }
+        if (WasInputKeyJustPressed(EKeys::Three)) RequestLivingArea();
+    }
     if (!IsLocalController() || !SeatedVehicle) return;
     const auto Seats = SeatedVehicle->GetSeats();
     if (WasInputKeyJustPressed(EKeys::One))
@@ -53,13 +63,25 @@ void ARVPlayerController::PlayerTick(float DeltaTime)
         SeatFeedback=TEXT("No other seat is available.");
     }
 }
+void ARVPlayerController::RequestLivingArea()
+{
+    if (!IsLocalController() || !SeatedVehicle) return;
+    GetWorld()->GetTimerManager().SetTimerForNextTick(FTimerDelegate::CreateWeakLambda(this,[this]{ServerLivingArea();}));
+}
+void ARVPlayerController::ServerLivingArea_Implementation()
+{
+    if (!HasAuthority() || GetWorld()->GetTimeSeconds()-LastSeatSwitchTime<.25) return;
+    LastSeatSwitchTime=GetWorld()->GetTimeSeconds();
+    if (auto* RV=Cast<ARVInteriorMotorhome>(SeatedVehicle)) RV->TryMoveToLivingArea(this);
+    ForceNetUpdate();
+}
 void ARVPlayerController::ServerDrive_Implementation(float Throttle, float Steering, bool Handbrake)
 { if (SeatedVehicle) SeatedVehicle->ReceiveDriveInput(this, Throttle, Steering, Handbrake); }
 void ARVPlayerController::ServerExitVehicle_Implementation()
 { if (SeatedVehicle && GetWorld()->GetTimeSeconds() - SeatEntryTime > .75) SeatedVehicle->TryExit(this); }
 void ARVPlayerController::PawnLeavingGame()
 {
-    if(HasAuthority()) if(auto* PS=GetPlayerState<ARVPlayerState>()) PS->Needs->EndRestAuthority();
+    if(HasAuthority()) if(auto* PS=GetPlayerState<ARVPlayerState>()) PS->Needs->EndRestAuthority(true);
     // The default implementation destroys the possessed pawn. A disconnected driver
     // must release possession before that path, or the shared RV would be destroyed.
     if (HasAuthority() && SeatedVehicle) SeatedVehicle->ReleaseDisconnected(this);

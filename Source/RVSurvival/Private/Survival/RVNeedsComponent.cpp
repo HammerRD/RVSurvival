@@ -1,5 +1,6 @@
 #include "Survival/RVNeedsComponent.h"
 #include "Survival/RVRestPoint.h"
+#include "Survival/RVRestPoseComponent.h"
 #include "Player/RVPlayerState.h"
 #include "Player/RVPlayerController.h"
 #include "Player/RVSurvivorCharacter.h"
@@ -55,7 +56,7 @@ void URVNeedsComponent::BeginPlay()
     }
 }
 void URVNeedsComponent::EndPlay(const EEndPlayReason::Type Reason)
-{ EndRestAuthority(); Super::EndPlay(Reason); }
+{ EndRestAuthority(true); Super::EndPlay(Reason); }
 void URVNeedsComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
@@ -180,15 +181,24 @@ bool URVNeedsComponent::BeginRestAuthority(ARVRestPoint* Point,ARVSurvivorCharac
 {
     if(!GetOwner()->HasAuthority() || !Point || Character!=ResolveSurvivor() || !Point->CanContinueRest(Character) || Point->Occupant || Character->SeatedVehicle) return false;
     EndRestAuthority();
+    if (State.RestMode!=ERVRestMode::Awake) return false;
+    if (Point->bUseLyingPose)
+    {
+        auto* Pose=Character->FindComponentByClass<URVRestPoseComponent>();
+        if (!Pose || !Pose->BeginPoseAuthority(Point)) { Feedback=TEXT("Bed or stand-up aisle is obstructed."); GetOwner()->ForceNetUpdate(); return false; }
+    }
     Point->Occupant=Cast<ARVPlayerState>(GetOwner()); Point->ForceNetUpdate();
     RestLocation=Point; RestingCharacter=Character; State.RestMode=ERVRestMode::Resting;
     Character->GetCharacterMovement()->StopMovementImmediately();
     OnRep_State();
     Feedback=Point->DisplayName.ToString(); GetOwner()->ForceNetUpdate(); return true;
 }
-void URVNeedsComponent::EndRestAuthority()
+void URVNeedsComponent::EndRestAuthority(bool bForceCleanup)
 {
     if(!GetOwner() || !GetOwner()->HasAuthority()) return;
+    if (RestingCharacter.IsValid())
+        if (auto* Pose=RestingCharacter->FindComponentByClass<URVRestPoseComponent>(); Pose && !Pose->EndPoseAuthority(bForceCleanup))
+        { Feedback=TEXT("Stand-up aisle occupied. R: retry standing up."); GetOwner()->ForceNetUpdate(); return; }
     if(IsValid(RestLocation)) RestLocation->ReleaseAuthority(Cast<ARVPlayerState>(GetOwner()));
     RestLocation=nullptr; RestingCharacter.Reset(); State.RestMode=ERVRestMode::Awake; GetOwner()->ForceNetUpdate();
     OnRep_State();
@@ -197,7 +207,7 @@ void URVNeedsComponent::ServerRestMode_Implementation(ERVRestMode Mode)
 {
     if(!GetOwner()->HasAuthority()) return;
     ON_SCOPE_EXIT { OnRep_State(); GetOwner()->ForceNetUpdate(); };
-    if(Mode==ERVRestMode::Awake) { EndRestAuthority(); Feedback=TEXT("Awake"); return; }
+    if(Mode==ERVRestMode::Awake) { EndRestAuthority(); if(State.RestMode==ERVRestMode::Awake) Feedback=TEXT("Awake"); return; }
     if((Mode!=ERVRestMode::Resting && Mode!=ERVRestMode::Sleeping) || !IsValid(RestLocation) || !RestLocation->CanContinueRest(RestingCharacter.Get())) return;
     State.RestMode=Mode; OnRep_State(); GetOwner()->ForceNetUpdate();
 }

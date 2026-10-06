@@ -27,6 +27,7 @@ public:
     void SetVehicleSeat(ARVVehicleBase* Vehicle);
     UPROPERTY(ReplicatedUsing=OnRep_VehicleSeat, BlueprintReadOnly, Category="RV|Seats") TObjectPtr<ARVVehicleBase> SeatedVehicle;
 protected:
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<class URVRestPoseComponent> RestPose;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<class URVInventoryComponent> Inventory;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<class URVPassengerReferenceFrameComponent> PassengerReferenceFrame;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<UCameraComponent> Camera;

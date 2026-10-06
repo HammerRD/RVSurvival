@@ -1,4 +1,5 @@
 #include "Inventory/RVWorldItem.h"
+#include "Interaction/RVInteractionTargetPresentationComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/StaticMesh.h"
 #include "UObject/ConstructorHelpers.h"
@@ -61,6 +62,7 @@ void ARVWorldItem::CompleteInteraction_Implementation(APawn* Pawn)
 }
 ARVStoragePoint::ARVStoragePoint()
 {
+    CreateDefaultSubobject<URVInteractionTargetPresentationComponent>(TEXT("TargetPresentation"));
     bAlwaysRelevant=true; SetReplicateMovement(true);
     Container=CreateDefaultSubobject<URVContainerComponent>(TEXT("Container"));
     Mesh->SetRelativeScale3D(FVector(.2));

@@ -1,4 +1,6 @@
 #include "Vehicles/RVInteriorMotorhome.h"
+#include "Vehicles/RVInteractiveDoor.h"
+#include "Net/UnrealNetwork.h"
 #include "Interaction/RVInteriorStation.h"
 #include "Components/BoxComponent.h"
 #include "Components/StaticMeshComponent.h"
@@ -11,6 +13,8 @@
 #include "Vehicles/RVVehicleSeatComponent.h"
 #include "Inventory/RVWorldItem.h"
 #include "Player/RVSurvivorCharacter.h"
+#include "Player/RVPlayerController.h"
+#include "Player/RVPassengerReferenceFrameComponent.h"
 #include "Player/RVPlayerState.h"
 #include "Survival/RVNeedsComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -68,10 +72,12 @@ void ARVInteriorMotorhome::OnConstruction(const FTransform& Transform)
         for (int32 Index = 0; Index < Def.Materials.Num(); ++Index)
             if (Def.Materials[Index]) Part->SetMaterial(Index, Def.Materials[Index]);
         Part->bDisallowNanite = Def.bDisallowNanite;
+        if (bInteractiveHouseDoor && (Def.Name==TEXT("Art_RV_Van_Door_Back") || Def.Name==TEXT("Art_RV_Glass_Door_Back"))) Part->SetVisibility(false);
         Part->SetCollisionEnabled(ECollisionEnabled::NoCollision); Part->RegisterComponent(); GeneratedParts.Add(Part);
     }
     for (const auto& Def : InteriorCollision)
     {
+        if (bInteractiveHouseDoor && Def.Name==TEXT("OpenHouseDoor")) continue;
         auto* Part = NewObject<UBoxComponent>(this, Def.Name);
         Part->SetMobility(EComponentMobility::Movable); Part->SetupAttachment(GetMesh());
         Part->SetRelativeLocation(Def.Center); Part->SetBoxExtent(Def.Extent);
@@ -91,6 +97,23 @@ void ARVInteriorMotorhome::OnConstruction(const FTransform& Transform)
 void ARVInteriorMotorhome::BeginPlay()
 {
     Super::BeginPlay();
+    if (HasAuthority() && bInteractiveHouseDoor)
+    {
+        const auto* Door=VisualParts.FindByPredicate([](const FRVVisualPart& P){return P.Name==TEXT("Art_RV_Van_Door_Back");});
+        const auto* Glass=VisualParts.FindByPredicate([](const FRVVisualPart& P){return P.Name==TEXT("Art_RV_Glass_Door_Back");});
+        if (Door && Door->Mesh)
+        {
+            HouseDoor=GetWorld()->SpawnActorDeferred<ARVInteractiveDoor>(ARVInteractiveDoor::StaticClass(),GetActorTransform(),this);
+            if (HouseDoor)
+            {
+                HouseDoor->DoorMesh=Door->Mesh; HouseDoor->GlassMesh=Glass?Glass->Mesh:nullptr;
+                if (Glass) HouseDoor->GlassOffset=Glass->Transform.GetLocation()-Door->Transform.GetLocation();
+                HouseDoor->FinishSpawning(GetActorTransform());
+                HouseDoor->AttachToComponent(GetMesh(),FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+                HouseDoor->SetActorRelativeLocation(Door->Transform.GetLocation()); HouseDoor->ForceNetUpdate();
+            }
+        }
+    }
     if (HasAuthority()) for (const auto& Def : Stations)
     {
         auto* Station = GetWorld()->SpawnActor<ARVInteriorStation>();
@@ -134,6 +157,7 @@ UStaticMeshComponent* ARVInteriorMotorhome::FindVisualPart(FName Name) const
 }
 bool ARVInteriorMotorhome::TryStandingDoor(ARVSurvivorCharacter* Character, bool Enter)
 {
+    if (HouseDoor && !HouseDoor->bOpen) return false;
     if (!HasAuthority() || !Character || !Character->GetController() || Character->SeatedVehicle
         || GetVelocity().Size()>MaxEntryExitSpeed) return false;
     if (const auto* PS=Character->GetPlayerState<ARVPlayerState>(); PS && PS->Needs->State.RestMode!=ERVRestMode::Awake) return false;
@@ -159,6 +183,54 @@ bool ARVInteriorMotorhome::TryStandingDoor(ARVSurvivorCharacter* Character, bool
     Character->GetCharacterMovement()->StopMovementImmediately();
     Character->SetActorLocation(Target,false,nullptr,ETeleportType::TeleportPhysics);
     Character->GetCharacterMovement()->SetMovementMode(MOVE_Walking); Character->ForceNetUpdate(); return true;
+}
+void ARVInteriorMotorhome::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{ Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(ARVInteriorMotorhome,HouseDoor); }
+bool ARVInteriorMotorhome::FindSafeInteriorPosition(ARVSurvivorCharacter* Character, FVector PreferredLocal, FVector& Position, UPrimitiveComponent*& Floor) const
+{
+    if (!Character) return false;
+    const auto* Capsule=Character->GetCapsuleComponent();
+    const auto* Frame=Character->FindComponentByClass<URVPassengerReferenceFrameComponent>();
+    const float Radius=FMath::Min(Capsule->GetScaledCapsuleRadius(),Frame?Frame->InteriorCapsuleRadius:30.f);
+    const float Half=Capsule->GetScaledCapsuleHalfHeight();
+    FCollisionQueryParams Params(SCENE_QUERY_STAT(RVInteriorPlacement),false,Character);
+    for (const FVector Offset : {FVector::ZeroVector,FVector(-40,0,0),FVector(40,0,0),FVector(-80,0,0),FVector(80,0,0)})
+    {
+        const FVector Aim=GetMesh()->GetComponentTransform().TransformPosition(PreferredLocal+Offset);
+        FHitResult Hit;
+        if (!GetWorld()->LineTraceSingleByChannel(Hit,Aim+FVector(0,0,30),Aim-FVector(0,0,180),ECC_Pawn,Params)
+            || !Hit.GetComponent() || Hit.GetActor()!=this || !Hit.GetComponent()->ComponentHasTag(TEXT("RVPassengerPlatform"))
+            || Hit.ImpactNormal.Z<.7f) continue;
+        const FVector Candidate=Hit.ImpactPoint+FVector(0,0,Half+2);
+        if (GetWorld()->OverlapBlockingTestByChannel(Candidate,FQuat::Identity,ECC_Pawn,FCollisionShape::MakeCapsule(Radius,Half),Params)) continue;
+        Position=Candidate; Floor=Hit.GetComponent(); return true;
+    }
+    return false;
+}
+bool ARVInteriorMotorhome::TryMoveToLivingArea(ARVPlayerController* PC)
+{
+    if (!HasAuthority() || !PC || PC->SeatedVehicle!=this) return false;
+    for (auto* Seat : GetSeats()) if (Seat->Occupant && Seat->OccupantController.Get()==PC)
+    {
+        // A moving driver must retain control; a passenger can safely join the rigid interior frame.
+        if (Seat->bDriverSeat && GetVelocity().Size()>MaxEntryExitSpeed)
+        { PC->SeatFeedback=TEXT("Stop before leaving the driver seat."); return false; }
+        auto* Character=Seat->Occupant.Get(); FVector Position; UPrimitiveComponent* Floor=nullptr;
+        if (!FindSafeInteriorPosition(Character,StandingEntryLocation,Position,Floor))
+        { PC->SeatFeedback=TEXT("Living aisle is obstructed; seat retained."); return false; }
+        ReleaseSeat(Seat,false,Position);
+        auto* Movement=Character->GetCharacterMovement();
+        Movement->FindFloor(Position,Movement->CurrentFloor,false);
+        auto BaseData=MovementBaseUtility::GetMovementBaseDataFromPhysicsOwner(Floor);
+        Character->SetBase(&BaseData);
+        if (auto* Frame=Character->FindComponentByClass<URVPassengerReferenceFrameComponent>())
+            Frame->TickComponent(0,LEVELTICK_All,nullptr);
+        // SetBase after native root policy is enabled so the first based update uses the common root.
+        Character->SetBase(&BaseData); Movement->Velocity=FVector::ZeroVector;
+        PC->SeatFeedback=TEXT("Living area | Hold E at cab seat to sit");
+        Character->ForceNetUpdate(); PC->ForceNetUpdate(); return true;
+    }
+    return false;
 }
 void ARVInteriorMotorhome::ConfigureProjectChassisCollision(FVector Center, FVector Extent)
 {

@@ -33,10 +33,10 @@ public:
     UFUNCTION(BlueprintPure, Category="RV|Seats") bool IsDriver(const ARVPlayerController* PlayerController) const;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="RV|Seats") float MaxEntryExitSpeed = 150.f;
 protected:
+    void ReleaseSeat(URVVehicleSeatComponent* Seat, bool Disconnect, const FVector& Position);
     bool FindSafeExit(URVVehicleSeatComponent* Seat, ARVSurvivorCharacter* Character, FVector& Position) const;
     bool FindSafeExitAtOffset(FVector PreferredOffset, ARVSurvivorCharacter* Character, FVector& Position) const;
 private:
-    void ReleaseSeat(URVVehicleSeatComponent* Seat, bool Disconnect, const FVector& Position);
     void CreateInput();
     void RemoveInput();
     void Throttle(const FInputActionValue& Value);

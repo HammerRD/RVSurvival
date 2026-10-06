@@ -1,4 +1,5 @@
 #include "Vehicles/RVVehicleEntryPoint.h"
+#include "Interaction/RVInteractionTargetPresentationComponent.h"
 #include "Vehicles/RVVehicleSeatComponent.h"
 #include "Vehicles/RVVehicleBase.h"
 #include "Player/RVSurvivorCharacter.h"
@@ -9,6 +10,7 @@
 #include "Net/UnrealNetwork.h"
 ARVVehicleEntryPoint::ARVVehicleEntryPoint()
 {
+    CreateDefaultSubobject<URVInteractionTargetPresentationComponent>(TEXT("TargetPresentation"));
     bReplicates = true; bAlwaysRelevant = true;
     auto* Box = CreateDefaultSubobject<UBoxComponent>(TEXT("EntryTrace")); SetRootComponent(Box);
     Box->SetBoxExtent(FVector(35, 12, 45)); Box->SetCollisionEnabled(ECollisionEnabled::QueryOnly);

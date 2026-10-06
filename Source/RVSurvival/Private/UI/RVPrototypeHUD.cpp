@@ -34,8 +34,6 @@ void ARVPrototypeHUD::DrawHUD()
             SurvivalWidget->SetPositionInViewport(FVector2D(20,-15),false);
             SurvivalWidget->SetAnchorsInViewport(FAnchors(0,1)); SurvivalWidget->SetAlignmentInViewport(FVector2D(0,1));
         }
-        if(PlayerOwner->WasInputKeyJustPressed(EKeys::R)) Needs->RequestRestMode(ERVRestMode::Awake);
-        if(PlayerOwner->WasInputKeyJustPressed(EKeys::Z)) Needs->RequestRestMode(Needs->State.RestMode==ERVRestMode::Sleeping?ERVRestMode::Resting:ERVRestMode::Sleeping);
     }
     if(auto* PC=Cast<ARVPlayerController>(PlayerOwner))
     {
@@ -65,7 +63,7 @@ void ARVPrototypeHUD::DrawHUD()
         const bool Driver = PlayerOwner->GetPawn() == PC->SeatedVehicle;
         DrawText(Driver ? TEXT("PROTOTYPE RV | W: accelerate  S: brake/reverse  A/D: steer  Space: handbrake  E: exit when stopped")
             : TEXT("RV passenger | E: exit when stopped"), FLinearColor::White, 20, 35);
-        DrawText(TEXT("Stopped: 1 driver | 2 passenger | V next free seat"), FLinearColor::White, 20, 60);
+        DrawText(TEXT("1 driver | 2 passenger | V next seat (stopped) | 3 living area"), FLinearColor::White, 20, 60);
         DrawText(PC->SeatFeedback, FLinearColor::Yellow, 20, 85);
         return;
     }
