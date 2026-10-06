@@ -110,7 +110,7 @@ void URVElectricalComponent::AdvanceAuthority(double Seconds,bool EngineOperatin
             { const double Generated=FMath::Min(Delivered,ChassisSource); ChassisSource-=Generated;
               ChassisAllowance-=Delivered-Generated; ChassisUsed+=Delivered-Generated;
               if(Generated>0) Flow.ActiveSources.AddUnique(ERVPowerSource::Alternator);
-              L.bPowered=Delivered>=Need-1e-9; Flow.SuppliedWatts+=Delivered/Hours; }
+              L.bPowered=Delivered>=Need*(1-1e-9); Flow.SuppliedWatts+=Delivered/Hours; }
             continue;
         }
         double Available=BatteryAllowance; for(double X:SourceWh) Available+=X;
@@ -121,14 +121,14 @@ void URVElectricalComponent::AdvanceAuthority(double Seconds,bool EngineOperatin
         double Remaining=Delivered;
         for(auto S:Tuning.SourcePriority)
         {
-            if(Remaining<=1e-9) break;
+            if(Remaining<=0) break;
             double Used=0;
             if(S==ERVPowerSource::Battery) { Used=FMath::Min(Remaining,BatteryAllowance); BatteryAllowance-=Used; HouseUsed+=Used; }
             else { Used=FMath::Min(Remaining,SourceWh[int(S)]); SourceWh[int(S)]-=Used; }
             if(Used>0) Flow.ActiveSources.AddUnique(S);
             Remaining-=Used;
         }
-        L.bPowered=Delivered>=Need-1e-9; Flow.SuppliedWatts+=Delivered/Hours;
+        L.bPowered=Delivered>=Need*(1-1e-9); Flow.SuppliedWatts+=Delivered/Hours;
     }
     V->HouseBattery->DischargeAuthority(HouseUsed,Hours); V->ChassisBattery->DischargeAuthority(ChassisUsed,Hours);
     // Charge once with remaining generated input; sources spent on loads cannot be spent twice.

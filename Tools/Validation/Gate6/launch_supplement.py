@@ -22,6 +22,6 @@ def tick(dt):
  if t>120 and not ending:
   unreal.log_error('GATE6_TIMEOUT');unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_end_play();ending=time.time()+4
  if ending and time.time()>ending:
-  unreal.unregister_slate_post_tick_callback(h);release_runners();unreal.SystemLibrary.quit_editor()
+  unreal.unregister_slate_post_tick_callback(h);quit=unreal.SystemLibrary.quit_editor;release_runners();quit()
 h=unreal.register_slate_post_tick_callback(tick)
 

@@ -44,7 +44,7 @@ def inspect_gate6():
  check('gate6_tank_and_separate_source',c.get_editor_property('PropulsionFuel').get_editor_property('CapacityLitres')==200 and c.get_editor_property('PropulsionFuel').get_editor_property('InitialLitres')==150 and c.get_editor_property('GeneratorFuel').get_editor_property('CapacityLitres')==30)
  check('distinct_battery_capacity',c.get_editor_property('HouseBattery').get_editor_property('CapacityWh')==2400 and c.get_editor_property('ChassisBattery').get_editor_property('CapacityWh')==800)
  check('normal_profile_saved',c.get_editor_property('Electrical').get_editor_property('Profile').get_name()=='DA_NormalRVEnergy')
- check('new_light_mobility_and_no_shadow',str(c.get_editor_property('FrontLight').get_editor_property('Mobility'))=='ComponentMobility.MOVABLE' and not c.get_editor_property('FrontLight').get_editor_property('CastShadows'),str(c.get_editor_property('FrontLight').get_editor_property('Mobility')))
+ check('new_light_mobility_and_no_shadow',c.get_editor_property('FrontLight').get_editor_property('Mobility')==unreal.ComponentMobility.MOVABLE and not c.get_editor_property('FrontLight').get_editor_property('CastShadows'),str(c.get_editor_property('FrontLight').get_editor_property('Mobility')))
  defs=list(c.get_editor_property('Stations'))
  check('optional_power_load_binding_saved',str(next(d for d in defs if str(d.name)=='Navigation').get_editor_property('RequiredPowerLoad'))=='PoweredStation' and all(str(d.get_editor_property('RequiredPowerLoad'))=='None' for d in defs if str(d.name)!='Navigation'))
  parts=list(c.get_editor_property('VisualParts'))

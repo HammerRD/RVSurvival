@@ -66,6 +66,8 @@ def aftergenerator():
  # The high-priority light survives a limited bus while lower-priority large loads are shed.
  house.debug_set_energy(.01);bus.debug_advance(1,False,0,0)
  check('load_priority_sheds_large_demands',bus.is_load_powered('InteriorLights') and not bus.is_load_powered('Refrigerator') and not bus.is_load_powered('PoweredStation'))
+ house.debug_set_energy(1e-10);bus.debug_advance(1,False,0,0)
+ check('fractional_energy_not_stranded_by_absolute_epsilon',house.get_editor_property('EnergyWh')==0 and not bus.has_house_power() and not bus.is_load_powered('InteriorLights'))
  check('debug_recovery_not_shipping_gameplay',not bus.debug_advance(float('nan'),True,1,1000))
  check('stress_final_actor_count_stable',len(unreal.GameplayStatics.get_all_actors_of_class(w,unreal.Actor))==actor_count)
 def finish():

@@ -1,0 +1,2299 @@
+{
+  "results": [
+    {
+      "case": "stress_owned_can_via_hold",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stress_fill_hold",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "100_partial_refuels_and_duplicate_rejections",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "100_cycles_guid_state_and_quantity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "revision_exact_two_per_cycle",
+      "pass": true,
+      "detail": "[2, 200]"
+    },
+    {
+      "case": "refueling_no_actor_accumulation",
+      "pass": true,
+      "detail": "[104, 104]"
+    },
+    {
+      "case": "stress_panel_hold",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "100_native_authoritative_generator_changes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "generator_revision_progress_no_lost_updates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "generator_noise_follows_running",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fuel_monotonic_during_generator_cycles",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "multi_source_charge_capped_and_priority",
+      "pass": true,
+      "detail": "Shore"
+    },
+    {
+      "case": "24h_shore_solar_no_overcharge",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "24h_house_depletion_bounded",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_priority_sheds_large_demands",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fractional_energy_not_stranded_by_absolute_epsilon",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "debug_recovery_not_shipping_gameplay",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stress_final_actor_count_stable",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "refuel_cycles": [
+    {
+      "cycle": 0,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 2,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 1,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 4,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 2,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 6,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 3,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 8,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 4,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 10,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 5,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 12,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 6,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 14,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 7,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 16,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 8,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 18,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 9,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 20,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 10,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 22,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 11,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 24,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 12,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 26,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 13,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 28,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 14,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 30,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 15,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 32,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 16,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 34,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 17,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 36,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 18,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 38,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 19,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 40,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 20,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 42,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 21,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 44,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 22,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 46,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 23,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 48,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 24,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 50,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 25,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 52,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 26,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 54,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 27,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 56,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 28,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 58,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 29,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 60,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 30,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 62,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 31,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 64,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 32,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 66,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 33,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 68,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 34,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 70,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 35,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 72,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 36,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 74,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 37,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 76,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 38,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 78,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 39,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 80,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 40,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 82,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 41,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 84,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 42,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 86,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 43,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 88,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 44,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 90,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 45,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 92,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 46,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 94,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 47,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 96,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 48,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 98,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 49,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 100,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 50,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 102,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 51,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 104,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 52,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 106,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 53,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 108,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 54,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 110,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 55,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 112,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 56,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 114,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 57,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 116,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 58,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 118,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 59,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 120,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 60,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 122,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 61,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 124,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 62,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 126,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 63,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 128,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 64,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 130,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 65,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 132,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 66,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 134,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 67,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 136,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 68,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 138,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 69,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 140,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 70,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 142,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 71,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 144,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 72,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 146,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 73,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 148,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 74,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 150,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 75,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 152,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 76,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 154,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 77,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 156,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 78,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 158,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 79,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 160,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 80,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 162,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 81,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 164,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 82,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 166,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 83,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 168,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 84,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 170,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 85,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 172,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 86,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 174,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 87,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 176,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 88,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 178,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 89,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 180,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 90,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 182,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 91,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 184,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 92,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 186,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 93,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 188,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 94,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 190,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 95,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 192,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 96,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 194,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 97,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 196,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 98,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 198,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    },
+    {
+      "cycle": 99,
+      "tank": 200.0,
+      "can": 2.0,
+      "revision": 200,
+      "quantity": 1,
+      "condition": 0.7300000190734863,
+      "id": "054C7C4545E919CF7A456EA9D87807A5",
+      "state": [
+        [
+          "Stress",
+          "retain"
+        ]
+      ]
+    }
+  ],
+  "generator_cycles": [
+    {
+      "cycle": 0,
+      "running": true,
+      "revision": 1,
+      "fuel": 199.99999916655233,
+      "noise": 1.0
+    },
+    {
+      "cycle": 1,
+      "running": false,
+      "revision": 2,
+      "fuel": 199.99999916655233,
+      "noise": 0.0
+    },
+    {
+      "cycle": 2,
+      "running": true,
+      "revision": 3,
+      "fuel": 199.999998333127,
+      "noise": 1.0
+    },
+    {
+      "cycle": 3,
+      "running": false,
+      "revision": 4,
+      "fuel": 199.999998333127,
+      "noise": 0.0
+    },
+    {
+      "cycle": 4,
+      "running": true,
+      "revision": 5,
+      "fuel": 199.99999749977968,
+      "noise": 1.0
+    },
+    {
+      "cycle": 5,
+      "running": false,
+      "revision": 6,
+      "fuel": 199.99999749977968,
+      "noise": 0.0
+    },
+    {
+      "cycle": 6,
+      "running": true,
+      "revision": 7,
+      "fuel": 199.99999666643967,
+      "noise": 1.0
+    },
+    {
+      "cycle": 7,
+      "running": false,
+      "revision": 8,
+      "fuel": 199.99999666643967,
+      "noise": 0.0
+    },
+    {
+      "cycle": 8,
+      "running": true,
+      "revision": 9,
+      "fuel": 199.99999583308033,
+      "noise": 1.0
+    },
+    {
+      "cycle": 9,
+      "running": false,
+      "revision": 10,
+      "fuel": 199.99999583308033,
+      "noise": 0.0
+    },
+    {
+      "cycle": 10,
+      "running": true,
+      "revision": 11,
+      "fuel": 199.99999499974,
+      "noise": 1.0
+    },
+    {
+      "cycle": 11,
+      "running": false,
+      "revision": 12,
+      "fuel": 199.99999499974,
+      "noise": 0.0
+    },
+    {
+      "cycle": 12,
+      "running": true,
+      "revision": 13,
+      "fuel": 199.9999941664,
+      "noise": 1.0
+    },
+    {
+      "cycle": 13,
+      "running": false,
+      "revision": 14,
+      "fuel": 199.9999941664,
+      "noise": 0.0
+    },
+    {
+      "cycle": 14,
+      "running": true,
+      "revision": 15,
+      "fuel": 199.999993333052,
+      "noise": 1.0
+    },
+    {
+      "cycle": 15,
+      "running": false,
+      "revision": 16,
+      "fuel": 199.999993333052,
+      "noise": 0.0
+    },
+    {
+      "cycle": 16,
+      "running": true,
+      "revision": 17,
+      "fuel": 199.999992499667,
+      "noise": 1.0
+    },
+    {
+      "cycle": 17,
+      "running": false,
+      "revision": 18,
+      "fuel": 199.999992499667,
+      "noise": 0.0
+    },
+    {
+      "cycle": 18,
+      "running": true,
+      "revision": 19,
+      "fuel": 199.999991666327,
+      "noise": 1.0
+    },
+    {
+      "cycle": 19,
+      "running": false,
+      "revision": 20,
+      "fuel": 199.999991666327,
+      "noise": 0.0
+    },
+    {
+      "cycle": 20,
+      "running": true,
+      "revision": 21,
+      "fuel": 199.99999083298698,
+      "noise": 1.0
+    },
+    {
+      "cycle": 21,
+      "running": false,
+      "revision": 22,
+      "fuel": 199.99999083298698,
+      "noise": 0.0
+    },
+    {
+      "cycle": 22,
+      "running": true,
+      "revision": 23,
+      "fuel": 199.99998999964666,
+      "noise": 1.0
+    },
+    {
+      "cycle": 23,
+      "running": false,
+      "revision": 24,
+      "fuel": 199.99998999964666,
+      "noise": 0.0
+    },
+    {
+      "cycle": 24,
+      "running": true,
+      "revision": 25,
+      "fuel": 199.99998916630665,
+      "noise": 1.0
+    },
+    {
+      "cycle": 25,
+      "running": false,
+      "revision": 26,
+      "fuel": 199.99998916630665,
+      "noise": 0.0
+    },
+    {
+      "cycle": 26,
+      "running": true,
+      "revision": 27,
+      "fuel": 199.99998833296664,
+      "noise": 1.0
+    },
+    {
+      "cycle": 27,
+      "running": false,
+      "revision": 28,
+      "fuel": 199.99998833296664,
+      "noise": 0.0
+    },
+    {
+      "cycle": 28,
+      "running": true,
+      "revision": 29,
+      "fuel": 199.99998749962663,
+      "noise": 1.0
+    },
+    {
+      "cycle": 29,
+      "running": false,
+      "revision": 30,
+      "fuel": 199.99998749962663,
+      "noise": 0.0
+    },
+    {
+      "cycle": 30,
+      "running": true,
+      "revision": 31,
+      "fuel": 199.99998666628662,
+      "noise": 1.0
+    },
+    {
+      "cycle": 31,
+      "running": false,
+      "revision": 32,
+      "fuel": 199.99998666628662,
+      "noise": 0.0
+    },
+    {
+      "cycle": 32,
+      "running": true,
+      "revision": 33,
+      "fuel": 199.9999858329466,
+      "noise": 1.0
+    },
+    {
+      "cycle": 33,
+      "running": false,
+      "revision": 34,
+      "fuel": 199.9999858329466,
+      "noise": 0.0
+    },
+    {
+      "cycle": 34,
+      "running": true,
+      "revision": 35,
+      "fuel": 199.99998499960628,
+      "noise": 1.0
+    },
+    {
+      "cycle": 35,
+      "running": false,
+      "revision": 36,
+      "fuel": 199.99998499960628,
+      "noise": 0.0
+    },
+    {
+      "cycle": 36,
+      "running": true,
+      "revision": 37,
+      "fuel": 199.9999841662343,
+      "noise": 1.0
+    },
+    {
+      "cycle": 37,
+      "running": false,
+      "revision": 38,
+      "fuel": 199.9999841662343,
+      "noise": 0.0
+    },
+    {
+      "cycle": 38,
+      "running": true,
+      "revision": 39,
+      "fuel": 199.9999833305183,
+      "noise": 1.0
+    },
+    {
+      "cycle": 39,
+      "running": false,
+      "revision": 40,
+      "fuel": 199.9999833305183,
+      "noise": 0.0
+    },
+    {
+      "cycle": 40,
+      "running": true,
+      "revision": 41,
+      "fuel": 199.99998249717828,
+      "noise": 1.0
+    },
+    {
+      "cycle": 41,
+      "running": false,
+      "revision": 42,
+      "fuel": 199.99998249717828,
+      "noise": 0.0
+    },
+    {
+      "cycle": 42,
+      "running": true,
+      "revision": 43,
+      "fuel": 199.99998166383827,
+      "noise": 1.0
+    },
+    {
+      "cycle": 43,
+      "running": false,
+      "revision": 44,
+      "fuel": 199.99998166383827,
+      "noise": 0.0
+    },
+    {
+      "cycle": 44,
+      "running": true,
+      "revision": 45,
+      "fuel": 199.99998083049826,
+      "noise": 1.0
+    },
+    {
+      "cycle": 45,
+      "running": false,
+      "revision": 46,
+      "fuel": 199.99998083049826,
+      "noise": 0.0
+    },
+    {
+      "cycle": 46,
+      "running": true,
+      "revision": 47,
+      "fuel": 199.9999799971519,
+      "noise": 1.0
+    },
+    {
+      "cycle": 47,
+      "running": false,
+      "revision": 48,
+      "fuel": 199.9999799971519,
+      "noise": 0.0
+    },
+    {
+      "cycle": 48,
+      "running": true,
+      "revision": 49,
+      "fuel": 199.9999791638119,
+      "noise": 1.0
+    },
+    {
+      "cycle": 49,
+      "running": false,
+      "revision": 50,
+      "fuel": 199.9999791638119,
+      "noise": 0.0
+    },
+    {
+      "cycle": 50,
+      "running": true,
+      "revision": 51,
+      "fuel": 199.99997833041624,
+      "noise": 1.0
+    },
+    {
+      "cycle": 51,
+      "running": false,
+      "revision": 52,
+      "fuel": 199.99997833041624,
+      "noise": 0.0
+    },
+    {
+      "cycle": 52,
+      "running": true,
+      "revision": 53,
+      "fuel": 199.9999774970659,
+      "noise": 1.0
+    },
+    {
+      "cycle": 53,
+      "running": false,
+      "revision": 54,
+      "fuel": 199.9999774970659,
+      "noise": 0.0
+    },
+    {
+      "cycle": 54,
+      "running": true,
+      "revision": 55,
+      "fuel": 199.99997666369626,
+      "noise": 1.0
+    },
+    {
+      "cycle": 55,
+      "running": false,
+      "revision": 56,
+      "fuel": 199.99997666369626,
+      "noise": 0.0
+    },
+    {
+      "cycle": 56,
+      "running": true,
+      "revision": 57,
+      "fuel": 199.99997583035628,
+      "noise": 1.0
+    },
+    {
+      "cycle": 57,
+      "running": false,
+      "revision": 58,
+      "fuel": 199.99997583035628,
+      "noise": 0.0
+    },
+    {
+      "cycle": 58,
+      "running": true,
+      "revision": 59,
+      "fuel": 199.99997499701595,
+      "noise": 1.0
+    },
+    {
+      "cycle": 59,
+      "running": false,
+      "revision": 60,
+      "fuel": 199.99997499701595,
+      "noise": 0.0
+    },
+    {
+      "cycle": 60,
+      "running": true,
+      "revision": 61,
+      "fuel": 199.99997416359795,
+      "noise": 1.0
+    },
+    {
+      "cycle": 61,
+      "running": false,
+      "revision": 62,
+      "fuel": 199.99997416359795,
+      "noise": 0.0
+    },
+    {
+      "cycle": 62,
+      "running": true,
+      "revision": 63,
+      "fuel": 199.99997333025794,
+      "noise": 1.0
+    },
+    {
+      "cycle": 63,
+      "running": false,
+      "revision": 64,
+      "fuel": 199.99997333025794,
+      "noise": 0.0
+    },
+    {
+      "cycle": 64,
+      "running": true,
+      "revision": 65,
+      "fuel": 199.99997249673626,
+      "noise": 1.0
+    },
+    {
+      "cycle": 65,
+      "running": false,
+      "revision": 66,
+      "fuel": 199.99997249673626,
+      "noise": 0.0
+    },
+    {
+      "cycle": 66,
+      "running": true,
+      "revision": 67,
+      "fuel": 199.99997166339628,
+      "noise": 1.0
+    },
+    {
+      "cycle": 67,
+      "running": false,
+      "revision": 68,
+      "fuel": 199.99997166339628,
+      "noise": 0.0
+    },
+    {
+      "cycle": 68,
+      "running": true,
+      "revision": 69,
+      "fuel": 199.99997083005627,
+      "noise": 1.0
+    },
+    {
+      "cycle": 69,
+      "running": false,
+      "revision": 70,
+      "fuel": 199.99997083005627,
+      "noise": 0.0
+    },
+    {
+      "cycle": 70,
+      "running": true,
+      "revision": 71,
+      "fuel": 199.99996999669892,
+      "noise": 1.0
+    },
+    {
+      "cycle": 71,
+      "running": false,
+      "revision": 72,
+      "fuel": 199.99996999669892,
+      "noise": 0.0
+    },
+    {
+      "cycle": 72,
+      "running": true,
+      "revision": 73,
+      "fuel": 199.9999691633589,
+      "noise": 1.0
+    },
+    {
+      "cycle": 73,
+      "running": false,
+      "revision": 74,
+      "fuel": 199.9999691633589,
+      "noise": 0.0
+    },
+    {
+      "cycle": 74,
+      "running": true,
+      "revision": 75,
+      "fuel": 199.9999683300189,
+      "noise": 1.0
+    },
+    {
+      "cycle": 75,
+      "running": false,
+      "revision": 76,
+      "fuel": 199.9999683300189,
+      "noise": 0.0
+    },
+    {
+      "cycle": 76,
+      "running": true,
+      "revision": 77,
+      "fuel": 199.99996749667892,
+      "noise": 1.0
+    },
+    {
+      "cycle": 77,
+      "running": false,
+      "revision": 78,
+      "fuel": 199.99996749667892,
+      "noise": 0.0
+    },
+    {
+      "cycle": 78,
+      "running": true,
+      "revision": 79,
+      "fuel": 199.99996666333658,
+      "noise": 1.0
+    },
+    {
+      "cycle": 79,
+      "running": false,
+      "revision": 80,
+      "fuel": 199.99996666333658,
+      "noise": 0.0
+    },
+    {
+      "cycle": 80,
+      "running": true,
+      "revision": 81,
+      "fuel": 199.99996582999657,
+      "noise": 1.0
+    },
+    {
+      "cycle": 81,
+      "running": false,
+      "revision": 82,
+      "fuel": 199.99996582999657,
+      "noise": 0.0
+    },
+    {
+      "cycle": 82,
+      "running": true,
+      "revision": 83,
+      "fuel": 199.99996499665656,
+      "noise": 1.0
+    },
+    {
+      "cycle": 83,
+      "running": false,
+      "revision": 84,
+      "fuel": 199.99996499665656,
+      "noise": 0.0
+    },
+    {
+      "cycle": 84,
+      "running": true,
+      "revision": 85,
+      "fuel": 199.99996416331624,
+      "noise": 1.0
+    },
+    {
+      "cycle": 85,
+      "running": false,
+      "revision": 86,
+      "fuel": 199.99996416331624,
+      "noise": 0.0
+    },
+    {
+      "cycle": 86,
+      "running": true,
+      "revision": 87,
+      "fuel": 199.99996332970022,
+      "noise": 1.0
+    },
+    {
+      "cycle": 87,
+      "running": false,
+      "revision": 88,
+      "fuel": 199.99996332970022,
+      "noise": 0.0
+    },
+    {
+      "cycle": 88,
+      "running": true,
+      "revision": 89,
+      "fuel": 199.99996249636024,
+      "noise": 1.0
+    },
+    {
+      "cycle": 89,
+      "running": false,
+      "revision": 90,
+      "fuel": 199.99996249636024,
+      "noise": 0.0
+    },
+    {
+      "cycle": 90,
+      "running": true,
+      "revision": 91,
+      "fuel": 199.99996166302023,
+      "noise": 1.0
+    },
+    {
+      "cycle": 91,
+      "running": false,
+      "revision": 92,
+      "fuel": 199.99996166302023,
+      "noise": 0.0
+    },
+    {
+      "cycle": 92,
+      "running": true,
+      "revision": 93,
+      "fuel": 199.99996082968022,
+      "noise": 1.0
+    },
+    {
+      "cycle": 93,
+      "running": false,
+      "revision": 94,
+      "fuel": 199.99996082968022,
+      "noise": 0.0
+    },
+    {
+      "cycle": 94,
+      "running": true,
+      "revision": 95,
+      "fuel": 199.99995999628223,
+      "noise": 1.0
+    },
+    {
+      "cycle": 95,
+      "running": false,
+      "revision": 96,
+      "fuel": 199.99995999628223,
+      "noise": 0.0
+    },
+    {
+      "cycle": 96,
+      "running": true,
+      "revision": 97,
+      "fuel": 199.9999591628259,
+      "noise": 1.0
+    },
+    {
+      "cycle": 97,
+      "running": false,
+      "revision": 98,
+      "fuel": 199.9999591628259,
+      "noise": 0.0
+    },
+    {
+      "cycle": 98,
+      "running": true,
+      "revision": 99,
+      "fuel": 199.99995832948588,
+      "noise": 1.0
+    },
+    {
+      "cycle": 99,
+      "running": false,
+      "revision": 100,
+      "fuel": 199.99995832948588,
+      "noise": 0.0
+    }
+  ],
+  "shutdown_error": "Runner globals cleared before resolving unreal.SystemLibrary.quit_editor; PIE stopped, editor remained open. This run is not final acceptance."
+}
