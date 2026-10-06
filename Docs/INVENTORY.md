@@ -75,3 +75,9 @@ Gate 6 final status: ACCEPTED on 2026-10-06. Final resource, separate-process/em
 
 ## Gate 6 interaction presentation regression
 RV storage targets are hidden query markers aligned to their existing logical surfaces; containers, capacity, item GUIDs, ownership and transfer authority are unchanged. The seven purchased-door exterior compartments remain independent URVContainerComponent storage. Inventory/container panels can close normally after workstation interaction; bed stand-up restores walking and native moving-base state. Full moving regression includes pantry, medical/personal storage, turning transfers, drop/repick and food/water use with separate processes.
+
+## Gate 6 second-refinement overhead storage (in progress)
+
+The Gate6 map adds individual reusable containers for dinette dry food (6 kg / 14 L; Food/Water), rear medical backup (4 kg / 10 L; Medical) and kitchen small tools (5 kg / 10 L; Tool). Physical-carry items are rejected. Existing pantry/personal/medical/water containers are being aligned to their actual purchased surfaces; exterior heavy-cargo containers remain unchanged. Provisional locations do not constitute a completed spatial audit.
+
+The first new moving normal-input pantry deposit passed; its return did not, so the full refinement is not accepted yet. Server authority, FastArray item identity, condition, capacity and serial transfer validation remain unchanged. No second item system or crafting system is added.

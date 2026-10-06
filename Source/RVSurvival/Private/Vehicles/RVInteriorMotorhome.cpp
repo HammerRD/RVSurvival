@@ -2,6 +2,7 @@
 #include "Camera/CameraActor.h"
 #include "Camera/CameraComponent.h"
 #include "Engine/Engine.h"
+#include "InputKeyEventArgs.h"
 #include "Vehicles/RVInteractiveDoor.h"
 #include "Net/UnrealNetwork.h"
 #include "Interaction/RVInteriorStation.h"
@@ -310,6 +311,17 @@ bool ARVInteriorMotorhome::TryMoveToLivingArea(ARVPlayerController* PC)
         Character->ForceNetUpdate(); PC->ForceNetUpdate(); return true;
     }
     return false;
+}
+bool ARVInteriorMotorhome::DispatchDevelopmentKey(APlayerController* LocalController,FName KeyName,bool bPressed)
+{
+#if !(UE_BUILD_SHIPPING || UE_BUILD_TEST)
+    const FKey Key(KeyName);
+    if (!LocalController || !LocalController->IsLocalController() || !LocalController->GetWorld()->IsGameWorld() || !Key.IsValid() || Key.IsAnalog()) return false;
+    // One native event, unlike Input.+key's per-frame IE_Pressed injection.
+    return LocalController->InputKey(FInputKeyEventArgs::CreateSimulated(Key,bPressed?IE_Pressed:IE_Released,bPressed?1.f:0.f,0));
+#else
+    return false;
+#endif
 }
 void ARVInteriorMotorhome::ConfigureProjectChassisCollision(FVector Center, FVector Extent)
 {

@@ -8,6 +8,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "Components/TextRenderComponent.h"
 #include "Net/UnrealNetwork.h"
+#include "HAL/IConsoleManager.h"
 ARVInteriorStation::ARVInteriorStation()
 {
     CreateDefaultSubobject<URVInteractionTargetPresentationComponent>(TEXT("TargetPresentation"));
@@ -20,7 +21,14 @@ ARVInteriorStation::ARVInteriorStation()
 void ARVInteriorStation::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 { Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(ARVInteriorStation, StationName); DOREPLIFETIME(ARVInteriorStation,RequiredPowerLoad); }
 FText ARVInteriorStation::GetInteractionText_Implementation(APawn*) const
-{ return FText::Format(NSLOCTEXT("RV", "StationPlaceholder", "Hold E: {0} (prototype checks: {1})"), FText::FromName(StationName), FText::AsNumber(InteractionCount)); }
+{
+    const auto* Debug=IConsoleManager::Get().FindConsoleVariable(TEXT("rv.Interaction.DebugTargets"));
+    if (!Cast<ARVSystemsMotorhome>(GetAttachParentActor()) || (Debug && Debug->GetInt()!=0))
+        return FText::Format(NSLOCTEXT("RV", "StationPlaceholder", "Hold E: {0} (prototype checks: {1})"), FText::FromName(StationName), FText::AsNumber(InteractionCount));
+    if (StationName==TEXT("Power")) return NSLOCTEXT("RV","ElectricalControlsPrompt","Hold E: RV electrical controls");
+    if (StationName==TEXT("Navigation")) return NSLOCTEXT("RV","NavigationPrompt","Hold E: navigation / radio");
+    return FText::Format(NSLOCTEXT("RV","StationUsePrompt","Hold E: {0}"),FText::FromName(StationName));
+}
 
 bool ARVInteriorStation::CanInteract_Implementation(APawn* Pawn) const
 {

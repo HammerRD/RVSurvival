@@ -1,0 +1,17 @@
+{
+  "time": 1791327206.2214491,
+  "local": [
+    137.24442809383018,
+    0.0006468482239523138,
+    177.14262491535445
+  ],
+  "look": "<Struct 'Rotator' (0x000001C64C8DB080) {pitch: -81.493344, yaw: -0.009569, roll: -0.000000}>",
+  "pawn": "RVInteriorTestCharacter_0",
+  "prompt": "Hold E: Navigation (prototype checks: 0)",
+  "movement": "<MovementMode.MOVE_WALKING: 1>",
+  "capsule": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>",
+  "rest": "<RVRestMode.AWAKE: 0>",
+  "pose": "None",
+  "inventory_feedback": "",
+  "container": null
+}

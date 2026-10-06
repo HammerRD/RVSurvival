@@ -138,3 +138,10 @@ Gate6 refinement milestone: actual mattress E/Z/R and both real dinette cushion 
 - First auxiliary separate-process normal-control run passed moving front/rear bench sitting/standing, pantry deposit, shared exterior transfer conservation, side-door exit and client ladder ascent/descent/dismount with host drive lock. Pantry return and one client exterior-open observation failed and remain under investigation.
 - Preserved failed input-scheduling/auxiliary receipts. Frame-stall input pulses now survive several engine input frames before later events; no floor or network bounds were relaxed.
 - Refinement remains IN PROGRESS / NOT ACCEPTED. No Gate 7 work.
+### Gate 6 second-refinement spatial recovery checkpoint (WIP)
+
+- Visual audit caught remaining Storage-under-bathroom-sink, Power-under-kitchen-sink and Navigation-on-cab-floor placements. Persisted layout script now targets the bed-foot wardrobe and actual radio/lower switch bank; final fresh-map repeats remain pending.
+- Added fitted wardrobe collision and reusable Bed-end cabinet; light-cargo filters/capacities keep heavy automotive supplies in exterior storage. Medical counter and its supply cabinet have distinct targets.
+- Verified real bed body/camera plus native-window R/E and Z instructions, repeated wake and aisle walking. No vendor modifications (108 hashes checked).
+- Native discrete-event wrapper removes console Input.+key repeat artifacts. Corrected emulated reverse-role auxiliary passes 22 checks per process; owner-only UI and stable compartment identity are now tested correctly.
+- Recovery status remains WIP / NOT ACCEPTED until final persistence, normal-input cleanup and regression matrix pass. Gate 7 has not begun.

@@ -22,7 +22,7 @@ de=entry(driver,True);pe=entry(passenger,True);fe=entry(front,False);re=entry(re
 door=v.get_editor_property('HouseDoor')
 exitpoint=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVInteriorAccessPoint) if not a.get_editor_property('bEnter'))
 pantry=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVStoragePoint) if str(a.get_editor_property('Container').get_editor_property('DisplayName'))=='Pantry')
-exterior=unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVExteriorStoragePoint)[0]
+exterior=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVExteriorStoragePoint) if str(a.get_editor_property('DoorPartName'))=='Art_RV_Van_Compartment_01')
 ladder=unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVLadder)[0]
 events=[];idx=0;results=[];samples=[];active=True;nextsample=0;input_frame=0;pulses={}
 def at(t,fn):events.append((t,fn))
@@ -33,7 +33,7 @@ def key(k,on):cmd('Input.'+('+' if on else '-')+'key '+k)
 def tap(t,k,role=None):
     def press():
         if role is None or (role=='driver' and isdriver) or (role=='walker' and not isdriver) or (role=='host' and authority) or (role=='client' and not authority):
-            key(k,True);pulses[k]=(time.time()+.15,input_frame+3)
+            unreal.RVInteriorMotorhome.dispatch_development_key(pc,k,True);pulses[k]=(time.time()+.15,input_frame+3)
     at(t,press)
 def local(c):
     q=v.get_actor_transform().inverse_transform_location(c.get_actor_location());return [q.x,q.y,q.z]
@@ -65,7 +65,13 @@ at(11,lambda:aim(re) if not isdriver else None);at(11.2,lambda:key('E',True) if 
 at(13,lambda:check('moving_rear_bench_native_E',rear.get_editor_property('Occupant')==wp,local(wp)))
 tap(13.5,'E','walker');at(14.8,lambda:check('moving_rear_bench_stand',walking(wp) and wp.get_component_by_class(unreal.RVPassengerReferenceFrameComponent).get_editor_property('ReferenceFrame')==v,local(wp)))
 at(15,lambda:aim(pantry) if not isdriver else None);at(15.2,lambda:key('E',True) if not isdriver else None);at(16.1,lambda:key('E',False) if not isdriver else None)
-at(17,lambda:check('moving_pantry_native_E',inventory(wp).get_editor_property('OpenContainer')==pantry.get_editor_property('Container')))
+def pantry_view_check():
+    if authority or not isdriver:
+        check('moving_pantry_native_E',inventory(wp).get_editor_property('OpenContainer')==pantry.get_editor_property('Container'))
+    else:
+        # OpenContainer is intentionally owner-only; shared contents below are public.
+        check('other_player_pantry_view_is_private',inventory(wp).get_editor_property('OpenContainer') is None)
+at(17,pantry_view_check)
 at(17,lambda:key('A',True) if isdriver else None)
 tap(17.5,'T','walker');at(19,lambda:check('moving_turn_transfer_to_pantry_native_T',quantity(pantry.get_editor_property('Container'))==1 and quantity(inventory(wp))==0))
 at(19,lambda:key('A',False) if isdriver else None)
@@ -89,12 +95,13 @@ def exterior_approach():
         q=v.get_actor_transform().inverse_transform_location(exterior.get_actor_location());side=1 if q.y>0 else -1
         place(hp,(q.x-45,side*300,75));place(cp,(q.x+45,side*300,75));seed(exterior.get_editor_property('Container'),'Tool')
 at(46,exterior_approach);at(47,lambda:aim(exterior));at(47.2,lambda:key('E',True));at(48.1,lambda:key('E',False))
-at(49.5,lambda:check('shared_exterior_native_E',inventory(p).get_editor_property('OpenContainer')==exterior.get_editor_property('Container')))
+at(49.5,lambda:check('shared_exterior_native_E',inventory(p).get_editor_property('OpenContainer')==exterior.get_editor_property('Container'),{'expected':str(exterior.get_editor_property('Container')),'actual':str(inventory(p).get_editor_property('OpenContainer')),'feedback':inventory(p).get_editor_property('Feedback')}))
 tap(50,'Tab','driver') # driver UI was fresh; walker remains on container panel from pantry Tab.
 tap(51,'T')
 def conserved():
     records=[item for c in [inventory(hp),inventory(cp),exterior.get_editor_property('Container')] for item in c.get_items() if str(item.definition.get_editor_property('CatalogId'))=='Tool']
-    check('shared_exterior_contention_no_duplicate_native_T',sum(item.quantity for item in records)==1 and len({unreal.GuidLibrary.conv_guid_to_string(item.id) for item in records})==len(records),[str(item.id) for item in records])
+    moved=any(str(item.definition.get_editor_property('CatalogId'))=='Tool' for c in [inventory(hp),inventory(cp)] for item in c.get_items())
+    check('shared_exterior_contention_no_duplicate_native_T',moved and sum(item.quantity for item in records)==1 and len({unreal.GuidLibrary.conv_guid_to_string(item.id) for item in records})==len(records),[str(item.id) for item in records])
 at(53,conserved);tap(53.5,'I')
 def ladder_approach():
     if authority:
@@ -121,10 +128,13 @@ at(72,lambda:check('ladder_world_walk_away',walking(cp) and local(cp)[0]<-480,lo
 def finish():
     global active
     if not active:return
-    for k in ['E','W','S','A','T','Tab','I','Three','SpaceBar']:key(k,False)
+    for k in ['E','W','S','A','T','Tab','I','Three','SpaceBar']:
+        key(k,False);unreal.RVInteriorMotorhome.dispatch_development_key(pc,k,False)
     role='server' if authority else 'client'
     (B/(config['name']+'_'+role+'.json')).write_text(json.dumps({'pid':os.getpid(),'role':role,'config':config,'results':results,'samples':samples},indent=2),encoding='utf-8')
     active=False;unreal.unregister_slate_post_tick_callback(h)
+    from runner_runtime import release_runners
+    release_runners()
 at(74,finish);events.sort(key=lambda e:e[0])
 def tick(dt):
     global idx,nextsample,hp,cp,dp,wp,input_frame
@@ -137,9 +147,10 @@ def tick(dt):
     if t<0:return
     try:
         for k,(deadline,frame) in list(pulses.items()):
-            if time.time()>=deadline and input_frame>=frame:key(k,False);del pulses[k]
+            if time.time()>=deadline and input_frame>=frame:unreal.RVInteriorMotorhome.dispatch_development_key(pc,k,False);del pulses[k]
         while idx<len(events) and t>=events[idx][0] and not pulses:
-            fn=events[idx][1];idx+=1;fn()
+            fn=events[idx][1];idx+=1;terminating=fn.__name__=='finish';fn()
+            if terminating:return
             if not active:return
         if t>=nextsample:
             nextsample=t+.1;samples.append({'t':t,'host':local(hp),'client':local(cp),'speed':v.get_velocity().length(),'ladder':str(ladder.get_editor_property('Occupant')),'inventory_feedback':inventory(wp).get_editor_property('Feedback'),'open_container':str(inventory(wp).get_editor_property('OpenContainer'))})

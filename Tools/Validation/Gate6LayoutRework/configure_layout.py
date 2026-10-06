@@ -12,20 +12,31 @@ def configure():
     actors=subsystem.get_all_level_actors()
     rv=next(a for a in actors if isinstance(a,unreal.RVSystemsMotorhome))
     roles={'Kitchen':(-40,60,179),'Workbench':(-18,-30,154),
-           'Storage':(-185,-70,155),'Medical':(-130,-70,258)}
+           'Medical':(-185,-65,196),'Power':(224,14,126),'Navigation':(224,0,141)}
     stations=rv.get_editor_property('Stations')
+    # Gate6 replaces the old generic storage counter with the real shared cabinet below.
+    # Prior maps retain their original six workstation placeholders.
+    stations=[d for d in stations if str(d.name)!='Storage']
     for index,d in enumerate(stations):
         if str(d.name) in roles:
             d.set_editor_property('Position',unreal.Vector(*roles[str(d.name)]));stations[index]=d
     rv.set_editor_property('Stations',stations)
+    rv.set_editor_property('PowerPanelLocation',unreal.Vector(224,-14,126))
     storage={'Water supplies':(45,60,176),'Personal supplies':(-185,-65,262),
-             'Pantry':(15,62,269),'Medical storage':(-130,-65,258)}
+             'Pantry':(15,62,269),'Medical storage':(-110,-48,256)}
     changed=[]
+    light_tags=['Item.Category.Food','Item.Category.Water','Item.Category.Medical','Item.Category.Tool']
+    interior_limits={'Pantry':(8,18,['Item.Category.Food','Item.Category.Water']),
+                     'Personal supplies':(6,12,light_tags),'Medical storage':(4,8,['Item.Category.Medical']),
+                     'Water supplies':(12,20,['Item.Category.Water'])}
     for actor in actors:
         if isinstance(actor,unreal.RVStoragePoint) and actor.get_attach_parent_actor()==rv:
             c=actor.get_editor_property('Container');name=str(c.get_editor_property('DisplayName'))
             if name in storage:
                 actor.set_actor_location(rv.get_actor_transform().transform_location(unreal.Vector(*storage[name])),False,True)
+                kg,litres,tags=interior_limits[name]
+                c.set_editor_property('MaxWeightKg',kg);c.set_editor_property('MaxVolumeLitres',litres);c.set_editor_property('bAllowPhysicalCarry',False)
+                c.set_editor_property('AllowedTags',unreal.GameplayTagLibrary.make_gameplay_tag_container_from_array([unreal.RVItemDefinition.find_registered_tag(t) for t in tags]))
                 changed.append({'role':name,'local':storage[name]})
         if isinstance(actor,unreal.RVRestPoint) and actor.get_attach_parent_actor()==rv:
             name=str(actor.get_editor_property('DisplayName'))
@@ -40,7 +51,8 @@ def configure():
                 actor.set_actor_location(rv.get_actor_transform().transform_location(unreal.Vector(45,-28,155)),False,True)
                 actor.set_editor_property('InteractionExtent',unreal.Vector(12,8,3))
     # Individually named light-cargo cabinets; no unrestricted heavy automotive cargo.
-    overhead=[('Dinette overhead - dry food',(25,-62,273),['Item.Category.Food','Item.Category.Water'],6,14),
+    overhead=[('Bed-end cabinet',(-110,-48,190),['Item.Category.Food','Item.Category.Water','Item.Category.Medical','Item.Category.Tool'],10,20),
+              ('Dinette overhead - dry food',(25,-62,273),['Item.Category.Food','Item.Category.Water'],6,14),
               ('Rear overhead - medical backup',(-290,62,274),['Item.Category.Medical'],4,10),
               ('Kitchen overhead - small tools',(-40,62,273),['Item.Category.Tool'],5,10)]
     for name,local,allowed,weight,volume in overhead:
@@ -65,7 +77,7 @@ def configure():
             center,extent=corrected[str(d.name)]
             d.set_editor_property('Center',unreal.Vector(*center));d.set_editor_property('Extent',unreal.Vector(*extent))
             collision[index]=d
-    for name,center,extent in [('DinetteFrontBench',(105,-82,123),(20,30,13)),('DinetteRearBench',(-70,-82,123),(20,30,13))]:
+    for name,center,extent in [('DinetteFrontBench',(105,-82,123),(20,30,13)),('DinetteRearBench',(-70,-82,123),(20,30,13)),('BedEndWardrobe',(-110,-83,199),(35,35,101))]:
         d=next((d for d in collision if str(d.name)==name),None)
         if d is None:d=unreal.RVInteriorCollision()
         d.set_editor_property('Name',name);d.set_editor_property('Center',unreal.Vector(*center));d.set_editor_property('Extent',unreal.Vector(*extent))

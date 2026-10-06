@@ -29,7 +29,7 @@ def key(k,on):cmd('Input.'+('+' if on else '-')+'key '+k)
 def tap(t,k,for_driver=None):
     def press():
         if for_driver is None or isdriver==for_driver:
-            key(k,True);pulses[k]=(time.time()+.15,input_frame+3)
+            unreal.RVInteriorMotorhome.dispatch_development_key(pc,k,True);pulses[k]=(time.time()+.15,input_frame+3)
     at(t,press)
 def local(c):
     q=v.get_actor_transform().inverse_transform_location(c.get_actor_location());return [q.x,q.y,q.z]
@@ -76,6 +76,11 @@ def movement_diagnostics():
     detail={name:frame.get_editor_property(name) for name in ['CorrectionCount','MaxCorrectionCm','MaxLocalStepCm','FrameChanges','BaseChanges']}
     check('moving_corrections_within_existing_gate3_bound',detail['MaxCorrectionCm']<=(75 if config.get('network') else 30),detail)
 at(79.5,movement_diagnostics)
+at(79.3,lambda:key('SpaceBar',False) if isdriver else None)
+tap(79.6,'V',True)
+at(81.2,lambda:check('recently_stopped_native_V_passenger',occupants(None,dp),local(dp)))
+tap(81.5,'One',True)
+at(83,lambda:check('recently_stopped_native_1_driver',occupants(dp,None),local(dp)))
 def observer_view():
     global observer_camera
     if not isdriver:return
@@ -89,11 +94,11 @@ def observer_restore():
     global observer_camera
     if observer_camera:
         pc.set_view_target_with_blend(pc.get_controlled_pawn(),0);observer_camera.destroy_actor();observer_camera=None
-at(81.6,observer_view)
-at(81.95,lambda:cmd('shot filename='+str(B/(config['name']+('_server' if authority else '_client')+'_bed.png')).replace('\\','/')+' -nosuffix'))
-at(83,observer_restore)
+at(86.6,observer_view)
+at(86.95,lambda:cmd('shot filename='+str(B/(config['name']+('_server' if authority else '_client')+'_bed.png')).replace('\\','/')+' -nosuffix'))
+at(88,observer_restore)
 for n in range(4):
-    t=80+n*7
+    t=85+n*7
     at(t,lambda:aim(bed) if not isdriver else None)
     at(t+.2,lambda:key('E',True) if not isdriver else None);at(t+1.1,lambda:key('E',False) if not isdriver else None)
     at(t+1.8,lambda n=n:check('normal_E_bed_reserved_'+str(n),bed.get_editor_property('Occupant')==wp.get_editor_property('PlayerState'),local(wp)))
@@ -104,13 +109,17 @@ for n in range(4):
 def finish():
     global active
     if not active:return
-    for k in ['E','W','S','A','V','One','Two','Three','Z','R','SpaceBar']:key(k,False)
+    observer_restore()
+    for k in ['E','W','S','A','V','One','Two','Three','Z','R','SpaceBar']:
+        key(k,False);unreal.RVInteriorMotorhome.dispatch_development_key(pc,k,False)
     check('zero_seated_walking_or_falling_samples',bad_seated==0,bad_seated)
     check('zero_interior_below_floor_samples',below_floor==0,below_floor)
     role='server' if authority else 'client'
     (B/(config['name']+'_'+role+'.json')).write_text(json.dumps({'pid':os.getpid(),'role':role,'config':config,'results':results,'samples':samples},indent=2),encoding='utf-8')
     active=False;unreal.unregister_slate_post_tick_callback(h)
-at(109,finish);events.sort(key=lambda e:e[0])
+    from runner_runtime import release_runners
+    release_runners() # release all temporary world/actor wrappers before PIE teardown
+at(114,finish);events.sort(key=lambda e:e[0])
 def tick(dt):
     global idx,nextsample,bad_seated,below_floor,dp,wp,input_frame
     if not active:return
@@ -123,11 +132,12 @@ def tick(dt):
     if t<0:return
     try:
         for k,(deadline,frame) in list(pulses.items()):
-            if time.time()>=deadline and input_frame>=frame:key(k,False);del pulses[k]
+            if time.time()>=deadline and input_frame>=frame:unreal.RVInteriorMotorhome.dispatch_development_key(pc,k,False);del pulses[k]
         # A stalled frame must not dispatch a key and its observation/next key
         # before PlayerTick has had several opportunities to process it.
         while idx<len(events) and t>=events[idx][0] and not pulses:
-            fn=events[idx][1];idx+=1;fn()
+            fn=events[idx][1];idx+=1;terminating=fn.__name__=='finish';fn()
+            if terminating:return # runner globals have been cleared
             if not active:return
         if t>7 and t>=nextsample:
             nextsample=t+.04
