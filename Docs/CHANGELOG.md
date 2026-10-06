@@ -128,3 +128,5 @@ Frequent saves and local milestones f4c6543, 6369b4e, 92d3699, cd6ca0d, da8ce09,
 - Final exterior 33, camera 17 and saved-map/assets 54 checks pass. Full moving role/network and representative Gates 1-5 regressions remain passing. All 108 vendor hashes match. Final Development Editor/Win64 build succeeds (up to date, 0.75 s).
 - Stable refinement checkpoints: c1b1ae0 (bed), cb8e67f (moving station/storage), 44f7120 (rear/seat exchanges), c6105fb (visual/exterior/camera/save audit); final acceptance saved separately. Prototype lying presentation/discrete hinge and parked-only rest remain documented limits. Gate 7 not begun.
 - A documentation write hit the Windows default encoding on a Unicode arrow. Recovered the full changelog from the latest Git checkpoint and applied the update with byte-preserving writes; verified no historical text was lost.
+
+Gate 6 second refinement in progress: native V possession/restart floor-fall fix checkpointed; saved-map duplicate original door visuals fixed. Rear-seat foundation and bed surface query compile; revised map/storage placements saved but not yet fully validated. No Gate 7 work.

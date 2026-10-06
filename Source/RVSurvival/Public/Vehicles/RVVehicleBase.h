@@ -26,7 +26,7 @@ public:
     UFUNCTION(BlueprintPure, Category="RV|Seats") TArray<URVVehicleSeatComponent*> GetSeats() const;
     bool CanEnter(URVVehicleSeatComponent* Seat, ARVSurvivorCharacter* Character) const;
     bool TryEnter(URVVehicleSeatComponent* Seat, ARVSurvivorCharacter* Character);
-    bool TryExit(ARVPlayerController* Controller);
+    virtual bool TryExit(ARVPlayerController* Controller);
     bool TrySwitchSeat(ARVPlayerController* Controller, FName TargetSeat);
     void ReleaseDisconnected(ARVPlayerController* Controller);
     void ReceiveDriveInput(ARVPlayerController* Controller, float Throttle, float Steering, bool Handbrake);

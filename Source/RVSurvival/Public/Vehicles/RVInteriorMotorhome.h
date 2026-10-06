@@ -71,6 +71,9 @@ public:
     bool TryStandingDoor(class ARVSurvivorCharacter* Character, bool bEnter);
     bool FindSafeInteriorPosition(class ARVSurvivorCharacter* Character, FVector PreferredLocal, FVector& Position, class UPrimitiveComponent*& Floor) const;
     bool TryMoveToLivingArea(class ARVPlayerController* Controller);
+    virtual bool TryExit(class ARVPlayerController* Controller) override;
+    UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="RV|Seats") TObjectPtr<class URVVehicleSeatComponent> DinetteFrontSeat;
+    UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="RV|Seats") TObjectPtr<class URVVehicleSeatComponent> DinetteRearSeat;
     UFUNCTION(BlueprintPure, Category="RV|Presentation") class UStaticMeshComponent* FindVisualPart(FName PartName) const;
     UFUNCTION(BlueprintCallable, Category="RV|Configuration") void ConfigureProjectChassisCollision(FVector Center, FVector Extent);
     UFUNCTION(BlueprintCallable, Category="RV|Configuration") void RefreshConfiguration();

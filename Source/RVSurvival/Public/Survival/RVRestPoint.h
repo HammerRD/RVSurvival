@@ -11,6 +11,11 @@ class RVSURVIVAL_API ARVRestPoint : public ARVInventoryInteractable
     GENERATED_BODY()
 public:
     ARVRestPoint();
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="RV|Interaction") TObjectPtr<class UBoxComponent> InteractionSurface;
+    UPROPERTY(EditAnywhere, ReplicatedUsing=OnRep_InteractionExtent, BlueprintReadOnly, Category="RV|Interaction") FVector InteractionExtent=FVector(7.5);
+    UFUNCTION() void OnRep_InteractionExtent();
+    virtual void OnConstruction(const FTransform& Transform) override;
+    virtual void BeginPlay() override;
     UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly) FText DisplayName;
     UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly) float MaximumPlatformSpeed = 50;
     UPROPERTY(Replicated, BlueprintReadOnly) TObjectPtr<ARVPlayerState> Occupant;

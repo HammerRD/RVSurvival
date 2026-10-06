@@ -27,12 +27,13 @@ ARVVehicleBase::ARVVehicleBase(const FObjectInitializer& Init)
     GetMesh()->bReplicatePhysicsToAutonomousProxy = true;
 }
 TArray<URVVehicleSeatComponent*> ARVVehicleBase::GetSeats() const
-{ TArray<URVVehicleSeatComponent*> Seats; GetComponents(Seats); return Seats; }
+{ TArray<URVVehicleSeatComponent*> Seats; GetComponents(Seats); Seats.RemoveAll([](const auto* Seat){return !Seat->bEnabled;}); return Seats; }
 void ARVVehicleBase::BeginPlay()
 {
     Super::BeginPlay();
     if (HasAuthority()) for (auto* Seat : GetSeats())
     {
+        if (Seat->bInteriorOnly) continue;
         auto* Entry = GetWorld()->SpawnActorDeferred<ARVVehicleEntryPoint>(ARVVehicleEntryPoint::StaticClass(),
             FTransform(GetActorRotation(), GetActorTransform().TransformPosition(Seat->EntryOffset)), this);
         Entry->Seat = Seat; Entry->FinishSpawning(Entry->GetActorTransform());
@@ -44,7 +45,7 @@ bool ARVVehicleBase::CanEnter(URVVehicleSeatComponent* Seat, ARVSurvivorCharacte
     if(Character) if(const auto* PS=Character->GetPlayerState<ARVPlayerState>(); PS && PS->Needs->State.RestMode!=ERVRestMode::Awake) return false;
     const auto* Frame=Character?Character->FindComponentByClass<URVPassengerReferenceFrameComponent>():nullptr;
     const bool Inside=Frame && Frame->ReferenceFrame==this;
-    return Seat && Seat->GetOwner() == this && !Seat->Occupant && Character && !Character->SeatedVehicle
+    return Seat && Seat->bEnabled && Seat->GetOwner() == this && !Seat->Occupant && Character && !Character->SeatedVehicle
         && Cast<ARVPlayerController>(Character->GetController())
         && (GetVelocity().Size() <= MaxEntryExitSpeed || Inside);
 }

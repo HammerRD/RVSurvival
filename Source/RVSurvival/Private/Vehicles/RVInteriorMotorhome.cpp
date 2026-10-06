@@ -34,6 +34,16 @@ ARVInteriorMotorhome::ARVInteriorMotorhome(const FObjectInitializer& Init) : Sup
     // The rigid chassis supplies vehicle contacts; modular query collision supplies the cabin.
     GetMesh()->SetCollisionResponseToChannel(ECC_Pawn, ECR_Ignore);
     GetMesh()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Ignore);
+    DinetteFrontSeat=CreateDefaultSubobject<URVVehicleSeatComponent>(TEXT("DinetteFrontSeat"));
+    DinetteRearSeat=CreateDefaultSubobject<URVVehicleSeatComponent>(TEXT("DinetteRearSeat"));
+    for (auto* Seat:{DinetteFrontSeat.Get(),DinetteRearSeat.Get()})
+    { Seat->SetupAttachment(GetMesh()); Seat->bEnabled=false; Seat->bInteriorOnly=true; Seat->bUsePrototypeSittingPose=true; }
+    DinetteFrontSeat->SeatLabel=FText::FromString(TEXT("Dinette front bench"));
+    DinetteFrontSeat->SetRelativeLocation(FVector(105,-82,138)); DinetteFrontSeat->SetRelativeRotation(FRotator(0,180,0));
+    DinetteFrontSeat->SurfaceCollisionName=TEXT("DinetteFrontBench"); DinetteFrontSeat->StandingAisleLocation=FVector(100,0,180);
+    DinetteRearSeat->SeatLabel=FText::FromString(TEXT("Dinette rear bench"));
+    DinetteRearSeat->SetRelativeLocation(FVector(-70,-82,138));
+    DinetteRearSeat->SurfaceCollisionName=TEXT("DinetteRearBench"); DinetteRearSeat->StandingAisleLocation=FVector(-60,0,180);
 }
 void ARVInteriorMotorhome::RefreshConfiguration() { OnConstruction(GetActorTransform()); }
 TArray<FVector> ARVInteriorMotorhome::InspectArtSurfaces(UStaticMesh* Mesh)
@@ -173,7 +183,8 @@ void ARVInteriorMotorhome::BeginPlay()
         auto* Point=GetWorld()->SpawnActorDeferred<ARVVehicleInteriorSeatPoint>(ARVVehicleInteriorSeatPoint::StaticClass(),GetActorTransform(),this);
         Point->Seat=Seat; Point->FinishSpawning(GetActorTransform());
         Point->AttachToComponent(GetMesh(),FAttachmentTransformRules::SnapToTargetNotIncludingScale);
-        Point->SetActorRelativeLocation(FVector(150,Seat->bDriverSeat?-40:40,155));
+        Point->SetActorRelativeLocation(Seat->bInteriorOnly ? Seat->GetRelativeLocation()+FVector(0,25,4)
+            : FVector(150,Seat->bDriverSeat?-40:40,155));
         Point->ForceNetUpdate();
     }
 }
@@ -251,6 +262,13 @@ bool ARVInteriorMotorhome::FindSafeInteriorPosition(ARVSurvivorCharacter* Charac
     }
     return false;
 }
+bool ARVInteriorMotorhome::TryExit(ARVPlayerController* PC)
+{
+    if (PC) for (auto* Seat : GetSeats())
+        if (Seat->bInteriorOnly && Seat->Occupant && Seat->OccupantController.Get()==PC)
+            return TryMoveToLivingArea(PC);
+    return Super::TryExit(PC);
+}
 bool ARVInteriorMotorhome::TryMoveToLivingArea(ARVPlayerController* PC)
 {
     if (!HasAuthority() || !PC || PC->SeatedVehicle!=this) return false;
@@ -260,7 +278,8 @@ bool ARVInteriorMotorhome::TryMoveToLivingArea(ARVPlayerController* PC)
         if (Seat->bDriverSeat && GetVelocity().Size()>MaxEntryExitSpeed)
         { PC->SeatFeedback=TEXT("Stop before leaving the driver seat."); return false; }
         auto* Character=Seat->Occupant.Get(); FVector Position; UPrimitiveComponent* Floor=nullptr;
-        if (!FindSafeInteriorPosition(Character,StandingEntryLocation,Position,Floor))
+        const FVector Preferred=Seat->bInteriorOnly ? Seat->StandingAisleLocation : StandingEntryLocation;
+        if (!FindSafeInteriorPosition(Character,Preferred,Position,Floor))
         { PC->SeatFeedback=TEXT("Living aisle is obstructed; seat retained."); return false; }
         ReleaseSeat(Seat,false,Position);
         auto* Movement=Character->GetCharacterMovement();

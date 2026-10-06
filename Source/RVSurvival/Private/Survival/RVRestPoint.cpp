@@ -2,6 +2,8 @@
 #include "Interaction/RVInteractionTargetPresentationComponent.h"
 #include "Vehicles/RVInteriorMotorhome.h"
 #include "Components/CapsuleComponent.h"
+#include "Components/BoxComponent.h"
+#include "Engine/OverlapResult.h"
 #include "Survival/RVNeedsComponent.h"
 #include "Player/RVPlayerState.h"
 #include "Player/RVSurvivorCharacter.h"
@@ -14,9 +16,26 @@ ARVRestPoint::ARVRestPoint()
     DisplayName=FText::FromString(TEXT("Rest location"));
     Mesh->SetWorldScale3D(FVector(.15)); Mesh->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
     Mesh->SetCollisionResponseToAllChannels(ECR_Ignore); Mesh->SetCollisionResponseToChannel(ECC_Visibility,ECR_Block);
+    InteractionSurface=CreateDefaultSubobject<UBoxComponent>(TEXT("InteractionSurface"));
+    InteractionSurface->SetupAttachment(RootComponent);
+    InteractionSurface->SetAbsolute(false,false,true);
+    InteractionSurface->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+    InteractionSurface->SetCollisionResponseToAllChannels(ECR_Ignore);
+    InteractionSurface->SetCollisionResponseToChannel(ECC_Visibility,ECR_Block);
+    InteractionSurface->SetGenerateOverlapEvents(false);
+    InteractionSurface->SetBoxExtent(InteractionExtent);
 }
+void ARVRestPoint::OnRep_InteractionExtent()
+{
+    if (InteractionSurface && !InteractionExtent.ContainsNaN())
+        InteractionSurface->SetBoxExtent(InteractionExtent.ComponentMax(FVector(1)));
+}
+void ARVRestPoint::OnConstruction(const FTransform& Transform)
+{ Super::OnConstruction(Transform); OnRep_InteractionExtent(); }
+void ARVRestPoint::BeginPlay()
+{ Super::BeginPlay(); OnRep_InteractionExtent(); }
 void ARVRestPoint::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
-{ Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(ARVRestPoint,DisplayName); DOREPLIFETIME(ARVRestPoint,MaximumPlatformSpeed); DOREPLIFETIME(ARVRestPoint,Occupant);
+{ Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(ARVRestPoint,InteractionExtent); DOREPLIFETIME(ARVRestPoint,DisplayName); DOREPLIFETIME(ARVRestPoint,MaximumPlatformSpeed); DOREPLIFETIME(ARVRestPoint,Occupant);
   DOREPLIFETIME(ARVRestPoint,bUseLyingPose); DOREPLIFETIME(ARVRestPoint,LyingOffset); DOREPLIFETIME(ARVRestPoint,LyingRotation); DOREPLIFETIME(ARVRestPoint,WakeAisleLocation); DOREPLIFETIME(ARVRestPoint,LyingCameraOffset); }
 bool ARVRestPoint::FindWakePosition(ARVSurvivorCharacter* Character,FVector& Position,UPrimitiveComponent*& Floor) const
 {
@@ -35,8 +54,14 @@ bool ARVRestPoint::ValidateLyingPosition(ARVSurvivorCharacter* Character) const
     const FVector Position=GetActorLocation()+GetActorQuat().RotateVector(LyingOffset);
     FCollisionQueryParams Params(SCENE_QUERY_STAT(RVBedClearance),false,Character);
     // Include the full horizontal prototype body/head and a small clearance margin.
-    return !GetWorld()->OverlapBlockingTestByChannel(Position,GetActorQuat()*LyingRotation.Quaternion(),ECC_Pawn,
+    TArray<FOverlapResult> Overlaps;
+    const bool Blocked=GetWorld()->OverlapMultiByChannel(Overlaps,Position,GetActorQuat()*LyingRotation.Quaternion(),ECC_Pawn,
         FCollisionShape::MakeBox(FVector(100,20,20)),Params);
+#if !(UE_BUILD_SHIPPING || UE_BUILD_TEST)
+    if (Blocked) for (const auto& Hit:Overlaps) if (Hit.bBlockingHit)
+        UE_LOG(LogTemp,Warning,TEXT("RVBedClearance blocked by %s at %s"),*GetPathNameSafe(Hit.GetComponent()),*Position.ToString());
+#endif
+    return !Blocked;
 }
 bool ARVRestPoint::CanContinueRest(const ARVSurvivorCharacter* Character) const
 {

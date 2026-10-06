@@ -42,7 +42,7 @@ void ARVPlayerController::PlayerTick(float DeltaTime)
     if (WasInputKeyJustPressed(EKeys::One))
         for (auto* Seat : Seats) if (Seat->bDriverSeat) { RequestSwitchSeat(Seat->GetFName()); break; }
     if (WasInputKeyJustPressed(EKeys::Two))
-        for (auto* Seat : Seats) if (!Seat->bDriverSeat) { RequestSwitchSeat(Seat->GetFName()); break; }
+        for (auto* Seat : Seats) if (!Seat->bDriverSeat && !Seat->bInteriorOnly) { RequestSwitchSeat(Seat->GetFName()); break; }
     if (WasInputKeyJustPressed(EKeys::V))
     {
         int32 Current = INDEX_NONE;
