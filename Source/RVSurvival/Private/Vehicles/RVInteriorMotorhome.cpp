@@ -1,4 +1,7 @@
 #include "Vehicles/RVInteriorMotorhome.h"
+#include "Camera/CameraActor.h"
+#include "Camera/CameraComponent.h"
+#include "Engine/Engine.h"
 #include "Vehicles/RVInteractiveDoor.h"
 #include "Net/UnrealNetwork.h"
 #include "Interaction/RVInteriorStation.h"
@@ -268,6 +271,19 @@ bool ARVInteriorMotorhome::TryExit(ARVPlayerController* PC)
         if (Seat->bInteriorOnly && Seat->Occupant && Seat->OccupantController.Get()==PC)
             return TryMoveToLivingArea(PC);
     return Super::TryExit(PC);
+}
+ACameraActor* ARVInteriorMotorhome::CreateDevelopmentObserverCamera(UObject* Context,FVector Location,FRotator Rotation)
+{
+#if !(UE_BUILD_SHIPPING || UE_BUILD_TEST)
+    auto* World=GEngine?GEngine->GetWorldFromContextObject(Context,EGetWorldErrorMode::ReturnNull):nullptr;
+    if (!World || !World->IsGameWorld() || Location.ContainsNaN() || Rotation.ContainsNaN()) return nullptr;
+    FActorSpawnParameters Params; Params.ObjectFlags|=RF_Transient;
+    auto* Camera=World->SpawnActor<ACameraActor>(Location,Rotation,Params);
+    if (Camera) Camera->GetCameraComponent()->SetFieldOfView(75);
+    return Camera;
+#else
+    return nullptr;
+#endif
 }
 bool ARVInteriorMotorhome::TryMoveToLivingArea(ARVPlayerController* PC)
 {

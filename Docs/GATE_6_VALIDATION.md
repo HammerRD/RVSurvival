@@ -1,6 +1,6 @@
 # Gate 6 fuel and electrical validation
 
-Status: ACCEPTED on 2026-10-06 after actual Unreal validation, including the completed interior-usability refinement below. Gates 1-5 remain accepted; Gate 7 is not authorized.
+Status: Second manual-playtest refinement IN PROGRESS / NOT ACCEPTED pending the real-control matrix. Historical Gate 6 technical acceptance and earlier refinement results are retained below; they do not establish that the newly reported issues are resolved. Gates 1-5 remain accepted; Gate 7 is not authorized.
 Baseline recovery checkpoint: 8e80050. Pre-existing Config/DefaultEngine.ini and IDE files remain outside Gate 6 commits.
 
 ## Framework review (2026-10-06)
@@ -237,3 +237,10 @@ Actual dinette rear and front cushion views showed the matching seat prompts. E 
 Sink Water Supplies was visually confirmed and E opened its own container UI. The stove Kitchen target was visible on the cooking unit. Door opening left a clear doorway, no closed duplicate/glass; after bed/rear-seat use the side-door exit succeeded and ordinary outside walking was restored. The threshold query is now tall enough for ordinary standing aim, narrow enough to avoid the swung door target, and ignores visibility while closed. No vendor asset modification: 108/108 original SHA256 hashes match.
 
 Ladder prototype is implemented but not yet accepted/tested: native CharacterMovement MOVE_Flying and plane constraint, authoritative reservation/validated rail and ground dismount, W/S ascent/descent, E bottom exit, parked-only entry and temporary authoritative vehicle drive lock. No roof traversal; controlled upper endpoint requires descending. Builds through build-controls.log pass. Remaining: ladder visual/input tests, repeat bed/door tests, complete role spatial audit, host/client seat/input matrix, 100ms/2% separate-process runs, contention/disconnect and representative Gate1–6 regressions. Overall refinement remains NOT ACCEPTED pending this matrix.
+### Second refinement network/input investigation — still in progress
+
+Separate-process normal-control host baseline and client-driver 100 ms / 2% loss runs passed the twenty V/1 exchanges and repeated E/Z/R bed cycles. An additional photographed host-emulation run failed six timed seat observations during frame stalls, with zero below-floor or seated-walking samples. Failed receipts are retained in Gate6LayoutRework/FailedInputScheduling. The runner now keeps pulses active across at least three input frames and defers later scheduled events until the pulse is released; this is being repeated without relaxing seat or floor assertions.
+
+The first separate-process auxiliary run passed both real dinette E sit/stand paths while moving, moving pantry deposit, shared exterior transfer conservation, side-door exit, and the client ladder W/S/E sequence with a host drive lock. Pantry return and one client exterior-open observation failed; these remain unresolved and are not acceptance evidence. Their receipts are retained in Gate6LayoutRework/FailedAuxiliary. New diagnostics record inventory access feedback rather than assuming an underlying transfer succeeded.
+
+The bed's named support is now configurable: authority traces the intended cushion and checks its normal and body height, then excludes only that support from the lying-body clearance query. Walls, other furniture and players still block placement. The saved Gate6 body centre is (-245,48,195), with mattress query at (-255,48,183) and validated aisle wake (-115,0,185). The support build and map save succeeded; new visual/network confirmation is pending. Development-only native observer-camera creation avoids unsupported Python spawn APIs and never changes gameplay possession or character placement.

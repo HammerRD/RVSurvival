@@ -72,3 +72,8 @@ The separate purchased house-door/glass parts are composed in a reusable ARVInte
 Rear bed: hold E to rest, Z to switch rest/sleep, R or E to stand up. URVRestPoseComponent presents a replaceable horizontal prototype body/head and tunable head camera. Bed offsets are physical centimetres, independent of marker scale. Wake validates the rear aisle, then living-entry fallback; if both are occupied, the player retains the bed reservation and receives a retry prompt. Rest remains parked-only and automatically ends when driving resumes.
 
 Shared URVInteractionTargetPresentationComponent hides RV marker meshes/text during gameplay without removing query collision. Optional development rv.Interaction.DebugTargets shows them. All six stations remain stateless interactions or container/panel views; they do not independently lock movement or camera.
+## Second Gate 6 spatial refinement (in progress)
+
+Rear dinette seating is composed from the existing reusable seat components, with configurable enabled/interior-only flags, named cushion support and per-seat validated standing aisle. Only the Gate6 map currently enables the two real bench positions. Native seat attachment remains authoritative; a replaceable sitting presentation does not own movement or replication.
+
+The rear ladder uses a reusable actor and character component with native CharacterMovement flying/plane constraint and W/S input. Entry reserves it on the server after full-capsule rail and ground-exit validation. This prototype requires a parked RV and temporarily locks propulsion while occupied. The upper endpoint is controlled; roof traversal is not enabled. E at the bottom restores ordinary movement. Complete role, cleanup and spatial validation remains pending.

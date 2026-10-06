@@ -78,6 +78,7 @@ public:
     UFUNCTION(BlueprintCallable, Category="RV|Configuration") void ConfigureProjectChassisCollision(FVector Center, FVector Extent);
     UFUNCTION(BlueprintCallable, Category="RV|Configuration") void RefreshConfiguration();
     UFUNCTION(BlueprintCallable, Category="RV|Configuration") static TArray<FVector> InspectArtSurfaces(class UStaticMesh* ArtMesh);
+    UFUNCTION(BlueprintCallable, Category="RV|Development",meta=(DevelopmentOnly)) static class ACameraActor* CreateDevelopmentObserverCamera(UObject* WorldContext,FVector Location,FRotator Rotation);
 private:
     virtual bool ValidateSeatDestination(const class URVVehicleSeatComponent* Seat, const class ARVSurvivorCharacter* Character) const override;
     UPROPERTY(Transient) TArray<TObjectPtr<class USceneComponent>> GeneratedParts;

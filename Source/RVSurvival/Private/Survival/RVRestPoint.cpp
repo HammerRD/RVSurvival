@@ -36,7 +36,7 @@ void ARVRestPoint::BeginPlay()
 { Super::BeginPlay(); OnRep_InteractionExtent(); }
 void ARVRestPoint::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 { Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(ARVRestPoint,InteractionExtent); DOREPLIFETIME(ARVRestPoint,DisplayName); DOREPLIFETIME(ARVRestPoint,MaximumPlatformSpeed); DOREPLIFETIME(ARVRestPoint,Occupant);
-  DOREPLIFETIME(ARVRestPoint,bUseLyingPose); DOREPLIFETIME(ARVRestPoint,LyingOffset); DOREPLIFETIME(ARVRestPoint,LyingRotation); DOREPLIFETIME(ARVRestPoint,WakeAisleLocation); DOREPLIFETIME(ARVRestPoint,LyingCameraOffset); }
+  DOREPLIFETIME(ARVRestPoint,bUseLyingPose); DOREPLIFETIME(ARVRestPoint,LyingOffset); DOREPLIFETIME(ARVRestPoint,LyingRotation); DOREPLIFETIME(ARVRestPoint,WakeAisleLocation); DOREPLIFETIME(ARVRestPoint,LyingCameraOffset); DOREPLIFETIME(ARVRestPoint,LyingSupportCollisionName); }
 bool ARVRestPoint::FindWakePosition(ARVSurvivorCharacter* Character,FVector& Position,UPrimitiveComponent*& Floor) const
 {
     if (auto* RV=Cast<ARVInteriorMotorhome>(GetAttachParentActor()))
@@ -53,6 +53,17 @@ bool ARVRestPoint::ValidateLyingPosition(ARVSurvivorCharacter* Character) const
     if (!Character || LyingOffset.ContainsNaN() || LyingRotation.ContainsNaN() || LyingCameraOffset.ContainsNaN()) return false;
     const FVector Position=GetActorLocation()+GetActorQuat().RotateVector(LyingOffset);
     FCollisionQueryParams Params(SCENE_QUERY_STAT(RVBedClearance),false,Character);
+    if (!LyingSupportCollisionName.IsNone())
+    {
+        FHitResult Support;
+        if (!GetWorld()->LineTraceSingleByChannel(Support,Position+FVector(0,0,30),Position-FVector(0,0,80),ECC_Pawn,Params)
+            || !Support.GetComponent() || Support.GetActor()!=GetAttachParentActor()
+            || Support.GetComponent()->GetFName().GetComparisonIndex()!=LyingSupportCollisionName.GetComparisonIndex()
+            || Support.ImpactNormal.Z<.7f || Position.Z-Support.ImpactPoint.Z<10 || Position.Z-Support.ImpactPoint.Z>25) return false;
+        // The lying presentation rests on this validated cushion. All other
+        // furniture, shell and player blockers remain in the body-clearance query.
+        Params.AddIgnoredComponent(Support.GetComponent());
+    }
     // Include the full horizontal prototype body/head and a small clearance margin.
     TArray<FOverlapResult> Overlaps;
     const bool Blocked=GetWorld()->OverlapMultiByChannel(Overlaps,Position,GetActorQuat()*LyingRotation.Quaternion(),ECC_Pawn,

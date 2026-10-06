@@ -1,0 +1,121 @@
+{
+  "pid": 38904,
+  "role": "client",
+  "config": {
+    "name": "aux_host_baseline",
+    "network": false,
+    "driver": "host"
+  },
+  "results": [
+    {
+      "case": "normal_E_initial_seats",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_3_standing",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_front_bench_native_E",
+      "pass": true,
+      "detail": "[95.62745510267878, -81.83978947156729, 138.8420540862989]"
+    },
+    {
+      "case": "moving_front_bench_stand",
+      "pass": true,
+      "detail": "[99.96568023728123, 0.00012373520807818677, 177.1876241030472]"
+    },
+    {
+      "case": "moving_rear_bench_native_E",
+      "pass": true,
+      "detail": "[-94.87388204259037, -82.10284246467172, 137.55941184347532]"
+    },
+    {
+      "case": "moving_rear_bench_stand",
+      "pass": true,
+      "detail": "[-99.92552642939869, -0.0005711430759574428, 191.488087364559]"
+    },
+    {
+      "case": "moving_pantry_native_E",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_turn_transfer_to_pantry_native_T",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_transfer_back_native_Tab_T",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "parked_before_exterior",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "normal_3_driver_aisle",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "door_open_shared_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_E_side_exit_both_players",
+      "pass": true,
+      "detail": "{'driver': [88.41247190034579, 240.2395456164615, 72.39490582717525], 'walker': [-11.587673338668822, 239.83473552223094, 72.39519563250947]}"
+    },
+    {
+      "case": "shared_exterior_native_E",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "shared_exterior_contention_no_duplicate_native_T",
+      "pass": true,
+      "detail": "[\"<Struct 'Guid' (0x000001D4A15797DC) {}>\"]"
+    },
+    {
+      "case": "native_E_client_ladder_host_driver",
+      "pass": true,
+      "detail": "[-418.7504572509562, 73.18103449624482, 75.64230701267077]"
+    },
+    {
+      "case": "native_W_controlled_ladder_top",
+      "pass": true,
+      "detail": "{'position': [-419.7708377256286, 73.1773221458754, 257.3826374812273], 'height': 179.38263748122728}"
+    },
+    {
+      "case": "occupied_ladder_prevents_driving",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "top_has_no_unvalidated_roof_exit",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native_S_E_bottom_exit_restores_world_movement",
+      "pass": true,
+      "detail": "[-458.9309114644841, 73.0178938876175, 72.24691560183182]"
+    },
+    {
+      "case": "ladder_exit_releases_drive_lock",
+      "pass": true,
+      "detail": "414.77065652259125"
+    },
+    {
+      "case": "ladder_world_walk_away",
+      "pass": true,
+      "detail": "[-1050.340714907054, 71.14787653228836, 72.2881495179903]"
+    }
+  ]
+}

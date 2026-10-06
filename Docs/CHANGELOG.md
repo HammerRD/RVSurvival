@@ -132,3 +132,9 @@ Frequent saves and local milestones f4c6543, 6369b4e, 92d3699, cd6ca0d, da8ce09,
 Gate 6 second refinement in progress: native V possession/restart floor-fall fix checkpointed; saved-map duplicate original door visuals fixed. Rear-seat foundation and bed surface query compile; revised map/storage placements saved but not yet fully validated. No Gate 7 work.
 
 Gate6 refinement milestone: actual mattress E/Z/R and both real dinette cushion E/stand paths visually exercised; corrected bathroom collision that blocked lying; saved bed/cabinet/overhead placements; vendor hashes 108 unchanged. Native ladder prototype awaits validation. Full refinement acceptance remains pending.
+### Gate 6 second refinement — network/visual investigation checkpoint
+
+- Compiled and saved named mattress-support validation with the real rear bed query surface; fresh separate-process observer view shows the passenger horizontally on the mattress. E/Z/R first cycle passes; full repeat is running.
+- First auxiliary separate-process normal-control run passed moving front/rear bench sitting/standing, pantry deposit, shared exterior transfer conservation, side-door exit and client ladder ascent/descent/dismount with host drive lock. Pantry return and one client exterior-open observation failed and remain under investigation.
+- Preserved failed input-scheduling/auxiliary receipts. Frame-stall input pulses now survive several engine input frames before later events; no floor or network bounds were relaxed.
+- Refinement remains IN PROGRESS / NOT ACCEPTED. No Gate 7 work.

@@ -32,7 +32,8 @@ def configure():
             if name=='Rear bed':
                 actor.set_actor_location(rv.get_actor_transform().transform_location(unreal.Vector(-255,48,183)),False,True)
                 actor.set_editor_property('InteractionExtent',unreal.Vector(90,48,3))
-                actor.set_editor_property('LyingOffset',unreal.Vector(10,0,19))
+                actor.set_editor_property('LyingOffset',unreal.Vector(10,0,12))
+                actor.set_editor_property('LyingSupportCollisionName','Bed')
                 actor.set_editor_property('LyingRotation',unreal.Rotator(yaw=180))
                 actor.set_editor_property('WakeAisleLocation',unreal.Vector(-115,0,185))
             elif name=='Dinette rest':
