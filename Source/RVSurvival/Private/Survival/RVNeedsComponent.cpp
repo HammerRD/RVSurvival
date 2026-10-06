@@ -184,7 +184,7 @@ bool URVNeedsComponent::BeginRestAuthority(ARVRestPoint* Point,ARVSurvivorCharac
     RestLocation=Point; RestingCharacter=Character; State.RestMode=ERVRestMode::Resting;
     Character->GetCharacterMovement()->StopMovementImmediately();
     OnRep_State();
-    Feedback=TEXT("Resting. Z: sleep/rest | R: leave"); GetOwner()->ForceNetUpdate(); return true;
+    Feedback=Point->DisplayName.ToString(); GetOwner()->ForceNetUpdate(); return true;
 }
 void URVNeedsComponent::EndRestAuthority()
 {

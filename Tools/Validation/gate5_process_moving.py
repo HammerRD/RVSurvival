@@ -132,8 +132,8 @@ def finish():
  else:
   check('floor_and_observer',False,'No movement samples collected')
   check('visible_observer',False,'No movement samples collected')
- check('completed_moving_storage_sequence',elapsed>=175,elapsed)
- storage_rows=[r for r in rows if 130<r['t']<176]
+ check('completed_moving_storage_sequence',elapsed>=183,elapsed)
+ storage_rows=[r for r in rows if 138<r['t']<184]
  check('storage_floor_and_corrections',bool(storage_rows) and all(r['frame'] and 165<r['local'][2]<210 and r['maxcorr']<10 for r in storage_rows))
  json.dump({'config':config,'process_id':os.getpid(),'authority':isServer,'station_counts':{n:a.get_editor_property('InteractionCount') for n,a in st.items()},'results':results,'samples':rows,'anchors':anchors},open(B+out+'.json','w'),indent=2);unreal.unregister_slate_post_tick_callback(handle);unreal.log('GATE3_SUITE_DONE '+out)
 at(178,finish);events=[(t+6 if t>=44 else t,f) for t,f in events]
@@ -240,18 +240,24 @@ def snap():
  old_survival_snap();rows[-1]['needs']={'host':needs_signature(host_needs),'client':needs_signature(client_needs)}
 
 
+# Additional parked-sleep/wake test after the original exit/reentry route.
+# Retain the entire accepted movement route; delay storage by eight seconds.
+events=[(t+8 if t>=130 else t,f) for t,f in events]
 rest_test_point=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(world,unreal.RVRestPoint) if str(a.get_editor_property('DisplayName'))=='Rear bed')
+sleep_confirmed=False
 def aim_rest():
  stop_walk();look(walker,unreal.MathLibrary.find_look_at_rotation(wp.get_actor_location()+unreal.Vector(0,0,64),rest_test_point.get_actor_location()))
+ check('sleep_setup_is_parked',sv.get_velocity().length()<50,sv.get_velocity().length())
 def enter_sleep_if_walking():
  if walker:passenger_needs.request_rest_mode(unreal.RVRestMode.SLEEPING)
 def sleeping_check():
- check('parked_passenger_sleep',passenger_needs.get_editor_property('State').rest_mode==unreal.RVRestMode.SLEEPING and rest_test_point.get_editor_property('Occupant') is not None and frame_ok())
+ global sleep_confirmed
+ sleep_confirmed=passenger_needs.get_editor_property('State').rest_mode==unreal.RVRestMode.SLEEPING and rest_test_point.get_editor_property('Occupant') is not None and frame_ok()
+ check('parked_passenger_sleep',sleep_confirmed,{'speed':sv.get_velocity().length(),'distance':(wp.get_actor_location()-rest_test_point.get_actor_location()).length(),'mode':str(passenger_needs.get_editor_property('State').rest_mode),'local':local(wv,wp)})
 def automatic_wake():
- check('moving_platform_automatically_wakes_and_frees_rest',passenger_needs.get_editor_property('State').rest_mode==unreal.RVRestMode.AWAKE and rest_test_point.get_editor_property('Occupant') is None and sv.get_velocity().length()>50 and frame_ok(),sv.get_velocity().length())
-at(112,aim_rest);at(112.2,lambda:key(walker,'E',True));at(113.1,lambda:key(walker,'E',False));at(113.5,enter_sleep_if_walking);at(114.2,sleeping_check)
-at(114.5,lambda:(key(driver,'SpaceBar',False),key(driver,'W',True)));at(116,automatic_wake);at(116.1,lambda:(key(driver,'W',False),key(driver,'SpaceBar',True)))
-
+ check('moving_platform_automatically_wakes_and_frees_rest',sleep_confirmed and passenger_needs.get_editor_property('State').rest_mode==unreal.RVRestMode.AWAKE and rest_test_point.get_editor_property('Occupant') is None and sv.get_velocity().length()>50 and frame_ok(),sv.get_velocity().length())
+at(126,lambda:move(-180));at(128,aim_rest);at(128.2,lambda:key(walker,'E',True));at(129.1,lambda:key(walker,'E',False));at(129.3,enter_sleep_if_walking);at(130,sleeping_check)
+at(131,lambda:(key(driver,'SpaceBar',False),key(driver,'W',True)));at(133,automatic_wake);at(133.1,lambda:(key(driver,'W',False),key(driver,'SpaceBar',True)))
 events.sort(key=lambda e:e[0])
 def tick(dt):
  global elapsed,idx,sample_acc

@@ -11,7 +11,7 @@ void URVSurvivalWidget::NativeOnInitialized()
     auto* Root=WidgetTree->ConstructWidget<UVerticalBox>(UVerticalBox::StaticClass(),TEXT("SurvivalReadout"));
     WidgetTree->RootWidget=Root;
     Values=WidgetTree->ConstructWidget<UTextBlock>(); Status=WidgetTree->ConstructWidget<UTextBlock>();
-    FSlateFontInfo Font=Values->GetFont(); Font.Size=12; Values->SetFont(Font); Status->SetFont(Font);
+    FSlateFontInfo Font=Values->GetFont(); Font.Size=20; Values->SetFont(Font); Status->SetFont(Font);
     Values->SetColorAndOpacity(FSlateColor(FLinearColor::White)); Status->SetColorAndOpacity(FSlateColor(FLinearColor(1.f,.8f,.3f)));
     Root->AddChildToVerticalBox(Values);Root->AddChildToVerticalBox(Status);
     SetVisibility(ESlateVisibility::HitTestInvisible);

@@ -1,0 +1,33 @@
+{
+  "checks": [
+    {
+      "case": "native_C_food_quantity_and_replication",
+      "pass": true
+    },
+    {
+      "case": "native_C_water_quantity_and_replication",
+      "pass": true
+    },
+    {
+      "case": "critical_values_converge",
+      "pass": true
+    },
+    {
+      "case": "rest_state_converges",
+      "pass": true
+    },
+    {
+      "case": "native_Z_sleep_state_converges",
+      "pass": true
+    },
+    {
+      "case": "native_R_wake_converges",
+      "pass": true
+    },
+    {
+      "case": "manual_completed_not_timeout",
+      "pass": true
+    }
+  ],
+  "visual": "640x480 native client window verified readable nutrition/hydration/fatigue, threshold warnings, quantities/capacities, consume feedback and rest controls."
+}
