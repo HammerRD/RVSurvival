@@ -48,7 +48,7 @@ void URVElectricalComponent::OnRep_Power()
 bool URVElectricalComponent::IsLoadPowered(FName Id) const
 { const auto* L=Loads.FindByPredicate([&](const auto& X){return X.Id==Id;}); return L && L->bPowered; }
 bool URVElectricalComponent::HasHousePower() const
-{ const auto* V=Cast<ARVSystemsMotorhome>(GetOwner()); return V && (V->HouseBattery->EnergyWh>0 || Flow.AvailableSourceWatts>0); }
+{ const auto* V=Cast<ARVSystemsMotorhome>(GetOwner()); return V && ((V->HouseBattery->EnergyWh>0 && V->HouseBattery->MaxDischargeWatts>0) || Flow.AvailableSourceWatts>0); }
 bool URVElectricalComponent::SetControlAuthority(FName Control,bool Enabled,int32 Expected,FString& Error)
 {
     if(!GetOwner()->HasAuthority()) { Error=TEXT("Authority required"); return false; }
@@ -105,16 +105,20 @@ void URVElectricalComponent::AdvanceAuthority(double Seconds,bool EngineOperatin
         const double Need=L.Watts*Hours;
         if(L.Domain==ERVPowerDomain::Chassis)
         {
-            if(ChassisAllowance+ChassisSource+1e-9>=Need)
-            { const double Generated=FMath::Min(Need,ChassisSource); ChassisSource-=Generated;
-              ChassisAllowance-=Need-Generated; ChassisUsed+=Need-Generated;
+            const double Delivered=FMath::Min(Need,ChassisAllowance+ChassisSource);
+            if(Delivered>0)
+            { const double Generated=FMath::Min(Delivered,ChassisSource); ChassisSource-=Generated;
+              ChassisAllowance-=Delivered-Generated; ChassisUsed+=Delivered-Generated;
               if(Generated>0) Flow.ActiveSources.AddUnique(ERVPowerSource::Alternator);
-              L.bPowered=true; Flow.SuppliedWatts+=L.Watts; }
+              L.bPowered=Delivered>=Need-1e-9; Flow.SuppliedWatts+=Delivered/Hours; }
             continue;
         }
         double Available=BatteryAllowance; for(double X:SourceWh) Available+=X;
-        if(Available+1e-9<Need) continue; // All-or-off load, no partial brightness or wasted battery.
-        double Remaining=Need;
+        // Account the final fractional interval when a battery exhausts.
+        // Full-power status still requires the complete requested interval; no dimming model.
+        const double Delivered=FMath::Min(Need,Available);
+        if(Delivered<=0) continue;
+        double Remaining=Delivered;
         for(auto S:Tuning.SourcePriority)
         {
             if(Remaining<=1e-9) break;
@@ -124,7 +128,7 @@ void URVElectricalComponent::AdvanceAuthority(double Seconds,bool EngineOperatin
             if(Used>0) Flow.ActiveSources.AddUnique(S);
             Remaining-=Used;
         }
-        L.bPowered=true; Flow.SuppliedWatts+=L.Watts;
+        L.bPowered=Delivered>=Need-1e-9; Flow.SuppliedWatts+=Delivered/Hours;
     }
     V->HouseBattery->DischargeAuthority(HouseUsed,Hours); V->ChassisBattery->DischargeAuthority(ChassisUsed,Hours);
     // Charge once with remaining generated input; sources spent on loads cannot be spent twice.
