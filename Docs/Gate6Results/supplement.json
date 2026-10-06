@@ -1,0 +1,64 @@
+{
+  "results": [
+    {
+      "case": "optional_power_binding_saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "powered_workstation_rejects_no_power",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "hand_workbench_works_without_power",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "powered_station_restored_interaction",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "visible_interior_light_tracks_power",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "separate_generator_source_conservation",
+      "pass": true,
+      "detail": "0.7999974927694677"
+    },
+    {
+      "case": "separate_generator_empty_stop",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "full_can_owned_before_empty_tank_refuel",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "real_refuel_empty_tank",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "seat_possession_after_can_refuel",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "can_refuel_restores_actual_propulsion",
+      "pass": true,
+      "detail": "3810.295951656932"
+    },
+    {
+      "case": "no_respawn_vehicle_or_seat_corruption",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}
