@@ -193,7 +193,8 @@ at(162,lambda:(mark('storage_tool'),move(-190)));at(164,lambda:aim_storage('Tool
 at(170,lambda:local_inv.request_drop(item_named(local_inv,'Tool').id,1));at(172,drop_check);at(172.2,aim_drop);at(172.5,lambda:key(walker,'E',True));at(173.5,lambda:key(walker,'E',False));at(175,lambda:returned_check('Tool','moving_drop_repick'))
 def collect_ids():
  if not isServer:seed_ids.update({str(x.definition.get_editor_property('CatalogId')):guid(x.id) for x in server_inv.get_items()})
-at(3.8,collect_ids)def record_signature(component):
+at(3.8,collect_ids)
+def record_signature(component):
  return sorted((guid(x.id),str(x.definition.get_editor_property('CatalogId')),x.quantity,round(x.condition,4),[(str(s.key),s.value) for s in x.custom_state]) for x in component.get_items())
 movement_snap=snap
 def snap():
@@ -215,4 +216,5 @@ def tick(dt):
   if sample_acc>.05:sample_acc=0;snap()
  except Exception as e:check('runner_exception',False,repr(e));unreal.log_error('GATE4_PROCESS_ERROR '+repr(e));finish()
 handle=unreal.register_slate_post_tick_callback(tick)
+
 
