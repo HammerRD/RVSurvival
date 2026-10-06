@@ -7,10 +7,21 @@
 #include "Vehicles/RVVehicleBase.h"
 #include "Inventory/RVInventoryComponent.h"
 #include "InputCoreTypes.h"
+#include "Player/RVPlayerState.h"
+#include "Survival/RVNeedsComponent.h"
 void ARVPrototypeHUD::DrawHUD()
 {
     Super::DrawHUD();
     if (!Canvas || !PlayerOwner) return;
+    auto* PS=PlayerOwner->GetPlayerState<ARVPlayerState>();
+    auto* Needs=PS?PS->Needs.Get():nullptr;
+    if(Needs)
+    {
+        DrawText(FString::Printf(TEXT("Nutrition %.0f | Hydration %.0f | Fatigue %.0f"),Needs->State.Nutrition,Needs->State.Hydration,Needs->State.Fatigue),FLinearColor::White,20,Canvas->ClipY-40);
+        DrawText(Needs->GetWarnings()+TEXT("  ")+Needs->Feedback,FLinearColor::Yellow,20,Canvas->ClipY-22);
+        if(PlayerOwner->WasInputKeyJustPressed(EKeys::R)) Needs->RequestRestMode(ERVRestMode::Awake);
+        if(PlayerOwner->WasInputKeyJustPressed(EKeys::Z)) Needs->RequestRestMode(Needs->State.RestMode==ERVRestMode::Sleeping?ERVRestMode::Resting:ERVRestMode::Sleeping);
+    }
     DrawText(TEXT("+"), FLinearColor::White, Canvas->ClipX * 0.5f, Canvas->ClipY * 0.5f);
     if (const auto* PC = Cast<ARVPlayerController>(PlayerOwner); PC && PC->SeatedVehicle)
     {
@@ -40,12 +51,13 @@ void ARVPrototypeHUD::DrawHUD()
         {
             if(PlayerOwner->WasInputKeyJustPressed(EKeys::T)) Inventory->RequestTransfer(Items[SelectedRow].Id,1,!bSelectContainer);
             if(!bSelectContainer && PlayerOwner->WasInputKeyJustPressed(EKeys::G)) Inventory->RequestDrop(Items[SelectedRow].Id,1);
+            if(!bSelectContainer && Needs && PlayerOwner->WasInputKeyJustPressed(EKeys::C)) Needs->RequestConsume(Items[SelectedRow].Id);
         }
         const float UIScale=FMath::Min(1.f,FMath::Min((Canvas->ClipX-30.f)/720.f,(Canvas->ClipY-100.f)/420.f));
         auto InventoryText=[&](const FString& Text,FLinearColor Color,float X,float Y)
         { DrawText(Text,Color,X*UIScale,Y*UIScale,nullptr,UIScale); };
         DrawRect(FLinearColor(0,0,0,.8f),15*UIScale,85*UIScale,720*UIScale,420*UIScale);
-        InventoryText(TEXT("Inventory | Tab: panel  Up/Down: item  T: transfer one  G: drop one  I: toggle"),FLinearColor::White,25,95);
+        InventoryText(TEXT("Inventory | Tab: panel  Up/Down: item  T: transfer  G: drop  C: consume  I: toggle"),FLinearColor::White,25,95);
         InventoryText(Inventory->Feedback,FLinearColor::Yellow,25,120);
         auto Panel=[&](URVInventoryComponent* C,float X,bool Active)
         {

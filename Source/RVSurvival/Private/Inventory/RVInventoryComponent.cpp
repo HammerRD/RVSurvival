@@ -55,6 +55,16 @@ bool URVInventoryComponent::TransferAuthority(URVInventoryComponent* Destination
     else { Contents.Items[Index].Quantity-=Quantity; Contents.MarkItemDirty(Contents.Items[Index]); }
     GetOwner()->ForceNetUpdate(); return true;
 }
+bool URVInventoryComponent::ConsumeOneAuthority(const FGuid& Id, FRVItemInstance& Consumed, FString& Error)
+{
+    if (!GetOwner() || !GetOwner()->HasAuthority()) { Error=TEXT("Authority required"); return false; }
+    const int32 Index=Contents.Items.IndexOfByPredicate([&](const auto& I){return I.Id==Id;});
+    if(Index==INDEX_NONE || Contents.Items[Index].Quantity<1) { Error=TEXT("Item no longer owned"); return false; }
+    Consumed=Contents.Items[Index]; Consumed.Quantity=1;
+    if(Contents.Items[Index].Quantity==1) { Contents.Items.RemoveAt(Index); Contents.MarkArrayDirty(); }
+    else { --Contents.Items[Index].Quantity; Contents.MarkItemDirty(Contents.Items[Index]); }
+    GetOwner()->ForceNetUpdate(); return true;
+}
 void URVInventoryComponent::OpenContainerAuthority(URVInventoryComponent* Container)
 { if(GetOwner()->HasAuthority()) { OpenContainer=Container; Feedback.Empty(); GetOwner()->ForceNetUpdate(); } }
 void URVInventoryComponent::RequestTransfer(FGuid Id, int32 Quantity, bool bToContainer)

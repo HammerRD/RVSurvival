@@ -55,6 +55,7 @@ public:
     UFUNCTION(BlueprintPure) FString CanAccept(const FRVItemInstance& Item) const;
     UFUNCTION(BlueprintCallable, BlueprintAuthorityOnly) bool AddAuthority(const FRVItemInstance& Item, FString& Error);
     bool TransferAuthority(URVInventoryComponent* Destination, const FGuid& Id, int32 Quantity, FString& Error);
+    bool ConsumeOneAuthority(const FGuid& Id, FRVItemInstance& Consumed, FString& Error);
     void OpenContainerAuthority(URVInventoryComponent* Container);
     UPROPERTY(Replicated, BlueprintReadOnly) TObjectPtr<URVInventoryComponent> OpenContainer;
     UPROPERTY(Replicated, BlueprintReadOnly) FString Feedback;

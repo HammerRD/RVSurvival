@@ -17,6 +17,13 @@
 #include "Player/RVCharacterMovementComponent.h"
 #include "Player/RVPassengerReferenceFrameComponent.h"
 #include "Inventory/RVInventoryComponent.h"
+#include "Player/RVPlayerState.h"
+#include "Survival/RVNeedsComponent.h"
+static bool CanMoveWhileAwake(const ARVSurvivorCharacter* Character)
+{
+    const auto* PS=Character->GetPlayerState<ARVPlayerState>();
+    return !PS || PS->Needs->State.RestMode==ERVRestMode::Awake;
+}
 ARVSurvivorCharacter::ARVSurvivorCharacter(const FObjectInitializer& Init)
     : Super(Init.SetDefaultSubobjectClass<URVCharacterMovementComponent>(ACharacter::CharacterMovementComponentName))
 {
@@ -80,11 +87,11 @@ void ARVSurvivorCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
     Input->BindAction(InteractAction, ETriggerEvent::Completed, this, &ThisClass::StopInteract);
     Input->BindAction(InteractAction, ETriggerEvent::Canceled, this, &ThisClass::StopInteract);
 }
-void ARVSurvivorCharacter::MoveForward(const FInputActionValue& V) { AddMovementInput(FRotationMatrix(FRotator(0, GetControlRotation().Yaw, 0)).GetUnitAxis(EAxis::X), V.Get<float>()); }
-void ARVSurvivorCharacter::MoveRight(const FInputActionValue& V) { AddMovementInput(FRotationMatrix(FRotator(0, GetControlRotation().Yaw, 0)).GetUnitAxis(EAxis::Y), V.Get<float>()); }
+void ARVSurvivorCharacter::MoveForward(const FInputActionValue& V) { if(CanMoveWhileAwake(this)) AddMovementInput(FRotationMatrix(FRotator(0, GetControlRotation().Yaw, 0)).GetUnitAxis(EAxis::X), V.Get<float>()); }
+void ARVSurvivorCharacter::MoveRight(const FInputActionValue& V) { if(CanMoveWhileAwake(this)) AddMovementInput(FRotationMatrix(FRotator(0, GetControlRotation().Yaw, 0)).GetUnitAxis(EAxis::Y), V.Get<float>()); }
 void ARVSurvivorCharacter::LookYaw(const FInputActionValue& V) { AddControllerYawInput(V.Get<float>()); }
 void ARVSurvivorCharacter::LookPitch(const FInputActionValue& V) { AddControllerPitchInput(V.Get<float>()); }
-void ARVSurvivorCharacter::StartJump() { if (!SeatedVehicle) Jump(); }
+void ARVSurvivorCharacter::StartJump() { if (!SeatedVehicle && CanMoveWhileAwake(this)) Jump(); }
 void ARVSurvivorCharacter::StopJump() { StopJumping(); }
 void ARVSurvivorCharacter::StartInteract()
 {

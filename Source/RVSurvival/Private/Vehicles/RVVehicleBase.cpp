@@ -15,6 +15,8 @@
 #include "InputModifiers.h"
 #include "InputActionValue.h"
 #include "Engine/World.h"
+#include "Player/RVPlayerState.h"
+#include "Survival/RVNeedsComponent.h"
 ARVVehicleBase::ARVVehicleBase(const FObjectInitializer& Init)
     : Super(Init.SetDefaultSubobjectClass<URVVehicleMovementComponent>(VehicleMovementComponentName))
 {
@@ -38,6 +40,7 @@ void ARVVehicleBase::BeginPlay()
 }
 bool ARVVehicleBase::CanEnter(URVVehicleSeatComponent* Seat, ARVSurvivorCharacter* Character) const
 {
+    if(Character) if(const auto* PS=Character->GetPlayerState<ARVPlayerState>(); PS && PS->Needs->State.RestMode!=ERVRestMode::Awake) return false;
     return Seat && Seat->GetOwner() == this && !Seat->Occupant && Character && !Character->SeatedVehicle
         && Cast<ARVPlayerController>(Character->GetController()) && GetVelocity().Size() <= MaxEntryExitSpeed;
 }
