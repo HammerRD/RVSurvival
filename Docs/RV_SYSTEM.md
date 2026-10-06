@@ -1,5 +1,5 @@
 # RV system plan
-Gates 1, 2 and 3 are accepted. Gate 2 isolates supported Chaos Vehicles behind ARVVehicleBase and URVVehicleMovementComponent, and composes ARVMotorhome with authoritative driver/passenger URVVehicleSeatComponent instances. Gate 3 uses a reusable passenger reference-frame component around native CharacterMovement.
+Gates 1–4 are accepted; Gate 5 core survival validation is in progress. Gate 2 isolates supported Chaos Vehicles behind ARVVehicleBase and URVVehicleMovementComponent, and composes ARVMotorhome with authoritative driver/passenger URVVehicleSeatComponent instances. Gate 3 uses a reusable passenger reference-frame component around native CharacterMovement.
 
 The preserved Gate 2 fallback content configuration is `/Game/Vehicles/BP_PrototypeMotorhome`. It uses Epic's installed UE vehicle-template off-road rig/physics/animation and a primitive shell labeled PROTOTYPE RV. The RV prototype has 3500 kg mass, automatic gears, rear-wheel drive and basic W accelerate, S brake/reverse, A/D steer, Space handbrake and E exit controls. Handling and physical body dimensions are prototype settings, not production Class C tuning. Test map: `/Game/Maps/Gate2VehicleTest`; Gate1Test is preserved.
 
@@ -7,7 +7,7 @@ Each seat defines a label, driver role, local entry offset and preferred exit of
 
 The vehicle base, seat components and entry adapters contain gameplay; the Blueprint configures presentation and rig/tuning. Replacing art requires configuring a suitable skeletal physics rig/wheels and adjusting seat/entry/exit offsets, without rewriting networking or seat assignment. No engine, fuel, cooling, battery, electrical, water, storage or other future gameplay subsystem is implemented in Gate 2.
 
-Gate 3 proved two networked players, highway-speed driving, front-to-rear passenger walking and stable based movement. There is no separate static interior. Stop after this accepted gate; later inventory/combat/world work requires a new user instruction.
+Gate 3 proved two networked players, highway-speed driving, front-to-rear passenger walking and stable based movement. There is no separate static interior. These accepted results remain the regression foundation. Current authorized work is Gate 5 only; combat/world systems remain deferred.
 
 Future systems separate fuel, individual mechanical conditions, automotive power and house power; no generic RV health. Cooling dependencies and empty-fuel propulsion blocking belong to later gates.
 

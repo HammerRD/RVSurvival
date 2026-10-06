@@ -29,3 +29,4 @@ for side in [a,b]:
 result={'config':a['config'],'server_pid':a['process_id'],'client_pid':b['process_id'],'checks':checks,'pass':all(x['pass'] for x in checks)}
 out=root/'Docs/Gate5Results'/f'{name}_paired.json';out.write_text(json.dumps(result,indent=2))
 print(json.dumps({'name':name,'checks':len(checks),'pass':result['pass'],'max_local_error_cm':max(errors),'failures':[x for x in checks if not x['pass']]}))
+assert result["pass"], "Paired moving comparison failed"

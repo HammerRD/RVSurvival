@@ -1,6 +1,6 @@
 # Inventory foundation — Gate 4
 
-Gate 4 is accepted; actual validation is recorded in GATE_4_VALIDATION.md. No consumption, medicine, crafting, combat or fuel effects are implemented.
+Gate 4 is accepted; actual logistics validation is recorded in GATE_4_VALIDATION.md. Gate 5 adds metadata-driven food/water consumption and is being validated separately below. Medicine, crafting, combat and fuel effects remain unimplemented.
 
 ## Definitions and instances
 

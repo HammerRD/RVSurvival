@@ -1,9 +1,10 @@
 {
-  "pid": 15132,
+  "pid": 38292,
   "authority": true,
   "config": {
-    "name": "survival_baseline",
-    "network": false
+    "network": false,
+    "type": "survival",
+    "name": "survival_baseline"
   },
   "results": [
     {
@@ -14,22 +15,22 @@
     {
       "case": "owned_food_first",
       "pass": true,
-      "detail": "{'nutrition': 45.0, 'hydration': 30.0, 'fatigue': 40.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 10.508555471897125}"
+      "detail": "{'nutrition': 45.0, 'hydration': 30.0, 'fatigue': 40.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 10.52183598279953}"
     },
     {
       "case": "owned_food_last_once",
       "pass": true,
-      "detail": "{'nutrition': 70.0, 'hydration': 30.0, 'fatigue': 40.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 10.508555471897125}"
+      "detail": "{'nutrition': 70.0, 'hydration': 30.0, 'fatigue': 40.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 10.52183598279953}"
     },
     {
       "case": "owned_water_first",
       "pass": true,
-      "detail": "{'nutrition': 70.0, 'hydration': 65.0, 'fatigue': 40.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 10.508555471897125}"
+      "detail": "{'nutrition': 70.0, 'hydration': 65.0, 'fatigue': 40.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 10.52183598279953}"
     },
     {
       "case": "owned_water_last_once",
       "pass": true,
-      "detail": "{'nutrition': 70.0, 'hydration': 100.0, 'fatigue': 40.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 10.508555471897125}"
+      "detail": "{'nutrition': 70.0, 'hydration': 100.0, 'fatigue': 40.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 10.52183598279953}"
     },
     {
       "case": "foreign_stale_nonconsumable_invalid_rejected",
@@ -44,7 +45,7 @@
     {
       "case": "shared_final_item_consumed_without_duplicate",
       "pass": true,
-      "detail": "({'nutrition': 95.0, 'hydration': 100.0, 'fatigue': 40.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 10.508555471897125}, {'nutrition': 90.0, 'hydration': 100.0, 'fatigue': 60.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 3.019295271486044})"
+      "detail": "({'nutrition': 70.0, 'hydration': 100.0, 'fatigue': 40.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 10.52183598279953}, {'nutrition': 100.0, 'hydration': 100.0, 'fatigue': 60.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 3.0365244783461094})"
     },
     {
       "case": "one_rest_reservation_winner",
@@ -53,6 +54,16 @@
     },
     {
       "case": "exclusive_sleep_replicated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "two_distinct_sleep_surfaces",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "disconnect_does_not_cancel_other_sleep",
       "pass": true,
       "detail": ""
     },

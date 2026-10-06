@@ -1,0 +1,76 @@
+{
+  "pid": 47568,
+  "authority": true,
+  "config": {
+    "network": true,
+    "type": "survival",
+    "name": "survival_emulated"
+  },
+  "results": [
+    {
+      "case": "two_independent_initial_needs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "owned_food_first",
+      "pass": true,
+      "detail": "{'nutrition': 45.0, 'hydration': 30.0, 'fatigue': 40.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 9.767912849783897}"
+    },
+    {
+      "case": "owned_food_last_once",
+      "pass": true,
+      "detail": "{'nutrition': 70.0, 'hydration': 30.0, 'fatigue': 40.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 9.767912849783897}"
+    },
+    {
+      "case": "owned_water_first",
+      "pass": true,
+      "detail": "{'nutrition': 70.0, 'hydration': 65.0, 'fatigue': 40.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 9.767912849783897}"
+    },
+    {
+      "case": "owned_water_last_once",
+      "pass": true,
+      "detail": "{'nutrition': 70.0, 'hydration': 100.0, 'fatigue': 40.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 9.767912849783897}"
+    },
+    {
+      "case": "foreign_stale_nonconsumable_invalid_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shared_final_item_transfer_one_winner",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shared_final_item_consumed_without_duplicate",
+      "pass": true,
+      "detail": "({'nutrition': 95.0, 'hydration': 100.0, 'fatigue': 40.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 9.767912849783897}, {'nutrition': 90.0, 'hydration': 100.0, 'fatigue': 60.0, 'rest': '<RVRestMode.AWAKE: 0>', 'seconds': 3.2717347517609596})"
+    },
+    {
+      "case": "one_rest_reservation_winner",
+      "pass": true,
+      "detail": "[<RVRestMode.RESTING: 1>, <RVRestMode.AWAKE: 0>]"
+    },
+    {
+      "case": "exclusive_sleep_replicated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "two_distinct_sleep_surfaces",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "disconnect_does_not_cancel_other_sleep",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "disconnect_releases_rest_and_preserves_shared_storage",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}
