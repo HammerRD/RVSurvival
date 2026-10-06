@@ -1,0 +1,30 @@
+{
+  "results": [
+    {
+      "case": "boundary_inspection",
+      "pass": true,
+      "detail": {
+        "energy_wh": 0.0049999984314834656,
+        "has_house_power": true,
+        "loads": [
+          {
+            "id": "InteriorLights",
+            "watts": 24.0,
+            "powered": false
+          },
+          {
+            "id": "Refrigerator",
+            "watts": 90.0,
+            "powered": false
+          },
+          {
+            "id": "PoweredStation",
+            "watts": 120.0,
+            "powered": false
+          }
+        ],
+        "flow_supplied_w": 0.0
+      }
+    }
+  ]
+}
