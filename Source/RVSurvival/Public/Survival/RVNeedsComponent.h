@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Engine/DataAsset.h"
+#include "GameplayTagContainer.h"
 #include "RVNeedsComponent.generated.h"
 
 class ARVRestPoint;
@@ -56,13 +57,14 @@ USTRUCT(BlueprintType)
 struct FRVNeedsState
 {
     GENERATED_BODY()
-    UPROPERTY(BlueprintReadOnly) float Nutrition = 90;
-    UPROPERTY(BlueprintReadOnly) float Hydration = 90;
-    UPROPERTY(BlueprintReadOnly) float Fatigue = 10;
-    UPROPERTY(BlueprintReadOnly) float SurvivalReserve = 100;
-    UPROPERTY(BlueprintReadOnly) double SimulatedSeconds = 0;
+    UPROPERTY(SaveGame, BlueprintReadOnly) float Nutrition = 90;
+    UPROPERTY(SaveGame, BlueprintReadOnly) float Hydration = 90;
+    UPROPERTY(SaveGame, BlueprintReadOnly) float Fatigue = 10;
+    UPROPERTY(SaveGame, BlueprintReadOnly) float SurvivalReserve = 100;
+    UPROPERTY(SaveGame, BlueprintReadOnly) double SimulatedSeconds = 0;
     UPROPERTY(BlueprintReadOnly) ERVRestMode RestMode = ERVRestMode::Awake;
 };
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FRVNeedsChanged);
 
 /** PlayerState-owned needs survive possession; mutations execute only on the server. */
 UCLASS(ClassGroup=(RV), meta=(BlueprintSpawnableComponent))
@@ -77,11 +79,13 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out) const override;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) TObjectPtr<URVNeedsProfile> TuningAsset;
     UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly) FRVNeedsTuning Tuning;
-    UPROPERTY(Replicated, BlueprintReadOnly) FRVNeedsState State;
+    UPROPERTY(ReplicatedUsing=OnRep_State, BlueprintReadOnly) FRVNeedsState State;
+    UPROPERTY(BlueprintAssignable) FRVNeedsChanged OnNeedsChanged;
     UPROPERTY(Replicated, BlueprintReadOnly) TObjectPtr<ARVRestPoint> RestLocation;
     UPROPERTY(Replicated, BlueprintReadOnly) FString Feedback;
     UFUNCTION(BlueprintPure) float GetMovementScale() const;
     UFUNCTION(BlueprintPure) FString GetWarnings() const;
+    UFUNCTION(BlueprintPure) FGameplayTagContainer GetStatusTags() const;
     UFUNCTION(BlueprintCallable) void RequestConsume(FGuid Id);
     UFUNCTION(BlueprintCallable) void RequestRestMode(ERVRestMode Mode);
     UFUNCTION(Server, Reliable) void ServerConsume(FGuid Id);
@@ -94,6 +98,7 @@ public:
     UFUNCTION(BlueprintCallable, meta=(DevelopmentOnly)) bool DebugAdvanceTime(float Seconds);
     void CopyPersistentValuesTo(URVNeedsComponent* Destination) const;
 private:
+    UFUNCTION() void OnRep_State();
     void Advance(double Seconds);
     float ActivityMultiplier() const;
     bool DebugAllowed() const;

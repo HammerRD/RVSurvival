@@ -10,6 +10,7 @@ class RVSURVIVAL_API ARVPrototypeHUD : public AHUD
 public:
     virtual void DrawHUD() override;
 private:
+    UPROPERTY(Transient) TObjectPtr<class URVSurvivalWidget> SurvivalWidget;
     bool bInventoryVisible = false;
     bool bSelectContainer = false;
     int32 SelectedRow = 0;

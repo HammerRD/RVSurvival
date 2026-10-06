@@ -9,6 +9,7 @@
 #include "InputCoreTypes.h"
 #include "Player/RVPlayerState.h"
 #include "Survival/RVNeedsComponent.h"
+#include "UI/RVSurvivalWidget.h"
 void ARVPrototypeHUD::DrawHUD()
 {
     Super::DrawHUD();
@@ -17,8 +18,12 @@ void ARVPrototypeHUD::DrawHUD()
     auto* Needs=PS?PS->Needs.Get():nullptr;
     if(Needs)
     {
-        DrawText(FString::Printf(TEXT("Nutrition %.0f | Hydration %.0f | Fatigue %.0f"),Needs->State.Nutrition,Needs->State.Hydration,Needs->State.Fatigue),FLinearColor::White,20,Canvas->ClipY-40);
-        DrawText(Needs->GetWarnings()+TEXT("  ")+Needs->Feedback,FLinearColor::Yellow,20,Canvas->ClipY-22);
+        if(!SurvivalWidget && PlayerOwner->IsLocalController())
+        {
+            SurvivalWidget=CreateWidget<URVSurvivalWidget>(PlayerOwner,URVSurvivalWidget::StaticClass());
+            SurvivalWidget->AddToPlayerScreen(); SurvivalWidget->SetAnchorsInViewport(FAnchors(0,1));
+            SurvivalWidget->SetAlignmentInViewport(FVector2D(0,1)); SurvivalWidget->SetPositionInViewport(FVector2D(20,-15),false);
+        }
         if(PlayerOwner->WasInputKeyJustPressed(EKeys::R)) Needs->RequestRestMode(ERVRestMode::Awake);
         if(PlayerOwner->WasInputKeyJustPressed(EKeys::Z)) Needs->RequestRestMode(Needs->State.RestMode==ERVRestMode::Sleeping?ERVRestMode::Resting:ERVRestMode::Sleeping);
     }

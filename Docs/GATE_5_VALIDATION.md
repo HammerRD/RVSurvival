@@ -23,3 +23,22 @@ Content/map setup, usable UI verification, single-player and separate-process mu
 ## Recovery discipline
 
 Foundation source saved before editor work. Accepted maps and purchased vendor content remain untouched. Existing unrelated Config/DefaultEngine.ini and IDE files will not be staged. Stable milestone commits will be recorded here as work progresses.
+
+## Unreal framework review (user course correction)
+
+Reviewed current source plus installed UE 5.8 GameplayAbilities AttributeSet.h/AbilitySystemComponent.h, GameplayTags library and Epic's official GAS/Lyra/CommonUI guidance before further major implementation.
+
+RVSurvival-specific rules: hour-based metabolic drain/recovery, activity classification, threshold severity, owned-item transaction validation, rest reservation/parked policy and future persistence fields. These belong in project gameplay code.
+
+Engine services reused: ActorComponent lifetime/tick; PlayerState ownership across possession; Primary Data Assets for tuning/catalog; Gameplay Tags for classification/status; native UPROPERTY replication/RepNotify and owned reliable RPCs; weak TimerManager dispatch; accepted Enhanced Input and CharacterMovement prediction/based movement; UMG for the new needs display; existing FastArray inventory. No custom transport, scheduler, prediction, general effect stack or UI framework is being created.
+
+Decision: do not introduce GAS during this gate. Three slowly changing scalar needs, a single exclusive rest mode and derived threshold consequences do not currently need predicted abilities, duration stacking, cancellation graphs or effect aggregation. GAS would require new avatar initialization across character/vehicle possession and a migration of state without a demonstrated Gate 5 benefit. This is not a blanket rejection: before implementing injuries/bleeding/medication or timed/stacking buffs, evaluate an ASC on PlayerState with AttributeSets and GameplayEffects rather than inventing a custom effect system. The needs API and item metadata isolate the eventual integration boundary. Do not add a parallel replicated attribute store now.
+
+UMG is appropriate for the added restrained survival readout. CommonUI's layered menus/device-routing framework is deferred until the product needs those features; replacing accepted Gate 4 controls now has no demonstrated benefit. Serialization uses reflected value structs; SaveGame flags will identify relevant values, but no save system/offline progression is implemented.
+
+Sources:
+- https://dev.epicgames.com/documentation/en-us/unreal-engine/understanding-the-unreal-engine-gameplay-ability-system
+- https://dev.epicgames.com/documentation/en-us/unreal-engine/gameplay-ability-system-component-and-gameplay-attributes-in-unreal-engine
+- https://dev.epicgames.com/documentation/en-us/unreal-engine/abilities-in-lyra-in-unreal-engine
+
+Content setup encountered a Python read-only GameplayTagContainer property error, not a crash. The partially completed Gate 5 map was immediately saved through Editor Save All (All Saved verified). Repair will use the official GameplayTags Blueprint library API and in-place configuration, without recreating the map or its existing rest markers.

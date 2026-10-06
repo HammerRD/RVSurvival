@@ -10,6 +10,25 @@
 #include "Net/UnrealNetwork.h"
 #include "TimerManager.h"
 #include "HAL/IConsoleManager.h"
+#include "NativeGameplayTags.h"
+UE_DEFINE_GAMEPLAY_TAG_STATIC(NeedsHungry,"Survival.Status.Hungry");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(NeedsDehydrated,"Survival.Status.Dehydrated");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(NeedsThirsty,"Survival.Status.Thirsty");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(NeedsVeryHungry,"Survival.Status.VeryHungry");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(NeedsTired,"Survival.Status.Tired");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(NeedsExhausted,"Survival.Status.Exhausted");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(NeedsResting,"Survival.Status.Resting");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(NeedsSleeping,"Survival.Status.Sleeping");
+void URVNeedsComponent::OnRep_State() { OnNeedsChanged.Broadcast(); }
+FGameplayTagContainer URVNeedsComponent::GetStatusTags() const
+{
+    FGameplayTagContainer Tags;
+    if(State.Nutrition<=Tuning.NutritionWarning) Tags.AddTag(State.Nutrition<=Tuning.NutritionCritical?NeedsVeryHungry:NeedsHungry);
+    if(State.Hydration<=Tuning.HydrationWarning) Tags.AddTag(State.Hydration<=Tuning.HydrationCritical?NeedsDehydrated:NeedsThirsty);
+    if(State.Fatigue>=Tuning.FatigueWarning) Tags.AddTag(State.Fatigue>=Tuning.FatigueCritical?NeedsExhausted:NeedsTired);
+    if(State.RestMode!=ERVRestMode::Awake) Tags.AddTag(State.RestMode==ERVRestMode::Sleeping?NeedsSleeping:NeedsResting);
+    return Tags;
+}
 
 static TAutoConsoleVariable<int32> NeedsDebug(TEXT("rv.Needs.AllowDebug"),0,TEXT("Enable non-shipping authoritative needs test controls"));
 URVNeedsComponent::URVNeedsComponent()
@@ -87,6 +106,7 @@ void URVNeedsComponent::Advance(double Seconds)
     // Minimal replaceable consequence; no injury model or death in this gate.
     State.SurvivalReserve=FMath::Clamp(float(State.SurvivalReserve-Damage),1.f,Tuning.Maximum);
     State.SimulatedSeconds+=Seconds;
+    OnRep_State();
 }
 void URVNeedsComponent::TickComponent(float Delta,ELevelTick Type,FActorComponentTickFunction* Function)
 {
@@ -148,6 +168,7 @@ void URVNeedsComponent::ServerConsume_Implementation(FGuid Id)
     State.Hydration=FMath::Clamp(State.Hydration+Metadata.Hydration,0.f,Tuning.Maximum);
     NextConsumptionTime=GetWorld()->GetTimeSeconds()+.25;
     Feedback=FString::Printf(TEXT("Consumed %s"),*Consumed.Definition->DisplayName.ToString());
+    OnRep_State();
     GetOwner()->ForceNetUpdate();
 }
 bool URVNeedsComponent::BeginRestAuthority(ARVRestPoint* Point,ARVSurvivorCharacter* Character)
@@ -157,6 +178,7 @@ bool URVNeedsComponent::BeginRestAuthority(ARVRestPoint* Point,ARVSurvivorCharac
     Point->Occupant=Cast<ARVPlayerState>(GetOwner()); Point->ForceNetUpdate();
     RestLocation=Point; RestingCharacter=Character; State.RestMode=ERVRestMode::Resting;
     Character->GetCharacterMovement()->StopMovementImmediately();
+    OnRep_State();
     Feedback=TEXT("Resting. Z: sleep/rest | R: leave"); GetOwner()->ForceNetUpdate(); return true;
 }
 void URVNeedsComponent::EndRestAuthority()
@@ -164,13 +186,14 @@ void URVNeedsComponent::EndRestAuthority()
     if(!GetOwner() || !GetOwner()->HasAuthority()) return;
     if(IsValid(RestLocation)) RestLocation->ReleaseAuthority(Cast<ARVPlayerState>(GetOwner()));
     RestLocation=nullptr; RestingCharacter.Reset(); State.RestMode=ERVRestMode::Awake; GetOwner()->ForceNetUpdate();
+    OnRep_State();
 }
 void URVNeedsComponent::ServerRestMode_Implementation(ERVRestMode Mode)
 {
     if(!GetOwner()->HasAuthority()) return;
     if(Mode==ERVRestMode::Awake) { EndRestAuthority(); Feedback=TEXT("Awake"); return; }
     if((Mode!=ERVRestMode::Resting && Mode!=ERVRestMode::Sleeping) || !IsValid(RestLocation) || !RestLocation->CanContinueRest(RestingCharacter.Get())) return;
-    State.RestMode=Mode; GetOwner()->ForceNetUpdate();
+    State.RestMode=Mode; OnRep_State(); GetOwner()->ForceNetUpdate();
 }
 bool URVNeedsComponent::DebugAllowed() const
 {
@@ -183,7 +206,7 @@ bool URVNeedsComponent::DebugAllowed() const
 bool URVNeedsComponent::DebugSetValues(float Nutrition,float Hydration,float Fatigue)
 {
     if(!DebugAllowed() || !FMath::IsFinite(Nutrition) || !FMath::IsFinite(Hydration) || !FMath::IsFinite(Fatigue)) return false;
-    State.Nutrition=FMath::Clamp(Nutrition,0.f,Tuning.Maximum); State.Hydration=FMath::Clamp(Hydration,0.f,Tuning.Maximum); State.Fatigue=FMath::Clamp(Fatigue,0.f,Tuning.Maximum); GetOwner()->ForceNetUpdate(); return true;
+    State.Nutrition=FMath::Clamp(Nutrition,0.f,Tuning.Maximum); State.Hydration=FMath::Clamp(Hydration,0.f,Tuning.Maximum); State.Fatigue=FMath::Clamp(Fatigue,0.f,Tuning.Maximum); OnRep_State(); GetOwner()->ForceNetUpdate(); return true;
 }
 bool URVNeedsComponent::DebugSetTimeScale(float Scale)
 { if(!DebugAllowed() || !FMath::IsFinite(Scale) || Scale<0 || Scale>10000) return false; DevelopmentTimeScale=Scale; return true; }
