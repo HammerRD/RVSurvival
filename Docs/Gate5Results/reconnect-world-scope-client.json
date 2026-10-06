@@ -1,0 +1,35 @@
+{
+  "pid": 24176,
+  "results": [
+    {
+      "case": "sleeping_before_disconnect",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "native_disconnect_loaded_fallback",
+      "pass": true,
+      "detail": "Gate1Test"
+    },
+    {
+      "case": "same_process_rejoined_after_native_travel",
+      "pass": true,
+      "detail": "{'pawn': 'RVInteriorTestCharacter_0', 'nutrition': 30.0, 'hydration': 40.0, 'fatigue': 50.0, 'rest': '<RVRestMode.AWAKE: 0>', 'quantity': 0, 'container_quantity': 0, 'authority': False}"
+    },
+    {
+      "case": "runner_exception",
+      "pass": false,
+      "detail": "IndexError(\"Array: Index 0 is out-of-bounds (len: 0) for property 'TransientPythonProperty' (ArrayProperty)\")"
+    }
+  ],
+  "before": {
+    "pawn": "RVInteriorTestCharacter_0",
+    "nutrition": 40.0,
+    "hydration": 50.0,
+    "fatigue": 80.0,
+    "rest": "<RVRestMode.AWAKE: 0>",
+    "quantity": 0,
+    "container_quantity": 3,
+    "authority": false
+  }
+}

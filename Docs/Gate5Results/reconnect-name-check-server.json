@@ -1,0 +1,24 @@
+{
+  "results": [
+    {
+      "case": "disconnect_releases_bed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host_needs_unchanged_after_disconnect",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native_rejoin_state_valid",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "server_timeout",
+      "pass": false,
+      "detail": ""
+    }
+  ]
+}

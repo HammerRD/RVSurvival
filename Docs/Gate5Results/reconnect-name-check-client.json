@@ -1,0 +1,11 @@
+{
+  "pid": 39224,
+  "results": [
+    {
+      "case": "runner_exception",
+      "pass": false,
+      "detail": "AttributeError(\"'NoneType' object has no attribute 'get_editor_property'\")"
+    }
+  ],
+  "before": {}
+}

@@ -1,0 +1,585 @@
+{
+  "config": {
+    "network": true,
+    "driver": "client",
+    "type": "moving",
+    "name": "moving_client_emulated"
+  },
+  "server_pid": 43288,
+  "client_pid": 42984,
+  "checks": [
+    {
+      "case": "inventory_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_183",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_183",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_183",
+      "pass": true
+    },
+    {
+      "case": "General cabinet_at_183",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_183",
+      "pass": true
+    },
+    {
+      "case": "Tool storage_at_183",
+      "pass": true
+    },
+    {
+      "case": "Exterior compartment_at_183",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_183",
+      "pass": true
+    },
+    {
+      "case": "host_nutrition_at_36",
+      "pass": true,
+      "error": 0.000522613525390625
+    },
+    {
+      "case": "host_hydration_at_36",
+      "pass": true,
+      "error": 0.001041412353515625
+    },
+    {
+      "case": "host_fatigue_at_36",
+      "pass": true,
+      "error": 0.000347137451171875
+    },
+    {
+      "case": "host_reserve_at_36",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "client_nutrition_at_36",
+      "pass": true,
+      "error": 0.00043487548828125
+    },
+    {
+      "case": "client_hydration_at_36",
+      "pass": true,
+      "error": 0.000873565673828125
+    },
+    {
+      "case": "client_fatigue_at_36",
+      "pass": true,
+      "error": 0.0002918243408203125
+    },
+    {
+      "case": "client_reserve_at_36",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "host_nutrition_at_55",
+      "pass": true,
+      "error": 0.000518798828125
+    },
+    {
+      "case": "host_hydration_at_55",
+      "pass": true,
+      "error": 0.001041412353515625
+    },
+    {
+      "case": "host_fatigue_at_55",
+      "pass": true,
+      "error": 0.000347137451171875
+    },
+    {
+      "case": "host_reserve_at_55",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "client_nutrition_at_55",
+      "pass": true,
+      "error": 0.00043487548828125
+    },
+    {
+      "case": "client_hydration_at_55",
+      "pass": true,
+      "error": 0.000873565673828125
+    },
+    {
+      "case": "client_fatigue_at_55",
+      "pass": true,
+      "error": 0.0002918243408203125
+    },
+    {
+      "case": "client_reserve_at_55",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "host_nutrition_at_161.5",
+      "pass": true,
+      "error": 0.000518798828125
+    },
+    {
+      "case": "host_hydration_at_161.5",
+      "pass": true,
+      "error": 0.001041412353515625
+    },
+    {
+      "case": "host_fatigue_at_161.5",
+      "pass": true,
+      "error": 0.000347137451171875
+    },
+    {
+      "case": "host_reserve_at_161.5",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "client_nutrition_at_161.5",
+      "pass": true,
+      "error": 0.00043487548828125
+    },
+    {
+      "case": "client_hydration_at_161.5",
+      "pass": true,
+      "error": 0.000873565673828125
+    },
+    {
+      "case": "client_fatigue_at_161.5",
+      "pass": true,
+      "error": 0.0002918243408203125
+    },
+    {
+      "case": "client_reserve_at_161.5",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "host_nutrition_at_167.5",
+      "pass": true,
+      "error": 0.000518798828125
+    },
+    {
+      "case": "host_hydration_at_167.5",
+      "pass": true,
+      "error": 0.001041412353515625
+    },
+    {
+      "case": "host_fatigue_at_167.5",
+      "pass": true,
+      "error": 0.000347137451171875
+    },
+    {
+      "case": "host_reserve_at_167.5",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "client_nutrition_at_167.5",
+      "pass": true,
+      "error": 0.00043487548828125
+    },
+    {
+      "case": "client_hydration_at_167.5",
+      "pass": true,
+      "error": 0.000873565673828125
+    },
+    {
+      "case": "client_fatigue_at_167.5",
+      "pass": true,
+      "error": 0.0002918243408203125
+    },
+    {
+      "case": "client_reserve_at_167.5",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "host_nutrition_at_184",
+      "pass": true,
+      "error": 0.000518798828125
+    },
+    {
+      "case": "host_hydration_at_184",
+      "pass": true,
+      "error": 0.001041412353515625
+    },
+    {
+      "case": "host_fatigue_at_184",
+      "pass": true,
+      "error": 0.000347137451171875
+    },
+    {
+      "case": "host_reserve_at_184",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "client_nutrition_at_184",
+      "pass": true,
+      "error": 0.00043487548828125
+    },
+    {
+      "case": "client_hydration_at_184",
+      "pass": true,
+      "error": 0.000873565673828125
+    },
+    {
+      "case": "client_fatigue_at_184",
+      "pass": true,
+      "error": 0.0002918243408203125
+    },
+    {
+      "case": "client_reserve_at_184",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "workstation_counts_converge",
+      "pass": true
+    },
+    {
+      "case": "paired_passenger_local_position",
+      "pass": true,
+      "max_error_cm": 26.883829202226412,
+      "limit_cm": 75
+    },
+    {
+      "case": "live_assertions_43288",
+      "pass": true,
+      "checks": 72
+    },
+    {
+      "case": "live_assertions_42984",
+      "pass": true,
+      "checks": 65
+    }
+  ],
+  "pass": true
+}
