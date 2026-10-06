@@ -1,16 +1,99 @@
 # Gate 4 validation
 
-Status: **NOT ACCEPTED — development and regression validation in progress.** Gate 5 has not begun.
+Status: **ACCEPTED on 2026-10-05 (America/New_York).** Gate 5 has not begun.
 
-## Recovery checkpoints
+## Implemented architecture
 
-- `2e9abe3`: preserved latest passing Gate 1 regression evidence before Gate 4.
-- `55a1522`: explicitly marked WIP recovery, compiled inventory/item authority foundation.
-- `436eb58`: explicitly marked WIP recovery, item definitions/UI and initial saved map.
-- `6132ceb`: preserved the populated saved map before further crash investigation.
-- `aa8f8c7`: recovered duplicate fixture actors and saved crash investigation tools/evidence.
+- `URVItemDefinition`: Primary Data Asset catalog, display/description/category, optional mesh/icon, kg/L per unit, stack maximum, condition/equipment/physical-carry flags, gameplay and future crafting tags.
+- `FRVItemInstance`: GUID, definition asset, quantity, normalized condition, location identifier and key/value custom state. Stored items are lightweight FastArray records, not Actors. Full-record transfers retain GUID; splits receive a new GUID and preserve condition/custom state. Transport bookkeeping is reset on each destination array.
+- `URVInventoryComponent` and `URVContainerComponent`: shared tunable weight/volume/filter rules and server-only serial transactions. Player storage defaults to 25 kg/35 L. A physical-carry item cannot enter ordinary player storage. Capacity failure leaves the source unchanged.
+- `ARVInventoryInteractable`, `ARVWorldItem`, `ARVStoragePoint`: reuse accepted 0.5-second Gate 1 interaction. One server winner claims a pickup. Owned inventory requests identify existing records and quantities; server revalidates authority, availability, selected container, 300 cm reach and Visibility line of sight. Clients cannot submit definitions or fabricate authoritative instances.
+- FastArray contents and capacities replicate to relevant viewers; selected container/feedback are owner-only. Weak native next-tick intent dispatch avoids editor Python script guards forcing local RPC callspace. Each server mutation still checks authority explicitly.
+- Drop searches clearance and safe floor support with Visibility collision, rejects excessive height changes, and preserves item state. Cargo on tagged passenger floors uses native replicated attachment and inherits platform relevancy. Unattached pickups retain native distance culling. Standing passengers remain native CharacterMovement pawns; no passenger tick teleport/attachment was added.
+- `ARVPrototypeHUD`: minimal Canvas UI, separated from gameplay state. I toggles, Tab selects panel, Up/Down selects row, T transfers one, G drops one. Shows quantity, condition, weight, volume and rejection feedback; scales to 640×480. Normal movement/input remains enabled.
 
-Vendor `/Game/RV` and accepted Gate 1–3 map files are preserved. Existing user changes to DefaultEngine.ini and IDE files remain outside these commits.
+Foundational files are under `Source/RVSurvival/Public/Inventory` and `Private/Inventory`. Integration changes: survivor inventory default component, prototype HUD and GameplayTags/NetCore build dependencies. Vehicle/seat/possession/passenger movement implementations and purchased source art remain independent.
+
+## Saved content and setup
+
+`/Game/Maps/Gate4InventoryTest` preserves the purchased Class C derivative, two player starts, 10 km driving space and six Gate 3 workstation placeholders. Saved editor fixture: 61 actors, exactly 11 pickups and six storage points. Gate 1–3 maps and fallback vehicles are preserved; default/startup map remains Gate1Test.
+
+Five RV points use the reusable component: pantry, general cabinet, medical, tools and exterior compartment; each has 100 kg/60 L capacity. External storage has 100 kg/120 L capacity. Pantry accepts food/water tags, medical accepts medical, and tools accept tool/material/automotive; general/exterior storage are unrestricted within capacity. Interior markers sit on exposed aisle-facing furniture surfaces. No furniture collision or reach/LOS checks were disabled.
+
+Inert Data Assets in `/Game/Items`:
+
+| Item | kg | litres | max stack | Special metadata |
+|---|---:|---:|---:|---|
+| Bottled water | 1.1 | 1.2 | 6 | Water |
+| Canned food | 0.45 | 0.5 | 10 | Food |
+| Bandage | 0.05 | 0.1 | 10 | Medical |
+| Pain medication | 0.05 | 0.1 | 5 | Medical |
+| Fuel can | 12 | 22 | 1 | Automotive |
+| Engine part | 18 | 8 | 1 | Automotive |
+| Scrap metal | 2 | 1 | 10 | Metal crafting metadata |
+| Hand tool | 1.5 | 2 | 1 | Equipment eligible; tool metadata |
+| Inert ammunition box | 1 | 1 | 5 | No weapon behavior |
+| Bulky supply crate | 2 | 40 | 1 | Exceeds normal player volume |
+| Large battery | 30 | 25 | 1 | Requires physical carrying; excluded from backpack |
+
+Fixture condition is 73%, with Batch custom state. Moving-storage fixtures use 62% and MovingStorageTest Batch. These values make preservation measurable. No hunger, thirst, fuel consumption, medicine, crafting, combat or later-gate effects exist.
+
+## Build and actual validation
+
+UE **5.8.3 CL 58210709**, Development Editor/Win64, VS 14.44.35229, Windows SDK 10.0.22621.0. Final gameplay/UI build succeeded in 34.82 seconds (`Gate4Results/build-cargo-relevance-ui.log`). No engine source changes.
+
+Tests use real PIE, accepted Enhanced Input key actions, actual hold interactions and owned native inventory intent. Initial fixture positioning/item seeding is labeled setup; walking/driving/transfers/completions are not simulated by rewriting results or transforms. Independent processes record their own world state; paired comparisons verify GUID, quantity, condition, custom state and passenger position. Native HUD controls were additionally exercised with OS keyboard input on a focused client viewport.
+
+| Run | Result | Receipt |
+|---|---|---|
+| Shared inventory baseline | 13/13 | `baseline.json` |
+| Expanded two-player inventory | 24/24 | `full.json` |
+| Single-player PIE | 10/10 | `single.json` |
+| Shared host-driver/client-walker storage + Gate 3 route | 63/63 | `moving_host.json` |
+| Separate-process inventory | 12 server + 13 client, 33 exact paired checks | `process_inventory*` |
+| Separate-process inventory, 100 ms/2% loss | 12 server + 13 client, 33 exact paired checks | `process_inventory_emulated*` |
+| Separate-process host driver/client walker | 61 server + 62 client, 81 paired checks | `process_moving_host*` |
+| Separate-process client driver/host walker | 63 server + 56 client, 81 paired checks | `process_moving_client*` |
+| Separate-process host driver/client walker, 100 ms/2% loss | 61 server + 62 client, 81 paired checks | `process_moving_host_emulated*` |
+| Native remote-client HUD at 640×480 | Seven state checks + visual/key review passed | `native-ui.json`, `ui-samples.json` |
+| Final Gate 1 regression | 23/23; clean shutdown | `Gate1Regression` |
+| Final Gate 2 regression + inventory possession | 24/24 + 4/4; clean shutdown | `Gate2Regression` |
+| World recovery map-cycle checks | 24/24; clean shutdown | `CrashRecovery` |
+
+Required inventory cases passed: weight and volume rejection independently; stack/non-stack behavior; full drop/repick retaining GUID and condition; both transfer directions; full container with no partial loss; two users/concurrent deposits; contested withdrawal; same-pickup one winner; immediate contended repick; foreign-ID/client-authority rejection; replicated client changes and dropped items; disconnect preserving shared contents. Stable IDs and Batch state survive transfers. Quantity conservation and unique IDs are checked.
+
+Moving cabinets passed stationary, approximately 480 cm/s low speed and 1780 cm/s road speed, including actual gentle steering during medical transfer. The embedded Gate 3 route additionally tests approximately 2670 cm/s highway speed, front/rear/sideways walking, acceleration, braking, gentle/strong turns, stop/resume, six workstations, outside movement and re-entry. Neither driving role lost the passenger floor or accumulated unstable positional error. Transfers did not stop walking or alter movement mode.
+
+Network emulation is **outgoing server** Min/MaxLatency 100 ms, PacketLoss 2%, with Run Under One Process disabled. Engine logs explicitly confirm PktLagMin=100/PktLagMax=100/PktLoss=2. It is not a claim of bidirectional 100 ms. Maximum paired passenger local-position discrepancy: host-driver baseline 14.50 cm, client-driver baseline 8.73 cm, emulated host-driver 12.03 cm. Emulated strong-turn standing drift peaked at 3.44 cm; two corrections, max 1.76 cm. Braking had one 1.91 cm correction. Storage stages had no measured correction/floor loss. Small corrections were usable; no severe persistent jitter, sliding, floor penetration or launches occurred in these runs.
+
+Native client UI review confirmed readable capacities/73% condition and quantity, actual T deposit/withdrawal, Tab panel selection, Up/Down row selection, G tool drop, clear Volume capacity exceeded feedback with source preserved, and I close/reopen without stale container access. Replicated state matched the server. A normal PIE click is needed to give its viewport keyboard focus.
+
+## Failures investigated and fixed
+
+- Unsupported generic World duplication caused the editor world-leak fatal; full recovery/root cause/repeat results follow below. Leak detection remains enabled.
+- Setup retries duplicated pickup/storage actors. Removed only duplicate Gate 4 fixtures and saved the known map, preserving accepted content.
+- Direct Python RPC execution was local under the editor script guard. Native weak next-tick dispatch and explicit server guards fixed authority; unchanged assertions then passed on server role 3.
+- Cabinet markers behind furniture blocked interaction. Moved project-side markers to exposed surfaces while preserving collision and LOS validation.
+- Drop WorldStatic rays hit the coarse vehicle chassis 152 cm above passenger feet. Changed support queries to the existing cabin Visibility collision, retaining clearance/normal/height checks. Before/after receipts and full moving reruns pass.
+- A floor-attached drop did not reach the remote client driver. Native attachment relevancy only delegates for certain parent types; floor boxes did not qualify. Attached pickups now delegate to the platform. The unchanged failed assertion and independent GUID/state comparisons pass after the fix; world pickups retain distance culling.
+- Runner assembly had a missing newline, producing a startup SyntaxError. Corrected and syntax-checked archived/current scripts, then cleanly restarted. No gameplay success was claimed for that run.
+- Emulated initialization cached workstations before replicated names arrived. Restored Gate 3's six-name readiness check and made early errors produce failed receipts. Kept all gameplay thresholds unchanged.
+
+Failed receipts/logs are retained separately from passing evidence. No unrelated vehicle or passenger redesign was made.
+
+## Known limits and scope
+
+No full persistence/reconnect/death inventory, active hand/two-person carrying, equipment use, recipes, survival effects or cargo-mass adjustment to Chaos handling. Large battery exclusion provides the carried-object boundary, not the final hands mechanic. Compatible stacks do not auto-merge; partial records remain identified stacks. UI is prototype Canvas, without final icons/art, rebinding, large-list pagination or seated-driver inventory presentation. Pickups are query-only cube placeholders; generalized mesh-size-aware drop bounds and dynamic loose-cargo physics are future work. Rough terrain/airborne passengers/larger sessions remain Gate 3 limitations, not newly validated cases. Existing CreateSavedMove warnings are retained as non-blocking prototype warnings.
+
+Definitions, lightweight records, location identifiers and reusable container queries preserve future equipment, workstation/linked-storage, serialization and mobile-base systems. None of those later gameplay systems was implemented.
+
+## Saves and local recovery checkpoints
+
+Saved item assets/map after fixture, metadata and exposed-marker milestones, before risky reloads and after recovery. Saved editor state was restored on resume, not recreated. World/actor wrappers are scoped; callbacks are unregistered and module-owned runner references released while Python/Unreal are alive. Completed runs stop PIE and shut down normally.
+
+Milestones: `2e9abe3` pre-Gate 4 evidence; `55a1522`, `436eb58`, `6132ceb` explicitly labeled WIP recovery; `aa8f8c7` crash recovery; `7a96ac3`, `b426f1c`, `4ea32a0` recovery/regressions; `8d8cbb3` tested inventory baseline; `e2d0c15` compiled recovery; `6d0257c` expanded checks/markers; `54a95bf` documentation checkpoint; `d370a05` drop collision fix; `7ac446d` shared moving storage; `8f8c86a` separate/emulated inventory; `0d33d3b` corrected runner; `f71bf8b` user pause recovery; `ab9af07` remote-driver cargo fix; `525f9ad` replicated readiness; `ca3c86b` emulated moving storage; `0580113` native UI. Final regression/documentation checkpoint completes this gate.
+
+Vendor integrity: all 108 files match the accepted Gate 3 SHA-256 manifest. Gate 1–3 maps and fallback assets have no changes. Existing user DefaultEngine.ini/IDE changes are excluded from these commits and preserved. No Git push or later gate work.
 
 ## Editor automation crash, 2026-10-05 21:41 UTC
 
@@ -33,56 +116,4 @@ Recovery found setup retries had produced 22 pickups/12 storage actors. Only dup
 
 `Tools/Validation/gate4_recovery_repeat.py` repeated the corrected save-copy/reopen sequence three times, each followed by loads of Gate1Test, Gate2VehicleTest, Gate3MovingInteriorTest and Gate4InventoryTest. **24/24 checks passed**, followed by normal editor shutdown. `recovery-repeat.json` and `recovery-clean.log` record these results. The earlier three cycles also completed map changes and clean shutdown, but failed fixture-count assertions because of the duplicate setup actors; those results are retained separately. Scratch maps are recovery-test artifacts, not gameplay additions.
 
-Post-recovery live Gate 1 regression passed 23/23 checks; Gate 2 shared listen-server driving/seating passed 24/24. Both editors shut down normally after callback/module release. Gate 3 host-driver/client-walker passed 42/42 and client-driver/host-walker passed 42/42, including highway speed, acceleration/braking, turns, six workstation interactions, exit and re-entry. Both editor shutdowns were clean. Gate 4 work resumed after these regressions. All 108 purchased vendor source files match the accepted Gate 3 SHA-256 manifest; accepted Gate 1–3 maps have no Git diff. Gate 4 acceptance remains blocked until those and the inventory/moving-storage/network matrix pass.
-
-## Implemented foundation, not yet accepted
-
-URVItemDefinition is a Primary Data Asset with catalog ID, presentation references, mass, volume, stack configuration, condition/equipment/physical-carry flags and gameplay/crafting tags. FRVItemInstance holds GUID, definition, quantity, condition, location and serializable key/value custom state. Stored items are FastArray records rather than Actors. URVInventoryComponent and reusable URVContainerComponent share capacity and authoritative transfer rules. ARVWorldItem reuses the accepted hold interaction; ARVStoragePoint opens shared cabinets. Owned inventory RPCs revalidate proximity and line of sight before transfers. A temporary Canvas inventory view shows player/container contents and capacity feedback.
-
-The initial compiled foundation and subsequent UI build succeeded. Initial compiler issues were corrected: DOREPLIFETIME requires OutLifetimeProps, TObjectPtr requires explicit Get for pointer deduction, and replicated custom state uses an array rather than unsupported TMap replication. Latest build has a cosmetic float-literal warning pending cleanup.
-
-Eleven inert logistics definitions include water, food, bandage, pain medication, fuel can, engine part, scrap, hand tool, inert ammunition, bulky supply crate and large battery. The battery is excluded from ordinary player storage; active hand carrying is not implemented yet. RV storage points: pantry, general cabinet, medical, tools and exterior compartment, plus external storage. Six Gate 3 workstation placeholders remain.
-
-Early PIE attempts passed host pickup, non-stackable pickup, and weight/volume blocking, but failed drop identity and selected-container checks with the duplicated fixture. They are development failures, not accepted results. Full reruns after recovery remain required.
-
-
-
-## First passing inventory milestone
-
-After fixture recovery, 13/13 live two-player listen-server inventory checks pass: host pickup; complete drop/re-pick with GUID and condition preserved; non-stackable item; independent weight and volume rejection; container opening; both transfer directions; client pickup replication; client transfer replicated to host and client; simultaneous world-pickup contention yielding one winner; condition preservation.
-
-Client transfer diagnostics initially executed on role 2 because Unreal Python editor execution sets GAllowActorScriptExecutionInEditor, which AActor::GetFunctionCallspace handles as local execution. Local request methods now dispatch through next native-world tick using weak timer delegates, and every server mutation explicitly checks authority. The same unchanged transfer assertion then passed with role 3 server execution. Weak delegates do not retain pawns/worlds and recheck local control after possession changes. Inventory view can now close a container through authoritative intent. Latest build succeeded without the earlier cosmetic float warning.
-
-This is a stable partial milestone, not Gate 4 acceptance. Separate-process, emulated network, expanded contention/disconnect, true standalone and moving-RV storage tests remain required.
-
-## Resumed checkpoint and expanded checks
-
-`8d8cbb3` records the passing 13-check inventory baseline; `e2d0c15` records the compiled actor/metadata/drop-safety recovery checkpoint; `6d0257c` records saved exposed cabinet markers and passing expanded results. The expanded shared listen-server suite passed **24/24**, including concurrent container use, contested withdrawal/pickup, immediate repick, foreign-ID rejection, condition/custom-state preservation and disconnect integrity. Single-player PIE passed **10/10**. Results are `Gate4Results/full.json` and `single.json`.
-
-The first moving-storage run exposed cabinet markers behind furniture collision. Project-side markers were moved onto exposed aisle-facing surfaces without disabling furniture collision, reach or line-of-sight checks. The subsequent host-driver/client-walker run passed stationary, low-speed (478 cm/s), road-speed (1788 cm/s), turning medical and moving tool storage transfers and returns, with GUID, condition and custom state preserved and zero measured passenger corrections during storage. All embedded Gate 3 movement/workstation checks passed. Its additional moving-drop lookup failed at 172 seconds because no matching pickup was found; diagnosis and rerun remain required. The editor shut down normally. This partial run is preserved as `Gate4Results/moving-drop-failure.json` and is not acceptance evidence for its failed cases.
-
-Separate-process inventory/storage, representative emulation, native HUD checks and final cleanup remain pending. Gate 4 remains NOT ACCEPTED.
-
-### Moving drop root cause and targeted fix
-
-A short reproduction confirmed authoritative rejection with `No safe drop location`, preserving the original item. Development-gated collision diagnostics found rear-cabinet sweep obstructions and three floor rays hitting the coarse `VehicleMesh` chassis 152 cm above the passenger's feet. The floor ray used WorldStatic, whereas accepted cabin collision and safe vehicle exits use Visibility. The minimal fix changes only that support-ray channel to Visibility. Height, surface-normal, path clearance and landing-overlap rejection remain enabled; vehicle/passenger physics were not modified. The targeted reproduction then passed: the tool spawned on the interior floor, feedback cleared, source item removed. Before/after results and exact blocked component lines are retained. Development Editor build passed. Full moving drop/repick and networking reruns follow.
-
-Full rerun after the drop fix: **63/63 host-driver/client-walker assertions passed**, including the embedded Gate 3 suite, stationary/low/road/turning storage, category rejection, moving floor attachment and repick preserving GUID/condition. Maximum measured visual observer discrepancy 10.18 cm; storage stages had zero corrections/floor loss. Normal editor shutdown at 2026-10-06 00:20:45 UTC. Results and log: `Gate4Results/moving_host.json` and `moving_host-clean.log`. Separate-process cases remain pending.
-
-Two-process inventory: host PID 49556/client PID 48992 passed 12 + 13 live checks, with 33 exact GUID/definition/quantity/condition state comparisons matching across player inventories and shared container. Covered concurrent deposits, contended withdrawal, full container rejection, replicated client drop, contested immediate repick, forged source ID, contended pickup, custom state, client authority rejection and disconnect integrity. Repeated with host PID 5980/client PID 25972 and outgoing server 100 ms/2% loss: 12 + 13 checks passed. Engine log explicitly reports PktLagMin=100, PktLagMax=100, PktLoss=2. Both host editors shut down normally; clients disconnected without retained-world fatal errors.
-
-The first separate-process moving runner failed before gameplay with a Python SyntaxError caused by a missing newline in generated script assembly. Corrected it, syntax-checked all 29 current Gate 4 runners using the engine's bundled Python, and closed the failed test editor from its saved state. No gameplay or content changes were lost. The failed startup log is retained; it is not a passing test result.
-
-## Resume after user pause
-
-Recovered checkpoint `f71bf8b` without content/source drift. The saved Gate 4 map is intact. The interrupted separate-process client-driver run was restarted. Server-side storage/drop/repick passed, but the remote driver received no matching dropped pickup; its receipt failed at 172 seconds. The failure is retained as `process-moving-client-drop-failure.json/.log`.
-
-Inspection of installed ActorReplication.cpp showed that default attachment relevancy delegates to the parent only for skeletal attachments or matching owner. Cabin cargo attaches to a query floor box. ARVWorldItem now explicitly delegates relevancy to its attached platform; unattached world pickups retain native distance culling. No client authority or passenger movement behavior changed. The prototype inventory HUD also scales both panels to fit small PIE windows. Development Editor build passed (34.82 seconds). Exact failed-case and emulated reruns are in progress; Gate 4 remains NOT ACCEPTED.
-
-The unchanged failed remote-driver pickup assertion now passes after attached-platform relevancy delegation. Full separate-process client-driver/host-walker results, GUID/state comparisons and cleanup logs are saved under `Gate4Results/process_moving_client*`. No assertion was removed or weakened.
-
-The first emulated moving run cached workstation actors before their replicated StationName fields arrived; the client lookup failed with KeyError('Workbench'). Restored the accepted Gate 3 readiness requirement: all six station names must be present before coordinated tests begin. Early runner failures now record missing movement samples as failures instead of raising a second exception during result collection. Thresholds/gameplay assertions remain unchanged. Failed emulation startup log is retained; the session was stopped with callbacks/references released and no map reload or crash.
-
-Separate-process host-driver/client-walker under outgoing-server 100 ms/2% loss passed 61 server + 62 client live assertions and 81 paired state/position checks. Maximum paired local-position discrepancy was 12.03 cm. Fixed workstations and moving cabinets passed at stationary, low/road/highway speed, acceleration/braking, gentle/strong turns, exit/re-entry and moving drop/repick. Host editor shutdown was clean. Results: `Gate4Results/process_moving_host_emulated*`. Final native HUD and regression checks remain pending.
-
-Native client HUD validation at 640×480 passed seven recorded state checks plus visual review of panel/row selection, readable capacity/condition text and I close/reopen. Actual OS keyboard T deposited/withdrew water; Tab selected the container; Down selected the tool; G dropped it; a server-side capacity fixture produced clear Volume capacity exceeded feedback without source loss; Up and I worked. Final player/container state matched authority and condition remained 73%. Game viewport must have keyboard focus (normal PIE mouse capture). Receipt: `native-ui.json`, `ui-samples.json`, `ui-clean.log`. No UI state mutation was used as an inventory transaction.
+Post-recovery live Gate 1 regression passed 23/23 checks; Gate 2 shared listen-server driving/seating passed 24/24. Both editors shut down normally after callback/module release. Gate 3 host-driver/client-walker passed 42/42 and client-driver/host-walker passed 42/42, including highway speed, acceleration/braking, turns, six workstation interactions, exit and re-entry. Both editor shutdowns were clean. Gate 4 work resumed after these regressions. All 108 purchased vendor source files match the accepted Gate 3 SHA-256 manifest; accepted Gate 1–3 maps have no Git diff. At that recovery checkpoint, inventory/moving-storage/network validation remained pending; final results above now satisfy it.

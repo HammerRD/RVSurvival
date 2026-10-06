@@ -1,6 +1,6 @@
 # Inventory foundation — Gate 4
 
-Gate 4 implementation is in development; acceptance is recorded separately in GATE_4_VALIDATION.md. No consumption, medicine, crafting, combat or fuel effects are implemented.
+Gate 4 is accepted; actual validation is recorded in GATE_4_VALIDATION.md. No consumption, medicine, crafting, combat or fuel effects are implemented.
 
 ## Definitions and instances
 
@@ -24,7 +24,7 @@ Contents use FFastArraySerializer delta replication. Shared container records re
 
 ARVInventoryInteractable implements the accepted IRVInteractable lifecycle without inheriting the Gate 1 counter. ARVWorldItem uses the accepted 0.5 s hold and claims the pickup only after authoritative capacity admission. Serial completion and claimed/destroyed state prevent two winners. ARVStoragePoint opens a reusable container through the same hold system.
 
-Drop searches several directions with clearance and floor checks. It rejects excessive floor height changes, protecting against drops underneath an interior floor, and preserves instance state. Items supported by tagged moving passenger floors use native replicated attachment to that floor. This is object placement; passenger CharacterMovement and its accepted reference-frame implementation are unchanged.
+Drop searches several directions with clearance and floor checks. It rejects excessive floor height changes, protecting against drops underneath an interior floor, and preserves instance state. Items supported by tagged moving passenger floors use native replicated attachment to that floor and inherit platform network relevancy. Unattached pickups retain native distance culling. This is object placement; passenger CharacterMovement and its accepted reference-frame implementation are unchanged.
 
 Current world visuals are small query-only cube placeholders, not final physics props. Generalized mesh-dependent drop bounds and active hand/two-person carrying remain future work. The large battery is explicitly excluded from ordinary player storage even if a future backpack capacity increases. Container storage can accept physical-carry items; a future hands/equipment system will handle their transport.
 

@@ -23,7 +23,7 @@ Six fixed placeholder endpoints reserve workbench, medical, kitchen/food prepara
 
 Standing movement uses URVPassengerReferenceFrameComponent around native CharacterMovement bases. See GATE_3_VALIDATION.md for actual role/speed/correction/workstation results and known limits.
 
-## Gate 4 storage foundation (in development)
+## Gate 4 storage foundation (accepted Gate 4)
 
 The Gate 4 test map preserves the purchased Class C visual/physical derivative and adds reusable project-side pantry, general, medical, tool and exterior storage points. Storage actors attach to the vehicle mesh and contain URVContainerComponent; no cabinet-specific mutation code was added to ARVMotorhome or passenger movement. The six Gate 3 workstation points remain. Capacity and tag filters are configuration.
 

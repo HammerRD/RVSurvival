@@ -23,6 +23,6 @@ Six ARVInteriorStation placeholders reuse the Gate 1 interaction contract and re
 
 The motorhome remains a mobile survival base. Later gates must preserve local interior coordinates and fixed interaction endpoints for food/water, hunger/thirst, fatigue/sleep, injuries/medicine, generator/solar/battery power, maintenance/repairs, crafting and long-term storage. Those systems are deliberately absent here. Additional standing passengers should use the same per-character component and native bases rather than a vehicle-owned list of transform overrides.
 
-## Gate 4 inventory integration (in development)
+## Gate 4 inventory integration (accepted Gate 4)
 
 Inventory now has its own C++ boundary under Public/Private/Inventory: Primary Data Asset definitions, identified lightweight FastArray records, shared inventory/container capacity transactions, and separate interactable pickup/storage actors. The survivor owns its inventory component; vehicle possession and the passenger movement code remain unchanged. Inventory presentation stays in the temporary HUD. Full persistence/equipment/crafting systems are outside this gate. See INVENTORY.md and GATE_4_VALIDATION.md for the implemented model and current acceptance status.

@@ -7,12 +7,12 @@
   {
     "case": "host_moves_independently",
     "pass": true,
-    "detail": "[<Struct 'Vector' (0x000002756B420380) {x: -652.536976, y: -523.137904, z: 89.650000}>, <Struct 'Vector' (0x000002756B420510) {x: -600.000000, y: -390.000000, z: 89.650000}>]"
+    "detail": "[<Struct 'Vector' (0x0000020588710970) {x: -656.878345, y: -524.223548, z: 89.650000}>, <Struct 'Vector' (0x0000020588710B00) {x: -600.000000, y: -390.000000, z: 89.650000}>]"
   },
   {
     "case": "client_moves_independently",
     "pass": true,
-    "detail": "[<Struct 'Vector' (0x000002756B4203D0) {x: -652.536976, y: -523.137904, z: 89.650000}>, <Struct 'Vector' (0x000002756B4202E0) {x: -652.534510, y: -376.863728, z: 89.650000}>]"
+    "detail": "[<Struct 'Vector' (0x00000205887109C0) {x: -656.878345, y: -524.223548, z: 89.650000}>, <Struct 'Vector' (0x00000205887108D0) {x: -652.534180, y: -376.863811, z: 89.650000}>]"
   },
   {
     "case": "host_interacts_and_replicates",
