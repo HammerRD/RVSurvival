@@ -18,5 +18,3 @@ def ready(dt):
   unreal.unregister_slate_post_tick_callback(h);load_runner(B+'process_moving.py')
  except (StopIteration,OSError,ValueError):return
 h=unreal.register_slate_post_tick_callback(ready)
-
-

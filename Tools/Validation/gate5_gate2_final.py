@@ -34,4 +34,3 @@ def tick(dt):
   from runner_runtime import release_runners
   release_runners();quit()
 h=unreal.register_slate_post_tick_callback(tick)
-

@@ -16,7 +16,7 @@ def inspect_assets():
  for path in ['/Game/Items/DA_Food','/Game/Items/DA_Water','/Game/Survival/DA_NormalNeeds','/Game/Survival/BP_SurvivalPlayerState','/Game/Survival/BP_Gate5GameMode']:
   asset=unreal.load_asset(path);check('asset_'+path,asset is not None)
  for name,n,h in [('Food',25,0),('Water',0,35)]:
-  m=unreal.load_asset('/Game/Items/DA_'+name).get_editor_property('Consumable');check('saved_consumable_'+name,m.b_consumable and m.nutrition==n and m.hydration==h)
+  m=unreal.load_asset('/Game/Items/DA_'+name).get_editor_property('Consumable');check('saved_consumable_'+name,m.get_editor_property('bConsumable') and m.nutrition==n and m.hydration==h)
  cls=unreal.EditorAssetLibrary.load_blueprint_class('/Game/Survival/BP_SurvivalPlayerState');profile=unreal.get_default_object(cls).get_editor_property('Needs').get_editor_property('TuningAsset');check('saved_tuning_reference',profile is not None and profile.get_name()=='DA_NormalNeeds')
 for repeat in range(2):
  for path in ['/Game/Maps/Gate1Test','/Game/Maps/Gate2VehicleTest','/Game/Maps/Gate3MovingInteriorTest','/Game/Maps/Gate4InventoryTest','/Game/Maps/Gate5SurvivalTest']:

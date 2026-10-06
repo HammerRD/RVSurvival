@@ -1,6 +1,6 @@
 # Inventory foundation — Gate 4
 
-Gate 4 is accepted; actual logistics validation is recorded in GATE_4_VALIDATION.md. Gate 5 adds metadata-driven food/water consumption and is being validated separately below. Medicine, crafting, combat and fuel effects remain unimplemented.
+Gate 4 is accepted; actual logistics validation is recorded in GATE_4_VALIDATION.md. Gate 5 adds metadata-driven food/water consumption and is accepted with results recorded separately below. Medicine, crafting, combat and fuel effects remain unimplemented.
 
 ## Definitions and instances
 
@@ -40,6 +40,6 @@ Canvas presentation: I toggles inventory, Tab selects player/container panel, Up
 
 Inert definitions: bottled water, canned food, bandage, pain medication, fuel can, engine part, scrap metal, hand tool, ammunition box, bulky supply crate and large battery. The tool is marked equipment-eligible; metal/tool crafting tags are metadata only. Prototype instances have a Batch custom-state value for transfer/drop validation.
 
-## Gate 5 integration (in progress)
+## Gate 5 integration (accepted)
 
 FRVConsumableMetadata on the existing definition supplies enabled flag, nutrition/hydration gains, minimum condition and future dietary metadata. ServerConsume resolves the requesting PlayerState's survivor inventory, validates owned GUID/metadata/benefit/cooldown, then ConsumeOneAuthority removes one existing runtime quantity serially before applying needs recovery. Definition names do not dispatch behavior. Stored items remain lightweight FastArray records; partial stacks preserve GUID/condition/custom state. Consumables in a shared cabinet must first be authoritatively transferred to the player. No second inventory, spoilage/cooking or medicine effects exist.

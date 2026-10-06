@@ -3,7 +3,7 @@ RV Survival is a 1â€“5 player cooperative survival road trip across compressed r
 
 Every major system asks: can players keep the RV moving? Supplies have physical uses, risk is chosen, the world evolves independently, and stories emerge from interacting systems. No character levels, glowing rarity tiers, bullet-sponge progression, static-base focus, MMO, extraction or battle-royale redesign.
 
-Current scope: Gates 1–4 are accepted (movement/interaction, RV driving/seats, purchased Class C moving interior/workstations and authoritative inventory/storage). Gate 5 survival needs are in implementation and live validation; its acceptance status is recorded in GATE_5_VALIDATION.md. Fuel/electrical and later systems remain unimplemented. Preserve the user design brief as the governing requirements.
+Current scope: Gates 1–4 are accepted (movement/interaction, RV driving/seats, purchased Class C moving interior/workstations and authoritative inventory/storage). Gate 5 survival needs are accepted after live validation; its acceptance status is recorded in GATE_5_VALIDATION.md. Fuel/electrical and later systems remain unimplemented. Preserve the user design brief as the governing requirements.
 
 ## Gate 5 survival and long-term travel decisions
 

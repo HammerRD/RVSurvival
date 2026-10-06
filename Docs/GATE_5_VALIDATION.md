@@ -1,6 +1,6 @@
 # Gate 5 — core survival needs validation
 
-**Status: IN PROGRESS / NOT ACCEPTED pending final regressions and saved-editor review.**
+**Status: ACCEPTED — 2026-10-05. Final live validation, regressions, saved-content audit and build passed.**
 
 Gate 4 was accepted by the user. Gate 5 only is authorized; Gate 6 fuel/electrical gameplay has not begun. This report records actual Unreal testing, not compile-only acceptance. Detailed development/failure chronology is retained in `Gate5Results/DEVELOPMENT_NOTES.md`.
 
@@ -60,9 +60,11 @@ UE 5.8.3 CL 58210709, Development Editor / Win64; VS 14.44.35229 and Windows SDK
 | Client drives / host walks, emulated | 72 server + 65 client checks passed; discrepancy max 26.88 cm |
 | Native remote UI, 640×480 | 7 state checks and visual review passed; physical I/Down/C/Z/R controls |
 | Accelerated stress, initial complete run | 200 consumptions / 200 GUIDs, 100 actual shared withdrawals, 20 rest/sleep/wake cycles; 86,404.89 seconds through real component ticks; no item/reservation/actor residue |
-| Native same-process reconnect, emulated | Corrected settled run passed 7 server + 5 client checks; repeat/final receipts pending consolidation |
-| Gate 1–4 final regression | Pending final receipt review |
-| Saved map startup/shutdown review | Pending final receipt review |
+| Native same-process reconnect, emulated | Two corrected settled repeats each passed 7 server + 5 client checks; clean teardown |
+| Gate 1–4 final regression | Gate 1: 23/23; Gate 2: 24/24 plus 4/4 possession checks; Gate 3: all four full moving matrices; Gate 4: 24/24 |
+| Saved map startup/shutdown review | 23/23 checks; Gates 1–5 loaded twice, five assets and metadata verified, Save All and clean exit |
+| Final accelerated stress repeat | 6/6 aggregate checks; 200 consumes, 100 shared withdrawals, 20 rest cycles, 86,403.47 simulated seconds; no residue |
+| Final build | Development Editor / Win64 succeeded; final verification up to date, zero build actions |
 
 Moving routes retain front/rear/sideways walking, standing, acceleration, braking, low/moderate/highway speed, gentle/strong turns, stop/resume, exit/reentry, six stationary/moving workstation interactions, pantry/medical/tool transfers, drop/repick and observer checks. Gate 5 adds stationary/highway/turning eating, road-speed drinking, continuing riding needs, independent possession state and confirmed parked sleep → movement wake. Storage actions were delayed eight seconds to insert the parked sleep test; no original movement requirement was removed.
 
@@ -79,6 +81,7 @@ Permanent compact receipts: `Docs/Gate5Results`. High-frequency raw samples and 
 - Moving drinking's initial fixed expectation omitted genuine accumulated hydration drain; checks now measure pre-consumption value plus configured recovery. Rest was initially attempted at 1,465 cm/s; the parked policy correctly rejected it. Test now verifies actual parked speed and confirmed sleep before wake.
 - Disconnect caller initially read globals after clearing its module. It now returns immediately. Reconnect readiness/name/world-scope/timing issues were fixed without changing gameplay checks. Native queued travel uses only primitive persistent Python state and reacquired active-world references.
 - A failed reconnect timeout repeatedly reset its exit deadline after Stop PIE. The guard was fixed. Windows UI activation failed twice; only that exact already-stopped/All Saved test process was terminated after command-line verification. This failed run is recorded as **forced cleanup**, not clean shutdown. Corrected runs use native clean teardown.
+- Final audit used an incorrect Python boolean attribute spelling; replaced it with the reflected property getter. The corrected audit passed all checks. One idle, fully saved editor was closed through graceful Windows taskkill without force, with clean engine exit recorded.
 - No new reproducible World Memory Leak fatal error was found; leak detection was not disabled. Unsupported World asset duplication/reload cleanup was not used.
 
 ## Limits and persistence boundary
@@ -91,8 +94,8 @@ Future persistence records need nutrition, hydration, fatigue, survival reserve,
 
 New native files: `Public/Private/Survival/RVNeedsComponent`, `RVRestPoint`; `Private/Player/RVPlayerState.cpp`; `Public/Private/UI/RVSurvivalWidget`. Modified inventory definition/component, PlayerState/controller/survivor, CharacterMovement speed policy, HUD, vehicle seat-entry guard and Build.cs (UMG). Content: Gate5SurvivalTest, DA_NormalNeeds, BP_SurvivalPlayerState, BP_Gate5GameMode and Food/Water metadata. Validation tooling and required design/network/inventory/RV/roadmap/changelog documentation are committed.
 
-Checkpoints: `61178dc` foundation; `e518d58` framework/UMG; `7c4c0e6` saved content; `5677c47` single-player/framework decisions; `7502418` UI/lifetime/stress; `41b06a8` native controls; `42273e5` baseline authority/moving roles; `2cb14dc` emulated movement/reconnect/telemetry. Later final checkpoints will be recorded after remaining validation.
+Checkpoints: `61178dc` foundation; `e518d58` framework/UMG; `7c4c0e6` saved content; `5677c47` single-player/framework decisions; `7502418` UI/lifetime/stress; `41b06a8` native controls; `42273e5` baseline authority/moving roles; `2cb14dc` emulated movement/reconnect/telemetry. `f41330a` final regressions/stress; final acceptance checkpoint follows this report. See local Git log for its exact hash.
 
 Vendor SHA-256: 108/108 match accepted import. Accepted Gate 1–4 maps and existing vehicle/fallback files have no diff from `7881ab0`. Existing unrelated `Config/DefaultEngine.ini`, `.vsconfig`, `Automation_RVSurvival.slnx`, `RVSurvival.slnx` are preserved outside commits; the configuration's security token is not reproduced in reports.
 
-Final regression milestone: final single-player 27/27; Gate 1 23/23; Gate 2 24/24 plus 4 inventory-possession checks; Gate 4 expanded inventory 24/24 (including consumable drop/repick, mass/volume, container contention and disconnect integrity); final stress all six aggregate checks passed. Corrected settled reconnect repeats each passed 7 server + 5 client checks under emulation. All completed final regression editors shut down cleanly. Saved-map review/final build still precede acceptance.
+Final regression milestone: final single-player 27/27; Gate 1 23/23; Gate 2 24/24 plus 4 inventory-possession checks; Gate 4 expanded inventory 24/24 (including consumable drop/repick, mass/volume, container contention and disconnect integrity); final stress all six aggregate checks passed. Corrected settled reconnect repeats each passed 7 server + 5 client checks under emulation. All completed final regression editors shut down cleanly. Saved-map review passed 23/23 and the final build succeeded. All meaningful Gate 5 requirements passed; Gate 5 is ACCEPTED. Unreal is closed, all content is saved, and Gate 6 has not begun.

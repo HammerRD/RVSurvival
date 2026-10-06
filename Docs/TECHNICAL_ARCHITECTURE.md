@@ -27,7 +27,7 @@ The motorhome remains a mobile survival base. Later gates must preserve local in
 
 Inventory now has its own C++ boundary under Public/Private/Inventory: Primary Data Asset definitions, identified lightweight FastArray records, shared inventory/container capacity transactions, and separate interactable pickup/storage actors. The survivor owns its inventory component; vehicle possession and the passenger movement code remain unchanged. Inventory presentation stays in the temporary HUD. Full persistence/equipment/crafting systems are outside this gate. See INVENTORY.md and GATE_4_VALIDATION.md for the implemented model and current acceptance status.
 
-## Gate 5 needs framework boundary (in progress)
+## Gate 5 needs framework boundary (accepted)
 
 URVNeedsComponent is a replicated PlayerState subobject, independent of character/vehicle possession. FRVNeedsState is reflected scalar data with SaveGame-marked persistent fields; transient rest reservations are not persisted. URVNeedsProfile is a Primary Data Asset for normal tuning. Authority applies hour-based gameplay rules; Unreal owns replication, RPC transport, component ticking, timers and object lifetime. Native CharacterMovement retains prediction/moving-base handling; a derived speed query applies critical-need policy without rewriting its solver.
 

@@ -39,7 +39,7 @@ Gate 4 multiplayer acceptance, separate-process results and network-emulation me
 
 Accepted Gate 4 evidence includes shared and separate-process transactions/contention, both moving-RV driving ownership combinations and outgoing-server 100 ms/2% loss. Floor-attached pickups explicitly use attached-platform relevancy because a query-box floor does not meet native skeletal/owner attachment delegation rules. Normal world pickups retain native culling. GUID/quantity/condition/custom-state receipts converge independently across processes. Native HUD input uses the same owned requests as automation. See GATE_4_VALIDATION.md for precise results and correction measurements.
 
-## Gate 5 survival replication (in progress)
+## Gate 5 survival replication (accepted)
 
 Needs are a replicated ActorComponent on the owning PlayerState. Clients issue owned reliable consume/rest intents; only the server changes needs or item quantities. Native UPROPERTY replication and RepNotify notifications expose current authoritative values/status, with owner-only feedback. No custom replication transport, prediction or acknowledgement layer is added. Weak next-tick TimerManager dispatch retains the Gate 4 editor RPC-callspace fix. Rest occupants replicate as PlayerStates and cleanup releases reservations on disconnect/teardown.
 

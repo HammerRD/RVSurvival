@@ -1,0 +1,221 @@
+{
+  "results": [
+    {
+      "case": "load_/Game/Maps/Gate1Test",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate2VehicleTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate3MovingInteriorTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gate4_saved_fixture_intact",
+      "pass": true,
+      "detail": "{'actors': 61, 'pickups': 11, 'storage': 6, 'rest': 0, 'gamemode': '/Game/Vehicles/Gate3/BP_Gate3GameMode.BP_Gate3GameMode_C'}"
+    },
+    {
+      "case": "load_/Game/Maps/Gate4InventoryTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gate5_saved_fixture_intact",
+      "pass": true,
+      "detail": "{'actors': 64, 'pickups': 11, 'storage': 7, 'rest': 2, 'gamemode': '/Game/Survival/BP_Gate5GameMode.BP_Gate5GameMode_C'}"
+    },
+    {
+      "case": "load_/Game/Maps/Gate5SurvivalTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate1Test",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate2VehicleTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate3MovingInteriorTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gate4_saved_fixture_intact",
+      "pass": true,
+      "detail": "{'actors': 61, 'pickups': 11, 'storage': 6, 'rest': 0, 'gamemode': '/Game/Vehicles/Gate3/BP_Gate3GameMode.BP_Gate3GameMode_C'}"
+    },
+    {
+      "case": "load_/Game/Maps/Gate4InventoryTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gate5_saved_fixture_intact",
+      "pass": true,
+      "detail": "{'actors': 64, 'pickups': 11, 'storage': 7, 'rest': 2, 'gamemode': '/Game/Survival/BP_Gate5GameMode.BP_Gate5GameMode_C'}"
+    },
+    {
+      "case": "load_/Game/Maps/Gate5SurvivalTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "asset_/Game/Items/DA_Food",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "asset_/Game/Items/DA_Water",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "asset_/Game/Survival/DA_NormalNeeds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "asset_/Game/Survival/BP_SurvivalPlayerState",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "asset_/Game/Survival/BP_Gate5GameMode",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_consumable_Food",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_consumable_Water",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_tuning_reference",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "save_all_completed",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "maps": [
+    {
+      "path": "/Game/Maps/Gate1Test",
+      "counts": {
+        "actors": 12,
+        "pickups": 0,
+        "storage": 0,
+        "rest": 0,
+        "gamemode": "/Script/RVSurvival.RVGameMode"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate2VehicleTest",
+      "counts": {
+        "actors": 44,
+        "pickups": 0,
+        "storage": 0,
+        "rest": 0,
+        "gamemode": "/Script/RVSurvival.RVGameMode"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate3MovingInteriorTest",
+      "counts": {
+        "actors": 44,
+        "pickups": 0,
+        "storage": 0,
+        "rest": 0,
+        "gamemode": "/Game/Vehicles/Gate3/BP_Gate3GameMode.BP_Gate3GameMode_C"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate4InventoryTest",
+      "counts": {
+        "actors": 61,
+        "pickups": 11,
+        "storage": 6,
+        "rest": 0,
+        "gamemode": "/Game/Vehicles/Gate3/BP_Gate3GameMode.BP_Gate3GameMode_C"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate5SurvivalTest",
+      "counts": {
+        "actors": 64,
+        "pickups": 11,
+        "storage": 7,
+        "rest": 2,
+        "gamemode": "/Game/Survival/BP_Gate5GameMode.BP_Gate5GameMode_C"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate1Test",
+      "counts": {
+        "actors": 12,
+        "pickups": 0,
+        "storage": 0,
+        "rest": 0,
+        "gamemode": "/Script/RVSurvival.RVGameMode"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate2VehicleTest",
+      "counts": {
+        "actors": 44,
+        "pickups": 0,
+        "storage": 0,
+        "rest": 0,
+        "gamemode": "/Script/RVSurvival.RVGameMode"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate3MovingInteriorTest",
+      "counts": {
+        "actors": 44,
+        "pickups": 0,
+        "storage": 0,
+        "rest": 0,
+        "gamemode": "/Game/Vehicles/Gate3/BP_Gate3GameMode.BP_Gate3GameMode_C"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate4InventoryTest",
+      "counts": {
+        "actors": 61,
+        "pickups": 11,
+        "storage": 6,
+        "rest": 0,
+        "gamemode": "/Game/Vehicles/Gate3/BP_Gate3GameMode.BP_Gate3GameMode_C"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate5SurvivalTest",
+      "counts": {
+        "actors": 64,
+        "pickups": 11,
+        "storage": 7,
+        "rest": 2,
+        "gamemode": "/Game/Survival/BP_Gate5GameMode.BP_Gate5GameMode_C"
+      }
+    }
+  ]
+}

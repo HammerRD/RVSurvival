@@ -1,5 +1,5 @@
 # RV system plan
-Gates 1–4 are accepted; Gate 5 core survival validation is in progress. Gate 2 isolates supported Chaos Vehicles behind ARVVehicleBase and URVVehicleMovementComponent, and composes ARVMotorhome with authoritative driver/passenger URVVehicleSeatComponent instances. Gate 3 uses a reusable passenger reference-frame component around native CharacterMovement.
+Gates 1–4 are accepted; Gate 5 core survival validation is accepted; see GATE_5_VALIDATION.md. Gate 2 isolates supported Chaos Vehicles behind ARVVehicleBase and URVVehicleMovementComponent, and composes ARVMotorhome with authoritative driver/passenger URVVehicleSeatComponent instances. Gate 3 uses a reusable passenger reference-frame component around native CharacterMovement.
 
 The preserved Gate 2 fallback content configuration is `/Game/Vehicles/BP_PrototypeMotorhome`. It uses Epic's installed UE vehicle-template off-road rig/physics/animation and a primitive shell labeled PROTOTYPE RV. The RV prototype has 3500 kg mass, automatic gears, rear-wheel drive and basic W accelerate, S brake/reverse, A/D steer, Space handbrake and E exit controls. Handling and physical body dimensions are prototype settings, not production Class C tuning. Test map: `/Game/Maps/Gate2VehicleTest`; Gate1Test is preserved.
 
@@ -29,6 +29,6 @@ The Gate 4 test map preserves the purchased Class C visual/physical derivative a
 
 Future food/water, medical supplies, repairs, crafting, equipment and long-term storage can consume this data model through separate authoritative systems. Gate 4 adds no survival effects, recipes, fuel usage or electrical simulation. Vendor source assets remain unchanged; cargo mass/handling integration is deferred. See INVENTORY.md and GATE_4_VALIDATION.md for current tests and limitations.
 
-## Gate 5 survival base integration (in progress)
+## Gate 5 survival base integration (accepted)
 
 Gate5SurvivalTest retains purchased Class C dimensions, native Chaos/seat architecture, six accepted workstation markers and Gate 4 cabinets. Two reusable rest markers (rear bed and dinette) reserve a player without teleporting into furniture. Current sleep/rest is parked-only; moving above the configurable platform limit wakes the occupant. A water-supply cupboard stores finite bottled items, not an infinite water tank. Food/water consumables use accepted owned inventory records and standing passenger movement. Pantry, medical, tools, power and navigation boundaries remain modular; no cooking, medicine, tanks, generator, battery or solar gameplay is added.

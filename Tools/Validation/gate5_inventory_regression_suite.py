@@ -99,9 +99,3 @@ def tick(dt):
  except Exception as e:
   check('runner_exception',False,repr(e));finish()
 h=unreal.register_slate_post_tick_callback(tick)
-
-
-
-
-
-

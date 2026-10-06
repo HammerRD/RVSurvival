@@ -61,3 +61,12 @@ Reviewed installed UE 5.8 GAS APIs and official Epic GAS/Lyra patterns at the us
 Compiled foundation and framework changes successfully. Saved Gate5SurvivalTest, normal tuning asset, project-side PlayerState/GameMode configuration, two rest points, water cupboard and food/water metadata. A Python read-only tag-container property error was repaired through the official tag library; the map was saved immediately and the editor shut down cleanly. First single-player harness mistakes were corrected without weakening checks; corrected live run passed 27/27. Multiplayer/moving/stress/regression validation remains in progress; Gate 5 is NOT ACCEPTED.
 
 Recovery checkpoints so far: 61178dc (compiled foundation), e518d58 (framework review/UMG), 7c4c0e6 (saved survival content). Purchased source files and prior maps remain preserved; unrelated user configuration/IDE changes are excluded.
+
+
+## 2026-10-05 — Gate 5 accepted
+
+Separate-process survival and both moving-RV driver roles passed baseline and representative outgoing-server 100 ms / 2% loss tests. Food, water, pantry, independent needs, parked rest, disconnect/reconnect and stale/foreign GUID rejection passed. Native UI controls were visually validated. Largest measured passenger correction was 1.798 cm, with zero measured floor-loss samples.
+
+Final stress: 200 consumes, 100 shared withdrawals, 20 rest cycles and accelerated 24-hour-equivalent component ticks without duplication or residue. Final regressions: Gate 1 23/23; Gate 2 24/24 plus four possession checks; Gate 3 four full moving matrices; Gate 4 24/24. Saved-editor audit passed 23 checks across ten map loads; final build succeeded and editor exited cleanly.
+
+Fixed UMG anchor ordering/readability and harness reconnect world/readiness/timing/callback cleanup. One failed harness required documented forced process cleanup; corrected repeats shut down cleanly. Final audit boolean property API error was corrected. No reproducible World Memory Leak crash remains; leak detection stays enabled. Native Unreal frameworks are reused; GAS deferred pending future timed/stacking effects. Parked sleep, prototype balance and deferred full persistence remain explicit limits. All 108 vendor hashes and accepted maps/fallbacks match. Milestone history is in GATE_5_VALIDATION.md; final regression checkpoint f41330a. Gate 5 ACCEPTED; Gate 6 not begun.
