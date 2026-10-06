@@ -273,7 +273,3 @@ def tick(dt):
   if sample_acc>.05:sample_acc=0;snap()
  except Exception as e:check('runner_exception',False,repr(e));unreal.log_error('GATE4_PROCESS_ERROR '+repr(e));finish()
 handle=unreal.register_slate_post_tick_callback(tick)
-
-
-
-

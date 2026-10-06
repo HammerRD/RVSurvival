@@ -1,0 +1,40 @@
+{
+  "pid": 41040,
+  "results": [
+    {
+      "case": "disconnect_releases_bed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host_needs_unchanged_after_disconnect",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native_rejoin_state_valid",
+      "pass": true,
+      "detail": "{'old_pawn': 'RVInteriorTestCharacter_1', 'new_pawn': 'RVInteriorTestCharacter_2'}"
+    },
+    {
+      "case": "host_needs_unchanged_after_rejoin_and_foreign_consume",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host_item_identity_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shared_container_conservation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bed_not_locked_after_rejoin",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

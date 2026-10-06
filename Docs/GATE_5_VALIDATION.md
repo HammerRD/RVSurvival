@@ -1,82 +1,98 @@
 # Gate 5 — core survival needs validation
 
-Status: IN PROGRESS / NOT ACCEPTED. Gate 4 was accepted by the user; Gate 6 has not begun.
+**Status: IN PROGRESS / NOT ACCEPTED pending final regressions and saved-editor review.**
 
-## Foundation checkpoint
+Gate 4 was accepted by the user. Gate 5 only is authorized; Gate 6 fuel/electrical gameplay has not begun. This report records actual Unreal testing, not compile-only acceptance. Detailed development/failure chronology is retained in `Gate5Results/DEVELOPMENT_NOTES.md`.
 
-PlayerState owns URVNeedsComponent so driver possession does not replace survival state. Nutrition, hydration, fatigue, minimal survival reserve, simulation time and rest mode replicate from the server. URVNeedsProfile provides tunable Data Asset values; defaults use hours rather than minutes. Walking, heavy carrying, driving, passenger, rest and sleep metabolism are separate inputs. Critical needs reduce movement speed through GetMaxSpeed without rewriting CharacterMovement prediction or the accepted moving-base solver. Survival reserve is a minimal replaceable consequence, clamped above zero; no injury or death system is implemented.
+## Implementation and Unreal framework review
 
-Item definitions now contain FRVConsumableMetadata. Consumption uses an owned inventory GUID, validates metadata and benefit, removes exactly one item on the server game thread, then applies clamped recovery. Remaining stack identity, condition and custom state remain unchanged. A real-time cooldown is independent of accelerated needs simulation. Clients send intent only. Editor automation dispatches requests through weak native next-tick delegates to avoid the previously diagnosed editor script RPC callspace guard.
+`URVNeedsComponent` is a native replicated component on `ARVPlayerState`. It owns nutrition, hydration, fatigue, a minimal survival reserve, elapsed simulation time and rest mode. PlayerState ownership survives driver/passenger possession changes. `FRVNeedsState` is reflected scalar data; persistent scalar fields have SaveGame flags. Rest reservations are transient and do not serialize as gameplay identity. No full save system, offline progression or region streaming is implemented.
 
-ARVRestPoint reserves one occupant and uses ordinary CharacterMovement at the character's current position. No sleep animation or cosmetic attachment is used. Rest/sleep requires a parked platform and ends when it moves or the reservation becomes invalid. Disconnect and teardown release reservations. Sleep reduces fatigue while continuing nutrition/hydration drain.
+RVSurvival rules are hour-based metabolism, activity classification, thresholds, recovery, inventory consumption validation and exclusive parked rest. Unreal provides component lifetime/ticking, PlayerState ownership, Primary Data Assets, Gameplay Tags, native replication/RepNotify/RPC transport, weak TimerManager dispatch, CharacterMovement prediction/based movement, UMG and native queued reconnect travel. No custom transport, scheduler, prediction layer or general effect stack was introduced.
 
-Developer controls require server authority, a non-shipping build and rv.Needs.AllowDebug=1. Their time scale does not change Chaos physics or interaction timers.
+**GAS decision:** evaluated installed UE 5.8 GameplayAbilities APIs and official Epic GAS/Lyra patterns before continuing major implementation. Retained the component for three slow scalar needs and one rest mode; current gameplay does not need predicted abilities, duration stacking or effect aggregation. Do not build a custom medical effect system later: reassess PlayerState-owned ASC/AttributeSets/GameplayEffects before injuries, bleeding, medication or timed/stacking buffs. Current APIs/data separate that boundary from inventory and RV movement. This decision preserves working Gates 1–4 rather than migrating them into Lyra's larger framework.
 
-## Build / failures
+Sources reviewed:
+- [Epic GAS overview](https://dev.epicgames.com/documentation/en-us/unreal-engine/understanding-the-unreal-engine-gameplay-ability-system)
+- [Epic attributes/ASC](https://dev.epicgames.com/documentation/en-us/unreal-engine/gameplay-ability-system-component-and-gameplay-attributes-in-unreal-engine)
+- [Epic Lyra abilities/PlayerState ownership](https://dev.epicgames.com/documentation/en-us/unreal-engine/abilities-in-lyra-in-unreal-engine)
 
-Initial UnrealHeaderTool failure: URVNeedsTuning and FRVNeedsTuning shared a reflected engine name. The Data Asset class was renamed URVNeedsProfile. The next Development Editor / Win64 build succeeded. A new deprecated NetUpdateFrequency assignment was replaced with SetNetUpdateFrequency before further validation.
+UMG supplies the new restrained survival readout. Native RepNotify/delegates drive updates and are unbound during widget teardown. Accepted Gate 4 Canvas inventory controls remain; CommonUI's layered/device-routing framework is deferred until required. Accepted movement/driving/interaction still use Enhanced Input. Inventory selection uses the existing native PlayerController key queries, with C consume, Z sleep/rest and R wake added; no custom input framework.
 
-## Remaining validation
+## Tuning and consequences
 
-Content/map setup, usable UI verification, single-player and separate-process multiplayer, latency/loss, realistic accelerated stress, rest/disconnect cleanup, moving-RV eating/drinking/pantry, Gates 1–4 regressions and final startup/shutdown are pending. Compilation is not acceptance.
+`URVNeedsProfile` is a Primary Data Asset; `/Game/Survival/DA_NormalNeeds` configures Gate 5's PlayerState. Server component tick interval is 0.25 seconds. Normal rates are not accelerated test rates.
 
-## Recovery discipline
+| Need | Start / maximum | Awake idle change per hour | Warning / critical |
+|---|---:|---:|---:|
+| Nutrition | 90 / 100 | −6 | ≤30 / ≤10 |
+| Hydration | 90 / 100 | −12 | ≤35 / ≤12 |
+| Fatigue | 10 / 100 | +4 | ≥60 / ≥85 |
 
-Foundation source saved before editor work. Accepted maps and purchased vendor content remain untouched. Existing unrelated Config/DefaultEngine.ini and IDE files will not be staged. Stable milestone commits will be recorded here as work progresses.
+Walking multiplier 1.3; heavy-carry multiplier 1.25; driving 1.05; seated passenger 0.8. Standing-passenger activity uses character acceleration, not inherited vehicle velocity. Rest/sleep metabolism is 0.65/0.5; fatigue recovers 10/25 per hour respectively. Sleeping never replenishes nutrition/hydration.
 
-## Unreal framework review (user course correction)
+Critical nutrition/hydration/fatigue cap movement at 0.8/0.6/0.65 of native speed; the strongest applicable limit wins. `GetMaxSpeed` reads this policy without mutating/restoring the accepted base movement settings or replacing prediction. Critical hunger/thirst reduce a minimal modular survival reserve at 1/5 per critical hour; integration accounts for threshold crossing within a time step. Reserve clamps above zero; this gate adds no elaborate health/injury/death system. Values, rates, thresholds, recovery and severity are editable tuning data; final balancing is not claimed.
 
-Reviewed current source plus installed UE 5.8 GameplayAbilities AttributeSet.h/AbilitySystemComponent.h, GameplayTags library and Epic's official GAS/Lyra/CommonUI guidance before further major implementation.
+Developer controls require authority, non-shipping/test builds and `rv.Needs.AllowDebug=1` (default off). `DebugSetValues`, `DebugSetTimeScale` and `DebugAdvanceTime` clamp/reject invalid values. Development needs acceleration changes neither Chaos time nor interaction/RPC cooldown clocks.
 
-RVSurvival-specific rules: hour-based metabolic drain/recovery, activity classification, threshold severity, owned-item transaction validation, rest reservation/parked policy and future persistence fields. These belong in project gameplay code.
+## Inventory and RV integration
 
-Engine services reused: ActorComponent lifetime/tick; PlayerState ownership across possession; Primary Data Assets for tuning/catalog; Gameplay Tags for classification/status; native UPROPERTY replication/RepNotify and owned reliable RPCs; weak TimerManager dispatch; accepted Enhanced Input and CharacterMovement prediction/based movement; UMG for the new needs display; existing FastArray inventory. No custom transport, scheduler, prediction, general effect stack or UI framework is being created.
+`FRVConsumableMetadata` extends existing item definitions with enabled flag, nutrition/hydration gains, minimum condition and future dietary/calorie metadata. `/Game/Items/DA_Food` gives 25 nutrition; `DA_Water` gives 35 hydration. Their Gate 4 mass/volume/stack/condition/category rules remain intact. Other test items remain inert; medicine, fuel, cooking and spoilage are absent.
 
-Decision: do not introduce GAS during this gate. Three slowly changing scalar needs, a single exclusive rest mode and derived threshold consequences do not currently need predicted abilities, duration stacking, cancellation graphs or effect aggregation. GAS would require new avatar initialization across character/vehicle possession and a migration of state without a demonstrated Gate 5 benefit. This is not a blanket rejection: before implementing injuries/bleeding/medication or timed/stacking buffs, evaluate an ASC on PlayerState with AttributeSets and GameplayEffects rather than inventing a custom effect system. The needs API and item metadata isolate the eventual integration boundary. Do not add a parallel replicated attribute store now.
+Owned reliable consume intent sends only an item GUID. Authority resolves that player's survivor inventory (including the retained driving survivor), rejects stale/unowned/non-consumable/no-benefit requests, removes one existing runtime quantity serially and applies clamped recovery. Remaining stack GUID, condition and custom state survive. Last-item duplicate requests cannot produce a second completion. Clients cannot supply effects or mint item state. Shared items must first transfer through the accepted authoritative container transaction.
 
-UMG is appropriate for the added restrained survival readout. CommonUI's layered menus/device-routing framework is deferred until the product needs those features; replacing accepted Gate 4 controls now has no demonstrated benefit. Serialization uses reflected value structs; SaveGame flags will identify relevant values, but no save system/offline progression is implemented.
+`ARVRestPoint` is a reusable exclusive interactable, independent of RV art. Rear bed and dinette reservations replicate occupants as PlayerStates. Hold E begins rest; Z toggles sleeping/resting; R leaves. The character remains at its current native floor/base, with walking/jumping restricted while resting; no sleep teleport/attachment or elaborate animation. Disconnect/teardown releases reservations. Rest/sleep currently requires platform speed ≤50 cm/s and wakes when the RV moves. Both rest surfaces were validated simultaneously.
 
-Sources:
-- https://dev.epicgames.com/documentation/en-us/unreal-engine/understanding-the-unreal-engine-gameplay-ability-system
-- https://dev.epicgames.com/documentation/en-us/unreal-engine/gameplay-ability-system-component-and-gameplay-attributes-in-unreal-engine
-- https://dev.epicgames.com/documentation/en-us/unreal-engine/abilities-in-lyra-in-unreal-engine
+`/Game/Maps/Gate5SurvivalTest` is saved with 64 editor actors: preserved purchased RV/drive space, eleven pickups, seven storage points and two rest points. It uses `/Game/Survival/BP_Gate5GameMode` and `BP_SurvivalPlayerState`. Water supplies are a finite filtered cupboard, not a water-tank simulation. Existing pantry, general/medical/tool/exterior cabinets and six workbench/medical/kitchen/storage/power/navigation placeholders remain. Vendor art and accepted maps/fallbacks are unchanged.
 
-Content setup encountered a Python read-only GameplayTagContainer property error, not a crash. The partially completed Gate 5 map was immediately saved through Editor Save All (All Saved verified). Repair will use the official GameplayTags Blueprint library API and in-place configuration, without recreating the map or its existing rest markers.
+## Actual validation
 
-## Live validation progress
+UE 5.8.3 CL 58210709, Development Editor / Win64; VS 14.44.35229 and Windows SDK 10.0.22621.0. Listen-server tests use two players. Independent-process cases use Run Under One Process **disabled**, confirmed distinct PIDs. Representative emulation uses outgoing-server min/max latency 100 ms and 2% packet loss; it is not a claim of bidirectional 100 ms or arbitrary fault tolerance.
 
-Single-player corrected run: 27/27 passed, including actual hold-interaction pickups, owned consumption, stack/last-item/stale-GUID handling, condition/custom-state preservation, exclusive rest entry, sleep recovery with continued metabolism, movement restriction/wake cleanup, status tags/warnings, consequences and 24-hour-equivalent clamping. Initial harness errors (live struct alias and non-exported Python movement getter) were repaired; initial evidence retained.
+| Test | Actual result |
+|---|---|
+| Final single-player | 27/27 passed: real pickup/consume, stacks/last item, stale/invalid GUID, condition/custom state, rest/sleep, clamping/status/consequences and analytical day |
+| Survival separate process, baseline | 13 server + 13 client checks passed; 32 paired checks |
+| Survival separate process, 100 ms/2% | 13 server + 13 client checks passed; 32 paired checks |
+| Host drives / client walks, baseline | 70 server + 71 client checks passed; paired local discrepancy max 10.34 cm |
+| Client drives / host walks, baseline | 72 server + 65 client checks passed; discrepancy max 8.69 cm |
+| Host drives / client walks, emulated | 70 server + 71 client checks passed; discrepancy max 10.23 cm |
+| Client drives / host walks, emulated | 72 server + 65 client checks passed; discrepancy max 26.88 cm |
+| Native remote UI, 640×480 | 7 state checks and visual review passed; physical I/Down/C/Z/R controls |
+| Accelerated stress, initial complete run | 200 consumptions / 200 GUIDs, 100 actual shared withdrawals, 20 rest/sleep/wake cycles; 86,404.89 seconds through real component ticks; no item/reservation/actor residue |
+| Native same-process reconnect, emulated | Corrected settled run passed 7 server + 5 client checks; repeat/final receipts pending consolidation |
+| Gate 1–4 final regression | Pending final receipt review |
+| Saved map startup/shutdown review | Pending final receipt review |
 
-First independent moving host/client run retained the complete accepted Gate 3 movement/workstation route and Gate 4 storage/drop route. Stationary and highway food consumption and turning food consumption passed. A fixed hydration target incorrectly omitted ~0.67 points of genuine drain accumulated over the route. The check now records pre-consumption values and verifies configured gain plus ongoing normal metabolism; no gameplay acceptance limits changed. Paired inventory/container/status receipts matched; maximum independently sampled passenger-local discrepancy was 10.51 cm. The run is not counted accepted until repeated with corrected expectation.
+Moving routes retain front/rear/sideways walking, standing, acceleration, braking, low/moderate/highway speed, gentle/strong turns, stop/resume, exit/reentry, six stationary/moving workstation interactions, pantry/medical/tool transfers, drop/repick and observer checks. Gate 5 adds stationary/highway/turning eating, road-speed drinking, continuing riding needs, independent possession state and confirmed parked sleep → movement wake. Storage actions were delayed eight seconds to insert the parked sleep test; no original movement requirement was removed.
 
-First separate-process survival transaction/rest run passed 11 server and 12 client gameplay checks. Python cleanup cleared the active callback module, but its caller then continued reading cleared globals (NameError after disconnect). The runner now returns immediately after teardown. No crash or leak occurred; a clean repeat is required before counting this sequence complete.
+All eight moving receipts recorded **zero floor-loss samples** in measured travel/storage windows. Largest actual passenger correction was **1.798 cm** in the emulated client walker; baseline/server-walker measured windows recorded zero. Paired observer timing discrepancy is reported separately from true local correction. Standing-drift and floor/correction receipts are in `movement-telemetry.json`; setup fixture teleports/corrections are not misrepresented as gameplay movement.
 
-Source review improvements queued for the next closed-editor build: UMG now binds native needs notifications and removes its delegate on widget destruction; HUD teardown removes the widget. Persistent value copies are no longer overwritten by subsequent BeginPlay initialization. Awake fatigue rates clamp nonnegative. Float font-color literals remove a compiler warning.
+Permanent compact receipts: `Docs/Gate5Results`. High-frequency raw samples and private full logs: `Saved/Gate5Validation`. Counts target specific failure modes; stress operation counts are not presented as hundreds of artificial assertions.
 
-Visual inspection found the survival widget positioned above the viewport: installed UE 5.8 UGameViewportSubsystem::SetWidgetSlotPosition explicitly resets anchors to top-left. The new HUD calls position before bottom anchoring/alignment; this is a supported API ordering fix, to be verified visually after rebuilding.
+## Failures, recovery and cleanup
 
-Stress fixture's initial hold missed its cupboard after the elevated pawn settled on the floor. It now reacquires the aim immediately before pressing E, as the accepted Gate 4 harness did. No interaction range/LOS/collision rule was relaxed.
+- UHT name collision between struct/class resolved by naming the Data Asset `URVNeedsProfile`; builds then passed. Deprecated net-frequency assignment and float warnings were removed.
+- Read-only Python tag-container setter repaired with Unreal's GameplayTag library. Partial content was immediately Save All'd and preserved, not recreated.
+- Single harness live-struct alias/non-exported movement getter repaired. Stress elevated fixture was re-aimed after floor settling.
+- UMG initially off-screen because UE's position setter resets anchors. Position-before-anchor ordering fixed; font enlarged for 640×480 and verified physically. Widget subscriptions clean up on teardown.
+- Moving drinking's initial fixed expectation omitted genuine accumulated hydration drain; checks now measure pre-consumption value plus configured recovery. Rest was initially attempted at 1,465 cm/s; the parked policy correctly rejected it. Test now verifies actual parked speed and confirmed sleep before wake.
+- Disconnect caller initially read globals after clearing its module. It now returns immediately. Reconnect readiness/name/world-scope/timing issues were fixed without changing gameplay checks. Native queued travel uses only primitive persistent Python state and reacquired active-world references.
+- A failed reconnect timeout repeatedly reset its exit deadline after Stop PIE. The guard was fixed. Windows UI activation failed twice; only that exact already-stopped/All Saved test process was terminated after command-line verification. This failed run is recorded as **forced cleanup**, not clean shutdown. Corrected runs use native clean teardown.
+- No new reproducible World Memory Leak fatal error was found; leak detection was not disabled. Unsupported World asset duplication/reload cleanup was not used.
 
-Stress run passed: 200 successful owned consumption operations with 200 unique GUIDs, 100 actual shared-container withdrawals, 20 hold-E rest/sleep/wake cycles, and 86,404.89 simulated seconds through accelerated real component ticks. No remaining inventory records, rest reservations or extra pickup actors. End values clamped (nutrition 0, hydration 0, fatigue 100; reserve 1.825). Editor shut down cleanly. This is accelerated engineering validation, not a claim of a real-time 24-hour session.
+## Limits and persistence boundary
 
-Rebuilt event-driven UMG lifetime, anchor ordering and persistent-copy fixes successfully with no new warnings in build-ui-lifetime.log. Final live testing remains pending on this rebuilt binary.
+Prototype balance, UI/art and logical standing rest poses remain. Parked-only sleep/rest is intentional; auto-wake on movement is validated. There is no full save/offline progression, persistent reconnect inventory, disease/temperature/nutrition-science/spoilage/contamination, full health/medical effects, cooking, fuel/electrical or streaming implementation. Reconnect creates a valid new session pawn; shared storage/other players are preserved, not a claim of full persistent character recovery. Existing seated inventory UI and Gate 3 rough-terrain/larger-party limits remain. Full timed/stacking medical effects require a fresh GAS decision before implementation.
 
-The moving-route rest failure was diagnosed from raw samples: RV speed was 1,464.54 cm/s at the initial E press and still 575.13 cm/s at the sleep check. The parked-only rest policy correctly rejected entry. The added test now waits until after the accepted exit/reentry route and verifies speed below 50 cm/s before requesting rest; the full original route remains, with subsequent storage actions delayed eight seconds. Wake-up requires confirmed prior sleep, preventing a vacuous success. No gameplay cutoff or acceptance criterion changed.
+Future persistence records need nutrition, hydration, fatigue, survival reserve, simulation time and a stable player identity; rest reservations should safely restore awake. Relevant saved timestamps/offline policy remain future design. The RV remains interactive during planned authored/procedural regional transit; no survival rule depends on one pawn or editor test state. Long-term region/party-cohesion decisions are in GAME_DESIGN.md and TECHNICAL_ARCHITECTURE.md.
 
-UMG text was enlarged from 12 to 20 for readable 640×480 DPI scaling; build-ui-readability.log succeeded without new warnings. Native remote keyboard/UI validation is running before the final moving/network matrix.
+## Saved files and checkpoints
 
-Native remote-client UI verification passed 7 state checks: physical I/Down/C controls consumed food and water, quantities and recovered needs matched server state, critical values/warnings converged, rest replicated, physical Z entered sleep, physical R woke and restored interaction. Readout, warnings, inventory capacities/condition and consume feedback were visually verified at 640×480. Duplicate rest controls were removed from feedback (the status readout remains the single control hint). UI editor shutdown was clean.
+New native files: `Public/Private/Survival/RVNeedsComponent`, `RVRestPoint`; `Private/Player/RVPlayerState.cpp`; `Public/Private/UI/RVSurvivalWidget`. Modified inventory definition/component, PlayerState/controller/survivor, CharacterMovement speed policy, HUD, vehicle seat-entry guard and Build.cs (UMG). Content: Gate5SurvivalTest, DA_NormalNeeds, BP_SurvivalPlayerState, BP_Gate5GameMode and Food/Water metadata. Validation tooling and required design/network/inventory/RV/roadmap/changelog documentation are committed.
 
-Final compiled multiplayer progress: survival baseline and 100 ms outgoing-server latency/2% loss each passed 13 server + 13 client gameplay checks and 32 independent paired checks. Both beds were occupied by different players; disconnect released only the departing player's reservation and did not cancel the other player's sleep.
+Checkpoints: `61178dc` foundation; `e518d58` framework/UMG; `7c4c0e6` saved content; `5677c47` single-player/framework decisions; `7502418` UI/lifetime/stress; `41b06a8` native controls; `42273e5` baseline authority/moving roles; `2cb14dc` emulated movement/reconnect/telemetry. Later final checkpoints will be recorded after remaining validation.
 
-Final baseline moving routes passed both ownership combinations (host-driver 70 server / 71 client checks; client-driver 72 server / 65 client checks), including actual parked sleep, automatic wake on movement, pantry use, stationary/highway/turning eating, road-speed drinking, continued needs across possession, and the preserved Gate 3/Gate 4 route. Independent paired comparison passed 132 checks per run; max local discrepancy 10.34 cm host-driver, 8.69 cm client-driver. Emulated moving routes and remaining regression/reconnect/cleanup checks are still pending.
+Vendor SHA-256: 108/108 match accepted import. Accepted Gate 1–4 maps and existing vehicle/fallback files have no diff from `7881ab0`. Existing unrelated `Config/DefaultEngine.ini`, `.vsconfig`, `Automation_RVSurvival.slnx`, `RVSurvival.slnx` are preserved outside commits; the configuration's security token is not reproduced in reports.
 
-Reconnect harness progress: an initial PlayerState-not-yet-replicated error was fixed by readiness/reacquisition. Its timeout handler repeatedly reset the exit deadline after Stop PIE; that guard was fixed. PIE was stopped and the map showed All Saved, but the Windows UI helper refused activation twice; only the exact failed reconnect Unreal process was terminated after verifying its project/runner command line. No asset/code/vendor work was lost. This run is recorded as forced test cleanup, not a clean shutdown.
-
-The next reconnect run actually logged a disconnect and new server pawn, but its client-side name comparison stalled: dynamic client actor names can be reused in a newly loaded world. The check now observes the native fallback-map/network-map transition and independently verifies the server's distinct new pawn. No gameplay or ownership criteria changed. Both world changes use Unreal's native queued disconnect/reconnect commands. Only primitive Python state persists across them. No World Memory Leak fatal error occurred.
-
-Final six-case separate-process matrix passed. Emulated moving host-driver maximum paired local discrepancy was 10.23 cm; emulated client-driver 26.88 cm. All eight movement receipts recorded zero floor-loss samples in the measured travel/storage windows. Largest actual passenger correction was 1.798 cm (emulated client walker); server walkers and baseline receipts recorded zero measured corrections in those windows. These observer timing differences are not persistent passenger displacement.
-
-Reconnect world-scope fix: ObjectIterator can include cached/old map Worlds while local-player controller lookup returns the current controller. The primitive-only harness now resolves the active world through the controlled pawn's owning level, so it cannot mix current needs with old container actors. Production components use their native GetWorld(). The corrected native disconnect → fallback Gate1Test → reconnect Gate5SurvivalTest sequence passed under 100 ms/2% loss. The client used the same process, the server created a distinct pawn, sleep cleanup released the bed, host needs/item GUID remained intact, and transferred food condition/custom state and authoritative consumption were correct. Clean editor shutdown. A second repeat and final regressions remain pending.
-
-Vendor integrity: 108/108 SHA-256 hashes match the accepted Gate 3 import manifest. No diff for accepted Gate 1–4 maps, purchased /Game/RV content or existing vehicle/fallback assets against accepted Gate 4 checkpoint 7881ab0.
+Final regression milestone: final single-player 27/27; Gate 1 23/23; Gate 2 24/24 plus 4 inventory-possession checks; Gate 4 expanded inventory 24/24 (including consumable drop/repick, mass/volume, container contention and disconnect integrity); final stress all six aggregate checks passed. Corrected settled reconnect repeats each passed 7 server + 5 client checks under emulation. All completed final regression editors shut down cleanly. Saved-map review/final build still precede acceptance.

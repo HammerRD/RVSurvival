@@ -13,7 +13,7 @@ def inspect_server():
  global seeded,initial_pawn,disconnected,rejoined
  w=next(w for w in unreal.ObjectIterator(unreal.World) if w.get_name()=='Gate5SurvivalTest' and unreal.GameplayStatics.get_game_mode(w));pc=unreal.GameplayStatics.get_player_controller(w,0);host=pc.get_controlled_pawn();hn=pc.get_editor_property('PlayerState').get_editor_property('Needs');cs=unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVSurvivorCharacter);remote=next((a for a in cs if a!=host),None)
  bed=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVRestPoint) if str(a.get_editor_property('DisplayName'))=='Rear bed');storage=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVStoragePoint) if str(a.get_editor_property('Container').get_editor_property('DisplayName'))=='External storage').get_editor_property('Container')
- if not seeded and remote:
+ if not seeded and remote and time.time()-started>6 and bed.get_attach_parent_actor().get_velocity().length()<10:
   unreal.SystemLibrary.execute_console_command(pc,'rv.Needs.AllowDebug 1',pc);hn.debug_set_values(35,45,55);hn.debug_set_time_scale(0);rn=remote.get_editor_property('PlayerState').get_editor_property('Needs');rn.debug_set_values(40,50,80);rn.debug_set_time_scale(0)
   add(host.get_component_by_class(unreal.RVInventoryComponent),'Water',1);add(storage,'Food',2);add(storage,'Bandage',1)
   remote.set_actor_location(bed.get_attach_parent_actor().get_actor_transform().transform_location(unreal.Vector(-180,0,195)),False,True);initial_pawn=remote.get_name();seeded=True

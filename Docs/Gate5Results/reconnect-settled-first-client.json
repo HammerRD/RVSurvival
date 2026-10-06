@@ -1,0 +1,46 @@
+{
+  "pid": 49720,
+  "results": [
+    {
+      "case": "sleeping_before_disconnect",
+      "pass": true,
+      "detail": "{'frame': True, 'bed_distance': 59.9279995722775, 'platform_speed': 0.0, 'prompt': '', 'world': '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest', 'controller': '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVPlayerController_0', 'pawn': 'RVInteriorTestCharacter_0', 'nutrition': 40.0, 'hydration': 50.0, 'fatigue': 80.0, 'rest': '<RVRestMode.SLEEPING: 2>', 'quantity': 0, 'container_quantity': 3, 'authority': False}"
+    },
+    {
+      "case": "native_disconnect_loaded_fallback",
+      "pass": true,
+      "detail": "Gate1Test"
+    },
+    {
+      "case": "same_process_rejoined_after_native_travel",
+      "pass": true,
+      "detail": "{'frame': False, 'bed_distance': 741.9272983276572, 'platform_speed': 0.0, 'prompt': '', 'world': '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest', 'controller': '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVPlayerController_0', 'pawn': 'RVInteriorTestCharacter_0', 'nutrition': 30.0, 'hydration': 40.0, 'fatigue': 50.0, 'rest': '<RVRestMode.AWAKE: 0>', 'quantity': 0, 'container_quantity': 3, 'authority': False}"
+    },
+    {
+      "case": "rejoined_item_state_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "rejoined_consume_authoritative",
+      "pass": true,
+      "detail": "{'frame': False, 'bed_distance': 743.6555398451926, 'platform_speed': 0.0, 'prompt': 'Hold E: open External storage', 'world': '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest', 'controller': '/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVPlayerController_0', 'pawn': 'RVInteriorTestCharacter_0', 'nutrition': 55.0, 'hydration': 40.0, 'fatigue': 50.0, 'rest': '<RVRestMode.AWAKE: 0>', 'quantity': 0, 'container_quantity': 2, 'authority': False}"
+    }
+  ],
+  "before": {
+    "frame": true,
+    "bed_distance": 59.9279995722775,
+    "platform_speed": 0.0,
+    "prompt": "",
+    "world": "/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest",
+    "controller": "/Game/Maps/Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVPlayerController_0",
+    "pawn": "RVInteriorTestCharacter_0",
+    "nutrition": 40.0,
+    "hydration": 50.0,
+    "fatigue": 80.0,
+    "rest": "<RVRestMode.SLEEPING: 2>",
+    "quantity": 0,
+    "container_quantity": 3,
+    "authority": false
+  }
+}
