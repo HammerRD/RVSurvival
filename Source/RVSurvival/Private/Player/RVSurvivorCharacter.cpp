@@ -74,6 +74,14 @@ void ARVSurvivorCharacter::PawnClientRestart()
             if (auto* Input = Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
             { InputLocalPlayer = Local; Input->RemoveMappingContext(Mapping); Input->AddMappingContext(Mapping, 0); }
 }
+void ARVSurvivorCharacter::Restart()
+{
+    Super::Restart();
+    // Possession restarts native walking even when the replicated seat did not
+    // change. Reapply the seated policy on authority AND the owning client.
+    if (SeatedVehicle) OnRep_VehicleSeat();
+    else if (RestPose && RestPose->RestPoint) GetCharacterMovement()->DisableMovement();
+}
 void ARVSurvivorCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
     Super::SetupPlayerInputComponent(PlayerInputComponent);

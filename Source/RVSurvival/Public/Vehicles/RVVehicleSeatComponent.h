@@ -14,6 +14,8 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Seat") bool bDriverSeat = false;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Seat") FText SeatLabel;
+    // Only this cushion/back is exempt from the seated upper-body clearance query.
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Seat") FName SurfaceCollisionName;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Seat") FVector EntryOffset = FVector(0, 180, 60);
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Seat") FVector ExitOffset = FVector(0, 280, 0);
     UPROPERTY(Replicated, BlueprintReadOnly, Category="Seat") TObjectPtr<ARVSurvivorCharacter> Occupant;

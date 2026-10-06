@@ -50,7 +50,7 @@ bool ARVVehicleBase::CanEnter(URVVehicleSeatComponent* Seat, ARVSurvivorCharacte
 }
 bool ARVVehicleBase::TryEnter(URVVehicleSeatComponent* Seat, ARVSurvivorCharacter* Character)
 {
-    if (!HasAuthority() || !CanEnter(Seat, Character)) return false;
+    if (!HasAuthority() || !CanEnter(Seat, Character) || !ValidateSeatDestination(Seat, Character)) return false;
     auto* PC = CastChecked<ARVPlayerController>(Character->GetController());
     Seat->Occupant = Character; Seat->OccupantController = PC;
     PC->SeatedVehicle = this; PC->SeatEntryTime = GetWorld()->GetTimeSeconds();
@@ -151,6 +151,8 @@ bool ARVVehicleBase::TrySwitchSeat(ARVPlayerController* PC, FName TargetSeat)
     auto* Character = Source->Occupant.Get();
     if (!IsValid(Character) || Character->SeatedVehicle != this
         || PC->GetPawn() != (Source->bDriverSeat ? static_cast<APawn*>(this) : Character)) return false;
+    if (!ValidateSeatDestination(Target,Character))
+    { PC->SeatFeedback=TEXT("Seat destination obstructed or unsupported; staying in current seat."); return false; }
     // Validate first, then transfer serially on the server. Never use the outside-exit path.
     if (Source->bDriverSeat)
     { ServerThrottle = ServerSteering = 0; bServerHandbrake = true; PC->Possess(Character); }
@@ -159,9 +161,19 @@ bool ARVVehicleBase::TrySwitchSeat(ARVPlayerController* PC, FName TargetSeat)
     Character->AttachToComponent(Target, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
     Character->SetActorRelativeLocation(FVector::ZeroVector);
     if (Target->bDriverSeat) { PC->Possess(this); LastInputTime = GetWorld()->GetTimeSeconds(); }
+    Character->SetVehicleSeat(this); // Possession may have restored walking; this remains an anchored seat.
     PC->SeatEntryTime = GetWorld()->GetTimeSeconds();
     PC->SeatFeedback = FString::Printf(TEXT("Now seated: %s"), *Target->SeatLabel.ToString());
     Character->ForceNetUpdate(); PC->ForceNetUpdate(); ForceNetUpdate(); return true;
+}
+bool ARVVehicleBase::ValidateSeatDestination(const URVVehicleSeatComponent* Seat,const ARVSurvivorCharacter* Character) const
+{
+    if (!Seat || !Character || Seat->GetOwner()!=this || Seat->GetComponentTransform().ContainsNaN()
+        || !Seat->IsAttachedTo(GetMesh())) return false;
+    FCollisionQueryParams Params(SCENE_QUERY_STAT(RVSeatDestination),false,this); Params.AddIgnoredActor(Character);
+    FHitResult Floor;
+    return GetWorld()->LineTraceSingleByChannel(Floor,Seat->GetComponentLocation()+FVector(0,0,25),
+        Seat->GetComponentLocation()-FVector(0,0,250),ECC_Pawn,Params) && Floor.ImpactNormal.Z>.65;
 }
 void ARVVehicleBase::ReleaseSeat(URVVehicleSeatComponent* Seat, bool Disconnect, const FVector& Position)
 {

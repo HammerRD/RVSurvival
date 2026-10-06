@@ -17,6 +17,7 @@ class RVSURVIVAL_API ARVSurvivorCharacter : public ACharacter
 public:
     ARVSurvivorCharacter(const FObjectInitializer& Initializer = FObjectInitializer::Get());
     virtual void PawnClientRestart() override;
+    virtual void Restart() override;
     virtual void UnPossessed() override;
     virtual void OnRep_Controller() override;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out) const override;

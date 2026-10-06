@@ -62,6 +62,17 @@ void ARVInteriorMotorhome::OnConstruction(const FTransform& Transform)
     // and must not register presentation/collision components.
     if (IsTemplate() || !GetWorld()) return;
     for (const auto& Part : GeneratedParts) if (Part) Part->DestroyComponent(); GeneratedParts.Reset();
+    // Loaded maps can retain serialized generated components while the transient
+    // tracking array is empty. Remove only configured layout components, never
+    // native seats, chassis, camera or vendor assets, before rebuilding the preview.
+    for (auto* Part:TInlineComponentArray<USceneComponent*>(this))
+    {
+        if (Part==InteriorFloor || Part==GetMesh()) continue;
+        const auto Index=Part->GetFName().GetComparisonIndex();
+        const bool Art=VisualParts.ContainsByPredicate([Index](const FRVVisualPart& D){return D.Name.GetComparisonIndex()==Index;});
+        const bool Collision=InteriorCollision.ContainsByPredicate([Index](const FRVInteriorCollision& D){return D.Name.GetComparisonIndex()==Index;});
+        if (Art || Collision || Part->ComponentHasTag(TEXT("RVGeneratedLayout"))) Part->DestroyComponent();
+    }
     GetMesh()->SetVisibility(false, false);
     for (const auto& Def : VisualParts)
     {
@@ -73,7 +84,8 @@ void ARVInteriorMotorhome::OnConstruction(const FTransform& Transform)
             if (Def.Materials[Index]) Part->SetMaterial(Index, Def.Materials[Index]);
         Part->bDisallowNanite = Def.bDisallowNanite;
         if (bInteractiveHouseDoor && (Def.Name==HouseDoorPartName || Def.Name==HouseDoorGlassPartName))
-        { Part->SetVisibility(!GetWorld()->IsGameWorld()); Part->SetRelativeRotation(FRotator::ZeroRotator); }
+        { Part->SetVisibility(!GetWorld()->IsGameWorld()); Part->SetHiddenInGame(true); Part->SetRelativeRotation(FRotator::ZeroRotator); }
+        Part->ComponentTags.Add(TEXT("RVGeneratedLayout"));
         Part->SetCollisionEnabled(ECollisionEnabled::NoCollision); Part->RegisterComponent(); GeneratedParts.Add(Part);
     }
     for (const auto& Def : InteriorCollision)
@@ -85,6 +97,7 @@ void ARVInteriorMotorhome::OnConstruction(const FTransform& Transform)
         Part->SetCollisionProfileName(TEXT("BlockAll")); Part->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
         if (Def.bPassengerFloor) Part->ComponentTags.Add(TEXT("RVPassengerPlatform"));
         Part->SetNetAddressable(); Part->RegisterComponent(); GeneratedParts.Add(Part);
+        Part->ComponentTags.Add(TEXT("RVGeneratedLayout"));
         if (Def.bVisiblePrototype)
         {
             auto* Tread = NewObject<UStaticMeshComponent>(this, FName(*(Def.Name.ToString()+TEXT("_VisibleStep"))));
@@ -92,14 +105,23 @@ void ARVInteriorMotorhome::OnConstruction(const FTransform& Transform)
             Tread->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,TEXT("/Engine/BasicShapes/Cube.Cube")));
             Tread->SetRelativeLocation(Def.Center); Tread->SetRelativeScale3D(Def.Extent/50.f);
             Tread->SetCollisionEnabled(ECollisionEnabled::NoCollision); Tread->RegisterComponent(); GeneratedParts.Add(Tread);
+            Tread->ComponentTags.Add(TEXT("RVGeneratedLayout"));
         }
     }
 }
 void ARVInteriorMotorhome::BeginPlay()
 {
     Super::BeginPlay();
-    if (bInteractiveHouseDoor) for (const FName Name : {HouseDoorPartName,HouseDoorGlassPartName})
-        if (auto* Part=FindVisualPart(Name)) Part->SetVisibility(false);
+    if (bInteractiveHouseDoor)
+    {
+        // Do not depend on the transient construction tracking array in saved PIE.
+        // Hide every original owned door/glass visual; the separately owned live
+        // door actor remains visible and controls its own collision/state.
+        for (auto* Part:TInlineComponentArray<UStaticMeshComponent*>(this))
+            if (VisualParts.ContainsByPredicate([this,Part](const FRVVisualPart& D)
+                {return (D.Name==HouseDoorPartName || D.Name==HouseDoorGlassPartName) && D.Mesh==Part->GetStaticMesh();}))
+            { Part->SetVisibility(false); Part->SetHiddenInGame(true); }
+    }
     if (HasAuthority() && bInteractiveHouseDoor)
     {
         const auto* Door=VisualParts.FindByPredicate([this](const FRVVisualPart& P){return P.Name==HouseDoorPartName;});
@@ -159,6 +181,23 @@ UStaticMeshComponent* ARVInteriorMotorhome::FindVisualPart(FName Name) const
 {
     for (const auto& Part : GeneratedParts) if (Part && Part->GetFName()==Name) return Cast<UStaticMeshComponent>(Part.Get());
     return nullptr;
+}
+bool ARVInteriorMotorhome::ValidateSeatDestination(const URVVehicleSeatComponent* Seat,const ARVSurvivorCharacter* Character) const
+{
+    if (!Seat || !Character || Seat->GetOwner()!=this || Seat->GetComponentTransform().ContainsNaN()
+        || !Seat->IsAttachedTo(GetMesh())) return false;
+    FCollisionQueryParams Params(SCENE_QUERY_STAT(RVInteriorSeatDestination),false,Character);
+    const FName Cushion=Seat->SurfaceCollisionName.IsNone() ? (Seat->bDriverSeat?FName(TEXT("DriverChair")):FName(TEXT("PassengerChair"))) : Seat->SurfaceCollisionName;
+    for (auto* Part:TInlineComponentArray<UPrimitiveComponent*>(this))
+        if (Part->GetFName().GetComparisonIndex()==Cushion.GetComparisonIndex()) Params.AddIgnoredComponent(Part);
+    FHitResult Floor;
+    const FVector Point=Seat->GetComponentLocation();
+    if (!GetWorld()->LineTraceSingleByChannel(Floor,Point+FVector(0,0,20),Point-FVector(0,0,180),ECC_Pawn,Params)
+        || !Floor.GetComponent() || !Floor.GetComponent()->ComponentHasTag(TEXT("RVPassengerPlatform")) || Floor.ImpactNormal.Z<.7) return false;
+    // A seated pose intentionally occupies its cushion. Check its upper body against
+    // all other furniture/walls/players, not a standing capsule through the cushion/floor.
+    return !GetWorld()->OverlapBlockingTestByChannel(Point+FVector(0,0,30),Seat->GetComponentQuat(),ECC_Pawn,
+        FCollisionShape::MakeCapsule(20,45),Params);
 }
 bool ARVInteriorMotorhome::TryStandingDoor(ARVSurvivorCharacter* Character, bool Enter)
 {

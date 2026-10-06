@@ -76,6 +76,7 @@ public:
     UFUNCTION(BlueprintCallable, Category="RV|Configuration") void RefreshConfiguration();
     UFUNCTION(BlueprintCallable, Category="RV|Configuration") static TArray<FVector> InspectArtSurfaces(class UStaticMesh* ArtMesh);
 private:
+    virtual bool ValidateSeatDestination(const class URVVehicleSeatComponent* Seat, const class ARVSurvivorCharacter* Character) const override;
     UPROPERTY(Transient) TArray<TObjectPtr<class USceneComponent>> GeneratedParts;
 };
 
