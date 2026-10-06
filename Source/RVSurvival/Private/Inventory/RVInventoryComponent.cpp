@@ -109,11 +109,17 @@ void URVInventoryComponent::ServerDrop_Implementation(FGuid Id, int32 Quantity)
     for(float Offset:{0.f,45.f,-45.f,90.f,-90.f})
     {
         const FVector Candidate=Eye+FRotator(0,Rotation.Yaw+Offset,0).Vector()*100;
-        if(GetWorld()->SweepSingleByChannel(Hit,Eye,Candidate,FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(20),Params)) continue;
-        if(!GetWorld()->LineTraceSingleByChannel(Hit,Candidate,Candidate-FVector(0,0,220),ECC_WorldStatic,Params) || Hit.Normal.Z<.7) continue;
-        if(Hit.Location.Z<FeetZ-45 || Hit.Location.Z>FeetZ+60) continue;
+        if(GetWorld()->SweepSingleByChannel(Hit,Eye,Candidate,FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(20),Params))
+        { if(InventoryDebug.GetValueOnGameThread()) UE_LOG(LogRVNetworking,Log,TEXT("Drop offset=%.0f path blocked by %s"),Offset,*GetNameSafe(Hit.GetComponent())); continue; }
+        // Use the same query collision as interior interaction and safe vehicle exits.
+        // WorldStatic hits the RV's coarse physics chassis above its walkable cabin floor.
+        if(!GetWorld()->LineTraceSingleByChannel(Hit,Candidate,Candidate-FVector(0,0,220),ECC_Visibility,Params) || Hit.Normal.Z<.7)
+        { if(InventoryDebug.GetValueOnGameThread()) UE_LOG(LogRVNetworking,Log,TEXT("Drop offset=%.0f no suitable support %s normal=%.2f"),Offset,*GetNameSafe(Hit.GetComponent()),Hit.Normal.Z); continue; }
+        if(Hit.Location.Z<FeetZ-45 || Hit.Location.Z>FeetZ+60)
+        { if(InventoryDebug.GetValueOnGameThread()) UE_LOG(LogRVNetworking,Log,TEXT("Drop offset=%.0f support %s height delta=%.2f"),Offset,*GetNameSafe(Hit.GetComponent()),Hit.Location.Z-FeetZ); continue; }
         Position=Hit.Location+FVector(0,0,20);
-        if(GetWorld()->OverlapBlockingTestByChannel(Position,FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(18),Params)) continue;
+        if(GetWorld()->OverlapBlockingTestByChannel(Position,FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(18),Params))
+        { if(InventoryDebug.GetValueOnGameThread()) UE_LOG(LogRVNetworking,Log,TEXT("Drop offset=%.0f landing overlap at %s"),Offset,*Position.ToString()); continue; }
         Support=Hit.GetComponent();
         bFound=true; break;
     }

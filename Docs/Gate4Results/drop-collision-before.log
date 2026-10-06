@@ -1,0 +1,5 @@
+[2026.10.06-00.14.58:719][485]LogRVNetworking: Drop offset=0 path blocked by RearCabinet
+[2026.10.06-00.14.58:719][485]LogRVNetworking: Drop offset=45 path blocked by RearCabinet
+[2026.10.06-00.14.58:719][485]LogRVNetworking: Drop offset=-45 support VehicleMesh height delta=152.00
+[2026.10.06-00.14.58:719][485]LogRVNetworking: Drop offset=90 support VehicleMesh height delta=152.00
+[2026.10.06-00.14.58:719][485]LogRVNetworking: Drop offset=-90 support VehicleMesh height delta=152.00

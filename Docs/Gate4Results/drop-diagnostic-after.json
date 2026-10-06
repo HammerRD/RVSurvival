@@ -1,0 +1,25 @@
+{
+  "results": [
+    {
+      "case": "inventory_seed_fixture",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "natural_entry",
+      "pass": true,
+      "detail": "[126.9721116471609, 11.106524480795555, 177.11368095440056]"
+    },
+    {
+      "case": "driver_possession",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "drop_probe",
+      "pass": true,
+      "detail": "{'feedback': '', 'local_feedback': '', 'position': [-190.49996714209834, 11.038647824797726, 191.6781287770143], 'yaw': -109.44722872247343, 'items': ['Water', 'Bandage', 'EnginePart'], 'actors': [[-96.54655544185812, -22.257619898572866, 121.48970297496922]]}"
+    }
+  ],
+  "samples": []
+}
