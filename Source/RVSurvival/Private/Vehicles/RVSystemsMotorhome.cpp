@@ -18,7 +18,7 @@ ARVSystemsMotorhome::ARVSystemsMotorhome(const FObjectInitializer& Init):Super(I
     RearLight=CreateDefaultSubobject<UPointLightComponent>(TEXT("InteriorRearLight")); RearLight->SetupAttachment(GetMesh());
     FrontLight->SetRelativeLocation(FVector(110,0,250)); RearLight->SetRelativeLocation(FVector(-180,0,270));
     for(auto* Light:{FrontLight.Get(),RearLight.Get()})
-    { Light->SetIntensity(1000); Light->SetAttenuationRadius(350); Light->SetLightColor(FLinearColor(1,.85,.65)); Light->SetCastShadows(false); Light->SetVisibility(false); }
+    { Light->SetIntensity(1000); Light->SetAttenuationRadius(350); Light->SetLightColor(FLinearColor(1.f,.85f,.65f)); Light->SetCastShadows(false); Light->SetVisibility(false); }
 }
 void ARVSystemsMotorhome::BeginPlay()
 {

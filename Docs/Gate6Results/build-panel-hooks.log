@@ -1,0 +1,72 @@
+Using bundled DotNet SDK version: 10.0 win-x64
+Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" RVSurvivalEditor Win64 Development -Project=D:/GitHub/RVSurvival/RVSurvival/RVSurvival.uproject -WaitMutex -NoHotReloadFromIDE
+Log file: C:\Users\bobgo\AppData\Local\UnrealBuildTool\Log.txt
+Using 'git status' to determine working set for adaptive non-unity build (D:\GitHub\RVSurvival\RVSurvival).
+Invalidating makefile for RVSurvivalEditor (working set of source files changed)
+UHT compiled-in object format Default
+Building RVSurvivalEditor...
+===== Toolchain Information =====
+Using ISPC compiler (D:\Epic Games\UE_5.8\Engine\Source\ThirdParty\Intel\ISPC\bin\Windows\ispc.exe)
+  Intel(r) Implicit SPMD Program Compiler (Intel(r) ISPC), 1.24.0 (build commit  @ 20250404, LLVM 18.1.2) 
+Using Visual Studio 14.44.35229 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[Adaptive Build] Excluded from RVSurvival unity file: RVInteriorStation.cpp, RVBatteryComponent.cpp, RVElectricalComponent.cpp, RVPrototypeHUD.cpp, RVInteriorMotorhome.cpp, RVSystemsMotorhome.cpp
+=================================
+Determining max actions to execute in parallel (16 physical cores, 24 logical cores)
+  Executing up to 16 processes, one per physical core
+  Requested 1.5 GB memory per action, 8.9 GB available: limiting max parallel actions to 5
+Using XGE executor to run 10 action(s)
+Distributing 10 actions to XGE
+UnrealBuildTool Compile
+
+--------------------Build System Warning---------------------------------------
+License not activated:
+    License is not activated. Please activate the license in the coordinator.
+    This build will run in standalone mode.
+
+-------------------------------------------------------------------------------
+ 
+Build ID: {8DB7A696-4E7B-4E24-83C8-498554469371}
+ 
+--------------------Project: Default-------------------------------------------
+[1/10] Compile [x64] RVBatteryComponent.cpp (0:02.37 at +0:00)
+[2/10] Compile [x64] RVElectricalComponent.cpp (0:02.62 at +0:00)
+[3/10] Compile [x64] RVInteriorStation.cpp (0:03.68 at +0:00)
+[4/10] Compile [x64] RVPrototypeHUD.cpp (0:04.56 at +0:00)
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\UI\RVPrototypeHUD.cpp(48,176): warning C4305: 'argument': truncation from 'double' to 'float'
+            DrawText(FString::Printf(TEXT("RV monitor | Fuel %.2f / %.0f L"),V->PropulsionFuel->Litres,V->PropulsionFuel->CapacityLitres),FLinearColor::White,X+10,120,nullptr,.85);
+                                                                                                                                                                               ^
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\UI\RVPrototypeHUD.cpp(49,232): warning C4305: 'argument': truncation from 'double' to 'float'
+            DrawText(FString::Printf(TEXT("House %.0f%% (%.1f Wh) | Chassis %.0f%%"),V->HouseBattery->GetStateOfCharge()*100,V->HouseBattery->EnergyWh,V->ChassisBattery->GetStateOfCharge()*100),FLinearColor::White,X+10,145,nullptr,.8);
+                                                                                                                                                                                                                                       ^
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\UI\RVPrototypeHUD.cpp(50,237): warning C4305: 'argument': truncation from 'double' to 'float'
+            DrawText(FString::Printf(TEXT("Generator %s | solar %.0f%% | idle %s"),Bus->bGeneratorRunning?TEXT("ON"):TEXT("off"),Bus->SolarInput*100,Bus->bEngineIdleRequested?TEXT("ON"):TEXT("off")),FLinearColor::White,X+10,170,nullptr,.8);
+                                                                                                                                                                                                                                            ^
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\UI\RVPrototypeHUD.cpp(51,196): warning C4305: 'argument': truncation from 'double' to 'float'
+            DrawText(FString::Printf(TEXT("Load %.0f/%.0f W | battery %+.0f W"),Bus->Flow.SuppliedWatts,Bus->Flow.RequestedWatts,Bus->Flow.HouseBatteryWatts),FLinearColor::White,X+10,195,nullptr,.8);
+                                                                                                                                                                                                   ^
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\UI\RVPrototypeHUD.cpp(54,83): warning C4305: 'argument': truncation from 'double' to 'float'
+            DrawText(Bus->GetSourceSummary(),FLinearColor::White,X+10,288,nullptr,.7);
+                                                                                  ^
+[5/10] Compile [x64] RVSystemsMotorhome.cpp (0:05.45 at +0:00)
+[6/10] Compile [x64] RVInteriorMotorhome.cpp (0:06.48 at +0:00)
+[7/10] Compile [x64] Module.RVSurvival.cpp (0:09.64 at +0:00)
+[8/10] Link [x64] UnrealEditor-RVSurvival.lib (0:00.09 at +0:09)
+[9/10] Link [x64] UnrealEditor-RVSurvival.dll (0:00.75 at +0:09)
+[10/10] WriteMetadata RVSurvivalEditor.target (0:00.37 at +0:10)
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\UI\RVPrototypeHUD.cpp(58,124): warning C4305: 'argument': truncation from 'double' to 'float'
+                DrawText(TEXT("H lights | J generator | K fridge | L tools | O idle"),FLinearColor::White,X+10,333,nullptr,.7);
+                                                                                                                           ^
+   Creating library D:/GitHub/RVSurvival/RVSurvival/Intermediate/Build/Win64/x64/UnrealEditor/Development/RVSurvival/UnrealEditor-RVSurvival.lib and object D:/GitHub/RVSurvival/RVSurvival/Intermediate/Build/Win64/x64/UnrealEditor/Development/RVSurvival/UnrealEditor-RVSurvival.exp
+---------------------- Done ----------------------
+ 
+    Rebuild All: 1 succeeded, 0 failed, 0 skipped
+ 
+1 build system warning(s):
+   - License not activated
+ 
+Total time in XGE executor: 13.32 seconds
+Output binary: D:\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealEditor.exe
+
+Result: Succeeded
+Total execution time: 15.69 seconds
+Trace written to file C:\Users\bobgo\AppData\Local\UnrealBuildTool\Trace.uba with size 2.5kb

@@ -51,6 +51,7 @@ void ARVPrototypeHUD::DrawHUD()
             DrawText(FString::Printf(TEXT("Load %.0f/%.0f W | battery %+.0f W"),Bus->Flow.SuppliedWatts,Bus->Flow.RequestedWatts,Bus->Flow.HouseBatteryWatts),FLinearColor::White,X+10,195,nullptr,.8);
             int32 Line=0;
             for(const auto& Load:Bus->Loads) DrawText(FString::Printf(TEXT("%s: %s / %s"),*Load.DisplayName.ToString(),Load.bEnabled?TEXT("on"):TEXT("off"),Load.bPowered?TEXT("powered"):TEXT("no power")),FLinearColor::White,X+10,220+(Line++)*18,nullptr,.75);
+            DrawText(Bus->GetSourceSummary(),FLinearColor::White,X+10,288,nullptr,.7);
             DrawText(PC->ResourceFeedback,FLinearColor::Yellow,X+10,310,nullptr,.75);
             if(PC->ResourcePoint && !PC->ResourcePoint->bFuelFill)
             {

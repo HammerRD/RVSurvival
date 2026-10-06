@@ -6,6 +6,8 @@ void URVBatteryComponent::BeginPlay()
     Super::BeginPlay();
     if(GetOwner()->HasAuthority())
     { CapacityWh=FMath::IsFinite(CapacityWh)?FMath::Max(0.,CapacityWh):0;
+      MaxChargeWatts=FMath::IsFinite(MaxChargeWatts)?FMath::Max(0.,MaxChargeWatts):0;
+      MaxDischargeWatts=FMath::IsFinite(MaxDischargeWatts)?FMath::Max(0.,MaxDischargeWatts):0;
       EnergyWh=FMath::IsFinite(InitialWh)?FMath::Clamp(InitialWh,0.,CapacityWh):0; OnRep_Energy(); }
 }
 void URVBatteryComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const

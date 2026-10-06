@@ -11,6 +11,7 @@ public:
     ARVInteriorStation();
     UPROPERTY(Replicated, EditAnywhere, BlueprintReadOnly) FName RequiredPowerLoad;
     virtual bool CanInteract_Implementation(APawn* Pawn) const override;
+    virtual void CompleteInteraction_Implementation(APawn* Pawn) override;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out) const override;
     virtual FText GetInteractionText_Implementation(APawn* Interactor) const override;
     UPROPERTY(Replicated, BlueprintReadOnly, Category="RV|Station") FName StationName;

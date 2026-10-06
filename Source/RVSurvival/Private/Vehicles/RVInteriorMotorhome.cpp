@@ -95,7 +95,7 @@ void ARVInteriorMotorhome::BeginPlay()
     {
         auto* Station = GetWorld()->SpawnActor<ARVInteriorStation>();
         if (!Station) continue;
-        Station->StationName = Def.Name;
+        Station->StationName = Def.Name; Station->RequiredPowerLoad=Def.RequiredPowerLoad;
         Station->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale);
         Station->SetActorRelativeLocation(Def.Position); Station->ForceNetUpdate();
     }

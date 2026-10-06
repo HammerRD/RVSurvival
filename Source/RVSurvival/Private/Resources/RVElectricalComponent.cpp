@@ -39,7 +39,12 @@ void URVElectricalComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty
     DOREPLIFETIME(URVElectricalComponent,bEngineRunning); DOREPLIFETIME(URVElectricalComponent,Flow);
     DOREPLIFETIME(URVElectricalComponent,ControlRevision);
 }
-void URVElectricalComponent::OnRep_Power() { OnPowerChanged.Broadcast(); OnGeneratorNoiseChanged.Broadcast(); }
+void URVElectricalComponent::OnRep_Power()
+{
+    OnPowerChanged.Broadcast();
+    if(bReportedGeneratorNoise!=bGeneratorRunning)
+    { bReportedGeneratorNoise=bGeneratorRunning; OnGeneratorNoiseChanged.Broadcast(); }
+}
 bool URVElectricalComponent::IsLoadPowered(FName Id) const
 { const auto* L=Loads.FindByPredicate([&](const auto& X){return X.Id==Id;}); return L && L->bPowered; }
 bool URVElectricalComponent::HasHousePower() const
@@ -92,6 +97,7 @@ void URVElectricalComponent::AdvanceAuthority(double Seconds,bool EngineOperatin
     double BatteryAllowance=FMath::Min(V->HouseBattery->EnergyWh,FMath::Max(0.,V->HouseBattery->MaxDischargeWatts)*Hours);
     double ChassisAllowance=FMath::Min(V->ChassisBattery->EnergyWh,FMath::Max(0.,V->ChassisBattery->MaxDischargeWatts)*Hours);
     double HouseUsed=0,ChassisUsed=0;
+    double ChassisSource=Tuning.AlternatorChassisWatts*EngineFraction*Hours;
     for(auto& L:Loads)
     {
         L.bPowered=false; if(!L.bEnabled) continue;
@@ -99,7 +105,11 @@ void URVElectricalComponent::AdvanceAuthority(double Seconds,bool EngineOperatin
         const double Need=L.Watts*Hours;
         if(L.Domain==ERVPowerDomain::Chassis)
         {
-            if(ChassisAllowance+1e-9>=Need) { ChassisAllowance-=Need; ChassisUsed+=Need; L.bPowered=true; Flow.SuppliedWatts+=L.Watts; }
+            if(ChassisAllowance+ChassisSource+1e-9>=Need)
+            { const double Generated=FMath::Min(Need,ChassisSource); ChassisSource-=Generated;
+              ChassisAllowance-=Need-Generated; ChassisUsed+=Need-Generated;
+              if(Generated>0) Flow.ActiveSources.AddUnique(ERVPowerSource::Alternator);
+              L.bPowered=true; Flow.SuppliedWatts+=L.Watts; }
             continue;
         }
         double Available=BatteryAllowance; for(double X:SourceWh) Available+=X;
@@ -124,7 +134,7 @@ void URVElectricalComponent::AdvanceAuthority(double Seconds,bool EngineOperatin
     for(auto S:Tuning.SourcePriority) if(S!=ERVPowerSource::Battery && UnassignedCharge>0)
     { double Used=FMath::Min(SourceWh[int(S)],UnassignedCharge); UnassignedCharge-=Used; if(Used>0) Flow.ActiveSources.AddUnique(S); }
     Flow.HouseBatteryWatts=(Charged-HouseUsed)/Hours;
-    Flow.ChassisChargeWatts=V->ChassisBattery->ChargeAuthority(Tuning.AlternatorChassisWatts*EngineFraction*Hours,Hours)/Hours;
+    Flow.ChassisChargeWatts=V->ChassisBattery->ChargeAuthority(ChassisSource,Hours)/Hours;
     OnRep_Power(); V->ForceNetUpdate();
 }
 bool URVElectricalComponent::DebugAdvance(double Seconds,bool Engine,double Throttle,double Speed)
@@ -143,4 +153,17 @@ bool URVElectricalComponent::DebugSetTimeScale(double Scalar)
 {
     if(!URVFuelComponent::DebugAllowed() || !GetOwner()->HasAuthority() || !FMath::IsFinite(Scalar)) return false;
     TimeScale=FMath::Clamp(Scalar,.01,1000.); return true;
+}
+
+FString URVElectricalComponent::GetSourceSummary() const
+{
+    FString Text;
+    for(auto Source:Flow.ActiveSources)
+    { if(!Text.IsEmpty()) Text+=TEXT(" + "); Text+=StaticEnum<ERVPowerSource>()->GetNameStringByValue(int64(Source)); }
+    return Text.IsEmpty()?(HasHousePower()?TEXT("Battery ready / no active draw"):TEXT("No usable power")):Text;
+}
+bool URVElectricalComponent::SetExternalPowerAuthority(bool Connected)
+{
+    if(!GetOwner()->HasAuthority()) return false;
+    bShoreConnected=Connected; GetOwner()->ForceNetUpdate(); return true;
 }

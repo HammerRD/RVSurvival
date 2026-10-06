@@ -34,6 +34,7 @@ def make():
  for name,capacity,amount,ftype in [('Full',20,20,'Gasoline'),('Partial',10,3.75,'Gasoline'),('Empty',20,0,'Gasoline'),('Diesel',20,20,'Diesel')]:
   path='/Game/Resources/DA_FuelCan'+name
   asset=unreal.load_asset(path) or unreal.EditorAssetLibrary.duplicate_asset('/Game/Items/DA_FuelCan',path)
+  asset.set_editor_property('WeightKg',6 if capacity==10 else 12);asset.set_editor_property('VolumeLitres',12 if capacity==10 else 22)
   asset.set_editor_property('CatalogId','FuelCan'+name);asset.set_editor_property('DisplayName',unreal.Text(name+' fuel can'))
   meta=asset.get_editor_property('Fuel');meta.set_editor_property('bFuelContainer',True);meta.set_editor_property('FuelType',unreal.RVItemDefinition.find_registered_tag('Resource.Fuel.'+ftype));meta.set_editor_property('CapacityLitres',capacity);meta.set_editor_property('InitialLitres',amount)
   asset.set_editor_property('Fuel',meta);assert unreal.EditorAssetLibrary.save_loaded_asset(asset,False)

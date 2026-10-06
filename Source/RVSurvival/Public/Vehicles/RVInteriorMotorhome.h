@@ -39,6 +39,7 @@ USTRUCT(BlueprintType)
 struct FRVStationDefinition
 {
     GENERATED_BODY()
+    UPROPERTY(EditAnywhere, BlueprintReadWrite) FName RequiredPowerLoad;
     UPROPERTY(EditAnywhere, BlueprintReadWrite) FName Name;
     UPROPERTY(EditAnywhere, BlueprintReadWrite) FVector Position = FVector::ZeroVector;
 };

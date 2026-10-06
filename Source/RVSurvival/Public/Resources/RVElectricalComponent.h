@@ -39,10 +39,13 @@ public:
     bool SetControlAuthority(FName Control, bool Enabled, int32 ExpectedRevision, FString& Error);
     void AdvanceAuthority(double Seconds, bool EngineOperating, double Throttle, double SpeedCmS);
     UFUNCTION(BlueprintCallable) bool DebugAdvance(double Seconds, bool EngineOperating, double Throttle, double SpeedCmS);
+    UFUNCTION(BlueprintPure) FString GetSourceSummary() const;
+    UFUNCTION(BlueprintCallable, BlueprintAuthorityOnly) bool SetExternalPowerAuthority(bool Connected);
     UFUNCTION(BlueprintCallable) bool DebugSetSolar(double Scalar);
     UFUNCTION(BlueprintCallable) bool DebugSetTimeScale(double Scalar);
 private:
     UFUNCTION() void OnRep_Power();
     double TimeScale=1;
+    bool bReportedGeneratorNoise=false;
     friend class ARVSystemsMotorhome;
 };
