@@ -23,3 +23,12 @@ private:
     UFUNCTION() void OnRep_Seat();
     UPROPERTY() TObjectPtr<class UTextRenderComponent> Label;
 };
+
+/** Compact cabin adapter: identical native query/presentation defaults on every net role. */
+UCLASS()
+class RVSURVIVAL_API ARVVehicleInteriorSeatPoint : public ARVVehicleEntryPoint
+{
+    GENERATED_BODY()
+public:
+    ARVVehicleInteriorSeatPoint();
+};

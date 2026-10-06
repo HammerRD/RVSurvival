@@ -120,12 +120,10 @@ void ARVInteriorMotorhome::BeginPlay()
     }
     if (bInteriorSeatAccess) for (auto* Seat : GetSeats())
     {
-        auto* Point=GetWorld()->SpawnActorDeferred<ARVVehicleEntryPoint>(ARVVehicleEntryPoint::StaticClass(),GetActorTransform(),this);
+        auto* Point=GetWorld()->SpawnActorDeferred<ARVVehicleInteriorSeatPoint>(ARVVehicleInteriorSeatPoint::StaticClass(),GetActorTransform(),this);
         Point->Seat=Seat; Point->FinishSpawning(GetActorTransform());
         Point->AttachToComponent(GetMesh(),FAttachmentTransformRules::SnapToTargetNotIncludingScale);
         Point->SetActorRelativeLocation(FVector(150,Seat->bDriverSeat?-40:40,155));
-        CastChecked<UBoxComponent>(Point->GetRootComponent())->SetBoxExtent(FVector(12));
-        for (auto* PanelMesh : TInlineComponentArray<UStaticMeshComponent*>(Point)) PanelMesh->SetRelativeScale3D(FVector(.12));
         Point->ForceNetUpdate();
     }
 }

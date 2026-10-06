@@ -38,3 +38,9 @@ FText ARVVehicleEntryPoint::GetInteractionText_Implementation(APawn*) const
 { return FText::Format(NSLOCTEXT("RV", "EnterSeat", "Hold E: Enter {0}"), Seat ? Seat->SeatLabel : FText::GetEmpty()); }
 void ARVVehicleEntryPoint::CompleteInteraction_Implementation(APawn* Pawn)
 { if (HasAuthority() && Seat) if (auto* V = Cast<ARVVehicleBase>(Seat->GetOwner())) V->TryEnter(Seat, Cast<ARVSurvivorCharacter>(Pawn)); }
+ARVVehicleInteriorSeatPoint::ARVVehicleInteriorSeatPoint()
+{
+    CastChecked<UBoxComponent>(GetRootComponent())->SetBoxExtent(FVector(12));
+    for (auto* Part : TInlineComponentArray<UStaticMeshComponent*>(this)) Part->SetRelativeScale3D(FVector(.12));
+    for (auto* Text : TInlineComponentArray<UTextRenderComponent*>(this)) Text->SetVisibility(false);
+}

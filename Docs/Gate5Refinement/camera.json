@@ -1,0 +1,90 @@
+{
+  "results": [
+    {
+      "case": "saved_tunable_config",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native_driver_camera",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "low_speed",
+      "pass": true,
+      "detail": "476.46349906570595"
+    },
+    {
+      "case": "low_camera_clear",
+      "pass": true,
+      "detail": "{'camera_local': [-1424.9728793475374, -0.0037137167337330306, 697.279297597012], 'speed': 476.46349906570595, 'yaw': 0.08126161542591781, 'view': \"<Struct 'Rotator' (0x0000020457F56540) {pitch: -12.000000, yaw: 0.080609, roll: -0.000000}>\"}"
+    },
+    {
+      "case": "road_speed",
+      "pass": true,
+      "detail": "1793.3349256271986"
+    },
+    {
+      "case": "road_camera_clear",
+      "pass": true,
+      "detail": "{'camera_local': [-1424.8456863718307, -0.0033883219413909766, 697.7613259992178], 'speed': 1793.3349256271986, 'yaw': 0.08993393135313836, 'view': \"<Struct 'Rotator' (0x000002045F9447E0) {pitch: -12.000000, yaw: 0.089343, roll: 0.000000}>\"}"
+    },
+    {
+      "case": "approximately_60mph",
+      "pass": true,
+      "detail": "2672.7643663776435"
+    },
+    {
+      "case": "highway_camera_clear",
+      "pass": true,
+      "detail": "{'camera_local': [-1425.117496072477, -0.003910412840425308, 696.7303913259135], 'speed': 2672.7643663776435, 'yaw': 0.09200929825534307, 'view': \"<Struct 'Rotator' (0x000002045F944880) {pitch: -12.000000, yaw: 0.091316, roll: -0.000000}>\"}"
+    },
+    {
+      "case": "turn_camera_follows_yaw",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "turn_camera_clear",
+      "pass": true,
+      "detail": "{'camera_local': [-1424.9539221575633, 0.6673752796901482, 697.3505613716634], 'speed': 2664.711720569775, 'yaw': 21.00893133574182, 'view': \"<Struct 'Rotator' (0x000002045F944880) {pitch: -12.000000, yaw: 21.126132, roll: -0.000000}>\"}"
+    },
+    {
+      "case": "actual_reverse",
+      "pass": true,
+      "detail": "-1501.3529333888378"
+    },
+    {
+      "case": "reverse_camera_clear",
+      "pass": true,
+      "detail": "{'camera_local': [-1425.6887804571977, -0.00421533316307432, 694.5531424162999], 'speed': 1501.3620720549486, 'yaw': 82.78194507342627, 'view': \"<Struct 'Rotator' (0x000002045F944970) {pitch: -12.000000, yaw: 82.781172, roll: 0.000000}>\"}"
+    },
+    {
+      "case": "stopped_for_obstacle",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "boom_obstacle",
+      "pass": true,
+      "detail": "{'camera_local': [-833.4972205289947, -0.0020268438235007125, 541.2830044040105], 'retraction': 611.7011495172105}"
+    },
+    {
+      "case": "near_obstacle",
+      "pass": true,
+      "detail": "{'camera_local': [-404.1194998761146, -0.0008869816811056808, 428.084900582131], 'retraction': 1055.749612754311}"
+    },
+    {
+      "case": "camera_recovers_after_obstacle",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "recovered_camera_clear",
+      "pass": true,
+      "detail": "{'camera_local': [-1424.988616278299, -0.0035970665430795634, 697.2196103461407], 'speed': 0.0, 'yaw': 82.78679578785056, 'view': \"<Struct 'Rotator' (0x0000020457F75DC0) {pitch: -12.000000, yaw: 82.786163, roll: 0.000000}>\"}"
+    }
+  ],
+  "sample_count": 618
+}
