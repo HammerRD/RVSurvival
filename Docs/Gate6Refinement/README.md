@@ -7,7 +7,7 @@ Passing evidence:
 - bed-door-stations-final.json: 67 repeated bed, safe wake/obstruction, six-station audit and hidden-target checks; bed-head-camera.png is actual PIE presentation.
 - refine_host_door_fixed: 18 checks per process, moving door and rear walking.
 - refine_client_baseline_repeat, refine_host_emulated, refine_client_emulated: 22 server/20 client checks with sleep/disconnect cleanup; use the repeat rather than the original client-baseline receipt whose teardown produced a Python NameError.
-- refine_final_camera_client_emulated: 22/20 on final configurable head-camera source.
+- refine_final_camera_client_emulated: final repeat 24/22 on configurable head-camera source, extended moving passenger re-entry and clean sleep/disconnect; all paired checks pass (3.34 cm).
 - refine_final_inside_client_emulated: 25/25; all paired checks pass; includes moving rear-to-passenger re-entry and parked driver/standing exchanges. The final harness reacquires remote actors after native relevancy recreation.
 - refine_moving_host_baseline: 82/84 and 227 paired checks.
 - refine_moving_client_emulated: 85/77 and 227 paired checks with 100 ms outgoing latency/2% loss.

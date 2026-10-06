@@ -1,5 +1,5 @@
 {
-  "pid": 44952,
+  "pid": 38528,
   "authority": true,
   "config": {
     "name": "refine_final_camera_client_emulated",
@@ -26,7 +26,7 @@
     {
       "case": "passenger_to_rear_no_exterior_exit",
       "pass": true,
-      "detail": "[129.98848263265364, 0.0002862219479907092, 177.18924397647172]"
+      "detail": "[129.99228100188517, 0.00016660773904006806, 177.18966036175672]"
     },
     {
       "case": "rear_back_to_passenger",
@@ -36,7 +36,7 @@
     {
       "case": "moving_passenger_to_living_area",
       "pass": true,
-      "detail": "{'pos': [130.0509881989614, -0.0001334039889757774, 177.18803508851548], 'speed': 2733.5531530931817}"
+      "detail": "{'pos': [130.050998237272, 0.0002967930752943984, 177.18804875177096], 'speed': 2733.5919145268736}"
     },
     {
       "case": "moving_driver_retains_control",
@@ -51,17 +51,27 @@
     {
       "case": "moving_walk_to_rear",
       "pass": true,
-      "detail": "[-204.42242965399353, -5.22816995032864e-05, 191.85169993323322]"
+      "detail": "[-204.42258903801178, 0.00037834500894133626, 191.85096264521914]"
     },
     {
       "case": "moving_walk_back_to_front",
       "pass": true,
-      "detail": "[130.03206736975795, -0.00010852548162268764, 177.23630294199427]"
+      "detail": "[130.03214945624984, 0.00032027761618670593, 177.23667966507472]"
     },
     {
       "case": "moving_door_close_replicates",
       "pass": true,
       "detail": ""
+    },
+    {
+      "case": "moving_rear_to_available_passenger",
+      "pass": true,
+      "detail": "4453.920483143028"
+    },
+    {
+      "case": "moving_passenger_rear_repeat",
+      "pass": true,
+      "detail": "[130.05526267592373, 0.00034401953886800045, 177.1881933022265]"
     },
     {
       "case": "parked_after_drive",
@@ -71,7 +81,7 @@
     {
       "case": "bed_pose_and_occupancy_replicate",
       "pass": true,
-      "detail": "[-295.0000000000062, -6.21247844834194e-16, 205.0]"
+      "detail": "[-294.9999999999897, -1.6192017344984766e-14, 204.99999999999994]"
     },
     {
       "case": "sleep_state_replicates",
@@ -81,12 +91,12 @@
     {
       "case": "stand_up_replicates_safe_aisle",
       "pass": true,
-      "detail": "[-184.96315302102101, -0.000485373903807561, 191.48854860370832]"
+      "detail": "[-184.96345265813375, -0.00034386599147604824, 191.48857224422338]"
     },
     {
       "case": "bed_walk_away",
       "pass": true,
-      "detail": "[9.529290643861698, 0.0005770399667512719, 177.2859376379791]"
+      "detail": "[9.508778433334026, 0.0004087835809466493, 177.2863869163148]"
     },
     {
       "case": "door_open_replicates",

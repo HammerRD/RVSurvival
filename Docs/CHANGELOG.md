@@ -113,8 +113,18 @@ Frequent saves and local milestones f4c6543, 6369b4e, 92d3699, cd6ca0d, da8ce09,
 
 
 
-### Gate 6 post-playtest refinement — final moving regressions
+### Gate 6 post-playtest refinement â€” final moving regressions
 - Added reusable replicated bed pose/validated wake restoration, purchased house-door hinge interaction, and shared hidden RV target presentation; preserved vendor source and accepted vehicle physics.
 - Added authority-checked key 3 living-area transitions, native floor/base registration and moving-passenger interior seat access; moving driver departure requires stopping.
 - Fixed old rest-at-arbitrary-position behavior, HUD-dependent rest controls, held-Z repeated toggles, marker-scaled bed offsets and closed-door entry-marker Visibility masking.
-- Full host-driver baseline and client-driver 100 ms/2% separate-process routes pass unchanged movement/network limits, moving workstations/storage, consumables and resource controls. Final extended seat exchange and saved-content audits are being completed; no Gate 7 work.
+- Full host-driver baseline and client-driver 100 ms/2% separate-process routes pass unchanged movement/network limits, moving workstations/storage, consumables and resource controls. Final extended seat exchange, saved-content audits and clean sleep/disconnect repeats pass; no Gate 7 work.
+
+
+### Gate 6 interior refinement accepted - 2026-10-06
+- Confirmed authoritative driver/passenger to/from living-area transitions, moving passenger re-entry and safe occupied-aisle fallback with separate-process emulation (25/25).
+- Purchased side house door now opens/closes with replicated hinge/query collision and obstruction rejection. Closed-door marker no longer masks its interaction trace.
+- Rear bed now has validated lying placement, prototype pose/head camera, rest/sleep and R/E safe stand-up. Repeated blocked-wake retry, fallback and sleep/disconnect pass; six workstations retain walking/input/camera after use. RV target cubes/text are hidden during gameplay while query interaction remains active.
+- Final cleanup repeat passes 24 server/22 client, paired maximum 3.34 cm. Fixed harness stale remote wrappers, startup door/seat readiness, overlapping schedules and audit output-path routing; no leak detection suppression, Unreal fatal crash or world leak.
+- Final exterior 33, camera 17 and saved-map/assets 54 checks pass. Full moving role/network and representative Gates 1-5 regressions remain passing. All 108 vendor hashes match. Final Development Editor/Win64 build succeeds (up to date, 0.75 s).
+- Stable refinement checkpoints: c1b1ae0 (bed), cb8e67f (moving station/storage), 44f7120 (rear/seat exchanges), c6105fb (visual/exterior/camera/save audit); final acceptance saved separately. Prototype lying presentation/discrete hinge and parked-only rest remain documented limits. Gate 7 not begun.
+- A documentation write hit the Windows default encoding on a Unicode arrow. Recovered the full changelog from the latest Git checkpoint and applied the update with byte-preserving writes; verified no historical text was lost.

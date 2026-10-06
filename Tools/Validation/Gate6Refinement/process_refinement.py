@@ -94,6 +94,7 @@ if config.get('transition_only',False):
  events=events[:transition_start]+[(s+25,fn) for s,fn in events[transition_start:]]
 if config.get('disconnect',False):
  events=[(s,fn) for s,fn in events if fn!=finish]
+ disconnect_start=len(events)
  at(65,lambda:own.request_living_area() if not authority and isdriver else None)
  at(67,lambda:place(cp,(-180,0,195)))
  at(68,lambda:focus(bed) if not authority else None);at(68.3,lambda:key('E',True) if not authority else None);at(69.2,lambda:key('E',False) if not authority else None)
@@ -111,6 +112,7 @@ if config.get('disconnect',False):
   check('disconnect_frees_bed_and_survivor',bed.get_editor_property('Occupant') is None and len(unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVSurvivorCharacter))==1)
   check('disconnect_keeps_RV_other_needs_and_seats',len(unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVSystemsMotorhome))==1 and own.get_editor_property('PlayerState').get_component_by_class(unreal.RVNeedsComponent).get_editor_property('State').rest_mode==unreal.RVRestMode.AWAKE and (driver.get_editor_property('Occupant')==hp if config['driver']=='host' else driver.get_editor_property('Occupant') is None))
  at(80,cleaned);at(82,finish)
+ events=events[:disconnect_start]+[(s+25,fn) for s,fn in events[disconnect_start:]]
 events.sort(key=lambda entry:entry[0])
 def tick(dt):
  global idx,nextsample,hp,cp,dp,wp

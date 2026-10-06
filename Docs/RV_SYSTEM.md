@@ -1,5 +1,5 @@
 # RV system plan
-Gates 1–4 are accepted; Gate 5 core survival validation is accepted; see GATE_5_VALIDATION.md. Gate 2 isolates supported Chaos Vehicles behind ARVVehicleBase and URVVehicleMovementComponent, and composes ARVMotorhome with authoritative driver/passenger URVVehicleSeatComponent instances. Gate 3 uses a reusable passenger reference-frame component around native CharacterMovement.
+Gates 1â€“4 are accepted; Gate 5 core survival validation is accepted; see GATE_5_VALIDATION.md. Gate 2 isolates supported Chaos Vehicles behind ARVVehicleBase and URVVehicleMovementComponent, and composes ARVMotorhome with authoritative driver/passenger URVVehicleSeatComponent instances. Gate 3 uses a reusable passenger reference-frame component around native CharacterMovement.
 
 The preserved Gate 2 fallback content configuration is `/Game/Vehicles/BP_PrototypeMotorhome`. It uses Epic's installed UE vehicle-template off-road rig/physics/animation and a primitive shell labeled PROTOTYPE RV. The RV prototype has 3500 kg mass, automatic gears, rear-wheel drive and basic W accelerate, S brake/reverse, A/D steer, Space handbrake and E exit controls. Handling and physical body dimensions are prototype settings, not production Class C tuning. Test map: `/Game/Maps/Gate2VehicleTest`; Gate1Test is preserved.
 

@@ -1,6 +1,6 @@
 # Gate 6 fuel and electrical validation
 
-Status: ACCEPTED on 2026-10-06 after actual Unreal validation. Gates 1-5 remain accepted; Gate 7 is not authorized.
+Status: ACCEPTED on 2026-10-06 after actual Unreal validation, including the completed interior-usability refinement below. Gates 1-5 remain accepted; Gate 7 is not authorized.
 Baseline recovery checkpoint: 8e80050. Pre-existing Config/DefaultEngine.ini and IDE files remain outside Gate 6 commits.
 
 ## Framework review (2026-10-06)
@@ -138,7 +138,7 @@ Maps/assets were saved before PIE and after editor milestones; no completed feat
 
 Gate 6 is ACCEPTED. Recommended next task: manual resource-management playtest in Gate6FuelElectricalTest (refueling, generator/load controls and moving interior), then explicit authorization for the next gate. Stop here; Gate 7 has not begun.
 
-## Post-playtest refinement (in progress)
+## Post-playtest refinement history (completed; final acceptance below)
 The accepted fuel/electrical baseline is checkpoint 023c626. Requested rear-living-area seat transitions, controllable house door, real bed pose/safe wake-up, station trapping audit and hidden surface interaction targets are not yet validated. No Gate 7 work is authorized. Recovery baseline contains saved assets and a closed editor; pre-existing Config/DefaultEngine.ini and IDE files remain excluded.
 Initial inspection: rest currently stops movement at the interaction position and suppresses walking while RestMode is non-awake. There is no lying pose or validated wake-up position; R/Z dispatch currently depends on DrawHUD. Ordinary station counter interactions do not disable movement. These findings are code evidence, not reproduction of the reported trapping.
 
@@ -173,3 +173,39 @@ Seat identity investigation: final server checks passed while client comparison 
 Final extended seat/living-area emulated repeat: 25/25 server and 25/25 client, separate PIDs, all four paired checks pass (20.00 cm maximum, unchanged 75 cm limit). Moving rear standing to available passenger and back works; moving driver remains in control. Parked driver to rear, standing passenger to free driver, new driver to capsule-clear aisle fallback around X50 when X130 is occupied, original driver re-entry and both seats restored all agree across processes. The live remote identity is reacquired after native relevancy recreation. This exact repeat resolves the stale-wrapper discrepancy without changing gameplay networking.
 
 Final exterior/camera/save audits pass: 33 exterior collision/walk-around checks; 17 camera checks (low/road/~60 mph, turning, reversing, obstacle probe); 54 saved editor checks including two loads of every Gate 1-6 map, 54 purchased visual parts, seven exterior containers, unchanged camera/front/entry collision, real door configuration and rear lying/wake/head-camera metadata. Save All succeeded and editor shutdown completed normally. The first audit wrapper pointed to the historical script/output instead of the staged script: it passed old checks but lacked a fresh new receipt. Corrected the wrapper and reran only the map audit; fresh 54-check receipt passes. No Unreal crash/world leak occurred.
+
+Final cleanup repeat initially stopped its client callback before gameplay: the readiness gate verified storage/resource actors but omitted HouseDoor and seat-reference replication. Client HouseDoor was still None, producing an AttributeError; server assertions then necessarily failed because the client did not participate. Readiness now requires the live door and mesh plus valid seat endpoints before starting synchronized events. The failed run is archived under Saved/Gate6Refinement/FailedDoorReadiness. Disconnect events are scheduled after the extended parked phase, and live remote actor references are reacquired. These are harness prerequisites/corrections, not relaxed gameplay assertions.
+
+
+## Interior usability refinement — final acceptance
+All requested seat/living-area, house-door, bed recovery, station audit and hidden-target checks pass. Gate 6 remains ACCEPTED; no Gate 7 implementation was started.
+
+The bed trapping cause was an incomplete rest transition: it suppressed walking at the interaction position, without a validated lying/wake transform or lying presentation; R/Z dispatch depended on HUD rendering and E did not offer stand-up. The fix is an explicit reusable URVRestPoseComponent plus authority-validated rest/wake locations, normal input Started actions and a clear R/E stand-up path. This finding does not claim a specific purchased-furniture penetration was proven. Furniture/walls/floor collision remains active; safe placement rejects overlaps rather than disabling interior collision globally.
+
+Controls: 1 driver, 2 passenger, V next free seat (stopped); 3 living area (moving passenger supported, driver must stop); hold E at an available interior seat or house door; hold E at rear bed to rest; Z rest/sleep; R or E stand up; Escape close inventory/panel. Rear transitions use supported native floor/base registration. The door uses purchased SM_RV_Van_Door_Back plus its separate glass in project-side ARVInteractiveDoor; physical part identifiers and angle are tunable. State and matching query collision replicate; obstructed swings are rejected. Real bed placement is RV-local (-295,0,205), configurable head-camera offset (80,0,25), preferred wake aisle (-185,0,185) with clear living-entry fallback. All offsets are centimetres and independent of marker scale.
+
+| Executed validation | Final result |
+|---|---|
+| Parked rear/seat transitions | 9/9 |
+| Repeated bed/blocked-wake/door/station/hidden-target safety | 67/67 |
+| Separate-process reversed-role/emulated extended seat exchange | 25 server / 25 client; paired maximum 20.00 cm |
+| Final emulated sleep/disconnect and moving passenger repeat | 24 server / 22 client; paired maximum 3.34 cm; clean teardown |
+| Full moving host-driver baseline | 82 server / 84 client; 227 paired comparisons; maximum 10.55 cm |
+| Full moving client-driver 100 ms / 2% loss | 85 server / 77 client; 227 paired comparisons; maximum 30.44 cm |
+| Representative prior-gate regressions | Refined entry 22; Gate 1 23; Gate 2 24 plus inventory-possession supplement; inventory 24; needs 27 |
+| Exterior collision / continuous walk-around | 33/33 |
+| Camera low/road/~60 mph/turn/reverse/obstacle | 17/17; prior tunable settings preserved |
+| Saved maps/assets and repeat level changes | 54/54; all Gate 1–6 maps loaded twice, Save All and clean shutdown |
+| Vendor integrity | 108/108 SHA256 unchanged |
+
+Standing drift peaks in the measured full-route windows were 2.47/2.49 cm, with zero recorded corrections/lost-frame samples in those windows. Original 30/75 cm paired limits remain unchanged. Actual host/client POV and separate processes were used. The optional hidden-target/debug checks inspect registered rendering components; the head-camera and driving-camera PIE screenshots were visually inspected. All six workstation counters/views were entered, left and walked away from repeatedly parked and used on the moving routes. Ordinary workstations never owned a movement/camera lock, so no duplicated per-station lock system was added.
+
+Refinement source/content: reusable URVRestPoseComponent, ARVInteractiveDoor and URVInteractionTargetPresentationComponent; targeted changes to survivor/controller, rest/needs, seat/interior/access, HUD and composed interaction actors. Only the saved Gate6FuelElectricalTest map and BP_ClassCSystemsMotorhome derivative changed in Content relative to accepted 023c626. Prior maps/fallbacks/vendor source remain intact. Detailed paths: Gate6Refinement/source-content-manifest.txt.
+
+Recovery checkpoints: 4a6fc17 accepted-baseline recovery; f3dec8c explicit WIP compiled foundation; faaed72 saved parked door/bed/targets; b60d9d7 door trace fix and moving replication; 3b5161d explicit WIP before final camera; c1b1ae0 final bed recovery/head camera and source configuration; cb8e67f full moving station/storage evidence; 44f7120 extended authoritative seat/living-area exchange; c6105fb exterior/camera/saved-asset and target audit. Final acceptance documentation receives a separate local commit. No vendor changes or known-broken final gameplay state is included.
+
+Remaining limitations: replaceable prototype lying body/head rather than production animation; door switches to its replicated hinge angle without polished interpolation; rest is parked-only and tested auto-wake on driving. If every supported stand-up aisle is occupied, the reservation is retained and the player is told to clear/retry; it never forces an invalid outside/overlapping placement. Two-player flat-road listen-server PIE is validated; packaged/dedicated builds, rough terrain/rollovers and larger parties are not newly validated. The seven exterior compartments retain static door art and independent authoritative contents. No new fuel/mechanical/medical/crafting systems beyond accepted Gate 6 scope.
+
+Everything is saved. Final editor/PIE processes close normally, and default PIE settings are restored to one player/one process with emulation and automation launch parameters disabled. The pre-existing Config/DefaultEngine.ini, .vsconfig, Automation_RVSurvival.slnx and RVSurvival.slnx remain excluded and unchanged by refinement staging. Next recommended task is a manual usability pass of key 3, the controllable side house door, rear bed R/E stand-up and hidden workstation targets in Gate6FuelElectricalTest. Stop after this refinement.
+
+Final sleep/disconnect repeat on the corrected startup/readiness harness passes 24 server / 22 client; all paired checks pass (3.34 cm maximum). Readiness now waits for replicated house-door mesh and seat endpoints. The earlier failed startup receipt is archived under Saved/Gate6Refinement/FailedDoorReadiness; it is not accepted gameplay evidence. After the passing run, the 54-check saved-map audit was repeated, Save All completed, normal one-player/one-process nonemulated PIE settings were restored, and the editor exited normally. Final Development Editor/Win64 build succeeds (target up to date, 0.75 s; build-final-clean.log). A changelog encoding-write error was recovered from c6105fb without losing earlier entries; final documentation writes preserve baseline bytes.

@@ -1,5 +1,5 @@
 {
-  "pid": 50032,
+  "pid": 40948,
   "authority": false,
   "config": {
     "name": "refine_final_camera_client_emulated",
@@ -36,7 +36,7 @@
     {
       "case": "moving_passenger_to_living_area",
       "pass": true,
-      "detail": "{'pos': [130.05000000000825, -7.55439953823775e-15, 177.19000000000014], 'speed': 2796.3589589497}"
+      "detail": "{'pos': [130.05000000000467, -9.84345186557859e-15, 177.19], 'speed': 2806.0522129312003}"
     },
     {
       "case": "moving_driver_retains_control",
@@ -51,17 +51,27 @@
     {
       "case": "moving_walk_to_rear",
       "pass": true,
-      "detail": "[-204.41999999997674, -2.3683982929419297e-13, 191.85000000000002]"
+      "detail": "[-204.4200000000249, 1.4793534685422242e-14, 191.85000000000022]"
     },
     {
       "case": "moving_walk_back_to_front",
       "pass": true,
-      "detail": "[130.03000000007535, -3.111416909893652e-13, 177.2400000000008]"
+      "detail": "[130.0300000001172, -1.1021133617294325e-14, 177.2400000000007]"
     },
     {
       "case": "moving_door_close_replicates",
       "pass": true,
       "detail": ""
+    },
+    {
+      "case": "moving_rear_to_available_passenger",
+      "pass": true,
+      "detail": "4583.658771683047"
+    },
+    {
+      "case": "moving_passenger_rear_repeat",
+      "pass": true,
+      "detail": "[130.05000000007848, -8.599623798532321e-14, 177.19000000000003]"
     },
     {
       "case": "parked_after_drive",
@@ -71,7 +81,7 @@
     {
       "case": "bed_pose_and_occupancy_replicate",
       "pass": true,
-      "detail": "[-295.0005000000044, -7.271144609393824e-15, 204.9995]"
+      "detail": "[-295.0005000000036, 6.919642589636367e-15, 204.99949999999998]"
     },
     {
       "case": "sleep_state_replicates",
@@ -81,12 +91,12 @@
     {
       "case": "stand_up_replicates_safe_aisle",
       "pass": true,
-      "detail": "[-184.9600000000031, 6.146820626593084e-15, 191.49]"
+      "detail": "[-184.96000000000367, -5.1103964653229946e-15, 191.49]"
     },
     {
       "case": "bed_walk_away",
       "pass": true,
-      "detail": "[9.529999999997338, -3.4266509157250365e-15, 177.29]"
+      "detail": "[9.510000000005144, 1.3737052654570844e-15, 177.29000000000002]"
     },
     {
       "case": "door_open_replicates",
