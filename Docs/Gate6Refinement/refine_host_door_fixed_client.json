@@ -1,0 +1,101 @@
+{
+  "pid": 26280,
+  "authority": false,
+  "config": {
+    "name": "refine_host_door_fixed",
+    "driver": "host",
+    "network": false
+  },
+  "results": [
+    {
+      "case": "house_door_starts_closed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "both_seats_reserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "occupied_seat_rejected_before_release",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "passenger_to_rear_no_exterior_exit",
+      "pass": true,
+      "detail": "[129.98932607333072, 3.5308848901238754e-05, 177.1893509954082]"
+    },
+    {
+      "case": "rear_back_to_passenger",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_passenger_to_living_area",
+      "pass": true,
+      "detail": "{'pos': [129.984008174269, 0.00014413205996457703, 177.1884560099536], 'speed': 2778.1451323806946}"
+    },
+    {
+      "case": "moving_driver_retains_control",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_door_open_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_walk_to_rear",
+      "pass": true,
+      "detail": "[-204.5716969626839, 0.00014413346218859286, 191.47798694979573]"
+    },
+    {
+      "case": "moving_walk_back_to_front",
+      "pass": true,
+      "detail": "[129.98177134604742, 0.00014413306384569784, 177.34022418432562]"
+    },
+    {
+      "case": "moving_door_close_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "parked_after_drive",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "bed_pose_and_occupancy_replicate",
+      "pass": true,
+      "detail": "[-299.2499812986949, -0.09994080287994818, 203.34234961610846]"
+    },
+    {
+      "case": "sleep_state_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stand_up_replicates_safe_aisle",
+      "pass": true,
+      "detail": "[-184.96329226415136, -0.0003422178773995231, 191.48855968188997]"
+    },
+    {
+      "case": "bed_walk_away",
+      "pass": true,
+      "detail": "[9.586732631729117, -0.0003422181161679564, 177.3837593635061]"
+    },
+    {
+      "case": "door_open_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "door_close_replicates",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

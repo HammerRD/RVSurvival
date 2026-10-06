@@ -103,3 +103,7 @@ Frequent saves and local milestones f4c6543, 6369b4e, 92d3699, cd6ca0d, da8ce09,
 - Hidden normal-gameplay RV debug interaction cubes through a shared presentation component, retaining traces and optional development visualization.
 - Real PIE: 9 rear/seat checks and 38 door/bed/station/presentation checks pass. Multiplayer/moving/obstruction/disconnect validation remains pending; Gate 7 not begun.
 
+
+- Gate 6 house-door trace fix: disabled closed-door entry marker no longer masks the door; outside surface interaction and moving open/close pass separate-process host/client checks (18 each).
+- Rest presentation cleanly hides/restores the standing proxy instead of rotating the native smoothing mesh; the prototype lying body remains replaceable.
+

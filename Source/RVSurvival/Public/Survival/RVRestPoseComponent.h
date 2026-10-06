@@ -19,7 +19,7 @@ private:
     UFUNCTION() void OnRep_RestPoint();
     UPROPERTY(Transient) TObjectPtr<class UStaticMeshComponent> PrototypeBody;
     UPROPERTY(Transient) TObjectPtr<class UStaticMeshComponent> PrototypeHead;
-    FTransform PreviousMeshTransform;
+    TArray<TPair<TWeakObjectPtr<class UPrimitiveComponent>,bool>> PreviousVisualVisibility;
     FVector PreviousCameraLocation;
     float PreviousEyeHeight=64;
     bool bPresentationActive=false;

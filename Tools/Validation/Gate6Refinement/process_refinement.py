@@ -22,7 +22,9 @@ def key(k,on):
  if k=='E' and on and target:aim(target)
  cmd('Input.'+('+' if on else '-')+'key '+k)
 def local(c):q=v.get_actor_transform().inverse_transform_location(c.get_actor_location());return [q.x,q.y,q.z]
-def aim(a):own.set_control_rotation(unreal.MathLibrary.find_look_at_rotation(p.get_actor_location()+unreal.Vector(0,0,p.get_editor_property('BaseEyeHeight')),a.get_actor_location()))
+def aim(a):
+ point=a.get_editor_property('DoorCollision').get_world_location() if isinstance(a,unreal.RVInteractiveDoor) else a.get_actor_location()
+ own.set_control_rotation(unreal.MathLibrary.find_look_at_rotation(p.get_actor_location()+unreal.Vector(0,0,p.get_editor_property('BaseEyeHeight')),point))
 def focus(a):
  global target
  target=a;aim(a)
@@ -45,11 +47,15 @@ at(8,lambda:focus(insidepass) if not isdriver else None);at(8.3,lambda:key('E',T
 at(11,lambda:key('W',True) if isdriver else None);at(16,lambda:own.request_living_area() if not isdriver else None)
 at(18,lambda:check('moving_passenger_to_living_area',standing() and own_frame() and v.get_velocity().length()>150,{'pos':local(wp),'speed':v.get_velocity().length()}))
 at(18.3,lambda:own.request_living_area() if isdriver else None);at(19.5,lambda:check('moving_driver_retains_control',driver.get_editor_property('Occupant')==dp and (not isdriver or own.get_controlled_pawn()==v)))
+at(18.5,lambda:focus(door) if not isdriver else None);at(18.8,lambda:key('E',True) if not isdriver else None);at(19.7,lambda:key('E',False) if not isdriver else None)
+at(19.9,lambda:check('moving_door_open_replicates',door.get_editor_property('bOpen')))
 def walking(rear):
  if not isdriver:own.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw+(180 if rear else 0)));key('W',True)
 at(20,lambda:walking(True));at(21.7,lambda:key('W',False) if not isdriver else None);at(22.5,lambda:check('moving_walk_to_rear',local(wp)[0]<-150 and standing() and own_frame(),local(wp)))
 at(23,lambda:walking(False));at(24.7,lambda:key('W',False) if not isdriver else None);at(25.5,lambda:check('moving_walk_back_to_front',local(wp)[0]>60 and standing() and own_frame(),local(wp)))
-at(26,lambda:(key('W',False),key('S',True)) if isdriver else None);at(31,lambda:key('S',False) if isdriver else None)
+at(25.6,lambda:focus(door) if not isdriver else None);at(25.8,lambda:key('E',True) if not isdriver else None);at(26.7,lambda:key('E',False) if not isdriver else None)
+at(27.5,lambda:check('moving_door_close_replicates',not door.get_editor_property('bOpen')))
+at(26,lambda:(key('W',False),key('SpaceBar',True)) if isdriver else None);at(41,lambda:key('SpaceBar',False) if isdriver else None)
 at(33,lambda:check('parked_after_drive',v.get_velocity().length()<50,v.get_velocity().length()))
 at(34,lambda:place(wp,(-180,0,195)));at(35,lambda:focus(bed) if not isdriver else None);at(35.3,lambda:key('E',True) if not isdriver else None);at(36.2,lambda:key('E',False) if not isdriver else None)
 at(37.5,lambda:check('bed_pose_and_occupancy_replicate',bed.get_editor_property('Occupant')==wp.get_editor_property('PlayerState') and wp.get_component_by_class(unreal.RVRestPoseComponent).get_editor_property('RestPoint')==bed,local(wp)))
@@ -65,15 +71,39 @@ def finish():
  active=False;unreal.unregister_slate_post_tick_callback(h)
  json.dump({'pid':os.getpid(),'authority':authority,'config':config,'results':results,'samples':samples},open(B+config['name']+('_server.json' if authority else '_client.json'),'w'),indent=2)
 at(53,finish)
+events=[(s+10 if s>=33 and s!=41 else s,fn) for s,fn in events]
+if config.get('disconnect',False):
+ events=[(s,fn) for s,fn in events if fn!=finish]
+ at(65,lambda:own.request_living_area() if not authority and isdriver else None)
+ at(67,lambda:place(cp,(-180,0,195)))
+ at(68,lambda:focus(bed) if not authority else None);at(68.3,lambda:key('E',True) if not authority else None);at(69.2,lambda:key('E',False) if not authority else None)
+ at(70.5,lambda:check('client_bed_reserved_before_disconnect',bed.get_editor_property('Occupant')==cp.get_editor_property('PlayerState')))
+ at(71,lambda:key('Z',True) if not authority else None);at(71.3,lambda:key('Z',False) if not authority else None)
+ at(72.5,lambda:check('client_sleep_before_disconnect',cp.get_editor_property('PlayerState').get_component_by_class(unreal.RVNeedsComponent).get_editor_property('State').rest_mode==unreal.RVRestMode.SLEEPING))
+ def disconnect_client():
+  if authority:return
+  finish();controller=own;execute=unreal.SystemLibrary.execute_console_command
+  from runner_runtime import release_runners
+  release_runners();execute(controller,'disconnect',controller)
+ at(74,disconnect_client)
+ def cleaned():
+  if not authority:return
+  check('disconnect_frees_bed_and_survivor',bed.get_editor_property('Occupant') is None and len(unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVSurvivorCharacter))==1)
+  check('disconnect_keeps_RV_other_needs_and_seats',len(unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVSystemsMotorhome))==1 and hp.get_editor_property('PlayerState').get_component_by_class(unreal.RVNeedsComponent).get_editor_property('State').rest_mode==unreal.RVRestMode.AWAKE and (driver.get_editor_property('Occupant')==hp if config['driver']=='host' else driver.get_editor_property('Occupant') is None))
+ at(80,cleaned);at(82,finish)
+events.sort(key=lambda entry:entry[0])
 def tick(dt):
  global idx,nextsample
  if not active:return
  t=time.time()-start
  if t<0:return
  try:
-  while idx<len(events) and t>=events[idx][0]:events[idx][1]();idx+=1
+  while idx<len(events) and t>=events[idx][0]:
+   fn=events[idx][1];idx+=1;fn()
+   if not active:return
   if not active:return
   if t>=nextsample:
    nextsample=t+.2;samples.append({'t':t,'passenger':local(wp),'driver_occupant':str(driver.get_editor_property('Occupant')),'passenger_occupant':str(passenger.get_editor_property('Occupant')),'door':door.get_editor_property('bOpen'),'speed':v.get_velocity().length()})
  except Exception as e:check('exception',False,repr(e));finish()
 h=unreal.register_slate_post_tick_callback(tick)
+

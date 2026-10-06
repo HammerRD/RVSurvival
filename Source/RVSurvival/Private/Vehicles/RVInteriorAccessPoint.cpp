@@ -9,9 +9,17 @@
 ARVInteriorAccessPoint::ARVInteriorAccessPoint()
 {
     CreateDefaultSubobject<URVInteractionTargetPresentationComponent>(TEXT("TargetPresentation"));
+    PrimaryActorTick.bCanEverTick=true; PrimaryActorTick.TickInterval=.1f;
     bAlwaysRelevant=true; Mesh->SetRelativeScale3D(FVector(.15));
     Mesh->SetCollisionEnabled(ECollisionEnabled::QueryOnly); Mesh->SetCollisionResponseToAllChannels(ECR_Ignore);
     Mesh->SetCollisionResponseToChannel(ECC_Visibility,ECR_Block);
+}
+void ARVInteriorAccessPoint::Tick(float DeltaSeconds)
+{
+    Super::Tick(DeltaSeconds);
+    // A disabled entry marker must not mask the actual closed door from the accepted visibility trace.
+    const bool Closed=Vehicle && Vehicle->HouseDoor && !Vehicle->HouseDoor->bOpen;
+    Mesh->SetCollisionResponseToChannel(ECC_Visibility,Closed?ECR_Ignore:ECR_Block);
 }
 void ARVInteriorAccessPoint::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 { Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(ARVInteriorAccessPoint,Vehicle); DOREPLIFETIME(ARVInteriorAccessPoint,bEnter); }

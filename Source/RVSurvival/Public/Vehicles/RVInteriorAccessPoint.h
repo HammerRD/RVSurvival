@@ -10,6 +10,7 @@ class RVSURVIVAL_API ARVInteriorAccessPoint : public ARVInventoryInteractable
     GENERATED_BODY()
 public:
     ARVInteriorAccessPoint();
+    virtual void Tick(float DeltaSeconds) override;
     UPROPERTY(Replicated, BlueprintReadOnly) TObjectPtr<ARVInteriorMotorhome> Vehicle;
     UPROPERTY(Replicated, BlueprintReadOnly) bool bEnter = true;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out) const override;

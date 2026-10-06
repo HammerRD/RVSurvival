@@ -71,15 +71,20 @@ void URVRestPoseComponent::OnRep_RestPoint()
     auto* Camera=C->FindComponentByClass<UCameraComponent>();
     if (RestPoint && !bPresentationActive)
     {
-        PreviousMeshTransform=C->GetMesh()->GetRelativeTransform(); PreviousEyeHeight=C->BaseEyeHeight;
+        PreviousEyeHeight=C->BaseEyeHeight;
         if (Camera) PreviousCameraLocation=Camera->GetRelativeLocation();
         bPresentationActive=true;
-        C->GetMesh()->SetRelativeRotation(FRotator(0,0,90));
+        // Swap only presentation. Do not rotate the native network-smoothed mesh or duplicate its standing prototype.
+        TArray<USceneComponent*> Children; C->GetMesh()->GetChildrenComponents(true,Children); Children.Add(C->GetMesh());
+        PreviousVisualVisibility.Reset();
+        for (auto* Child:Children) if (auto* Part=Cast<UPrimitiveComponent>(Child))
+        { PreviousVisualVisibility.Emplace(TWeakObjectPtr<UPrimitiveComponent>(Part),bool(Part->bHiddenInGame)); Part->SetHiddenInGame(true); }
         C->BaseEyeHeight=35; if (Camera) Camera->SetRelativeLocation(FVector(0,0,35));
     }
     else if (!RestPoint && bPresentationActive)
     {
-        C->GetMesh()->SetRelativeTransform(PreviousMeshTransform); C->BaseEyeHeight=PreviousEyeHeight;
+        for (auto& State:PreviousVisualVisibility) if (auto* Part=State.Key.Get()) Part->SetHiddenInGame(State.Value);
+        PreviousVisualVisibility.Reset(); C->BaseEyeHeight=PreviousEyeHeight;
         if (Camera) Camera->SetRelativeLocation(PreviousCameraLocation); bPresentationActive=false;
     }
     C->GetCapsuleComponent()->SetCollisionEnabled(RestPoint?ECollisionEnabled::NoCollision:ECollisionEnabled::QueryAndPhysics);
