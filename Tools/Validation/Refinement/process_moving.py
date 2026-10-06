@@ -263,7 +263,7 @@ at(131,lambda:(key(driver,'SpaceBar',False),key(driver,'W',True)));at(133,automa
 def initial_drop_conservation():
  pickup=next((a for a in unreal.GameplayStatics.get_all_actors_of_class(world,PickupClass) if guid(a.get_editor_property('Item').id)==seed_ids['Tool']),None)
  records=[x for x in local_inv.get_items() if guid(x.id)==seed_ids['Tool']]
- check('initial_drop_conserves_state',((pickup is not None and not records) or (pickup is None and len(records)==1 and records[0].quantity==1 and abs(records[0].condition-.62)<.001 and str(local_inv.get_editor_property('Feedback'))=='No safe drop location')),{'pickup':pickup is not None,'owned':len(records),'feedback':str(local_inv.get_editor_property('Feedback'))})
+ check('initial_drop_conserves_state',((pickup is not None and not records) or (pickup is None and len(records)==1 and records[0].quantity==1 and abs(records[0].condition-.62)<.001 and (not isServer and walker is None or str(local_inv.get_editor_property('Feedback'))=='No safe drop location'))),{'pickup':pickup is not None,'owned':len(records),'feedback':str(local_inv.get_editor_property('Feedback'))})
 def retry_drop_in_aisle():
  if walker:
   records=[x for x in local_inv.get_items() if guid(x.id)==seed_ids['Tool']]
