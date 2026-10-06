@@ -1,0 +1,234 @@
+{
+  "refine_moving_host_baseline": [
+    {
+      "role": "server",
+      "case": "low_speed_stand_stable",
+      "drift_cm": 0.4389740858245037,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "server",
+      "case": "acceleration_stand_stable",
+      "drift_cm": 0.23429876083099274,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "server",
+      "case": "highway_stand_stable",
+      "drift_cm": 0.14618006425037924,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "server",
+      "case": "gentle_turn_stable",
+      "drift_cm": 0.5592704331858093,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "server",
+      "case": "strong_turn_stable",
+      "drift_cm": 2.4687775399004814,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "server",
+      "case": "braking_stand_stable",
+      "drift_cm": 1.0018059392293208,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "server",
+      "case": "resume_stand_stable",
+      "drift_cm": 0.24364175051684578,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "client",
+      "case": "low_speed_stand_stable",
+      "drift_cm": 0.11388041092527287,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "client",
+      "case": "acceleration_stand_stable",
+      "drift_cm": 0.06309977063500426,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "client",
+      "case": "highway_stand_stable",
+      "drift_cm": 0.09948829332938744,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "client",
+      "case": "gentle_turn_stable",
+      "drift_cm": 0.08959454293220802,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "client",
+      "case": "strong_turn_stable",
+      "drift_cm": 2.253369771540913,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "client",
+      "case": "braking_stand_stable",
+      "drift_cm": 0.40766480838696584,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "client",
+      "case": "resume_stand_stable",
+      "drift_cm": 0.16432095509040487,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    }
+  ],
+  "refine_moving_client_emulated": [
+    {
+      "role": "server",
+      "case": "low_speed_stand_stable",
+      "drift_cm": 0.5247641142474625,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "server",
+      "case": "acceleration_stand_stable",
+      "drift_cm": 0.22374792051981865,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "server",
+      "case": "highway_stand_stable",
+      "drift_cm": 0.12617643097315437,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "server",
+      "case": "gentle_turn_stable",
+      "drift_cm": 0.5572945971394258,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "server",
+      "case": "strong_turn_stable",
+      "drift_cm": 2.3368784712468442,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "server",
+      "case": "braking_stand_stable",
+      "drift_cm": 0.9487977911291292,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "server",
+      "case": "resume_stand_stable",
+      "drift_cm": 0.24888302915730554,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "client",
+      "case": "low_speed_stand_stable",
+      "drift_cm": 0.4996804954727854,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "client",
+      "case": "acceleration_stand_stable",
+      "drift_cm": 0.22538470924760795,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "client",
+      "case": "highway_stand_stable",
+      "drift_cm": 0.14375999418743488,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "client",
+      "case": "gentle_turn_stable",
+      "drift_cm": 0.41215973425356045,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "client",
+      "case": "strong_turn_stable",
+      "drift_cm": 2.4869837641972796,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "client",
+      "case": "braking_stand_stable",
+      "drift_cm": 0.9697876816751919,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    },
+    {
+      "role": "client",
+      "case": "resume_stand_stable",
+      "drift_cm": 0.21767436236110713,
+      "frame_lost_samples": 0,
+      "corrections": 0,
+      "max_correction_cm": 0.0
+    }
+  ],
+  "vendor_integrity": {
+    "count": 108,
+    "unchanged": 108
+  }
+}

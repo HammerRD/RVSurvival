@@ -111,3 +111,10 @@ Frequent saves and local milestones f4c6543, 6369b4e, 92d3699, cd6ca0d, da8ce09,
 - Gate 6 bed trapping refinement: rest now uses validated bed and wake transforms, a replaceable horizontal body/head pose, tunable head camera, and R/E stand-up controls independent of HUD drawing. A blocked rear aisle can use another clear interior floor location; fully obstructed placement is rejected with retry feedback. No collision bypass or exterior recovery teleport is used.
 - Final parked bed/door/station safety: 67 checks pass; clean baseline/emulated role and sleep-disconnect matrix passes. Gate 1â€“5 representative regressions pass. Full moving-storage regression remains in progress.
 
+
+
+### Gate 6 post-playtest refinement — final moving regressions
+- Added reusable replicated bed pose/validated wake restoration, purchased house-door hinge interaction, and shared hidden RV target presentation; preserved vendor source and accepted vehicle physics.
+- Added authority-checked key 3 living-area transitions, native floor/base registration and moving-passenger interior seat access; moving driver departure requires stopping.
+- Fixed old rest-at-arbitrary-position behavior, HUD-dependent rest controls, held-Z repeated toggles, marker-scaled bed offsets and closed-door entry-marker Visibility masking.
+- Full host-driver baseline and client-driver 100 ms/2% separate-process routes pass unchanged movement/network limits, moving workstations/storage, consumables and resource controls. Final extended seat exchange and saved-content audits are being completed; no Gate 7 work.
