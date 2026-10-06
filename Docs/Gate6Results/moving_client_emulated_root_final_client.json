@@ -1,0 +1,537 @@
+{
+  "config": {
+    "network": true,
+    "kind": "moving",
+    "name": "moving_client_emulated_root_final",
+    "driver": "client"
+  },
+  "process_id": 53084,
+  "authority": false,
+  "station_counts": {
+    "Navigation": 2,
+    "Kitchen": 2,
+    "Storage": 2,
+    "Medical": 3,
+    "Power": 2,
+    "Workbench": 2
+  },
+  "results": [
+    {
+      "case": "natural_entry",
+      "pass": true,
+      "detail": "[85.87, 10.620000000000001, 177.14000000000001]"
+    },
+    {
+      "case": "driver_possession",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stationary_station_Workbench",
+      "pass": true,
+      "detail": "{'before': 0, 'server': 1, 'client': 1, 'passenger': [-188.65, 10.61, 191.82], 'speed': 0.0}"
+    },
+    {
+      "case": "stationary_station_Medical",
+      "pass": true,
+      "detail": "{'before': 0, 'server': 1, 'client': 1, 'passenger': [-144.1, 10.61, 191.72], 'speed': 0.0}"
+    },
+    {
+      "case": "stationary_station_Kitchen",
+      "pass": true,
+      "detail": "{'before': 0, 'server': 1, 'client': 1, 'passenger': [-39.58, 10.620000000000001, 177.32], 'speed': 0.0}"
+    },
+    {
+      "case": "stationary_station_Storage",
+      "pass": true,
+      "detail": "{'before': 0, 'server': 1, 'client': 1, 'passenger': [-194.1, 10.61, 191.72], 'speed': 0.0}"
+    },
+    {
+      "case": "stationary_station_Power",
+      "pass": true,
+      "detail": "{'before': 0, 'server': 1, 'client': 1, 'passenger': [60.42, 10.620000000000001, 177.09], 'speed': 0.0}"
+    },
+    {
+      "case": "stationary_station_Navigation",
+      "pass": true,
+      "detail": "{'before': 0, 'server': 1, 'client': 1, 'passenger': [128.3, 10.620000000000001, 177.19], 'speed': 0.0}"
+    },
+    {
+      "case": "stationary_eating",
+      "pass": true,
+      "detail": "{'value': 44.92168045043945, 'speed': 0.0, 'local': [-189.55, 10.61, 191.87]}"
+    },
+    {
+      "case": "stationary_panel_generator",
+      "pass": true,
+      "detail": "{'generator': True, 'fuel': 149.98506230910058, 'house': 903.9465780535968, 'speed': 0.0}"
+    },
+    {
+      "case": "low_speed",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x0000022A119CDEB0) {x: 439.484711, y: 3.029255, z: -0.832796}>"
+    },
+    {
+      "case": "low_speed_front",
+      "pass": true,
+      "detail": "[128.6336337748309, 10.68999971774724, 177.12000323439216]"
+    },
+    {
+      "case": "low_speed_rear",
+      "pass": true,
+      "detail": "[-189.24999999999883, 10.689999999999998, 191.77000000000007]"
+    },
+    {
+      "case": "moderate_speed",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x0000022A11B10BA0) {x: 2555.323486, y: 18.515739, z: -0.000390}>"
+    },
+    {
+      "case": "moving_front",
+      "pass": true,
+      "detail": "[130.58000000000186, 10.690000000000003, 177.31999999999994]"
+    },
+    {
+      "case": "highway_eating",
+      "pass": true,
+      "detail": "{'value': 69.8782958984375, 'speed': 2662.2417995108262, 'local': [-190.53744629605876, 10.689999419946092, 191.8300012603098]}"
+    },
+    {
+      "case": "moving_rear",
+      "pass": true,
+      "detail": "[-190.50706527786042, 10.68999978033625, 191.83000661947358]"
+    },
+    {
+      "case": "highway_speed",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x0000022A11C026D0) {x: 2651.323730, y: 19.187408, z: 0.065235}>"
+    },
+    {
+      "case": "moving_station_Workbench",
+      "pass": true,
+      "detail": "{'before': 1, 'server': 2, 'client': 2, 'passenger': [-190.60999999998737, 10.69000000000002, 191.83], 'speed': 2765.1933868141878}"
+    },
+    {
+      "case": "moving_station_Medical",
+      "pass": true,
+      "detail": "{'before': 1, 'server': 2, 'client': 2, 'passenger': [-145.98131535052866, 10.689999955424849, 191.54000003932595], 'speed': 2605.4635780381177}"
+    },
+    {
+      "case": "moving_station_Kitchen",
+      "pass": true,
+      "detail": "{'before': 1, 'server': 2, 'client': 2, 'passenger': [-41.460000000015796, 10.690000000000133, 177.31], 'speed': 2629.7941638123443}"
+    },
+    {
+      "case": "moving_station_Storage",
+      "pass": true,
+      "detail": "{'before': 1, 'server': 2, 'client': 2, 'passenger': [-196.04999999999512, 10.690000000000222, 191.86999999999992], 'speed': 2740.646752331417}"
+    },
+    {
+      "case": "moving_station_Power",
+      "pass": true,
+      "detail": "{'before': 1, 'server': 2, 'client': 2, 'passenger': [58.43327007320693, 10.689999993071835, 177.18999921334787], 'speed': 2734.708231502078}"
+    },
+    {
+      "case": "power_placeholder_opens_real_panel",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "highway_panel_lights_on",
+      "pass": true,
+      "detail": "{'powered': True, 'speed': 2785.9427700305405, 'frame': True, 'source': 'Generator'}"
+    },
+    {
+      "case": "highway_panel_generator_stop",
+      "pass": true,
+      "detail": "{'generator': False, 'fuel': 149.8049247187077, 'house': 915.1820998316158, 'speed': 2726.106562687246}"
+    },
+    {
+      "case": "moving_station_Navigation",
+      "pass": true,
+      "detail": "{'before': 1, 'server': 2, 'client': 2, 'passenger': [129.64999999997195, 10.689999999999616, 177.33000000000007], 'speed': 2619.6712737441762}"
+    },
+    {
+      "case": "highway_panel_generator_restart",
+      "pass": true,
+      "detail": "{'generator': True, 'fuel': 149.79839489478323, 'house': 915.4558503794392, 'speed': 2685.305273422325}"
+    },
+    {
+      "case": "moving_early_release_cancel",
+      "pass": true,
+      "detail": "2"
+    },
+    {
+      "case": "sideways_walk",
+      "pass": true,
+      "detail": "[-144.8201606799668, 31.899999999949333, 191.67000000058678]"
+    },
+    {
+      "case": "gentle_turn_occurred",
+      "pass": true,
+      "detail": "<Struct 'Rotator' (0x0000022A120B8A60) {pitch: 0.000001, yaw: 7.397589, roll: 0.000000}>"
+    },
+    {
+      "case": "gentle_turn_lights_switch",
+      "pass": true,
+      "detail": "{'powered': False, 'speed': 2686.0850675052593, 'frame': True, 'source': 'Generator'}"
+    },
+    {
+      "case": "turning_station_Medical",
+      "pass": true,
+      "detail": "{'before': 2, 'server': 3, 'client': 3, 'passenger': [-144.46657319265356, 8.954009973346304, 191.65136003083944], 'speed': 2588.0247327695047}"
+    },
+    {
+      "case": "moving_look_away_cancel",
+      "pass": true,
+      "detail": "3"
+    },
+    {
+      "case": "strong_turn_occurred",
+      "pass": true,
+      "detail": "<Struct 'Rotator' (0x0000022A12132400) {pitch: 0.035029, yaw: -40.943361, roll: 0.041308}>"
+    },
+    {
+      "case": "vehicle_stopped",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x0000022A121F8830) {x: -0.811375, y: 6.130655, z: -2.105767}>"
+    },
+    {
+      "case": "resume_driving",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x0000022A1226D550) {x: 283.228790, y: -1428.085571, z: 0.076286}>"
+    },
+    {
+      "case": "ordinary_world_movement_restored",
+      "pass": true,
+      "detail": "[85.29237870715178, 789.6779134498672, 72.35039987406296]"
+    },
+    {
+      "case": "reentry",
+      "pass": true,
+      "detail": "[86.59000000000185, 9.980000000012133, 177.25]"
+    },
+    {
+      "case": "sleep_setup_is_parked",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "parked_passenger_sleep",
+      "pass": true,
+      "detail": "{'speed': 0.0, 'distance': 62.437752201690216, 'mode': '<RVRestMode.SLEEPING: 2>', 'local': [-181.2299999999992, 9.980000000005106, 191.86]}"
+    },
+    {
+      "case": "moving_platform_automatically_wakes_and_frees_rest",
+      "pass": true,
+      "detail": "898.8014366403391"
+    },
+    {
+      "case": "personal_drawer_rejects_18kg_bulk",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stationary_rv_storage",
+      "pass": true,
+      "detail": "{'server_quantity': 1, 'client_quantity': 1, 'speed': 0.0, 'passenger_local': [-195.78000000000011, 9.979999999990895, 191.69], 'corrections': 0}"
+    },
+    {
+      "case": "stationary_return",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "low_speed_rv_storage",
+      "pass": true,
+      "detail": "{'server_quantity': 1, 'client_quantity': 1, 'speed': 505.56952289834123, 'passenger_local': [-195.78000000000074, 9.979999999966509, 191.69000000000003], 'corrections': 0}"
+    },
+    {
+      "case": "low_speed_return",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "road_speed_pantry_storage",
+      "pass": true,
+      "detail": "{'server_quantity': 1, 'client_quantity': 1, 'speed': 1820.674185263701, 'passenger_local': [-41.352876541065534, 9.98057217767878, 177.2899977480334], 'corrections': 0}"
+    },
+    {
+      "case": "road_speed_return",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "pantry_tag_filter",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "road_speed_drinking",
+      "pass": true,
+      "detail": "{'value': 54.305233001708984, 'speed': 1756.3656389292528, 'local': [-41.32000000000788, 9.979999999969245, 177.29000000000005]}"
+    },
+    {
+      "case": "turning_medical_storage",
+      "pass": true,
+      "detail": "{'server_quantity': 1, 'client_quantity': 1, 'speed': 1783.6298082959222, 'passenger_local': [-145.82000000051332, 10.209999998575725, 191.82999999999996], 'corrections': 0}"
+    },
+    {
+      "case": "storage_transfer_during_actual_turn",
+      "pass": true,
+      "detail": "{'angular_deg_s': 3.9725880673213396, 'yaw': -67.31021773988196}"
+    },
+    {
+      "case": "turning_eating",
+      "pass": true,
+      "detail": "{'value': 94.64039611816406, 'speed': 1751.0560648041587, 'local': [-145.6848107213607, 10.20279463715552, 191.82998938878745]}"
+    },
+    {
+      "case": "turning_return",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fuel_continues_during_travel",
+      "pass": true,
+      "detail": "149.5982803646237"
+    },
+    {
+      "case": "house_energy_charges_during_travel",
+      "pass": true,
+      "detail": "933.7920624680955"
+    },
+    {
+      "case": "resource_state_valid_during_riding",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "powered_navigation_configuration",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_tool_storage",
+      "pass": true,
+      "detail": "{'server_quantity': 1, 'client_quantity': 1, 'speed': 1731.4665150984983, 'passenger_local': [-190.3399999999582, 10.069999999980553, 191.80999999999997], 'corrections': 0}"
+    },
+    {
+      "case": "tool_return",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "initial_drop_conserves_state",
+      "pass": true,
+      "detail": "{'pickup': False, 'owned': 1, 'feedback': ''}"
+    },
+    {
+      "case": "moving_drop_floor_attachment",
+      "pass": true,
+      "detail": "{'server_local': [-90.74999999999886, 10.070000000001158, 121.48999999999998], 'client_local': [-90.74999999999886, 10.070000000001158, 121.48999999999998]}"
+    },
+    {
+      "case": "moving_drop_repick",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "needs_update_during_riding",
+      "pass": true,
+      "detail": "{'seconds': 193.7714362628758, 'fatigue': 10.244601249694824, 'hydration': 54.21323776245117}"
+    },
+    {
+      "case": "possession_preserves_independent_needs",
+      "pass": true,
+      "detail": "{'nutrition': 69.6812973022461, 'hydration': 59.359859466552734, 'fatigue': 15.213836669921875}"
+    },
+    {
+      "case": "low_speed_stand_stable",
+      "pass": true,
+      "detail": "{'drift_cm': 0.5912382061029183, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+    },
+    {
+      "case": "acceleration_stand_stable",
+      "pass": true,
+      "detail": "{'drift_cm': 0.2099999999982174, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+    },
+    {
+      "case": "highway_stand_stable",
+      "pass": true,
+      "detail": "{'drift_cm': 0.1472820248501147, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+    },
+    {
+      "case": "gentle_turn_stable",
+      "pass": true,
+      "detail": "{'drift_cm': 0.4825573649633946, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+    },
+    {
+      "case": "strong_turn_stable",
+      "pass": true,
+      "detail": "{'drift_cm': 3.0857907285726807, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+    },
+    {
+      "case": "braking_stand_stable",
+      "pass": true,
+      "detail": "{'drift_cm': 0.9769603292581117, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+    },
+    {
+      "case": "resume_stand_stable",
+      "pass": true,
+      "detail": "{'drift_cm': 0.24045203826181677, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+    },
+    {
+      "case": "floor_and_observer",
+      "pass": true,
+      "detail": "{'min_z': 177.1000033341583, 'max_z': 191.87009471801835, 'max_observer_local_error_cm': 0.0}"
+    },
+    {
+      "case": "visible_observer",
+      "pass": true,
+      "detail": "{'max_visual_local_error_cm': 4.5191729277038455}"
+    },
+    {
+      "case": "completed_moving_storage_sequence",
+      "pass": true,
+      "detail": "192.00373220443726"
+    },
+    {
+      "case": "storage_floor_and_corrections",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "anchors": {
+    "station_Workbench": [
+      -190.61999999999907,
+      10.68999999999988,
+      191.83000000000004
+    ],
+    "station_Medical": [
+      -190.56999999999795,
+      10.690000000000035,
+      191.82999999999998
+    ],
+    "station_Kitchen": [
+      -145.97000000000435,
+      10.689999999999928,
+      191.54
+    ],
+    "station_Storage": [
+      -41.56999999999713,
+      10.689999999999907,
+      177.31
+    ],
+    "station_Power": [
+      -196.04623988568193,
+      10.68999670597899,
+      191.87000422450527
+    ],
+    "station_Navigation": [
+      58.439953663081006,
+      10.690030079247038,
+      177.18999528730802
+    ],
+    "stationary_return": [
+      128.3,
+      10.620000000000001,
+      177.19
+    ],
+    "low_speed_stand": [
+      -189.55,
+      10.61,
+      191.87
+    ],
+    "low_walk_front": [
+      -189.29270157794045,
+      10.690016288444758,
+      191.8699873377562
+    ],
+    "low_walk_rear": [
+      128.6336337748309,
+      10.68999971774724,
+      177.12000323439216
+    ],
+    "acceleration_stand": [
+      -189.24999999999883,
+      10.689999999999998,
+      191.77000000000007
+    ],
+    "moving_walk_front": [
+      -189.14000000000144,
+      10.689999999999932,
+      191.77000000000007
+    ],
+    "moving_walk_rear": [
+      130.58000000000186,
+      10.690000000000003,
+      177.31999999999994
+    ],
+    "highway_stand": [
+      -190.50706527786042,
+      10.68999978033625,
+      191.83000661947358
+    ],
+    "moving_return": [
+      129.6499999999865,
+      10.689999999999957,
+      177.33000000000004
+    ],
+    "sideways": [
+      -144.809999999992,
+      10.689999999999637,
+      191.67000000000007
+    ],
+    "gentle_turn": [
+      -144.75038918928294,
+      10.689999637877737,
+      191.6700000013351
+    ],
+    "strong_turn": [
+      -144.79000020931974,
+      11.18000001702128,
+      191.67000000000004
+    ],
+    "braking_stand": [
+      -144.7490381236141,
+      9.741884638308981,
+      191.6700100789513
+    ],
+    "resume_stand": [
+      -144.8004358004103,
+      10.7000866860661,
+      191.670000003676
+    ],
+    "exit_approach": [
+      -144.8001634087107,
+      10.700032504058356,
+      191.6700000011154
+    ],
+    "storage_stationary": [
+      -181.23077435013377,
+      9.980154027733334,
+      191.86000001646397
+    ],
+    "storage_low_speed": [
+      -195.78000000000011,
+      9.979999999990895,
+      191.69
+    ],
+    "storage_road_speed": [
+      -195.78996089741594,
+      9.979992221771198,
+      191.68999999983805
+    ],
+    "storage_gentle_turn": [
+      -41.349999999999014,
+      9.98000000003583,
+      177.29
+    ],
+    "storage_tool": [
+      -145.83000000001496,
+      10.120000000009213,
+      191.83000000000004
+    ]
+  }
+}

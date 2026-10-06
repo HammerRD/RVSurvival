@@ -1,0 +1,110 @@
+[
+  {
+    "case": "moving_host_baseline_root_final",
+    "roles": [
+      {
+        "side": "server",
+        "pid": 10308,
+        "checks": 82,
+        "frame_losses": 0,
+        "max_correction_cm": 0.0,
+        "correction_count_peak": 0,
+        "max_visual_error_cm": 6.299109147335191,
+        "seam_max_local_step_cm": 5.203498840332031
+      },
+      {
+        "side": "client",
+        "pid": 38996,
+        "checks": 84,
+        "frame_losses": 0,
+        "max_correction_cm": 0.0,
+        "correction_count_peak": 0,
+        "max_visual_error_cm": 0.0,
+        "seam_max_local_step_cm": 5.354526042938232
+      }
+    ],
+    "paired_checks": 227,
+    "max_paired_cm": 13.310157016187807
+  },
+  {
+    "case": "moving_host_emulated_root_final",
+    "roles": [
+      {
+        "side": "server",
+        "pid": 31708,
+        "checks": 82,
+        "frame_losses": 0,
+        "max_correction_cm": 0.0,
+        "correction_count_peak": 0,
+        "max_visual_error_cm": 6.141762779259212,
+        "seam_max_local_step_cm": 5.1500468254089355
+      },
+      {
+        "side": "client",
+        "pid": 37104,
+        "checks": 84,
+        "frame_losses": 0,
+        "max_correction_cm": 0.0,
+        "correction_count_peak": 0,
+        "max_visual_error_cm": 0.0,
+        "seam_max_local_step_cm": 5.183074951171875
+      }
+    ],
+    "paired_checks": 227,
+    "max_paired_cm": 9.278032196241263
+  },
+  {
+    "case": "moving_client_baseline_root_final",
+    "roles": [
+      {
+        "side": "server",
+        "pid": 43860,
+        "checks": 85,
+        "frame_losses": 0,
+        "max_correction_cm": 0.0,
+        "correction_count_peak": 0,
+        "max_visual_error_cm": 0.0,
+        "seam_max_local_step_cm": 5.169069766998291
+      },
+      {
+        "side": "client",
+        "pid": 14852,
+        "checks": 77,
+        "frame_losses": 0,
+        "max_correction_cm": 0.0,
+        "correction_count_peak": 0,
+        "max_visual_error_cm": 3.020882967091378,
+        "seam_max_local_step_cm": 5.168848991394043
+      }
+    ],
+    "paired_checks": 227,
+    "max_paired_cm": 12.199028535550944
+  },
+  {
+    "case": "moving_client_emulated_root_final",
+    "roles": [
+      {
+        "side": "server",
+        "pid": 44056,
+        "checks": 85,
+        "frame_losses": 0,
+        "max_correction_cm": 0.0,
+        "correction_count_peak": 0,
+        "max_visual_error_cm": 0.0,
+        "seam_max_local_step_cm": 4.96347713470459
+      },
+      {
+        "side": "client",
+        "pid": 53084,
+        "checks": 77,
+        "frame_losses": 0,
+        "max_correction_cm": 0.0,
+        "correction_count_peak": 0,
+        "max_visual_error_cm": 4.5191729277038455,
+        "seam_max_local_step_cm": 7.152412414550781
+      }
+    ],
+    "paired_checks": 227,
+    "max_paired_cm": 26.85521932286694
+  }
+]

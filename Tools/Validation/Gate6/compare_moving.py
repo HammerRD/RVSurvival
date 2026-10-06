@@ -23,6 +23,11 @@ for t in [143.6,144.7,150.4,151.5,158.7,159.8,166.7,167.8,174.7,175.8,183]:
   checks.append({'case':f'{key}_at_{t}','pass':s['containers'][key]==c['containers'].get(key)})
 for t in [36,55,161.5,167.5,184]:
  s=nearest(a['samples'],t);c=nearest(b['samples'],t)
+ for key,limit in [('fuel_litres',.02),('house_wh',2),('chassis_wh',2)]:
+  error=abs(s['resources'][key]-c['resources'][key])
+  checks.append({'case':f'resource_{key}_at_{t}','pass':error<limit,'error':error,'limit':limit})
+ for key in ['generator','lights','revision','source','solar']:
+  checks.append({'case':f'resource_{key}_at_{t}','pass':s['resources'][key]==c['resources'][key]})
  for player in ['host','client']:
   for key in ['nutrition','hydration','fatigue','reserve']:
    error=abs(s['needs'][player][key]-c['needs'][player][key])
