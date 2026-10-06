@@ -34,6 +34,7 @@ private:
     bool ValidateResourceAccess(bool FuelFill) const;
     void ToggleResource(FName Control);
     void LightsKey(); void GeneratorKey(); void FridgeKey(); void StationKey(); void IdleKey(); void CloseKey();
+    void WakeKey(); void SleepKey();
     UPROPERTY(Transient) TObjectPtr<class UInputMappingContext> ResourceMapping;
     UPROPERTY(Transient) TArray<TObjectPtr<class UInputAction>> ResourceActions;
     TWeakObjectPtr<class ULocalPlayer> ResourceInputLocalPlayer;

@@ -136,7 +136,7 @@ FString URVNeedsComponent::GetWarnings() const
     if(State.Nutrition<=Tuning.NutritionWarning) Warnings.Add(State.Nutrition<=Tuning.NutritionCritical?TEXT("Very hungry"):TEXT("Hungry"));
     if(State.Hydration<=Tuning.HydrationWarning) Warnings.Add(State.Hydration<=Tuning.HydrationCritical?TEXT("Dehydrated"):TEXT("Thirsty"));
     if(State.Fatigue>=Tuning.FatigueWarning) Warnings.Add(State.Fatigue>=Tuning.FatigueCritical?TEXT("Exhausted"):TEXT("Tired"));
-    if(State.RestMode!=ERVRestMode::Awake) Warnings.Add(State.RestMode==ERVRestMode::Sleeping?TEXT("Sleeping | R: wake | Z: rest"):TEXT("Resting | R: leave | Z: sleep"));
+    if(State.RestMode!=ERVRestMode::Awake) Warnings.Add(State.RestMode==ERVRestMode::Sleeping?TEXT("Sleeping | R / E: stand up | Z: rest"):TEXT("Resting | R / E: stand up | Z: sleep"));
     return FString::Join(Warnings,TEXT(" | "));
 }
 void URVNeedsComponent::RequestConsume(FGuid Id)
@@ -206,6 +206,7 @@ void URVNeedsComponent::EndRestAuthority(bool bForceCleanup)
 void URVNeedsComponent::ServerRestMode_Implementation(ERVRestMode Mode)
 {
     if(!GetOwner()->HasAuthority()) return;
+    if (DebugAllowed()) UE_LOG(LogTemp,Log,TEXT("RVRest request=%d before=%d point=%s character=%s valid=%d"),int32(Mode),int32(State.RestMode),*GetNameSafe(RestLocation),*GetNameSafe(RestingCharacter.Get()),IsValid(RestLocation)&&RestLocation->CanContinueRest(RestingCharacter.Get()));
     ON_SCOPE_EXIT { OnRep_State(); GetOwner()->ForceNetUpdate(); };
     if(Mode==ERVRestMode::Awake) { EndRestAuthority(); if(State.RestMode==ERVRestMode::Awake) Feedback=TEXT("Awake"); return; }
     if((Mode!=ERVRestMode::Resting && Mode!=ERVRestMode::Sleeping) || !IsValid(RestLocation) || !RestLocation->CanContinueRest(RestingCharacter.Get())) return;

@@ -27,10 +27,10 @@ bool ARVRestPoint::FindWakePosition(ARVSurvivorCharacter* Character,FVector& Pos
 bool ARVRestPoint::ValidateLyingPosition(ARVSurvivorCharacter* Character) const
 {
     if (!Character) return false;
-    const FTransform Pose(LyingRotation,GetActorTransform().TransformPosition(LyingOffset));
+    const FVector Position=GetActorLocation()+GetActorQuat().RotateVector(LyingOffset);
     FCollisionQueryParams Params(SCENE_QUERY_STAT(RVBedClearance),false,Character);
     // The horizontal prototype body is 168 x 32 x 32 cm. Include furniture and other players.
-    return !GetWorld()->OverlapBlockingTestByChannel(Pose.GetLocation(),GetActorQuat()*LyingRotation.Quaternion(),ECC_Pawn,
+    return !GetWorld()->OverlapBlockingTestByChannel(Position,GetActorQuat()*LyingRotation.Quaternion(),ECC_Pawn,
         FCollisionShape::MakeBox(FVector(85,18,18)),Params);
 }
 bool ARVRestPoint::CanContinueRest(const ARVSurvivorCharacter* Character) const

@@ -41,7 +41,9 @@ bool URVRestPoseComponent::BeginPoseAuthority(ARVRestPoint* Point)
     if (auto* Frame=C->FindComponentByClass<URVPassengerReferenceFrameComponent>()) Frame->TickComponent(0,LEVELTICK_All,nullptr);
     C->GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
     C->AttachToActor(Point,FAttachmentTransformRules::SnapToTargetNotIncludingScale);
-    C->SetActorRelativeLocation(Point->LyingOffset); C->SetActorRelativeRotation(Point->LyingRotation);
+    // Marker mesh scale is presentation only; bed offsets are physical centimetres.
+    C->SetActorLocation(Point->GetActorLocation()+Point->GetActorQuat().RotateVector(Point->LyingOffset),false,nullptr,ETeleportType::TeleportPhysics);
+    C->SetActorRotation(Point->GetActorQuat()*Point->LyingRotation.Quaternion());
     RestPoint=Point; OnRep_RestPoint(); C->ForceNetUpdate(); return true;
 }
 bool URVRestPoseComponent::EndPoseAuthority(bool ForceCleanup)

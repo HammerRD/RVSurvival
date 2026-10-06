@@ -95,3 +95,11 @@ Actual final tests: 46 single, 18 stress, 12 supplement, baseline/emulated 31 se
 Fixed battery final-interval residual accounting and tiny absolute cutoff. A repeated emulated route exposed a rare floor-seam displacement; the reusable passenger component now uses native CharacterMovement attachment-root basing and actual floor hits, restoring prior world settings on exit. All collision and native prediction/replication remain. Fixed Python runner teardown NameError by capturing quit locally before namespace release; exact stress and subsequent shutdown/map-load sequences pass without a fatal crash/world leak. Failed/WIP evidence is retained, not counted as acceptance.
 
 Frequent saves and local milestones f4c6543, 6369b4e, 92d3699, cd6ca0d, da8ce09, 4521be3, explicit WIP 7c6a505, acd5e3c, explicit WIP 688345d, de35885, d228217, 8d5ccec, c8431e7 and ea29c88 precede final validation/documentation checkpoints. Full architecture, units, tests, limitations and recovery history: GATE_6_VALIDATION.md. Prototype energy balance/art/UI, solar/weather abstraction, separate-tank UI, full persistence and larger/packaged/dedicated sessions remain declared limits. Existing Config/IDE changes are excluded. No Gate 7 mechanical failure/repair or later gameplay was implemented.
+
+## Gate 6 interior usability refinement - first saved milestone
+- Added validated seat-to-living-area transition (3), preserving authoritative seats and native moving-base policy.
+- Added reusable replicated project-side house door using untouched purchased door/glass meshes.
+- Added reusable rear-bed lying/stand-up presentation and safe wake placement; R/E stand, Z sleep/rest through Enhanced Input press edges.
+- Hidden normal-gameplay RV debug interaction cubes through a shared presentation component, retaining traces and optional development visualization.
+- Real PIE: 9 rear/seat checks and 38 door/bed/station/presentation checks pass. Multiplayer/moving/obstruction/disconnect validation remains pending; Gate 7 not begun.
+

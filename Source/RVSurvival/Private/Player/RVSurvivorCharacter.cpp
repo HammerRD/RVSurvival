@@ -97,6 +97,8 @@ void ARVSurvivorCharacter::StartJump() { if (!SeatedVehicle && CanMoveWhileAwake
 void ARVSurvivorCharacter::StopJump() { StopJumping(); }
 void ARVSurvivorCharacter::StartInteract()
 {
+    if (const auto* PS=GetPlayerState<ARVPlayerState>(); PS && PS->Needs->State.RestMode!=ERVRestMode::Awake)
+    { PS->Needs->RequestRestMode(ERVRestMode::Awake); return; }
     if (SeatedVehicle) { if (auto* PC = Cast<ARVPlayerController>(Controller)) PC->ServerExitVehicle(); }
     else Interaction->BeginInteraction();
 }

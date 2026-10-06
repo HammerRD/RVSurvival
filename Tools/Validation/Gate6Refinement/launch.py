@@ -2,6 +2,8 @@ import unreal,time,json,sys,os
 sys.path.insert(0,'D:/GitHub/RVSurvival/RVSurvival/Saved/Gate3Validation')
 from runner_runtime import load_runner,release_runners
 B='D:/GitHub/RVSurvival/RVSurvival/Saved/Gate6Refinement/'
+suite=json.load(open(B+'request.json')).get('suite','rear') if os.path.exists(B+'request.json') else 'rear'
+assert suite in ['rear','bed_door_stations']
 def prepare():
  assert unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).load_level('/Game/Maps/Gate6FuelElectricalTest')
  assert unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True,True)
@@ -17,11 +19,11 @@ def tick(dt):
  t+=dt
  if t>6 and not loaded:
   loaded=True
-  try:load_runner('D:/GitHub/RVSurvival/RVSurvival/Tools/Validation/Gate6Refinement/rear.py')
-  except Exception as e:json.dump({'results':[{'case':'load','pass':False,'detail':repr(e)}]},open(B+'rear.json','w'))
- if loaded and not ending and os.path.exists(B+'rear.json') and os.path.getmtime(B+'rear.json')>start:
+  try:load_runner('D:/GitHub/RVSurvival/RVSurvival/Tools/Validation/Gate6Refinement/'+suite+'.py')
+  except Exception as e:json.dump({'results':[{'case':'load','pass':False,'detail':repr(e)}]},open(B+suite+'.json','w'))
+ if loaded and not ending and os.path.exists(B+suite+'.json') and os.path.getmtime(B+suite+'.json')>start:
   unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_end_play();ending=time.time()+4
- if t>100 and not ending:
+ if t>180 and not ending:
   unreal.log_error('REFINEMENT_TIMEOUT');unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_end_play();ending=time.time()+4
  if ending and time.time()>ending:
   unreal.unregister_slate_post_tick_callback(h);quit=unreal.SystemLibrary.quit_editor;release_runners();quit()

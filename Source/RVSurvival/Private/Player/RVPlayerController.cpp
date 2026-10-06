@@ -37,15 +37,6 @@ void ARVPlayerController::ServerSwitchSeat_Implementation(FName TargetSeat)
 void ARVPlayerController::PlayerTick(float DeltaTime)
 {
     Super::PlayerTick(DeltaTime);
-    if (IsLocalController())
-    {
-        if (auto* PS=GetPlayerState<ARVPlayerState>())
-        {
-            if (WasInputKeyJustPressed(EKeys::R)) PS->Needs->RequestRestMode(ERVRestMode::Awake);
-            if (WasInputKeyJustPressed(EKeys::Z)) PS->Needs->RequestRestMode(PS->Needs->State.RestMode==ERVRestMode::Sleeping?ERVRestMode::Resting:ERVRestMode::Sleeping);
-        }
-        if (WasInputKeyJustPressed(EKeys::Three)) RequestLivingArea();
-    }
     if (!IsLocalController() || !SeatedVehicle) return;
     const auto Seats = SeatedVehicle->GetSeats();
     if (WasInputKeyJustPressed(EKeys::One))
@@ -146,7 +137,7 @@ void ARVPlayerController::SetupInputComponent()
     if(!ResourceMapping)
     {
         ResourceMapping=NewObject<UInputMappingContext>(this);
-        for(FKey Key:{EKeys::H,EKeys::J,EKeys::K,EKeys::L,EKeys::O,EKeys::Escape})
+        for(FKey Key:{EKeys::H,EKeys::J,EKeys::K,EKeys::L,EKeys::O,EKeys::Escape,EKeys::R,EKeys::Z,EKeys::Three})
         {
             auto* Action=NewObject<UInputAction>(this); Action->ValueType=EInputActionValueType::Boolean;
             ResourceMapping->MapKey(Action,Key); ResourceActions.Add(Action);
@@ -158,9 +149,16 @@ void ARVPlayerController::SetupInputComponent()
     Input->BindAction(ResourceActions[3],ETriggerEvent::Started,this,&ThisClass::StationKey);
     Input->BindAction(ResourceActions[4],ETriggerEvent::Started,this,&ThisClass::IdleKey);
     Input->BindAction(ResourceActions[5],ETriggerEvent::Started,this,&ThisClass::CloseKey);
+    Input->BindAction(ResourceActions[6],ETriggerEvent::Started,this,&ThisClass::WakeKey);
+    Input->BindAction(ResourceActions[7],ETriggerEvent::Started,this,&ThisClass::SleepKey);
+    Input->BindAction(ResourceActions[8],ETriggerEvent::Started,this,&ThisClass::RequestLivingArea);
     if(auto* Subsystem=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
     { ResourceInputLocalPlayer=Local; Subsystem->RemoveMappingContext(ResourceMapping); Subsystem->AddMappingContext(ResourceMapping,2); }
 }
+void ARVPlayerController::WakeKey()
+{ if (auto* PS=GetPlayerState<ARVPlayerState>()) PS->Needs->RequestRestMode(ERVRestMode::Awake); }
+void ARVPlayerController::SleepKey()
+{ if (auto* PS=GetPlayerState<ARVPlayerState>()) PS->Needs->RequestRestMode(PS->Needs->State.RestMode==ERVRestMode::Sleeping?ERVRestMode::Resting:ERVRestMode::Sleeping); }
 void ARVPlayerController::ToggleResource(FName Control)
 {
     if(!IsLocalController() || !IsValid(ResourcePoint) || ResourcePoint->bFuelFill || !ResourcePoint->Vehicle) return;
