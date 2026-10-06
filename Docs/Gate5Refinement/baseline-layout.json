@@ -1,0 +1,1428 @@
+{
+  "collision": [
+    {
+      "name": "LeftWall",
+      "center": [
+        -65.0,
+        -122.0,
+        190.0
+      ],
+      "extent": [
+        290.0,
+        5.0,
+        105.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "RightWallRear",
+      "center": [
+        -140.0,
+        122.0,
+        190.0
+      ],
+      "extent": [
+        215.0,
+        5.0,
+        105.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "RightWallFront",
+      "center": [
+        197.0,
+        122.0,
+        190.0
+      ],
+      "extent": [
+        28.0,
+        5.0,
+        105.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "RearWall",
+      "center": [
+        -359.0,
+        0.0,
+        190.0
+      ],
+      "extent": [
+        5.0,
+        122.0,
+        105.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "FrontWall",
+      "center": [
+        230.0,
+        0.0,
+        195.0
+      ],
+      "extent": [
+        5.0,
+        120.0,
+        105.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "Ceiling",
+      "center": [
+        -65.0,
+        0.0,
+        301.0
+      ],
+      "extent": [
+        290.0,
+        122.0,
+        5.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "RearFloor",
+      "center": [
+        -155.0,
+        -30.0,
+        96.49
+      ],
+      "extent": [
+        80.0,
+        90.0,
+        5.0
+      ],
+      "floor": true
+    },
+    {
+      "name": "Bed",
+      "center": [
+        -295.0,
+        0.0,
+        140.0
+      ],
+      "extent": [
+        60.0,
+        115.0,
+        40.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "KitchenCabinet",
+      "center": [
+        20.0,
+        -80.0,
+        130.0
+      ],
+      "extent": [
+        65.0,
+        35.0,
+        43.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "Dinette",
+      "center": [
+        20.0,
+        85.0,
+        130.0
+      ],
+      "extent": [
+        75.0,
+        30.0,
+        43.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "Bathroom",
+      "center": [
+        -155.0,
+        90.0,
+        200.0
+      ],
+      "extent": [
+        78.0,
+        25.0,
+        100.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "RearCabinet",
+      "center": [
+        -170.0,
+        -101.0,
+        190.0
+      ],
+      "extent": [
+        55.0,
+        15.0,
+        90.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "EntryStepLow",
+      "center": [
+        122.0,
+        220.0,
+        10.0
+      ],
+      "extent": [
+        48.0,
+        30.0,
+        10.0
+      ],
+      "floor": true
+    },
+    {
+      "name": "EntryStepMid",
+      "center": [
+        122.0,
+        170.0,
+        30.0
+      ],
+      "extent": [
+        48.0,
+        25.0,
+        30.0
+      ],
+      "floor": true
+    },
+    {
+      "name": "EntryStepHigh",
+      "center": [
+        122.0,
+        133.0,
+        42.0
+      ],
+      "extent": [
+        48.0,
+        14.0,
+        42.0
+      ],
+      "floor": true
+    },
+    {
+      "name": "DriverChair",
+      "center": [
+        190.0,
+        -49.0,
+        140.0
+      ],
+      "extent": [
+        25.0,
+        25.0,
+        50.0
+      ],
+      "floor": false
+    },
+    {
+      "name": "PassengerChair",
+      "center": [
+        190.0,
+        49.0,
+        140.0
+      ],
+      "extent": [
+        25.0,
+        25.0,
+        50.0
+      ],
+      "floor": false
+    }
+  ],
+  "visuals": [
+    {
+      "name": "Art_RV_Cab",
+      "mesh": "/Game/RV/Meshes/SM_RV_Cab.SM_RV_Cab",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA02A0) {rotation: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}, translation: {x: 0.000000, y: 0.000000, z: 0.000000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D0D80) {origin: {x: 37.031677, y: -0.524517, z: 180.379267}, box_extent: {x: 331.408142, y: 120.277210, z: 135.061621}, sphere_radius: 359.537638}>"
+    },
+    {
+      "name": "Art_RV_Cab_Door_L",
+      "mesh": "/Game/RV/Meshes/SM_RV_Cab_Door_L.SM_RV_Cab_Door_L",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA50C0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 253.276000, y: -97.838000, z: 108.730000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D0600) {origin: {x: -50.145103, y: 10.571161, z: 0.000000}, box_extent: {x: 46.495384, y: 10.002098, z: 61.906235}, sphere_radius: 74.805337}>"
+    },
+    {
+      "name": "Art_RV_Cab_Door_R",
+      "mesh": "/Game/RV/Meshes/SM_RV_Cab_Door_R.SM_RV_Cab_Door_R",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAE580) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 253.269000, y: 97.840000, z: 108.730000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3DFF80) {origin: {x: -50.138222, y: -10.582059, z: 0.000000}, box_extent: {x: 46.495384, y: 10.002076, z: 61.906235}, sphere_radius: 74.805342}>"
+    },
+    {
+      "name": "Art_RV_Cab_SteeringWheel",
+      "mesh": "/Game/RV/Meshes/SM_RV_Cab_SteeringWheel.SM_RV_Cab_SteeringWheel",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAFC00) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 216.429000, y: -48.805000, z: 141.685000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D8880) {origin: {x: 0.000000, y: -0.000008, z: 0.000004}, box_extent: {x: 8.448914, y: 20.952888, z: 19.767056}, sphere_radius: 21.029156}>"
+    },
+    {
+      "name": "Art_RV_Chassis1",
+      "mesh": "/Game/RV/Meshes/SM_RV_Chassis.SM_RV_Chassis",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAED00) {rotation: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}, translation: {x: 0.000000, y: 0.000000, z: 0.000000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D83C0) {origin: {x: -0.065735, y: 0.001465, z: 161.548247}, box_extent: {x: 382.367920, y: 128.051437, z: 152.226259}, sphere_radius: 413.195857}>"
+    },
+    {
+      "name": "Art_RV_Chassis_Door_L",
+      "mesh": "/Game/RV/Meshes/SM_RV_Chassis_Door_L.SM_RV_Chassis_Door_L",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAF340) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 253.274000, y: -97.835000, z: 120.338000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D8DC0) {origin: {x: -53.032707, y: -14.451986, z: 0.000000}, box_extent: {x: 53.027802, y: 38.798265, z: 79.990715}, sphere_radius: 102.829334}>"
+    },
+    {
+      "name": "Art_RV_Chassis_Door_R",
+      "mesh": "/Game/RV/Meshes/SM_RV_Chassis_Door_R.SM_RV_Chassis_Door_R",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAB6A0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 253.272000, y: 97.838000, z: 120.338000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D8EC0) {origin: {x: -53.030762, y: 14.019243, z: 0.000000}, box_extent: {x: 53.027802, y: 38.365736, z: 79.990715}, sphere_radius: 102.674211}>"
+    },
+    {
+      "name": "Art_RV_Chassis_Hood",
+      "mesh": "/Game/RV/Meshes/SM_RV_Chassis_Hood.SM_RV_Chassis_Hood",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA99E0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 258.325000, y: 0.000000, z: 141.455000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D6140) {origin: {x: 62.670179, y: 0.000000, z: -12.183422}, box_extent: {x: 48.867968, y: 92.433868, z: 13.919109}, sphere_radius: 104.121138}>"
+    },
+    {
+      "name": "Art_RV_Glass",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass.SM_RV_Glass",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA9BC0) {rotation: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}, translation: {x: 0.000000, y: 0.000000, z: 0.000000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D6240) {origin: {x: 66.512390, y: 0.009598, z: 202.915565}, box_extent: {x: 293.718323, y: 93.212479, z: 122.134575}, sphere_radius: 330.906374}>"
+    },
+    {
+      "name": "Art_RV_Glass_Door_Back",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Door_Back.SM_RV_Glass_Door_Back",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAAA20) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 126.384000, y: 124.383000, z: 203.803000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D1A80) {origin: {x: -34.033638, y: -2.051176, z: 0.000000}, box_extent: {x: 20.377579, y: 0.000001, z: 31.533493}, sphere_radius: 37.544732}>"
+    },
+    {
+      "name": "Art_RV_Glass_Door_L",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Door_L.SM_RV_Glass_Door_L",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA3CC0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 253.271000, y: -97.830000, z: 166.954000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D2480) {origin: {x: -62.041487, y: 10.043200, z: 0.000000}, box_extent: {x: 34.034243, y: 9.601533, z: 28.678604}, sphere_radius: 45.530006}>"
+    },
+    {
+      "name": "Art_RV_Glass_Door_R",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Door_R.SM_RV_Glass_Door_R",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA2C80) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 253.269000, y: 97.839000, z: 166.954000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D2B80) {origin: {x: -62.039520, y: -10.049291, z: 0.000000}, box_extent: {x: 34.034241, y: 9.601531, z: 28.678604}, sphere_radius: 45.530004}>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_01",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_01.SM_RV_Glass_Window_01",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA0700) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 225.271000, y: -120.863000, z: 263.528000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D01C0) {origin: {x: 0.000000, y: 0.000046, z: 0.000008}, box_extent: {x: 18.020767, y: 0.000001, z: 18.138206}, sphere_radius: 25.568390}>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_02",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_02.SM_RV_Glass_Window_02",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA0AC0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 184.997000, y: -123.119000, z: 263.528000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D1940) {origin: {x: 0.000000, y: 0.000046, z: -0.000015}, box_extent: {x: 18.020767, y: 0.000001, z: 18.138199}, sphere_radius: 25.568385}>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_03",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_03.SM_RV_Glass_Window_03",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA0E80) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 54.311000, y: -120.911000, z: 212.161000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D3C00) {origin: {x: 0.000000, y: 0.000046, z: 0.000000}, box_extent: {x: 34.165184, y: 0.000001, z: 32.511581}, sphere_radius: 47.162079}>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_04",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_04.SM_RV_Glass_Window_04",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA1240) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -18.058000, y: -123.184000, z: 212.161000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D5500) {origin: {x: 0.000000, y: 0.000046, z: 0.000000}, box_extent: {x: 34.165161, y: 0.000001, z: 32.511581}, sphere_radius: 47.162073}>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_05",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_05.SM_RV_Glass_Window_05",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA1600) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -361.194000, y: 22.535000, z: 235.041000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D3880) {origin: {x: 0.000061, y: 0.000000, z: -0.000008}, box_extent: {x: 0.000001, y: 23.637592, z: 27.457558}, sphere_radius: 36.230557}>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_06",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_06.SM_RV_Glass_Window_06",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA1BA0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -363.452000, y: 73.714000, z: 235.041000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D37C0) {origin: {x: 0.000061, y: -0.000002, z: 0.000000}, box_extent: {x: 0.000001, y: 23.637590, z: 27.457565}, sphere_radius: 36.230561}>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_07",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_07.SM_RV_Glass_Window_07",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA0020) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -278.003000, y: 120.865000, z: 232.629000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D29C0) {origin: {x: -0.000015, y: 0.000046, z: 0.000000}, box_extent: {x: 26.628830, y: 0.000001, z: 29.869736}, sphere_radius: 40.016193}>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_08",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_08.SM_RV_Glass_Window_08",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA0160) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -220.861000, y: 123.122000, z: 232.629000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D2CC0) {origin: {x: 0.000000, y: 0.000046, z: 0.000008}, box_extent: {x: 26.467545, y: 0.000001, z: 29.869743}, sphere_radius: 39.909053}>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_09",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_09.SM_RV_Glass_Window_09",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA0DE0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 20.299000, y: 120.950000, z: 231.794000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D32C0) {origin: {x: 0.000000, y: 0.000046, z: 0.000000}, box_extent: {x: 20.865807, y: 0.000001, z: 13.347214}, sphere_radius: 24.769538}>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_10",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_10.SM_RV_Glass_Window_10",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA4800) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 20.299000, y: 123.208000, z: 201.124000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D34C0) {origin: {x: 0.000000, y: 0.000046, z: 0.000008}, box_extent: {x: 20.865807, y: 0.000001, z: 13.347206}, sphere_radius: 24.769534}>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_11",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_11.SM_RV_Glass_Window_11",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA4300) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 184.997000, y: 123.137000, z: 263.528000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D2B40) {origin: {x: 0.000000, y: 0.000046, z: -0.000015}, box_extent: {x: 18.020767, y: 0.000001, z: 18.138199}, sphere_radius: 25.568385}>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_12",
+      "mesh": "/Game/RV/Meshes/SM_RV_Glass_Window_12.SM_RV_Glass_Window_12",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA30E0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 225.271000, y: 120.863000, z: 263.528000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D37C0) {origin: {x: 0.000000, y: 0.000046, z: 0.000008}, box_extent: {x: 18.020767, y: 0.000001, z: 18.138206}, sphere_radius: 25.568390}>"
+    },
+    {
+      "name": "Art_RV_Interior",
+      "mesh": "/Game/RV/Meshes/SM_RV_Interior.SM_RV_Interior",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA3860) {rotation: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}, translation: {x: 0.000000, y: 0.000000, z: 0.000000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D2680) {origin: {x: -49.153641, y: 0.514923, z: 172.008640}, box_extent: {x: 311.269638, y: 120.647362, z: 143.073940}, sphere_radius: 348.643533}>"
+    },
+    {
+      "name": "Art_RV_Interior_Blind_01",
+      "mesh": "/Game/RV/Meshes/SM_RV_Interior_Blind_01.SM_RV_Interior_Blind_01",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAFCA0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 18.194000, y: -116.170000, z: 270.469000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D3980) {origin: {x: 0.000000, y: -0.000003, z: -0.000008}, box_extent: {x: 75.491699, y: 3.489899, z: 35.019951}, sphere_radius: 83.292067}>"
+    },
+    {
+      "name": "Art_RV_Interior_Blind_02",
+      "mesh": "/Game/RV/Meshes/SM_RV_Interior_Blind_02.SM_RV_Interior_Blind_02",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAD860) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 20.248000, y: 116.282000, z: 265.111000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D5640) {origin: {x: 0.000000, y: 0.000000, z: 0.000008}, box_extent: {x: 26.187313, y: 3.493193, z: 32.326210}, sphere_radius: 41.748791}>"
+    },
+    {
+      "name": "Art_RV_Interior_Blind_03",
+      "mesh": "/Game/RV/Meshes/SM_RV_Interior_Blind_03.SM_RV_Interior_Blind_03",
+      "transform": "<Struct 'Transform' (0x000002CCD1CADAE0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -356.975000, y: 48.191000, z: 278.888000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D3AC0) {origin: {x: -0.000002, y: -0.000002, z: 0.000000}, box_extent: {x: 3.489899, y: 54.708361, z: 28.967743}, sphere_radius: 62.002484}>"
+    },
+    {
+      "name": "Art_RV_Interior_Blind_04",
+      "mesh": "/Game/RV/Meshes/SM_RV_Interior_Blind_04.SM_RV_Interior_Blind_04",
+      "transform": "<Struct 'Transform' (0x000002CCD1CADEA0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -249.386000, y: 116.164000, z: 287.328000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D8840) {origin: {x: 0.000008, y: 0.000003, z: 0.000000}, box_extent: {x: 60.249611, y: 3.489899, z: 28.967773}, sphere_radius: 66.942654}>"
+    },
+    {
+      "name": "Art_RV_Van",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van.SM_RV_Van",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAE080) {rotation: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}, translation: {x: 0.000000, y: 0.000000, z: 0.000000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D36C0) {origin: {x: -37.682098, y: 2.662254, z: 185.100539}, box_extent: {x: 345.000397, y: 129.361702, z: 164.961381}, sphere_radius: 385.711739}>"
+    },
+    {
+      "name": "Art_RV_Van_Compartment_01",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_01.SM_RV_Van_Compartment_01",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAEEE0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 91.486000, y: -124.756000, z: 84.804000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D1F80) {origin: {x: 0.000000, y: 0.888062, z: -22.922504}, box_extent: {x: 37.014046, y: 0.890321, z: 22.920940}, sphere_radius: 40.357876}>"
+    },
+    {
+      "name": "Art_RV_Van_Compartment_02",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_02.SM_RV_Van_Compartment_02",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAF0C0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -20.648000, y: -124.770000, z: 84.832000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D55C0) {origin: {x: 0.000000, y: 0.890923, z: -23.011414}, box_extent: {x: 36.933113, y: 0.890321, z: 23.008759}, sphere_radius: 40.324892}>"
+    },
+    {
+      "name": "Art_RV_Van_Compartment_03",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_03.SM_RV_Van_Compartment_03",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAEB20) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -228.078000, y: -124.757000, z: 90.182000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D23C0) {origin: {x: -0.000008, y: 0.889191, z: -22.921230}, box_extent: {x: 37.014061, y: 0.890326, z: 22.920940}, sphere_radius: 40.357890}>"
+    },
+    {
+      "name": "Art_RV_Van_Compartment_04",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_04.SM_RV_Van_Compartment_04",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAF660) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -314.057000, y: -124.765000, z: 98.670000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D2480) {origin: {x: -0.000015, y: 0.886177, z: -23.010391}, box_extent: {x: 36.933121, y: 0.890321, z: 23.008759}, sphere_radius: 40.324899}>"
+    },
+    {
+      "name": "Art_RV_Van_Compartment_05",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_05.SM_RV_Van_Compartment_05",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA7000) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -7.355000, y: 124.678000, z: 95.575000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D2A80) {origin: {x: 0.000000, y: -0.894524, z: -25.390955}, box_extent: {x: 42.327606, y: 0.890329, z: 25.389124}, sphere_radius: 46.213391}>"
+    },
+    {
+      "name": "Art_RV_Van_Compartment_06",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_06.SM_RV_Van_Compartment_06",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAC1E0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -225.726000, y: 124.675000, z: 95.578000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D1240) {origin: {x: -0.000008, y: -0.891907, z: -25.393503}, box_extent: {x: 42.327599, y: 0.890329, z: 25.389124}, sphere_radius: 46.213384}>"
+    },
+    {
+      "name": "Art_RV_Van_Compartment_07",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Compartment_07.SM_RV_Van_Compartment_07",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAC820) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -290.249000, y: 124.675000, z: 103.489000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D8BC0) {origin: {x: -29.007492, y: -0.890716, z: 0.000000}, box_extent: {x: 29.003006, y: 0.889626, z: 51.055710}, sphere_radius: 55.713355}>"
+    },
+    {
+      "name": "Art_RV_Van_Door_Back",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Door_Back.SM_RV_Van_Door_Back",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAD360) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 126.384000, y: 124.383000, z: 140.933000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D8200) {origin: {x: -34.027309, y: -1.982092, z: 0.000000}, box_extent: {x: 34.022556, y: 2.559495, z: 111.618622}, sphere_radius: 116.710722}>"
+    },
+    {
+      "name": "Art_RV_Van_Window_01",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_01.SM_RV_Van_Window_01",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAB2E0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 224.571000, y: -120.928000, z: 263.440000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D8D00) {origin: {x: 0.000000, y: 0.000000, z: 0.000000}, box_extent: {x: 20.160522, y: 1.135758, z: 19.556366}, sphere_radius: 28.110284}>"
+    },
+    {
+      "name": "Art_RV_Van_Window_02",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_02.SM_RV_Van_Window_02",
+      "transform": "<Struct 'Transform' (0x000002CCD1CACBE0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 185.632000, y: -123.156000, z: 263.440000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D0000) {origin: {x: 0.000000, y: 0.000001, z: 0.000000}, box_extent: {x: 20.160522, y: 1.135757, z: 19.556366}, sphere_radius: 28.110284}>"
+    },
+    {
+      "name": "Art_RV_Van_Window_03",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_03.SM_RV_Van_Window_03",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAC6E0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 53.699000, y: -120.917000, z: 212.073000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D0840) {origin: {x: 0.000000, y: 0.000000, z: 0.000000}, box_extent: {x: 36.181107, y: 1.135774, z: 33.873657}, sphere_radius: 49.576074}>"
+    },
+    {
+      "name": "Art_RV_Van_Window_04",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_04.SM_RV_Van_Window_04",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAC460) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -17.293000, y: -123.170000, z: 212.073000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D0B00) {origin: {x: 0.000000, y: 0.000001, z: 0.000000}, box_extent: {x: 36.181114, y: 1.135773, z: 33.873657}, sphere_radius: 49.576079}>"
+    },
+    {
+      "name": "Art_RV_Van_Window_05",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_05.SM_RV_Van_Window_05",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAC0A0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -361.304000, y: 23.084000, z: 235.146000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D24C0) {origin: {x: 0.000000, y: 0.000000, z: 0.000000}, box_extent: {x: 1.135774, y: 25.703003, z: 28.865158}, sphere_radius: 38.666933}>"
+    },
+    {
+      "name": "Art_RV_Van_Window_06",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_06.SM_RV_Van_Window_06",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAF660) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -363.557000, y: 73.083000, z: 235.146000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D2380) {origin: {x: 0.000001, y: 0.000000, z: 0.000000}, box_extent: {x: 1.135773, y: 25.666672, z: 28.865158}, sphere_radius: 38.642792}>"
+    },
+    {
+      "name": "Art_RV_Van_Window_07",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_07.SM_RV_Van_Window_07",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAFDE0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -277.246000, y: 120.832000, z: 232.746000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D2780) {origin: {x: 0.000000, y: -0.000000, z: -0.000008}, box_extent: {x: 28.505524, y: 1.135774, z: 31.265266}, sphere_radius: 42.324600}>"
+    },
+    {
+      "name": "Art_RV_Van_Window_08",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_08.SM_RV_Van_Window_08",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAE3A0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -221.609000, y: 123.085000, z: 232.746000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D2E00) {origin: {x: 0.000000, y: -0.000001, z: 0.000000}, box_extent: {x: 28.502075, y: 1.135773, z: 31.265244}, sphere_radius: 42.322260}>"
+    },
+    {
+      "name": "Art_RV_Van_Window_09",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_09.SM_RV_Van_Window_09",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAEE40) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 20.291000, y: 120.829000, z: 231.148000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D1540) {origin: {x: 0.000000, y: 0.000000, z: 0.000000}, box_extent: {x: 22.342087, y: 1.135756, z: 15.345856}, sphere_radius: 27.128472}>"
+    },
+    {
+      "name": "Art_RV_Van_Window_10",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_10.SM_RV_Van_Window_10",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAEEE0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 20.291000, y: 123.084000, z: 201.839000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D1B80) {origin: {x: 0.000000, y: 0.000000, z: 0.000008}, box_extent: {x: 22.342087, y: 1.135758, z: 15.345848}, sphere_radius: 27.128468}>"
+    },
+    {
+      "name": "Art_RV_Van_Window_11",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_11.SM_RV_Van_Window_11",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAF7A0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 185.632000, y: 123.153000, z: 263.440000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D2C40) {origin: {x: 0.000000, y: -0.000000, z: 0.000000}, box_extent: {x: 20.160522, y: 1.135743, z: 19.556366}, sphere_radius: 28.110283}>"
+    },
+    {
+      "name": "Art_RV_Van_Window_12",
+      "mesh": "/Game/RV/Meshes/SM_RV_Van_Window_12.SM_RV_Van_Window_12",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAFA20) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 224.571000, y: 120.926000, z: 263.440000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D8740) {origin: {x: 0.000000, y: 0.000000, z: 0.000000}, box_extent: {x: 20.160522, y: 1.135743, z: 19.556366}, sphere_radius: 28.110283}>"
+    },
+    {
+      "name": "Art_RV_Wheels_BL",
+      "mesh": "/Game/RV/Meshes/SM_RV_Wheels_BL.SM_RV_Wheels_BL",
+      "transform": "<Struct 'Transform' (0x000002CCD1CADFE0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -115.062000, y: -92.924000, z: 39.144000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D7600) {origin: {x: 0.000000, y: 0.000001, z: 0.000002}, box_extent: {x: 39.250763, y: 26.727721, z: 39.250616}, sphere_radius: 45.412555}>"
+    },
+    {
+      "name": "Art_RV_Wheels_BR",
+      "mesh": "/Game/RV/Meshes/SM_RV_Wheels_BR.SM_RV_Wheels_BR",
+      "transform": "<Struct 'Transform' (0x000002CCD1CADC20) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: -115.118000, y: 92.922000, z: 39.121000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D7F80) {origin: {x: 0.000000, y: 0.000001, z: 0.000000}, box_extent: {x: 39.250793, y: 26.727723, z: 39.250610}, sphere_radius: 45.412526}>"
+    },
+    {
+      "name": "Art_RV_Wheels_FL",
+      "mesh": "/Game/RV/Meshes/SM_RV_Wheels_FL.SM_RV_Wheels_FL",
+      "transform": "<Struct 'Transform' (0x000002CCD1CAFCA0) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 296.447000, y: -88.419000, z: 39.128000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D7F00) {origin: {x: 0.000008, y: -0.000003, z: 0.000000}, box_extent: {x: 39.250542, y: 17.897336, z: 39.250511}, sphere_radius: 41.152081}>"
+    },
+    {
+      "name": "Art_RV_Wheels_FR",
+      "mesh": "/Game/RV/Meshes/SM_RV_Wheels_FR.SM_RV_Wheels_FR",
+      "transform": "<Struct 'Transform' (0x000002CCD1CA3860) {rotation: {x: 0.000000, y: -0.000000, z: 0.000000, w: 1.000000}, translation: {x: 296.317000, y: 88.382000, z: 39.203000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "bounds": "<Struct 'BoxSphereBounds' (0x000002CCAF3D7A40) {origin: {x: -0.000015, y: 0.000000, z: 0.000002}, box_extent: {x: 39.250511, y: 17.897354, z: 39.250540}, sphere_radius: 41.152060}>"
+    }
+  ],
+  "components": [
+    {
+      "name": "VehicleMesh",
+      "loc": [
+        0.0,
+        0.0,
+        5.0
+      ],
+      "bounds": "",
+      "collision": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>"
+    },
+    {
+      "name": "PrototypeRVBody",
+      "loc": [
+        -85.0,
+        0.0,
+        140.0
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81934EC0) {x: -50.000000, y: -50.000000, z: -50.000000}>, <Struct 'Vector' (0x000002CC81934F10) {x: 50.000000, y: 50.000000, z: 50.000000}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "PrototypeRVCab",
+      "loc": [
+        130.0,
+        0.0,
+        90.0
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81934EC0) {x: -50.000000, y: -50.000000, z: -50.000000}>, <Struct 'Vector' (0x000002CC81934F10) {x: 50.000000, y: 50.000000, z: 50.000000}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "PrototypeLabel",
+      "loc": [
+        -220.0,
+        -122.0,
+        195.0
+      ],
+      "bounds": "",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "InteriorFloor",
+      "loc": [
+        77.0,
+        0.0,
+        82.19
+      ],
+      "bounds": "<Struct 'Vector' (0x000002CCD290A078) {x: 153.000000, y: 117.000000, z: 5.000000}>",
+      "collision": "<CollisionEnabled.QUERY_ONLY: 1>"
+    },
+    {
+      "name": "CameraProxyMeshComponent_0",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81934F10) {x: -95.147362, y: -24.012368, z: -24.955689}>, <Struct 'Vector' (0x000002CC81934F60) {x: 0.472336, y: 24.012366, z: 28.560508}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "DrawFrustumComponent_0",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": "",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Cab",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81934F60) {x: -294.376465, y: -120.801727, z: 45.317646}>, <Struct 'Vector' (0x000002CC81934FB0) {x: 368.439819, y: 119.752693, z: 315.440887}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Cab_Door_L",
+      "loc": [
+        253.276,
+        -97.838,
+        108.73
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81934FB0) {x: -96.640488, y: 0.569063, z: -61.906235}>, <Struct 'Vector' (0x000002CC81935000) {x: -3.649719, y: 20.573259, z: 61.906235}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Cab_Door_R",
+      "loc": [
+        253.269,
+        97.84,
+        108.73
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935000) {x: -96.633606, y: -20.584135, z: -61.906235}>, <Struct 'Vector' (0x000002CC81935050) {x: -3.642838, y: -0.579982, z: 61.906235}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Cab_SteeringWheel",
+      "loc": [
+        216.429,
+        -48.805,
+        141.685
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935050) {x: -8.448914, y: -20.952896, z: -19.767052}>, <Struct 'Vector' (0x000002CC819350A0) {x: 8.448914, y: 20.952881, z: 19.767059}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Chassis1",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935050) {x: -382.433655, y: -128.049973, z: 9.321988}>, <Struct 'Vector' (0x000002CC819350A0) {x: 382.302185, y: 128.052902, z: 313.774506}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Chassis_Door_L",
+      "loc": [
+        253.274,
+        -97.835,
+        120.338
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC819350A0) {x: -106.060509, y: -53.250252, z: -79.990715}>, <Struct 'Vector' (0x000002CC819350F0) {x: -0.004906, y: 24.346279, z: 79.990715}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Chassis_Door_R",
+      "loc": [
+        253.272,
+        97.838,
+        120.338
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC819350F0) {x: -106.058563, y: -24.346493, z: -79.990715}>, <Struct 'Vector' (0x000002CC81935140) {x: -0.002960, y: 52.384979, z: 79.990715}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Chassis_Hood",
+      "loc": [
+        258.325,
+        0.0,
+        141.455
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935140) {x: 13.802212, y: -92.433868, z: -26.102531}>, <Struct 'Vector' (0x000002CC81935190) {x: 111.538147, y: 92.433868, z: 1.735687}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Glass",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935140) {x: -227.205933, y: -93.202881, z: 80.780991}>, <Struct 'Vector' (0x000002CC81935190) {x: 360.230713, y: 93.222076, z: 325.050140}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Glass_Door_Back",
+      "loc": [
+        126.384,
+        124.383,
+        203.803
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935190) {x: -54.411217, y: -2.051177, z: -31.533493}>, <Struct 'Vector' (0x000002CC819351E0) {x: -13.656059, y: -2.051176, z: 31.533493}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Glass_Door_L",
+      "loc": [
+        253.271,
+        -97.83,
+        166.954
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC819351E0) {x: -96.075729, y: 0.441667, z: -28.678604}>, <Struct 'Vector' (0x000002CC81935230) {x: -28.007244, y: 19.644733, z: 28.678604}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Glass_Door_R",
+      "loc": [
+        253.269,
+        97.839,
+        166.954
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935230) {x: -96.073761, y: -19.650822, z: -28.678604}>, <Struct 'Vector' (0x000002CC81935280) {x: -28.005280, y: -0.447760, z: 28.678604}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_01",
+      "loc": [
+        225.271,
+        -120.863,
+        263.528
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935280) {x: -18.020767, y: 0.000045, z: -18.138199}>, <Struct 'Vector' (0x000002CC819352D0) {x: 18.020767, y: 0.000047, z: 18.138214}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_02",
+      "loc": [
+        184.997,
+        -123.119,
+        263.528
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC819352D0) {x: -18.020767, y: 0.000045, z: -18.138214}>, <Struct 'Vector' (0x000002CC81935320) {x: 18.020767, y: 0.000047, z: 18.138184}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_03",
+      "loc": [
+        54.311,
+        -120.911,
+        212.161
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935320) {x: -34.165184, y: 0.000044, z: -32.511581}>, <Struct 'Vector' (0x000002CC81936860) {x: 34.165184, y: 0.000047, z: 32.511581}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_04",
+      "loc": [
+        -18.058,
+        -123.184,
+        212.161
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81936860) {x: -34.165161, y: 0.000044, z: -32.511581}>, <Struct 'Vector' (0x000002CC81935820) {x: 34.165161, y: 0.000047, z: 32.511581}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_05",
+      "loc": [
+        -361.194,
+        22.535,
+        235.041
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935820) {x: 0.000060, y: -23.637592, z: -27.457565}>, <Struct 'Vector' (0x000002CC819358C0) {x: 0.000062, y: 23.637592, z: 27.457550}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_06",
+      "loc": [
+        -363.452,
+        73.714,
+        235.041
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC819358C0) {x: 0.000060, y: -23.637592, z: -27.457565}>, <Struct 'Vector' (0x000002CC81935A50) {x: 0.000062, y: 23.637589, z: 27.457565}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_07",
+      "loc": [
+        -278.003,
+        120.865,
+        232.629
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935A50) {x: -26.628845, y: 0.000045, z: -29.869736}>, <Struct 'Vector' (0x000002CC81935A00) {x: 26.628815, y: 0.000047, z: 29.869736}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_08",
+      "loc": [
+        -220.861,
+        123.122,
+        232.629
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935A00) {x: -26.467545, y: 0.000045, z: -29.869736}>, <Struct 'Vector' (0x000002CC819359B0) {x: 26.467545, y: 0.000047, z: 29.869751}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_09",
+      "loc": [
+        20.299,
+        120.95,
+        231.794
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC819359B0) {x: -20.865807, y: 0.000045, z: -13.347214}>, <Struct 'Vector' (0x000002CC81935910) {x: 20.865807, y: 0.000047, z: 13.347214}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_10",
+      "loc": [
+        20.299,
+        123.208,
+        201.124
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935910) {x: -20.865807, y: 0.000045, z: -13.347198}>, <Struct 'Vector' (0x000002CC81935AF0) {x: 20.865807, y: 0.000047, z: 13.347214}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_11",
+      "loc": [
+        184.997,
+        123.137,
+        263.528
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935AF0) {x: -18.020767, y: 0.000045, z: -18.138214}>, <Struct 'Vector' (0x000002CC81935410) {x: 18.020767, y: 0.000047, z: 18.138184}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Glass_Window_12",
+      "loc": [
+        225.271,
+        120.863,
+        263.528
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935410) {x: -18.020767, y: 0.000045, z: -18.138199}>, <Struct 'Vector' (0x000002CC81935460) {x: 18.020767, y: 0.000047, z: 18.138214}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Interior",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935410) {x: -360.423279, y: -120.132439, z: 28.934700}>, <Struct 'Vector' (0x000002CC81935460) {x: 262.115997, y: 121.162285, z: 315.082581}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Interior_Blind_01",
+      "loc": [
+        18.194,
+        -116.17,
+        270.469
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935460) {x: -75.491699, y: -3.489902, z: -35.019958}>, <Struct 'Vector' (0x000002CC819354B0) {x: 75.491699, y: 3.489895, z: 35.019943}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Interior_Blind_02",
+      "loc": [
+        20.248,
+        116.282,
+        265.111
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC819354B0) {x: -26.187313, y: -3.493193, z: -32.326202}>, <Struct 'Vector' (0x000002CC81935500) {x: 26.187313, y: 3.493193, z: 32.326218}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Interior_Blind_03",
+      "loc": [
+        -356.975,
+        48.191,
+        278.888
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935500) {x: -3.489901, y: -54.708363, z: -28.967743}>, <Struct 'Vector' (0x000002CC81935550) {x: 3.489896, y: 54.708359, z: 28.967743}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Interior_Blind_04",
+      "loc": [
+        -249.386,
+        116.164,
+        287.328
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935550) {x: -60.249603, y: -3.489896, z: -28.967773}>, <Struct 'Vector' (0x000002CC819355A0) {x: 60.249619, y: 3.489901, z: 28.967773}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935550) {x: -382.682495, y: -126.699448, z: 20.139158}>, <Struct 'Vector' (0x000002CC819355A0) {x: 307.318298, y: 132.023956, z: 350.061920}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Compartment_01",
+      "loc": [
+        91.486,
+        -124.756,
+        84.804
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC819355A0) {x: -37.014046, y: -0.002260, z: -45.843445}>, <Struct 'Vector' (0x000002CC819355F0) {x: 37.014046, y: 1.778383, z: -0.001564}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Compartment_02",
+      "loc": [
+        -20.648,
+        -124.77,
+        84.832
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC819355F0) {x: -36.933113, y: 0.000601, z: -46.020172}>, <Struct 'Vector' (0x000002CC819356E0) {x: 36.933113, y: 1.781244, z: -0.002655}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Compartment_03",
+      "loc": [
+        -228.078,
+        -124.757,
+        90.182
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC819356E0) {x: -37.014069, y: -0.001135, z: -45.842171}>, <Struct 'Vector' (0x000002CC81935690) {x: 37.014053, y: 1.779516, z: -0.000290}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Compartment_04",
+      "loc": [
+        -314.057,
+        -124.765,
+        98.67
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935690) {x: -36.933136, y: -0.004144, z: -46.019150}>, <Struct 'Vector' (0x000002CC81935B40) {x: 36.933105, y: 1.776499, z: -0.001633}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Compartment_05",
+      "loc": [
+        -7.355,
+        124.678,
+        95.575
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935B40) {x: -42.327606, y: -1.784853, z: -50.780079}>, <Struct 'Vector' (0x000002CC81935B90) {x: 42.327606, y: -0.004194, z: -0.001831}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Compartment_06",
+      "loc": [
+        -225.726,
+        124.675,
+        95.578
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935B90) {x: -42.327606, y: -1.782236, z: -50.782627}>, <Struct 'Vector' (0x000002CC81935BE0) {x: 42.327591, y: -0.001577, z: -0.004379}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Compartment_07",
+      "loc": [
+        -290.249,
+        124.675,
+        103.489
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935BE0) {x: -58.010498, y: -1.780342, z: -51.055710}>, <Struct 'Vector' (0x000002CC81935C30) {x: -0.004486, y: -0.001091, z: 51.055710}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Door_Back",
+      "loc": [
+        126.384,
+        124.383,
+        140.933
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935C30) {x: -68.049866, y: -4.541587, z: -111.618622}>, <Struct 'Vector' (0x000002CC81935C80) {x: -0.004753, y: 0.577403, z: 111.618622}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Window_01",
+      "loc": [
+        224.571,
+        -120.928,
+        263.44
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935C80) {x: -20.160522, y: -1.135758, z: -19.556366}>, <Struct 'Vector' (0x000002CC81935CD0) {x: 20.160522, y: 1.135758, z: 19.556366}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Window_02",
+      "loc": [
+        185.632,
+        -123.156,
+        263.44
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935CD0) {x: -20.160522, y: -1.135757, z: -19.556366}>, <Struct 'Vector' (0x000002CC81935D20) {x: 20.160522, y: 1.135758, z: 19.556366}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Window_03",
+      "loc": [
+        53.699,
+        -120.917,
+        212.073
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935D20) {x: -36.181107, y: -1.135774, z: -33.873657}>, <Struct 'Vector' (0x000002CC81935D70) {x: 36.181107, y: 1.135774, z: 33.873657}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Window_04",
+      "loc": [
+        -17.293,
+        -123.17,
+        212.073
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935D70) {x: -36.181114, y: -1.135772, z: -33.873657}>, <Struct 'Vector' (0x000002CC81935DC0) {x: 36.181114, y: 1.135774, z: 33.873657}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Window_05",
+      "loc": [
+        -361.304,
+        23.084,
+        235.146
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935DC0) {x: -1.135774, y: -25.703003, z: -28.865158}>, <Struct 'Vector' (0x000002CC81935E10) {x: 1.135774, y: 25.703003, z: 28.865158}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Window_06",
+      "loc": [
+        -363.557,
+        73.083,
+        235.146
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935E10) {x: -1.135772, y: -25.666672, z: -28.865158}>, <Struct 'Vector' (0x000002CC81935E60) {x: 1.135774, y: 25.666672, z: 28.865158}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Window_07",
+      "loc": [
+        -277.246,
+        120.832,
+        232.746
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935E60) {x: -28.505524, y: -1.135774, z: -31.265274}>, <Struct 'Vector' (0x000002CC81935EB0) {x: 28.505524, y: 1.135774, z: 31.265259}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Window_08",
+      "loc": [
+        -221.609,
+        123.085,
+        232.746
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935EB0) {x: -28.502075, y: -1.135774, z: -31.265244}>, <Struct 'Vector' (0x000002CC81935F00) {x: 28.502075, y: 1.135772, z: 31.265244}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Window_09",
+      "loc": [
+        20.291,
+        120.829,
+        231.148
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935F00) {x: -22.342087, y: -1.135756, z: -15.345856}>, <Struct 'Vector' (0x000002CC81935F50) {x: 22.342087, y: 1.135756, z: 15.345856}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Window_10",
+      "loc": [
+        20.291,
+        123.084,
+        201.839
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935F50) {x: -22.342087, y: -1.135758, z: -15.345840}>, <Struct 'Vector' (0x000002CC81935FA0) {x: 22.342087, y: 1.135758, z: 15.345856}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Window_11",
+      "loc": [
+        185.632,
+        123.153,
+        263.44
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935FA0) {x: -20.160522, y: -1.135743, z: -19.556366}>, <Struct 'Vector' (0x000002CC81935FF0) {x: 20.160522, y: 1.135743, z: 19.556366}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Van_Window_12",
+      "loc": [
+        224.571,
+        120.926,
+        263.44
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81935FF0) {x: -20.160522, y: -1.135743, z: -19.556366}>, <Struct 'Vector' (0x000002CC81936040) {x: 20.160522, y: 1.135743, z: 19.556366}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Wheels_BL",
+      "loc": [
+        -115.062,
+        -92.924,
+        39.144
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81936040) {x: -39.250763, y: -26.727720, z: -39.250614}>, <Struct 'Vector' (0x000002CC81936090) {x: 39.250763, y: 26.727722, z: 39.250618}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Wheels_BR",
+      "loc": [
+        -115.118,
+        92.922,
+        39.121
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81936090) {x: -39.250793, y: -26.727722, z: -39.250610}>, <Struct 'Vector' (0x000002CC819360E0) {x: 39.250793, y: 26.727724, z: 39.250610}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Wheels_FL",
+      "loc": [
+        296.447,
+        -88.419,
+        39.128
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC819360E0) {x: -39.250534, y: -17.897339, z: -39.250511}>, <Struct 'Vector' (0x000002CC81936130) {x: 39.250549, y: 17.897333, z: 39.250511}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "Art_RV_Wheels_FR",
+      "loc": [
+        296.317,
+        88.382,
+        39.203
+      ],
+      "bounds": "(<Struct 'Vector' (0x000002CC81936130) {x: -39.250526, y: -17.897354, z: -39.250538}>, <Struct 'Vector' (0x000002CC81935370) {x: 39.250496, y: 17.897354, z: 39.250542}>)",
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    {
+      "name": "LeftWall",
+      "loc": [
+        -65.0,
+        -122.0,
+        190.0
+      ],
+      "bounds": "<Struct 'Vector' (0x000002CCD097BC78) {x: 290.000000, y: 5.000000, z: 105.000000}>",
+      "collision": "<CollisionEnabled.QUERY_ONLY: 1>"
+    },
+    {
+      "name": "RightWallRear",
+      "loc": [
+        -140.0,
+        122.0,
+        190.0
+      ],
+      "bounds": "<Struct 'Vector' (0x000002CCD097C378) {x: 215.000000, y: 5.000000, z: 105.000000}>",
+      "collision": "<CollisionEnabled.QUERY_ONLY: 1>"
+    },
+    {
+      "name": "RightWallFront",
+      "loc": [
+        197.0,
+        122.0,
+        190.0
+      ],
+      "bounds": "<Struct 'Vector' (0x000002CCD097CA78) {x: 28.000000, y: 5.000000, z: 105.000000}>",
+      "collision": "<CollisionEnabled.QUERY_ONLY: 1>"
+    },
+    {
+      "name": "RearWall",
+      "loc": [
+        -359.0,
+        0.0,
+        190.0
+      ],
+      "bounds": "<Struct 'Vector' (0x000002CCD097D178) {x: 5.000000, y: 122.000000, z: 105.000000}>",
+      "collision": "<CollisionEnabled.QUERY_ONLY: 1>"
+    },
+    {
+      "name": "FrontWall",
+      "loc": [
+        230.0,
+        0.0,
+        195.0
+      ],
+      "bounds": "<Struct 'Vector' (0x000002CCD097D878) {x: 5.000000, y: 120.000000, z: 105.000000}>",
+      "collision": "<CollisionEnabled.QUERY_ONLY: 1>"
+    },
+    {
+      "name": "Ceiling",
+      "loc": [
+        -65.0,
+        0.0,
+        301.0
+      ],
+      "bounds": "<Struct 'Vector' (0x000002CCD0977678) {x: 290.000000, y: 122.000000, z: 5.000000}>",
+      "collision": "<CollisionEnabled.QUERY_ONLY: 1>"
+    },
+    {
+      "name": "RearFloor",
+      "loc": [
+        -155.0,
+        -30.0,
+        96.49
+      ],
+      "bounds": "<Struct 'Vector' (0x000002CCD0977D78) {x: 80.000000, y: 90.000000, z: 5.000000}>",
+      "collision": "<CollisionEnabled.QUERY_ONLY: 1>"
+    },
+    {
+      "name": "Bed",
+      "loc": [
+        -295.0,
+        0.0,
+        140.0
+      ],
+      "bounds": "<Struct 'Vector' (0x000002CCD0978478) {x: 60.000000, y: 115.000000, z: 40.000000}>",
+      "collision": "<CollisionEnabled.QUERY_ONLY: 1>"
+    },
+    {
+      "name": "KitchenCabinet",
+      "loc": [
+        20.0,
+        -80.0,
+        130.0
+      ],
+      "bounds": "<Struct 'Vector' (0x000002CCD0978B78) {x: 65.000000, y: 35.000000, z: 43.000000}>",
+      "collision": "<CollisionEnabled.QUERY_ONLY: 1>"
+    },
+    {
+      "name": "Dinette",
+      "loc": [
+        20.0,
+        85.0,
+        130.0
+      ],
+      "bounds": "<Struct 'Vector' (0x000002CCD0979278) {x: 75.000000, y: 30.000000, z: 43.000000}>",
+      "collision": "<CollisionEnabled.QUERY_ONLY: 1>"
+    },
+    {
+      "name": "Bathroom",
+      "loc": [
+        -155.0,
+        90.0,
+        200.0
+      ],
+      "bounds": "<Struct 'Vector' (0x000002CCD0979978) {x: 78.000000, y: 25.000000, z: 100.000000}>",
+      "collision": "<CollisionEnabled.QUERY_ONLY: 1>"
+    },
+    {
+      "name": "RearCabinet",
+      "loc": [
+        -170.0,
+        -101.0,
+        190.0
+      ],
+      "bounds": "<Struct 'Vector' (0x000002CCD097A078) {x: 55.000000, y: 15.000000, z: 90.000000}>",
+      "collision": "<CollisionEnabled.QUERY_ONLY: 1>"
+    },
+    {
+      "name": "EntryStepLow",
+      "loc": [
+        122.0,
+        220.0,
+        10.0
+      ],
+      "bounds": "<Struct 'Vector' (0x000002CCD097B578) {x: 48.000000, y: 30.000000, z: 10.000000}>",
+      "collision": "<CollisionEnabled.QUERY_ONLY: 1>"
+    },
+    {
+      "name": "EntryStepMid",
+      "loc": [
+        122.0,
+        170.0,
+        30.0
+      ],
+      "bounds": "<Struct 'Vector' (0x000002CCD0974578) {x: 48.000000, y: 25.000000, z: 30.000000}>",
+      "collision": "<CollisionEnabled.QUERY_ONLY: 1>"
+    },
+    {
+      "name": "EntryStepHigh",
+      "loc": [
+        122.0,
+        133.0,
+        42.0
+      ],
+      "bounds": "<Struct 'Vector' (0x000002CCD0973078) {x: 48.000000, y: 14.000000, z: 42.000000}>",
+      "collision": "<CollisionEnabled.QUERY_ONLY: 1>"
+    },
+    {
+      "name": "DriverChair",
+      "loc": [
+        190.0,
+        -49.0,
+        140.0
+      ],
+      "bounds": "<Struct 'Vector' (0x000002CCD2BBED78) {x: 25.000000, y: 25.000000, z: 50.000000}>",
+      "collision": "<CollisionEnabled.QUERY_ONLY: 1>"
+    },
+    {
+      "name": "PassengerChair",
+      "loc": [
+        190.0,
+        49.0,
+        140.0
+      ],
+      "bounds": "<Struct 'Vector' (0x000002CCD2BBF478) {x: 25.000000, y: 25.000000, z: 50.000000}>",
+      "collision": "<CollisionEnabled.QUERY_ONLY: 1>"
+    }
+  ],
+  "storage": [
+    {
+      "name": "Gate4_ExternalStorage",
+      "display": "External storage",
+      "relative": [
+        600.0,
+        -350.0,
+        100.0
+      ]
+    },
+    {
+      "name": "Gate4_Pantry",
+      "display": "Pantry",
+      "relative": [
+        -12.0,
+        -32.0,
+        155.0
+      ]
+    },
+    {
+      "name": "Gate4_General cabinet",
+      "display": "General cabinet",
+      "relative": [
+        -222.0,
+        52.0,
+        155.0
+      ]
+    },
+    {
+      "name": "Gate4_Medical storage",
+      "display": "Medical storage",
+      "relative": [
+        -117.0,
+        52.0,
+        155.0
+      ]
+    },
+    {
+      "name": "Gate4_Tool storage",
+      "display": "Tool storage",
+      "relative": [
+        -220.0,
+        -73.0,
+        155.0
+      ]
+    },
+    {
+      "name": "Gate4_Exterior compartment",
+      "display": "Exterior compartment",
+      "relative": [
+        -180.0,
+        140.0,
+        65.0
+      ]
+    },
+    {
+      "name": "Gate5_WaterSupply",
+      "display": "Water supplies",
+      "relative": [
+        68.0,
+        -32.0,
+        155.0
+      ]
+    }
+  ],
+  "character": {
+    "radius": 34.0,
+    "halfheight": 88.0
+  },
+  "camera": {
+    "TargetArmLength": "900.0",
+    "SocketOffset": "<Struct 'Vector' (0x000002CB8E920A98) {x: 0.000000, y: 0.000000, z: 280.000000}>",
+    "TargetOffset": "<Struct 'Vector' (0x000002CB8E920AB0) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+    "RelativeLocation": "<Struct 'Vector' (0x000002CB8E920980) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+    "RelativeRotation": "<Struct 'Rotator' (0x000002CB8E920998) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+    "ProbeSize": "12.0",
+    "bDoCollisionTest": "True"
+  }
+}
