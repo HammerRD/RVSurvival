@@ -1,3 +1,11 @@
+# Require the Gate 6 event extension before interpreting this as Gate 6 coverage.
+import json,sys
+from pathlib import Path
+audit_name=sys.argv[1]
+audit= json.loads(Path('Saved/Gate6Validation/'+audit_name+'_server.json').read_text())
+if not audit.get('samples') or 'resources' not in audit['samples'][0]:
+ print('Coverage guard: legacy moving regression passed, but Gate 6 event extension was absent; stop the matrix.')
+ sys.exit(2)
 """Compare independent Gate 5 process receipts; never accesses live Unreal objects."""
 import json,math,sys
 from pathlib import Path

@@ -272,6 +272,8 @@ at(178.6,initial_drop_conservation)
 at(178.7,lambda:look(walker,unreal.Rotator(yaw=wv.get_actor_rotation().yaw)))
 at(179.2,retry_drop_in_aisle)
 
+from pathlib import Path
+exec(Path('D:/GitHub/RVSurvival/RVSurvival/Tools/Validation/Gate6/moving_resources.py').read_text(),globals())
 events.sort(key=lambda e:e[0])
 def tick(dt):
  global elapsed,idx,sample_acc
