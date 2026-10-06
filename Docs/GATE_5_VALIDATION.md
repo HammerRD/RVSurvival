@@ -165,3 +165,37 @@ Local checkpoints: cc05a60 baseline/recovery; 765cc89 saved compiled refinement 
 Known limits: static compartment doors and static open house door/prototype exterior tread; no final animation/art/rebinding; parked seat switching and entry/exit; accepted parked-only rest/sleep and seated-inventory limitations; no full save/cargo-mass/rough-terrain/larger-party claims. The exact original manual stuck pose and original timed harness miss were not conclusively reproduced. Current full routes have no reproduced trapping or networking blocker. A fresh manual usability review of Gate5SurvivalTest is recommended before authorizing Gate 6.
 
 All content is saved. The unrelated pre-existing Config/DefaultEngine.ini, .vsconfig, Automation_RVSurvival.slnx and RVSurvival.slnx are preserved outside refinement commits; security/config values are not copied into this report. No Git push or Gate 6 work was performed.
+
+## Gate 5 front / engine-bay collision follow-up — 2026-10-06
+
+**Result: Gate 5 remains ACCEPTED. Checkpoint c3d38e5 already contains the front collision fix in Gate5SurvivalTest's BP_ClassCRefinedMotorhome.** No additional Source or Content change was necessary. Older Gate 3/4 maps and the original/fallback Blueprint intentionally retain their accepted configurations; this result does not claim every legacy RV placement uses the refined derivative.
+
+### Cause and existing protection
+Purchased visual parts have NoCollision; the Chaos chassis intentionally ignores Pawn/Visibility to preserve passenger physics. The old walking shell's FrontWall ended around local x230, while the purchased cab/nose extends to approximately x400. Without project-side nose/cab queries, a standing character could enter visual bodywork and bring the camera inside it.
+
+The refined Blueprint already has separate query-only boxes, in centimetres (center; half extent):
+- FrontFascia: (402,0,95); (5,101,77).
+- HoodTop: (314,0,156); (90,97,6).
+- CabExteriorLeft/Right: (310,+/-101,85); (90,5,70).
+- Existing FrontWall/cab-firewall boundary: (230,0,195); (5,120,105).
+
+These supplement the house walls and rear boundary; they do not create an oversized full-RV box, change Chaos driving physics, reduce the outside capsule, or edit vendor meshes. The current 34 cm outside capsule stopped at local x441.5 in the center/front-offset tests, outside the fascia's x407 surface.
+
+### Fresh validation and actual scope
+Archived scripts, compact receipts and native game screenshots: Tools/Validation/FrontAudit and Docs/Gate5FrontAudit. Runtime logs and full trajectories: Saved/Gate5FrontAudit and Saved/Gate5Refinement.
+
+- Exterior suite: **33/33 pass**. Nineteen actual native-input approach tests cover center/offset frontal walking, a normal frontal jump, diagonal corners, cab sides, actual front/rear wheel positions, both house sides and rear. Corner assertions inspect the complete trajectory rather than rejecting safe sliding around the exterior.
+- Twelve short native Visibility query checks cover bumper/grille/fascia, hood, engine sides, firewall, cab/windshield boundary, house sides, rear and lower frontal body. Python exposes hit existence but not protected hit-component metadata; these checks do not claim component-identity/impact-point measurements.
+- One continuous five-waypoint exterior walk-around passed without intermediate teleportation; one unchanged capsule-radius check passed. Native front-center/left/right and rear screenshots were visually inspected. Solid hood/grille/bodywork did not expose the interior by camera penetration. Genuine windshield glass remains transparent.
+- Separate-process shared seat/cargo suite: **51 server / 48 client checks pass**, including both drivers, driver/passenger switching, occupied-seat rejection, all seven independent exterior containers, shared transfers/contention, preserved item GUID/state, food/water, drop/repick and disconnect seat release.
+- Host driver/client walker: **72 server / 73 client pass**; client driver/host walker: **74 server / 67 client pass**. Each independent-process comparison passed 187 sample checks. Maximum paired local-position differences were **10.52 cm** and **8.92 cm**, respectively.
+- These fresh moving routes include approximately 60 mph, acceleration, braking, turns, standing/front/rear/sideways walking, physical side-door exit/re-entry, workstation interaction, moving storage, food/water and survival state across possession. Measured movement/storage windows (setup and intentional transitions excluded) had **zero floor-loss samples and maximum recorded passenger correction 0 cm** in all four process reports. No acceptance threshold was weakened.
+- This follow-up reran baseline separate-process conditions; the accepted c3d38e5 refinement's 100 ms / 2% packet-loss results remain documented above and were not represented as newly executed tests.
+- All **108 vendor files** still match preserved SHA-256 hashes. Source/Content have no diff from c3d38e5. Final editor inspection reopened the saved Gate5 map, confirmed the refined vehicle/collision configuration, saved before/after inspection and shut down cleanly. No World Memory Leak or runtime/editor crash occurred in the successful final sequences.
+
+### Boundaries and harness corrections
+The mechanical underside contains genuine openings: a vertical line through local (320,0) from z-10 to z120 can be unobstructed. Normal standing players cannot pass beneath the tested front structure: its ground clearance is far below the 176 cm full-height capsule. Lower frontal approaches were blocked. This is not a watertight-hull, crawling, noclip, elevated-platform or roof-climbing certification. Windows are allowed to show the cabin through actual glass.
+
+The original human playtest pose/map was not recorded, so the reproduction uses ordinary head-on/offset/jump approaches in the current refined Gate5 map rather than claiming an identical historical pose. No current engine-bay walk-in was reproduced. Initial harness iterations used an unavailable Python BreakHitResult wrapper/protected hit metadata and an overly restrictive corner endpoint check; these were corrected to supported native hit-existence checks and whole-path intrusion checks. Failed exploratory receipts/logs remain under Saved; they did not justify speculative gameplay changes.
+
+This follow-up changes validation/documentation only. All work is saved; the local checkpoint follows this section (use Git log for its hash). Pre-existing Config/DefaultEngine.ini and IDE-generated files remain untouched outside the checkpoint. **No Gate 6 work.**

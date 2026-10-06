@@ -1,0 +1,198 @@
+[
+  {
+    "case": "front_followup_host",
+    "role": "server",
+    "floor_loss_samples": 0,
+    "max_correction_cm": 0.0,
+    "max_speed_cm_s": 2693.857085015072,
+    "stability_checks": [
+      {
+        "case": "low_speed_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.5372362582918808, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "acceleration_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.21406457077088595, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "highway_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.09932377922051572, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "gentle_turn_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.5027370528841764, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "strong_turn_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 2.360975866268361, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "braking_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 1.0521808688875587, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "resume_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.25132344243167354, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "storage_floor_and_corrections",
+        "pass": true,
+        "detail": ""
+      }
+    ]
+  },
+  {
+    "case": "front_followup_host",
+    "role": "client",
+    "floor_loss_samples": 0,
+    "max_correction_cm": 0.0,
+    "max_speed_cm_s": 2761.6086865043917,
+    "stability_checks": [
+      {
+        "case": "low_speed_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.08327823592468211, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "acceleration_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.06380950808861308, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "highway_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.12172401021679877, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "gentle_turn_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.12813656305596746, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "strong_turn_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 2.3278542926519536, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "braking_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.11342450210754579, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "resume_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.12413669889092327, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "storage_floor_and_corrections",
+        "pass": true,
+        "detail": ""
+      }
+    ]
+  },
+  {
+    "case": "front_followup_client",
+    "role": "server",
+    "floor_loss_samples": 0,
+    "max_correction_cm": 0.0,
+    "max_speed_cm_s": 2714.5850567701114,
+    "stability_checks": [
+      {
+        "case": "low_speed_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.5227652495636491, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "acceleration_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.2134352174251483, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "highway_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.11479150744501873, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "gentle_turn_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.5033391438467076, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "strong_turn_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 2.3675314505938143, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "braking_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.8168269434726182, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "resume_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.25655343756612353, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "storage_floor_and_corrections",
+        "pass": true,
+        "detail": ""
+      }
+    ]
+  },
+  {
+    "case": "front_followup_client",
+    "role": "client",
+    "floor_loss_samples": 0,
+    "max_correction_cm": 0.0,
+    "max_speed_cm_s": 2754.2647284016552,
+    "stability_checks": [
+      {
+        "case": "low_speed_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.5547983211846212, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "acceleration_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.1999999999999318, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "highway_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.0988713401600444, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "gentle_turn_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.4924870967799256, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "strong_turn_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 2.6045109306432597, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "braking_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.8176295630784377, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "resume_stand_stable",
+        "pass": true,
+        "detail": "{'drift_cm': 0.25530180132099184, 'frame_lost_samples': 0, 'corrections': 0, 'max_correction_cm': 0.0}"
+      },
+      {
+        "case": "storage_floor_and_corrections",
+        "pass": true,
+        "detail": ""
+      }
+    ]
+  }
+]

@@ -1,0 +1,266 @@
+{
+  "pid": 35372,
+  "authority": true,
+  "config": {
+    "kind": "process",
+    "network": false,
+    "name": "front_followup_seats"
+  },
+  "results": [
+    {
+      "case": "seven_unique_independent_doors",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host_driver_client_passenger",
+      "pass": true,
+      "detail": "{'driver': \"<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_0' (0x0000021F70933200) Class 'RVInteriorTestCharacter'>\", 'passenger': \"<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_1' (0x0000021F39EC5A00) Class 'RVInteriorTestCharacter'>\"}"
+    },
+    {
+      "case": "initial_possession",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "occupied_swap_rejected",
+      "pass": true,
+      "detail": "{'driver': \"<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_0' (0x0000021F70933200) Class 'RVInteriorTestCharacter'>\", 'passenger': \"<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_1' (0x0000021F39EC5A00) Class 'RVInteriorTestCharacter'>\"}"
+    },
+    {
+      "case": "occupied_feedback",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "passenger_exit_frees_seat",
+      "pass": true,
+      "detail": "{'driver': \"<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_0' (0x0000021F70933200) Class 'RVInteriorTestCharacter'>\", 'passenger': 'None'}"
+    },
+    {
+      "case": "host_switch_to_passenger",
+      "pass": true,
+      "detail": "{'driver': 'None', 'passenger': \"<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_0' (0x0000021F70933200) Class 'RVInteriorTestCharacter'>\"}"
+    },
+    {
+      "case": "host_passenger_possession",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_driver_host_passenger",
+      "pass": true,
+      "detail": "{'driver': \"<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_1' (0x0000021F39EC5A00) Class 'RVInteriorTestCharacter'>\", 'passenger': \"<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_0' (0x0000021F70933200) Class 'RVInteriorTestCharacter'>\"}"
+    },
+    {
+      "case": "swapped_possession",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "occupied_swapped_rejected",
+      "pass": true,
+      "detail": "{'driver': \"<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_1' (0x0000021F39EC5A00) Class 'RVInteriorTestCharacter'>\", 'passenger': \"<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_0' (0x0000021F70933200) Class 'RVInteriorTestCharacter'>\"}"
+    },
+    {
+      "case": "host_passenger_exit_frees",
+      "pass": true,
+      "detail": "{'driver': \"<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_1' (0x0000021F39EC5A00) Class 'RVInteriorTestCharacter'>\", 'passenger': 'None'}"
+    },
+    {
+      "case": "client_driver_to_passenger",
+      "pass": true,
+      "detail": "{'driver': 'None', 'passenger': \"<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_1' (0x0000021F39EC5A00) Class 'RVInteriorTestCharacter'>\"}"
+    },
+    {
+      "case": "client_passenger_to_driver",
+      "pass": true,
+      "detail": "{'driver': \"<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_1' (0x0000021F39EC5A00) Class 'RVInteriorTestCharacter'>\", 'passenger': 'None'}"
+    },
+    {
+      "case": "client_drives_after_switch",
+      "pass": true,
+      "detail": "1519.0488356160256"
+    },
+    {
+      "case": "client_native_V_driver_to_passenger",
+      "pass": true,
+      "detail": "{'driver': 'None', 'passenger': \"<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_1' (0x0000021F39EC5A00) Class 'RVInteriorTestCharacter'>\"}"
+    },
+    {
+      "case": "client_native_V_passenger_to_driver",
+      "pass": true,
+      "detail": "{'driver': \"<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_1' (0x0000021F39EC5A00) Class 'RVInteriorTestCharacter'>\", 'passenger': 'None'}"
+    },
+    {
+      "case": "both_seats_released",
+      "pass": true,
+      "detail": "{'driver': 'None', 'passenger': 'None'}"
+    },
+    {
+      "case": "client_remote_door_entry",
+      "pass": true,
+      "detail": "[129.98503625210026, -9.296517959608201e-06, 177.33911382535825]"
+    },
+    {
+      "case": "client_remote_door_exit",
+      "pass": true,
+      "detail": "[92.8041490561138, 240.00025108542195, 71.86666356290614]"
+    },
+    {
+      "case": "client_remote_door_entry",
+      "pass": true,
+      "detail": "[129.98503625210026, -9.296517959608201e-06, 177.33911382535825]"
+    },
+    {
+      "case": "client_standing_interior_driver_entry",
+      "pass": true,
+      "detail": "{'driver': \"<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_1' (0x0000021F39EC5A00) Class 'RVInteriorTestCharacter'>\", 'passenger': 'None'}"
+    },
+    {
+      "case": "client_numeric_passenger_switch",
+      "pass": true,
+      "detail": "{'driver': 'None', 'passenger': \"<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_1' (0x0000021F39EC5A00) Class 'RVInteriorTestCharacter'>\"}"
+    },
+    {
+      "case": "interior_entry_switch_exit_releases",
+      "pass": true,
+      "detail": "{'driver': 'None', 'passenger': 'None'}"
+    },
+    {
+      "case": "open_specific_door_01",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "no_duplicate_contention_01",
+      "pass": true,
+      "detail": "{'total': 1}"
+    },
+    {
+      "case": "only_owner_consumes_final_shared_food",
+      "pass": true,
+      "detail": "(20.0, 65.0)"
+    },
+    {
+      "case": "open_specific_door_02",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "no_duplicate_contention_02",
+      "pass": true,
+      "detail": "{'total': 1}"
+    },
+    {
+      "case": "return_state_preserved_02",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "open_specific_door_03",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "no_duplicate_contention_03",
+      "pass": true,
+      "detail": "{'total': 1}"
+    },
+    {
+      "case": "return_state_preserved_03",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "open_specific_door_04",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "no_duplicate_contention_04",
+      "pass": true,
+      "detail": "{'total': 1}"
+    },
+    {
+      "case": "return_state_preserved_04",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "open_specific_door_05",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "no_duplicate_contention_05",
+      "pass": true,
+      "detail": "{'total': 1}"
+    },
+    {
+      "case": "return_state_preserved_05",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "open_specific_door_06",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "no_duplicate_contention_06",
+      "pass": true,
+      "detail": "{'total': 1}"
+    },
+    {
+      "case": "return_state_preserved_06",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "open_specific_door_07",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "no_duplicate_contention_07",
+      "pass": true,
+      "detail": "{'total': 1}"
+    },
+    {
+      "case": "return_state_preserved_07",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "all_compartments_independent_after_contention",
+      "pass": true,
+      "detail": "[[], [('272525DF4248F551975F29BC0C9751B8', 1, 0.65)], [('3A76B50C4403B4AF12B4179D5904477A', 1, 0.65)], [('B0A27D784F12E172546CC1B540E587BE', 1, 0.65)], [('588F026F4C4B37E58EDEA18D6B6F4E1F', 1, 0.65)], [('D335C52A49D7B5CC284D49B36037E187', 1, 0.65)], [('5AB489C54C8C98782BA34CB16687BB0F', 1, 0.65)]]"
+    },
+    {
+      "case": "dropped_item_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "drop_repicked_guid_condition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_seated_before_disconnect",
+      "pass": true,
+      "detail": "{'driver': 'None', 'passenger': \"<Object '/Game/Maps/UEDPIE_0_Gate5SurvivalTest.Gate5SurvivalTest:PersistentLevel.RVInteriorTestCharacter_1' (0x0000021F39EC5A00) Class 'RVInteriorTestCharacter'>\"}"
+    },
+    {
+      "case": "disconnect_frees_switched_seat_preserves_RV",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "all_compartments_independent_after_contention",
+      "pass": true,
+      "detail": "[[], [('272525DF4248F551975F29BC0C9751B8', 1, 0.65)], [('3A76B50C4403B4AF12B4179D5904477A', 1, 0.65)], [('B0A27D784F12E172546CC1B540E587BE', 1, 0.65)], [('588F026F4C4B37E58EDEA18D6B6F4E1F', 1, 0.65)], [('D335C52A49D7B5CC284D49B36037E187', 1, 0.65)], [('5AB489C54C8C98782BA34CB16687BB0F', 1, 0.65)]]"
+    }
+  ]
+}

@@ -1,0 +1,320 @@
+{
+  "map": "/Game/Maps/Gate5SurvivalTest",
+  "vehicle_class": "/Game/Vehicles/Gate5Refinement/BP_ClassCRefinedMotorhome.BP_ClassCRefinedMotorhome_C",
+  "actor_count": 62,
+  "collision": [
+    {
+      "name": "LeftWall",
+      "center": [
+        -65.0,
+        -122.0,
+        190.0
+      ],
+      "extent": [
+        290.0,
+        5.0,
+        105.0
+      ]
+    },
+    {
+      "name": "RightWallRear",
+      "center": [
+        -150.0,
+        122.0,
+        190.0
+      ],
+      "extent": [
+        205.0,
+        5.0,
+        105.0
+      ]
+    },
+    {
+      "name": "RightWallFront",
+      "center": [
+        177.5,
+        122.0,
+        190.0
+      ],
+      "extent": [
+        47.5,
+        5.0,
+        105.0
+      ]
+    },
+    {
+      "name": "RearWall",
+      "center": [
+        -359.0,
+        0.0,
+        190.0
+      ],
+      "extent": [
+        5.0,
+        122.0,
+        105.0
+      ]
+    },
+    {
+      "name": "FrontWall",
+      "center": [
+        230.0,
+        0.0,
+        195.0
+      ],
+      "extent": [
+        5.0,
+        120.0,
+        105.0
+      ]
+    },
+    {
+      "name": "Ceiling",
+      "center": [
+        -65.0,
+        0.0,
+        301.0
+      ],
+      "extent": [
+        290.0,
+        122.0,
+        5.0
+      ]
+    },
+    {
+      "name": "RearFloor",
+      "center": [
+        -155.0,
+        -30.0,
+        96.49
+      ],
+      "extent": [
+        80.0,
+        90.0,
+        5.0
+      ]
+    },
+    {
+      "name": "Bed",
+      "center": [
+        -295.0,
+        0.0,
+        140.0
+      ],
+      "extent": [
+        60.0,
+        115.0,
+        40.0
+      ]
+    },
+    {
+      "name": "KitchenCabinet",
+      "center": [
+        20.0,
+        -80.0,
+        130.0
+      ],
+      "extent": [
+        65.0,
+        35.0,
+        43.0
+      ]
+    },
+    {
+      "name": "Dinette",
+      "center": [
+        -10.0,
+        85.0,
+        130.0
+      ],
+      "extent": [
+        65.0,
+        30.0,
+        43.0
+      ]
+    },
+    {
+      "name": "Bathroom",
+      "center": [
+        -155.0,
+        90.0,
+        200.0
+      ],
+      "extent": [
+        78.0,
+        25.0,
+        100.0
+      ]
+    },
+    {
+      "name": "RearCabinet",
+      "center": [
+        -170.0,
+        -101.0,
+        190.0
+      ],
+      "extent": [
+        55.0,
+        15.0,
+        90.0
+      ]
+    },
+    {
+      "name": "EntryStepLow",
+      "center": [
+        92.4,
+        145.0,
+        4.0
+      ],
+      "extent": [
+        36.0,
+        24.0,
+        4.0
+      ]
+    },
+    {
+      "name": "EntryStepMid",
+      "center": [
+        92.4,
+        104.0,
+        14.45
+      ],
+      "extent": [
+        36.0,
+        16.0,
+        14.45
+      ]
+    },
+    {
+      "name": "EntryStepHigh",
+      "center": [
+        92.4,
+        72.0,
+        28.85
+      ],
+      "extent": [
+        36.0,
+        16.0,
+        28.85
+      ]
+    },
+    {
+      "name": "DriverChair",
+      "center": [
+        190.0,
+        -49.0,
+        140.0
+      ],
+      "extent": [
+        25.0,
+        25.0,
+        50.0
+      ]
+    },
+    {
+      "name": "PassengerChair",
+      "center": [
+        190.0,
+        49.0,
+        140.0
+      ],
+      "extent": [
+        25.0,
+        25.0,
+        50.0
+      ]
+    },
+    {
+      "name": "EntryFloorRear",
+      "center": [
+        -10.5,
+        87.0,
+        82.19
+      ],
+      "extent": [
+        65.5,
+        30.0,
+        5.0
+      ]
+    },
+    {
+      "name": "EntryFloorFront",
+      "center": [
+        180.0,
+        87.0,
+        82.19
+      ],
+      "extent": [
+        50.0,
+        30.0,
+        5.0
+      ]
+    },
+    {
+      "name": "OpenHouseDoor",
+      "center": [
+        126.4,
+        158.4,
+        140.9
+      ],
+      "extent": [
+        3.0,
+        34.0,
+        112.0
+      ]
+    },
+    {
+      "name": "FrontFascia",
+      "center": [
+        402.0,
+        0.0,
+        95.0
+      ],
+      "extent": [
+        5.0,
+        101.0,
+        77.0
+      ]
+    },
+    {
+      "name": "HoodTop",
+      "center": [
+        314.0,
+        0.0,
+        156.0
+      ],
+      "extent": [
+        90.0,
+        97.0,
+        6.0
+      ]
+    },
+    {
+      "name": "CabExteriorLeft",
+      "center": [
+        310.0,
+        -101.0,
+        85.0
+      ],
+      "extent": [
+        90.0,
+        5.0,
+        70.0
+      ]
+    },
+    {
+      "name": "CabExteriorRight",
+      "center": [
+        310.0,
+        101.0,
+        85.0
+      ],
+      "extent": [
+        90.0,
+        5.0,
+        70.0
+      ]
+    }
+  ],
+  "save_before_after": true
+}
