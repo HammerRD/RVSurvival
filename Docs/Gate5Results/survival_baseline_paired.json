@@ -1,0 +1,134 @@
+{
+  "server_pid": 15132,
+  "client_pid": 38556,
+  "checks": [
+    {
+      "case": "items_at_2.5",
+      "pass": true
+    },
+    {
+      "case": "needs_at_2.5",
+      "pass": true
+    },
+    {
+      "case": "rest_reservation_at_2.5",
+      "pass": true
+    },
+    {
+      "case": "items_at_4.5",
+      "pass": true
+    },
+    {
+      "case": "needs_at_4.5",
+      "pass": true
+    },
+    {
+      "case": "rest_reservation_at_4.5",
+      "pass": true
+    },
+    {
+      "case": "items_at_6.5",
+      "pass": true
+    },
+    {
+      "case": "needs_at_6.5",
+      "pass": true
+    },
+    {
+      "case": "rest_reservation_at_6.5",
+      "pass": true
+    },
+    {
+      "case": "items_at_8.5",
+      "pass": true
+    },
+    {
+      "case": "needs_at_8.5",
+      "pass": true
+    },
+    {
+      "case": "rest_reservation_at_8.5",
+      "pass": true
+    },
+    {
+      "case": "items_at_10.5",
+      "pass": true
+    },
+    {
+      "case": "needs_at_10.5",
+      "pass": true
+    },
+    {
+      "case": "rest_reservation_at_10.5",
+      "pass": true
+    },
+    {
+      "case": "items_at_12.5",
+      "pass": true
+    },
+    {
+      "case": "needs_at_12.5",
+      "pass": true
+    },
+    {
+      "case": "rest_reservation_at_12.5",
+      "pass": true
+    },
+    {
+      "case": "items_at_17.5",
+      "pass": true
+    },
+    {
+      "case": "needs_at_17.5",
+      "pass": true
+    },
+    {
+      "case": "rest_reservation_at_17.5",
+      "pass": true
+    },
+    {
+      "case": "items_at_19.5",
+      "pass": true
+    },
+    {
+      "case": "needs_at_19.5",
+      "pass": true
+    },
+    {
+      "case": "rest_reservation_at_19.5",
+      "pass": true
+    },
+    {
+      "case": "items_at_24.5",
+      "pass": true
+    },
+    {
+      "case": "needs_at_24.5",
+      "pass": true
+    },
+    {
+      "case": "rest_reservation_at_24.5",
+      "pass": true
+    },
+    {
+      "case": "items_at_29.5",
+      "pass": true
+    },
+    {
+      "case": "needs_at_29.5",
+      "pass": true
+    },
+    {
+      "case": "rest_reservation_at_29.5",
+      "pass": true
+    },
+    {
+      "case": "15132_live",
+      "pass": true
+    },
+    {
+      "case": "38556_live",
+      "pass": true
+    }
+  ]
+}

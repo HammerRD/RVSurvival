@@ -10,6 +10,11 @@
 #include "Player/RVPlayerState.h"
 #include "Survival/RVNeedsComponent.h"
 #include "UI/RVSurvivalWidget.h"
+void ARVPrototypeHUD::EndPlay(const EEndPlayReason::Type Reason)
+{
+    if(SurvivalWidget) { SurvivalWidget->RemoveFromParent(); SurvivalWidget=nullptr; }
+    Super::EndPlay(Reason);
+}
 void ARVPrototypeHUD::DrawHUD()
 {
     Super::DrawHUD();
@@ -21,8 +26,10 @@ void ARVPrototypeHUD::DrawHUD()
         if(!SurvivalWidget && PlayerOwner->IsLocalController())
         {
             SurvivalWidget=CreateWidget<URVSurvivalWidget>(PlayerOwner,URVSurvivalWidget::StaticClass());
-            SurvivalWidget->AddToPlayerScreen(); SurvivalWidget->SetAnchorsInViewport(FAnchors(0,1));
-            SurvivalWidget->SetAlignmentInViewport(FVector2D(0,1)); SurvivalWidget->SetPositionInViewport(FVector2D(20,-15),false);
+            SurvivalWidget->AddToPlayerScreen();
+            // UE's position setter resets anchors: apply bottom anchoring afterwards.
+            SurvivalWidget->SetPositionInViewport(FVector2D(20,-15),false);
+            SurvivalWidget->SetAnchorsInViewport(FAnchors(0,1)); SurvivalWidget->SetAlignmentInViewport(FVector2D(0,1));
         }
         if(PlayerOwner->WasInputKeyJustPressed(EKeys::R)) Needs->RequestRestMode(ERVRestMode::Awake);
         if(PlayerOwner->WasInputKeyJustPressed(EKeys::Z)) Needs->RequestRestMode(Needs->State.RestMode==ERVRestMode::Sleeping?ERVRestMode::Resting:ERVRestMode::Sleeping);

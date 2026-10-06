@@ -44,7 +44,7 @@ def day_verify():
  check('world_pickup_actors_not_leaked_by_record_transactions',len(unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVWorldItem))==11)
  n.debug_set_values(90,90,10);n.debug_set_time_scale(1)
 def finish():unreal.unregister_slate_post_tick_callback(h);json.dump({'pid':os.getpid(),'results':results,'consume_cycles':cycles,'rest_cycles':rest_cycles},open(B+'stress.json','w'),indent=2)
-at(0,arrange_external);at(.5,lambda:key('E',True));at(1.3,lambda:key('E',False));at(1.8,lambda:check('external_container_open',inv.get_editor_property('OpenContainer')==storage))
+at(0,arrange_external);at(.5,lambda:(aim(ext),key('E',True)));at(1.3,lambda:key('E',False));at(1.8,lambda:check('external_container_open',inv.get_editor_property('OpenContainer')==storage))
 for j in range(100):
  q=2+j*.85;at(q,begin_cycle);at(q+.05,lambda:inv.request_transfer(current['Food'],1,False));at(q+.25,lambda:n.request_consume(current['Food']));at(q+.4,food_verify);at(q+.55,lambda:n.request_consume(current['Water']));at(q+.8,lambda j=j:cycle_verify(j))
 at(87,inv.request_close_container)

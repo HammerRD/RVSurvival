@@ -9,6 +9,7 @@ class RVSURVIVAL_API ARVPrototypeHUD : public AHUD
     GENERATED_BODY()
 public:
     virtual void DrawHUD() override;
+    virtual void EndPlay(const EEndPlayReason::Type Reason) override;
 private:
     UPROPERTY(Transient) TObjectPtr<class URVSurvivalWidget> SurvivalWidget;
     bool bInventoryVisible = false;

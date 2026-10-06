@@ -11,6 +11,7 @@
 #include "TimerManager.h"
 #include "HAL/IConsoleManager.h"
 #include "NativeGameplayTags.h"
+#include "Misc/ScopeExit.h"
 UE_DEFINE_GAMEPLAY_TAG_STATIC(NeedsHungry,"Survival.Status.Hungry");
 UE_DEFINE_GAMEPLAY_TAG_STATIC(NeedsDehydrated,"Survival.Status.Dehydrated");
 UE_DEFINE_GAMEPLAY_TAG_STATIC(NeedsThirsty,"Survival.Status.Thirsty");
@@ -44,10 +45,13 @@ void URVNeedsComponent::BeginPlay()
     {
         if(TuningAsset) Tuning=TuningAsset->Values;
         Tuning.Maximum=FMath::IsFinite(Tuning.Maximum)?FMath::Max(1.f,Tuning.Maximum):100.f;
-        State.Nutrition=FMath::Clamp(Tuning.StartingNutrition,0.f,Tuning.Maximum);
-        State.Hydration=FMath::Clamp(Tuning.StartingHydration,0.f,Tuning.Maximum);
-        State.Fatigue=FMath::Clamp(Tuning.StartingFatigue,0.f,Tuning.Maximum);
-        State.SurvivalReserve=Tuning.Maximum;
+        if(!bCopiedPersistentState)
+        {
+            State.Nutrition=FMath::Clamp(Tuning.StartingNutrition,0.f,Tuning.Maximum);
+            State.Hydration=FMath::Clamp(Tuning.StartingHydration,0.f,Tuning.Maximum);
+            State.Fatigue=FMath::Clamp(Tuning.StartingFatigue,0.f,Tuning.Maximum);
+            State.SurvivalReserve=Tuning.Maximum;
+        }
     }
 }
 void URVNeedsComponent::EndPlay(const EEndPlayReason::Type Reason)
@@ -99,7 +103,7 @@ void URVNeedsComponent::Advance(double Seconds)
         +CriticalHours(State.Hydration,HydrationRate,Tuning.HydrationCritical)*FMath::Max(0.f,Tuning.ThirstReserveLossPerHour);
     State.Nutrition=FMath::Clamp(float(State.Nutrition-NutritionRate*Hours),0.f,Tuning.Maximum);
     State.Hydration=FMath::Clamp(float(State.Hydration-HydrationRate*Hours),0.f,Tuning.Maximum);
-    double FatigueRate=Tuning.FatiguePerHour*Activity;
+    double FatigueRate=FMath::Max(0.f,Tuning.FatiguePerHour)*Activity;
     if(State.RestMode==ERVRestMode::Resting) FatigueRate=-FMath::Max(0.f,Tuning.RestRecoveryPerHour);
     if(State.RestMode==ERVRestMode::Sleeping) FatigueRate=-FMath::Max(0.f,Tuning.SleepRecoveryPerHour);
     State.Fatigue=FMath::Clamp(float(State.Fatigue+FatigueRate*Hours),0.f,Tuning.Maximum);
@@ -149,6 +153,7 @@ void URVNeedsComponent::RequestRestMode(ERVRestMode Mode)
 void URVNeedsComponent::ServerConsume_Implementation(FGuid Id)
 {
     if(!GetOwner()->HasAuthority()) return;
+    ON_SCOPE_EXIT { OnRep_State(); GetOwner()->ForceNetUpdate(); };
     auto* Character=ResolveSurvivor();
     auto* Inventory=Character?Character->FindComponentByClass<URVInventoryComponent>():nullptr;
     if(!Inventory) return;
@@ -191,6 +196,7 @@ void URVNeedsComponent::EndRestAuthority()
 void URVNeedsComponent::ServerRestMode_Implementation(ERVRestMode Mode)
 {
     if(!GetOwner()->HasAuthority()) return;
+    ON_SCOPE_EXIT { OnRep_State(); GetOwner()->ForceNetUpdate(); };
     if(Mode==ERVRestMode::Awake) { EndRestAuthority(); Feedback=TEXT("Awake"); return; }
     if((Mode!=ERVRestMode::Resting && Mode!=ERVRestMode::Sleeping) || !IsValid(RestLocation) || !RestLocation->CanContinueRest(RestingCharacter.Get())) return;
     State.RestMode=Mode; OnRep_State(); GetOwner()->ForceNetUpdate();
@@ -213,4 +219,4 @@ bool URVNeedsComponent::DebugSetTimeScale(float Scale)
 bool URVNeedsComponent::DebugAdvanceTime(float Seconds)
 { if(!DebugAllowed() || !FMath::IsFinite(Seconds) || Seconds<0 || Seconds>86400*30) return false; Advance(Seconds); GetOwner()->ForceNetUpdate(); return true; }
 void URVNeedsComponent::CopyPersistentValuesTo(URVNeedsComponent* Destination) const
-{ if(GetOwner()->HasAuthority() && Destination && Destination->GetOwner()->HasAuthority()) { Destination->Tuning=Tuning; Destination->State=State; Destination->State.RestMode=ERVRestMode::Awake; } }
+{ if(GetOwner()->HasAuthority() && Destination && Destination->GetOwner()->HasAuthority()) { Destination->Tuning=Tuning; Destination->State=State; Destination->State.RestMode=ERVRestMode::Awake; Destination->bCopiedPersistentState=true; } }

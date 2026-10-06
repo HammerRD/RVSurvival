@@ -50,3 +50,13 @@ Single-player corrected run: 27/27 passed, including actual hold-interaction pic
 First independent moving host/client run retained the complete accepted Gate 3 movement/workstation route and Gate 4 storage/drop route. Stationary and highway food consumption and turning food consumption passed. A fixed hydration target incorrectly omitted ~0.67 points of genuine drain accumulated over the route. The check now records pre-consumption values and verifies configured gain plus ongoing normal metabolism; no gameplay acceptance limits changed. Paired inventory/container/status receipts matched; maximum independently sampled passenger-local discrepancy was 10.51 cm. The run is not counted accepted until repeated with corrected expectation.
 
 First separate-process survival transaction/rest run passed 11 server and 12 client gameplay checks. Python cleanup cleared the active callback module, but its caller then continued reading cleared globals (NameError after disconnect). The runner now returns immediately after teardown. No crash or leak occurred; a clean repeat is required before counting this sequence complete.
+
+Source review improvements queued for the next closed-editor build: UMG now binds native needs notifications and removes its delegate on widget destruction; HUD teardown removes the widget. Persistent value copies are no longer overwritten by subsequent BeginPlay initialization. Awake fatigue rates clamp nonnegative. Float font-color literals remove a compiler warning.
+
+Visual inspection found the survival widget positioned above the viewport: installed UE 5.8 UGameViewportSubsystem::SetWidgetSlotPosition explicitly resets anchors to top-left. The new HUD calls position before bottom anchoring/alignment; this is a supported API ordering fix, to be verified visually after rebuilding.
+
+Stress fixture's initial hold missed its cupboard after the elevated pawn settled on the floor. It now reacquires the aim immediately before pressing E, as the accepted Gate 4 harness did. No interaction range/LOS/collision rule was relaxed.
+
+Stress run passed: 200 successful owned consumption operations with 200 unique GUIDs, 100 actual shared-container withdrawals, 20 hold-E rest/sleep/wake cycles, and 86,404.89 simulated seconds through accelerated real component ticks. No remaining inventory records, rest reservations or extra pickup actors. End values clamped (nutrition 0, hydration 0, fatigue 100; reserve 1.825). Editor shut down cleanly. This is accelerated engineering validation, not a claim of a real-time 24-hour session.
+
+Rebuilt event-driven UMG lifetime, anchor ordering and persistent-copy fixes successfully with no new warnings in build-ui-lifetime.log. Final live testing remains pending on this rebuilt binary.

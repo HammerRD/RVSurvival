@@ -82,7 +82,7 @@ public:
     UPROPERTY(ReplicatedUsing=OnRep_State, BlueprintReadOnly) FRVNeedsState State;
     UPROPERTY(BlueprintAssignable) FRVNeedsChanged OnNeedsChanged;
     UPROPERTY(Replicated, BlueprintReadOnly) TObjectPtr<ARVRestPoint> RestLocation;
-    UPROPERTY(Replicated, BlueprintReadOnly) FString Feedback;
+    UPROPERTY(ReplicatedUsing=OnRep_State, BlueprintReadOnly) FString Feedback;
     UFUNCTION(BlueprintPure) float GetMovementScale() const;
     UFUNCTION(BlueprintPure) FString GetWarnings() const;
     UFUNCTION(BlueprintPure) FGameplayTagContainer GetStatusTags() const;
@@ -105,4 +105,5 @@ private:
     TWeakObjectPtr<ARVSurvivorCharacter> RestingCharacter;
     float DevelopmentTimeScale = 1;
     double NextConsumptionTime = 0;
+    bool bCopiedPersistentState = false;
 };

@@ -1,0 +1,519 @@
+{
+  "pid": 47052,
+  "results": [
+    {
+      "case": "external_container_open",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "accelerated_day_through_real_component_ticks",
+      "pass": true,
+      "detail": "{'seconds': 86404.88612651825, 'nutrition': 0.0, 'hydration': 0.0, 'fatigue': 100.0, 'reserve': 1.825239658355713}"
+    },
+    {
+      "case": "200_consumes_and_100_shared_transfers",
+      "pass": true,
+      "detail": "{'cycles': 100, 'unique_guids': 200}"
+    },
+    {
+      "case": "20_rest_sleep_wake_cycles",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "no_item_or_reservation_residue",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "world_pickup_actors_not_leaked_by_record_transactions",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "consume_cycles": [
+    {
+      "cycle": 0,
+      "pass": true
+    },
+    {
+      "cycle": 1,
+      "pass": true
+    },
+    {
+      "cycle": 2,
+      "pass": true
+    },
+    {
+      "cycle": 3,
+      "pass": true
+    },
+    {
+      "cycle": 4,
+      "pass": true
+    },
+    {
+      "cycle": 5,
+      "pass": true
+    },
+    {
+      "cycle": 6,
+      "pass": true
+    },
+    {
+      "cycle": 7,
+      "pass": true
+    },
+    {
+      "cycle": 8,
+      "pass": true
+    },
+    {
+      "cycle": 9,
+      "pass": true
+    },
+    {
+      "cycle": 10,
+      "pass": true
+    },
+    {
+      "cycle": 11,
+      "pass": true
+    },
+    {
+      "cycle": 12,
+      "pass": true
+    },
+    {
+      "cycle": 13,
+      "pass": true
+    },
+    {
+      "cycle": 14,
+      "pass": true
+    },
+    {
+      "cycle": 15,
+      "pass": true
+    },
+    {
+      "cycle": 16,
+      "pass": true
+    },
+    {
+      "cycle": 17,
+      "pass": true
+    },
+    {
+      "cycle": 18,
+      "pass": true
+    },
+    {
+      "cycle": 19,
+      "pass": true
+    },
+    {
+      "cycle": 20,
+      "pass": true
+    },
+    {
+      "cycle": 21,
+      "pass": true
+    },
+    {
+      "cycle": 22,
+      "pass": true
+    },
+    {
+      "cycle": 23,
+      "pass": true
+    },
+    {
+      "cycle": 24,
+      "pass": true
+    },
+    {
+      "cycle": 25,
+      "pass": true
+    },
+    {
+      "cycle": 26,
+      "pass": true
+    },
+    {
+      "cycle": 27,
+      "pass": true
+    },
+    {
+      "cycle": 28,
+      "pass": true
+    },
+    {
+      "cycle": 29,
+      "pass": true
+    },
+    {
+      "cycle": 30,
+      "pass": true
+    },
+    {
+      "cycle": 31,
+      "pass": true
+    },
+    {
+      "cycle": 32,
+      "pass": true
+    },
+    {
+      "cycle": 33,
+      "pass": true
+    },
+    {
+      "cycle": 34,
+      "pass": true
+    },
+    {
+      "cycle": 35,
+      "pass": true
+    },
+    {
+      "cycle": 36,
+      "pass": true
+    },
+    {
+      "cycle": 37,
+      "pass": true
+    },
+    {
+      "cycle": 38,
+      "pass": true
+    },
+    {
+      "cycle": 39,
+      "pass": true
+    },
+    {
+      "cycle": 40,
+      "pass": true
+    },
+    {
+      "cycle": 41,
+      "pass": true
+    },
+    {
+      "cycle": 42,
+      "pass": true
+    },
+    {
+      "cycle": 43,
+      "pass": true
+    },
+    {
+      "cycle": 44,
+      "pass": true
+    },
+    {
+      "cycle": 45,
+      "pass": true
+    },
+    {
+      "cycle": 46,
+      "pass": true
+    },
+    {
+      "cycle": 47,
+      "pass": true
+    },
+    {
+      "cycle": 48,
+      "pass": true
+    },
+    {
+      "cycle": 49,
+      "pass": true
+    },
+    {
+      "cycle": 50,
+      "pass": true
+    },
+    {
+      "cycle": 51,
+      "pass": true
+    },
+    {
+      "cycle": 52,
+      "pass": true
+    },
+    {
+      "cycle": 53,
+      "pass": true
+    },
+    {
+      "cycle": 54,
+      "pass": true
+    },
+    {
+      "cycle": 55,
+      "pass": true
+    },
+    {
+      "cycle": 56,
+      "pass": true
+    },
+    {
+      "cycle": 57,
+      "pass": true
+    },
+    {
+      "cycle": 58,
+      "pass": true
+    },
+    {
+      "cycle": 59,
+      "pass": true
+    },
+    {
+      "cycle": 60,
+      "pass": true
+    },
+    {
+      "cycle": 61,
+      "pass": true
+    },
+    {
+      "cycle": 62,
+      "pass": true
+    },
+    {
+      "cycle": 63,
+      "pass": true
+    },
+    {
+      "cycle": 64,
+      "pass": true
+    },
+    {
+      "cycle": 65,
+      "pass": true
+    },
+    {
+      "cycle": 66,
+      "pass": true
+    },
+    {
+      "cycle": 67,
+      "pass": true
+    },
+    {
+      "cycle": 68,
+      "pass": true
+    },
+    {
+      "cycle": 69,
+      "pass": true
+    },
+    {
+      "cycle": 70,
+      "pass": true
+    },
+    {
+      "cycle": 71,
+      "pass": true
+    },
+    {
+      "cycle": 72,
+      "pass": true
+    },
+    {
+      "cycle": 73,
+      "pass": true
+    },
+    {
+      "cycle": 74,
+      "pass": true
+    },
+    {
+      "cycle": 75,
+      "pass": true
+    },
+    {
+      "cycle": 76,
+      "pass": true
+    },
+    {
+      "cycle": 77,
+      "pass": true
+    },
+    {
+      "cycle": 78,
+      "pass": true
+    },
+    {
+      "cycle": 79,
+      "pass": true
+    },
+    {
+      "cycle": 80,
+      "pass": true
+    },
+    {
+      "cycle": 81,
+      "pass": true
+    },
+    {
+      "cycle": 82,
+      "pass": true
+    },
+    {
+      "cycle": 83,
+      "pass": true
+    },
+    {
+      "cycle": 84,
+      "pass": true
+    },
+    {
+      "cycle": 85,
+      "pass": true
+    },
+    {
+      "cycle": 86,
+      "pass": true
+    },
+    {
+      "cycle": 87,
+      "pass": true
+    },
+    {
+      "cycle": 88,
+      "pass": true
+    },
+    {
+      "cycle": 89,
+      "pass": true
+    },
+    {
+      "cycle": 90,
+      "pass": true
+    },
+    {
+      "cycle": 91,
+      "pass": true
+    },
+    {
+      "cycle": 92,
+      "pass": true
+    },
+    {
+      "cycle": 93,
+      "pass": true
+    },
+    {
+      "cycle": 94,
+      "pass": true
+    },
+    {
+      "cycle": 95,
+      "pass": true
+    },
+    {
+      "cycle": 96,
+      "pass": true
+    },
+    {
+      "cycle": 97,
+      "pass": true
+    },
+    {
+      "cycle": 98,
+      "pass": true
+    },
+    {
+      "cycle": 99,
+      "pass": true
+    }
+  ],
+  "rest_cycles": [
+    {
+      "cycle": 0,
+      "pass": true
+    },
+    {
+      "cycle": 1,
+      "pass": true
+    },
+    {
+      "cycle": 2,
+      "pass": true
+    },
+    {
+      "cycle": 3,
+      "pass": true
+    },
+    {
+      "cycle": 4,
+      "pass": true
+    },
+    {
+      "cycle": 5,
+      "pass": true
+    },
+    {
+      "cycle": 6,
+      "pass": true
+    },
+    {
+      "cycle": 7,
+      "pass": true
+    },
+    {
+      "cycle": 8,
+      "pass": true
+    },
+    {
+      "cycle": 9,
+      "pass": true
+    },
+    {
+      "cycle": 10,
+      "pass": true
+    },
+    {
+      "cycle": 11,
+      "pass": true
+    },
+    {
+      "cycle": 12,
+      "pass": true
+    },
+    {
+      "cycle": 13,
+      "pass": true
+    },
+    {
+      "cycle": 14,
+      "pass": true
+    },
+    {
+      "cycle": 15,
+      "pass": true
+    },
+    {
+      "cycle": 16,
+      "pass": true
+    },
+    {
+      "cycle": 17,
+      "pass": true
+    },
+    {
+      "cycle": 18,
+      "pass": true
+    },
+    {
+      "cycle": 19,
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "pid": 51568,
+  "results": [
+    {
+      "case": "external_container_open",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "runner_exception",
+      "pass": false,
+      "detail": "AssertionError()"
+    }
+  ],
+  "consume_cycles": [],
+  "rest_cycles": []
+}
