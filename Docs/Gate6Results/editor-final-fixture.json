@@ -1,0 +1,430 @@
+{
+  "results": [
+    {
+      "case": "load_/Game/Maps/Gate1Test",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate2VehicleTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate3MovingInteriorTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gate4_saved_fixture_intact",
+      "pass": true,
+      "detail": "{'actors': 61, 'pickups': 11, 'storage': 6, 'rest': 0, 'gamemode': '/Game/Vehicles/Gate3/BP_Gate3GameMode.BP_Gate3GameMode_C'}"
+    },
+    {
+      "case": "load_/Game/Maps/Gate4InventoryTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gate5_saved_fixture_intact",
+      "pass": true,
+      "detail": "{'actors': 62, 'pickups': 11, 'storage': 5, 'rest': 2, 'gamemode': '/Game/Survival/BP_Gate5GameMode.BP_Gate5GameMode_C'}"
+    },
+    {
+      "case": "load_/Game/Maps/Gate5SurvivalTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gate6_saved_fixture_intact",
+      "pass": true,
+      "detail": "{'actors': 65, 'pickups': 14, 'storage': 5, 'rest': 2, 'gamemode': '/Game/Survival/BP_Gate5GameMode.BP_Gate5GameMode_C'}"
+    },
+    {
+      "case": "load_/Game/Maps/Gate6FuelElectricalTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate1Test",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate2VehicleTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "load_/Game/Maps/Gate3MovingInteriorTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gate4_saved_fixture_intact",
+      "pass": true,
+      "detail": "{'actors': 61, 'pickups': 11, 'storage': 6, 'rest': 0, 'gamemode': '/Game/Vehicles/Gate3/BP_Gate3GameMode.BP_Gate3GameMode_C'}"
+    },
+    {
+      "case": "load_/Game/Maps/Gate4InventoryTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gate5_saved_fixture_intact",
+      "pass": true,
+      "detail": "{'actors': 62, 'pickups': 11, 'storage': 5, 'rest': 2, 'gamemode': '/Game/Survival/BP_Gate5GameMode.BP_Gate5GameMode_C'}"
+    },
+    {
+      "case": "load_/Game/Maps/Gate5SurvivalTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gate6_saved_fixture_intact",
+      "pass": true,
+      "detail": "{'actors': 65, 'pickups': 14, 'storage': 5, 'rest': 2, 'gamemode': '/Game/Survival/BP_Gate5GameMode.BP_Gate5GameMode_C'}"
+    },
+    {
+      "case": "load_/Game/Maps/Gate6FuelElectricalTest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "asset_/Game/Items/DA_Food",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "asset_/Game/Items/DA_Water",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "asset_/Game/Survival/DA_NormalNeeds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "asset_/Game/Survival/BP_SurvivalPlayerState",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "asset_/Game/Survival/BP_Gate5GameMode",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_consumable_Food",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_consumable_Water",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_tuning_reference",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "refined_camera_saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "only_external_tread_has_prototype_visual",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_actual_entry_stepwell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_door_and_shell_collision",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "standing_and_interior_seat_entry_enabled",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "seven_saved_real_door_containers",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_capacities_configurable",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gate6_saved_class",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gate6_tank_and_separate_source",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "distinct_battery_capacity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_profile_saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "new_light_mobility_and_no_shadow",
+      "pass": true,
+      "detail": "<ComponentMobility.MOVABLE: 2>"
+    },
+    {
+      "case": "optional_power_load_binding_saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "purchased_54_parts_preserved",
+      "pass": true,
+      "detail": "54"
+    },
+    {
+      "case": "gate6_front_shell_and_entry_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gate6_camera_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gate6_seven_exterior_compartments",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_fuel_metadata_Full",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_fuel_metadata_Partial",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_fuel_metadata_Empty",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_fuel_metadata_Diesel",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "accepted_gate4_fuel_definition_stays_inert",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "save_all_completed",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "maps": [
+    {
+      "path": "/Game/Maps/Gate1Test",
+      "counts": {
+        "actors": 12,
+        "pickups": 0,
+        "storage": 0,
+        "rest": 0,
+        "gamemode": "/Script/RVSurvival.RVGameMode"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate2VehicleTest",
+      "counts": {
+        "actors": 44,
+        "pickups": 0,
+        "storage": 0,
+        "rest": 0,
+        "gamemode": "/Script/RVSurvival.RVGameMode"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate3MovingInteriorTest",
+      "counts": {
+        "actors": 44,
+        "pickups": 0,
+        "storage": 0,
+        "rest": 0,
+        "gamemode": "/Game/Vehicles/Gate3/BP_Gate3GameMode.BP_Gate3GameMode_C"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate4InventoryTest",
+      "counts": {
+        "actors": 61,
+        "pickups": 11,
+        "storage": 6,
+        "rest": 0,
+        "gamemode": "/Game/Vehicles/Gate3/BP_Gate3GameMode.BP_Gate3GameMode_C"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate5SurvivalTest",
+      "counts": {
+        "actors": 62,
+        "pickups": 11,
+        "storage": 5,
+        "rest": 2,
+        "gamemode": "/Game/Survival/BP_Gate5GameMode.BP_Gate5GameMode_C"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate6FuelElectricalTest",
+      "counts": {
+        "actors": 65,
+        "pickups": 14,
+        "storage": 5,
+        "rest": 2,
+        "gamemode": "/Game/Survival/BP_Gate5GameMode.BP_Gate5GameMode_C"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate1Test",
+      "counts": {
+        "actors": 12,
+        "pickups": 0,
+        "storage": 0,
+        "rest": 0,
+        "gamemode": "/Script/RVSurvival.RVGameMode"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate2VehicleTest",
+      "counts": {
+        "actors": 44,
+        "pickups": 0,
+        "storage": 0,
+        "rest": 0,
+        "gamemode": "/Script/RVSurvival.RVGameMode"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate3MovingInteriorTest",
+      "counts": {
+        "actors": 44,
+        "pickups": 0,
+        "storage": 0,
+        "rest": 0,
+        "gamemode": "/Game/Vehicles/Gate3/BP_Gate3GameMode.BP_Gate3GameMode_C"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate4InventoryTest",
+      "counts": {
+        "actors": 61,
+        "pickups": 11,
+        "storage": 6,
+        "rest": 0,
+        "gamemode": "/Game/Vehicles/Gate3/BP_Gate3GameMode.BP_Gate3GameMode_C"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate5SurvivalTest",
+      "counts": {
+        "actors": 62,
+        "pickups": 11,
+        "storage": 5,
+        "rest": 2,
+        "gamemode": "/Game/Survival/BP_Gate5GameMode.BP_Gate5GameMode_C"
+      }
+    },
+    {
+      "path": "/Game/Maps/Gate6FuelElectricalTest",
+      "counts": {
+        "actors": 65,
+        "pickups": 14,
+        "storage": 5,
+        "rest": 2,
+        "gamemode": "/Game/Survival/BP_Gate5GameMode.BP_Gate5GameMode_C"
+      }
+    }
+  ],
+  "gate6": {
+    "part_names": [
+      "Art_RV_Cab",
+      "Art_RV_Cab_Door_L",
+      "Art_RV_Cab_Door_R",
+      "Art_RV_Cab_SteeringWheel",
+      "Art_RV_Chassis1",
+      "Art_RV_Chassis_Door_L",
+      "Art_RV_Chassis_Door_R",
+      "Art_RV_Chassis_Hood",
+      "Art_RV_Glass",
+      "Art_RV_Glass_Door_Back",
+      "Art_RV_Glass_Door_L",
+      "Art_RV_Glass_Door_R",
+      "Art_RV_Glass_Window_01",
+      "Art_RV_Glass_Window_02",
+      "Art_RV_Glass_Window_03",
+      "Art_RV_Glass_Window_04",
+      "Art_RV_Glass_Window_05",
+      "Art_RV_Glass_Window_06",
+      "Art_RV_Glass_Window_07",
+      "Art_RV_Glass_Window_08",
+      "Art_RV_Glass_Window_09",
+      "Art_RV_Glass_Window_10",
+      "Art_RV_Glass_Window_11",
+      "Art_RV_Glass_Window_12",
+      "Art_RV_Interior",
+      "Art_RV_Interior_Blind_01",
+      "Art_RV_Interior_Blind_02",
+      "Art_RV_Interior_Blind_03",
+      "Art_RV_Interior_Blind_04",
+      "Art_RV_Van",
+      "Art_RV_Van_Compartment_01",
+      "Art_RV_Van_Compartment_02",
+      "Art_RV_Van_Compartment_03",
+      "Art_RV_Van_Compartment_04",
+      "Art_RV_Van_Compartment_05",
+      "Art_RV_Van_Compartment_06",
+      "Art_RV_Van_Compartment_07",
+      "Art_RV_Van_Door_Back",
+      "Art_RV_Van_Window_01",
+      "Art_RV_Van_Window_02",
+      "Art_RV_Van_Window_03",
+      "Art_RV_Van_Window_04",
+      "Art_RV_Van_Window_05",
+      "Art_RV_Van_Window_06",
+      "Art_RV_Van_Window_07",
+      "Art_RV_Van_Window_08",
+      "Art_RV_Van_Window_09",
+      "Art_RV_Van_Window_10",
+      "Art_RV_Van_Window_11",
+      "Art_RV_Van_Window_12",
+      "Art_RV_Wheels_BL",
+      "Art_RV_Wheels_BR",
+      "Art_RV_Wheels_FL",
+      "Art_RV_Wheels_FR"
+    ],
+    "fuel_named_parts": []
+  }
+}

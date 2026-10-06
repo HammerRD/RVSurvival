@@ -1,6 +1,6 @@
 # Gate 6 fuel and electrical validation
 
-Status: IN PROGRESS. Gate 5 accepted; Gate 7 is not authorized.
+Status: ACCEPTED on 2026-10-06 after actual Unreal validation. Gates 1-5 remain accepted; Gate 7 is not authorized.
 Baseline recovery checkpoint: 8e80050. Pre-existing Config/DefaultEngine.ini and IDE files remain outside Gate 6 commits.
 
 ## Framework review (2026-10-06)
@@ -16,7 +16,7 @@ GAS is not needed for slow machine resource balances and switching: no abilities
 ## Plan and units
 Fuel in litres, energy in watt-hours, rates in litres/hour and watts, simulation seconds converted centrally to hours. Dedicated Gate 6 vehicle/content derivative preserves prior maps and vendor sources. Main propulsion fuel and optional separate generator source; independent house/chassis battery components; one configurable priority bus supplies reusable domain-tagged loads before charging batteries. Fuel-can state lives on accepted runtime item records, never in a second item actor inventory.
 
-No validation is claimed yet. Actual build, PIE, separate-process, network, stress and regression receipts will be recorded as executed.
+Planning note before execution: build, PIE, separate-process, network, stress and regression receipts were required; compile alone was not acceptance.
 ## First live milestone — 2026-10-06
 Compiled foundation 6369b4e; saved new map/content 92d3699. Corrected compiler include-order/const access; corrected Python SaveMap/setter/boolean accessor APIs and resumed existing map in place after an overwrite message. No editor/world leak crash occurred. Smaller 10 L can has 12 L prototype volume / 6 kg, preserving 25 kg/35 L player limits; original Gate 4 definition remains inert and unchanged.
 
@@ -53,8 +53,8 @@ Development tools require authority AND `rv.Resources.AllowDebug 1`, default off
 ## Saved content
 `/Game/Maps/Gate6FuelElectricalTest`: separate saved map, 65 actors, 14 pickups, five saved storage points and two rest locations, inherited survival GameMode and driving space. Runtime RV spawns seven accepted exterior compartments, six stations and the fuel/panel endpoints. `/Game/Vehicles/Gate6/BP_ClassCSystemsMotorhome` retains the purchased 54-part presentation, accepted shell/entry query collision, seven exterior doors and refined camera. New `/Game/Resources/DA_NormalRVEnergy` plus `DA_FuelCanFull` (20/20 L gasoline), `DA_FuelCanPartial` (10/3.75 L gasoline), `DA_FuelCanEmpty` (20/0 L) and `DA_FuelCanDiesel` (20/20 L incompatible). Original inert Gate 4 fuel definition remains unchanged. Large cans 12 kg/22 L, small can 6 kg/12 L; fixed prototype logistics, no fluid mass/Chaos payload simulation. Fuel fill uses a project-side driver-side marker rather than destructively editing vendor art.
 
-## Current seam investigation
-Repeat telemetry identified a rare raised-floor/aisle base exchange that displaced the host walker 221 cm onto Bed collision, briefly lost the frame and produced a 160.99 cm visual error. The resource code does not transform passengers. The focused change uses Unreal's supported `bBaseOnAttachmentRoot` within the reusable reference-frame component, retaining real floor queries/collision while basing rigidly attached floor pieces on one attachment root. Frame eligibility reads the actual tagged walkable floor, and exit/EndPlay restores the prior root-basing setting along with ordinary movement configuration. No every-tick transform force, engine patch, collision removal or custom movement replication was added. Compile succeeded; exact repeat and expanded regressions are pending. The failed receipt stays archived.
+## Floor-seam investigation and native fix
+Repeat telemetry identified a rare raised-floor/aisle base exchange that displaced the host walker 221 cm onto Bed collision, briefly lost the frame and produced a 160.99 cm visual error. The resource code does not transform passengers. The focused change uses Unreal's supported `bBaseOnAttachmentRoot` within the reusable reference-frame component, retaining real floor queries/collision while basing rigidly attached floor pieces on one attachment root. Frame eligibility reads the actual tagged walkable floor, and exit/EndPlay restores the prior root-basing setting along with ordinary movement configuration. No every-tick transform force, engine patch, collision removal or custom movement replication was added. The compiled change was subsequently validated by the exact repeat and expanded matrix recorded below. The failed receipt stays archived.
 
 First exact native-root repeat passes 84 server /77 client plus 187 paired checks; maximum paired error 27.75 cm. The previously failing low-speed floor seam retains VehicleMesh as its sole native movement base, no frame loss, maximum local step 6.73 cm (previous jump 229-236 cm). New expanded matrix also checks seam displacement explicitly (<30 cm) and restores the original bBaseOnAttachmentRoot value on normal outside movement. Four-case matrix and final regressions remain pending.
 
@@ -65,3 +65,75 @@ Final numerical review removed the allocation loop absolute epsilon (which could
 Corrected final stress rerun: 18/18 passed, including 100 partial refuels with stale duplicate retries, 100 generator operations, prolonged charging/depletion and exact 1e-10 Wh depletion. Normal Stop PIE, runner release and editor exit completed without Python errors or World Memory Leaks. Final supplement also passes 12/12 and closes cleanly: powered Navigation rejected without power/restored with power, ordinary Workbench usable, both visible lights follow native H, separate generator fuel burns/stops, a real owned full can refuels an empty propulsion tank and restores actual driving on the same RV. Prior-map final regression rerun passes entry 22, Gate 1 23, Gate 2 24 plus four inventory/possession checks, Gate 4 inventory 24, Gate 5 needs/rest 27.
 
 Final exterior 33/33 and default camera 17/17 pass on Gate6FuelElectricalTest, including complete walk-around, front/engine-bay shell, side access, wheel wells, low/road/highway speed, turn/reverse and two boom obstacles. Saved-map/content audit initially passes 47/47: Gates 1-6 load twice, classes/configuration remain intact, lights are movable/shadowless, all 54 visual parts and seven compartments remain, and no separate fuel-named part is configured. Gate 6-only cleanup then saved removal of the copied inert Gate4_FuelCan actor; final map is 65 actors/14 pickups. Original inert definition and all previous maps stay unchanged. All four Gate 6 fuel-can fixtures are functional metadata variants. Final source/configuration/resource/network repeat and 49-check saved-map audit are scheduled on this saved fixture.
+
+## Final acceptance evidence (2026-10-06)
+Unreal Engine 5.8.3 / CL 58210709, Development Editor Win64, D3D12. Actual PIE/native input and replicated gameplay were tested, not only C++ arithmetic. Separate-process cases used a listen server and a distinct client PID. Emulation was outgoing server 100 ms minimum/maximum latency and 2% packet loss; no bidirectional-WAN or packaged/dedicated-server claim.
+
+| Executed suite | Final result |
+|---|---|
+| Fuel/electrical single player on final saved 65-actor fixture | 46/46 |
+| Extended resource stress, clean repeated teardown | 18/18; 100 partial refuel cycles with duplicate retries, 100 generator changes, 24-hour-equivalent charge/discharge, exact tiny-balance depletion |
+| Workstation/light/separate-generator/real-can restart supplement | 12/12 |
+| Separate-process refuel, shared storage and panel contention | 31 server /29 client, baseline and emulated; final-binary emulated repeat plus 6/6 paired convergence |
+| Both driver/passenger role combinations, baseline and emulated | Four complete native-root runs; host driving 82/84, client driving 85/77; 227 paired checks each |
+| Last client-driver/host-walker emulated source/fixture repeat | 85/77 and 227/227 paired; maximum paired local error 29.54 cm; no recorded corrections or frame loss |
+| Refined entry, aisle and shell regression | 22/22 |
+| Gate 1 movement/hold/multiplayer interaction | 23/23 |
+| Gate 2 seats, possession, driving and disconnect | 24/24 plus 4/4 inventory-through-possession checks |
+| Gate 4 capacity, GUID, pickup/drop, transfer and contention | 24/24; moving storage also exercised in every full moving route |
+| Gate 5 drain, consumption, rest/sleep and thresholds | 27/27; moving food/water, pantry, automatic wake and independent needs in full routes |
+| Complete Gate 6 exterior walk-around and front shell | 33/33 |
+| Default driving camera at low/road/~60 mph, turn/reverse/obstacles | 17/17 |
+| Final saved assets/maps loaded twice, configuration and save audit | 49/49 on the final fixture; clean editor exit |
+| Final C++ build | Succeeded; full final build 16.87 s, exact-source up-to-date verification 0.72 s; no C++ compiler warnings in the final build |
+| Purchased RV source integrity / prior content protection | 108/108 SHA256 match; only seven new Gate 6 content files changed since 8e80050 |
+
+The last repeat maximum visual observer error was 5.30 cm. Four-case native-root seam maxima were 4.96-7.15 cm, versus the failed 229-236 cm local jump. Native-root role matrix maximum paired differences were 13.31/12.20 cm baseline and 9.28/26.86 cm emulated. Original 30/75 cm network position, 10 cm standing-drift/correction and floor-validity criteria were retained; no failure was converted into a pass by relaxing them. Measurements cover the actual moving and storage windows, excluding intentional outside transitions. No persistent severe jitter, sliding, falling through the floor or repeated movement correction remained in these tested conditions.
+
+Fuel conservation checks include the last usable can amount, tank capacity, stale revision, unowned GUID, incompatible/empty can, immediate drop/repick and two-client withdrawal. Requests never accept a client-authored transfer amount. Shared machine control persists after client disconnect without an ownership lock. Fuel, house/chassis energy, generator/light/revision/source/solar state converged in the final moving comparisons. Actual empty-fuel propulsion and real-can restoration occurred on the same RV with seat/possession intact.
+
+Rest/sleep retains the accepted parked-only policy and automatic wake on RV motion. Survival, inventory and storage continue updating while driving; no regional streaming was implemented. Native input routes performed stationary, low, road and approximately highway speed, acceleration, braking, gentle/strong turning, stop/resume, front/rear/sideways walking, workstation/panel controls and ordinary exit/reentry.
+
+## Failures and recovery
+Initial compiler include-order/const-access failures and float UI warnings were corrected. Python API/setter mistakes were fixed by using supported SaveMap and reflected-property APIs, preserving the map already created instead of recreating it. A pickup fixture originally aimed before floor settling; re-aiming at the actual hold start fixed test setup. The 10 L can's inherited 22 L volume legitimately hit player capacity; its own Gate 6 definition now has tunable 12 L/6 kg logistics, without changing player limits.
+
+Simultaneous independent H toggles correctly produced two serialized changes; the test expectation was corrected while explicit same-revision rejection remained. A schedule insertion omitted new moving resource events; legacy-only receipts were marked accordingly, a coverage guard stopped the matrix, and an explicit event extension supplied the missing tests. Neither was disguised as a gameplay pass.
+
+The real battery final-interval omission stranded 0.005 Wh and was fixed with fractional delivered-energy accounting. Numerical review also removed a tiny absolute allocation cutoff and made powered tolerance relative to demand. Exact depletion checks passed. The rare floor-seam displacement was addressed with supported native attachment-root basing and actual floor eligibility, not teleporting or disabling collisions. The original failed run is preserved.
+
+The final stress wrapper's NameError was a harness teardown ordering error: clearing its namespace before looking up the quit function. PIE was already stopped, assets were All Saved, and the editor closed normally. All affected wrappers now capture a local quit callable before releasing runners. The exact stress sequence and subsequent supplement/PIE/map audits completed with normal shutdown. No Gate 6 Unreal fatal crash or World Memory Leak occurred, and leak detection was never disabled. Native editor telemetry shutdown notices are not gameplay failures.
+
+## Known limits and extension points
+- Two-player listen-server PIE on this workstation, including separate processes and representative outgoing emulation. Packaged builds, dedicated servers, more players and arbitrary WAN conditions remain unvalidated.
+- Flat-road prototype passenger/collision handling; rollovers, airborne passengers, rough terrain and larger standing parties remain outside the accepted test envelope. Canonical basing expects tagged floor pieces rigidly attached to one primitive attachment root; this RV uses its skeletal mesh root. Other moving-platform layouts should preserve that contract.
+- Ideal Wh/W accounting, provisional normal rates and static on/off appliance demand. No battery chemistry/degradation, AC/DC wiring/inverter losses, starter/no-start simulation or mechanical faults.
+- Driver presence automatically operates the prototype engine; O requests parked idle. Chassis battery is a charge/draw foundation, not a complete starter/ignition system. Future torque/efficiency modifiers should compose at the centralized vehicle/resource boundaries.
+- Normal generator uses main gasoline with reserve. Separate tank burn/stop configuration is tested, but a dedicated separate-tank refueling UI is not provided. Noise is a query/delegate hook, not final audio or AI attraction.
+- Solar input is a configurable authoritative scalar (normal zero); no weather/day-night model. Shore power is a server integration hook, not campground infrastructure.
+- Prototype panel/markers/lights, closed exterior doors and fixed can weight/volume. Fuel density, varying carried mass and Chaos payload are not simulated. No final art/UI polish.
+- Full SaveGame/load, persistent vehicle identity, reconnect inventory restoration, offline progression and seamless streaming remain future work. Item GUIDs and typed scalar/configuration state are prepared for serialization.
+- No cooking/spoilage, mechanical failure/repair, medical effects, combat, AI or Gate 7 feature work.
+
+## Source/content manifest and recovery checkpoints
+New classes: URVFuelComponent, URVBatteryComponent, URVEnergyProfile, URVElectricalComponent, ARVSystemsMotorhome and ARVResourcePoint. Matching Public/Private resource and vehicle files are listed in `Gate6Results/source-manifest.txt`. Existing item definition/instance/inventory/world-pickup, controller/HUD, optional station binding/interior composition and passenger reference-frame files changed. Chaos movement/suspension/transmission code was not rewritten. New content is the Gate 6 map, vehicle Blueprint, normal energy profile and four fuel-can definitions; accepted maps/fallbacks/vendor source remain intact.
+
+| Local checkpoint | Purpose |
+|---|---|
+| f4c6543 | Framework review and Gate 6 recovery baseline |
+| 6369b4e | Compiled fuel/battery/power foundation |
+| 92d3699 | Saved map, vehicle and resource definitions |
+| cd6ca0d | Single-player/refuel/panel validation |
+| da8ce09 | Separate-process authority and Enhanced Input controls |
+| 4521be3 | Moving/emulated coverage milestone |
+| 7c6a505 | Explicit WIP recovery before known battery boundary fix |
+| acd5e3c | Fractional depletion fix and passing stress |
+| 688345d | Explicit WIP recovery retaining the floor-seam failure |
+| de35885 | Native root-basing fix and successful exact repeat |
+| d228217 | Architecture documentation and saved-map audit tooling |
+| 8d5ccec | Final four-case native-root matrix and resource convergence |
+| c8431e7 | Numerical cleanup, runner teardown fix and clean final stress |
+| ea29c88 | Exterior/camera audit and saved functional-only can fixture |
+
+Maps/assets were saved before PIE and after editor milestones; no completed feature remains only in editor memory. Raw evidence stays under Saved; compact permanent receipts, measurements, integrity audit and reproducible tools are committed. One labeled failed battery checkpoint and one labeled failed seam checkpoint were kept intentionally for recovery. All final editors/PIE sessions are stopped. Only the pre-existing Config/DefaultEngine.ini and IDE files are excluded from Gate 6 staging.
+
+Gate 6 is ACCEPTED. Recommended next task: manual resource-management playtest in Gate6FuelElectricalTest (refueling, generator/load controls and moving interior), then explicit authorization for the next gate. Stop here; Gate 7 has not begun.

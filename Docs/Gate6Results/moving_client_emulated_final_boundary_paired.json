@@ -1,0 +1,995 @@
+{
+  "config": {
+    "name": "moving_client_emulated_final_boundary",
+    "network": true,
+    "kind": "moving",
+    "driver": "client"
+  },
+  "server_pid": 51296,
+  "client_pid": 50692,
+  "checks": [
+    {
+      "case": "inventory_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "Personal supplies_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "01 Tools / repair supplies_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "02 Fluids / spare supplies_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "03 Spare parts_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "04 Camping equipment_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "05 General cargo_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "06 Bulky gear_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "07 Service / electrical supplies_at_143.6",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "Personal supplies_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "01 Tools / repair supplies_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "02 Fluids / spare supplies_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "03 Spare parts_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "04 Camping equipment_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "05 General cargo_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "06 Bulky gear_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "07 Service / electrical supplies_at_144.7",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "Personal supplies_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "01 Tools / repair supplies_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "02 Fluids / spare supplies_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "03 Spare parts_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "04 Camping equipment_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "05 General cargo_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "06 Bulky gear_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "07 Service / electrical supplies_at_150.4",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "Personal supplies_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "01 Tools / repair supplies_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "02 Fluids / spare supplies_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "03 Spare parts_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "04 Camping equipment_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "05 General cargo_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "06 Bulky gear_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "07 Service / electrical supplies_at_151.5",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "Personal supplies_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "01 Tools / repair supplies_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "02 Fluids / spare supplies_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "03 Spare parts_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "04 Camping equipment_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "05 General cargo_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "06 Bulky gear_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "07 Service / electrical supplies_at_158.7",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "Personal supplies_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "01 Tools / repair supplies_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "02 Fluids / spare supplies_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "03 Spare parts_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "04 Camping equipment_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "05 General cargo_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "06 Bulky gear_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "07 Service / electrical supplies_at_159.8",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "Personal supplies_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "01 Tools / repair supplies_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "02 Fluids / spare supplies_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "03 Spare parts_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "04 Camping equipment_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "05 General cargo_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "06 Bulky gear_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "07 Service / electrical supplies_at_166.7",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "Personal supplies_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "01 Tools / repair supplies_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "02 Fluids / spare supplies_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "03 Spare parts_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "04 Camping equipment_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "05 General cargo_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "06 Bulky gear_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "07 Service / electrical supplies_at_167.8",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "Personal supplies_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "01 Tools / repair supplies_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "02 Fluids / spare supplies_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "03 Spare parts_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "04 Camping equipment_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "05 General cargo_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "06 Bulky gear_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "07 Service / electrical supplies_at_174.7",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "Personal supplies_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "01 Tools / repair supplies_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "02 Fluids / spare supplies_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "03 Spare parts_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "04 Camping equipment_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "05 General cargo_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "06 Bulky gear_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "07 Service / electrical supplies_at_175.8",
+      "pass": true
+    },
+    {
+      "case": "inventory_at_183",
+      "pass": true
+    },
+    {
+      "case": "External storage_at_183",
+      "pass": true
+    },
+    {
+      "case": "Pantry_at_183",
+      "pass": true
+    },
+    {
+      "case": "Personal supplies_at_183",
+      "pass": true
+    },
+    {
+      "case": "Medical storage_at_183",
+      "pass": true
+    },
+    {
+      "case": "Water supplies_at_183",
+      "pass": true
+    },
+    {
+      "case": "01 Tools / repair supplies_at_183",
+      "pass": true
+    },
+    {
+      "case": "02 Fluids / spare supplies_at_183",
+      "pass": true
+    },
+    {
+      "case": "03 Spare parts_at_183",
+      "pass": true
+    },
+    {
+      "case": "04 Camping equipment_at_183",
+      "pass": true
+    },
+    {
+      "case": "05 General cargo_at_183",
+      "pass": true
+    },
+    {
+      "case": "06 Bulky gear_at_183",
+      "pass": true
+    },
+    {
+      "case": "07 Service / electrical supplies_at_183",
+      "pass": true
+    },
+    {
+      "case": "resource_fuel_litres_at_36",
+      "pass": true,
+      "error": 0.00018750202562500817,
+      "limit": 0.02
+    },
+    {
+      "case": "resource_house_wh_at_36",
+      "pass": true,
+      "error": 0.05555615574121475,
+      "limit": 2
+    },
+    {
+      "case": "resource_chassis_wh_at_36",
+      "pass": true,
+      "error": 0.01736129866912961,
+      "limit": 2
+    },
+    {
+      "case": "resource_generator_at_36",
+      "pass": true
+    },
+    {
+      "case": "resource_lights_at_36",
+      "pass": true
+    },
+    {
+      "case": "resource_revision_at_36",
+      "pass": true
+    },
+    {
+      "case": "resource_source_at_36",
+      "pass": true
+    },
+    {
+      "case": "resource_solar_at_36",
+      "pass": true
+    },
+    {
+      "case": "host_nutrition_at_36",
+      "pass": true,
+      "error": 0.000522613525390625
+    },
+    {
+      "case": "host_hydration_at_36",
+      "pass": true,
+      "error": 0.001041412353515625
+    },
+    {
+      "case": "host_fatigue_at_36",
+      "pass": true,
+      "error": 0.000347137451171875
+    },
+    {
+      "case": "host_reserve_at_36",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "client_nutrition_at_36",
+      "pass": true,
+      "error": 0.00043487548828125
+    },
+    {
+      "case": "client_hydration_at_36",
+      "pass": true,
+      "error": 0.000873565673828125
+    },
+    {
+      "case": "client_fatigue_at_36",
+      "pass": true,
+      "error": 0.0002918243408203125
+    },
+    {
+      "case": "client_reserve_at_36",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "resource_fuel_litres_at_55",
+      "pass": true,
+      "error": 0.0,
+      "limit": 0.02
+    },
+    {
+      "case": "resource_house_wh_at_55",
+      "pass": true,
+      "error": 0.0,
+      "limit": 2
+    },
+    {
+      "case": "resource_chassis_wh_at_55",
+      "pass": true,
+      "error": 0.0,
+      "limit": 2
+    },
+    {
+      "case": "resource_generator_at_55",
+      "pass": true
+    },
+    {
+      "case": "resource_lights_at_55",
+      "pass": true
+    },
+    {
+      "case": "resource_revision_at_55",
+      "pass": true
+    },
+    {
+      "case": "resource_source_at_55",
+      "pass": true
+    },
+    {
+      "case": "resource_solar_at_55",
+      "pass": true
+    },
+    {
+      "case": "host_nutrition_at_55",
+      "pass": true,
+      "error": 0.000518798828125
+    },
+    {
+      "case": "host_hydration_at_55",
+      "pass": true,
+      "error": 0.001041412353515625
+    },
+    {
+      "case": "host_fatigue_at_55",
+      "pass": true,
+      "error": 0.000347137451171875
+    },
+    {
+      "case": "host_reserve_at_55",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "client_nutrition_at_55",
+      "pass": true,
+      "error": 0.00043487548828125
+    },
+    {
+      "case": "client_hydration_at_55",
+      "pass": true,
+      "error": 0.000873565673828125
+    },
+    {
+      "case": "client_fatigue_at_55",
+      "pass": true,
+      "error": 0.0002918243408203125
+    },
+    {
+      "case": "client_reserve_at_55",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "resource_fuel_litres_at_161.5",
+      "pass": true,
+      "error": 0.0,
+      "limit": 0.02
+    },
+    {
+      "case": "resource_house_wh_at_161.5",
+      "pass": true,
+      "error": 0.0,
+      "limit": 2
+    },
+    {
+      "case": "resource_chassis_wh_at_161.5",
+      "pass": true,
+      "error": 0.0,
+      "limit": 2
+    },
+    {
+      "case": "resource_generator_at_161.5",
+      "pass": true
+    },
+    {
+      "case": "resource_lights_at_161.5",
+      "pass": true
+    },
+    {
+      "case": "resource_revision_at_161.5",
+      "pass": true
+    },
+    {
+      "case": "resource_source_at_161.5",
+      "pass": true
+    },
+    {
+      "case": "resource_solar_at_161.5",
+      "pass": true
+    },
+    {
+      "case": "host_nutrition_at_161.5",
+      "pass": true,
+      "error": 0.000518798828125
+    },
+    {
+      "case": "host_hydration_at_161.5",
+      "pass": true,
+      "error": 0.001041412353515625
+    },
+    {
+      "case": "host_fatigue_at_161.5",
+      "pass": true,
+      "error": 0.000347137451171875
+    },
+    {
+      "case": "host_reserve_at_161.5",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "client_nutrition_at_161.5",
+      "pass": true,
+      "error": 0.00043487548828125
+    },
+    {
+      "case": "client_hydration_at_161.5",
+      "pass": true,
+      "error": 0.000873565673828125
+    },
+    {
+      "case": "client_fatigue_at_161.5",
+      "pass": true,
+      "error": 0.0002918243408203125
+    },
+    {
+      "case": "client_reserve_at_161.5",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "resource_fuel_litres_at_167.5",
+      "pass": true,
+      "error": 0.0,
+      "limit": 0.02
+    },
+    {
+      "case": "resource_house_wh_at_167.5",
+      "pass": true,
+      "error": 0.0,
+      "limit": 2
+    },
+    {
+      "case": "resource_chassis_wh_at_167.5",
+      "pass": true,
+      "error": 0.0,
+      "limit": 2
+    },
+    {
+      "case": "resource_generator_at_167.5",
+      "pass": true
+    },
+    {
+      "case": "resource_lights_at_167.5",
+      "pass": true
+    },
+    {
+      "case": "resource_revision_at_167.5",
+      "pass": true
+    },
+    {
+      "case": "resource_source_at_167.5",
+      "pass": true
+    },
+    {
+      "case": "resource_solar_at_167.5",
+      "pass": true
+    },
+    {
+      "case": "host_nutrition_at_167.5",
+      "pass": true,
+      "error": 0.000518798828125
+    },
+    {
+      "case": "host_hydration_at_167.5",
+      "pass": true,
+      "error": 0.001041412353515625
+    },
+    {
+      "case": "host_fatigue_at_167.5",
+      "pass": true,
+      "error": 0.000347137451171875
+    },
+    {
+      "case": "host_reserve_at_167.5",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "client_nutrition_at_167.5",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "client_hydration_at_167.5",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "client_fatigue_at_167.5",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "client_reserve_at_167.5",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "resource_fuel_litres_at_184",
+      "pass": true,
+      "error": 0.0,
+      "limit": 0.02
+    },
+    {
+      "case": "resource_house_wh_at_184",
+      "pass": true,
+      "error": 0.0,
+      "limit": 2
+    },
+    {
+      "case": "resource_chassis_wh_at_184",
+      "pass": true,
+      "error": 0.0,
+      "limit": 2
+    },
+    {
+      "case": "resource_generator_at_184",
+      "pass": true
+    },
+    {
+      "case": "resource_lights_at_184",
+      "pass": true
+    },
+    {
+      "case": "resource_revision_at_184",
+      "pass": true
+    },
+    {
+      "case": "resource_source_at_184",
+      "pass": true
+    },
+    {
+      "case": "resource_solar_at_184",
+      "pass": true
+    },
+    {
+      "case": "host_nutrition_at_184",
+      "pass": true,
+      "error": 0.000518798828125
+    },
+    {
+      "case": "host_hydration_at_184",
+      "pass": true,
+      "error": 0.001041412353515625
+    },
+    {
+      "case": "host_fatigue_at_184",
+      "pass": true,
+      "error": 0.000347137451171875
+    },
+    {
+      "case": "host_reserve_at_184",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "client_nutrition_at_184",
+      "pass": true,
+      "error": 0.00043487548828125
+    },
+    {
+      "case": "client_hydration_at_184",
+      "pass": true,
+      "error": 0.000873565673828125
+    },
+    {
+      "case": "client_fatigue_at_184",
+      "pass": true,
+      "error": 0.0002918243408203125
+    },
+    {
+      "case": "client_reserve_at_184",
+      "pass": true,
+      "error": 0.0
+    },
+    {
+      "case": "workstation_counts_converge",
+      "pass": true
+    },
+    {
+      "case": "paired_passenger_local_position",
+      "pass": true,
+      "max_error_cm": 29.544278267458836,
+      "limit_cm": 75
+    },
+    {
+      "case": "live_assertions_51296",
+      "pass": true,
+      "checks": 85
+    },
+    {
+      "case": "live_assertions_50692",
+      "pass": true,
+      "checks": 77
+    }
+  ],
+  "pass": true
+}

@@ -1,0 +1,246 @@
+{
+  "name": "resources_emulated_final",
+  "different_processes": true,
+  "results": [
+    {
+      "case": "stable_convergence_6.7",
+      "pass": true,
+      "server": {
+        "t": 6.8095433712005615,
+        "fuel": 200.0,
+        "house": 999.6062435250735,
+        "generator": false,
+        "revision": 0,
+        "lights": false,
+        "solar": 0.0,
+        "source": "Battery",
+        "can": [
+          {
+            "id": "B5708D3F452A3DEF6D548396BE4D194B",
+            "litres": 5.0,
+            "revision": 1,
+            "condition": 0.7300000190734863
+          }
+        ]
+      },
+      "client": {
+        "t": 6.738598585128784,
+        "fuel": 200.0,
+        "house": 999.620827126783,
+        "generator": false,
+        "revision": 0,
+        "lights": false,
+        "solar": 0.0,
+        "source": "Battery",
+        "can": [
+          {
+            "id": "B5708D3F452A3DEF6D548396BE4D194B",
+            "litres": 5.0,
+            "revision": 1,
+            "condition": 0.7300000190734863
+          }
+        ]
+      }
+    },
+    {
+      "case": "stable_convergence_7.6",
+      "pass": true,
+      "server": {
+        "t": 7.591973781585693,
+        "fuel": 200.0,
+        "house": 999.5624934374982,
+        "generator": false,
+        "revision": 0,
+        "lights": false,
+        "solar": 0.0,
+        "source": "Battery",
+        "can": [
+          {
+            "id": "B5708D3F452A3DEF6D548396BE4D194B",
+            "litres": 5.0,
+            "revision": 1,
+            "condition": 0.7300000190734863
+          }
+        ]
+      },
+      "client": {
+        "t": 7.52204704284668,
+        "fuel": 200.0,
+        "house": 999.5770768001682,
+        "generator": false,
+        "revision": 0,
+        "lights": false,
+        "solar": 0.0,
+        "source": "Battery",
+        "can": [
+          {
+            "id": "B5708D3F452A3DEF6D548396BE4D194B",
+            "litres": 5.0,
+            "revision": 1,
+            "condition": 0.7300000190734863
+          }
+        ]
+      }
+    },
+    {
+      "case": "stable_convergence_22.8",
+      "pass": true,
+      "server": {
+        "t": 22.909468412399292,
+        "fuel": 99.99924998413276,
+        "house": 1000.4541771315246,
+        "generator": true,
+        "revision": 2,
+        "lights": true,
+        "solar": 0.5,
+        "source": "Generator",
+        "can": [
+          {
+            "id": "B5708D3F452A3DEF6D548396BE4D194B",
+            "litres": 0.0,
+            "revision": 2,
+            "condition": 0.7300000190734863
+          }
+        ]
+      },
+      "client": {
+        "t": 22.872499704360962,
+        "fuel": 99.99933331766601,
+        "house": 1000.3986214426865,
+        "generator": true,
+        "revision": 2,
+        "lights": true,
+        "solar": 0.5,
+        "source": "Generator",
+        "can": [
+          {
+            "id": "B5708D3F452A3DEF6D548396BE4D194B",
+            "litres": 0.0,
+            "revision": 2,
+            "condition": 0.7300000190734863
+          }
+        ]
+      }
+    },
+    {
+      "case": "stable_convergence_28.9",
+      "pass": true,
+      "server": {
+        "t": 28.876375913619995,
+        "fuel": 99.9974999558665,
+        "house": 1001.6083626156669,
+        "generator": false,
+        "revision": 6,
+        "lights": false,
+        "solar": 0.5,
+        "source": "Solar + Battery",
+        "can": [
+          {
+            "id": "B5708D3F452A3DEF6D548396BE4D194B",
+            "litres": 0.0,
+            "revision": 2,
+            "condition": 0.7300000190734863
+          }
+        ]
+      },
+      "client": {
+        "t": 28.805110216140747,
+        "fuel": 99.9974999558665,
+        "house": 1001.6125292923298,
+        "generator": false,
+        "revision": 6,
+        "lights": false,
+        "solar": 0.5,
+        "source": "Solar + Battery",
+        "can": [
+          {
+            "id": "B5708D3F452A3DEF6D548396BE4D194B",
+            "litres": 0.0,
+            "revision": 2,
+            "condition": 0.7300000190734863
+          }
+        ]
+      }
+    },
+    {
+      "case": "stable_convergence_30",
+      "pass": true,
+      "server": {
+        "t": 29.90974736213684,
+        "fuel": 99.9974999558665,
+        "house": 1001.5916959139826,
+        "generator": false,
+        "revision": 6,
+        "lights": false,
+        "solar": 0.5,
+        "source": "Solar + Battery",
+        "can": [
+          {
+            "id": "B5708D3F452A3DEF6D548396BE4D194B",
+            "litres": 0.0,
+            "revision": 2,
+            "condition": 0.7300000190734863
+          }
+        ]
+      },
+      "client": {
+        "t": 30.10497736930847,
+        "fuel": 99.9974999558665,
+        "house": 1001.5916959139826,
+        "generator": false,
+        "revision": 6,
+        "lights": false,
+        "solar": 0.5,
+        "source": "Solar + Battery",
+        "can": [
+          {
+            "id": "B5708D3F452A3DEF6D548396BE4D194B",
+            "litres": 0.0,
+            "revision": 2,
+            "condition": 0.7300000190734863
+          }
+        ]
+      }
+    },
+    {
+      "case": "stable_convergence_35.7",
+      "pass": true,
+      "server": {
+        "t": 35.62657332420349,
+        "fuel": 99.99699995329978,
+        "house": 1001.8541972318043,
+        "generator": true,
+        "revision": 7,
+        "lights": false,
+        "solar": 0.5,
+        "source": "Generator",
+        "can": [
+          {
+            "id": "B5708D3F452A3DEF6D548396BE4D194B",
+            "litres": 0.0,
+            "revision": 2,
+            "condition": 0.7300000190734863
+          }
+        ]
+      },
+      "client": {
+        "t": 35.5729775428772,
+        "fuel": 99.99708328680074,
+        "house": 1001.79864156449,
+        "generator": true,
+        "revision": 7,
+        "lights": false,
+        "solar": 0.5,
+        "source": "Generator",
+        "can": [
+          {
+            "id": "B5708D3F452A3DEF6D548396BE4D194B",
+            "litres": 0.0,
+            "revision": 2,
+            "condition": 0.7300000190734863
+          }
+        ]
+      }
+    }
+  ]
+}

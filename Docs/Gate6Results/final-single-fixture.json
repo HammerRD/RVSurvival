@@ -1,0 +1,235 @@
+{
+  "results": [
+    {
+      "case": "configured_fuel_and_batteries",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "debug_disabled_default",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "invalid_nan_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "lower_bounds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "upper_bounds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "hour_idle_fuel",
+      "pass": true,
+      "detail": "98.50000000000136"
+    },
+    {
+      "case": "hour_load_and_road_fuel",
+      "pass": true,
+      "detail": "87.49999999997726"
+    },
+    {
+      "case": "fuel_exhaustion_clamped",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fridge_90wh_drain",
+      "pass": true,
+      "detail": "910.0000000000819"
+    },
+    {
+      "case": "fridge_power_loss_hook",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "lights_fail_at_empty",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "all_loads_restore_and_draw",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "solar_hour_300wh",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "solar_zero_no_energy",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shore_accepts_external_supply",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "alternator_distinct_batteries",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "full_can_native_pickup",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fuel_fill_native_hold",
+      "pass": true,
+      "detail": "('Panel ready', <Object '/Game/Maps/UEDPIE_0_Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVResourcePoint_0' (0x000001CFF1F13200) Class 'RVResourcePoint'>)"
+    },
+    {
+      "case": "partial_tank_conserves_fuel",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "refuel_preserves_guid_condition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "duplicate_revision_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "partial_can_drop_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "partial_can_repicked",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fuel_can_exterior_transfer_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fuel_can_transfer_back",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "partial_pickup_capacity",
+      "pass": true,
+      "detail": "('', 34.0, [('FuelCanFull', 1), ('FuelCanPartial', 1)])"
+    },
+    {
+      "case": "variable_capacity_partial_can",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "partial_can_exact_transfer",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "empty_can_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "unowned_guid_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "incompatible_fuel_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "generator_started_authority",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "generator_burn_and_charge",
+      "pass": true,
+      "detail": "(98.80000000001132, 799.999999999947)"
+    },
+    {
+      "case": "generator_noise_hook",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "generator_stops_at_pickup_reserve",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "generator_noise_cleans_on_stop",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "reserve_start_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "panel_switch_and_visible_light",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stale_panel_revision_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "unknown_control_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "24h_simulation_all_bounds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "no_negative_can_quantity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "empty_tank_seat_and_possession_intact",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "empty_fuel_no_propulsion",
+      "pass": true,
+      "detail": "0.6916043178444579"
+    },
+    {
+      "case": "refuel_restores_chaos_propulsion",
+      "pass": true,
+      "detail": "3904.751466146384"
+    },
+    {
+      "case": "real_drive_consumes_fuel",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "map": "Gate6FuelElectricalTest"
+}

@@ -1,0 +1,37 @@
+{
+  "vendor_files_verified": 108,
+  "vendor_changes": [],
+  "content_changes_since_gate5": [
+    "Content/Maps/Gate6FuelElectricalTest.umap",
+    "Content/Resources/DA_FuelCanDiesel.uasset",
+    "Content/Resources/DA_FuelCanEmpty.uasset",
+    "Content/Resources/DA_FuelCanFull.uasset",
+    "Content/Resources/DA_FuelCanPartial.uasset",
+    "Content/Resources/DA_NormalRVEnergy.uasset",
+    "Content/Vehicles/Gate6/BP_ClassCSystemsMotorhome.uasset"
+  ],
+  "last_moving_repeat": {
+    "server": {
+      "pid": 51296,
+      "checks": 85,
+      "frame_losses": 0,
+      "max_correction_cm": 0.0,
+      "peak_corrections": 0,
+      "max_visual_error_cm": 0.0
+    },
+    "client": {
+      "pid": 50692,
+      "checks": 77,
+      "frame_losses": 0,
+      "max_correction_cm": 0.0,
+      "peak_corrections": 0,
+      "max_visual_error_cm": 5.3034023632254375
+    }
+  },
+  "preexisting_dirty_excluded": [
+    "Config/DefaultEngine.ini",
+    ".vsconfig",
+    "Automation_RVSurvival.slnx",
+    "RVSurvival.slnx"
+  ]
+}
