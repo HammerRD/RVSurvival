@@ -23,6 +23,9 @@ struct FRVItemInstance : public FFastArraySerializerItem
     UPROPERTY(EditAnywhere, BlueprintReadOnly, meta=(ClampMin="0",ClampMax="1")) float Condition = 1;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) FName Location = TEXT("Main");
     UPROPERTY(EditAnywhere, BlueprintReadOnly) TArray<FRVItemStateEntry> CustomState;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, SaveGame) bool bFuelInitialized = false;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, SaveGame) double FuelLitres = 0;
+    UPROPERTY(BlueprintReadOnly, SaveGame) int32 FuelRevision = 0;
 };
 
 USTRUCT()
@@ -55,6 +58,8 @@ public:
     UFUNCTION(BlueprintPure) FString CanAccept(const FRVItemInstance& Item) const;
     UFUNCTION(BlueprintCallable, BlueprintAuthorityOnly) bool AddAuthority(const FRVItemInstance& Item, FString& Error);
     bool TransferAuthority(URVInventoryComponent* Destination, const FGuid& Id, int32 Quantity, FString& Error);
+    bool RefuelAuthority(class URVFuelComponent* Tank, const FGuid& Id, int32 ExpectedRevision, double& Transferred, FString& Error);
+    UFUNCTION(BlueprintCallable) bool DebugSetFuelCan(FGuid Id, double Litres);
     bool ConsumeOneAuthority(const FGuid& Id, FRVItemInstance& Consumed, FString& Error);
     void OpenContainerAuthority(URVInventoryComponent* Container);
     UPROPERTY(Replicated, BlueprintReadOnly) TObjectPtr<URVInventoryComponent> OpenContainer;

@@ -17,6 +17,16 @@ struct FRVConsumableMetadata
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FGameplayTagContainer DietaryTags;
 };
 
+USTRUCT(BlueprintType)
+struct FRVFuelContainerMetadata
+{
+    GENERATED_BODY()
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) bool bFuelContainer = false;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FGameplayTag FuelType;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="0")) double CapacityLitres = 20;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="0")) double InitialLitres = 20;
+};
+
 /** Immutable catalog data. Stored instances reference definitions rather than world actors. */
 UCLASS(BlueprintType)
 class RVSURVIVAL_API URVItemDefinition : public UPrimaryDataAsset
@@ -24,6 +34,7 @@ class RVSURVIVAL_API URVItemDefinition : public UPrimaryDataAsset
     GENERATED_BODY()
 public:
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FRVConsumableMetadata Consumable;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FRVFuelContainerMetadata Fuel;
     UFUNCTION(BlueprintPure, Category="RV|Items") static FGameplayTag FindRegisteredTag(FName Name);
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FName CatalogId;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FText DisplayName;

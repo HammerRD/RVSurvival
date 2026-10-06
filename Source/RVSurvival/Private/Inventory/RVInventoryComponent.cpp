@@ -1,4 +1,5 @@
 #include "Inventory/RVInventoryComponent.h"
+#include "Resources/RVFuelComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "Inventory/RVWorldItem.h"
 #include "GameFramework/Pawn.h"
@@ -23,6 +24,14 @@ FString URVInventoryComponent::CanAccept(const FRVItemInstance& I) const
     if(!I.Definition || !I.Id.IsValid() || I.Quantity<=0 || !FMath::IsFinite(I.Condition) || I.Condition<0 || I.Condition>1) return TEXT("Invalid item");
     const auto* D=I.Definition.Get();
     if(!FMath::IsFinite(D->WeightKg) || !FMath::IsFinite(D->VolumeLitres) || D->WeightKg<0 || D->VolumeLitres<0) return TEXT("Invalid definition");
+    if(D->Fuel.bFuelContainer)
+    {
+        const auto& F=D->Fuel;
+        if(D->bStackable || I.Quantity!=1 || !F.FuelType.IsValid() || !FMath::IsFinite(F.CapacityLitres) || F.CapacityLitres<=0
+            || !FMath::IsFinite(F.InitialLitres) || F.InitialLitres<0 || F.InitialLitres>F.CapacityLitres
+            || (I.bFuelInitialized && (!FMath::IsFinite(I.FuelLitres) || I.FuelLitres<0 || I.FuelLitres>F.CapacityLitres || I.FuelRevision<0)))
+            return TEXT("Invalid fuel container state");
+    }
     if(I.Quantity>(D->bStackable?FMath::Max(1,D->MaxStackSize):1)) return TEXT("Invalid stack size");
     if(D->bRequiresPhysicalCarry && !bAllowPhysicalCarry) return TEXT("Requires physical carrying");
     if(!AllowedTags.IsEmpty() && !D->Tags.HasAny(AllowedTags)) return TEXT("Item category not allowed");
@@ -39,6 +48,9 @@ bool URVInventoryComponent::AddAuthority(const FRVItemInstance& Item, FString& E
     auto& Added=Contents.Items.AddDefaulted_GetRef();
     Added.Id=Item.Id; Added.Definition=Item.Definition; Added.Quantity=Item.Quantity;
     Added.Condition=Item.Condition; Added.Location=Item.Location; Added.CustomState=Item.CustomState;
+    Added.bFuelInitialized=Item.bFuelInitialized; Added.FuelLitres=Item.FuelLitres; Added.FuelRevision=Item.FuelRevision;
+    if(Added.Definition->Fuel.bFuelContainer && !Added.bFuelInitialized)
+    { Added.bFuelInitialized=true; Added.FuelLitres=Added.Definition->Fuel.InitialLitres; }
     Contents.MarkItemDirty(Added); GetOwner()->ForceNetUpdate(); return true;
 }
 bool URVInventoryComponent::TransferAuthority(URVInventoryComponent* Destination, const FGuid& Id, int32 Quantity, FString& Error)
@@ -148,3 +160,32 @@ void URVInventoryComponent::ServerDrop_Implementation(FGuid Id, int32 Quantity)
 }
 
 
+
+bool URVInventoryComponent::RefuelAuthority(URVFuelComponent* Tank, const FGuid& Id, int32 Revision, double& Transferred, FString& Error)
+{
+    Transferred=0;
+    if(!GetOwner() || !GetOwner()->HasAuthority() || !Tank || !Tank->GetOwner()->HasAuthority())
+    { Error=TEXT("Authority required"); return false; }
+    auto* I=Contents.Items.FindByPredicate([&](const auto& Item){return Item.Id==Id;});
+    if(!I || !I->Definition || !I->Definition->Fuel.bFuelContainer || !I->bFuelInitialized || I->Quantity!=1)
+    { Error=TEXT("Fuel can not owned"); return false; }
+    if(Revision!=I->FuelRevision) { Error=TEXT("Stale fuel can request"); return false; }
+    if(I->Definition->Fuel.FuelType!=Tank->FuelType) { Error=TEXT("Incompatible fuel"); return false; }
+    if(!FMath::IsFinite(I->FuelLitres) || I->FuelLitres<=0) { Error=TEXT("Fuel can empty"); return false; }
+    Transferred=Tank->AddAuthority(I->FuelLitres);
+    if(Transferred<=0) { Error=TEXT("Tank full"); return false; }
+    I->FuelLitres=FMath::Max(0.,I->FuelLitres-Transferred); ++I->FuelRevision;
+    Contents.MarkItemDirty(*I); GetOwner()->ForceNetUpdate(); Error.Empty(); return true;
+}
+bool URVInventoryComponent::DebugSetFuelCan(FGuid Id, double Litres)
+{
+#if !UE_BUILD_SHIPPING
+    if(!GetOwner() || !GetOwner()->HasAuthority() || !URVFuelComponent::DebugAllowed() || !FMath::IsFinite(Litres)) return false;
+    auto* I=Contents.Items.FindByPredicate([&](const auto& Item){return Item.Id==Id;});
+    if(!I || !I->Definition || !I->Definition->Fuel.bFuelContainer) return false;
+    I->bFuelInitialized=true; I->FuelLitres=FMath::Clamp(Litres,0.,I->Definition->Fuel.CapacityLitres); ++I->FuelRevision;
+    Contents.MarkItemDirty(*I); GetOwner()->ForceNetUpdate(); return true;
+#else
+    return false;
+#endif
+}

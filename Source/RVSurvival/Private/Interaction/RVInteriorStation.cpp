@@ -1,4 +1,6 @@
 #include "Interaction/RVInteriorStation.h"
+#include "Vehicles/RVSystemsMotorhome.h"
+#include "Resources/RVElectricalComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/TextRenderComponent.h"
 #include "Net/UnrealNetwork.h"
@@ -11,6 +13,14 @@ ARVInteriorStation::ARVInteriorStation()
     Label->SetVisibility(false);
 }
 void ARVInteriorStation::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
-{ Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(ARVInteriorStation, StationName); }
+{ Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(ARVInteriorStation, StationName); DOREPLIFETIME(ARVInteriorStation,RequiredPowerLoad); }
 FText ARVInteriorStation::GetInteractionText_Implementation(APawn*) const
 { return FText::Format(NSLOCTEXT("RV", "StationPlaceholder", "Hold E: {0} (prototype checks: {1})"), FText::FromName(StationName), FText::AsNumber(InteractionCount)); }
+
+bool ARVInteriorStation::CanInteract_Implementation(APawn* Pawn) const
+{
+    if(!Super::CanInteract_Implementation(Pawn)) return false;
+    if(RequiredPowerLoad.IsNone()) return true;
+    const auto* V=Cast<ARVSystemsMotorhome>(GetAttachParentActor());
+    return V && V->Electrical->IsLoadPowered(RequiredPowerLoad);
+}

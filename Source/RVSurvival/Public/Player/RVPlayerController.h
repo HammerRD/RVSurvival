@@ -19,7 +19,16 @@ public:
     UFUNCTION(Server, Reliable) void ServerSwitchSeat(FName TargetSeat);
     UPROPERTY(Replicated, BlueprintReadOnly, Category="RV|Seats") FString SeatFeedback;
     UPROPERTY(Replicated, BlueprintReadOnly, Category="RV|Seats") TObjectPtr<ARVVehicleBase> SeatedVehicle;
+    UPROPERTY(Replicated, BlueprintReadOnly) TObjectPtr<class ARVResourcePoint> ResourcePoint;
+    UPROPERTY(Replicated, BlueprintReadOnly) FString ResourceFeedback;
+    UFUNCTION(BlueprintCallable) void RequestResourceControl(FName Control, bool Enabled, int32 ExpectedRevision);
+    UFUNCTION(Server, Reliable) void ServerResourceControl(FName Control, bool Enabled, int32 ExpectedRevision);
+    UFUNCTION(BlueprintCallable) void RequestRefuel(FGuid ItemId, int32 ExpectedRevision);
+    UFUNCTION(Server, Reliable) void ServerRefuel(FGuid ItemId, int32 ExpectedRevision);
+    UFUNCTION(BlueprintCallable) void RequestCloseResource();
     double SeatEntryTime = 0;
 private:
+    bool ValidateResourceAccess(bool FuelFill) const;
+    double LastResourceRequestTime=-1;
     double LastSeatSwitchTime = -1;
 };

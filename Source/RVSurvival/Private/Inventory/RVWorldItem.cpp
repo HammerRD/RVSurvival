@@ -26,6 +26,8 @@ void ARVWorldItem::BeginPlay()
 {
     Super::BeginPlay();
     if(HasAuthority() && !Item.Id.IsValid()) Item.Id=FGuid::NewGuid();
+    if(HasAuthority() && Item.Definition && Item.Definition->Fuel.bFuelContainer && !Item.bFuelInitialized)
+    { Item.bFuelInitialized=true; Item.FuelLitres=Item.Definition->Fuel.InitialLitres; }
     OnRep_Item();
 }
 bool ARVWorldItem::IsNetRelevantFor(const AActor* RealViewer, const AActor* ViewTarget, const FVector& SrcLocation) const
