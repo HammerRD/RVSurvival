@@ -20,6 +20,7 @@ void URVPassengerReferenceFrameComponent::RestoreWorldMovement()
         auto* M = C->GetCharacterMovement();
         M->bEnablePhysicsInteraction = bPreviousPhysicsInteraction;
         M->bBasedMovementIgnorePhysicsBase = bPreviousIgnorePhysicsBase;
+        M->bBaseOnAttachmentRoot = bPreviousBaseOnAttachmentRoot;
         M->MaxWalkSpeed = PreviousWalkSpeed;
         C->GetCapsuleComponent()->SetCapsuleRadius(PreviousCapsuleRadius);
     }
@@ -43,7 +44,13 @@ void URVPassengerReferenceFrameComponent::TickComponent(float Dt, ELevelTick Typ
         if (CVarPassengerDebug.GetValueOnGameThread() > 1)
             UE_LOG(LogTemp, Log, TEXT("RVPassenger %s base=%s"), *C->GetName(), *GetNameSafe(Base));
     }
-    AActor* Frame = Base && Base->ComponentHasTag(TEXT("RVPassengerPlatform")) ? Base->GetOwner() : nullptr;
+    // Floor collision remains modular, but native based movement uses one stable
+    // attachment root across floor seams. Inspect the actual floor hit because
+    // the movement base can now be the vehicle's chassis rather than that box.
+    auto* Floor = M->CurrentFloor.HitResult.GetComponent();
+    auto* Platform = Floor && M->CurrentFloor.IsWalkableFloor()
+        && Floor->ComponentHasTag(TEXT("RVPassengerPlatform")) ? Floor : Base;
+    AActor* Frame = Platform && Platform->ComponentHasTag(TEXT("RVPassengerPlatform")) ? Platform->GetOwner() : nullptr;
     if (ReferenceFrame != Frame)
     {
         RestoreWorldMovement();
@@ -52,12 +59,16 @@ void URVPassengerReferenceFrameComponent::TickComponent(float Dt, ELevelTick Typ
         {
             bPreviousPhysicsInteraction = M->bEnablePhysicsInteraction;
             bPreviousIgnorePhysicsBase = M->bBasedMovementIgnorePhysicsBase;
+            bPreviousBaseOnAttachmentRoot = M->bBaseOnAttachmentRoot;
             PreviousCapsuleRadius = C->GetCapsuleComponent()->GetUnscaledCapsuleRadius(); PreviousWalkSpeed = M->MaxWalkSpeed;
             C->GetCapsuleComponent()->SetCapsuleRadius(FMath::Min(PreviousCapsuleRadius, InteriorCapsuleRadius));
             M->MaxWalkSpeed = FMath::Min(PreviousWalkSpeed, InteriorWalkSpeed);
             M->bEnablePhysicsInteraction = false;
             // Native post-physics carry must not sweep into this vehicle's walls; walking still collides normally.
             M->bBasedMovementIgnorePhysicsBase = true;
+            // Supported CMC option: avoid exchanging differently offset local
+            // bases while traversing adjacent rigidly attached floor pieces.
+            M->bBaseOnAttachmentRoot = true;
             LocalPosition = Frame->GetActorTransform().InverseTransformPosition(C->GetActorLocation());
         }
         if (CVarPassengerDebug.GetValueOnGameThread()) UE_LOG(LogTemp, Log, TEXT("RVPassenger %s frame=%s role=%d"), *C->GetName(), *GetNameSafe(Frame), int32(C->GetLocalRole()));

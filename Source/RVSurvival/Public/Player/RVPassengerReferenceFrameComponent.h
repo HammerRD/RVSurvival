@@ -31,4 +31,5 @@ private:
     float PreviousWalkSpeed = 0;
     bool bPreviousPhysicsInteraction = true;
     bool bPreviousIgnorePhysicsBase = false;
+    bool bPreviousBaseOnAttachmentRoot = false;
 };

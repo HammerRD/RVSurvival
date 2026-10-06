@@ -9,7 +9,7 @@ host=own if isServer else None;client=None if isServer else own;hp=ownpawn if is
 out=config['name']+('_server' if isServer else '_client')
 driver=host if role=='host' else client;walker=client if role=='host' else host;wp=cp if role=='host' else hp;swp=wp;observer=wp;wv=v
 ss=cs=st={str(a.get_editor_property('StationName')):a for a in unreal.GameplayStatics.get_all_actors_of_class(world,SC)}
-rows=[];results=[];events=[];idx=0;elapsed=0;sample_acc=0;phase='setup';target=None;held=set();anchors={};counts={};station_initial={};active=True;yaws={};speed_target=None;drive_held=set();default_radius=wp.get_component_by_class(unreal.CapsuleComponent).get_unscaled_capsule_radius();default_speed=wp.get_component_by_class(unreal.CharacterMovementComponent).get_editor_property('MaxWalkSpeed')
+rows=[];results=[];events=[];idx=0;elapsed=0;sample_acc=0;phase='setup';target=None;held=set();anchors={};counts={};station_initial={};active=True;yaws={};speed_target=None;drive_held=set();default_radius=wp.get_component_by_class(unreal.CapsuleComponent).get_unscaled_capsule_radius();default_speed=wp.get_component_by_class(unreal.CharacterMovementComponent).get_editor_property('MaxWalkSpeed');default_root=wp.get_component_by_class(unreal.CharacterMovementComponent).get_editor_property('bBaseOnAttachmentRoot')
 
 def cmd(pc,s):
  if pc:unreal.SystemLibrary.execute_console_command(pc,s,pc)
@@ -111,7 +111,7 @@ at(94,lambda:(mark('braking_stand'),set_speed(None),key(driver,'W',False),key(dr
 at(101,lambda:(mark('resume_stand'),key(driver,'SpaceBar',False),key(driver,'W',True)));at(104,lambda:check('resume_driving',sv.get_velocity().length()>250 and abs(sv.get_velocity().z)<30,sv.get_velocity()));at(105,lambda:(key(driver,'W',False),key(driver,'SpaceBar',True)))
 # Exit the open side door by walking; then prove normal world movement is restored.
 at(111,lambda:(move(92.4),mark('exit_approach')));at(113,lambda:(stop_walk(),look(walker,unreal.Rotator(yaw=wv.get_actor_rotation().yaw+90)),key(walker,'W',True)));at(115,lambda:key(walker,'W',False))
-at(116,lambda:check('ordinary_world_movement_restored',not wp.get_component_by_class(FC).get_editor_property('ReferenceFrame') and wp.get_component_by_class(unreal.CharacterMovementComponent).get_editor_property('MaxWalkSpeed')==default_speed and wp.get_component_by_class(unreal.CapsuleComponent).get_unscaled_capsule_radius()==default_radius,local(wv,wp)))
+at(116,lambda:check('ordinary_world_movement_restored',not wp.get_component_by_class(FC).get_editor_property('ReferenceFrame') and wp.get_component_by_class(unreal.CharacterMovementComponent).get_editor_property('MaxWalkSpeed')==default_speed and wp.get_component_by_class(unreal.CapsuleComponent).get_unscaled_capsule_radius()==default_radius and wp.get_component_by_class(unreal.CharacterMovementComponent).get_editor_property('bBaseOnAttachmentRoot')==default_root,local(wv,wp)))
 at(117,lambda:move_y(10));at(119.5,stop_walk);at(120,lambda:check('reentry',frame_ok(),local(wv,wp)))
 def finish():
  global active
@@ -126,6 +126,10 @@ def finish():
    a=anchors[p];drift=max(math.dist(r['local'][:2],a[:2]) for r in rs);lost=sum(not r['frame'] for r in rs);cor=max(r['corr'] for r in rs);cm=max(r['maxcorr'] for r in rs)
    check(p+'_stable',drift<10 and lost==0 and cm<10,{'drift_cm':drift,'frame_lost_samples':lost,'corrections':cor,'max_correction_cm':cm})
  rs=[r for r in rows if 37<r['t']<116]
+ if walker:
+  seam=[r for r in rows if r['phase']=='low_walk_front']
+  check('floor_seam_local_step',bool(seam) and max(r['step'] for r in seam)<30,
+        {'max_local_step_cm':max((r['step'] for r in seam),default=0),'limit_cm':30})
  if rs:
   check('floor_and_observer',max(math.dist(r['server'],r['client']) for r in rs)<(75 if config.get('network') else 30) and all(165<r['local'][2]<210 and r['frame'] for r in rs),{'min_z':min(r['local'][2] for r in rs),'max_z':max(r['local'][2] for r in rs),'max_observer_local_error_cm':max(math.dist(r['server'],r['client']) for r in rs)})
   check('visible_observer',max(math.dist(r['visual'],r['local']) for r in rs)<(75 if config.get('network') else 30) and all(165<r['visual'][2]<210 and abs(r['visual'][1])<115 for r in rs),{'max_visual_local_error_cm':max(math.dist(r['visual'],r['local']) for r in rs)})

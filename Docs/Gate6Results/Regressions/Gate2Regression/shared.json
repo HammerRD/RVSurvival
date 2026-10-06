@@ -1,0 +1,122 @@
+[
+  {
+    "case": "fresh_seats_empty",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBFD50) {x: 1.024645, y: -0.012626, z: 15.903668}>, <Struct 'Vector' (0x000001EFF1EBEE00) {x: 1.265440, y: 0.061622, z: 17.824308}>, <Struct 'Vector' (0x000001EFF1EBFDF0) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': None, 'PassengerSeat': None}, {'DriverSeat': None, 'PassengerSeat': None}]"
+  },
+  {
+    "case": "host_driver_possession",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBFDF0) {x: 1.024645, y: -0.012626, z: 15.903668}>, <Struct 'Vector' (0x000001EFF1EBEE00) {x: 1.265440, y: 0.061622, z: 17.824308}>, <Struct 'Vector' (0x000001EFF1EBFD50) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': None}, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': None}]"
+  },
+  {
+    "case": "occupied_driver_rejected",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBFD50) {x: 1.024645, y: -0.012626, z: 15.903668}>, <Struct 'Vector' (0x000001EFF1EBEE00) {x: 1.265440, y: 0.061622, z: 17.824308}>, <Struct 'Vector' (0x000001EFF1EBFDF0) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': None}, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': None}]"
+  },
+  {
+    "case": "client_passenger_host_driver",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBFDF0) {x: 1.024645, y: -0.012626, z: 15.903668}>, <Struct 'Vector' (0x000001EFF1EBEE00) {x: 1.265440, y: 0.061622, z: 17.824308}>, <Struct 'Vector' (0x000001EFF1EBFD50) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': 'RVSurvivorCharacter_1'}, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': 'RVSurvivorCharacter_0'}]"
+  },
+  {
+    "case": "moving_exit_rejected",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x000001EFF1EBEE00) {x: 351.811951, y: 0.042422, z: -0.323947}>"
+  },
+  {
+    "case": "host_acceleration_steering",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBFD50) {x: 1378.269720, y: 480.205444, z: 14.849440}>, <Struct 'Vector' (0x000001EFF1EBEE00) {x: 1376.937858, y: 475.679740, z: 14.957210}>, <Struct 'Vector' (0x000001F000A3B490) {x: 668.104248, y: 621.811890, z: -0.066511}>, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': 'RVSurvivorCharacter_1'}, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': 'RVSurvivorCharacter_0'}]"
+  },
+  {
+    "case": "host_drive_replicated",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBEE00) {x: 1446.469615, y: 543.691991, z: 14.843695}>, <Struct 'Vector' (0x000001EFF1EBFD50) {x: 1444.896012, y: 539.223337, z: 14.948466}>, <Struct 'Vector' (0x000001EFF1EEB990) {x: 693.853333, y: 645.932373, z: -0.030254}>, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': 'RVSurvivorCharacter_1'}, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': 'RVSurvivorCharacter_0'}]"
+  },
+  {
+    "case": "client_passenger_attached",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBEE00) {x: 1546.110038, y: 711.769838, z: 125.171805}>, <Struct 'Vector' (0x000001EFF1EBFD50) {x: 1546.065201, y: 711.561808, z: 125.182335}>]"
+  },
+  {
+    "case": "host_handbrake_stops",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x000001EFF1EBEE00) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "case": "stopped_vehicle_converges",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBFD50) {x: 1918.264007, y: 914.909576, z: 14.386974}>, <Struct 'Vector' (0x000001EFF1EBEE00) {x: 1918.851104, y: 916.086828, z: 15.055288}>, <Struct 'Vector' (0x000001F000A3B530) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': 'RVSurvivorCharacter_1'}, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': 'RVSurvivorCharacter_0'}]"
+  },
+  {
+    "case": "client_passenger_exit_frees_seat",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBFD50) {x: 1918.264007, y: 914.909576, z: 14.386974}>, <Struct 'Vector' (0x000001EFF1EBEE00) {x: 1918.851104, y: 916.086828, z: 15.055288}>, <Struct 'Vector' (0x000001EFF1EEB990) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': None}, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': None}]"
+  },
+  {
+    "case": "host_exit_restores_character",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBFD50) {x: 2223.175350, y: 843.292491, z: 112.522370}>, [<Struct 'Vector' (0x000001EFF1EBEE00) {x: 1918.264007, y: 914.909576, z: 14.386974}>, <Struct 'Vector' (0x000001EFF1EEB990) {x: 1918.851104, y: 916.086828, z: 15.055288}>, <Struct 'Vector' (0x000001EFF1EEABD0) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': None, 'PassengerSeat': None}, {'DriverSeat': None, 'PassengerSeat': None}]]"
+  },
+  {
+    "case": "remote_driver_possession",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBEE00) {x: 1.077714, y: 0.011266, z: 15.926872}>, <Struct 'Vector' (0x000001EFF1EBFD50) {x: -0.813216, y: 0.008003, z: 25.115046}>, <Struct 'Vector' (0x000001EFF1EEB990) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': None}, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': None}]"
+  },
+  {
+    "case": "host_passenger_client_driver",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBFD50) {x: 1.077714, y: 0.011266, z: 15.926872}>, <Struct 'Vector' (0x000001EFF1EBEE00) {x: -0.813216, y: 0.008003, z: 25.115046}>, <Struct 'Vector' (0x000001EFF1EEB990) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': 'RVSurvivorCharacter_0'}, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': 'RVSurvivorCharacter_1'}]"
+  },
+  {
+    "case": "client_acceleration_steering",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBEE00) {x: 1404.277060, y: -621.190972, z: 14.846386}>, <Struct 'Vector' (0x000001EFF1EBFDF0) {x: 1400.826458, y: -618.918745, z: 15.349059}>, <Struct 'Vector' (0x000001F000A3A180) {x: 856.321594, y: -457.858643, z: 0.014385}>, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': 'RVSurvivorCharacter_0'}, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': 'RVSurvivorCharacter_1'}]"
+  },
+  {
+    "case": "client_drive_replicated",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBFDF0) {x: 1491.647472, y: -667.906249, z: 14.847054}>, <Struct 'Vector' (0x000001EFF1EBEE00) {x: 1488.070063, y: -665.589957, z: 15.309025}>, <Struct 'Vector' (0x000001EFF1EEB990) {x: 888.463074, y: -475.044037, z: 0.000613}>, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': 'RVSurvivorCharacter_0'}, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': 'RVSurvivorCharacter_1'}]"
+  },
+  {
+    "case": "host_passenger_attached",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBEE00) {x: 1687.186986, y: -710.100962, z: 125.188527}>, <Struct 'Vector' (0x000001EFF1EBFDF0) {x: 1582.255365, y: -716.352543, z: 14.846909}>]"
+  },
+  {
+    "case": "client_handbrake_stops",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x000001EFF1EBEE00) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "case": "host_passenger_exit",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBEE00) {x: 3701.053487, y: -1849.218729, z: 14.858786}>, <Struct 'Vector' (0x000001EFF1EBFDF0) {x: 3704.633871, y: -1851.035588, z: 14.889065}>, <Struct 'Vector' (0x000001F000A3B490) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': None}, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': None}]"
+  },
+  {
+    "case": "client_reverse",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBFDF0) {x: 2572.202860, y: -1245.880814, z: 14.834913}>, <Struct 'Vector' (0x000001EFF1EBFD50) {x: 2576.185870, y: -1247.979408, z: 14.842943}>, <Struct 'Vector' (0x000001F000A3B490) {x: -722.113037, y: 385.924286, z: -0.511496}>, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': None}, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': None}]"
+  },
+  {
+    "case": "reverse_and_stop_replicated",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBFD50) {x: 1620.528267, y: -737.252737, z: 14.841836}>, <Struct 'Vector' (0x000001EFF1EBFDF0) {x: 1617.099568, y: -735.402282, z: 14.810942}>, <Struct 'Vector' (0x000001F000A3B490) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': None}, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': None}]"
+  },
+  {
+    "case": "client_exit_restores_character",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EBFD50) {x: 1558.465958, y: -1044.251517, z: 112.548016}>, [<Struct 'Vector' (0x000001EFF1EBFDF0) {x: 1620.528267, y: -737.252737, z: 14.841836}>, <Struct 'Vector' (0x000001F000A3B490) {x: 1617.099568, y: -735.402282, z: 14.810942}>, <Struct 'Vector' (0x000001F000A3B530) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': None, 'PassengerSeat': None}, {'DriverSeat': None, 'PassengerSeat': None}]]"
+  },
+  {
+    "case": "blocked_exits_retain_seat",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EEACC0) {x: 1620.528267, y: -737.252737, z: 14.841836}>, <Struct 'Vector' (0x000001EFF1EBFDF0) {x: 1617.099568, y: -735.402282, z: 14.810942}>, <Struct 'Vector' (0x000001EFF1EBFD50) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': None}, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': None}]"
+  },
+  {
+    "case": "clear_exit_after_block_removed",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001EFF1EEACC0) {x: 1620.528267, y: -737.252737, z: 14.841836}>, <Struct 'Vector' (0x000001EFF1EBFDF0) {x: 1617.099568, y: -735.402282, z: 14.810942}>, <Struct 'Vector' (0x000001EFF1EBFD50) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': None, 'PassengerSeat': None}, {'DriverSeat': None, 'PassengerSeat': None}]"
+  }
+]
