@@ -10,6 +10,11 @@
 #include "Vehicles/RVVehicleSeatComponent.h"
 #include "TimerManager.h"
 #include "InputCoreTypes.h"
+#include "EnhancedInputComponent.h"
+#include "EnhancedInputSubsystems.h"
+#include "InputMappingContext.h"
+#include "InputAction.h"
+#include "Engine/LocalPlayer.h"
 #include "Player/RVSurvivorCharacter.h"
 void ARVPlayerController::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 { Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME_CONDITION(ARVPlayerController, SeatedVehicle, COND_OwnerOnly); DOREPLIFETIME_CONDITION(ARVPlayerController, SeatFeedback, COND_OwnerOnly);
@@ -61,7 +66,7 @@ void ARVPlayerController::PawnLeavingGame()
     Super::PawnLeavingGame();
 }
 void ARVPlayerController::EndPlay(const EEndPlayReason::Type Reason)
-{ if(HasAuthority()) if(auto* PS=GetPlayerState<ARVPlayerState>()) PS->Needs->EndRestAuthority(); if (HasAuthority() && SeatedVehicle) SeatedVehicle->ReleaseDisconnected(this); Super::EndPlay(Reason); }
+{ if(auto* Local=ResourceInputLocalPlayer.Get()) if(auto* Input=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>()) if(ResourceMapping) Input->RemoveMappingContext(ResourceMapping); ResourceInputLocalPlayer.Reset(); if(HasAuthority()) if(auto* PS=GetPlayerState<ARVPlayerState>()) PS->Needs->EndRestAuthority(); if (HasAuthority() && SeatedVehicle) SeatedVehicle->ReleaseDisconnected(this); Super::EndPlay(Reason); }
 
 bool ARVPlayerController::ValidateResourceAccess(bool Fill) const
 {
@@ -110,3 +115,44 @@ void ARVPlayerController::ServerRefuel_Implementation(FGuid Id,int32 Revision)
         ResourceFeedback=FString::Printf(TEXT("Transferred %.3f L"),Amount);
     ForceNetUpdate();
 }
+
+void ARVPlayerController::SetupInputComponent()
+{
+    Super::SetupInputComponent();
+    auto* Local=GetLocalPlayer(); auto* Input=Cast<UEnhancedInputComponent>(InputComponent);
+    if(!Local || !Input) return;
+    if(!ResourceMapping)
+    {
+        ResourceMapping=NewObject<UInputMappingContext>(this);
+        for(FKey Key:{EKeys::H,EKeys::J,EKeys::K,EKeys::L,EKeys::O,EKeys::Escape})
+        {
+            auto* Action=NewObject<UInputAction>(this); Action->ValueType=EInputActionValueType::Boolean;
+            ResourceMapping->MapKey(Action,Key); ResourceActions.Add(Action);
+        }
+    }
+    Input->BindAction(ResourceActions[0],ETriggerEvent::Started,this,&ThisClass::LightsKey);
+    Input->BindAction(ResourceActions[1],ETriggerEvent::Started,this,&ThisClass::GeneratorKey);
+    Input->BindAction(ResourceActions[2],ETriggerEvent::Started,this,&ThisClass::FridgeKey);
+    Input->BindAction(ResourceActions[3],ETriggerEvent::Started,this,&ThisClass::StationKey);
+    Input->BindAction(ResourceActions[4],ETriggerEvent::Started,this,&ThisClass::IdleKey);
+    Input->BindAction(ResourceActions[5],ETriggerEvent::Started,this,&ThisClass::CloseKey);
+    if(auto* Subsystem=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
+    { ResourceInputLocalPlayer=Local; Subsystem->RemoveMappingContext(ResourceMapping); Subsystem->AddMappingContext(ResourceMapping,2); }
+}
+void ARVPlayerController::ToggleResource(FName Control)
+{
+    if(!IsLocalController() || !IsValid(ResourcePoint) || ResourcePoint->bFuelFill || !ResourcePoint->Vehicle) return;
+    auto* Bus=ResourcePoint->Vehicle->Electrical.Get();
+    bool Enabled=false;
+    if(Control==TEXT("Generator")) Enabled=Bus->bGeneratorRunning;
+    else if(Control==TEXT("EngineIdle")) Enabled=Bus->bEngineIdleRequested;
+    else if(const auto* Load=Bus->Loads.FindByPredicate([&](const auto& L){return L.Id==Control;})) Enabled=Load->bEnabled;
+    else return;
+    RequestResourceControl(Control,!Enabled,Bus->ControlRevision);
+}
+void ARVPlayerController::LightsKey() { ToggleResource(TEXT("InteriorLights")); }
+void ARVPlayerController::GeneratorKey() { ToggleResource(TEXT("Generator")); }
+void ARVPlayerController::FridgeKey() { ToggleResource(TEXT("Refrigerator")); }
+void ARVPlayerController::StationKey() { ToggleResource(TEXT("PoweredStation")); }
+void ARVPlayerController::IdleKey() { ToggleResource(TEXT("EngineIdle")); }
+void ARVPlayerController::CloseKey() { if(ResourcePoint) RequestCloseResource(); }

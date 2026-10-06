@@ -76,7 +76,7 @@ def rememberpartial():
  check('shared_exterior_open',inv.get_editor_property('OpenContainer')==container)
  if authority:inv.request_transfer(partialid,1,True)
 def containercheck():
- rr=records(container,'FuelCanPartial');check('shared_partial_fuel_container',len(rr)==1 and rr[0].fuel_litres==3.75 and rr[0].condition==partialcondition and rr[0].custom_state[0].value=='preserve')
+ rr=records(container,'FuelCanPartial');check('shared_partial_fuel_container',len(rr)==1 and rr[0].fuel_litres==3.75 and abs(rr[0].condition-partialcondition)<.001 and rr[0].custom_state[0].value=='preserve')
  ownid=rr[0].id;inv.request_transfer(ownid,1,False)
 def containerwinner():
  rr=records(hi,'FuelCanPartial')+records(ci,'FuelCanPartial');check('one_container_winner_no_fuel_duplicate',len(rr)==1 and not records(container,'FuelCanPartial') and rr[0].fuel_litres==3.75 and unreal.GuidLibrary.equal_equal_guid_guid(rr[0].id,partialid))
@@ -94,11 +94,11 @@ def lightscheck():
  own.request_resource_control('Refrigerator',False,bus.get_editor_property('ControlRevision')-1)
 def stalecheck():
  check('stale_control_rejected','refresh' in own.get_editor_property('ResourceFeedback'),own.get_editor_property('ResourceFeedback'))
- key('H',True)
+ if authority:key('H',True)
 def nativecheck():
- key('H',False)
+ if authority:key('H',False)
 def nativeverify():
- check('native_panel_H_switch',not bus.is_load_powered('InteriorLights'))
+ check('native_host_panel_H_switch',not bus.is_load_powered('InteriorLights'))
  if authority:
   hp.set_actor_location(v.get_actor_transform().transform_location(unreal.Vector(2000,0,100)),False,True)
 def outrequest():
@@ -146,7 +146,9 @@ at(3.8,lambda:key('E',True));at(4.8,lambda:key('E',False));at(5.5,opencheck);at(
 at(9,lambda:refuel(1));at(10,emptycheck);at(11,dropcheck);at(11.8,lambda:key('E',True));at(12.8,lambda:key('E',False));at(13.5,repickcheck)
 at(14.3,lambda:key('E',True));at(15.3,lambda:key('E',False));at(16,rememberpartial);at(17,containercheck);at(18,containerwinner)
 at(18.8,lambda:key('E',True));at(19.8,lambda:key('E',False));at(20.5,panelcheck);at(22,generatorcheck);at(23.5,lightscheck);at(24.5,stalecheck);at(24.7,nativecheck);at(26,nativeverify)
-at(27,outrequest);at(28,outcheck);at(29.5,stopcheck);at(30.5,reopen);at(31.5,lambda:key('E',False));at(32.5,repeatcheck);at(34,floodcheck);at(35.5,beforedisconnect)
+at(26.1,lambda:key('H',True) if not authority else None);at(26.3,lambda:key('H',False) if not authority else None)
+at(27,lambda:check('native_client_panel_H_switch',bus.is_load_powered('InteriorLights')))
+at(27.2,outrequest);at(27.3,lambda:own.request_resource_control('InteriorLights',False,bus.get_editor_property('ControlRevision')) if not authority else None);at(28,outcheck);at(29.5,stopcheck);at(30.5,reopen);at(31.5,lambda:key('E',False));at(32.5,repeatcheck);at(34,floodcheck);at(35.5,beforedisconnect)
 at(36,finishclient);at(40,afterdisconnect);at(41.5,finishserver)
 def tick(dt):
  global idx,nextsample

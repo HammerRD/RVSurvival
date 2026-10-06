@@ -13,6 +13,7 @@ public:
     virtual void PawnLeavingGame() override;
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
     virtual void PlayerTick(float DeltaTime) override;
+    virtual void SetupInputComponent() override;
     UFUNCTION(Server, Unreliable) void ServerDrive(float Throttle, float Steering, bool Handbrake);
     UFUNCTION(Server, Reliable) void ServerExitVehicle();
     UFUNCTION(BlueprintCallable, Category="RV|Seats") void RequestSwitchSeat(FName TargetSeat);
@@ -29,6 +30,11 @@ public:
     double SeatEntryTime = 0;
 private:
     bool ValidateResourceAccess(bool FuelFill) const;
+    void ToggleResource(FName Control);
+    void LightsKey(); void GeneratorKey(); void FridgeKey(); void StationKey(); void IdleKey(); void CloseKey();
+    UPROPERTY(Transient) TObjectPtr<class UInputMappingContext> ResourceMapping;
+    UPROPERTY(Transient) TArray<TObjectPtr<class UInputAction>> ResourceActions;
+    TWeakObjectPtr<class ULocalPlayer> ResourceInputLocalPlayer;
     double LastResourceRequestTime=-1;
     double LastSeatSwitchTime = -1;
 };

@@ -44,25 +44,19 @@ void ARVPrototypeHUD::DrawHUD()
         {
             auto* Bus=V->Electrical.Get();
             const float X=FMath::Max(20.f,Canvas->ClipX-370.f);
-            DrawRect(FLinearColor(0,0,0,.75),X,110,350,245);
-            DrawText(FString::Printf(TEXT("RV monitor | Fuel %.2f / %.0f L"),V->PropulsionFuel->Litres,V->PropulsionFuel->CapacityLitres),FLinearColor::White,X+10,120,nullptr,.85);
-            DrawText(FString::Printf(TEXT("House %.0f%% (%.1f Wh) | Chassis %.0f%%"),V->HouseBattery->GetStateOfCharge()*100,V->HouseBattery->EnergyWh,V->ChassisBattery->GetStateOfCharge()*100),FLinearColor::White,X+10,145,nullptr,.8);
-            DrawText(FString::Printf(TEXT("Generator %s | solar %.0f%% | idle %s"),Bus->bGeneratorRunning?TEXT("ON"):TEXT("off"),Bus->SolarInput*100,Bus->bEngineIdleRequested?TEXT("ON"):TEXT("off")),FLinearColor::White,X+10,170,nullptr,.8);
-            DrawText(FString::Printf(TEXT("Load %.0f/%.0f W | battery %+.0f W"),Bus->Flow.SuppliedWatts,Bus->Flow.RequestedWatts,Bus->Flow.HouseBatteryWatts),FLinearColor::White,X+10,195,nullptr,.8);
+            DrawRect(FLinearColor(0,0,0,.75f),X,110,350,245);
+            DrawText(FString::Printf(TEXT("RV monitor | Fuel %.2f / %.0f L"),V->PropulsionFuel->Litres,V->PropulsionFuel->CapacityLitres),FLinearColor::White,X+10,120,nullptr,.85f);
+            DrawText(FString::Printf(TEXT("House %.0f%% (%.1f Wh) | Chassis %.0f%%"),V->HouseBattery->GetStateOfCharge()*100,V->HouseBattery->EnergyWh,V->ChassisBattery->GetStateOfCharge()*100),FLinearColor::White,X+10,145,nullptr,.8f);
+            DrawText(FString::Printf(TEXT("Generator %s | solar %.0f%% | idle %s"),Bus->bGeneratorRunning?TEXT("ON"):TEXT("off"),Bus->SolarInput*100,Bus->bEngineIdleRequested?TEXT("ON"):TEXT("off")),FLinearColor::White,X+10,170,nullptr,.8f);
+            DrawText(FString::Printf(TEXT("Load %.0f/%.0f W | battery %+.0f W"),Bus->Flow.SuppliedWatts,Bus->Flow.RequestedWatts,Bus->Flow.HouseBatteryWatts),FLinearColor::White,X+10,195,nullptr,.8f);
             int32 Line=0;
-            for(const auto& Load:Bus->Loads) DrawText(FString::Printf(TEXT("%s: %s / %s"),*Load.DisplayName.ToString(),Load.bEnabled?TEXT("on"):TEXT("off"),Load.bPowered?TEXT("powered"):TEXT("no power")),FLinearColor::White,X+10,220+(Line++)*18,nullptr,.75);
-            DrawText(Bus->GetSourceSummary(),FLinearColor::White,X+10,288,nullptr,.7);
-            DrawText(PC->ResourceFeedback,FLinearColor::Yellow,X+10,310,nullptr,.75);
+            for(const auto& Load:Bus->Loads) DrawText(FString::Printf(TEXT("%s: %s / %s"),*Load.DisplayName.ToString(),Load.bEnabled?TEXT("on"):TEXT("off"),Load.bPowered?TEXT("powered"):TEXT("no power")),FLinearColor::White,X+10,220+(Line++)*18,nullptr,.75f);
+            DrawText(Bus->GetSourceSummary(),FLinearColor::White,X+10,288,nullptr,.7f);
+            DrawText(PC->ResourceFeedback,FLinearColor::Yellow,X+10,310,nullptr,.75f);
             if(PC->ResourcePoint && !PC->ResourcePoint->bFuelFill)
             {
-                DrawText(TEXT("H lights | J generator | K fridge | L tools | O idle"),FLinearColor::White,X+10,333,nullptr,.7);
-                auto Switch=[&](FName Name,FKey Key)
-                { if(PlayerOwner->WasInputKeyJustPressed(Key)) { const auto* Load=Bus->Loads.FindByPredicate([&](const auto& Item){return Item.Id==Name;}); if(Load) PC->RequestResourceControl(Name,!Load->bEnabled,Bus->ControlRevision); } };
-                Switch(TEXT("InteriorLights"),EKeys::H); Switch(TEXT("Refrigerator"),EKeys::K); Switch(TEXT("PoweredStation"),EKeys::L);
-                if(PlayerOwner->WasInputKeyJustPressed(EKeys::J)) PC->RequestResourceControl(TEXT("Generator"),!Bus->bGeneratorRunning,Bus->ControlRevision);
-                if(PlayerOwner->WasInputKeyJustPressed(EKeys::O)) PC->RequestResourceControl(TEXT("EngineIdle"),!Bus->bEngineIdleRequested,Bus->ControlRevision);
+                DrawText(TEXT("H lights | J generator | K fridge | L tools | O idle"),FLinearColor::White,X+10,333,nullptr,.7f);
             }
-            if(PC->ResourcePoint && PlayerOwner->WasInputKeyJustPressed(EKeys::Escape)) PC->RequestCloseResource();
         }
     }
     DrawText(TEXT("+"), FLinearColor::White, Canvas->ClipX * 0.5f, Canvas->ClipY * 0.5f);
