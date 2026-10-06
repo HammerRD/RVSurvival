@@ -1,4 +1,4 @@
-param([switch]$FinalCamera)
+param([switch]$FinalCamera,[switch]$FinalTransitions)
 $ErrorActionPreference='Stop'
 $taskRoot='D:\GitHub\RVSurvival\RVSurvival'
 $taskCases=@(
@@ -7,6 +7,7 @@ $taskCases=@(
  @{name='refine_client_emulated';driver='client';network=$true;disconnect=$true}
 )
 if($FinalCamera){$taskCases=@(@{name='refine_final_camera_client_emulated';driver='client';network=$true;disconnect=$true})}
+if($FinalTransitions){$taskCases=@(@{name='refine_final_inside_client_emulated';driver='client';network=$true;disconnect=$false;transition_only=$true})}
 foreach($taskCase in $taskCases){
  if(Get-Process UnrealEditor -ErrorAction SilentlyContinue){throw 'Refuse concurrent editor'}
  Get-ChildItem -LiteralPath ($taskRoot+'\Tools\Validation\Gate6Refinement') -Filter '*.py'|ForEach-Object{Copy-Item -LiteralPath $_.FullName -Destination ($taskRoot+'\Saved\Gate6Refinement\'+$_.Name)}

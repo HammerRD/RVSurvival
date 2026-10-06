@@ -1,0 +1,138 @@
+{
+  "pid": 31952,
+  "authority": false,
+  "config": {
+    "disconnect": false,
+    "transition_only": true,
+    "network": true,
+    "driver": "client",
+    "name": "refine_final_inside_client_emulated"
+  },
+  "results": [
+    {
+      "case": "house_door_starts_closed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "both_seats_reserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "occupied_seat_rejected_before_release",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "passenger_to_rear_no_exterior_exit",
+      "pass": true,
+      "detail": "[129.99, 0.0, 177.19]"
+    },
+    {
+      "case": "rear_back_to_passenger",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_passenger_to_living_area",
+      "pass": true,
+      "detail": "{'pos': [130.0499999999976, -2.1907113589644668e-14, 177.1900000000001], 'speed': 2721.0314148025136}"
+    },
+    {
+      "case": "moving_driver_retains_control",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_door_open_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_walk_to_rear",
+      "pass": true,
+      "detail": "[-204.42000000011612, -2.3553121203486706e-13, 191.85]"
+    },
+    {
+      "case": "moving_walk_back_to_front",
+      "pass": true,
+      "detail": "[130.02999999999952, -2.2762727139413545e-14, 177.2400000000001]"
+    },
+    {
+      "case": "moving_door_close_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_rear_to_available_passenger",
+      "pass": true,
+      "detail": "4448.3089271879235"
+    },
+    {
+      "case": "moving_passenger_rear_repeat",
+      "pass": true,
+      "detail": "[130.05000000002974, -7.688611428426886e-14, 177.19000000000014]"
+    },
+    {
+      "case": "parked_after_drive",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "bed_pose_and_occupancy_replicate",
+      "pass": true,
+      "detail": "[-295.00050000000385, -7.757079505379124e-15, 204.99949999999998]"
+    },
+    {
+      "case": "sleep_state_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stand_up_replicates_safe_aisle",
+      "pass": true,
+      "detail": "[-184.96000000000555, 5.205671226929453e-15, 191.49]"
+    },
+    {
+      "case": "bed_walk_away",
+      "pass": true,
+      "detail": "[9.510000000001122, 3.843938377625905e-15, 177.29000000000002]"
+    },
+    {
+      "case": "door_open_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "door_close_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "parked_driver_to_rear_replicates",
+      "pass": true,
+      "detail": "[129.98416454760772, 0.00015019272265762306, 177.18857226257327]"
+    },
+    {
+      "case": "rear_to_available_driver_network",
+      "pass": true,
+      "detail": "{'wp': \"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVInteriorTestCharacter_2' (0x0000027832FF6400) Class 'RVInteriorTestCharacter'>\", 'occupant': \"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVInteriorTestCharacter_2' (0x0000027832FF6400) Class 'RVInteriorTestCharacter'>\", 'pawn': \"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVInteriorTestCharacter_0' (0x0000027832F22800) Class 'RVInteriorTestCharacter'>\", 'actors': [\"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVInteriorTestCharacter_0' (0x0000027832F22800) Class 'RVInteriorTestCharacter'>\", \"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVInteriorTestCharacter_2' (0x0000027832FF6400) Class 'RVInteriorTestCharacter'>\"]}"
+    },
+    {
+      "case": "new_driver_to_rear_and_safe_fallback",
+      "pass": true,
+      "detail": "[49.97999999999352, -2.6456265259729812e-15, 177.19]"
+    },
+    {
+      "case": "original_driver_restored_from_interior",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "both_seats_restored_after_interior_exchange",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}
