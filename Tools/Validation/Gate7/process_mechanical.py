@@ -29,20 +29,42 @@ def setup():
    pawn.set_actor_location(v.get_actor_transform().transform_location(unreal.Vector(550,-75 if index==0 else 75,100)),False,True)
    target=pawn.get_component_by_class(unreal.RVInventoryComponent)
    for cat,qty in [('MechanicTools',1),('RadiatorPatch',3),('RadiatorReplacement',1),('EngineService',1),('CoolantFull',1)]:
+    if index==1 and cat=='MechanicTools':continue
     record=unreal.RVItemInstance();record.set_editor_property('Id',unreal.GuidLibrary.new_guid());record.set_editor_property('Definition',unreal.load_asset('/Game/Mechanical/DA_'+cat));record.set_editor_property('Quantity',qty);record.set_editor_property('Condition',.83);target.add_authority(record)
-def inspect():aim(point);press('E',.85)
+def aim_service():aim(point)
+def inspect():press('E',.85)
 def panel():check('normal_E_diagnosis_authoritative',pc.get_editor_property('MechanicalPoint')==point and cooling('RadiatorCondition')<.3,{'point':str(pc.get_editor_property('MechanicalPoint')),'radiator':cooling('RadiatorCondition'),'location':str(p.get_actor_location()),'target':str(point.get_actor_location()),'prompt':str(p.get_component_by_class(unreal.RVInteractionComponent).get_prompt())})
 def panel_photo():unreal.SystemLibrary.execute_console_command(pc,'shot filename='+str(B/(config['name']+'_'+role+'_service.png'))+' -nosuffix showui',pc)
 def open_hood():
  if authority:press('P')
 def hood_check():check('hood_open_replicates',bool(v.get_editor_property('EngineHood').get_editor_property('bOpen')))
-def initial_attempt():press('B')
-def reserved():check('one_authoritative_repair_reservation',bool(point.get_editor_property('RepairPlayer')) and str(point.get_editor_property('ActiveRepair'))=='Patch');check('start_does_not_consume',count('RadiatorPatch')==3)
+def debug_guard():
+ if not authority:
+  before=(cooling('RadiatorCondition'),cooling('CoolantLitres'),cooling('TemperatureC'),engine('Condition'))
+  check('client_debug_cannot_author_fault_clear_or_temperature',not c.debug_set_state(1,12,20,1) and not c.debug_advance(86400,True,1,0) and not c.debug_set_time_scale(100) and before==(cooling('RadiatorCondition'),cooling('CoolantLitres'),cooling('TemperatureC'),engine('Condition')))
+def initial_attempt():
+ if not authority:press('B')
+def client_missing_check():
+ if not authority:check('client_missing_tool_rejected',count('MechanicTools')==0 and 'Missing usable' in pc.get_editor_property('MechanicalFeedback'),pc.get_editor_property('MechanicalFeedback'))
+def host_begin():
+ if authority:press('B')
+def reserved():
+ check('one_authoritative_repair_reservation',bool(point.get_editor_property('RepairPlayer')) and str(point.get_editor_property('ActiveRepair'))=='Patch');check('start_does_not_consume',count('RadiatorPatch')==3)
 def hostcancel():
  if authority:press('Escape')
 def cancel_receipt():check('cancellation_converges_without_consumption',not point.get_editor_property('RepairPlayer') and count('RadiatorPatch')==3)
+def give_client_tool():
+ if authority:
+  record=unreal.RVItemInstance();record.set_editor_property('Id',unreal.GuidLibrary.new_guid());record.set_editor_property('Definition',unreal.load_asset('/Game/Mechanical/DA_MechanicTools'));record.set_editor_property('Condition',.83);other().get_component_by_class(unreal.RVInventoryComponent).add_authority(record)
 def clientpatch():
  if not authority:press('B')
+def valid_contention():
+ if authority:press('B')
+def busy_check():
+ if authority:check('valid_second_repair_rejected_no_consumption','already in progress' in pc.get_editor_property('MechanicalFeedback') and count('RadiatorPatch')==3,pc.get_editor_property('MechanicalFeedback'))
+def wrong_owner_refill():
+ foreign=next(i for i in other().get_component_by_class(unreal.RVInventoryComponent).get_items() if str(i.definition.get_editor_property('CatalogId'))=='CoolantFull');request('Refill',foreign)
+def wrong_owner_check():check('foreign_guid_cannot_drain_coolant',fluids()==10 and cooling('CoolantLitres')==9,pc.get_editor_property('MechanicalFeedback'))
 def patch_done():
  check('client_patch_replicates',cooling('bTemporaryPatch') and abs(cooling('PatchLeakMultiplier')-.15)<1e-8)
  check('only_client_patch_consumed',count('RadiatorPatch')==(3 if authority else 2) and count('MechanicTools')==1)
@@ -84,9 +106,11 @@ def close_hood():
  if authority:press('P')
 def reset_frame():p.get_component_by_class(unreal.RVPassengerReferenceFrameComponent).reset_diagnostics()
 def isdriver():return authority==(config['driver']=='host')
-def enter_driver():
+def aim_driver():
  if isdriver():
-  entry=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVVehicleEntryPoint) if a.get_editor_property('Seat').get_editor_property('bDriverSeat') and abs(v.get_actor_transform().inverse_transform_location(a.get_actor_location()).y)>100);aim(entry);press('E',.85)
+  entry=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVVehicleEntryPoint) if a.get_editor_property('Seat').get_editor_property('bDriverSeat') and abs(v.get_actor_transform().inverse_transform_location(a.get_actor_location()).y)>100);aim(entry)
+def enter_driver():
+ if isdriver():press('E',.85)
 def drive():
  if isdriver():check('normal_E_driver_possession',pc.get_controlled_pawn()==v);press('W',18)
 def minorfault():
@@ -109,9 +133,11 @@ def exit_driver():
  if isdriver():press('E',.85)
 def outside():
  if isdriver():check('roadside_normal_E_exit',pc.get_controlled_pawn()==p and p.get_component_by_class(unreal.CharacterMovementComponent).get_editor_property('MovementMode')==unreal.MovementMode.MOVE_WALKING);pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw+180));press('W',.4)
-def access_stock():
+def aim_stock():
  if isdriver():
-  target=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVExteriorStoragePoint) if str(a.get_editor_property('DoorPartName'))=='Art_RV_Van_Compartment_02');aim(target);press('E',.85)
+  target=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVExteriorStoragePoint) if str(a.get_editor_property('DoorPartName'))=='Art_RV_Van_Compartment_02');aim(target)
+def access_stock():
+ if isdriver():press('E',.85)
 def select_stock():
  if isdriver():check('roadside_exterior_supplies_access',inv.get_editor_property('OpenContainer') is not None);press('Tab')
 def take_stock():
@@ -123,7 +149,9 @@ def walk_front():
 def walk_center():
  if isdriver():pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw+90));press('W',.5)
 def roadside_inspect():
- if isdriver():aim(point);press('E',.85)
+ if isdriver():press('E',.85)
+def roadside_aim():
+ if isdriver():aim(point)
 def roadside_open():
  if isdriver():check('roadside_normal_E_diagnosis',pc.get_editor_property('MechanicalPoint')==point);press('P')
 def roadside_patch():
@@ -144,7 +172,8 @@ def finish():
  for key in held:unreal.RVInteriorMotorhome.dispatch_development_key(pc,key,False)
  unreal.unregister_slate_post_tick_callback(h)
  (B/(config['name']+'_'+role+'.json')).write_text(json.dumps({'pid':os.getpid(),'role':role,'config':config,'results':results,'samples':samples},indent=2),encoding='utf-8')
-for t,fn in [(0,setup),(2,inspect),(3.8,panel),(4,open_hood),(4.8,hood_check),(5,initial_attempt),(6,reserved),(6.4,panel_photo),(7,hostcancel),(8,cancel_receipt),(8.2,inspect),(10,clientpatch),(19,patch_done),(20,concurrent_refill),(22,refill_done),(23,damage_again),(24,replace),(40,replace_done),(41,force_shutdown),(42,shutdown),(44,client_engine_repair),(65,engine_done),(81,radiator_done),(81.5,close_hood),(83,arrange_drive),(85,enter_driver),(87,drive),(90,reset_frame),(95,minorfault),(96,walk),(98,turn),(101,moving),(105,brake),(112,handbrake),(118,stopped),(122,exit_driver),(123.5,outside),(125,access_stock),(126.5,select_stock),(127,take_stock),(128,retrieved),(129,walk_front),(131,walk_center),(133,roadside_inspect),(134.5,roadside_open),(135.5,roadside_patch),(145,roadside_refill),(147,roadside_refilled),(148,back_side),(150,back_cab),(152,enter_driver),(154,continue_travel),(159,recovered_driving),(161,finish)]:events.append((t,fn))
+for t,fn in [(0,setup),(1,aim_service),(2,inspect),(3.8,panel),(4,open_hood),(4.8,hood_check),(4.9,debug_guard),(5,initial_attempt),(5.4,client_missing_check),(5.6,host_begin),(6.3,reserved),(7,hostcancel),(8,cancel_receipt),(8.2,inspect),(8.7,give_client_tool),(10,clientpatch),(10.3,valid_contention),(11,busy_check),(12,panel_photo),(19,patch_done),(19.2,wrong_owner_refill),(19.8,wrong_owner_check),(20,concurrent_refill),(22,refill_done),(23,damage_again),(24,replace),(40,replace_done),(41,force_shutdown),(42,shutdown),(44,client_engine_repair),(65,engine_done),(81,radiator_done),(81.5,close_hood),(83,arrange_drive),(84,aim_driver),(85,enter_driver),(87,drive),(90,reset_frame),(95,minorfault),(96,walk),(98,turn),(101,moving),(105,brake),(112,handbrake),(118,stopped),(122,exit_driver),(123.5,outside),(124.5,aim_stock),(125,access_stock),(126.5,select_stock),(127,take_stock),(128,retrieved),(129,walk_front),(131,walk_center),(132.3,roadside_aim),(133,roadside_inspect),(134.5,roadside_open),(135.5,roadside_patch),(145,roadside_refill),(147,roadside_refilled),(148,back_side),(150,back_cab),(151.3,aim_driver),(152,enter_driver),(154,continue_travel),(159,recovered_driving),(161,finish)]:events.append((t,fn))
+if config.get('entry_probe'):events=[(t,fn) for t,fn in events if t<7]+[(7.2,finish)]
 nextsample=0
 def tick(dt):
  global frames,nextsample

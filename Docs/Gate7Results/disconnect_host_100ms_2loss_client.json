@@ -1,0 +1,46 @@
+{
+  "pid": 46296,
+  "results": [
+    {
+      "case": "client_0_repair_started_before_disconnect",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_0_fallback_world_after_disconnect",
+      "pass": true,
+      "detail": "Gate1Test"
+    },
+    {
+      "case": "client_0_rejoined_same_process",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_0_repair_replication_after_rejoin",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_1_repair_started_before_disconnect",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_1_fallback_world_after_disconnect",
+      "pass": true,
+      "detail": "Gate1Test"
+    },
+    {
+      "case": "client_1_rejoined_same_process",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_1_repair_replication_after_rejoin",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "cycles": 2
+}

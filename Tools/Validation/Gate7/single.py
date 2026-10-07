@@ -5,7 +5,7 @@ w=next(a for a in unreal.ObjectIterator(unreal.World) if a.get_name()=='Gate7Mec
 pc=unreal.GameplayStatics.get_player_controller(w,0);p=pc.get_controlled_pawn()
 v=unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVMechanicalMotorhome)[0]
 c=v.get_editor_property('CoolingSystem');point=v.get_editor_property('EngineService');inv=p.get_component_by_class(unreal.RVInventoryComponent)
-results=[];events=[];start=time.time();held=None;done=False
+results=[];events=[];start=time.time();held=None;done=False;fluid_guid='';fluid_state=None
 def check(name,value,detail=''):
  results.append({'case':name,'pass':bool(value),'detail':str(detail)});unreal.log('GATE7 '+name+' '+str(bool(value)))
 def cooling(field):return c.get_editor_property('Cooling').get_editor_property(field)
@@ -46,6 +46,10 @@ def model():
  reset(-10,-100,-100,-10);check('lower_clamps',cooling('RadiatorCondition')==0 and cooling('CoolantLitres')==0 and cooling('TemperatureC')==20 and engine('Condition')==0)
  reset(10,100,1000,10);check('upper_clamps',cooling('RadiatorCondition')==1 and cooling('CoolantLitres')==12 and cooling('TemperatureC')==200 and engine('Condition')==1)
  check('nan_rejected',not c.debug_set_state(float('nan'),12,20,1) and not c.debug_set_time_scale(float('nan')))
+ tuning=c.get_editor_property('Tuning');tuning.set_editor_property('EngineMaximumCondition',.6);c.set_editor_property('Tuning',tuning)
+ reset(1,12,20,10);check('configured_engine_maximum_clamps_normalizes',abs(engine('Condition')-.6)<1e-6 and engine('OutputScale')==1 and not engine('bShutdown'))
+ reset(.1,0,180,.6);advance(2000);check('configured_engine_maximum_shutdown_fraction',engine('bShutdown') and engine('Condition')<=.061)
+ tuning.set_editor_property('EngineMaximumCondition',1);c.set_editor_property('Tuning',tuning)
  reset(.2,0,20);advance(86400,False);check('day_equivalent_bounded',cooling('CoolantLitres')==0 and cooling('TemperatureC')==20 and engine('Condition')==1)
  reset(.7,9,20)
  # Only initial service approach is a placement fixture; E/B/N/M/F paths below
@@ -82,13 +86,29 @@ def engine_done():
 def leave_range():
  check('repair_started_before_range_cancel',bool(point.get_editor_property('RepairPlayer')));pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw));press('W',.9)
 def canceled_range():check('range_cancel_no_late_completion',not point.get_editor_property('RepairPlayer') and count('RadiatorPatch')==2)
+def stock_approach():
+ global fluid_guid,fluid_state
+ i=inventory('CoolantFull');fluid_guid=unreal.GuidLibrary.conv_guid_to_string(i.id);fluid_state=(i.fuel_litres,i.fuel_revision,i.condition)
+ stock=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVExteriorStoragePoint) if str(a.get_editor_property('DoorPartName'))=='Art_RV_Van_Compartment_02')
+ q=v.get_actor_transform().inverse_transform_location(stock.get_actor_location());p.set_actor_location(v.get_actor_transform().transform_location(unreal.Vector(q.x,q.y+(130 if q.y>0 else -130),100)),False,True)
+def stock_aim():
+ stock=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVExteriorStoragePoint) if str(a.get_editor_property('DoorPartName'))=='Art_RV_Van_Compartment_02')
+ pc.set_control_rotation(unreal.MathLibrary.find_look_at_rotation(p.get_actor_location()+unreal.Vector(0,0,64),stock.get_actor_location()))
+def stock_open():press('E',.85)
+def stock_deposit():
+ check('normal_E_fluid_storage_access',inv.get_editor_property('OpenContainer') is not None);inv.request_transfer(inventory('CoolantFull').id,1,True)
+def stock_return():
+ container=inv.get_editor_property('OpenContainer');i=next(i for i in container.get_items() if unreal.GuidLibrary.conv_guid_to_string(i.id)==fluid_guid)
+ check('used_coolant_storage_preserves_guid_revision_condition',count('CoolantFull')==0 and (i.fuel_litres,i.fuel_revision,i.condition)==fluid_state);inv.request_transfer(i.id,1,False)
+def stock_complete():
+ i=inventory('CoolantFull');check('used_coolant_return_preserves_guid_revision_condition',unreal.GuidLibrary.conv_guid_to_string(i.id)==fluid_guid and (i.fuel_litres,i.fuel_revision,i.condition)==fluid_state);inv.request_close_container()
 def finish():
  global done
  done=True
  if held:unreal.RVInteriorMotorhome.dispatch_development_key(pc,held[0],False)
  unreal.unregister_slate_post_tick_callback(h)
  (B/'single.json').write_text(json.dumps({'results':results},indent=2),encoding='utf-8')
-for t,fn in [(0,model),(1,initial_e),(2.3,panel_check),(2.7,hood_check),(3.5,missing_check),(4.5,start_check),(5.3,cancel_check),(6.5,restart_patch),(15.5,patch_done),(16.5,refill_done),(17.5,full_rejected),(33.5,replacement_done),(54.5,engine_done),(55.5,leave_range),(64.5,canceled_range),(65.5,finish)]:events.append((t,fn))
+for t,fn in [(0,model),(1,initial_e),(2.3,panel_check),(2.7,hood_check),(3.5,missing_check),(4.5,start_check),(5.3,cancel_check),(6.5,restart_patch),(15.5,patch_done),(16.5,refill_done),(17.5,full_rejected),(33.5,replacement_done),(54.5,engine_done),(55.5,leave_range),(64.5,canceled_range),(65.5,stock_approach),(67,stock_aim),(67.5,stock_open),(69,stock_deposit),(70,stock_return),(71,stock_complete),(72,finish)]:events.append((t,fn))
 def tick(dt):
  global held
  try:

@@ -37,13 +37,14 @@ void URVMechanicalWidget::NativeTick(const FGeometry& G,float DT)
     FString Warning;
     if(S.CoolantLitres<C->Tuning.CoolantCapacityLitres*C->Tuning.LowCoolantFraction)Warning+=TEXT("LOW COOLANT  ");
     if(S.LeakLitresPerSecond>0)Warning+=TEXT("COOLING LEAK  ");
+    if(C->Engine.Condition<C->Tuning.EngineMaximumCondition*C->Tuning.EngineWarningFraction)Warning+=TEXT("ENGINE CONDITION - SERVICE NEEDED  ");
     if(C->Engine.bShutdown)Warning+=TEXT("ENGINE SHUTDOWN - SERVICE REQUIRED");else if(C->Engine.OutputScale<.99f)Warning+=TEXT("LIMITED ENGINE OUTPUT");
     if(RV->EngineHood && RV->EngineHood->bOpen)Warning+=TEXT(" HOOD OPEN - ENGINE INTERLOCK");
     Warnings->SetText(FText::FromString(Warning.IsEmpty()?TEXT("No cooling warnings"):Warning));
     FString Detail;
     if(PC->MechanicalPoint)
     {
-        Detail=FString::Printf(TEXT("Coolant: %s | Radiator: %s | Engine: %s\nP hood | B patch | N radiator replacement | M engine service\nI inventory, select coolant then F refill | Escape close/cancel\n%s"),S.CoolantLitres<C->Tuning.CoolantCapacityLitres*C->Tuning.LowCoolantFraction?TEXT("low"):TEXT("present"),S.bTemporaryPatch?TEXT("temporarily patched"):S.RadiatorCondition<C->Tuning.MinorDamageThreshold?TEXT("damaged"):TEXT("serviceable"),C->Engine.Condition<C->Tuning.EngineMaximumCondition*.5f?TEXT("damaged"):TEXT("serviceable"),*PC->MechanicalFeedback);
+        Detail=FString::Printf(TEXT("Coolant: %s | Radiator: %s | Engine: %s\nP hood | B patch | N radiator replacement | M engine service\nI inventory, select coolant then F refill | Escape close/cancel\n%s"),S.CoolantLitres<C->Tuning.CoolantCapacityLitres*C->Tuning.LowCoolantFraction?TEXT("low"):TEXT("present"),S.bTemporaryPatch?TEXT("temporarily patched"):S.RadiatorCondition<C->Tuning.MinorDamageThreshold?TEXT("damaged"):TEXT("serviceable"),C->Engine.Condition<C->Tuning.EngineMaximumCondition*C->Tuning.EngineWarningFraction?TEXT("damaged"):TEXT("serviceable"),*PC->MechanicalFeedback);
         if(PC->MechanicalPoint->RepairPlayer)
         {
             const auto* GS=GetWorld()->GetGameState();const double Now=GS?GS->GetServerWorldTimeSeconds():GetWorld()->GetTimeSeconds();

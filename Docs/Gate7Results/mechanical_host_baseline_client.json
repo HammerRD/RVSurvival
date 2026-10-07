@@ -132,6 +132,7 @@
   "sample_summary": {
     "max_correction_cm": 575.1441040039062,
     "max_speed_cm_s": 4180.934169718962,
-    "count": 632
+    "count": 632,
+    "moving_after_fixture_reset_max_correction_cm": 0.0
   }
 }

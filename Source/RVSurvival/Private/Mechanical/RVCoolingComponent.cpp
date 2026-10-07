@@ -33,6 +33,8 @@ void URVCoolingComponent::BeginPlay()
     Tuning.EngineDamagePerSecond=FMath::IsFinite(Tuning.EngineDamagePerSecond)?FMath::Clamp(Tuning.EngineDamagePerSecond,0.f,1.f):.0004f;
     Tuning.EngineMaximumCondition=FMath::IsFinite(Tuning.EngineMaximumCondition)?FMath::Clamp(Tuning.EngineMaximumCondition,.01f,1.f):1;
     Tuning.ShutdownCondition=FMath::IsFinite(Tuning.ShutdownCondition)?FMath::Clamp(Tuning.ShutdownCondition,0.f,.5f):.1f;
+    Tuning.ReducedOutputConditionFraction=FMath::IsFinite(Tuning.ReducedOutputConditionFraction)?FMath::Clamp(Tuning.ReducedOutputConditionFraction,Tuning.ShutdownCondition,1.f):.5f;
+    Tuning.EngineWarningFraction=FMath::IsFinite(Tuning.EngineWarningFraction)?FMath::Clamp(Tuning.EngineWarningFraction,Tuning.ReducedOutputConditionFraction,1.f):.75f;
     Tuning.RestartCondition=FMath::IsFinite(Tuning.RestartCondition)?FMath::Clamp(Tuning.RestartCondition,Tuning.ShutdownCondition+.01f,1.f):.3f;
     Tuning.LimpOutput=FMath::IsFinite(Tuning.LimpOutput)?FMath::Clamp(Tuning.LimpOutput,0.f,1.f):.35f;
     Engine.Condition=Tuning.EngineMaximumCondition;Cooling.CoolantLitres=Tuning.CoolantCapacityLitres;Cooling.TemperatureC=Tuning.AmbientC;DeriveState();
@@ -59,10 +61,10 @@ void URVCoolingComponent::DeriveState()
     if(Cooling.RadiatorCondition<T.MinorDamageThreshold)Cooling.Faults.AddTag(RadiatorDamage);
     if(Cooling.CoolantLitres<T.CoolantCapacityLitres*T.LowCoolantFraction)Cooling.Faults.AddTag(CoolingLow);
     if(Cooling.Status>=ERVThermalStatus::Overheating)Cooling.Faults.AddTag(CoolingOverheat);
-    if(EngineFraction<.75f)Cooling.Faults.AddTag(EngineDamaged);
+    if(EngineFraction<T.EngineWarningFraction)Cooling.Faults.AddTag(EngineDamaged);
     if(EngineFraction<=T.ShutdownCondition)Engine.bShutdown=true;
     if(Engine.bShutdown && EngineFraction>=T.RestartCondition && Cooling.TemperatureC<T.RestartTemperatureC)Engine.bShutdown=false;
-    Engine.OutputScale=Engine.bShutdown?0:Cooling.Status>=ERVThermalStatus::Overheating?T.LimpOutput:EngineFraction<.5f?FMath::Max(T.LimpOutput,EngineFraction):1;
+    Engine.OutputScale=Engine.bShutdown?0:Cooling.Status>=ERVThermalStatus::Overheating?T.LimpOutput:EngineFraction<T.ReducedOutputConditionFraction?FMath::Max(T.LimpOutput,EngineFraction):1;
 }
 void URVCoolingComponent::AdvanceAuthority(double Seconds,bool Running,double Load,double Speed)
 {

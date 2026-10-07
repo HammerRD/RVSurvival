@@ -1,0 +1,61 @@
+{
+  "pid": 42864,
+  "results": [
+    {
+      "case": "disconnect_0_clears_reservation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "disconnect_0_shared_stock_intact",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "disconnect_0_no_late_completion",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "reconnect_0_new_pawn",
+      "pass": true,
+      "detail": "RVInteriorTestCharacter_2"
+    },
+    {
+      "case": "reconnect_0_repair_exact_consumption",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "disconnect_1_clears_reservation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "disconnect_1_shared_stock_intact",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "disconnect_1_no_late_completion",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "reconnect_1_new_pawn",
+      "pass": true,
+      "detail": "RVInteriorTestCharacter_3"
+    },
+    {
+      "case": "reconnect_1_repair_exact_consumption",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host_survival_and_shared_stock_valid",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "cycles": 2
+}

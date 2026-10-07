@@ -58,6 +58,8 @@ struct FRVMechanicalTuning
     UPROPERTY(EditAnywhere, BlueprintReadOnly) double SafeServiceC=60;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) float EngineDamagePerSecond=.0004f;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) float EngineMaximumCondition=1;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly) float EngineWarningFraction=.75f;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly) float ReducedOutputConditionFraction=.5f;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) float ShutdownCondition=.1f;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) float LimpOutput=.35f;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) float RestartCondition=.3f;

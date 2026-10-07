@@ -82,6 +82,8 @@ void ARVPlayerController::ServerExitVehicle_Implementation()
 { if (SeatedVehicle && GetWorld()->GetTimeSeconds() - SeatEntryTime > .75) SeatedVehicle->TryExit(this); }
 void ARVPlayerController::PawnLeavingGame()
 {
+    if(HasAuthority() && IsValid(MechanicalPoint) && MechanicalPoint->RepairPlayer && MechanicalPoint->RepairPlayer==PlayerState)
+        MechanicalPoint->CancelAuthority(TEXT("Repair canceled: player disconnected; supplies retained"));
     if(HasAuthority()) if(auto* PS=GetPlayerState<ARVPlayerState>()) PS->Needs->EndRestAuthority(true);
     // The default implementation destroys the possessed pawn. A disconnected driver
     // must release possession before that path, or the shared RV would be destroyed.
@@ -89,7 +91,16 @@ void ARVPlayerController::PawnLeavingGame()
     Super::PawnLeavingGame();
 }
 void ARVPlayerController::EndPlay(const EEndPlayReason::Type Reason)
-{ if(auto* Local=ResourceInputLocalPlayer.Get()) if(auto* Input=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>()) { if(ResourceMapping) Input->RemoveMappingContext(ResourceMapping); if(MechanicalMapping) Input->RemoveMappingContext(MechanicalMapping); } ResourceInputLocalPlayer.Reset(); bMechanicalMappingActive=false; if(HasAuthority()) if(auto* PS=GetPlayerState<ARVPlayerState>()) PS->Needs->EndRestAuthority(); if (HasAuthority() && SeatedVehicle) SeatedVehicle->ReleaseDisconnected(this); Super::EndPlay(Reason); }
+{
+    if(HasAuthority() && IsValid(MechanicalPoint) && MechanicalPoint->RepairPlayer && MechanicalPoint->RepairPlayer==PlayerState)
+        MechanicalPoint->CancelAuthority(TEXT("Repair canceled: player left; supplies retained"));
+    if(auto* Local=ResourceInputLocalPlayer.Get()) if(auto* Input=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
+    { if(ResourceMapping) Input->RemoveMappingContext(ResourceMapping); if(MechanicalMapping) Input->RemoveMappingContext(MechanicalMapping); }
+    ResourceInputLocalPlayer.Reset(); bMechanicalMappingActive=false;
+    if(HasAuthority()) if(auto* PS=GetPlayerState<ARVPlayerState>()) PS->Needs->EndRestAuthority();
+    if(HasAuthority() && SeatedVehicle) SeatedVehicle->ReleaseDisconnected(this);
+    Super::EndPlay(Reason);
+}
 
 bool ARVPlayerController::ValidateResourceAccess(bool Fill) const
 {
