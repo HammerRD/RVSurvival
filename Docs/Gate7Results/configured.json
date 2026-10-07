@@ -1,0 +1,15 @@
+{
+  "map": "/Game/Maps/Gate7MechanicalTest",
+  "blueprint": "/Game/Vehicles/Gate7/BP_ClassCMechanicalMotorhome",
+  "profile": "/Game/Mechanical/DA_NormalMechanical.DA_NormalMechanical",
+  "actors": 77,
+  "definitions": [
+    "/Game/Mechanical/DA_MechanicTools.DA_MechanicTools",
+    "/Game/Mechanical/DA_RadiatorPatch.DA_RadiatorPatch",
+    "/Game/Mechanical/DA_RadiatorReplacement.DA_RadiatorReplacement",
+    "/Game/Mechanical/DA_EngineService.DA_EngineService",
+    "/Game/Mechanical/DA_CoolantFull.DA_CoolantFull",
+    "/Game/Mechanical/DA_CoolantPartial.DA_CoolantPartial",
+    "/Game/Mechanical/DA_CoolantEmpty.DA_CoolantEmpty"
+  ]
+}

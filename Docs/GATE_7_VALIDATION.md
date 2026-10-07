@@ -17,3 +17,10 @@ No build, PIE, multiplayer, stress or regression pass is claimed yet. Required u
 
 ## Recovery
 Read current documentation/source and verified unrelated working-tree changes before implementation. All 108 vendor files and prior maps must remain unchanged. Save/checkpoint after each stable milestone. No Gate8 work.
+
+## Compiled/saved foundation milestone
+Compiled native cooling/engine condition, revisioned service endpoint, atomic tagged repair requirements and UMG engine/service display. Builds foundation52.44s, service19.29s, UI17.20s and checkpoint17.76s succeeded; installed Incredibuild license warning falls back to standalone and is not a compile failure. Engine torque/fuel composition uses default scale1 for accepted prior vehicles.
+
+Saved separate Gate7MechanicalTest (77 actors), BP_ClassCMechanicalMotorhome, DA_NormalMechanical and seven item definitions: mechanic tool kit, radiator patch, radiator replacement, recoverable engine service, 5L full/1.75L partial/empty coolant. Coolant reuses legacy-named Fuel metadata/instance litres/revision with Resource.Fluid.Coolant tag; gasoline/diesel compatibility remains exact and never treats coolant as fuel. Record identity, quantity, condition and transfer/drop behavior remain the existing inventory system. Normal tuning:12L capacity,20C ambient,.25C/s idle plus1C/s load heat, bounded exponential cooling, .001/.015L/s minor/major leaks,95/105/115/130C thresholds. Service requires parked/off/cool<=60C. B patch8s,N radiator15s,M engine20s;E opens inspection,F selected owned coolant refills,Escape closes/cancels. Engine repair does not silently repair the radiator or erase a temporary patch.
+
+Recovery commits65a2d08 (accepted baseline/framework plan),15622e7 (compiled foundation). Map/assets saved before/after configuration. All108 vendor hashes match. First live tests are running; no acceptance is claimed from compilation/content setup.

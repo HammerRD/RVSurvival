@@ -9,4 +9,6 @@
 
 The user's Gate 5 survival brief supersedes the earlier roadmap's fuel-loop assignment. Mechanical failures, combat, full medical systems, regional generation/streaming and campaign content remain later work; this update does not authorize them.
 
-Current authorized work stops after Gate 6. Compile success is not gate acceptance. Do not begin Gate 7.
+7. Mechanical failure and repair: authorized 2026-10-07, IN PROGRESS. Cooling/radiator/coolant failure chain, overheat engine consequences and authoritative roadside repair. See GATE_7_VALIDATION.md. Gate 8 is not authorized.
+
+Current authorized work stops after Gate 7. Compile success is not gate acceptance. Earlier Gate6-only authorization statements above are historical; the current user request supersedes them.
