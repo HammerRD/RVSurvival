@@ -31,6 +31,7 @@ foreach($suffix in @('.log','_child.log','_server.json','_client.json')){if(Test
 $args='"'+$root+'/RVSurvival.uproject" -ExecCmds="py '+$base+'launch_process.py" -abslog="'+$base+$name+'.log"'
 $job=Start-Process 'D:/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe' -ArgumentList $args -WindowStyle Hidden -PassThru
 while(!$job.HasExited){Start-Sleep -Seconds 2;if((Get-Date)-$began -gt [TimeSpan]::FromMinutes(5)){throw 'Inspect timeout; do not force kill'}}
+$job.Dispose();Start-Sleep -Seconds 1
 $failures=0;$pids=@()
 foreach($role in @('server','client')){
  $path=$base+$name+'_'+$role+'.json';if(!(Test-Path $path) -or (Get-Item $path).LastWriteTime -lt $began){throw "Missing fresh $role receipt"}

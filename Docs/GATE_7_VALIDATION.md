@@ -1,48 +1,126 @@
 # Gate 7 mechanical failure and repair validation
 
-Status: IN PROGRESS / NOT ACCEPTED. Authorized 2026-10-07; Gate 8 is excluded. Accepted Gate 6 recovery: 2ef5b83. Pre-existing Config/DefaultEngine.ini and three IDE files remain excluded.
+Status: **ACCEPTED**, 2026-10-07. Gate 8 was not started. Accepted Gate 6 baseline: `2ef5b83`. This verdict covers the prototype behavior and bounded tests below, not final mechanical balancing or a packaged shipping build.
 
-## Framework review
-Use replicated native Actor Components for machine state, Primary Data Assets for tuning/repair requirements, Gameplay Tags for fluid/tool/part/fault identity, normal owned-controller RPCs/RepNotifies and Unreal TimerManager for repair lifecycle. Reuse accepted lightweight FastArray item records and revisioned container-fluid fields rather than an independent coolant inventory. Native Chaos torque scaling composes fuel and mechanical limits. CharacterMovement, seats, moving interior and existing physics remain intact.
+## Implementation and engine framework review
 
-Epic sources reviewed: [Actor component replication](https://dev.epicgames.com/documentation/unreal-engine/replicating-actor-components-in-unreal-engine), [Gameplay Tags](https://dev.epicgames.com/documentation/unreal-engine/using-gameplay-tags-in-unreal-engine), [Data Assets](https://dev.epicgames.com/documentation/unreal-engine/data-assets-in-unreal-engine). Installed UE 5.8 TimerManager and ChaosWheeledVehicleMovementComponent headers are authoritative API references. GAS/CommonUI/Lyra experiences are not justified for slow machine balances or this bounded service panel; no custom transport/timer/effect framework is introduced. UMG presentation will read authoritative state, separate from rules.
+Six native classes establish the opt-in foundation: `URVCoolingComponent`, `URVMechanicalProfile`, `ARVServicePoint`, `ARVMechanicalMotorhome`, `ARVEngineHood`, `URVMechanicalWidget`. Cooling and engine condition are independent records; there is no universal RV health. The motorhome composes these systems and the accepted fuel/electrical/Chaos architecture. Passenger movement, seats, normal character movement and the driving physics configuration were preserved.
 
-## Planned composition and units
-Gate7 opt-in ARVMechanicalMotorhome derivative preserves all earlier maps/Blueprints. Separate engine-condition and cooling records, coolant litres, temperature Celsius, condition 0-1, leak litres/second, heat degrees/second. Data-driven profiles provide normal tuning; development time acceleration is opt-in/nonshipping. Causal leak/cooling/heat/damage chain; no universal RV health/random breakdowns. Temperature approaches a bounded ambient/load-dependent balance; shutdown removes combustion heat while residual heat cools.
+Use replicated Actor Components, Gameplay Tags, Primary Data Assets, RepNotifies, owned-controller Reliable RPCs, weak next-tick dispatch, TimerManager, native Chaos torque scaling and read-only UMG. Existing inventory FastArray records remain authoritative. No custom transport, timer framework, parallel fluid inventory, GAS/CommonUI migration or Lyra experience refactor is justified here. Relevant primary references: [component replication](https://dev.epicgames.com/documentation/unreal-engine/replicating-actor-components-in-unreal-engine), [Gameplay Tags](https://dev.epicgames.com/documentation/unreal-engine/using-gameplay-tags-in-unreal-engine), [Data Assets](https://dev.epicgames.com/documentation/unreal-engine/data-assets-in-unreal-engine), plus installed UE5.8 TimerManager, Chaos and NetEmulation headers/source. Engine concerns are reused; the causal mechanical rules are RVSurvival-specific.
 
-Temporary patch and full radiator replacement use tagged tool/consumable requirements, timed exclusive authority reservation, completion-time revalidation and atomic inventory consumption. Inspect/refill/service range and LOS must remain clear and vehicle stopped; hot/running refill is rejected. Debug controls are development-only. Future persisted scalar state and asset/tag IDs must not rely on service Actor pointers.
+The complete C++/content change list is [source-content-manifest.txt](Gate7Results/source-content-manifest.txt): 21 C++ files and 11 project-side assets. Existing inventory/controller/HUD/door/systems files receive bounded integration; no accepted vendor or prior-map edits.
 
-## Required validation
-No build, PIE, multiplayer, stress or regression pass is claimed yet. Required user matrix remains governing acceptance, including both roles, separate processes, 100ms/2% loss, roadside recovery, item conservation, normal user input, moving diagnostics, Gate1-6 regressions, saved map/assets and clean shutdown.
+## Cooling, temperature and engine condition
 
-## Recovery
-Read current documentation/source and verified unrelated working-tree changes before implementation. All 108 vendor files and prior maps must remain unchanged. Save/checkpoint after each stable milestone. No Gate8 work.
+Normal tuning lives in `/Game/Mechanical/DA_NormalMechanical`:
 
-## Compiled/saved foundation milestone
-Compiled native cooling/engine condition, revisioned service endpoint, atomic tagged repair requirements and UMG engine/service display. Builds foundation52.44s, service19.29s, UI17.20s and checkpoint17.76s succeeded; installed Incredibuild license warning falls back to standalone and is not a compile failure. Engine torque/fuel composition uses default scale1 for accepted prior vehicles.
+| Quantity | Default |
+| --- | --- |
+| Coolant capacity / low warning | 12 L / below25% |
+| Ambient / maximum temperature | 20 / 200 C |
+| Idle plus full-load heat | .25 +1 C per simulation second |
+| Passive / radiator cooling coefficient | .0015 / .009 per second |
+| Airflow | `1 + clamp(speed /2682.24 cm/s,0,2)` |
+| Slow / major leak | .001 / .015 L per second |
+| Radiator slow / major thresholds | below.85 / at-or-below.35 |
+| Warm / hot / overheating / critical | 95 /105 /115 /130 C |
+| Service readiness | speed<10cm/s, engine off, temperature<=60C |
+| Engine maximum / warning / reduced-output fraction | 1 / .75 / .5 |
+| Base overheating damage | .0004 of maximum condition per second, escalating up to6x |
+| Thermal limp output | .35 |
+| Shutdown / restart fractions | .1 / .3, with restart temperature<105C |
 
-Saved separate Gate7MechanicalTest (77 actors), BP_ClassCMechanicalMotorhome, DA_NormalMechanical and seven item definitions: mechanic tool kit, radiator patch, radiator replacement, recoverable engine service, 5L full/1.75L partial/empty coolant. Coolant reuses legacy-named Fuel metadata/instance litres/revision with Resource.Fluid.Coolant tag; gasoline/diesel compatibility remains exact and never treats coolant as fuel. Record identity, quantity, condition and transfer/drop behavior remain the existing inventory system. Normal tuning:12L capacity,20C ambient,.25C/s idle plus1C/s load heat, bounded exponential cooling, .001/.015L/s minor/major leaks,95/105/115/130C thresholds. Service requires parked/off/cool<=60C. B patch8s,N radiator15s,M engine20s;E opens inspection,F selected owned coolant refills,Escape closes/cancels. Engine repair does not silently repair the radiator or erase a temporary patch.
+Cooling effectiveness is radiator condition times coolant fraction. The solver uses the bounded exponential solution of `dT/dt = heat - k(T-ambient)` in at-most1-second simulation steps. Engine load, speed airflow, radiator damage, coolant loss and shutdown change that balance. Slow leaks continue while stopped. Shutdown removes combustion/load heating; residual temperature cools. Engine maximum, thresholds, rates and severity are tunable; condition is clamped relative to its maximum.
 
-Recovery commits65a2d08 (accepted baseline/framework plan),15622e7 (compiled foundation). Map/assets saved before/after configuration. All108 vendor hashes match. First live tests are running; no acceptance is claimed from compilation/content setup.
+A healthy full-load one-hour simulation settles at84.1026C with no coolant loss or engine wear. Minor100-second leak gives11.9L; major gives10.5L. Damaged radiator/low coolant are measurably hotter, and airflow/cooldown behave correctly. Temperature/fuel/condition NaNs and invalid ranges are rejected or bounded as recorded.
 
-## Service/hood and first live investigations (not acceptance)
-Single-player core first passes37/37;hood-enabled repeat38/38, with normal E/P/B/N/M/Escape and exact partial refill, missing-tool rejection, canceled/range-interrupted repairs retaining supplies. Raw initial approach and Python GUID-wrapper failures are preserved; fixed post-settle aiming and native GUID-field value comparison. Purchased separate Art_RV_Chassis_Hood uses the existing door hinge with opt-in pitch axis60degrees, stopped-only guard and hood-open engine interlock. Accepted house doors keep yaw/default behavior; front/fascia/firewall protection remains active.
-Live visual review exposed a newly created UMG widget staying collapsed before first service access; HUD now controls panel availability independent of collapsed-widget ticking. Requirement labels are human-readable, not gameplay tag debug strings. Range/incompatible movement clears service views; renderer remains separate from authority.
-First separate-process attempts confirmed repair/coolant/engine authority but failed early client E visibility, movement-correction bound and stopping. Initial endpoint attachment readiness, fixture correction exclusion and brake-then-handbrake phases were corrected; stopping now passes, but client inspection/corrections still required investigation. Uncapped standalone frame rate differed dramatically from accepted60FPS tests. Restored60FPS in both processes and added base/local/correction samples;no bound was relaxed. Failed client correction maxima681.35cm then222.90cm remain recorded in FailedUncapped/History, and are not acceptance evidence. Final rerun is pending.
-## Separate-process host baseline and live interface milestone
-Latest full host-driving baseline passes31 server/24 client checks with zero failures. First client E now aims on a preceding frame before the hold, matching normal interaction ordering; the missing-tool test precedes the host reservation so it tests the intended rejection. Accepted60FPS is restored in both processes; initial placement fixtures are excluded from moving correction measurement. No movement bound was relaxed. Roadside stopping/exiting, actual exterior-stock T retrieval, E diagnosis/P hood/B timed patch, partial coolant refill, reentry and resumed W driving pass. Raw samples/logs and earlier failures remain under Saved/Gate7Validation.
-Native window inspection confirms mechanical UMG and survival display visible, open hood uses one visual, service progress visible, coolant inventory label readable, normal I/Down/F binding transfers1.75L exactly (7->8.75L), same GUID/condition retained, empty hardware remains. Closing the hood during a repair interrupts it with supplies retained; a subsequent8s patch completes once, consumes one part and retains tool. Service UMG is right-anchored, and B/N/M/P have their own EnhancedInput context active only while inspecting, preserving remapped controls elsewhere. Desktop helper could capture but could not activate the window; input tests use the existing native development key dispatcher through real bindings, not component completion shortcuts. Two Python inspection-name errors caused safe StopPIE/shutdown, not crashes or world leaks; corrected supported WidgetLibrary ScriptName and explicit reflected property access.
-Configurable engine maximum condition and separate saved accelerated repair profile are compiled/saved. Remaining: final reversed-role/emulated runs, disconnect/stress, coolant drop/repick, prior-gate regressions and final closure. Gate7 remains IN PROGRESS.
+`/Game/Development/Mechanical/DA_AcceleratedMechanical` is a separate saved profile: thermal/leak/damage rate coefficients20x, unchanged equilibrium/thresholds, .25s test repairs. Explicit PIE-only debug time scale additionally supports bounded acceleration; production defaults remain normal. Live profile proof: development180s and normal3600s both reach84.1026C; development10s and normal200s slow leak both yield11.8L. Struct `.copy()` preserves the normal asset. Shipping/test builds reject debug mutation; no client debug RPC exists.
 
-## Reversed-role network, stress and disconnect milestone
-Client-driving/host-standing100ms outgoing latency and2% packet loss passes24server/31client checks, separate PIDs and zero receipt failures. Mechanical warning/shutdown/condition/refill/progress convergence, missing-tool/foreign GUID/duplicate refill/repair contention, walking/turning and complete exterior-stock roadside recovery pass. Moving correction measurement after90s fixture reset remains0cm in both successful role runs; raw whole-session maximum also includes initial setup teleport and is explicitly separate.
-Stress18 meaningful checks pass in140.59s:100 serial .01L refills conserve exactly1L (5L->4L,revision100),100 timed cancel attempts retain all100parts/one tool,9s no-late wait,100 .25s developer completions consume exactly100parts,final stack removed/no free repair. Full4L/rev100,partial1.75L/empty0L hardware drop and normalE repick preserve exactGUID/litres/revision/condition.10030-minute fault +30-minute stopped-cool segments produce bounded states/shutdown (maximum post-fault-segment endpoint42.08C, not a peak-temperature measurement). RealE driver possession/W with engine shutdown yields0speed and no running engine; normalM recovery/hoodclose/E reentry/W yields980.78cm/s. No shipping limits altered; large stress inventory capacity is PIE-only fixture configuration.
-Two real same-process native disconnect/reconnect cycles under latency/loss pass11server/8client checks. Departed reservation clears,9s wait causes no late patch,shared exterior GUIDs remain intact,new pawn reopens service and completes exactlyone patch after each rejoin. First harness checked cleanup in the same frame before .1s service Tick, and later sent the next B before the fresh fault reached the client. A rejoin also raced EngineService pointer replication. Preserved failed receipts/history; added explicit owned-repair cancellation in controller PawnLeavingGame/EndPlay (weak/.1s fallback retained), readiness for reacquired endpoints, bounded .5s cleanup observation and fresh-fault handoff. No threshold/collision/base bypass. Corrected matrix passes and editors close normally, no fatal/world leak/Python errors. Further tunable engine warning/reduced-output fractions preserve defaults; final build/SP/regression closure remains pending.
+## Items, repairs, hood and controls
 
-## Final separate-process prior-behavior matrix (current binary)
-Normal-control native reversed-role130checks (65 per process), rear seating/moving pantry transfer/exterior contention/ladder44checks (22 per process), parked and highway station50checks (25 per process), repeated parked/moving door86checks (43 per process) pass. Network emulation now uses supported NetEmulation.PktLagMin/Max100 and PktLoss2 commands in both processes; both logs confirm settings. Initial editor emulation had applied server outgoing traffic only; that distinction is retained for earlier receipts. The editor-only NetworkEmulationTarget enum is not exported to Python; that optional setup attempt stopped before PIE, saved idle editor closed cleanly and the native command approach replaced it. No gameplay or accepted bounds changed.
-Twenty V/1 cycles, occupied and moving rejection, recently-stopped transitions, repeated bed E/Z/R/E, zero seated movement violations/zero interior below-floor samples, rear-cushion seats and ladder drive lock/return all pass. All five workstation interactions can leave/walk in native frame parked and moving. House door/glass resolve exactly one visible mesh each, with matching collision and retained frame through repeats. Final camera/front/saved-package/basic/resource regressions remain to execute. Gate7 remains IN PROGRESS.
+Seven definitions under `/Game/Mechanical`: mechanic tool kit, radiator patch kit, replacement radiator, engine service parts, full5L coolant, partial1.75L coolant, empty coolant hardware. Tools/parts use registered requirements tags and minimum condition; gameplay does not match display-name strings. Tool/part logistics are2kg/3L; coolant5kg/6L. Patches stack10; other parts/tools/cans are individual. Fixed prototype weight is not a fluid-density simulation.
 
-## Basic/resource regression milestone
-Current final UI-spacing build succeeds17.15s. Gate1 representative23/23,Gate2 shared24/24 plus possession inventory identity receipts,inventory24/24,survival27/27 and entry/normal movement22/22 pass. Emulated separate-process resource31server/29client checks pass: exact fuel/refuel/partial-can state, ownership/contention,battery limits/source priorities,alternator/generator/solar/load controls and disconnect survival. Final reversed mechanical Everyone run25server/33client passes; unlike the earlier95C fault fixture it starts the minor-fault drive at70C and explicitly measures temperature rising under actual W/load with coolant loss. No gameplay tuning/bound changes. Raw samples are preserved; first setup correction maxima are distinguished from post90s native-frame measurements.
-Remaining direct throttle-caused severe thermal failure/recovery, open-hood front/exterior audit,camera,saved reloads and final live UI/build/docs. No acceptance from partial results. Gates1-6 source/content behavior remains preserved;original maps and108vendor files unchanged.
+Coolant uses the accepted Gate6 fluid fields (`Fuel`, `FuelLitres`, `FuelRevision`, legacy names) with exact `Resource.Fluid.Coolant` identity. Owned GUID/revision/capacity validation conserves litres, preserves condition and leaves empty hardware. Gasoline/diesel compatibility remains exact. Exterior tool/fluid/spare-parts storage is reused; pantry/overhead roles remain unchanged.
+
+| Control | Behavior |
+| --- | --- |
+| Hold E | Inspect front engine/cooling point through accepted .5s interaction |
+| P | Open/close stopped hood; open hood interlocks propulsion |
+| B |8s roadside patch: usable toolkit retained, one patch consumed; at-least.65 radiator condition, .15 leak multiplier, temporary |
+| N |15s radiator replacement: toolkit retained, one radiator consumed, condition1/no patch/no leak |
+| M |20s recoverable engine service: toolkit retained, one service part consumed, condition raised to.65; does not heal radiator |
+| I, Up/Down, F | Select owned coolant and refill through opened service point |
+| Escape | Close/cancel; supplies retained on interruption |
+
+B/N/M/P use a separate EnhancedInput context only while inspecting, removed on close/range exit/teardown. Accepted remapped controls remain available elsewhere. Repair start reserves the subsystem; completion revalidates ownership, requirements, range/LOS, hood, stopped/off/cool state and mechanical revision before atomic consumption. Container/power/seat/rest transitions, leaving range, closing hood or disconnect interrupt safely. Inventory inspection alone need not cancel. No animation lock or crafting system is introduced.
+
+The separate purchased `Art_RV_Chassis_Hood` is used as a project-side hinged visual, pivot(258.325,0,141.455)cm,60-degree pitch. The original owned hood visual is suppressed by asset identity; vendor mesh/material files are unchanged. Fixed fascia/HoodTop/firewall/cab collision remains protective when open. Swing obstruction and stopped guards apply. The engine bay is serviced from outside, never physically entered.
+
+Read-only restrained UMG displays temperature/gauge, low coolant/leak, engine wear/limited output/shutdown and hood interlock. Detailed service information is qualitative; progress uses synchronized server time. Right anchoring plus DPI-aware vertical placement avoids overlap with the fuel monitor. Native-window review confirms readable service and driver views, single hood visual and survival UI retained. The desktop helper could capture but failed viewport activation; gameplay controls were exercised through the existing native development key dispatcher, not hardware-keyboard claims or direct completion shortcuts.
+
+## Multiplayer authority and persistence preparation
+
+Server owns thermal integration, radiator/coolant/engine/fault state, output permission, reservations, timers and inventory mutations. Component state/tuning/revision and public service progress replicate; controller service selection/feedback is owner-only. Clients send intent with owned item IDs and expected revisions, never amounts/outcomes. Foreign GUID, stale/duplicate refill, missing-tool and concurrent repair requests cannot create supplies or clear faults. Explicit controller PawnLeavingGame/EndPlay cancels owned repairs immediately, with weak-reference/.1s endpoint fallback. Timers are cleared on cancellation/EndPlay.
+
+Future save serialization should retain scalar machine records, patch state/multiplier, fault tags and profile/item asset/tag/GUID identities. Active player references/reservations are transient and should cancel on restore. Normal BeginPlay initializes new machines; a future serializer must explicitly restore existing state. No full save/offline system is implemented. Other vehicle types need their own running/load/speed/service-readiness adapter; the solver/records/requirements remain modular.
+
+## Actual test setup and results
+
+Saved `/Game/Maps/Gate7MechanicalTest`,77 actors, purchased54-part RV, accepted road/reference space, all seven exterior compartments/interior stations/rest/seats/ladder, seven new pickups. Blueprint: `/Game/Vehicles/Gate7/BP_ClassCMechanicalMotorhome`. Previous maps retained byte-for-byte. UE5.8.3 Development Editor/Win64; live native gameplay bindings at60FPS. Initial placement/fault/supply fixtures are identified in scripts; actual roadside walking, entry/exit, inventory selections/transfers and timed repair intent use normal paths. No direct repair-completion helper.
+
+Latest named receipts in [Gate7Results](Gate7Results/) are the evidence; raw quarter-second/frame samples and logs remain in `Saved/Gate7Validation`, regression/audit folders and History. Historical failures are clearly retained under FailedUncapped/FailedInvestigations/development-history; they are not acceptance passes.
+
+| Executed group | Passing checks / result |
+| --- | --- |
+| Final single-player |43/43: normal/minor/major cooling, load/airflow/cooldown, all thresholds, clamping/nonfinite input, nondefault engine maximum, overheating/shutdown, exact refill/full rejection, missing requirements, timed patch/replacement/engine repair, cancellation and used-fluid storage GUID/revision/condition round trip |
+| Host-driver baseline, separate processes |31server /24client; complete roadside stock retrieval, repair/refill and resumed travel |
+| Host-driver server-outgoing100ms/2% loss |31server /25client; includes client debug-authority rejection |
+| Client-driver final100ms/2% both outgoing directions |25server /33client; measured temperature rise from70C fault under actual W/load, coolant loss, host walker, authority/contention/convergence, roadside workflow and resumed travel |
+| Two actual native disconnect/reconnect repair cycles |11server /8client; reservation cleared,9s no-late wait, shared GUIDs intact, new pawn/service access and exactlyone patch after each rejoin |
+| Serial authority stress |18/18 in140.59s:100 exact fluid transactions,100 timed cancels,100 completions,100 heat/shutdown/cool cycles, final stack safety, full/partial/empty drop+normalE repick, actual shutdown W rejection and repaired W traction |
+| Actual throttle-caused severe failure and recovery |10/10; crossed critical and wore engine to.098288/shutdown without setting that condition directly; natural cooldown48.51C, normal20s M/15s N, inventory F5L, actual E/W resumed at937.52cm/s |
+| Separate-process V/seat/bed control regressions, reversed role, bidirectional100ms/2% |65server /65client;20V/1 cycles, occupied/moving/recent-stop transitions, repeated E/Z/R/E bed, zero floor-fall/seated-walking samples |
+| Rear seats/moving pantry/exterior contention/ladder, emulated |22server /22client |
+| All five stations parked/highway and leave/walk, emulated |25server /25client |
+| Repeated parked/moving house door and glass, emulated |43server /43client; exactlyone visible mesh each, matching collision/frame |
+| Gate1 representative regression |23/23 movement/look/jump/interaction/multiplayer |
+| Gate2 representative regression |24/24 shared vehicle/host+client driving/possession/exit; extra inventory identity after possession receipts |
+| Gate4 inventory regression |24/24 capacities, pickup/drop/state/container/contention |
+| Gate5 survival regression |27/27 consumption/stacks/ownership/thresholds/rest and24-hour equivalent clamping |
+| Entry/normal movement regression |22/22 |
+| Gate6 fuel/electrical separate-process emulation regression |31server /29client; partial cans/refuel/conservation, batteries/alternator/generator/solar/loads/panel/ownership/disconnect |
+| Open-hood complete exterior collision audit |33/33 front/corners/wells/both sides/rear/under-front/firewall/windshield boundary/continuous walk-around, capsule34cm retained |
+| Driving camera regression |17/17 low/road/~60mph/turn/reverse/obstacle boom recovery;1400cm arm,340cm anchor,85FOV,16cm probe retained |
+| Saved-package audit |44/44; all seven maps loaded twice with scoped/released references; normal profile,54parts,seats/bed/layout/ladder/collision/camera/77-actor map and separate developer repairs verified;SaveAll/clean exit |
+| Saved20x developer profile |5 save/content checks +4 live solver/equivalence/default-profile checks |
+
+Network settings are not mislabeled: early runs used editor server-outgoing100ms/2%; final Everyone runs apply native `NetEmulation.PktLagMin 100`, `PktLagMax 100`, `PktLoss 2` in both processes, confirmed in both logs. These are outgoing delays, not a claimed100ms RTT. Separate PIDs are checked. Finite-route post-fixture-reset mechanical correction maxima are0cm; original whole-session maxima around574-575cm include the deliberate initial placement correction and are not usable movement metrics. Existing30cm baseline/75cm emulated regression bounds were retained, not weakened. Raw samples permit inspection of this separation.
+
+Stress heat-cycle42.08C figure is a maximum post-fault-segment endpoint after shutdown/cooling, not a measured peak. The separate actual-drive trace crossed130C and recorded the causal failure. Accelerated simulation/fixtures are distinguished from elapsed real play; no claims of hours of physical driving.
+
+## Failures found and fixes
+
+- Initial same-tick aim/E raced replicated view; aim on a preceding frame and settled approach now match the actual input path. Early missing-tool assertion was scheduled after host reservation and correctly got busy; it now precedes reservation, with a separate valid contention test.
+- Continuous reverse/brake after reaching rest restarted reverse; brake-then-handbrake phases corrected. Uncapped child FPS differed from accepted60FPS and inflated corrections; restored both caps and isolated setup fixtures. Earlier681.35/222.90cm failed movement measurements are retained. No solver/collision threshold bypass.
+- Collapsed new UMG did not tick back into view. HUD now controls availability; physical DPI positioning separates the fuel/engine panels. Service actions are scoped rather than globally consuming remapped B/N/M/P.
+- Disconnect cleanup initially depended on a later.1s service Tick. Explicit owned-controller cleanup was added; rejoin/fault handoff waits for valid replicated endpoints and actual fresh state. Repeated native cycles pass without late completion or supply corruption.
+- Python inspection used unavailable WidgetBlueprintLibrary instead of the supported ScriptName WidgetLibrary, and a wrong bool property spelling. The optional editor-only NetworkEmulationTarget enum was not exported; supported native console commands replace it. Driver inspection first looked up the unpossessed survivor by PlayerState, which is cleared by normal possession; it now resolves the authoritative driver-seat occupant. These helper errors ended cleanly and were repeated successfully. They were not Unreal crashes or accepted gameplay passes.
+- A serial launcher briefly observed the just-exited process during teardown; process handles are disposed and a one-second settle prevents a concurrent launch. No forced kill, leak-detection suppression or destructive map duplication.
+
+No fatal Unreal crash or World Memory Leak occurred in this Gate7 work. Clean completed logs contain no Python errors; failed helper logs remain preserved. The existing unactivated Incredibuild/standalone fallback is nonblocking; no license/payment or OS security changes were made. Final dashboard and profile logs contain no CreateSavedMove warning.
+
+## Known prototype limits
+
+- Simplified first-order thermal/airflow/condition model, no thermostat/fan/pump/hose/oil/transmission/brake/tire simulation, skills, maintenance schedule, final animations/VFX/audio or random breakdowns. Ambient is currently configured, not weather-driven.
+- Repairs require parked/off/cool and an open hood. Engine service is recoverable.65 condition, not guaranteed perfect restoration. Fixed simplified front protection remains even when hood opens; the mechanical underside is intentionally not a sealed hull. No crouch/prone/under-RV traversal is claimed.
+- Native visual/window review and real binding dispatcher testing are documented; failed desktop viewport activation is not represented as successful hardware playtesting. Separate-process emulation is a finite PIE matrix, not proof against every network/streaming/packaged configuration.
+- Live thermal ticks cap a single hitch to2real seconds; explicit debug advances support up to86400 simulation seconds. No offline catch-up/persistence implemented. Fluid weights remain fixed prototype metadata; legacy field names remain for compatibility.
+- Prior limits retained: beds/rest and seat-to-seat switching require stopped RV; ladder is parked/controlled top/no roof access. Exterior storage doors remain static preparatory parts; no full compartment-opening animations added.
+
+## Recovery, saved state and closure
+
+Meaningful local checkpoints:65a2d08 baseline/framework plan;15622e7 compiled foundation;63fca04 saved map/content;8ccd3ec service/hood safety;90729db live UI/scoped controls;6c38c2f network/stress/disconnect; a4dac2d both-direction networking and prior-gate regressions. Final closure is a separate local commit; its hash is in the final report/Git history rather than a self-referential commit hash in this file.
+
+Save before/after content/configuration, normal StopPIE, runner release before world changes and SaveAll/clean shutdown are verified. Latest native dashboard session saved/stopped/closed cleanly; final DevelopmentEditor Win64 build succeeded (target up-to-date,.68s; preceding UI compile17.15s).108/108 vendor SHA256 hashes match; all prior map/fallback assets remain unchanged. Pre-existing unrelated `Config/DefaultEngine.ini`, `.vsconfig`, `Automation_RVSurvival.slnx`, `RVSurvival.slnx` remain excluded from Gate7 commits. Gate7 changes are committed locally; no push. No Gate8 work.
+
+Next recommended task: manually review the saved Gate7MechanicalTest/service controls and balancing, then explicitly authorize the next gate when desired.

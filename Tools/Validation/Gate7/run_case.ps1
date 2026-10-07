@@ -7,6 +7,7 @@ if(Test-Path ($base+$Name+'.log')){Copy-Item ($base+$Name+'.log') ($base+'Histor
 $args='"'+$root+'/RVSurvival.uproject" -ExecCmds="py '+$root+'/'+$Runner+'" -abslog="'+$base+$Name+'.log"'
 $job=Start-Process 'D:/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe' -ArgumentList $args -WindowStyle Hidden -PassThru
 while(!$job.HasExited){Start-Sleep -Seconds 2;if((Get-Date)-$started -gt [TimeSpan]::FromMinutes(7)){throw 'Inspect timeout; do not force kill'}}
+$job.Dispose();Start-Sleep -Seconds 1
 $path=$root+'/'+$Receipt
 if(!(Test-Path $path) -or (Get-Item $path).LastWriteTime -lt $started){throw 'Missing fresh receipt'}
 & 'D:/Epic Games/UE_5.8/Engine/Binaries/ThirdParty/Python3/Win64/python.exe' ($root+'/Tools/Validation/Gate7/Regressions/validate_receipt.py') $path

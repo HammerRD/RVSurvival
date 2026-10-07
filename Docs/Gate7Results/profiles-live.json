@@ -1,0 +1,24 @@
+{
+  "results": [
+    {
+      "case": "saved_normal_and_20x_development_distinct",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "20x_minor_leak_equivalence",
+      "pass": true,
+      "detail": "11.800000000000004"
+    },
+    {
+      "case": "20x_thermal_same_healthy_equilibrium",
+      "pass": true,
+      "detail": "{'development_c': 84.10256410256409, 'normal_c': 84.10256410256325}"
+    },
+    {
+      "case": "normal_default_profile_still_selected",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

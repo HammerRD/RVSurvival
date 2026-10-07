@@ -1,0 +1,44 @@
+{
+  "phase": 8,
+  "driving": true,
+  "service_open": false,
+  "feedback": "Service closed: out of reach or incompatible state",
+  "coolant": 7.0,
+  "temporary_patch": false,
+  "hood_open": false,
+  "repair": "None",
+  "items": [
+    {
+      "catalog": "MechanicTools",
+      "guid": "575D59684DDC39C604D8E0A323FAA501",
+      "quantity": 1,
+      "condition": 0.8299999833106995,
+      "litres": 0.0,
+      "revision": 0
+    },
+    {
+      "catalog": "RadiatorPatch",
+      "guid": "B737BA3A4CACB0BCD52353964CDBF9FF",
+      "quantity": 3,
+      "condition": 0.8299999833106995,
+      "litres": 0.0,
+      "revision": 0
+    },
+    {
+      "catalog": "CoolantPartial",
+      "guid": "9A78844744CBBE25DF0C4683842F65E5",
+      "quantity": 1,
+      "condition": 0.8299999833106995,
+      "litres": 1.75,
+      "revision": 0
+    }
+  ],
+  "widgets": [
+    {
+      "visibility": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "viewport": true,
+      "size": "<Struct 'Vector2D' (0x00000203C99FBD60) {x: 363.982880, y: 137.449554}>"
+    }
+  ],
+  "position": "<Struct 'Vector' (0x00000203C99DFA80) {x: 193.003043, y: -48.591311, z: 156.917057}>"
+}

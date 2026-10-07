@@ -32,7 +32,10 @@ def configure():
     profile.set_editor_property('Repairs',repairs);assert unreal.EditorAssetLibrary.save_loaded_asset(profile,False)
     dev_factory=unreal.DataAssetFactory();dev_factory.set_editor_property('DataAssetClass',unreal.RVMechanicalProfile)
     dev=unreal.load_asset('/Game/Development/Mechanical/DA_AcceleratedMechanical') or unreal.AssetToolsHelpers.get_asset_tools().create_asset('DA_AcceleratedMechanical','/Game/Development/Mechanical',unreal.RVMechanicalProfile,dev_factory)
-    dev.set_editor_property('Tuning',profile.get_editor_property('Tuning'))
+    accelerated=profile.get_editor_property('Tuning').copy()
+    for field in ['IdleHeatCPerSecond','LoadHeatCPerSecond','PassiveCoolingPerSecond','RadiatorCoolingPerSecond','MinorLeakLitresPerSecond','MajorLeakLitresPerSecond','EngineDamagePerSecond']:
+        accelerated.set_editor_property(field,accelerated.get_editor_property(field)*20)
+    dev.set_editor_property('Tuning',accelerated)
     quick=[]
     for original in repairs:
         # Reflected structs are values; reconstruct to preserve the normal profile.

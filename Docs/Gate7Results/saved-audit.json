@@ -1,0 +1,282 @@
+{
+  "results": [
+    {
+      "case": "load_/Game/Maps/Gate1Test",
+      "pass": true,
+      "detail": "12"
+    },
+    {
+      "case": "load_/Game/Maps/Gate2VehicleTest",
+      "pass": true,
+      "detail": "44"
+    },
+    {
+      "case": "load_/Game/Maps/Gate3MovingInteriorTest",
+      "pass": true,
+      "detail": "44"
+    },
+    {
+      "case": "load_/Game/Maps/Gate4InventoryTest",
+      "pass": true,
+      "detail": "61"
+    },
+    {
+      "case": "load_/Game/Maps/Gate5SurvivalTest",
+      "pass": true,
+      "detail": "62"
+    },
+    {
+      "case": "load_/Game/Maps/Gate6FuelElectricalTest",
+      "pass": true,
+      "detail": "70"
+    },
+    {
+      "case": "load_/Game/Maps/Gate7MechanicalTest",
+      "pass": true,
+      "detail": "77"
+    },
+    {
+      "case": "saved_normal_mechanical_profile",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_normal_repair_durations",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_engine_tuning",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_77_actor_fixture",
+      "pass": true,
+      "detail": "77"
+    },
+    {
+      "case": "saved_seven_mechanical_pickups",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_real_54_part_art",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_seven_independent_exterior_compartments",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_rear_seats",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "accepted_camera_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "front_firewall_side_step_collision_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "no_invisible_stair_player_solution",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_lying_pose_and_wake_aisle",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_ladder",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_interior_layout_roles",
+      "pass": true,
+      "detail": "{'Pantry', 'Medical storage', 'Kitchen overhead - small tools', 'Water supplies', 'Personal supplies', 'Dinette overhead - dry food', 'Bed-end cabinet', 'External storage', 'Rear overhead - medical backup'}"
+    },
+    {
+      "case": "load_/Game/Maps/Gate1Test",
+      "pass": true,
+      "detail": "12"
+    },
+    {
+      "case": "load_/Game/Maps/Gate2VehicleTest",
+      "pass": true,
+      "detail": "44"
+    },
+    {
+      "case": "load_/Game/Maps/Gate3MovingInteriorTest",
+      "pass": true,
+      "detail": "44"
+    },
+    {
+      "case": "load_/Game/Maps/Gate4InventoryTest",
+      "pass": true,
+      "detail": "61"
+    },
+    {
+      "case": "load_/Game/Maps/Gate5SurvivalTest",
+      "pass": true,
+      "detail": "62"
+    },
+    {
+      "case": "load_/Game/Maps/Gate6FuelElectricalTest",
+      "pass": true,
+      "detail": "70"
+    },
+    {
+      "case": "load_/Game/Maps/Gate7MechanicalTest",
+      "pass": true,
+      "detail": "77"
+    },
+    {
+      "case": "saved_normal_mechanical_profile",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_normal_repair_durations",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_engine_tuning",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_77_actor_fixture",
+      "pass": true,
+      "detail": "77"
+    },
+    {
+      "case": "saved_seven_mechanical_pickups",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_real_54_part_art",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_seven_independent_exterior_compartments",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_rear_seats",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "accepted_camera_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "front_firewall_side_step_collision_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "no_invisible_stair_player_solution",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_lying_pose_and_wake_aisle",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_ladder",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_interior_layout_roles",
+      "pass": true,
+      "detail": "{'Pantry', 'Medical storage', 'Kitchen overhead - small tools', 'Water supplies', 'Personal supplies', 'Dinette overhead - dry food', 'Bed-end cabinet', 'External storage', 'Rear overhead - medical backup'}"
+    },
+    {
+      "case": "saved_separate_development_repairs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "save_all_completed",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "maps": [
+    {
+      "map": "/Game/Maps/Gate1Test",
+      "actors": 12
+    },
+    {
+      "map": "/Game/Maps/Gate2VehicleTest",
+      "actors": 44
+    },
+    {
+      "map": "/Game/Maps/Gate3MovingInteriorTest",
+      "actors": 44
+    },
+    {
+      "map": "/Game/Maps/Gate4InventoryTest",
+      "actors": 61
+    },
+    {
+      "map": "/Game/Maps/Gate5SurvivalTest",
+      "actors": 62
+    },
+    {
+      "map": "/Game/Maps/Gate6FuelElectricalTest",
+      "actors": 70
+    },
+    {
+      "map": "/Game/Maps/Gate7MechanicalTest",
+      "actors": 77
+    },
+    {
+      "map": "/Game/Maps/Gate1Test",
+      "actors": 12
+    },
+    {
+      "map": "/Game/Maps/Gate2VehicleTest",
+      "actors": 44
+    },
+    {
+      "map": "/Game/Maps/Gate3MovingInteriorTest",
+      "actors": 44
+    },
+    {
+      "map": "/Game/Maps/Gate4InventoryTest",
+      "actors": 61
+    },
+    {
+      "map": "/Game/Maps/Gate5SurvivalTest",
+      "actors": 62
+    },
+    {
+      "map": "/Game/Maps/Gate6FuelElectricalTest",
+      "actors": 70
+    },
+    {
+      "map": "/Game/Maps/Gate7MechanicalTest",
+      "actors": 77
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "results": [
+    {
+      "case": "save_before",
+      "pass": true
+    },
+    {
+      "case": "normal_tuning_unchanged",
+      "pass": true
+    },
+    {
+      "case": "development_20x_thermal_same_thresholds",
+      "pass": true
+    },
+    {
+      "case": "saved_development_only_asset",
+      "pass": true
+    },
+    {
+      "case": "save_after",
+      "pass": true
+    }
+  ]
+}

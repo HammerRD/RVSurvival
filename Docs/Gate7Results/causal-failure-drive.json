@@ -1,0 +1,55 @@
+{
+  "results": [
+    {
+      "case": "normal_E_faulty_driver",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "actual_W_caused_overheat_then_damage_shutdown",
+      "pass": true,
+      "detail": "{'condition': 0.09828828275203705, 'temperature': 138.53453305647616, 'initial_c': 95.84148929183982}"
+    },
+    {
+      "case": "causal_trace_crossed_critical",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "braked_shutdown_vehicle_stopped",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "natural_cooldown_safe_for_service",
+      "pass": true,
+      "detail": "48.50799445200623"
+    },
+    {
+      "case": "normal_E_exit_after_causal_failure",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_timed_M_restores_recoverable_engine",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_timed_N_restores_radiator",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_inventory_F_adds_owned_coolant",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "actual_E_W_resume_after_causal_failure",
+      "pass": true,
+      "detail": "937.5221879426442"
+    }
+  ],
+  "sample_count": 5340
+}
