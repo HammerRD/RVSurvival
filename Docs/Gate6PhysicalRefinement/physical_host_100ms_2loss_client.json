@@ -1,13 +1,12 @@
 {
-  "pid": 18896,
+  "pid": 29160,
   "authority": false,
   "config": {
-    "disconnect": "",
-    "driver": "host",
     "network": true,
+    "driver": "host",
+    "disconnect": "",
     "name": "physical_host_100ms_2loss"
   },
-  "evidence_kind": "native-held-input diagnostics; manual hold routes pending",
   "results": [
     {
       "case": "saved_map_physical_entry_no_teleport_markers",
@@ -27,7 +26,7 @@
     {
       "case": "driver_physical_step_door_entry",
       "pass": true,
-      "detail": "[92.23, 3.17, 177.25]"
+      "detail": "[92.22, 3.16, 177.27]"
     },
     {
       "case": "physical_entry_then_E_driver",
@@ -37,12 +36,12 @@
     {
       "case": "walker_physical_step_door_entry",
       "pass": true,
-      "detail": "[92.26849864310758, 3.5071461935986736, 177.23727534354373]"
+      "detail": "[92.19210543034657, 6.210728260011849, 177.28223035264318]"
     },
     {
       "case": "physical_entry_then_E_passenger",
       "pass": true,
-      "detail": ""
+      "detail": "0.0"
     },
     {
       "case": "occupied_driver_rejects_keeps_passenger",
@@ -52,7 +51,7 @@
     {
       "case": "moving_passenger_3_rear",
       "pass": true,
-      "detail": "[129.97080057466175, 3.333181756648429e-05, 177.18739641633064]"
+      "detail": "[129.97151255588997, 0.00013802376072558076, 177.18738098893758]"
     },
     {
       "case": "moving_driver_3_rejected_before_release",
@@ -62,7 +61,7 @@
     {
       "case": "moving_dinette_front_seated_awake",
       "pass": true,
-      "detail": ""
+      "detail": "0.0"
     },
     {
       "case": "dinette_front_stand_no_sleep",
@@ -72,7 +71,7 @@
     {
       "case": "dinette_rear_seated_awake",
       "pass": true,
-      "detail": ""
+      "detail": "0.0"
     },
     {
       "case": "stopped_before_driver_departure",
@@ -102,7 +101,7 @@
     {
       "case": "stopped_driver_3_rear",
       "pass": true,
-      "detail": "[129.97999999999973, -9.59737332032533e-17, 177.19]"
+      "detail": "[129.97999999999905, -1.4470974424216687e-15, 177.18999999999997]"
     },
     {
       "case": "rear_back_to_passenger",
@@ -117,7 +116,7 @@
     {
       "case": "walker_physical_step_door_exit",
       "pass": true,
-      "detail": "[87.38220641104685, 242.97137356349768, 72.34550041105831]"
+      "detail": "[87.18156037865774, 242.29728207622446, 72.49196783422292]"
     },
     {
       "case": "ladder_reserved_replicates",
@@ -127,7 +126,7 @@
     {
       "case": "roof_dismount_supported_walking",
       "pass": true,
-      "detail": "[-315.0013941126377, 75.00001403672506, 409.7491343740913]"
+      "detail": "[-315.0013957069736, 75.00002064276921, 409.74913106147386]"
     },
     {
       "case": "roof_presence_locks_propulsion",
@@ -137,7 +136,7 @@
     {
       "case": "roof_walk_past_fixtures",
       "pass": true,
-      "detail": "[106.25525376795656, 75.00001403673642, 409.86117131401494]"
+      "detail": "[106.20757459626785, 75.0000206427692, 409.8383633372533]"
     },
     {
       "case": "roof_return_ladder_reserved",
@@ -147,7 +146,7 @@
     {
       "case": "roof_ladder_ground_return",
       "pass": true,
-      "detail": "[-459.4300556248125, 74.51391777754921, 71.73728854058186]"
+      "detail": "[-459.50532601940256, 74.51890098600946, 71.91221829650371]"
     },
     {
       "case": "door_closed_converges_after_physical_exit",
@@ -157,27 +156,30 @@
     {
       "case": "closed_door_physically_blocks_entry",
       "pass": true,
-      "detail": "[92.87357721003256, 155.48097996977094, 98.14995427253147]"
+      "detail": "[92.8681053410578, 155.51528674294488, 98.14996332174248]"
     },
     {
       "case": "physical_reentry_restores_frame",
       "pass": true,
-      "detail": "[92.26509299399582, 3.5104903102621625, 177.23889661899574]"
+      "detail": "[92.26415604236651, 3.5176608092552826, 177.23822024706615]"
     },
     {
       "case": "physical_front_to_rear_walk",
       "pass": true,
-      "detail": "[-124.93302986702946, -0.007984331467512524, 191.6399138245901]"
+      "detail": "[-124.93105758240938, -0.007959592340955592, 191.63992463778575]"
     },
     {
       "case": "repeat_physical_exit_no_locked_state",
       "pass": true,
-      "detail": "[87.31120548380827, 243.32337452279447, 72.34361487670468]"
+      "detail": "[86.96938313119432, 241.5940309205452, 72.48765174854726]"
     },
     {
       "case": "driver_physical_exit_after_cab_release",
       "pass": true,
-      "detail": "[87.50291700981342, 242.35929816126088, 72.34744161018273]"
+      "detail": "[87.433480117251, 242.3858999003499, 72.49430880240644]"
     }
-  ]
+  ],
+  "source_checkpoint": "05294c1",
+  "module_sha256": "BA4F6986B7D1CE7EAB29D8B26F9E58879A0E0E69730002A6936E7F6D421DF5AF",
+  "evidence_kind": "Native input diagnostics; full sustained hardware/manual controls pending"
 }

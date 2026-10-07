@@ -157,14 +157,20 @@ void ARVSurvivorCharacter::OnRep_VehicleSeat()
         StopJumping();Movement->StopMovementImmediately();Movement->DisableMovement();
         // The authoritative seat attachment owns the seated transform. MOVE_None
         // alone still sends autonomous character moves against a moving seat.
-        // Pause native movement ticking, not authority/correction rules; resume
-        // the previous tick policy before normal standing/base movement.
-        if(!bSeatMovementTickPaused){bPreviousMovementTickEnabled=Movement->IsComponentTickEnabled();bSeatMovementTickPaused=true;}
-        Movement->SetComponentTickEnabled(false);
+        // Native inactivity also rejects stale character-move/adjustment RPCs
+        // (tick disabling alone does not). Seat attachment remains authoritative;
+        // world/interior prediction and correction rules are never bypassed.
+        bSeatMovementTickPaused=true;
+        Movement->Deactivate();
     }
     else
     {
-        if(bSeatMovementTickPaused){Movement->SetComponentTickEnabled(bPreviousMovementTickEnabled);bSeatMovementTickPaused=false;}
+        if(bSeatMovementTickPaused)
+        {
+            // Native activation registers required simulation ticks. A cached
+            // possession-time tick flag can be false on a remote driver proxy.
+            Movement->Activate(true);bSeatMovementTickPaused=false;
+        }
         Movement->SetMovementMode(MOVE_Walking);
     }
 }

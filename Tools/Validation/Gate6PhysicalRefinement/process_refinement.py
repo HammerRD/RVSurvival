@@ -52,6 +52,7 @@ def interact(t,a,role='walker'):
  at(t,lambda:aim(a,role));hold(t+.2,'E',.8,role)
 def walking(c):return c.get_editor_property('SeatedVehicle') is None and c.get_component_by_class(unreal.CharacterMovementComponent).get_editor_property('MovementMode')==unreal.MovementMode.MOVE_WALKING
 def frame(c):return c.get_component_by_class(unreal.RVPassengerReferenceFrameComponent).get_editor_property('ReferenceFrame')==v
+def seat_offset(c):return c.get_component_by_class(unreal.CapsuleComponent).get_editor_property('RelativeLocation').length()
 def awake(c):
  state=c.get_editor_property('PlayerState')
  # Driver PlayerState belongs to the possessed vehicle; survivor is unpossessed.
@@ -74,15 +75,15 @@ interact(1,door,'driver');at(3,lambda:check('door_open_converges',door.get_edito
 at(3.1,lambda:walk((92.4,0),'driver'));at(6,lambda:check('driver_physical_step_door_entry',safe_inside(dp),local(dp)))
 interact(6.2,de,'driver');at(8,lambda:check('physical_entry_then_E_driver',driver.get_editor_property('Occupant')==dp))
 at(8.2,lambda:walk((92.4,0)));at(11.5,lambda:check('walker_physical_step_door_entry',safe_inside(wp),local(wp)))
-interact(11.7,pe);at(13.5,lambda:check('physical_entry_then_E_passenger',passenger.get_editor_property('Occupant')==wp))
+interact(11.7,pe);at(13.5,lambda:check('physical_entry_then_E_passenger',passenger.get_editor_property('Occupant')==wp and seat_offset(wp)<1,seat_offset(wp)))
 at(13.6,lambda:[c.get_component_by_class(unreal.RVPassengerReferenceFrameComponent).reset_diagnostics() for c in [dp,wp]])
 tap(14,'One');at(15,lambda:check('occupied_driver_rejects_keeps_passenger',driver.get_editor_property('Occupant')==dp and passenger.get_editor_property('Occupant')==wp))
 hold(15.2,'W',8,'driver');tap(17.5,'Three');at(19,lambda:check('moving_passenger_3_rear',safe_inside(wp) and v.get_velocity().length()>150,local(wp)))
 tap(19.2,'Three','driver');at(20.5,lambda:check('moving_driver_3_rejected_before_release',driver.get_editor_property('Occupant')==dp and v.get_velocity().length()>150))
-interact(20.6,fe);at(22.3,lambda:check('moving_dinette_front_seated_awake',front.get_editor_property('Occupant')==wp and awake(wp)))
+interact(20.6,fe);at(22.3,lambda:check('moving_dinette_front_seated_awake',front.get_editor_property('Occupant')==wp and awake(wp) and seat_offset(wp)<1,seat_offset(wp)))
 tap(22.5,'E');at(23.6,lambda:check('dinette_front_stand_no_sleep',safe_inside(wp) and awake(wp)))
 at(23.3,brake);at(31.3,lambda:key('SpaceBar',False) if isdriver else None);at(29,lambda:check('stopped_before_driver_departure',v.get_velocity().length()<10,v.get_velocity().length()))
-at(24,lambda:walk((-40,0)));interact(26,re);at(28,lambda:check('dinette_rear_seated_awake',rear.get_editor_property('Occupant')==wp and awake(wp)))
+at(24,lambda:walk((-40,0)));interact(26,re);at(28,lambda:check('dinette_rear_seated_awake',rear.get_editor_property('Occupant')==wp and awake(wp) and seat_offset(wp)<1,seat_offset(wp)))
 tap(28.2,'E');at(29.3,lambda:check('dinette_rear_stand_no_sleep',safe_inside(wp) and awake(wp)))
 at(29.5,lambda:walk((-115,0)));interact(31,bed);at(33,lambda:check('bed_pose_and_rest_replicate',bed.get_editor_property('Occupant')==wp.get_editor_property('PlayerState') and wp.get_component_by_class(unreal.RVRestPoseComponent).get_editor_property('RestPoint')==bed and not awake(wp)))
 tap(33.2,'Z');at(34.3,lambda:check('bed_sleep_player_specific',wp.get_editor_property('PlayerState').get_component_by_class(unreal.RVNeedsComponent).get_editor_property('State').rest_mode==unreal.RVRestMode.SLEEPING and awake(dp)))
@@ -164,7 +165,7 @@ def tick(dt):
   for label,c in [('driver',dp),('walker',wp)]:
    if not unreal.SystemLibrary.is_valid(c):continue
    movement=c.get_component_by_class(unreal.CharacterMovementComponent);capsule=c.get_component_by_class(unreal.CapsuleComponent);f=c.get_component_by_class(unreal.RVPassengerReferenceFrameComponent)
-   samples.append({'t':round(elapsed,2),'who':label,'pos':local(c),'seat':str(c.get_editor_property('SeatedVehicle')),'mode':str(movement.get_editor_property('MovementMode')),'collision':str(capsule.get_collision_enabled()),'frame':str(f.get_editor_property('ReferenceFrame')),'corrections':f.get_editor_property('CorrectionCount'),'max_correction':f.get_editor_property('MaxCorrectionCm'),'speed':v.get_velocity().length()})
+   samples.append({'t':round(elapsed,2),'who':label,'pos':local(c),'seat':str(c.get_editor_property('SeatedVehicle')),'seat_offset_cm':seat_offset(c) if c.get_editor_property('SeatedVehicle') else None,'cmc_active':movement.is_active(),'cmc_tick':movement.is_component_tick_enabled(),'mode':str(movement.get_editor_property('MovementMode')),'collision':str(capsule.get_collision_enabled()),'frame':str(f.get_editor_property('ReferenceFrame')),'corrections':f.get_editor_property('CorrectionCount'),'max_correction':f.get_editor_property('MaxCorrectionCm'),'speed':v.get_velocity().length()})
  except Exception as error:
   check('harness_exception',False,repr(error));finish()
 h=unreal.register_slate_post_tick_callback(tick)

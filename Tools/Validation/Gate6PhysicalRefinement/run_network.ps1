@@ -26,6 +26,8 @@ foreach($suffix in @('.log','_child.log','_server.json','_client.json')){
 }
 @{name=$name;driver=$Driver;network=[bool]$Emulated;disconnect=$Disconnect}|ConvertTo-Json|Set-Content -LiteralPath ($folder+'\case.json') -Encoding utf8
 $start=Get-Date
+$sourceCheckpoint=(git -c core.fsmonitor=false rev-parse --short HEAD)
+$moduleHash=(Get-FileHash -LiteralPath ($root+'\Binaries\Win64\UnrealEditor-RVSurvival.dll') -Algorithm SHA256).Hash
 $arguments='"'+$root+'\RVSurvival.uproject" -ExecCmds="py D:/GitHub/RVSurvival/RVSurvival/Saved/Gate6PhysicalRefinement/launch_process.py" -abslog="'+$folder+'\'+$name+'.log"'
 $job=Start-Process -FilePath 'D:/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe' -ArgumentList $arguments -WindowStyle Hidden -PassThru
 if(-not $job.WaitForExit(330000)){throw 'Inspect editor timeout; do not force-kill'}
@@ -38,6 +40,9 @@ foreach($role in @('server','client')){
  Write-Output ($role+' checks='+$result.results.Count+' failed='+$failed.Count)
  if($failed.Count){$failed|ConvertTo-Json -Depth 5}
  $result.PSObject.Properties.Remove('samples')
+ $result|Add-Member -NotePropertyName source_checkpoint -NotePropertyValue $sourceCheckpoint -Force
+ $result|Add-Member -NotePropertyName module_sha256 -NotePropertyValue $moduleHash -Force
+ $result|Add-Member -NotePropertyName evidence_kind -NotePropertyValue 'Native input diagnostics; full sustained hardware/manual controls pending' -Force
  $result|ConvertTo-Json -Depth 20|Set-Content -LiteralPath ($root+'\Docs\Gate6PhysicalRefinement\'+$name+'_'+$role+'.json') -Encoding utf8
 }
 if($pids[0] -eq $pids[1]){throw 'Expected separate process PIDs'}

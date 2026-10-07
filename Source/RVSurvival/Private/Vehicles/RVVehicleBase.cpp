@@ -104,8 +104,7 @@ void ARVVehicleBase::Tick(float DT)
         if (!bExitInputArmed && GetWorld()->GetTimeSeconds() - LocalPossessionTime > .75)
             if (auto* PC = Cast<APlayerController>(Controller))
                 if (auto* Input = Cast<UEnhancedPlayerInput>(PC->PlayerInput))
-                    bExitInputArmed = !PC->IsInputKeyDown(EKeys::E)
-                        && !Input->GetActionValue(ExitAction).Get<bool>();
+                    bExitInputArmed = !Input->GetActionValue(ExitAction).Get<bool>();
         InputSendTime += DT;
         if (InputSendTime >= .05f)
         { InputSendTime = 0; if (auto* PC = Cast<ARVPlayerController>(Controller)) PC->ServerDrive(LocalThrottle, LocalSteering, bLocalHandbrake); }
