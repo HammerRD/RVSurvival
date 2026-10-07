@@ -38,7 +38,16 @@ void ARVPlayerController::ServerSwitchSeat_Implementation(FName TargetSeat)
 void ARVPlayerController::PlayerTick(float DeltaTime)
 {
     Super::PlayerTick(DeltaTime);
-    if (!IsLocalController() || !SeatedVehicle) return;
+    if (!IsLocalController()) return;
+    // Service-only bindings must not consume remapped gameplay keys elsewhere.
+    if (MechanicalMapping && bMechanicalMappingActive!=IsValid(MechanicalPoint))
+        if (auto* Local=GetLocalPlayer()) if(auto* Input=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
+        {
+            bMechanicalMappingActive=IsValid(MechanicalPoint);
+            if(bMechanicalMappingActive) Input->AddMappingContext(MechanicalMapping,3);
+            else Input->RemoveMappingContext(MechanicalMapping);
+        }
+    if (!SeatedVehicle) return;
     const auto Seats = SeatedVehicle->GetSeats();
     if (WasInputKeyJustPressed(EKeys::One))
         for (auto* Seat : Seats) if (Seat->bDriverSeat) { RequestSwitchSeat(Seat->GetFName()); break; }
@@ -80,7 +89,7 @@ void ARVPlayerController::PawnLeavingGame()
     Super::PawnLeavingGame();
 }
 void ARVPlayerController::EndPlay(const EEndPlayReason::Type Reason)
-{ if(auto* Local=ResourceInputLocalPlayer.Get()) if(auto* Input=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>()) if(ResourceMapping) Input->RemoveMappingContext(ResourceMapping); ResourceInputLocalPlayer.Reset(); if(HasAuthority()) if(auto* PS=GetPlayerState<ARVPlayerState>()) PS->Needs->EndRestAuthority(); if (HasAuthority() && SeatedVehicle) SeatedVehicle->ReleaseDisconnected(this); Super::EndPlay(Reason); }
+{ if(auto* Local=ResourceInputLocalPlayer.Get()) if(auto* Input=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>()) { if(ResourceMapping) Input->RemoveMappingContext(ResourceMapping); if(MechanicalMapping) Input->RemoveMappingContext(MechanicalMapping); } ResourceInputLocalPlayer.Reset(); bMechanicalMappingActive=false; if(HasAuthority()) if(auto* PS=GetPlayerState<ARVPlayerState>()) PS->Needs->EndRestAuthority(); if (HasAuthority() && SeatedVehicle) SeatedVehicle->ReleaseDisconnected(this); Super::EndPlay(Reason); }
 
 bool ARVPlayerController::ValidateResourceAccess(bool Fill) const
 {
@@ -138,7 +147,7 @@ void ARVPlayerController::SetupInputComponent()
     if(!ResourceMapping)
     {
         ResourceMapping=NewObject<UInputMappingContext>(this);
-        for(FKey Key:{EKeys::H,EKeys::J,EKeys::K,EKeys::L,EKeys::O,EKeys::Escape,EKeys::R,EKeys::Z,EKeys::Three,EKeys::B,EKeys::N,EKeys::M,EKeys::P})
+        for(FKey Key:{EKeys::H,EKeys::J,EKeys::K,EKeys::L,EKeys::O,EKeys::Escape,EKeys::R,EKeys::Z,EKeys::Three})
         {
             auto* Action=NewObject<UInputAction>(this); Action->ValueType=EInputActionValueType::Boolean;
             ResourceMapping->MapKey(Action,Key); ResourceActions.Add(Action);
@@ -153,10 +162,19 @@ void ARVPlayerController::SetupInputComponent()
     Input->BindAction(ResourceActions[6],ETriggerEvent::Started,this,&ThisClass::WakeKey);
     Input->BindAction(ResourceActions[7],ETriggerEvent::Started,this,&ThisClass::SleepKey);
     Input->BindAction(ResourceActions[8],ETriggerEvent::Started,this,&ThisClass::RequestLivingArea);
-    Input->BindAction(ResourceActions[9],ETriggerEvent::Started,this,&ThisClass::PatchKey);
-    Input->BindAction(ResourceActions[10],ETriggerEvent::Started,this,&ThisClass::RadiatorKey);
-    Input->BindAction(ResourceActions[11],ETriggerEvent::Started,this,&ThisClass::EngineRepairKey);
-    Input->BindAction(ResourceActions[12],ETriggerEvent::Started,this,&ThisClass::HoodKey);
+    if(!MechanicalMapping)
+    {
+        MechanicalMapping=NewObject<UInputMappingContext>(this);
+        for(FKey Key:{EKeys::B,EKeys::N,EKeys::M,EKeys::P})
+        {
+            auto* Action=NewObject<UInputAction>(this); Action->ValueType=EInputActionValueType::Boolean;
+            MechanicalMapping->MapKey(Action,Key); MechanicalActions.Add(Action);
+        }
+    }
+    Input->BindAction(MechanicalActions[0],ETriggerEvent::Started,this,&ThisClass::PatchKey);
+    Input->BindAction(MechanicalActions[1],ETriggerEvent::Started,this,&ThisClass::RadiatorKey);
+    Input->BindAction(MechanicalActions[2],ETriggerEvent::Started,this,&ThisClass::EngineRepairKey);
+    Input->BindAction(MechanicalActions[3],ETriggerEvent::Started,this,&ThisClass::HoodKey);
     if(auto* Subsystem=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
     { ResourceInputLocalPlayer=Local; Subsystem->RemoveMappingContext(ResourceMapping); Subsystem->AddMappingContext(ResourceMapping,2); }
 }

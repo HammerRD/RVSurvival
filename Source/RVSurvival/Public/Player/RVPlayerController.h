@@ -43,6 +43,9 @@ private:
     void HoodKey();
     UPROPERTY(Transient) TObjectPtr<class UInputMappingContext> ResourceMapping;
     UPROPERTY(Transient) TArray<TObjectPtr<class UInputAction>> ResourceActions;
+    UPROPERTY(Transient) TObjectPtr<class UInputMappingContext> MechanicalMapping;
+    UPROPERTY(Transient) TArray<TObjectPtr<class UInputAction>> MechanicalActions;
+    bool bMechanicalMappingActive=false;
     TWeakObjectPtr<class ULocalPlayer> ResourceInputLocalPlayer;
     double LastResourceRequestTime=-1;
     double LastSeatSwitchTime = -1;

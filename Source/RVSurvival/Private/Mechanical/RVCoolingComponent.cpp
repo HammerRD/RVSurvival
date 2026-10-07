@@ -31,10 +31,11 @@ void URVCoolingComponent::BeginPlay()
     Tuning.MinorDamageThreshold=FMath::IsFinite(Tuning.MinorDamageThreshold)?FMath::Clamp(Tuning.MinorDamageThreshold,.1f,1.f):.85f;
     Tuning.MajorDamageThreshold=FMath::IsFinite(Tuning.MajorDamageThreshold)?FMath::Clamp(Tuning.MajorDamageThreshold,0.f,Tuning.MinorDamageThreshold):.35f;
     Tuning.EngineDamagePerSecond=FMath::IsFinite(Tuning.EngineDamagePerSecond)?FMath::Clamp(Tuning.EngineDamagePerSecond,0.f,1.f):.0004f;
+    Tuning.EngineMaximumCondition=FMath::IsFinite(Tuning.EngineMaximumCondition)?FMath::Clamp(Tuning.EngineMaximumCondition,.01f,1.f):1;
     Tuning.ShutdownCondition=FMath::IsFinite(Tuning.ShutdownCondition)?FMath::Clamp(Tuning.ShutdownCondition,0.f,.5f):.1f;
     Tuning.RestartCondition=FMath::IsFinite(Tuning.RestartCondition)?FMath::Clamp(Tuning.RestartCondition,Tuning.ShutdownCondition+.01f,1.f):.3f;
     Tuning.LimpOutput=FMath::IsFinite(Tuning.LimpOutput)?FMath::Clamp(Tuning.LimpOutput,0.f,1.f):.35f;
-    Cooling.CoolantLitres=Tuning.CoolantCapacityLitres;Cooling.TemperatureC=Tuning.AmbientC;DeriveState();
+    Engine.Condition=Tuning.EngineMaximumCondition;Cooling.CoolantLitres=Tuning.CoolantCapacityLitres;Cooling.TemperatureC=Tuning.AmbientC;DeriveState();
 }
 void URVCoolingComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps)const
 {Super::GetLifetimeReplicatedProps(OutLifetimeProps);DOREPLIFETIME(URVCoolingComponent,Tuning);DOREPLIFETIME(URVCoolingComponent,Cooling);DOREPLIFETIME(URVCoolingComponent,Engine);DOREPLIFETIME(URVCoolingComponent,ServiceRevision);}
@@ -49,6 +50,8 @@ void URVCoolingComponent::TickComponent(float DT,ELevelTick Type,FActorComponent
 void URVCoolingComponent::DeriveState()
 {
     const auto& T=Tuning;
+    Engine.Condition=FMath::Clamp(Engine.Condition,0.f,T.EngineMaximumCondition);
+    const float EngineFraction=Engine.Condition/T.EngineMaximumCondition;
     Cooling.LeakLitresPerSecond=(Cooling.RadiatorCondition<=T.MajorDamageThreshold?T.MajorLeakLitresPerSecond:Cooling.RadiatorCondition<T.MinorDamageThreshold?T.MinorLeakLitresPerSecond:0)*Cooling.PatchLeakMultiplier;
     Cooling.CoolingEffectiveness=Cooling.RadiatorCondition*FMath::Clamp(Cooling.CoolantLitres/T.CoolantCapacityLitres,0.,1.);
     Cooling.Status=Cooling.TemperatureC>=T.CriticalC?ERVThermalStatus::Critical:Cooling.TemperatureC>=T.OverheatC?ERVThermalStatus::Overheating:Cooling.TemperatureC>=T.HotC?ERVThermalStatus::Hot:Cooling.TemperatureC>=T.WarmC?ERVThermalStatus::Warm:ERVThermalStatus::Normal;
@@ -56,10 +59,10 @@ void URVCoolingComponent::DeriveState()
     if(Cooling.RadiatorCondition<T.MinorDamageThreshold)Cooling.Faults.AddTag(RadiatorDamage);
     if(Cooling.CoolantLitres<T.CoolantCapacityLitres*T.LowCoolantFraction)Cooling.Faults.AddTag(CoolingLow);
     if(Cooling.Status>=ERVThermalStatus::Overheating)Cooling.Faults.AddTag(CoolingOverheat);
-    if(Engine.Condition<.75f)Cooling.Faults.AddTag(EngineDamaged);
-    if(Engine.Condition<=T.ShutdownCondition)Engine.bShutdown=true;
-    if(Engine.bShutdown && Engine.Condition>=T.RestartCondition && Cooling.TemperatureC<T.RestartTemperatureC)Engine.bShutdown=false;
-    Engine.OutputScale=Engine.bShutdown?0:Cooling.Status>=ERVThermalStatus::Overheating?T.LimpOutput:Engine.Condition<.5f?FMath::Max(T.LimpOutput,Engine.Condition):1;
+    if(EngineFraction<.75f)Cooling.Faults.AddTag(EngineDamaged);
+    if(EngineFraction<=T.ShutdownCondition)Engine.bShutdown=true;
+    if(Engine.bShutdown && EngineFraction>=T.RestartCondition && Cooling.TemperatureC<T.RestartTemperatureC)Engine.bShutdown=false;
+    Engine.OutputScale=Engine.bShutdown?0:Cooling.Status>=ERVThermalStatus::Overheating?T.LimpOutput:EngineFraction<.5f?FMath::Max(T.LimpOutput,EngineFraction):1;
 }
 void URVCoolingComponent::AdvanceAuthority(double Seconds,bool Running,double Load,double Speed)
 {
@@ -76,7 +79,7 @@ void URVCoolingComponent::AdvanceAuthority(double Seconds,bool Running,double Lo
         const double Next=Loss>1e-9?Tuning.AmbientC+(Cooling.TemperatureC-Tuning.AmbientC)*Decay+Heat/Loss*(1-Decay):Cooling.TemperatureC+Heat*Step;
         Cooling.TemperatureC=FMath::Clamp(Next,Tuning.AmbientC,Tuning.MaximumTemperatureC);
         if(Running && !Engine.bShutdown && Cooling.TemperatureC>=Tuning.OverheatC)
-            Engine.Condition=FMath::Max(0.f,Engine.Condition-float(Step)*Tuning.EngineDamagePerSecond*float(FMath::Clamp((Cooling.TemperatureC-Tuning.OverheatC)/15.+1.,1.,6.)));
+            Engine.Condition=FMath::Max(0.f,Engine.Condition-float(Step)*Tuning.EngineDamagePerSecond*Tuning.EngineMaximumCondition*float(FMath::Clamp((Cooling.TemperatureC-Tuning.OverheatC)/15.+1.,1.,6.)));
     }
     DeriveState();OnRep_State();GetOwner()->ForceNetUpdate();
 }
@@ -99,7 +102,7 @@ void URVCoolingComponent::ApplyRepairAuthority(const FRVRepairDefinition& R)
         Cooling.RadiatorCondition=FMath::Max(Cooling.RadiatorCondition,FMath::Clamp(R.RadiatorConditionTarget,0.f,1.f));
         Cooling.PatchLeakMultiplier=FMath::Clamp(R.LeakMultiplier,0.,1.);Cooling.bTemporaryPatch=R.bTemporary;
     }
-    if(R.bAffectsEngine)Engine.Condition=FMath::Max(Engine.Condition,FMath::Clamp(R.EngineConditionTarget,0.f,1.f));
+    if(R.bAffectsEngine)Engine.Condition=FMath::Max(Engine.Condition,FMath::Clamp(R.EngineConditionTarget,0.f,Tuning.EngineMaximumCondition));
     ++ServiceRevision;DeriveState();OnRep_State();GetOwner()->ForceNetUpdate();
 }
 bool URVCoolingComponent::DebugSetState(float R,double C,double T,float E)
@@ -107,7 +110,7 @@ bool URVCoolingComponent::DebugSetState(float R,double C,double T,float E)
 #if !UE_BUILD_SHIPPING && !UE_BUILD_TEST
     if(!GetOwner()->HasAuthority() || !GetWorld()->IsPlayInEditor() || !FMath::IsFinite(R) || !FMath::IsFinite(C) || !FMath::IsFinite(T) || !FMath::IsFinite(E))return false;
     Cooling.RadiatorCondition=FMath::Clamp(R,0.f,1.f);Cooling.CoolantLitres=FMath::Clamp(C,0.,Tuning.CoolantCapacityLitres);Cooling.TemperatureC=FMath::Clamp(T,Tuning.AmbientC,Tuning.MaximumTemperatureC);
-    Engine.Condition=FMath::Clamp(E,0.f,1.f);Cooling.PatchLeakMultiplier=1;Cooling.bTemporaryPatch=false;Engine.bShutdown=false;++ServiceRevision;DeriveState();OnRep_State();GetOwner()->ForceNetUpdate();return true;
+    Engine.Condition=FMath::Clamp(E,0.f,Tuning.EngineMaximumCondition);Cooling.PatchLeakMultiplier=1;Cooling.bTemporaryPatch=false;Engine.bShutdown=false;++ServiceRevision;DeriveState();OnRep_State();GetOwner()->ForceNetUpdate();return true;
 #else
     return false;
 #endif

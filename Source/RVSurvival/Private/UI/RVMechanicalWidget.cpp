@@ -43,7 +43,7 @@ void URVMechanicalWidget::NativeTick(const FGeometry& G,float DT)
     FString Detail;
     if(PC->MechanicalPoint)
     {
-        Detail=FString::Printf(TEXT("Coolant: %s | Radiator: %s | Engine: %s\nP hood | B patch | N radiator replacement | M engine service\nI inventory, select coolant then F refill | Escape close/cancel\n%s"),S.CoolantLitres<C->Tuning.CoolantCapacityLitres*C->Tuning.LowCoolantFraction?TEXT("low"):TEXT("present"),S.bTemporaryPatch?TEXT("temporarily patched"):S.RadiatorCondition<C->Tuning.MinorDamageThreshold?TEXT("damaged"):TEXT("serviceable"),C->Engine.Condition<.5f?TEXT("damaged"):TEXT("serviceable"),*PC->MechanicalFeedback);
+        Detail=FString::Printf(TEXT("Coolant: %s | Radiator: %s | Engine: %s\nP hood | B patch | N radiator replacement | M engine service\nI inventory, select coolant then F refill | Escape close/cancel\n%s"),S.CoolantLitres<C->Tuning.CoolantCapacityLitres*C->Tuning.LowCoolantFraction?TEXT("low"):TEXT("present"),S.bTemporaryPatch?TEXT("temporarily patched"):S.RadiatorCondition<C->Tuning.MinorDamageThreshold?TEXT("damaged"):TEXT("serviceable"),C->Engine.Condition<C->Tuning.EngineMaximumCondition*.5f?TEXT("damaged"):TEXT("serviceable"),*PC->MechanicalFeedback);
         if(PC->MechanicalPoint->RepairPlayer)
         {
             const auto* GS=GetWorld()->GetGameState();const double Now=GS?GS->GetServerWorldTimeSeconds():GetWorld()->GetTimeSeconds();

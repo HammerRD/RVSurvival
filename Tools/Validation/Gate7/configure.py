@@ -30,6 +30,16 @@ def configure():
         r.set_editor_property('bAffectsCooling',ident!='EngineService');r.set_editor_property('bAffectsEngine',ident=='EngineService');r.set_editor_property('EngineConditionTarget',.65 if ident=='EngineService' else 0)
         r.set_editor_property('Requirements',[req('Repair.Tool.Mechanic',False),req(part)]);repairs.append(r)
     profile.set_editor_property('Repairs',repairs);assert unreal.EditorAssetLibrary.save_loaded_asset(profile,False)
+    dev_factory=unreal.DataAssetFactory();dev_factory.set_editor_property('DataAssetClass',unreal.RVMechanicalProfile)
+    dev=unreal.load_asset('/Game/Development/Mechanical/DA_AcceleratedMechanical') or unreal.AssetToolsHelpers.get_asset_tools().create_asset('DA_AcceleratedMechanical','/Game/Development/Mechanical',unreal.RVMechanicalProfile,dev_factory)
+    dev.set_editor_property('Tuning',profile.get_editor_property('Tuning'))
+    quick=[]
+    for original in repairs:
+        # Reflected structs are values; reconstruct to preserve the normal profile.
+        r=unreal.RVRepairDefinition()
+        for field in ['Id','DisplayName','Requirements','RadiatorConditionTarget','EngineConditionTarget','LeakMultiplier','bTemporary','bAffectsCooling','bAffectsEngine']:r.set_editor_property(field,original.get_editor_property(field))
+        r.set_editor_property('DurationSeconds',.25);quick.append(r)
+    dev.set_editor_property('Repairs',quick);assert unreal.EditorAssetLibrary.save_loaded_asset(dev,False)
     cdo.get_editor_property('CoolingSystem').set_editor_property('Profile',profile)
     unreal.BlueprintEditorLibrary.compile_blueprint(bp);assert unreal.EditorAssetLibrary.save_loaded_asset(bp,False)
     es=unreal.get_editor_subsystem(unreal.EditorActorSubsystem)

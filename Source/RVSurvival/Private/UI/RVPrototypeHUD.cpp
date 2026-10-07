@@ -36,7 +36,13 @@ void ARVPrototypeHUD::DrawHUD()
     {MechanicalWidget=CreateWidget<URVMechanicalWidget>(PlayerOwner,URVMechanicalWidget::StaticClass());MechanicalWidget->AddToPlayerScreen();}
     // Collapsed UMG widgets do not tick: the HUD owns availability/visibility so
     // a panel first opened after spawn can never stay permanently collapsed.
-    if(MechanicalWidget){MechanicalWidget->SetVisibility(MechanicalVehicle?ESlateVisibility::HitTestInvisible:ESlateVisibility::Collapsed);MechanicalWidget->SetPositionInViewport(FVector2D(FMath::Max(20.f,Canvas->ClipX-390.f),380),false);}
+    if(MechanicalWidget)
+    {
+        MechanicalWidget->SetVisibility(MechanicalVehicle?ESlateVisibility::HitTestInvisible:ESlateVisibility::Collapsed);
+        MechanicalWidget->SetPositionInViewport(FVector2D(-20,380),false);
+        MechanicalWidget->SetAnchorsInViewport(FAnchors(1,0));
+        MechanicalWidget->SetAlignmentInViewport(FVector2D(1,0));
+    }
     auto* PS=PlayerOwner->GetPlayerState<ARVPlayerState>();
     auto* Needs=PS?PS->Needs.Get():nullptr;
     if(Needs)
@@ -116,7 +122,8 @@ void ARVPrototypeHUD::DrawHUD()
         auto InventoryText=[&](const FString& Text,FLinearColor Color,float X,float Y)
         { DrawText(Text,Color,X*UIScale,Y*UIScale,nullptr,UIScale); };
         DrawRect(FLinearColor(0,0,0,.8f),15*UIScale,85*UIScale,720*UIScale,420*UIScale);
-        InventoryText(TEXT("Inventory | Tab: panel  Up/Down: item  T: transfer  G: drop  C: consume  F: refuel  I: toggle"),FLinearColor::White,25,95);
+        const auto* ServicePC=Cast<ARVPlayerController>(PlayerOwner);
+        InventoryText(ServicePC && ServicePC->MechanicalPoint ? TEXT("Inventory | Tab: panel  Up/Down: item  T: transfer  G: drop  C: consume  F: coolant  I: toggle") : TEXT("Inventory | Tab: panel  Up/Down: item  T: transfer  G: drop  C: consume  F: refuel  I: toggle"),FLinearColor::White,25,95);
         InventoryText(Inventory->Feedback,FLinearColor::Yellow,25,120);
         auto Panel=[&](URVInventoryComponent* C,float X,bool Active)
         {

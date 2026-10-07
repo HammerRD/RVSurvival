@@ -1,0 +1,42 @@
+{
+  "pid": 33908,
+  "role": "client",
+  "config": {
+    "driver": "host",
+    "entry_probe": true,
+    "name": "mechanical_host_baseline_entry_probe",
+    "network": false
+  },
+  "results": [
+    {
+      "case": "normal_E_diagnosis_authoritative",
+      "pass": true,
+      "detail": "{'point': \"<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.RVServicePoint_0' (0x000001B620FCA500) Class 'RVServicePoint'>\", 'radiator': 0.20000000298023224, 'location': \"<Struct 'Vector' (0x000001B5CD77FFD0) {x: 552.872733, y: 75.614683, z: 90.150002}>\", 'target': \"<Struct 'Vector' (0x000001B5CD77FFD0) {x: 419.200000, y: 0.180000, z: 138.360000}>\", 'prompt': 'Hold E: inspect engine / cooling service'}"
+    },
+    {
+      "case": "hood_open_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "one_authoritative_repair_reservation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "start_does_not_consume",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_missing_tool_rejected",
+      "pass": false,
+      "detail": "Another repair is already in progress"
+    }
+  ],
+  "sample_summary": {
+    "max_correction_cm": 678.7782592773438,
+    "max_speed_cm_s": 0.0,
+    "count": 40
+  }
+}

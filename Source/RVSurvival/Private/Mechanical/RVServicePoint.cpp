@@ -67,7 +67,7 @@ void ARVServicePoint::RequestAuthority(ARVPlayerController* PC,FName Action,int3
     const auto* R=System->Profile?System->Profile->Repairs.FindByPredicate([&](const auto& X){return X.Id==Action;}):nullptr;
     if(!R || !FMath::IsFinite(R->DurationSeconds) || R->DurationSeconds<=0 || R->DurationSeconds>300 || !FMath::IsFinite(R->RadiatorConditionTarget) || !FMath::IsFinite(R->EngineConditionTarget) || !FMath::IsFinite(R->LeakMultiplier))
     {Feedback(TEXT("Unknown or invalid repair"));return;}
-    if((!R->bAffectsCooling || (System->Cooling.RadiatorCondition>=R->RadiatorConditionTarget && System->Cooling.PatchLeakMultiplier<=R->LeakMultiplier)) && (!R->bAffectsEngine || System->Engine.Condition>=R->EngineConditionTarget))
+    if((!R->bAffectsCooling || (System->Cooling.RadiatorCondition>=R->RadiatorConditionTarget && System->Cooling.PatchLeakMultiplier<=R->LeakMultiplier)) && (!R->bAffectsEngine || System->Engine.Condition>=FMath::Min(R->EngineConditionTarget,System->Tuning.EngineMaximumCondition)))
     {Feedback(TEXT("This repair would not improve the current fault"));return;}
     FString Error;if(!Inv->RepairRequirementsAuthority(R->Requirements,false,Error)){Feedback(Error);return;}
     RepairController=PC;RepairPlayer=PC->PlayerState;ActiveRepair=Action;RepairStart=GetWorld()->GetTimeSeconds();RepairDuration=R->DurationSeconds;ExpectedMechanicalRevision=System->ServiceRevision;++Revision;
