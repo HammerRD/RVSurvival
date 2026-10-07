@@ -1,6 +1,9 @@
 #include "Vehicles/RVRecoveryComponent.h"
 #include "Vehicles/RVMechanicalMotorhome.h"
 #include "Vehicles/RVVehicleSeatComponent.h"
+#include "Vehicles/RVLadder.h"
+#include "Engine/StaticMeshActor.h"
+#include "Components/StaticMeshComponent.h"
 #include "Player/RVPlayerController.h"
 #include "Player/RVSurvivorCharacter.h"
 #include "Player/RVPlayerState.h"
@@ -19,6 +22,14 @@
 #include "EngineUtils.h"
 #include "Net/UnrealNetwork.h"
 URVRecoveryComponent::URVRecoveryComponent(){SetIsReplicatedByDefault(true);PrimaryComponentTick.bCanEverTick=true;PrimaryComponentTick.TickInterval=.1f;}
+bool URVRecoveryComponent::IsPrototypeRecoveryAvailable()const
+{
+#if UE_BUILD_SHIPPING || UE_BUILD_TEST
+ return false; // Shipping recovery must supply an equipment/cost policy.
+#else
+ return bPrototypeRecoveryEnabled;
+#endif
+}
 void URVRecoveryComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps)const
 {Super::GetLifetimeReplicatedProps(OutLifetimeProps);DOREPLIFETIME(URVRecoveryComponent,bConfirmedOverturned);DOREPLIFETIME(URVRecoveryComponent,RecoveryRevision);DOREPLIFETIME(URVRecoveryComponent,RecoveryGraceUntil);}
 bool URVRecoveryComponent::StopsPropulsion()const
@@ -42,7 +53,7 @@ bool URVRecoveryComponent::RecoverAuthority(ARVPlayerController* PC,FString& Fee
  auto Fail=[&](const TCHAR* Why){Feedback=Why;return false;};
  auto* RV=Cast<ARVMechanicalMotorhome>(GetOwner());
  if(!RV || !RV->HasAuthority() || !PC || !PC->GetPawn())return Fail(TEXT("Recovery requires server authority and an active player"));
- if(!bPrototypeRecoveryEnabled)return Fail(TEXT("Recovery equipment is required"));
+ if(!IsPrototypeRecoveryAvailable())return Fail(TEXT("Recovery equipment is required"));
  if(!bConfirmedOverturned || RV->GetActorUpVector().Z>=MaximumUpDot)return Fail(TEXT("RV is not confirmed overturned"));
  if(RV->GetVelocity().Size()>MaximumSpeed || RV->GetMesh()->GetPhysicsAngularVelocityInDegrees().Size()>MaximumAngularSpeedDegrees)return Fail(TEXT("Wait until the RV stops moving"));
  if(PC->SeatedVehicle!=RV && FVector::Dist(PC->GetPawn()->GetActorLocation(),RV->GetActorLocation())>RequestRange)return Fail(TEXT("Move closer to the overturned RV"));
@@ -59,6 +70,8 @@ bool URVRecoveryComponent::RecoverAuthority(ARVPlayerController* PC,FString& Fee
  for(TActorIterator<ARVSurvivorCharacter> It(GetWorld());It;++It)
  {
   auto* C=*It;auto* Frame=C->FindComponentByClass<URVPassengerReferenceFrameComponent>();
+  auto* Climb=C->FindComponentByClass<URVLadderClimbComponent>();
+  if((Climb->Ladder && Climb->Ladder->GetAttachParentActor()==RV) || (Climb->RoofLadder && Climb->RoofLadder->GetAttachParentActor()==RV))return Fail(TEXT("Leave the RV ladder and roof before recovery"));
   if(Seated.Contains(C) || (Frame->ReferenceFrame!=RV && !Interior.IsInside(RV->GetActorTransform().InverseTransformPosition(C->GetActorLocation()))))continue;
   if(!C->GetController())return Fail(TEXT("Passenger state is not ready"));
   auto* Ladder=C->FindComponentByClass<URVLadderClimbComponent>();
@@ -82,6 +95,7 @@ bool URVRecoveryComponent::RecoverAuthority(ARVPlayerController* PC,FString& Fee
   }
   if(!Supported || High-Low>45)continue;
   Target.Z=High+GroundClearance;const FVector Center=Target+Upright.RotateVector(PlacementCenter);
+  if(FMath::Abs(Target.Z-RV->GetActorLocation().Z)>MaximumVerticalShift)continue;
   if(GetWorld()->OverlapAnyTestByObjectType(Center,Upright,FCollisionObjectQueryParams::AllObjects,FCollisionShape::MakeBox(PlacementExtent),Params))continue;
   SafePassengers.Reset();
   for(auto* C:Evacuate)
@@ -124,5 +138,20 @@ bool URVRecoveryComponent::DebugOverturn(float Roll)
  RV->SetActorRotation(FRotator(0,RV->GetActorRotation().Yaw,Roll),ETeleportType::TeleportPhysics);RV->GetMesh()->SetPhysicsLinearVelocity(FVector::ZeroVector);RV->GetMesh()->SetPhysicsAngularVelocityInDegrees(FVector::ZeroVector);RV->ForceNetUpdate();return true;
 #else
  return false;
+#endif
+}
+AActor* URVRecoveryComponent::DebugCreateSurface(FVector Location,FRotator Rotation,FVector Extent)
+{
+#if !UE_BUILD_SHIPPING && !UE_BUILD_TEST
+ if(!GetWorld() || !GetWorld()->IsGameWorld() || Location.ContainsNaN() || Rotation.ContainsNaN() || Extent.ContainsNaN() || Extent.GetMin()<=0)return nullptr;
+ // Local, disposable test fixture in each process, never an editor asset.
+ auto* Surface=GetWorld()->SpawnActor<AStaticMeshActor>(Location,Rotation);
+ if(!Surface)return nullptr;
+ Surface->GetStaticMeshComponent()->SetMobility(EComponentMobility::Movable);
+ Surface->GetStaticMeshComponent()->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,TEXT("/Engine/BasicShapes/Cube.Cube")));
+ Surface->GetStaticMeshComponent()->SetCollisionProfileName(TEXT("BlockAll"));
+ Surface->SetActorScale3D(Extent/50);return Surface;
+#else
+ return nullptr;
 #endif
 }

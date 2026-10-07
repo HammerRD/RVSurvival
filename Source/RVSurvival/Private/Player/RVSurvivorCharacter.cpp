@@ -25,13 +25,20 @@
 void ARVSurvivorCharacter::MulticastRecoveryPlacement_Implementation(FVector Position, FRotator Rotation)
 {
     DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
-    SetBase(static_cast<UPrimitiveComponent*>(nullptr));
+    SetBase(static_cast<FMovementBaseInterfaceData*>(nullptr));
     PassengerReferenceFrame->ResetForRecovery();
     auto* Movement=GetCharacterMovement();
     Movement->StopMovementImmediately();
     Movement->CurrentFloor.Clear();
     Movement->Activate(true);
-    if(IsLocallyControlled()) Movement->ResetPredictionData_Client();
+    if(IsLocallyControlled())
+    {
+        // Discard moves from the old base without restarting the RPC clock.
+        // A zero timestamp otherwise produces many seconds of expired moves.
+        const float Timestamp=Movement->GetPredictionData_Client_Character()->CurrentTimeStamp;
+        Movement->ResetPredictionData_Client();
+        Movement->GetPredictionData_Client_Character()->CurrentTimeStamp=Timestamp;
+    }
     GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
     SetActorLocationAndRotation(Position,Rotation,false,nullptr,ETeleportType::TeleportPhysics);
     Movement->SetMovementMode(MOVE_Walking);

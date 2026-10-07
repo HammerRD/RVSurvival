@@ -1,0 +1,208 @@
+{
+  "pid": 16036,
+  "role": "server",
+  "config": {
+    "name": "recovery_host_100ms_2loss",
+    "entry_probe": false,
+    "network": true,
+    "emulation_target": "Everyone",
+    "driver": "host"
+  },
+  "results": [
+    {
+      "case": "seeded_shared_cargo",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_E_two_seats",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "90_confirmed",
+      "pass": true,
+      "detail": "<Struct 'Rotator' (0x000001F808B2E6D0) {pitch: -0.000024, yaw: 0.327097, roll: 90.000098}>"
+    },
+    {
+      "case": "90_upright_converged",
+      "pass": true,
+      "detail": "<Struct 'Rotator' (0x000001F808C124F0) {pitch: 0.321943, yaw: 0.323979, roll: 0.000372}>"
+    },
+    {
+      "case": "90_nearby",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "90_items_needs_mechanics_exact",
+      "pass": true,
+      "detail": "{'before': {'items': [('29BE7CFE465CF57CB8CB6E8D35AE7425', 3, 0.7300000190734863, 0.0, 0), ('9539D0D246E97FA74BEE76A046153AC2', 1, 0.6100000143051147, 0.0, 0), ('BEE8A2D84347D72E8EA8BB9525C404BC', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-41529C4E4E4', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-588EC57B487', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.299960362576265, 4.7, 888.4020452919837, 111.20659724902872]}, 'after': {'items': [('29BE7CFE465CF57CB8CB6E8D35AE7425', 3, 0.7300000190734863, 0.0, 0), ('9539D0D246E97FA74BEE76A046153AC2', 1, 0.6100000143051147, 0.0, 0), ('BEE8A2D84347D72E8EA8BB9525C404BC', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-41529C4E4E4', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-588EC57B487', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.29995202920002, 4.7, 888.4019064008331, 111.20798614507066]}}"
+    },
+    {
+      "case": "90_resources_no_reset_or_loss",
+      "pass": true,
+      "detail": "[-8.333376243285784e-06, 0.0, -0.0001388911505273427, 0.0013888960419450314]"
+    },
+    {
+      "case": "90_seats_possession_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "upright_repeat_rejected_1",
+      "pass": true,
+      "detail": "RV is not confirmed overturned"
+    },
+    {
+      "case": "-90_confirmed",
+      "pass": true,
+      "detail": "<Struct 'Rotator' (0x000001F808C125E0) {pitch: 0.000013, yaw: 0.450663, roll: -89.999947}>"
+    },
+    {
+      "case": "-90_upright_converged",
+      "pass": true,
+      "detail": "<Struct 'Rotator' (0x000001F808B2E6D0) {pitch: 0.323331, yaw: 0.452213, roll: 0.006253}>"
+    },
+    {
+      "case": "-90_nearby",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "-90_items_needs_mechanics_exact",
+      "pass": true,
+      "detail": "{'before': {'items': [('29BE7CFE465CF57CB8CB6E8D35AE7425', 3, 0.7300000190734863, 0.0, 0), ('9539D0D246E97FA74BEE76A046153AC2', 1, 0.6100000143051147, 0.0, 0), ('BEE8A2D84347D72E8EA8BB9525C404BC', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-41529C4E4E4', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-588EC57B487', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.299921775246766, 4.7, 888.4031674903932, 111.21302088416789]}, 'after': {'items': [('29BE7CFE465CF57CB8CB6E8D35AE7425', 3, 0.7300000190734863, 0.0, 0), ('9539D0D246E97FA74BEE76A046153AC2', 1, 0.6100000143051147, 0.0, 0), ('BEE8A2D84347D72E8EA8BB9525C404BC', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-41529C4E4E4', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-588EC57B487', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.299913441872604, 4.7, 888.4030286007096, 111.21440977986317]}}"
+    },
+    {
+      "case": "-90_resources_no_reset_or_loss",
+      "pass": true,
+      "detail": "[-8.333374161395568e-06, 0.0, -0.00013888968362607557, 0.0013888956952854414]"
+    },
+    {
+      "case": "-90_seats_possession_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "upright_repeat_rejected_2",
+      "pass": true,
+      "detail": "RV is not confirmed overturned"
+    },
+    {
+      "case": "180_confirmed",
+      "pass": true,
+      "detail": "<Struct 'Rotator' (0x000001F808B69730) {pitch: -0.000037, yaw: 1.578519, roll: -179.999393}>"
+    },
+    {
+      "case": "180_upright_converged",
+      "pass": true,
+      "detail": "<Struct 'Rotator' (0x000001F808BB11E0) {pitch: 0.260907, yaw: 1.602159, roll: 0.014205}>"
+    },
+    {
+      "case": "180_nearby",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "180_items_needs_mechanics_exact",
+      "pass": true,
+      "detail": "{'before': {'items': [('29BE7CFE465CF57CB8CB6E8D35AE7425', 3, 0.7300000190734863, 0.0, 0), ('9539D0D246E97FA74BEE76A046153AC2', 1, 0.6100000143051147, 0.0, 0), ('BEE8A2D84347D72E8EA8BB9525C404BC', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-41529C4E4E4', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-588EC57B487', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.29988204945034, 4.7, 888.4046446226998, 111.21962476402969]}, 'after': {'items': [('29BE7CFE465CF57CB8CB6E8D35AE7425', 3, 0.7300000190734863, 0.0, 0), ('9539D0D246E97FA74BEE76A046153AC2', 1, 0.6100000143051147, 0.0, 0), ('BEE8A2D84347D72E8EA8BB9525C404BC', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-41529C4E4E4', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-588EC57B487', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.2998726744316, 4.7, 888.4048529415172, 111.22118726715478]}}"
+    },
+    {
+      "case": "180_resources_no_reset_or_loss",
+      "pass": true,
+      "detail": "[-9.375018741764052e-06, 0.0, 0.00020831881738558877, 0.001562503125086323]"
+    },
+    {
+      "case": "180_seats_possession_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "upright_repeat_rejected_3",
+      "pass": true,
+      "detail": "RV is not confirmed overturned"
+    },
+    {
+      "case": "passenger_standing_interior",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "uneven_confirmed",
+      "pass": true,
+      "detail": "<Struct 'Rotator' (0x000001F808BB11E0) {pitch: 1.970178, yaw: 1.592145, roll: 91.056232}>"
+    },
+    {
+      "case": "uneven_upright_converged",
+      "pass": true,
+      "detail": "<Struct 'Rotator' (0x000001F808BB3DA0) {pitch: 2.297031, yaw: 2.030061, roll: 1.092732}>"
+    },
+    {
+      "case": "uneven_nearby",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "uneven_items_needs_mechanics_exact",
+      "pass": true,
+      "detail": "{'before': {'items': [('29BE7CFE465CF57CB8CB6E8D35AE7425', 3, 0.7300000190734863, 0.0, 0), ('9539D0D246E97FA74BEE76A046153AC2', 1, 0.6100000143051147, 0.0, 0), ('BEE8A2D84347D72E8EA8BB9525C404BC', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-41529C4E4E4', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-588EC57B487', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.29981849133385, 4.7, 888.4107460315644, 111.230215108058]}, 'after': {'items': [('29BE7CFE465CF57CB8CB6E8D35AE7425', 3, 0.7300000190734863, 0.0, 0), ('9539D0D246E97FA74BEE76A046153AC2', 1, 0.6100000143051147, 0.0, 0), ('BEE8A2D84347D72E8EA8BB9525C404BC', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-41529C4E4E4', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-588EC57B487', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.299811199469275, 4.7, 888.410259951836, 111.2314304188227]}}"
+    },
+    {
+      "case": "uneven_resources_no_reset_or_loss",
+      "pass": true,
+      "detail": "[-7.291864577041451e-06, 0.0, -0.00048607972837544366, 0.00121531076469239]"
+    },
+    {
+      "case": "standing_passenger_safe_after_recovery",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000001F808BB3E90) {x: 6646.070337, y: 6001.681386, z: 142.715435}>"
+    },
+    {
+      "case": "driver_preserved_after_standing_recovery",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "standing_movement_after_recovery",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000001F808BB3DA0) {x: 6646.070943, y: 6834.331180, z: 128.172641}>"
+    },
+    {
+      "case": "driving_after_recovery",
+      "pass": true,
+      "detail": "1824.0492600804253"
+    },
+    {
+      "case": "stopped_for_reentry",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "normal_passenger_seat_reentry",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_E_3_reentry_after_recovery",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_interior_walking_after_recovery",
+      "pass": true,
+      "detail": "{'local': \"<Struct 'Vector' (0x000001F808C12590) {x: 62.125637, y: -0.000158, z: 177.433778}>\", 'start': \"<Struct 'Vector' (0x000001F808B69730) {x: 129.984156, y: -0.000033, z: 177.188571}>\", 'corrections': 0, 'max_cm': 0.0}"
+    },
+    {
+      "case": "moving_interior_turn_after_recovery",
+      "pass": true,
+      "detail": "{'local': \"<Struct 'Vector' (0x000001F808C12590) {x: 62.093478, y: 0.552093, z: 177.432223}>\", 'corrections': 0, 'max_cm': 0.0}"
+    }
+  ],
+  "sample_summary": {
+    "count": 7912,
+    "max_speed_cm_s": 2191.154141114213,
+    "max_correction_cm": null
+  }
+}

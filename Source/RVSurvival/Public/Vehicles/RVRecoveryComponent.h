@@ -19,14 +19,17 @@ public:
  UPROPERTY(EditAnywhere,BlueprintReadOnly) float ConfirmationSeconds=3;
  UPROPERTY(EditAnywhere,BlueprintReadOnly) float RequestRange=1000;
  UPROPERTY(EditAnywhere,BlueprintReadOnly) float GroundClearance=45;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly) float MaximumVerticalShift=400;
  UPROPERTY(EditAnywhere,BlueprintReadOnly) FVector PlacementCenter=FVector(0,0,200);
  UPROPERTY(EditAnywhere,BlueprintReadOnly) FVector PlacementExtent=FVector(550,250,210);
  UPROPERTY(Replicated,BlueprintReadOnly) bool bConfirmedOverturned=false;
  UPROPERTY(Replicated,BlueprintReadOnly) int32 RecoveryRevision=0;
  UPROPERTY(Replicated,BlueprintReadOnly) double RecoveryGraceUntil=0;
  bool StopsPropulsion()const;
+ bool IsPrototypeRecoveryAvailable()const;
  bool RecoverAuthority(ARVPlayerController* Requester,FString& Feedback);
  UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) bool DebugOverturn(float Roll);
+ UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) AActor* DebugCreateSurface(FVector Location,FRotator Rotation,FVector Extent);
 private:
  float StableTime=0;
 };

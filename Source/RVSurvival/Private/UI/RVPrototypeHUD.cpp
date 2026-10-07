@@ -37,9 +37,11 @@ void ARVPrototypeHUD::DrawHUD()
     {
         bool Ready=false;
         if(PC->GetPawn())for(TActorIterator<ARVMechanicalMotorhome> It(GetWorld());It;++It)
-            if(It->Recovery->bConfirmedOverturned && (PC->SeatedVehicle==*It || FVector::Dist(PC->GetPawn()->GetActorLocation(),It->GetActorLocation())<=It->Recovery->RequestRange)){Ready=true;break;}
-        if(Ready)DrawText(RVInputMappings::KeyLabel(PC,TEXT("RecoverRV"),TEXT("F8"))+TEXT(" Recover RV (prototype)"),FLinearColor::Yellow,20,65,nullptr,1);
-        if(!PC->RecoveryFeedback.IsEmpty())DrawText(PC->RecoveryFeedback,FLinearColor::White,20,90,nullptr,.85f);
+            if(It->Recovery->IsPrototypeRecoveryAvailable() && It->Recovery->bConfirmedOverturned && (PC->SeatedVehicle==*It || FVector::Dist(PC->GetPawn()->GetActorLocation(),It->GetActorLocation())<=It->Recovery->RequestRange)){Ready=true;break;}
+        const float RecoveryTop=Canvas->ClipY-140;
+        if(Ready || !PC->RecoveryFeedback.IsEmpty())DrawRect(FLinearColor(0,0,0,.8f),15,RecoveryTop,640,55);
+        if(Ready)DrawText(RVInputMappings::KeyLabel(PC,TEXT("RecoverRV"),TEXT("F8"))+TEXT(" Recover RV (prototype)"),FLinearColor::Yellow,25,RecoveryTop+8,nullptr,1);
+        if(!PC->RecoveryFeedback.IsEmpty())DrawText(PC->RecoveryFeedback,FLinearColor::White,25,RecoveryTop+30,nullptr,.85f);
     }
     const auto* MechanicalPC=Cast<ARVPlayerController>(PlayerOwner);
     AActor* MechanicalVehicle=MechanicalPC && MechanicalPC->MechanicalPoint?MechanicalPC->MechanicalPoint->Vehicle.Get():MechanicalPC?Cast<ARVMechanicalMotorhome>(MechanicalPC->SeatedVehicle.Get()):nullptr;

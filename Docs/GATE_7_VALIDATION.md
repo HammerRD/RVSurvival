@@ -181,3 +181,6 @@ Next recommended task: manual Gate7MechanicalTest roadside/service playtest and 
 ## 2026-10-07 rollover refinement — validation in progress
 Added a compiled prototype recovery component and remappable F8 / development RVRecover command. Earlier Gate7 acceptance does not yet cover this new refinement. Three near-ground single-player orientations passed 18 checks on the initial clearance policy. Separate-process validation remains pending: first paired run stopped on a test-only unpossessed-pawn PlayerState lookup; needs snapshot now reacquires PlayerState actors. Initial high-drop fixture self-righted and a Python distance API error was corrected. Failed receipts/logs remain under Saved/Gate7Validation/History. No Gate8 work.
 
+
+Recovery progress checkpoint: host/client requests and all three orientations passed; uneven surface, damaged mechanical state, partial resources, cargo GUIDs, safe passenger placement and continued walking/driving passed. Host-driver post-recovery E/3 re-entry and moving-interior walking/turning passed. Corrected native prediction cleanup to retain CurrentTimeStamp; prior reset produced expired ServerMove warnings. Current code adds a 400 cm vertical-search bound, conservative full-body clearance, ladder/roof rejection and a Shipping/Test permission guard. Final held-input, UI and regression closure remains pending.
+

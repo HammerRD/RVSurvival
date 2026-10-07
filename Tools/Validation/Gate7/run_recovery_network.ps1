@@ -29,6 +29,8 @@ $name=$Mode+'_'+$Driver+$(if($Emulated){'_100ms_2loss'}else{'_baseline'})
 if($EntryProbe){$name+='_entry_probe'}
 @{name=$name;driver=$Driver;network=[bool]$Emulated;emulation_target='Everyone';entry_probe=[bool]$EntryProbe}|ConvertTo-Json|Set-Content ($base+'case.json') -Encoding utf8
 $began=Get-Date
+$moduleHash=(Get-FileHash -LiteralPath ($root+'/Binaries/Win64/UnrealEditor-RVSurvival.dll') -Algorithm SHA256).Hash
+$sourceCheckpoint=git -c core.fsmonitor=false rev-parse --short HEAD
 foreach($suffix in @('.log','_child.log','_server.json','_client.json')){if(Test-Path ($base+$name+$suffix)){New-Item -ItemType Directory -Force ($base+'History/'+$name+'-'+(Get-Date -Format yyyyMMddHHmmss))|Out-Null;Copy-Item ($base+$name+$suffix) ($base+'History/'+$name+'-'+(Get-Date -Format yyyyMMddHHmmss)+'/')}}
 $args='"'+$root+'/RVSurvival.uproject" -ExecCmds="py '+$base+'launch_process.py" -abslog="'+$base+$name+'.log"'
 $job=Start-Process 'D:/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe' -ArgumentList $args -WindowStyle Hidden -PassThru
@@ -38,6 +40,9 @@ $failures=0;$pids=@()
 foreach($role in @('server','client')){
  $path=$base+$name+'_'+$role+'.json';if(!(Test-Path $path) -or (Get-Item $path).LastWriteTime -lt $began){throw "Missing fresh $role receipt"}
  $r=Get-Content $path -Raw|ConvertFrom-Json;$bad=@($r.results|Where-Object{-not $_.pass});Write-Output "$role checks=$($r.results.Count) failed=$($bad.Count)";if($bad.Count){$bad|ConvertTo-Json -Depth 5}
+ $r|Add-Member -NotePropertyName module_sha256 -NotePropertyValue $moduleHash -Force
+ $r|Add-Member -NotePropertyName source_checkpoint -NotePropertyValue $sourceCheckpoint -Force
+ $r|Add-Member -NotePropertyName evidence_kind -NotePropertyValue 'PIE with native Enhanced Input events; initial placement/fault fixtures; recovery never called directly' -Force
  $pids+=$r.pid
  $failures+=$bad.Count
  if($r.samples){$r|Add-Member -NotePropertyName sample_summary -NotePropertyValue @{count=$r.samples.Count;max_correction_cm=($r.samples.max_correction|Measure-Object -Maximum).Maximum;max_speed_cm_s=($r.samples.speed|Measure-Object -Maximum).Maximum} -Force;$r.PSObject.Properties.Remove('samples')}

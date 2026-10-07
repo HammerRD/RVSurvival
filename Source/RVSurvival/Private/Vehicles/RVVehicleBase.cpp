@@ -252,8 +252,8 @@ void ARVVehicleBase::Steering(const FInputActionValue& V)
 { if(FMath::IsNearlyZero(V.Get<float>())) bRecoverySteeringLatch=false; LocalSteering=bRecoverySteeringLatch?0:V.Get<float>(); }
 void ARVVehicleBase::MulticastClearRecoveryDrive_Implementation()
 {
-    bRecoveryThrottleLatch=!FMath::IsNearlyZero(LocalThrottle);
-    bRecoverySteeringLatch=!FMath::IsNearlyZero(LocalSteering);
+    bRecoveryThrottleLatch=bRecoveryThrottleLatch || !FMath::IsNearlyZero(LocalThrottle);
+    bRecoverySteeringLatch=bRecoverySteeringLatch || !FMath::IsNearlyZero(LocalSteering);
     LocalThrottle=LocalSteering=ServerThrottle=ServerSteering=0;
     bLocalHandbrake=false;bServerHandbrake=true;LastInputTime=0;
     GetVehicleMovement()->SetThrottleInput(0);GetVehicleMovement()->SetBrakeInput(0);
