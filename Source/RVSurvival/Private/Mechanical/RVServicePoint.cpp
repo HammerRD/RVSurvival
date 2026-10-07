@@ -10,6 +10,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "TimerManager.h"
+#include "Vehicles/RVInteractiveDoor.h"
 ARVServicePoint::ARVServicePoint()
 {
     bAlwaysRelevant=true;SetReplicateMovement(true);PrimaryActorTick.bCanEverTick=true;PrimaryActorTick.TickInterval=.1f;
@@ -44,7 +45,15 @@ void ARVServicePoint::RequestAuthority(ARVPlayerController* PC,FName Action,int3
     if(Action==TEXT("Cancel")){if(RepairController.Get()==PC)CancelAuthority(TEXT("Repair canceled; supplies retained"));return;}
     if(!HasAccess(PC) || PC->MechanicalPoint!=this){Feedback(TEXT("Service out of reach or incompatible state"));return;}
     if(Expected!=Revision){Feedback(TEXT("Service changed; refresh and retry"));return;}
+    if(Action==TEXT("Hood"))
+    {
+        if(Vehicle->GetVelocity().Size()>=10 || !Vehicle->EngineHood){Feedback(TEXT("Stop before operating the hood"));return;}
+        const bool WasOpen=Vehicle->EngineHood->bOpen;Vehicle->EngineHood->CompleteInteraction_Implementation(PC->GetPawn());
+        if(WasOpen==Vehicle->EngineHood->bOpen){Feedback(TEXT("Hood swing obstructed; move clear"));return;}
+        ++Revision;ForceNetUpdate();Feedback(Vehicle->EngineHood->bOpen?TEXT("Hood open; engine interlock active"):TEXT("Hood closed"));return;
+    }
     auto* System=Vehicle->CoolingSystem.Get();
+    if(Vehicle->EngineHood && !Vehicle->EngineHood->bOpen){Feedback(TEXT("Open the hood first (P)"));return;}
     if(!System->CanService()){Feedback(TEXT("Stop, switch off engine and let it cool before service"));return;}
     if(RepairPlayer){Feedback(TEXT("Another repair is already in progress"));return;}
     auto* Inv=PC->GetPawn()->FindComponentByClass<URVInventoryComponent>();if(!Inv)return;
@@ -66,15 +75,19 @@ void ARVServicePoint::RequestAuthority(ARVPlayerController* PC,FName Action,int3
 }
 void ARVServicePoint::Tick(float DT)
 {
-    Super::Tick(DT);if(!HasAuthority() || !RepairPlayer)return;
+    Super::Tick(DT);if(!HasAuthority())return;
+    for(auto It=GetWorld()->GetPlayerControllerIterator();It;++It)
+        if(auto* Viewer=Cast<ARVPlayerController>(It->Get());Viewer && Viewer->MechanicalPoint==this && !HasAccess(Viewer))
+        {Viewer->MechanicalPoint=nullptr;Viewer->MechanicalFeedback=TEXT("Service closed: out of reach or incompatible state");Viewer->ForceNetUpdate();}
+    if(!RepairPlayer)return;
     auto* PC=RepairController.Get();auto* Inv=PC && PC->GetPawn()?PC->GetPawn()->FindComponentByClass<URVInventoryComponent>():nullptr;
-    if(!PC || !HasAccess(PC) || PC->MechanicalPoint!=this || PC->ResourcePoint || !Inv || Inv->OpenContainer || !Vehicle->CoolingSystem->CanService() || Vehicle->CoolingSystem->ServiceRevision!=ExpectedMechanicalRevision)
+    if(!PC || !HasAccess(PC) || PC->MechanicalPoint!=this || PC->ResourcePoint || !Inv || Inv->OpenContainer || (Vehicle->EngineHood && !Vehicle->EngineHood->bOpen) || !Vehicle->CoolingSystem->CanService() || Vehicle->CoolingSystem->ServiceRevision!=ExpectedMechanicalRevision)
         CancelAuthority(TEXT("Repair interrupted; supplies retained"));
 }
 void ARVServicePoint::FinishRepair()
 {
     auto* PC=RepairController.Get();auto* System=Vehicle?Vehicle->CoolingSystem.Get():nullptr;
-    if(!HasAuthority() || !PC || !System || !HasAccess(PC) || PC->MechanicalPoint!=this || !System->CanService() || ExpectedMechanicalRevision!=System->ServiceRevision)
+    if(!HasAuthority() || !PC || !System || !HasAccess(PC) || PC->MechanicalPoint!=this || (Vehicle->EngineHood && !Vehicle->EngineHood->bOpen) || !System->CanService() || ExpectedMechanicalRevision!=System->ServiceRevision)
     {CancelAuthority(TEXT("Repair interrupted; supplies retained"));return;}
     const auto* R=System->Profile?System->Profile->Repairs.FindByPredicate([&](const auto& X){return X.Id==ActiveRepair;}):nullptr;
     auto* Inv=PC->GetPawn()->FindComponentByClass<URVInventoryComponent>();FString Error;

@@ -16,7 +16,11 @@ def inventory(cat):return next(i for i in inv.get_items() if str(i.definition.ge
 def count(cat):return sum(i.quantity for i in inv.get_items() if str(i.definition.get_editor_property('CatalogId'))==cat)
 def seed(cat,quantity=1):
  item=unreal.RVItemInstance();item.set_editor_property('Id',unreal.GuidLibrary.new_guid());item.set_editor_property('Definition',unreal.load_asset('/Game/Mechanical/DA_'+cat));item.set_editor_property('Quantity',quantity);item.set_editor_property('Condition',.83)
- result=inv.add_authority(item);assert result[0],str(result);return item.id
+ result=inv.add_authority(item)
+ # Python struct-wrapper identity is not the native GUID value comparison.
+ key=lambda guid:tuple(guid.get_editor_property(f) for f in ['A','B','C','D'])
+ assert any(key(i.id)==key(item.id) for i in inv.get_items()),str(result)
+ return item.id
 def press(key,seconds=.2):
  global held
  if held:unreal.RVInteriorMotorhome.dispatch_development_key(pc,held[0],False)
@@ -48,8 +52,10 @@ def model():
  # invoke real gameplay intent. No direct repair-completion call.
  p.set_actor_location(v.get_actor_transform().transform_location(unreal.Vector(550,0,100)),False,True)
  pc.set_control_rotation(unreal.MathLibrary.find_look_at_rotation(p.get_actor_location()+unreal.Vector(0,0,64),point.get_actor_location()))
-def initial_e():press('E',.85)
-def panel_check():check('normal_E_opens_service',pc.get_editor_property('MechanicalPoint')==point);press('B')
+def initial_e():
+ pc.set_control_rotation(unreal.MathLibrary.find_look_at_rotation(p.get_actor_location()+unreal.Vector(0,0,64),point.get_actor_location()));press('E',.85)
+def panel_check():check('normal_E_opens_service',pc.get_editor_property('MechanicalPoint')==point);press('P')
+def hood_check():check('normal_P_hood_open',bool(v.get_editor_property('EngineHood').get_editor_property('bOpen')));press('B')
 def missing_check():check('repair_without_tool_rejected',not point.get_editor_property('RepairPlayer') and count('RadiatorPatch')==0,pc.get_editor_property('MechanicalFeedback'));seed('MechanicTools');seed('RadiatorPatch',3);press('B')
 def start_check():check('normal_B_starts_authority_timer',point.get_editor_property('RepairPlayer')==pc.player_state and count('RadiatorPatch')==3);press('Escape')
 def cancel_check():check('normal_Escape_cancels_without_consumption',not point.get_editor_property('RepairPlayer') and count('RadiatorPatch')==3);initial_e()
@@ -82,7 +88,7 @@ def finish():
  if held:unreal.RVInteriorMotorhome.dispatch_development_key(pc,held[0],False)
  unreal.unregister_slate_post_tick_callback(h)
  (B/'single.json').write_text(json.dumps({'results':results},indent=2),encoding='utf-8')
-for t,fn in [(0,model),(1,initial_e),(2.3,panel_check),(3,missing_check),(4,start_check),(4.8,cancel_check),(6,restart_patch),(15,patch_done),(16,refill_done),(17,full_rejected),(33,replacement_done),(54,engine_done),(55,leave_range),(64,canceled_range),(65,finish)]:events.append((t,fn))
+for t,fn in [(0,model),(1,initial_e),(2.3,panel_check),(2.7,hood_check),(3.5,missing_check),(4.5,start_check),(5.3,cancel_check),(6.5,restart_patch),(15.5,patch_done),(16.5,refill_done),(17.5,full_rejected),(33.5,replacement_done),(54.5,engine_done),(55.5,leave_range),(64.5,canceled_range),(65.5,finish)]:events.append((t,fn))
 def tick(dt):
  global held
  try:

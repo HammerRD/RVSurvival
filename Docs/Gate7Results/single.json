@@ -1,0 +1,189 @@
+{
+  "results": [
+    {
+      "case": "normal_scale_separate",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_hour_full_load_stable",
+      "pass": true,
+      "detail": "84.10256410256325"
+    },
+    {
+      "case": "normal_no_leak_or_engine_damage",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "minor_leak_exact",
+      "pass": true,
+      "detail": "11.900000000000055"
+    },
+    {
+      "case": "major_leak_faster_exact",
+      "pass": true,
+      "detail": "10.499999999999943"
+    },
+    {
+      "case": "damaged_radiator_hotter",
+      "pass": true,
+      "detail": "(83.91795518217351, 200.0)"
+    },
+    {
+      "case": "low_coolant_heat_risk",
+      "pass": true,
+      "detail": "200.0"
+    },
+    {
+      "case": "load_adds_heat",
+      "pass": true,
+      "detail": "(42.78923507459423, 133.94617537297114)"
+    },
+    {
+      "case": "airflow_reduces_heat",
+      "pass": true,
+      "detail": "83.91795518217351"
+    },
+    {
+      "case": "shutdown_cools_no_load_damage",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "threshold_NORMAL",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "threshold_WARM",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "threshold_HOT",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "threshold_OVERHEATING",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "threshold_CRITICAL",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "prolonged_overheat_engine_shutdown",
+      "pass": true,
+      "detail": "(0.09879658371210098, 35.751834755351965)"
+    },
+    {
+      "case": "coolant_temperature_engine_bounded",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shutdown_stops_combustion_damage",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "lower_clamps",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "upper_clamps",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "nan_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "day_equivalent_bounded",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_E_opens_service",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "repair_without_tool_rejected",
+      "pass": true,
+      "detail": "Missing usable Repair.Tool.Mechanic x1"
+    },
+    {
+      "case": "normal_B_starts_authority_timer",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_Escape_cancels_without_consumption",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "temporary_repair_consumes_once_retains_tool",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "temporary_patch_reduces_leak",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "exact_partial_refill",
+      "pass": true,
+      "detail": "2.0"
+    },
+    {
+      "case": "empty_hardware_guid_condition_retained",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "full_system_no_item_loss",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "full_replacement_consumed_once",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "full_radiator_repair",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "engine_service_recoverable_restart",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "engine_service_not_radiator_repair",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "repair_started_before_range_cancel",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "range_cancel_no_late_completion",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

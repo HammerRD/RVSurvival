@@ -20,6 +20,7 @@ void ARVInteractiveDoor::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
 {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     DOREPLIFETIME(ARVInteractiveDoor,bOpen); DOREPLIFETIME(ARVInteractiveDoor,OpenAngle);
+    DOREPLIFETIME(ARVInteractiveDoor,bPitchHinge);
     DOREPLIFETIME(ARVInteractiveDoor,DoorMesh); DOREPLIFETIME(ARVInteractiveDoor,GlassMesh);
     DOREPLIFETIME(ARVInteractiveDoor,DoorMaterials); DOREPLIFETIME(ARVInteractiveDoor,GlassMaterials);
     DOREPLIFETIME(ARVInteractiveDoor,GlassOffset); DOREPLIFETIME(ARVInteractiveDoor,CollisionCenter);
@@ -32,7 +33,7 @@ void ARVInteractiveDoor::OnRep_Door()
     for (int32 Index=0;Index<GlassMaterials.Num();++Index) if (GlassMaterials[Index]) Glass->SetMaterial(Index,GlassMaterials[Index]);
     Glass->bDisallowNanite=true; // Preserve the accepted project-side translucent glass policy.
     DoorCollision->SetRelativeLocation(CollisionCenter); DoorCollision->SetBoxExtent(CollisionExtent);
-    Hinge->SetRelativeRotation(FRotator(0,bOpen?OpenAngle:0,0));
+    const float Angle=bOpen?OpenAngle:0;Hinge->SetRelativeRotation(bPitchHinge?FRotator(Angle,0,0):FRotator(0,Angle,0));
 }
 bool ARVInteractiveDoor::IsSwingClear(bool ToOpen) const
 {
@@ -41,7 +42,7 @@ bool ARVInteractiveDoor::IsSwingClear(bool ToOpen) const
     for (int32 Step=0;Step<=18;++Step)
     {
         const float Angle=FMath::Lerp(bOpen?OpenAngle:0.f,ToOpen?OpenAngle:0.f,Step/18.f);
-        const FQuat Rotation=GetActorQuat()*FRotator(0,Angle,0).Quaternion();
+        const FQuat Rotation=GetActorQuat()*(bPitchHinge?FRotator(Angle,0,0):FRotator(0,Angle,0)).Quaternion();
         const FVector Center=GetActorLocation()+Rotation.RotateVector(CollisionCenter);
         if (GetWorld()->OverlapAnyTestByObjectType(Center,Rotation,FCollisionObjectQueryParams(ECC_Pawn),
             FCollisionShape::MakeBox(CollisionExtent+FVector(2)),Params)) return false;

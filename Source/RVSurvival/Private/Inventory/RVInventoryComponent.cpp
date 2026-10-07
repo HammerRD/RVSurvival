@@ -220,7 +220,7 @@ bool URVInventoryComponent::RepairRequirementsAuthority(const TArray<FRVRepairRe
             const int32 Taken=FMath::Min(Need,FMath::Max(0,I.Quantity-Consume[N]));Need-=Taken;
             if(R.bConsume)Consume[N]+=Taken;
         }
-        if(Need>0){Error=FString::Printf(TEXT("Missing usable %s x%d"),*R.Tag.ToString(),Need);return false;}
+        if(Need>0){Error=FString::Printf(TEXT("Missing usable %s x%d"),R.DisplayName.IsEmpty()?TEXT("repair supplies"):*R.DisplayName.ToString(),Need);return false;}
     }
     if(Commit)
     {

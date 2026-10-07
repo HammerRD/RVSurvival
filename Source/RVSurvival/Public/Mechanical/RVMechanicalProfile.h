@@ -12,6 +12,7 @@ struct FRVRepairRequirement
 {
     GENERATED_BODY()
     UPROPERTY(EditAnywhere, BlueprintReadOnly) FGameplayTag Tag;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly) FText DisplayName;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) int32 Quantity=1;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) bool bConsume=true;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) float MinimumCondition=.1f;
@@ -38,6 +39,7 @@ struct FRVMechanicalTuning
 {
     GENERATED_BODY()
     UPROPERTY(EditAnywhere, BlueprintReadOnly) double CoolantCapacityLitres=12;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly) double LowCoolantFraction=.25;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) double AmbientC=20;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) double MaximumTemperatureC=200;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) double IdleHeatCPerSecond=.25;

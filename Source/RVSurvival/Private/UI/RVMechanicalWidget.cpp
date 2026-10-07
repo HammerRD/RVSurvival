@@ -10,6 +10,7 @@
 #include "Mechanical/RVCoolingComponent.h"
 #include "Mechanical/RVServicePoint.h"
 #include "GameFramework/GameStateBase.h"
+#include "Vehicles/RVInteractiveDoor.h"
 void URVMechanicalWidget::NativeOnInitialized()
 {
     Super::NativeOnInitialized();
@@ -17,7 +18,7 @@ void URVMechanicalWidget::NativeOnInitialized()
     auto* Root=WidgetTree->ConstructWidget<UVerticalBox>();Border->SetContent(Root);
     Title=WidgetTree->ConstructWidget<UTextBlock>();Temperature=WidgetTree->ConstructWidget<UTextBlock>();Warnings=WidgetTree->ConstructWidget<UTextBlock>();Service=WidgetTree->ConstructWidget<UTextBlock>();Gauge=WidgetTree->ConstructWidget<UProgressBar>();
     for(auto* Text:{Title.Get(),Temperature.Get(),Warnings.Get(),Service.Get()})
-    {auto Font=Text->GetFont();Font.Size=16;Text->SetFont(Font);Text->SetColorAndOpacity(FSlateColor(FLinearColor(.85f,.9f,.88f)));Text->SetAutoWrapText(true);}
+    {auto Font=Text->GetFont();Font.Size=16;Text->SetFont(Font);Text->SetColorAndOpacity(FSlateColor(FLinearColor(.85f,.9f,.88f)));Text->SetAutoWrapText(true);Text->SetWrapTextAt(340);}
     Title->SetText(FText::FromString(TEXT("MOTORHOME | ENGINE / COOLING")));
     Root->AddChildToVerticalBox(Title);Root->AddChildToVerticalBox(Temperature);Root->AddChildToVerticalBox(Gauge);Root->AddChildToVerticalBox(Warnings);Root->AddChildToVerticalBox(Service);
     SetVisibility(ESlateVisibility::HitTestInvisible);
@@ -34,14 +35,15 @@ void URVMechanicalWidget::NativeTick(const FGeometry& G,float DT)
     Temperature->SetText(FText::FromString(FString::Printf(TEXT("Temperature %.0f C | %s"),S.TemperatureC,Name)));
     Gauge->SetPercent(float(FMath::Clamp((S.TemperatureC-40)/100.,0.,1.)));Gauge->SetFillColorAndOpacity(S.Status>=ERVThermalStatus::Hot?FLinearColor(.95f,.3f,.12f):FLinearColor(.3f,.75f,.6f));
     FString Warning;
-    if(S.CoolantLitres<C->Tuning.CoolantCapacityLitres*.25)Warning+=TEXT("LOW COOLANT  ");
+    if(S.CoolantLitres<C->Tuning.CoolantCapacityLitres*C->Tuning.LowCoolantFraction)Warning+=TEXT("LOW COOLANT  ");
     if(S.LeakLitresPerSecond>0)Warning+=TEXT("COOLING LEAK  ");
     if(C->Engine.bShutdown)Warning+=TEXT("ENGINE SHUTDOWN - SERVICE REQUIRED");else if(C->Engine.OutputScale<.99f)Warning+=TEXT("LIMITED ENGINE OUTPUT");
+    if(RV->EngineHood && RV->EngineHood->bOpen)Warning+=TEXT(" HOOD OPEN - ENGINE INTERLOCK");
     Warnings->SetText(FText::FromString(Warning.IsEmpty()?TEXT("No cooling warnings"):Warning));
     FString Detail;
     if(PC->MechanicalPoint)
     {
-        Detail=FString::Printf(TEXT("Coolant: %s | Radiator: %s | Engine: %s\nB patch | N radiator replacement | M engine service\nI inventory, select coolant then F refill | Escape close/cancel\n%s"),S.CoolantLitres<C->Tuning.CoolantCapacityLitres*.25?TEXT("low"):TEXT("present"),S.bTemporaryPatch?TEXT("temporarily patched"):S.RadiatorCondition<.85f?TEXT("damaged"):TEXT("serviceable"),C->Engine.Condition<.5f?TEXT("damaged"):TEXT("serviceable"),*PC->MechanicalFeedback);
+        Detail=FString::Printf(TEXT("Coolant: %s | Radiator: %s | Engine: %s\nP hood | B patch | N radiator replacement | M engine service\nI inventory, select coolant then F refill | Escape close/cancel\n%s"),S.CoolantLitres<C->Tuning.CoolantCapacityLitres*C->Tuning.LowCoolantFraction?TEXT("low"):TEXT("present"),S.bTemporaryPatch?TEXT("temporarily patched"):S.RadiatorCondition<C->Tuning.MinorDamageThreshold?TEXT("damaged"):TEXT("serviceable"),C->Engine.Condition<.5f?TEXT("damaged"):TEXT("serviceable"),*PC->MechanicalFeedback);
         if(PC->MechanicalPoint->RepairPlayer)
         {
             const auto* GS=GetWorld()->GetGameState();const double Now=GS?GS->GetServerWorldTimeSeconds():GetWorld()->GetTimeSeconds();

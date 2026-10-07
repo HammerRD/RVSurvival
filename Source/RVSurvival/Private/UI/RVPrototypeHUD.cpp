@@ -1,6 +1,8 @@
 #include "UI/RVPrototypeHUD.h"
 #include "UI/RVMechanicalWidget.h"
 #include "Mechanical/RVServicePoint.h"
+#include "Vehicles/RVMechanicalMotorhome.h"
+#include "Player/RVPassengerReferenceFrameComponent.h"
 #include "Vehicles/RVSystemsMotorhome.h"
 #include "Vehicles/RVResourcePoint.h"
 #include "Resources/RVElectricalComponent.h"
@@ -27,8 +29,14 @@ void ARVPrototypeHUD::DrawHUD()
 {
     Super::DrawHUD();
     if (!Canvas || !PlayerOwner) return;
-    if(!MechanicalWidget && PlayerOwner->IsLocalController())
-    {MechanicalWidget=CreateWidget<URVMechanicalWidget>(PlayerOwner,URVMechanicalWidget::StaticClass());MechanicalWidget->AddToPlayerScreen();MechanicalWidget->SetPositionInViewport(FVector2D(20,120),false);}
+    const auto* MechanicalPC=Cast<ARVPlayerController>(PlayerOwner);
+    AActor* MechanicalVehicle=MechanicalPC && MechanicalPC->MechanicalPoint?MechanicalPC->MechanicalPoint->Vehicle.Get():MechanicalPC?Cast<ARVMechanicalMotorhome>(MechanicalPC->SeatedVehicle.Get()):nullptr;
+    if(!MechanicalVehicle && PlayerOwner->GetPawn())if(const auto* Frame=PlayerOwner->GetPawn()->FindComponentByClass<URVPassengerReferenceFrameComponent>())MechanicalVehicle=Cast<ARVMechanicalMotorhome>(Frame->ReferenceFrame.Get());
+    if(MechanicalVehicle && !MechanicalWidget && PlayerOwner->IsLocalController())
+    {MechanicalWidget=CreateWidget<URVMechanicalWidget>(PlayerOwner,URVMechanicalWidget::StaticClass());MechanicalWidget->AddToPlayerScreen();}
+    // Collapsed UMG widgets do not tick: the HUD owns availability/visibility so
+    // a panel first opened after spawn can never stay permanently collapsed.
+    if(MechanicalWidget){MechanicalWidget->SetVisibility(MechanicalVehicle?ESlateVisibility::HitTestInvisible:ESlateVisibility::Collapsed);MechanicalWidget->SetPositionInViewport(FVector2D(FMath::Max(20.f,Canvas->ClipX-390.f),380),false);}
     auto* PS=PlayerOwner->GetPlayerState<ARVPlayerState>();
     auto* Needs=PS?PS->Needs.Get():nullptr;
     if(Needs)

@@ -1,0 +1,4163 @@
+{
+  "pid": 34468,
+  "role": "server",
+  "config": {
+    "name": "mechanical_host_baseline",
+    "network": false,
+    "driver": "host"
+  },
+  "results": [
+    {
+      "case": "normal_E_diagnosis_authoritative",
+      "pass": true,
+      "detail": "{'point': \"<Object '/Game/Maps/UEDPIE_0_Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.RVServicePoint_0' (0x000001DC1E45DC00) Class 'RVServicePoint'>\", 'radiator': 0.20000000298023224, 'location': \"<Struct 'Vector' (0x000001DBFECA1AA0) {x: 552.643584, y: -73.964231, z: 90.150002}>\", 'target': \"<Struct 'Vector' (0x000001DBFECA1AA0) {x: 418.477899, y: 0.860329, z: 139.682390}>\", 'prompt': 'Hold E: inspect engine / cooling service'}"
+    },
+    {
+      "case": "hood_open_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "one_authoritative_repair_reservation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "start_does_not_consume",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "cancellation_converges_without_consumption",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_patch_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "only_client_patch_consumed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "coolant_converges_capacity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "duplicate_requests_conserve_fluid",
+      "pass": true,
+      "detail": "7.0"
+    },
+    {
+      "case": "fluid_guids_state_intact",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host_full_repair_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host_replacement_consumed_only_once",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shutdown_warning_output_replicated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_engine_service_restores_operation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "engine_service_preserves_radiator_fault",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_radiator_replace_restores_cooling",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_E_driver_possession",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "actual_vehicle_moving_under_fault",
+      "pass": true,
+      "detail": "3678.6944366952584"
+    },
+    {
+      "case": "moving_coolant_leak_replicates",
+      "pass": true,
+      "detail": "11.88029270023113"
+    },
+    {
+      "case": "roadside_braking_stops",
+      "pass": true,
+      "detail": "0.0"
+    }
+  ],
+  "samples": [
+    {
+      "t": -2.976229190826416,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None"
+    },
+    {
+      "t": -2.706834554672241,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None"
+    },
+    {
+      "t": -2.445688009262085,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None"
+    },
+    {
+      "t": -2.1583046913146973,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None"
+    },
+    {
+      "t": -1.9030542373657227,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None"
+    },
+    {
+      "t": -1.6220588684082031,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None"
+    },
+    {
+      "t": -1.3685088157653809,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None"
+    },
+    {
+      "t": -1.105492353439331,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None"
+    },
+    {
+      "t": -0.8545315265655518,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None"
+    },
+    {
+      "t": -0.5835146903991699,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None"
+    },
+    {
+      "t": -0.2840464115142822,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None"
+    },
+    {
+      "t": 0.007980108261108398,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 0.2608623504638672,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 0.5245723724365234,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 0.785635232925415,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 1.052053689956665,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 1.3412325382232666,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 1.6009984016418457,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 1.874091386795044,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 2.1297614574432373,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 2.4377167224884033,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 2.7235817909240723,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 2.976099729537964,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 3.2368814945220947,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 3.560742139816284,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 3.827169895172119,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 4.107858419418335,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 4.484725475311279,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 4.816600799560547,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 5.114025115966797,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 5.403441667556763,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 5.663789987564087,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 5.931540250778198,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 6.188317060470581,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 6.4401695728302,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 6.719701528549194,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 7.002341270446777,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 7.269249677658081,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 7.51931357383728,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 7.783708095550537,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 8.094644546508789,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 8.37719464302063,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 8.667143821716309,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 8.971674680709839,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 9.223443508148193,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 9.486753702163696,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 9.799146890640259,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None"
+    },
+    {
+      "t": 10.05120301246643,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 10.356822729110718,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 10.609115600585938,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 10.866788864135742,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 11.1719491481781,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 11.45538878440857,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 11.7280912399292,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 11.985864400863647,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 12.236933469772339,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 12.518363237380981,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 12.793506383895874,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 13.082124710083008,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 13.356818914413452,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 13.650196075439453,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 13.918173551559448,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 14.187955617904663,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 14.466590881347656,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 14.75778341293335,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 15.042484283447266,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 15.296931266784668,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 15.598073959350586,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 15.876928567886353,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 16.134120225906372,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 16.428627014160156,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 16.722891569137573,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 17.052256107330322,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 17.35688281059265,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 17.635730028152466,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 17.958157539367676,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "Patch"
+    },
+    {
+      "t": 18.2539803981781,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 2,
+      "repair": "None"
+    },
+    {
+      "t": 18.537894248962402,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 2,
+      "repair": "None"
+    },
+    {
+      "t": 18.814659357070923,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 2,
+      "repair": "None"
+    },
+    {
+      "t": 19.10083270072937,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 2,
+      "repair": "None"
+    },
+    {
+      "t": 19.374050855636597,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 2,
+      "repair": "None"
+    },
+    {
+      "t": 19.625431537628174,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 2,
+      "repair": "None"
+    },
+    {
+      "t": 19.940650701522827,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 2,
+      "repair": "None"
+    },
+    {
+      "t": 20.24004888534546,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 3,
+      "repair": "None"
+    },
+    {
+      "t": 20.526703357696533,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 3,
+      "repair": "None"
+    },
+    {
+      "t": 20.787660360336304,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 3,
+      "repair": "None"
+    },
+    {
+      "t": 21.103095531463623,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 3,
+      "repair": "None"
+    },
+    {
+      "t": 21.384299993515015,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 3,
+      "repair": "None"
+    },
+    {
+      "t": 21.673325538635254,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 3,
+      "repair": "None"
+    },
+    {
+      "t": 21.96819305419922,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 3,
+      "repair": "None"
+    },
+    {
+      "t": 22.25768280029297,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 3,
+      "repair": "None"
+    },
+    {
+      "t": 22.509167671203613,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 3,
+      "repair": "None"
+    },
+    {
+      "t": 22.78563094139099,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 3,
+      "repair": "None"
+    },
+    {
+      "t": 23.08074688911438,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "None"
+    },
+    {
+      "t": 23.413240432739258,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "None"
+    },
+    {
+      "t": 23.707967519760132,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "None"
+    },
+    {
+      "t": 23.996758699417114,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "None"
+    },
+    {
+      "t": 24.269429206848145,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 24.551433324813843,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 24.820319414138794,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 25.14354109764099,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 25.413326501846313,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 25.668733596801758,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 25.92231583595276,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 26.21881413459778,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 26.50441884994507,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 26.811532735824585,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 27.08679986000061,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 27.37247943878174,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 27.662256956100464,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 27.952272415161133,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 28.20813226699829,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 28.477591276168823,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 28.77826476097107,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 29.070148944854736,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 29.326874256134033,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 29.586989641189575,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 29.87658143043518,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 30.178858041763306,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 30.4379243850708,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 30.71550679206848,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 30.98229146003723,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 31.291367053985596,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 31.611007690429688,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 31.931416034698486,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 32.19437074661255,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 32.44570994377136,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 32.71217370033264,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 33.02358937263489,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 33.28546118736267,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 33.588857889175415,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 33.84559679031372,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 34.13259267807007,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 34.420119524002075,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 34.72396636009216,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 35.0165958404541,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 35.342071533203125,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 35.594473123550415,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 35.88044857978821,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 36.15352487564087,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 36.47392702102661,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 36.77215051651001,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 37.09801983833313,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 37.39668130874634,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 37.6755735874176,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 37.96982383728027,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 38.255850076675415,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 38.61789608001709,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 38.912073850631714,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 4,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 39.20244336128235,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 5,
+      "repair": "None"
+    },
+    {
+      "t": 39.50327444076538,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 5,
+      "repair": "None"
+    },
+    {
+      "t": 39.76433086395264,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 5,
+      "repair": "None"
+    },
+    {
+      "t": 40.06430673599243,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 5,
+      "repair": "None"
+    },
+    {
+      "t": 40.336633920669556,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 5,
+      "repair": "None"
+    },
+    {
+      "t": 40.640074014663696,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 5,
+      "repair": "None"
+    },
+    {
+      "t": 40.90770673751831,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 5,
+      "repair": "None"
+    },
+    {
+      "t": 41.22093939781189,
+      "temperature": 180.0,
+      "coolant": 0.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 6,
+      "repair": "None"
+    },
+    {
+      "t": 41.51670265197754,
+      "temperature": 180.0,
+      "coolant": 0.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 6,
+      "repair": "None"
+    },
+    {
+      "t": 41.77156591415405,
+      "temperature": 180.0,
+      "coolant": 0.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 6,
+      "repair": "None"
+    },
+    {
+      "t": 42.03785061836243,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "None"
+    },
+    {
+      "t": 42.32165837287903,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "None"
+    },
+    {
+      "t": 42.607800006866455,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "None"
+    },
+    {
+      "t": 42.90430498123169,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "None"
+    },
+    {
+      "t": 43.18994164466858,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "None"
+    },
+    {
+      "t": 43.46463370323181,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "None"
+    },
+    {
+      "t": 43.73591375350952,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "None"
+    },
+    {
+      "t": 44.02394890785217,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 44.28277087211609,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 44.54424023628235,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 44.82597088813782,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 45.09332633018494,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 45.36909317970276,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 45.65869450569153,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 45.99694752693176,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 46.314555168151855,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 46.61180639266968,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 46.90349102020264,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 47.15418314933777,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 47.469353437423706,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 47.76165008544922,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 48.039284467697144,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 48.29070496559143,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 48.57791185379028,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 48.88588809967041,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 49.17258358001709,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 49.44566607475281,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 49.71993017196655,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 50.006762742996216,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 50.32432961463928,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 50.62354397773743,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 50.91886258125305,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 51.21546816825867,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 51.47136068344116,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 51.82044458389282,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 52.10828423500061,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 52.40290117263794,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 52.67145776748657,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 52.9499876499176,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 53.221415281295776,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 53.5057475566864,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 53.78210401535034,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 54.05329346656799,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 54.30684232711792,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 54.67091989517212,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 54.95925974845886,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 55.232365131378174,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 55.52587604522705,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 55.81972694396973,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 56.09998869895935,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 56.369388580322266,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 56.64486646652222,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 56.94381546974182,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 57.26442098617554,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 57.547056674957275,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 57.85801339149475,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 58.12454128265381,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 58.376736879348755,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 58.65453052520752,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 58.92778205871582,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 59.17834281921387,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 59.44469141960144,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 59.75765919685364,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 60.054779052734375,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 60.347238540649414,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 60.678635597229004,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 60.975810527801514,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 61.261154890060425,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 61.52976036071777,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 61.79161977767944,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 62.09339427947998,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 62.34414792060852,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 62.625765323638916,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 62.8889901638031,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 63.18685984611511,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 63.487157106399536,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 63.7858772277832,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.05000000074505806,
+      "output": 0.0,
+      "revision": 7,
+      "repair": "EngineService"
+    },
+    {
+      "t": 64.07103061676025,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "None"
+    },
+    {
+      "t": 64.359041929245,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "None"
+    },
+    {
+      "t": 64.6378002166748,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "None"
+    },
+    {
+      "t": 64.97250199317932,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "None"
+    },
+    {
+      "t": 65.27015423774719,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 65.54316067695618,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 65.85986089706421,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 66.14338111877441,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 66.398029088974,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 66.64988374710083,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 66.94225478172302,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 67.19700002670288,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 67.4613196849823,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 67.75252676010132,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 68.01686596870422,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 68.32917594909668,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 68.58805203437805,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 68.86996483802795,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 69.12039566040039,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 69.39713954925537,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 69.65815806388855,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 69.92190265655518,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 70.1727077960968,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 70.43035078048706,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 70.73734092712402,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 70.99788117408752,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 71.25785994529724,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 71.52403259277344,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 71.84188747406006,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 72.10004615783691,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 72.38039827346802,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 72.69057965278625,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 73.0292592048645,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 73.36182475090027,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 73.65846872329712,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 73.91015458106995,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 74.19937634468079,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 74.50009894371033,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 74.80698776245117,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 75.06095504760742,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 75.34414196014404,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 75.60328674316406,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 75.8800745010376,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 76.18800473213196,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 76.448166847229,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 76.7282361984253,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 76.97927284240723,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 77.29816436767578,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 77.55557489395142,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 77.81673836708069,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 78.12121772766113,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 78.40260076522827,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 78.66087651252747,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 78.9413845539093,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 79.20435690879822,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 79.49042415618896,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 79.8200147151947,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 8,
+      "repair": "ReplaceRadiator"
+    },
+    {
+      "t": 80.0730414390564,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 9,
+      "repair": "None"
+    },
+    {
+      "t": 80.3849036693573,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 9,
+      "repair": "None"
+    },
+    {
+      "t": 80.63671851158142,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 9,
+      "repair": "None"
+    },
+    {
+      "t": 80.92327666282654,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 9,
+      "repair": "None"
+    },
+    {
+      "t": 81.19372296333313,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 9,
+      "repair": "None"
+    },
+    {
+      "t": 81.44717335700989,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 9,
+      "repair": "None"
+    },
+    {
+      "t": 81.78680515289307,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 9,
+      "repair": "None"
+    },
+    {
+      "t": 82.06747364997864,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 9,
+      "repair": "None"
+    },
+    {
+      "t": 82.40132427215576,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 9,
+      "repair": "None"
+    },
+    {
+      "t": 82.67475986480713,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 9,
+      "repair": "None"
+    },
+    {
+      "t": 82.95057129859924,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 0.6499999761581421,
+      "output": 1.0,
+      "revision": 9,
+      "repair": "None"
+    },
+    {
+      "t": 83.21687960624695,
+      "temperature": 69.88895987916817,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 83.47880291938782,
+      "temperature": 69.75511245306495,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 83.74003195762634,
+      "temperature": 69.63502055547603,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 84.011873960495,
+      "temperature": 69.49509871332486,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 84.28692078590393,
+      "temperature": 69.36055940159497,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 84.56253838539124,
+      "temperature": 69.24319834896188,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 84.83587670326233,
+      "temperature": 69.11896717142776,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 85.10123133659363,
+      "temperature": 68.98352624773807,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 85.37978982925415,
+      "temperature": 68.85534744167681,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 85.65941286087036,
+      "temperature": 68.65791601574121,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 85.93327736854553,
+      "temperature": 68.59434775426978,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 86.18576335906982,
+      "temperature": 68.52082769502671,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 86.44299721717834,
+      "temperature": 68.46511815536094,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 86.70168805122375,
+      "temperature": 68.39606201782328,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 86.9522614479065,
+      "temperature": 68.33184050057518,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 87.20698714256287,
+      "temperature": 68.51719994834824,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 87.49720931053162,
+      "temperature": 68.69442285264476,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 87.75791120529175,
+      "temperature": 68.86284601394146,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 88.02008652687073,
+      "temperature": 69.06588261458735,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 88.28010725975037,
+      "temperature": 69.19919495919672,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 88.55051565170288,
+      "temperature": 69.37414655408593,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 88.80280566215515,
+      "temperature": 69.53563180437575,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 89.0640618801117,
+      "temperature": 69.6790076230757,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 89.33246040344238,
+      "temperature": 69.8176342859558,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 89.60226058959961,
+      "temperature": 69.96145717597075,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 89.87433099746704,
+      "temperature": 70.09702896958348,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 90.13447594642639,
+      "temperature": 70.20876527863136,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 90.40218710899353,
+      "temperature": 70.44703370885455,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 90.66469359397888,
+      "temperature": 70.561064820505,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 90.91827392578125,
+      "temperature": 70.66614044471923,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 91.18927025794983,
+      "temperature": 70.76409394235102,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 91.47376704216003,
+      "temperature": 70.86503486552807,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 91.73884510993958,
+      "temperature": 70.95070408708186,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 91.98913979530334,
+      "temperature": 71.03371446504467,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 92.25546622276306,
+      "temperature": 71.11577311193943,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 92.52126502990723,
+      "temperature": 71.20100101782278,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 92.79589891433716,
+      "temperature": 71.28958846237441,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 93.05579900741577,
+      "temperature": 71.36215487714993,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 93.31702494621277,
+      "temperature": 71.44660060066813,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 93.59090328216553,
+      "temperature": 71.51600378151885,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 93.8435640335083,
+      "temperature": 71.5856800446835,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 94.13415813446045,
+      "temperature": 71.6499345195542,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 94.38686847686768,
+      "temperature": 71.71427324234772,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 94.67913150787354,
+      "temperature": 71.83640428024076,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 94.9416868686676,
+      "temperature": 71.88884960628432,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 10,
+      "repair": "None"
+    },
+    {
+      "t": 95.20684456825256,
+      "temperature": 95.7671856653277,
+      "coolant": 11.995212439894678,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 95.47543525695801,
+      "temperature": 96.43935495336282,
+      "coolant": 11.990457735955719,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 95.74695992469788,
+      "temperature": 97.05820187347399,
+      "coolant": 11.985454826056964,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 96.00666952133179,
+      "temperature": 97.60100586303196,
+      "coolant": 11.980379118025313,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 96.28849363327026,
+      "temperature": 98.09621976060299,
+      "coolant": 11.974983796179307,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 96.55476450920105,
+      "temperature": 98.51460894688122,
+      "coolant": 11.97019107818605,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 96.83497357368469,
+      "temperature": 98.90474775916604,
+      "coolant": 11.965337014198319,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 97.11774682998657,
+      "temperature": 99.2719336122976,
+      "coolant": 11.959844618439693,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 97.38218688964844,
+      "temperature": 99.54604837819481,
+      "coolant": 11.9547598564625,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 97.65442705154419,
+      "temperature": 99.89422848473183,
+      "coolant": 11.945245662331606,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 97.92803001403809,
+      "temperature": 99.99989563298031,
+      "coolant": 11.94028760641816,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 98.18820214271545,
+      "temperature": 100.06192328034457,
+      "coolant": 11.935366224348574,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 98.44134449958801,
+      "temperature": 100.08311850749101,
+      "coolant": 11.930196118652852,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 98.73218107223511,
+      "temperature": 100.06603492942504,
+      "coolant": 11.925098348557983,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 99.02201223373413,
+      "temperature": 100.01840955065737,
+      "coolant": 11.92009455233816,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 99.27374505996704,
+      "temperature": 99.94397772403238,
+      "coolant": 11.915170802176037,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 99.55361318588257,
+      "temperature": 99.8439937303357,
+      "coolant": 11.910107684433502,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 99.82368612289429,
+      "temperature": 99.71491123951633,
+      "coolant": 11.904591456353709,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 100.10678768157959,
+      "temperature": 99.58363360471965,
+      "coolant": 11.899682468473957,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 100.410315990448,
+      "temperature": 99.30354370426565,
+      "coolant": 11.890138234198144,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 100.6783173084259,
+      "temperature": 99.12858698182743,
+      "coolant": 11.884767642319256,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 100.94042110443115,
+      "temperature": 98.97328832638883,
+      "coolant": 11.88029270023113,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 101.2280330657959,
+      "temperature": 98.79315295527591,
+      "coolant": 11.875451754331646,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 101.51674437522888,
+      "temperature": 98.59248755899188,
+      "coolant": 11.870246324539245,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 101.79835224151611,
+      "temperature": 98.39945602640637,
+      "coolant": 11.865397424697939,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 102.05788278579712,
+      "temperature": 98.19253549937045,
+      "coolant": 11.860343260765141,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 102.32230234146118,
+      "temperature": 97.95083455070835,
+      "coolant": 11.854627176523277,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 102.57290768623352,
+      "temperature": 97.75240541025384,
+      "coolant": 11.84996022462852,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 102.83963108062744,
+      "temperature": 97.55504137976939,
+      "coolant": 11.845343956649376,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 103.1137125492096,
+      "temperature": 97.33935077668255,
+      "coolant": 11.840350140631275,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 103.39305830001831,
+      "temperature": 97.12463775133155,
+      "coolant": 11.83543328464039,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 103.64932298660278,
+      "temperature": 96.67992949832569,
+      "coolant": 11.825362198352895,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 103.92239952087402,
+      "temperature": 96.44067499725577,
+      "coolant": 11.819900810122574,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 104.18923759460449,
+      "temperature": 96.22861105400186,
+      "coolant": 11.815022092163648,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 104.4783308506012,
+      "temperature": 96.00145727009428,
+      "coolant": 11.809708190262405,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 104.76880311965942,
+      "temperature": 95.82129625717477,
+      "coolant": 11.805404782295318,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 105.05880904197693,
+      "temperature": 95.57240428814575,
+      "coolant": 11.799383068084811,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 105.31708812713623,
+      "temperature": 91.16054640991177,
+      "coolant": 11.794977272152998,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 105.59920239448547,
+      "temperature": 86.67633818780338,
+      "coolant": 11.790060270130734,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 105.85444188117981,
+      "temperature": 82.83289952746213,
+      "coolant": 11.78542434424172,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 106.12555742263794,
+      "temperature": 78.47548732648548,
+      "coolant": 11.77958454459916,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 106.40503931045532,
+      "temperature": 72.46438083242136,
+      "coolant": 11.770247978568184,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 106.65931391716003,
+      "temperature": 69.61692475396909,
+      "coolant": 11.765153638720623,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 106.93228125572205,
+      "temperature": 66.86266795545718,
+      "coolant": 11.759685552716368,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 107.2192907333374,
+      "temperature": 64.64599402947583,
+      "coolant": 11.75481718063366,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 107.4702558517456,
+      "temperature": 62.78280146197708,
+      "coolant": 11.750331034660457,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 107.74389314651489,
+      "temperature": 60.86885004987919,
+      "coolant": 11.745241322517515,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 108.01572799682617,
+      "temperature": 59.172162668577315,
+      "coolant": 11.74023796439183,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 108.27942633628845,
+      "temperature": 57.681556038366296,
+      "coolant": 11.735393602252131,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 108.5445966720581,
+      "temperature": 56.26868933530064,
+      "coolant": 11.7303162044288,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 108.81379747390747,
+      "temperature": 55.006384754147774,
+      "coolant": 11.725291634202133,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 109.0790810585022,
+      "temperature": 53.87817091194236,
+      "coolant": 11.720306564271581,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 109.32997298240662,
+      "temperature": 52.85915533877156,
+      "coolant": 11.71531270027174,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 109.59732365608215,
+      "temperature": 51.95735805843403,
+      "coolant": 11.710419032275812,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 109.86923480033875,
+      "temperature": 51.11503540250732,
+      "coolant": 11.705323864519734,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 110.14842581748962,
+      "temperature": 49.732719317667176,
+      "coolant": 11.69536723226323,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 110.4184250831604,
+      "temperature": 49.111302582036785,
+      "coolant": 11.689974046051647,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 110.67996025085449,
+      "temperature": 48.64658940221216,
+      "coolant": 11.685402931869177,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 110.93798565864563,
+      "temperature": 48.18501426721359,
+      "coolant": 11.680167388022095,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 111.20552563667297,
+      "temperature": 47.78478243910858,
+      "coolant": 11.67489362806097,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 111.45727920532227,
+      "temperature": 47.464357995598526,
+      "coolant": 11.670376341939127,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 111.71550750732422,
+      "temperature": 47.127534055295804,
+      "coolant": 11.665306575894514,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 111.98770236968994,
+      "temperature": 46.82226458738655,
+      "coolant": 11.660389868021172,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 112.26901245117188,
+      "temperature": 46.50490160698296,
+      "coolant": 11.65481134772317,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 112.52062487602234,
+      "temperature": 46.29409519316842,
+      "coolant": 11.650377697646782,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 112.78397464752197,
+      "temperature": 46.09258034707328,
+      "coolant": 11.64508367747085,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 113.0538580417633,
+      "temperature": 45.94482944350569,
+      "coolant": 11.640063339173963,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 113.30813336372375,
+      "temperature": 45.84217408938697,
+      "coolant": 11.635460583269767,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 113.58460354804993,
+      "temperature": 45.76529202312232,
+      "coolant": 11.629980117380793,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 113.84805297851562,
+      "temperature": 45.73086864364196,
+      "coolant": 11.625462135374722,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 114.10175013542175,
+      "temperature": 45.72903845388909,
+      "coolant": 11.620098885595977,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 114.35584664344788,
+      "temperature": 45.75835296853341,
+      "coolant": 11.615196237564268,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 114.61798214912415,
+      "temperature": 45.81967009542756,
+      "coolant": 11.610042841434662,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 114.87043523788452,
+      "temperature": 45.89988006443577,
+      "coolant": 11.605394045412726,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 115.1270546913147,
+      "temperature": 46.016573696670676,
+      "coolant": 11.600338739454935,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 115.3899290561676,
+      "temperature": 46.16771745158234,
+      "coolant": 11.595039281547262,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 115.66301274299622,
+      "temperature": 46.528118221240675,
+      "coolant": 11.585093297660547,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 115.91581702232361,
+      "temperature": 46.73241166165331,
+      "coolant": 11.580363251567086,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 116.17261242866516,
+      "temperature": 46.966478492762015,
+      "coolant": 11.575240837931835,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 116.43560934066772,
+      "temperature": 47.191417351064395,
+      "coolant": 11.570210915804115,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 116.72224259376526,
+      "temperature": 47.41182188678029,
+      "coolant": 11.565112745762079,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 116.9768750667572,
+      "temperature": 47.63013392809009,
+      "coolant": 11.559870603680821,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 117.23576235771179,
+      "temperature": 47.834258008508726,
+      "coolant": 11.554783029556488,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 117.49246001243591,
+      "temperature": 48.00842671021742,
+      "coolant": 11.550289783477998,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 117.75132179260254,
+      "temperature": 48.206908196935814,
+      "coolant": 11.544986151457051,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 118.00262808799744,
+      "temperature": 48.38774107748502,
+      "coolant": 11.539972261190636,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 118.26926040649414,
+      "temperature": 48.54552381714954,
+      "coolant": 11.53544594317697,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 118.55024003982544,
+      "temperature": 48.72181975299473,
+      "coolant": 11.530209771096933,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 118.80808019638062,
+      "temperature": 48.8781969060369,
+      "coolant": 11.525396523177852,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 119.0955765247345,
+      "temperature": 49.036414335438764,
+      "coolant": 11.52035381525778,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 119.35236716270447,
+      "temperature": 49.19108378361439,
+      "coolant": 11.515244507491822,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 119.62002921104431,
+      "temperature": 49.345154810224045,
+      "coolant": 11.509965737760304,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 119.87690329551697,
+      "temperature": 49.48965146960107,
+      "coolant": 11.504831051528694,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 120.13557744026184,
+      "temperature": 49.6143788518979,
+      "coolant": 11.500245903432612,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 120.38868570327759,
+      "temperature": 49.75369866898457,
+      "coolant": 11.494945217669256,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 120.6555187702179,
+      "temperature": 49.996432639186885,
+      "coolant": 11.485218155384315,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 120.91549110412598,
+      "temperature": 50.110605543155124,
+      "coolant": 11.480407391190782,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 121.16561818122864,
+      "temperature": 50.234321830823895,
+      "coolant": 11.475009121299045,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 121.42044925689697,
+      "temperature": 50.33553572489525,
+      "coolant": 11.470439963341017,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 121.69554686546326,
+      "temperature": 50.44307674118076,
+      "coolant": 11.465424525141977,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    },
+    {
+      "t": 121.94795989990234,
+      "temperature": 50.558097719345746,
+      "coolant": 11.459865179062152,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 11,
+      "repair": "None"
+    }
+  ]
+}

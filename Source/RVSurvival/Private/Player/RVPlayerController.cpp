@@ -138,7 +138,7 @@ void ARVPlayerController::SetupInputComponent()
     if(!ResourceMapping)
     {
         ResourceMapping=NewObject<UInputMappingContext>(this);
-        for(FKey Key:{EKeys::H,EKeys::J,EKeys::K,EKeys::L,EKeys::O,EKeys::Escape,EKeys::R,EKeys::Z,EKeys::Three,EKeys::B,EKeys::N,EKeys::M})
+        for(FKey Key:{EKeys::H,EKeys::J,EKeys::K,EKeys::L,EKeys::O,EKeys::Escape,EKeys::R,EKeys::Z,EKeys::Three,EKeys::B,EKeys::N,EKeys::M,EKeys::P})
         {
             auto* Action=NewObject<UInputAction>(this); Action->ValueType=EInputActionValueType::Boolean;
             ResourceMapping->MapKey(Action,Key); ResourceActions.Add(Action);
@@ -156,6 +156,7 @@ void ARVPlayerController::SetupInputComponent()
     Input->BindAction(ResourceActions[9],ETriggerEvent::Started,this,&ThisClass::PatchKey);
     Input->BindAction(ResourceActions[10],ETriggerEvent::Started,this,&ThisClass::RadiatorKey);
     Input->BindAction(ResourceActions[11],ETriggerEvent::Started,this,&ThisClass::EngineRepairKey);
+    Input->BindAction(ResourceActions[12],ETriggerEvent::Started,this,&ThisClass::HoodKey);
     if(auto* Subsystem=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
     { ResourceInputLocalPlayer=Local; Subsystem->RemoveMappingContext(ResourceMapping); Subsystem->AddMappingContext(ResourceMapping,2); }
 }
@@ -194,3 +195,4 @@ void ARVPlayerController::ServerService_Implementation(FName Action,int32 Expect
 void ARVPlayerController::PatchKey(){if(MechanicalPoint)RequestService(TEXT("Patch"),MechanicalPoint->Revision,FGuid(),-1);}
 void ARVPlayerController::RadiatorKey(){if(MechanicalPoint)RequestService(TEXT("ReplaceRadiator"),MechanicalPoint->Revision,FGuid(),-1);}
 void ARVPlayerController::EngineRepairKey(){if(MechanicalPoint)RequestService(TEXT("EngineService"),MechanicalPoint->Revision,FGuid(),-1);}
+void ARVPlayerController::HoodKey(){if(MechanicalPoint)RequestService(TEXT("Hood"),MechanicalPoint->Revision,FGuid(),-1);}

@@ -23,7 +23,7 @@ def configure():
     factory=unreal.DataAssetFactory();factory.set_editor_property('DataAssetClass',unreal.RVMechanicalProfile)
     profile=unreal.load_asset('/Game/Mechanical/DA_NormalMechanical') or unreal.AssetToolsHelpers.get_asset_tools().create_asset('DA_NormalMechanical','/Game/Mechanical',unreal.RVMechanicalProfile,factory)
     def req(tag,consume=True,quantity=1):
-        r=unreal.RVRepairRequirement();r.set_editor_property('Tag',unreal.RVItemDefinition.find_registered_tag(tag));r.set_editor_property('Quantity',quantity);r.set_editor_property('bConsume',consume);return r
+        r=unreal.RVRepairRequirement();r.set_editor_property('Tag',unreal.RVItemDefinition.find_registered_tag(tag));r.set_editor_property('DisplayName',unreal.Text({'Repair.Tool.Mechanic':'mechanic tool kit','Repair.Part.RadiatorPatch':'radiator patch kit','Repair.Part.RadiatorReplacement':'replacement radiator','Repair.Part.EngineService':'engine service parts'}[tag]));r.set_editor_property('Quantity',quantity);r.set_editor_property('bConsume',consume);return r
     repairs=[]
     for ident,label,duration,target,leak,temp,part in [('Patch','Roadside radiator patch',8,.65,.15,True,'Repair.Part.RadiatorPatch'),('ReplaceRadiator','Replace radiator',15,1,1,False,'Repair.Part.RadiatorReplacement'),('EngineService','Recoverable engine service',20,0,1,False,'Repair.Part.EngineService')]:
         r=unreal.RVRepairDefinition();r.set_editor_property('Id',ident);r.set_editor_property('DisplayName',unreal.Text(label));r.set_editor_property('DurationSeconds',duration);r.set_editor_property('RadiatorConditionTarget',target);r.set_editor_property('LeakMultiplier',leak);r.set_editor_property('bTemporary',temp)

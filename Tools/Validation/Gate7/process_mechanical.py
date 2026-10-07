@@ -1,0 +1,162 @@
+"""Paired authority/contention and normal-input roadside service plus driving."""
+import unreal,json,time,os
+from pathlib import Path
+B=Path('D:/GitHub/RVSurvival/RVSurvival/Saved/Gate7Validation')
+session=json.loads((B/'session.json').read_text());config=session['config'];start=session['start']
+w=next(a for a in unreal.ObjectIterator(unreal.World) if a.get_name()=='Gate7MechanicalTest' and unreal.GameplayStatics.get_player_controller(a,0) and unreal.GameplayStatics.get_player_controller(a,0).get_controlled_pawn())
+authority=unreal.GameplayStatics.get_game_mode(w) is not None;role='server' if authority else 'client'
+pc=unreal.GameplayStatics.get_player_controller(w,0);p=pc.get_controlled_pawn()
+v=unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVMechanicalMotorhome)[0];c=v.get_editor_property('CoolingSystem');point=v.get_editor_property('EngineService')
+inv=p.get_component_by_class(unreal.RVInventoryComponent);results=[];samples=[];events=[];held={};frames=0
+def other():return next(x for x in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVSurvivorCharacter) if x!=p and x.get_editor_property('PlayerState'))
+def cooling(f):return c.get_editor_property('Cooling').get_editor_property(f)
+def engine(f):return c.get_editor_property('Engine').get_editor_property(f)
+def check(n,value,d=''):results.append({'case':n,'pass':bool(value),'detail':str(d)});unreal.log('GATE7_NET '+role+' '+n+' '+str(bool(value)))
+def item(cat):return next(i for i in inv.get_items() if str(i.definition.get_editor_property('CatalogId'))==cat)
+def count(cat,inventory=None):return sum(i.quantity for i in (inventory or inv).get_items() if str(i.definition.get_editor_property('CatalogId'))==cat)
+def fluids():return sum(i.fuel_litres for q in [inv,other().get_component_by_class(unreal.RVInventoryComponent)] for i in q.get_items() if i.definition and str(i.definition.get_editor_property('CatalogId'))=='CoolantFull')
+def press(key,seconds=.2):
+ if key in held:unreal.RVInteriorMotorhome.dispatch_development_key(pc,key,False)
+ unreal.RVInteriorMotorhome.dispatch_development_key(pc,key,True);held[key]=(time.time()+seconds,frames+3)
+def aim(a):pc.set_control_rotation(unreal.MathLibrary.find_look_at_rotation(pc.get_controlled_pawn().get_actor_location()+unreal.Vector(0,0,64),a.get_actor_location()))
+def request(action,i=None,revision=None):pc.request_service(action,point.get_editor_property('Revision') if revision is None else revision,i.id if i else unreal.Guid(),i.fuel_revision if i else -1)
+def setup():
+ for command in ['t.MaxFPS 60','t.IdleWhenNotForeground 0']:
+  unreal.SystemLibrary.execute_console_command(pc,command,pc)
+ if authority:
+  c.debug_set_time_scale(0);c.debug_set_state(.2,9,20,1)
+  for index,pawn in enumerate([p,other()]):
+   pawn.set_actor_location(v.get_actor_transform().transform_location(unreal.Vector(550,-75 if index==0 else 75,100)),False,True)
+   target=pawn.get_component_by_class(unreal.RVInventoryComponent)
+   for cat,qty in [('MechanicTools',1),('RadiatorPatch',3),('RadiatorReplacement',1),('EngineService',1),('CoolantFull',1)]:
+    record=unreal.RVItemInstance();record.set_editor_property('Id',unreal.GuidLibrary.new_guid());record.set_editor_property('Definition',unreal.load_asset('/Game/Mechanical/DA_'+cat));record.set_editor_property('Quantity',qty);record.set_editor_property('Condition',.83);target.add_authority(record)
+def inspect():aim(point);press('E',.85)
+def panel():check('normal_E_diagnosis_authoritative',pc.get_editor_property('MechanicalPoint')==point and cooling('RadiatorCondition')<.3,{'point':str(pc.get_editor_property('MechanicalPoint')),'radiator':cooling('RadiatorCondition'),'location':str(p.get_actor_location()),'target':str(point.get_actor_location()),'prompt':str(p.get_component_by_class(unreal.RVInteractionComponent).get_prompt())})
+def panel_photo():unreal.SystemLibrary.execute_console_command(pc,'shot filename='+str(B/(config['name']+'_'+role+'_service.png'))+' -nosuffix showui',pc)
+def open_hood():
+ if authority:press('P')
+def hood_check():check('hood_open_replicates',bool(v.get_editor_property('EngineHood').get_editor_property('bOpen')))
+def initial_attempt():press('B')
+def reserved():check('one_authoritative_repair_reservation',bool(point.get_editor_property('RepairPlayer')) and str(point.get_editor_property('ActiveRepair'))=='Patch');check('start_does_not_consume',count('RadiatorPatch')==3)
+def hostcancel():
+ if authority:press('Escape')
+def cancel_receipt():check('cancellation_converges_without_consumption',not point.get_editor_property('RepairPlayer') and count('RadiatorPatch')==3)
+def clientpatch():
+ if not authority:press('B')
+def patch_done():
+ check('client_patch_replicates',cooling('bTemporaryPatch') and abs(cooling('PatchLeakMultiplier')-.15)<1e-8)
+ check('only_client_patch_consumed',count('RadiatorPatch')==(3 if authority else 2) and count('MechanicTools')==1)
+def concurrent_refill():
+ i=item('CoolantFull');r=point.get_editor_property('Revision');request('Refill',i,r);request('Refill',i,r)
+def refill_done():
+ check('coolant_converges_capacity',abs(cooling('CoolantLitres')-12)<1e-8)
+ check('duplicate_requests_conserve_fluid',abs(fluids()-7)<1e-8,fluids())
+ check('fluid_guids_state_intact',item('CoolantFull').condition>.82 and item('CoolantFull').fuel_litres>=0)
+def damage_again():
+ if authority:c.debug_set_state(.2,12,20,1)
+def replace():
+ if authority:press('N')
+def replace_done():
+ check('host_full_repair_replicates',cooling('RadiatorCondition')==1 and not cooling('bTemporaryPatch') and cooling('LeakLitresPerSecond')==0)
+ check('host_replacement_consumed_only_once',count('RadiatorReplacement')==(0 if authority else 1))
+def force_shutdown():
+ if authority:c.debug_set_state(.1,0,180,.05)
+def shutdown():
+ check('shutdown_warning_output_replicated',engine('bShutdown') and engine('OutputScale')==0 and 'CRITICAL' in str(cooling('Status')))
+ if authority:c.debug_set_state(.1,12,20,.05)
+def client_engine_repair():
+ if not authority:press('M')
+def engine_done():
+ check('client_engine_service_restores_operation',engine('Condition')>=.649 and not engine('bShutdown') and count('EngineService')==(1 if authority else 0))
+ check('engine_service_preserves_radiator_fault',cooling('RadiatorCondition')<.2)
+ if not authority:press('N')
+def radiator_done():check('client_radiator_replace_restores_cooling',cooling('RadiatorCondition')==1 and cooling('LeakLitresPerSecond')==0)
+def arrange_drive():
+ if authority:
+  c.debug_set_state(1,12,70,1);c.debug_set_time_scale(1)
+  driver=p if config['driver']=='host' else other();walker=other() if config['driver']=='host' else p
+  entry=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVVehicleEntryPoint) if a.get_editor_property('Seat').get_editor_property('bDriverSeat') and abs(v.get_actor_transform().inverse_transform_location(a.get_actor_location()).y)>100)
+  driver.set_actor_location(v.get_actor_transform().transform_location(unreal.Vector(190,-290,100)),False,True)
+  walker.set_actor_location(v.get_actor_transform().transform_location(unreal.Vector(100,0,185)),False,True)
+  stock=next(a.get_editor_property('Container') for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVExteriorStoragePoint) if str(a.get_editor_property('DoorPartName'))=='Art_RV_Van_Compartment_02')
+  record=unreal.RVItemInstance();record.set_editor_property('Id',unreal.GuidLibrary.new_guid());record.set_editor_property('Definition',unreal.load_asset('/Game/Mechanical/DA_CoolantPartial'));record.set_editor_property('Condition',.61);stock.add_authority(record)
+def close_hood():
+ if authority:press('P')
+def reset_frame():p.get_component_by_class(unreal.RVPassengerReferenceFrameComponent).reset_diagnostics()
+def isdriver():return authority==(config['driver']=='host')
+def enter_driver():
+ if isdriver():
+  entry=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVVehicleEntryPoint) if a.get_editor_property('Seat').get_editor_property('bDriverSeat') and abs(v.get_actor_transform().inverse_transform_location(a.get_actor_location()).y)>100);aim(entry);press('E',.85)
+def drive():
+ if isdriver():check('normal_E_driver_possession',pc.get_controlled_pawn()==v);press('W',18)
+def minorfault():
+ if authority:c.debug_set_state(.7,12,95,1);c.debug_set_time_scale(20)
+def walk():
+ if not isdriver():pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw+180));press('W',.7)
+def turn():
+ if isdriver():press('A',.3)
+def moving():
+ check('actual_vehicle_moving_under_fault',v.get_velocity().length()>400,v.get_velocity().length())
+ check('moving_coolant_leak_replicates',cooling('CoolantLitres')<12 and cooling('LeakLitresPerSecond')>0,cooling('CoolantLitres'))
+ if not isdriver():
+  frame=p.get_component_by_class(unreal.RVPassengerReferenceFrameComponent);q=v.get_actor_transform().inverse_transform_location(p.get_actor_location());check('moving_passenger_frame_and_floor',frame.get_editor_property('ReferenceFrame')==v and q.z>140,q);check('moving_passenger_corrections_bounded',frame.get_editor_property('MaxCorrectionCm')<30,frame.get_editor_property('MaxCorrectionCm'))
+def brake():
+ if isdriver():press('W',.01);press('S',6)
+def handbrake():
+ if isdriver():press('SpaceBar',9)
+def stopped():check('roadside_braking_stops',v.get_velocity().length()<150,v.get_velocity().length())
+def exit_driver():
+ if isdriver():press('E',.85)
+def outside():
+ if isdriver():check('roadside_normal_E_exit',pc.get_controlled_pawn()==p and p.get_component_by_class(unreal.CharacterMovementComponent).get_editor_property('MovementMode')==unreal.MovementMode.MOVE_WALKING);pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw+180));press('W',.4)
+def access_stock():
+ if isdriver():
+  target=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVExteriorStoragePoint) if str(a.get_editor_property('DoorPartName'))=='Art_RV_Van_Compartment_02');aim(target);press('E',.85)
+def select_stock():
+ if isdriver():check('roadside_exterior_supplies_access',inv.get_editor_property('OpenContainer') is not None);press('Tab')
+def take_stock():
+ if isdriver():press('T')
+def retrieved():
+ if isdriver():check('roadside_coolant_guid_state_from_storage',count('CoolantPartial')==1 and abs(item('CoolantPartial').fuel_litres-1.75)<1e-8 and abs(item('CoolantPartial').condition-.61)<.001);press('I')
+def walk_front():
+ if isdriver():pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw));press('W',1)
+def walk_center():
+ if isdriver():pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw+90));press('W',.5)
+def roadside_inspect():
+ if isdriver():aim(point);press('E',.85)
+def roadside_open():
+ if isdriver():check('roadside_normal_E_diagnosis',pc.get_editor_property('MechanicalPoint')==point);press('P')
+def roadside_patch():
+ if isdriver():check('roadside_stopped_off_cool_service',c.can_service());press('B')
+def roadside_refill():
+ if isdriver():check('roadside_timed_patch_complete',cooling('bTemporaryPatch') and not point.get_editor_property('RepairPlayer'));request('Refill',item('CoolantPartial'))
+def roadside_refilled():
+ if isdriver():check('roadside_refill_restores_supply',cooling('CoolantLitres')>11.9 and item('CoolantPartial').fuel_litres<1.75);press('P')
+def back_side():
+ if isdriver():pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw+270));press('W',.5)
+def back_cab():
+ if isdriver():pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw+180));press('W',.7)
+def continue_travel():
+ if isdriver():check('roadside_driver_reentry',pc.get_controlled_pawn()==v);press('W',4)
+def recovered_driving():
+ check('recoverable_fault_returns_to_travel',v.get_velocity().length()>200 and cooling('TemperatureC')<c.get_editor_property('Tuning').overheat_c and engine('Condition')>.5,{'speed':v.get_velocity().length(),'temperature':cooling('TemperatureC')})
+def finish():
+ for key in held:unreal.RVInteriorMotorhome.dispatch_development_key(pc,key,False)
+ unreal.unregister_slate_post_tick_callback(h)
+ (B/(config['name']+'_'+role+'.json')).write_text(json.dumps({'pid':os.getpid(),'role':role,'config':config,'results':results,'samples':samples},indent=2),encoding='utf-8')
+for t,fn in [(0,setup),(2,inspect),(3.8,panel),(4,open_hood),(4.8,hood_check),(5,initial_attempt),(6,reserved),(6.4,panel_photo),(7,hostcancel),(8,cancel_receipt),(8.2,inspect),(10,clientpatch),(19,patch_done),(20,concurrent_refill),(22,refill_done),(23,damage_again),(24,replace),(40,replace_done),(41,force_shutdown),(42,shutdown),(44,client_engine_repair),(65,engine_done),(81,radiator_done),(81.5,close_hood),(83,arrange_drive),(85,enter_driver),(87,drive),(90,reset_frame),(95,minorfault),(96,walk),(98,turn),(101,moving),(105,brake),(112,handbrake),(118,stopped),(122,exit_driver),(123.5,outside),(125,access_stock),(126.5,select_stock),(127,take_stock),(128,retrieved),(129,walk_front),(131,walk_center),(133,roadside_inspect),(134.5,roadside_open),(135.5,roadside_patch),(145,roadside_refill),(147,roadside_refilled),(148,back_side),(150,back_cab),(152,enter_driver),(154,continue_travel),(159,recovered_driving),(161,finish)]:events.append((t,fn))
+nextsample=0
+def tick(dt):
+ global frames,nextsample
+ frames+=1
+ try:
+  for key,(deadline,frame) in list(held.items()):
+   if time.time()>deadline and frames>=frame:unreal.RVInteriorMotorhome.dispatch_development_key(pc,key,False);del held[key]
+  if events and time.time()-start>=events[0][0]:
+   _,fn=events.pop(0);fn()
+  if time.time()>nextsample:
+   nextsample=time.time()+.25
+   frame=p.get_component_by_class(unreal.RVPassengerReferenceFrameComponent);q=v.get_actor_transform().inverse_transform_location(p.get_actor_location())
+   samples.append({'t':time.time()-start,'temperature':cooling('TemperatureC'),'coolant':cooling('CoolantLitres'),'engine':engine('Condition'),'output':engine('OutputScale'),'revision':c.get_editor_property('ServiceRevision'),'repair':str(point.get_editor_property('ActiveRepair')),'local':[q.x,q.y,q.z],'base':str(frame.get_editor_property('CurrentBase')),'correction_count':frame.get_editor_property('CorrectionCount'),'max_correction':frame.get_editor_property('MaxCorrectionCm'),'speed':v.get_velocity().length(),'slate_dt':dt})
+ except Exception as e:check('harness_exception',False,repr(e));finish()
+h=unreal.register_slate_post_tick_callback(tick)

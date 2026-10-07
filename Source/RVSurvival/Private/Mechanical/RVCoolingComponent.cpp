@@ -5,6 +5,7 @@
 #include "Net/UnrealNetwork.h"
 #include "NativeGameplayTags.h"
 UE_DEFINE_GAMEPLAY_TAG_STATIC(CoolingLeak,"Vehicle.Fault.Cooling.Leak");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(RadiatorDamage,"Vehicle.Fault.Cooling.RadiatorDamage");
 UE_DEFINE_GAMEPLAY_TAG_STATIC(CoolingLow,"Vehicle.Fault.Cooling.LowCoolant");
 UE_DEFINE_GAMEPLAY_TAG_STATIC(CoolingOverheat,"Vehicle.Fault.Cooling.Overheat");
 UE_DEFINE_GAMEPLAY_TAG_STATIC(EngineDamaged,"Vehicle.Fault.Engine.Damaged");
@@ -18,6 +19,7 @@ void URVCoolingComponent::BeginPlay()
     double* NonNegative[]={&Tuning.IdleHeatCPerSecond,&Tuning.LoadHeatCPerSecond,&Tuning.PassiveCoolingPerSecond,&Tuning.RadiatorCoolingPerSecond,&Tuning.AirflowBonus,&Tuning.MinorLeakLitresPerSecond,&Tuning.MajorLeakLitresPerSecond};
     for(auto* V:NonNegative)*V=FMath::IsFinite(*V)?FMath::Clamp(*V,0.,100.):0;
     Tuning.CoolantCapacityLitres=FMath::IsFinite(Tuning.CoolantCapacityLitres)?FMath::Clamp(Tuning.CoolantCapacityLitres,.1,1000.):12;
+    Tuning.LowCoolantFraction=FMath::IsFinite(Tuning.LowCoolantFraction)?FMath::Clamp(Tuning.LowCoolantFraction,0.,1.):.25;
     Tuning.AmbientC=FMath::IsFinite(Tuning.AmbientC)?FMath::Clamp(Tuning.AmbientC,-50.,60.):20;
     Tuning.WarmC=FMath::IsFinite(Tuning.WarmC)?FMath::Clamp(Tuning.WarmC,70.,150.):95;
     Tuning.HotC=FMath::IsFinite(Tuning.HotC)?FMath::Clamp(Tuning.HotC,Tuning.WarmC+1,170.):105;
@@ -51,7 +53,8 @@ void URVCoolingComponent::DeriveState()
     Cooling.CoolingEffectiveness=Cooling.RadiatorCondition*FMath::Clamp(Cooling.CoolantLitres/T.CoolantCapacityLitres,0.,1.);
     Cooling.Status=Cooling.TemperatureC>=T.CriticalC?ERVThermalStatus::Critical:Cooling.TemperatureC>=T.OverheatC?ERVThermalStatus::Overheating:Cooling.TemperatureC>=T.HotC?ERVThermalStatus::Hot:Cooling.TemperatureC>=T.WarmC?ERVThermalStatus::Warm:ERVThermalStatus::Normal;
     Cooling.Faults.Reset();if(Cooling.LeakLitresPerSecond>0)Cooling.Faults.AddTag(CoolingLeak);
-    if(Cooling.CoolantLitres<T.CoolantCapacityLitres*.25)Cooling.Faults.AddTag(CoolingLow);
+    if(Cooling.RadiatorCondition<T.MinorDamageThreshold)Cooling.Faults.AddTag(RadiatorDamage);
+    if(Cooling.CoolantLitres<T.CoolantCapacityLitres*T.LowCoolantFraction)Cooling.Faults.AddTag(CoolingLow);
     if(Cooling.Status>=ERVThermalStatus::Overheating)Cooling.Faults.AddTag(CoolingOverheat);
     if(Engine.Condition<.75f)Cooling.Faults.AddTag(EngineDamaged);
     if(Engine.Condition<=T.ShutdownCondition)Engine.bShutdown=true;

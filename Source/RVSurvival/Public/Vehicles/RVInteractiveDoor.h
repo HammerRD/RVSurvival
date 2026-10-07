@@ -18,6 +18,8 @@ public:
     virtual void CompleteInteraction_Implementation(APawn* Pawn) override;
     UPROPERTY(ReplicatedUsing=OnRep_Door,BlueprintReadOnly) bool bOpen=false;
     UPROPERTY(EditAnywhere,ReplicatedUsing=OnRep_Door,BlueprintReadOnly) float OpenAngle=-90;
+    // House doors retain yaw. A separate hood can reuse the same replicated hinge.
+    UPROPERTY(EditAnywhere,ReplicatedUsing=OnRep_Door,BlueprintReadOnly) bool bPitchHinge=false;
     UPROPERTY(EditAnywhere,ReplicatedUsing=OnRep_Door,BlueprintReadOnly) TObjectPtr<class UStaticMesh> DoorMesh;
     UPROPERTY(EditAnywhere,ReplicatedUsing=OnRep_Door,BlueprintReadOnly) TObjectPtr<class UStaticMesh> GlassMesh;
     UPROPERTY(EditAnywhere,ReplicatedUsing=OnRep_Door,BlueprintReadOnly) TArray<TObjectPtr<class UMaterialInterface>> DoorMaterials;
