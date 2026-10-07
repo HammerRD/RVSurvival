@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{1EC21590-4A98-B832-8C1A-91A901DAC003}",
+	"EngineAssociation": "5.8",
 	"Category": "Games",
 	"Description": "Cooperative RV survival road trip",
 	"Modules": [
