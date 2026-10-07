@@ -1,0 +1,1791 @@
+{
+  "status": "transition smoothness unresolved pending visual sustained-key validation",
+  "unchanged_existing_check": {
+    "network_cm": 75,
+    "baseline_cm": 30,
+    "scope": "Gate6LayoutRework process_refinement reset then steady highway/turn walking; process_stations reset then moving workstation uses; not authoritative seat/bed/ladder placement transitions"
+  },
+  "interpretation": "Native metric compares acknowledged saved-move position to correction target, using relative coordinates only when movement bases agree. It is not measured visual mesh displacement. Intentional safe placements and stale acknowledgements may contribute, but unsolicited visual displacement cannot be excluded by these logs. Large transition reports exceed75cm if that steady-phase bound were applied; no new permissive transition bound is introduced. Passing occupancy/floor checks does not certify smoothness.",
+  "runs": [
+    {
+      "suite": "physical_host_100ms_2loss",
+      "phase_time_anchor_utc": "2026-10-07 14:25:58.545000",
+      "phases": [
+        {
+          "phase": "initial fixture / physical entry",
+          "begin_s": 0,
+          "end_s": 13.6,
+          "native_correction_events": 8,
+          "max_native_report_cm": 59.73,
+          "first_event_s": 0.248,
+          "last_event_s": 9.198,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 124,
+              "max_adjacent_local_displacement_cm": 670.6595909252324
+            },
+            {
+              "who": "walker",
+              "samples": 124,
+              "max_adjacent_local_displacement_cm": 114.15721328912755
+            }
+          ]
+        },
+        {
+          "phase": "moving cab seated",
+          "begin_s": 13.6,
+          "end_s": 17.5,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 34,
+              "max_adjacent_local_displacement_cm": 8.987733679556355e-14
+            },
+            {
+              "who": "walker",
+              "samples": 34,
+              "max_adjacent_local_displacement_cm": 8.987733679556355e-14
+            }
+          ]
+        },
+        {
+          "phase": "moving cab release",
+          "begin_s": 17.5,
+          "end_s": 19,
+          "native_correction_events": 4,
+          "max_native_report_cm": 243.84,
+          "first_event_s": 17.997,
+          "last_event_s": 18.198,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 14,
+              "max_adjacent_local_displacement_cm": 2.2737367544323206e-13
+            },
+            {
+              "who": "walker",
+              "samples": 14,
+              "max_adjacent_local_displacement_cm": 91.62733164926738
+            }
+          ]
+        },
+        {
+          "phase": "moving standing aisle",
+          "begin_s": 19,
+          "end_s": 20.6,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 15,
+              "max_adjacent_local_displacement_cm": 4.547473508864641e-13
+            },
+            {
+              "who": "walker",
+              "samples": 15,
+              "max_adjacent_local_displacement_cm": 0.07163086613995857
+            }
+          ]
+        },
+        {
+          "phase": "moving front Dinette entry",
+          "begin_s": 20.6,
+          "end_s": 22.6,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 18,
+              "max_adjacent_local_displacement_cm": 9.094947017729282e-13
+            },
+            {
+              "who": "walker",
+              "samples": 18,
+              "max_adjacent_local_displacement_cm": 94.25058004705899
+            }
+          ]
+        },
+        {
+          "phase": "moving front Dinette release",
+          "begin_s": 22.6,
+          "end_s": 24,
+          "native_correction_events": 4,
+          "max_native_report_cm": 691.05,
+          "first_event_s": 23.015,
+          "last_event_s": 23.198,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 13,
+              "max_adjacent_local_displacement_cm": 1.1656366413268345e-12
+            },
+            {
+              "who": "walker",
+              "samples": 13,
+              "max_adjacent_local_displacement_cm": 92.76534188318718
+            }
+          ]
+        },
+        {
+          "phase": "rear Dinette entry",
+          "begin_s": 26,
+          "end_s": 28.2,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 20,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 20,
+              "max_adjacent_local_displacement_cm": 93.14552129640354
+            }
+          ]
+        },
+        {
+          "phase": "rear Dinette release",
+          "begin_s": 28.2,
+          "end_s": 29.5,
+          "native_correction_events": 4,
+          "max_native_report_cm": 134.19,
+          "first_event_s": 28.715,
+          "last_event_s": 28.915,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 12,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 12,
+              "max_adjacent_local_displacement_cm": 105.74168197502212
+            }
+          ]
+        },
+        {
+          "phase": "bed placement/rest",
+          "begin_s": 51,
+          "end_s": 54.5,
+          "native_correction_events": 4,
+          "max_native_report_cm": 148.76,
+          "first_event_s": 51.982,
+          "last_event_s": 52.182,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 32,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 32,
+              "max_adjacent_local_displacement_cm": 148.76271546064902
+            }
+          ]
+        },
+        {
+          "phase": "bed wake placement",
+          "begin_s": 54.5,
+          "end_s": 57,
+          "native_correction_events": 4,
+          "max_native_report_cm": 143.66,
+          "first_event_s": 54.782,
+          "last_event_s": 54.999,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 22,
+              "max_adjacent_local_displacement_cm": 86.82889208092061
+            },
+            {
+              "who": "walker",
+              "samples": 22,
+              "max_adjacent_local_displacement_cm": 143.66453866292608
+            }
+          ]
+        },
+        {
+          "phase": "cab release after bed",
+          "begin_s": 63.5,
+          "end_s": 65,
+          "native_correction_events": 5,
+          "max_native_report_cm": 26.52,
+          "first_event_s": 64.267,
+          "last_event_s": 64.5,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 13,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 13,
+              "max_adjacent_local_displacement_cm": 72.07687191996584
+            }
+          ]
+        },
+        {
+          "phase": "physical exit steps",
+          "begin_s": 66.2,
+          "end_s": 69,
+          "native_correction_events": 6,
+          "max_native_report_cm": 12.59,
+          "first_event_s": 67.084,
+          "last_event_s": 67.817,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 26,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 26,
+              "max_adjacent_local_displacement_cm": 34.35876195348252
+            }
+          ]
+        },
+        {
+          "phase": "ladder entry",
+          "begin_s": 74,
+          "end_s": 76,
+          "native_correction_events": 5,
+          "max_native_report_cm": 35.48,
+          "first_event_s": 74.984,
+          "last_event_s": 75.203,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 18,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 18,
+              "max_adjacent_local_displacement_cm": 35.47572008473742
+            }
+          ]
+        },
+        {
+          "phase": "ladder ascent",
+          "begin_s": 76,
+          "end_s": 80.4,
+          "native_correction_events": 3,
+          "max_native_report_cm": 1.74,
+          "first_event_s": 79.202,
+          "last_event_s": 79.436,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 41,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 41,
+              "max_adjacent_local_displacement_cm": 11.6821286620318
+            }
+          ]
+        },
+        {
+          "phase": "roof dismount",
+          "begin_s": 80.4,
+          "end_s": 82,
+          "native_correction_events": 4,
+          "max_native_report_cm": 106.72,
+          "first_event_s": 80.67,
+          "last_event_s": 80.853,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 15,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 15,
+              "max_adjacent_local_displacement_cm": 106.7227512682013
+            }
+          ]
+        },
+        {
+          "phase": "roof walking",
+          "begin_s": 82,
+          "end_s": 85,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 27,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 27,
+              "max_adjacent_local_displacement_cm": 23.335647583007812
+            }
+          ]
+        },
+        {
+          "phase": "upper ladder return",
+          "begin_s": 88,
+          "end_s": 90,
+          "native_correction_events": 4,
+          "max_native_report_cm": 108.32,
+          "first_event_s": 88.986,
+          "last_event_s": 89.169,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 18,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 18,
+              "max_adjacent_local_displacement_cm": 108.32394436728546
+            }
+          ]
+        },
+        {
+          "phase": "ladder descent",
+          "begin_s": 90,
+          "end_s": 94.4,
+          "native_correction_events": 7,
+          "max_native_report_cm": 6.03,
+          "first_event_s": 93.186,
+          "last_event_s": 94.153,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 41,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 41,
+              "max_adjacent_local_displacement_cm": 11.666681507902213
+            }
+          ]
+        },
+        {
+          "phase": "ladder ground dismount",
+          "begin_s": 94.4,
+          "end_s": 96,
+          "native_correction_events": 5,
+          "max_native_report_cm": 42.24,
+          "first_event_s": 94.669,
+          "last_event_s": 94.903,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 14,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 14,
+              "max_adjacent_local_displacement_cm": 42.23711614717665
+            }
+          ]
+        },
+        {
+          "phase": "ground walk from ladder",
+          "begin_s": 96,
+          "end_s": 99,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 27,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 27,
+              "max_adjacent_local_displacement_cm": 69.99747316645215
+            }
+          ]
+        },
+        {
+          "phase": "closed-door approach",
+          "begin_s": 103,
+          "end_s": 106.2,
+          "native_correction_events": 4,
+          "max_native_report_cm": 20.86,
+          "first_event_s": 103.536,
+          "last_event_s": 103.837,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 29,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 29,
+              "max_adjacent_local_displacement_cm": 40.487988328751655
+            }
+          ]
+        },
+        {
+          "phase": "back away from door",
+          "begin_s": 106.2,
+          "end_s": 109.4,
+          "native_correction_events": 4,
+          "max_native_report_cm": 15.35,
+          "first_event_s": 106.619,
+          "last_event_s": 106.92,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 29,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 29,
+              "max_adjacent_local_displacement_cm": 36.37787494189744
+            }
+          ]
+        },
+        {
+          "phase": "physical re-entry steps",
+          "begin_s": 111.3,
+          "end_s": 114.3,
+          "native_correction_events": 4,
+          "max_native_report_cm": 25.53,
+          "first_event_s": 111.72,
+          "last_event_s": 112.036,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 28,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 28,
+              "max_adjacent_local_displacement_cm": 38.70414568484445
+            }
+          ]
+        },
+        {
+          "phase": "re-entry interior walking",
+          "begin_s": 114.3,
+          "end_s": 118.7,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 40,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 40,
+              "max_adjacent_local_displacement_cm": 23.87601495292864
+            }
+          ]
+        },
+        {
+          "phase": "repeat physical exit",
+          "begin_s": 118.7,
+          "end_s": 121.3,
+          "native_correction_events": 4,
+          "max_native_report_cm": 5.51,
+          "first_event_s": 120.004,
+          "last_event_s": 120.32,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 24,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 24,
+              "max_adjacent_local_displacement_cm": 34.222910783051965
+            }
+          ]
+        },
+        {
+          "phase": "final driver release/exit",
+          "begin_s": 121.3,
+          "end_s": 129.3,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 72,
+              "max_adjacent_local_displacement_cm": 86.8288920809181
+            },
+            {
+              "who": "walker",
+              "samples": 72,
+              "max_adjacent_local_displacement_cm": 52.58054265916934
+            }
+          ]
+        }
+      ],
+      "native_reports": [
+        {
+          "t": 0.248,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 59.73,
+          "frame": "None"
+        },
+        {
+          "t": 0.332,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 0.381,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 0.431,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 8.865,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 2.22,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 8.981,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 24.05,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 9.081,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.05,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 9.198,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.13,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 17.997,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 243.84,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 18.065,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 18.131,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 18.198,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 23.015,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 691.05,
+          "frame": "None"
+        },
+        {
+          "t": 23.065,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 23.131,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 23.198,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 28.715,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 134.19,
+          "frame": "None"
+        },
+        {
+          "t": 28.781,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 28.831,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 28.915,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 51.982,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 148.76,
+          "frame": "None"
+        },
+        {
+          "t": 52.032,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 52.115,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 52.182,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 54.782,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 143.66,
+          "frame": "None"
+        },
+        {
+          "t": 54.849,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 54.932,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 54.999,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 64.267,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 26.52,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 64.334,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 64.367,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 64.434,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 64.5,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 67.084,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 2.07,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 67.501,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 5.31,
+          "frame": "None"
+        },
+        {
+          "t": 67.6,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 12.59,
+          "frame": "None"
+        },
+        {
+          "t": 67.701,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 67.767,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 67.817,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 74.984,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 35.48,
+          "frame": "None"
+        },
+        {
+          "t": 75.035,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 75.101,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 75.152,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 75.203,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 79.202,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 1.74,
+          "frame": "None"
+        },
+        {
+          "t": 79.319,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.07,
+          "frame": "None"
+        },
+        {
+          "t": 79.436,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.07,
+          "frame": "None"
+        },
+        {
+          "t": 80.67,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 106.72,
+          "frame": "None"
+        },
+        {
+          "t": 80.736,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 80.802,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 80.853,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 88.986,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 108.32,
+          "frame": "None"
+        },
+        {
+          "t": 89.019,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 89.103,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 89.169,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 93.186,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 1.74,
+          "frame": "None"
+        },
+        {
+          "t": 93.286,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.05,
+          "frame": "None"
+        },
+        {
+          "t": 93.386,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.06,
+          "frame": "None"
+        },
+        {
+          "t": 93.803,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 3.31,
+          "frame": "None"
+        },
+        {
+          "t": 93.92,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 6.03,
+          "frame": "None"
+        },
+        {
+          "t": 94.02,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 94.153,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 94.669,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 42.24,
+          "frame": "None"
+        },
+        {
+          "t": 94.736,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 94.787,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 94.853,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 94.903,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 103.536,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 5.85,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 103.636,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 20.86,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 103.753,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.02,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 103.837,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.06,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 106.619,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 5.16,
+          "frame": "None"
+        },
+        {
+          "t": 106.736,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 15.35,
+          "frame": "None"
+        },
+        {
+          "t": 106.853,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 106.92,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 111.72,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 3.98,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 111.836,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 25.53,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 111.97,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.21,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 112.036,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.08,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 120.004,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 5.51,
+          "frame": "None"
+        },
+        {
+          "t": 120.087,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 2.59,
+          "frame": "None"
+        },
+        {
+          "t": 120.203,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 120.32,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        }
+      ]
+    },
+    {
+      "suite": "physical_client_100ms_2loss",
+      "phase_time_anchor_utc": "2026-10-07 14:28:36.562000",
+      "phases": [
+        {
+          "phase": "initial fixture / physical entry",
+          "begin_s": 0,
+          "end_s": 13.6,
+          "native_correction_events": 8,
+          "max_native_report_cm": 670.42,
+          "first_event_s": 0.265,
+          "last_event_s": 3.781,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 123,
+              "max_adjacent_local_displacement_cm": 670.4199783727619
+            },
+            {
+              "who": "walker",
+              "samples": 123,
+              "max_adjacent_local_displacement_cm": 113.76233735292186
+            }
+          ]
+        },
+        {
+          "phase": "moving cab seated",
+          "begin_s": 13.6,
+          "end_s": 17.5,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 36,
+              "max_adjacent_local_displacement_cm": 6.355287432313019e-14
+            },
+            {
+              "who": "walker",
+              "samples": 36,
+              "max_adjacent_local_displacement_cm": 6.355287432313019e-14
+            }
+          ]
+        },
+        {
+          "phase": "moving cab release",
+          "begin_s": 17.5,
+          "end_s": 19,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 14,
+              "max_adjacent_local_displacement_cm": 1.1368683772161603e-13
+            },
+            {
+              "who": "walker",
+              "samples": 14,
+              "max_adjacent_local_displacement_cm": 86.82889208091966
+            }
+          ]
+        },
+        {
+          "phase": "moving standing aisle",
+          "begin_s": 19,
+          "end_s": 20.6,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 14,
+              "max_adjacent_local_displacement_cm": 9.094947017729282e-13
+            },
+            {
+              "who": "walker",
+              "samples": 14,
+              "max_adjacent_local_displacement_cm": 0.1170272683771615
+            }
+          ]
+        },
+        {
+          "phase": "moving front Dinette entry",
+          "begin_s": 20.6,
+          "end_s": 22.6,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 18,
+              "max_adjacent_local_displacement_cm": 9.094947017729282e-13
+            },
+            {
+              "who": "walker",
+              "samples": 18,
+              "max_adjacent_local_displacement_cm": 94.23304144513284
+            }
+          ]
+        },
+        {
+          "phase": "moving front Dinette release",
+          "begin_s": 22.6,
+          "end_s": 24,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 13,
+              "max_adjacent_local_displacement_cm": 7.679123022004601e-13
+            },
+            {
+              "who": "walker",
+              "samples": 13,
+              "max_adjacent_local_displacement_cm": 91.02228573267085
+            }
+          ]
+        },
+        {
+          "phase": "rear Dinette entry",
+          "begin_s": 26,
+          "end_s": 28.2,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 21,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 21,
+              "max_adjacent_local_displacement_cm": 93.2197452260014
+            }
+          ]
+        },
+        {
+          "phase": "rear Dinette release",
+          "begin_s": 28.2,
+          "end_s": 29.5,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 12,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 12,
+              "max_adjacent_local_displacement_cm": 105.74111121035415
+            }
+          ]
+        },
+        {
+          "phase": "bed placement/rest",
+          "begin_s": 51,
+          "end_s": 54.5,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 33,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 33,
+              "max_adjacent_local_displacement_cm": 143.94188007751882
+            }
+          ]
+        },
+        {
+          "phase": "bed wake placement",
+          "begin_s": 54.5,
+          "end_s": 57,
+          "native_correction_events": 3,
+          "max_native_report_cm": 86.83,
+          "first_event_s": 56.533,
+          "last_event_s": 56.701,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 22,
+              "max_adjacent_local_displacement_cm": 86.82586492065863
+            },
+            {
+              "who": "walker",
+              "samples": 22,
+              "max_adjacent_local_displacement_cm": 138.6599857934889
+            }
+          ]
+        },
+        {
+          "phase": "cab release after bed",
+          "begin_s": 63.5,
+          "end_s": 65,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 14,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 14,
+              "max_adjacent_local_displacement_cm": 86.82889208091898
+            }
+          ]
+        },
+        {
+          "phase": "physical exit steps",
+          "begin_s": 66.2,
+          "end_s": 69,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 25,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 25,
+              "max_adjacent_local_displacement_cm": 38.198324110954275
+            }
+          ]
+        },
+        {
+          "phase": "ladder entry",
+          "begin_s": 74,
+          "end_s": 76,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 19,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 19,
+              "max_adjacent_local_displacement_cm": 40.04835327451182
+            }
+          ]
+        },
+        {
+          "phase": "ladder ascent",
+          "begin_s": 76,
+          "end_s": 80.4,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 40,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 40,
+              "max_adjacent_local_displacement_cm": 13.333516084283708
+            }
+          ]
+        },
+        {
+          "phase": "roof dismount",
+          "begin_s": 80.4,
+          "end_s": 82,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 14,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 14,
+              "max_adjacent_local_displacement_cm": 103.58256843591099
+            }
+          ]
+        },
+        {
+          "phase": "roof walking",
+          "begin_s": 82,
+          "end_s": 85,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 28,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 28,
+              "max_adjacent_local_displacement_cm": 26.666954600894247
+            }
+          ]
+        },
+        {
+          "phase": "upper ladder return",
+          "begin_s": 88,
+          "end_s": 90,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 19,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 19,
+              "max_adjacent_local_displacement_cm": 104.94638543700104
+            }
+          ]
+        },
+        {
+          "phase": "ladder descent",
+          "begin_s": 90,
+          "end_s": 94.4,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 40,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 40,
+              "max_adjacent_local_displacement_cm": 13.340239505375777
+            }
+          ]
+        },
+        {
+          "phase": "ladder ground dismount",
+          "begin_s": 94.4,
+          "end_s": 96,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 15,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 15,
+              "max_adjacent_local_displacement_cm": 42.3336284766613
+            }
+          ]
+        },
+        {
+          "phase": "ground walk from ladder",
+          "begin_s": 96,
+          "end_s": 99,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 27,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 27,
+              "max_adjacent_local_displacement_cm": 80.00669509040478
+            }
+          ]
+        },
+        {
+          "phase": "closed-door approach",
+          "begin_s": 103,
+          "end_s": 106.2,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 30,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 30,
+              "max_adjacent_local_displacement_cm": 36.60393524130147
+            }
+          ]
+        },
+        {
+          "phase": "back away from door",
+          "begin_s": 106.2,
+          "end_s": 109.4,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 29,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 29,
+              "max_adjacent_local_displacement_cm": 32.84386243930467
+            }
+          ]
+        },
+        {
+          "phase": "physical re-entry steps",
+          "begin_s": 111.3,
+          "end_s": 114.3,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 28,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 28,
+              "max_adjacent_local_displacement_cm": 35.49258521924952
+            }
+          ]
+        },
+        {
+          "phase": "re-entry interior walking",
+          "begin_s": 114.3,
+          "end_s": 118.7,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 40,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 40,
+              "max_adjacent_local_displacement_cm": 27.228010963770508
+            }
+          ]
+        },
+        {
+          "phase": "repeat physical exit",
+          "begin_s": 118.7,
+          "end_s": 121.3,
+          "native_correction_events": 0,
+          "max_native_report_cm": 0,
+          "first_event_s": null,
+          "last_event_s": null,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 24,
+              "max_adjacent_local_displacement_cm": 0.0
+            },
+            {
+              "who": "walker",
+              "samples": 24,
+              "max_adjacent_local_displacement_cm": 32.339246822666695
+            }
+          ]
+        },
+        {
+          "phase": "final driver release/exit",
+          "begin_s": 121.3,
+          "end_s": 129.3,
+          "native_correction_events": 9,
+          "max_native_report_cm": 86.83,
+          "first_event_s": 121.905,
+          "last_event_s": 126.289,
+          "sampled_local_displacements": [
+            {
+              "who": "driver",
+              "samples": 71,
+              "max_adjacent_local_displacement_cm": 86.82586492065863
+            },
+            {
+              "who": "walker",
+              "samples": 71,
+              "max_adjacent_local_displacement_cm": 55.748751540671684
+            }
+          ]
+        }
+      ],
+      "native_reports": [
+        {
+          "t": 0.265,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 670.42,
+          "frame": "None"
+        },
+        {
+          "t": 0.315,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 0.365,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 0.432,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 0.482,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 3.549,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 6.11,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 3.666,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.03,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 3.781,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 56.533,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 86.83,
+          "frame": "None"
+        },
+        {
+          "t": 56.633,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 56.701,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 58.386,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 1.81,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 58.486,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.06,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 58.602,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.09,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 60.486,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 2.09,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 60.603,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.08,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 60.719,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.07,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 61.018,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 1.76,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 61.118,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.06,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 61.236,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.05,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 121.905,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 86.83,
+          "frame": "None"
+        },
+        {
+          "t": 121.973,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 122.022,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 122.055,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 122.139,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "BP_ClassCSystemsMotorhome_C_0"
+        },
+        {
+          "t": 126.006,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 2.45,
+          "frame": "None"
+        },
+        {
+          "t": 126.122,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 15.04,
+          "frame": "None"
+        },
+        {
+          "t": 126.238,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        },
+        {
+          "t": 126.289,
+          "actor": "RVInteriorTestCharacter_0",
+          "cm": 0.0,
+          "frame": "None"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,634 @@
+{
+  "retained_prior_attempts": [
+    {
+      "source": "D:\\GitHub\\RVSurvival\\RVSurvival\\Saved\\Gate6PhysicalRefinement\\History\\physical_host_100ms_2loss_20261007-090638\\physical_host_100ms_2loss_client.json",
+      "windows": [
+        {
+          "window": "moving_cab_seat",
+          "begin_s": 15.6,
+          "end_s": 17.2,
+          "samples": 15,
+          "correction_count_change": 23,
+          "local_x_span_cm": 18.985671097045696,
+          "max_seat_relative_offset_cm": null,
+          "first_position": [
+            190.2761917794521,
+            49.24388413165354,
+            139.26450515241606
+          ],
+          "last_position": [
+            172.8343844269852,
+            49.16013092145109,
+            139.4004107478773
+          ],
+          "raw_cumulative_max_cm": 52.40483093261719
+        },
+        {
+          "window": "moving_standing_aisle",
+          "begin_s": 19,
+          "end_s": 20.3,
+          "samples": 13,
+          "correction_count_change": 0,
+          "local_x_span_cm": 0.07543860753060017,
+          "max_seat_relative_offset_cm": null,
+          "first_position": [
+            129.97080057466175,
+            3.333181756648429e-05,
+            177.18739641633064
+          ],
+          "last_position": [
+            129.9704243168617,
+            3.333181756026704e-05,
+            177.18739641594215
+          ],
+          "raw_cumulative_max_cm": 323.7093200683594
+        },
+        {
+          "window": "moving_dinette_front",
+          "begin_s": 21.4,
+          "end_s": 22.4,
+          "samples": 9,
+          "correction_count_change": 13,
+          "local_x_span_cm": 97.29779449807702,
+          "max_seat_relative_offset_cm": null,
+          "first_position": [
+            129.97080062051495,
+            3.33318175371744e-05,
+            177.18739641633042
+          ],
+          "last_position": [
+            32.67300612243792,
+            -81.87352565852713,
+            138.71230258898825
+          ],
+          "raw_cumulative_max_cm": 548.6203002929688
+        },
+        {
+          "window": "dinette_rear",
+          "begin_s": 27.0,
+          "end_s": 28.1,
+          "samples": 10,
+          "correction_count_change": 15,
+          "local_x_span_cm": 22.535641653418637,
+          "max_seat_relative_offset_cm": null,
+          "first_position": [
+            -72.96709692766187,
+            -82.15316991695671,
+            137.76892746745736
+          ],
+          "last_position": [
+            -70.44968716469046,
+            -82.01197939954312,
+            137.76812686493025
+          ],
+          "raw_cumulative_max_cm": 773.3264770507812
+        },
+        {
+          "window": "roof_walk",
+          "begin_s": 82.4,
+          "end_s": 84.8,
+          "samples": 21,
+          "correction_count_change": 0,
+          "local_x_span_cm": 352.72451580991503,
+          "max_seat_relative_offset_cm": null,
+          "first_position": [
+            -246.46926204195847,
+            75.00001403674074,
+            409.80804578414933
+          ],
+          "last_position": [
+            106.25525376795656,
+            75.00001403673642,
+            409.86117131401494
+          ],
+          "raw_cumulative_max_cm": 773.3264770507812
+        }
+      ]
+    },
+    {
+      "source": "D:\\GitHub\\RVSurvival\\RVSurvival\\Saved\\Gate6PhysicalRefinement\\History\\physical_host_100ms_2loss_20261007-092741\\physical_host_100ms_2loss_client.json",
+      "windows": [
+        {
+          "window": "moving_cab_seat",
+          "begin_s": 15.6,
+          "end_s": 17.2,
+          "samples": 14,
+          "correction_count_change": 0,
+          "local_x_span_cm": 1.1368683772161603e-13,
+          "max_seat_relative_offset_cm": null,
+          "first_position": [
+            189.55765961854374,
+            49.249415887697985,
+            138.51685743514216
+          ],
+          "last_position": [
+            189.55765961854368,
+            49.249415887697985,
+            138.5168574351422
+          ],
+          "raw_cumulative_max_cm": 0.0
+        },
+        {
+          "window": "moving_standing_aisle",
+          "begin_s": 19,
+          "end_s": 20.3,
+          "samples": 12,
+          "correction_count_change": 0,
+          "local_x_span_cm": 0.06551388859730878,
+          "max_seat_relative_offset_cm": null,
+          "first_position": [
+            129.971327032713,
+            0.00010479116776663729,
+            177.18740064075615
+          ],
+          "last_position": [
+            129.9709176234664,
+            0.00010479116327566373,
+            177.1874006404261
+          ],
+          "raw_cumulative_max_cm": 333.2091369628906
+        },
+        {
+          "window": "moving_dinette_front",
+          "begin_s": 21.4,
+          "end_s": 22.4,
+          "samples": 9,
+          "correction_count_change": 4,
+          "local_x_span_cm": 91.63871862115172,
+          "max_seat_relative_offset_cm": null,
+          "first_position": [
+            129.97129258680323,
+            0.00010479116323658388,
+            177.18740064080242
+          ],
+          "last_position": [
+            38.332573965653324,
+            -82.02290863933447,
+            138.7170599961754
+          ],
+          "raw_cumulative_max_cm": 602.0008544921875
+        },
+        {
+          "window": "dinette_rear",
+          "begin_s": 27.0,
+          "end_s": 28.1,
+          "samples": 10,
+          "correction_count_change": 2,
+          "local_x_span_cm": 2.779696070101778,
+          "max_seat_relative_offset_cm": null,
+          "first_position": [
+            -95.69664944784672,
+            -82.14264676591186,
+            137.76253176387146
+          ],
+          "last_position": [
+            -92.91695337774495,
+            -82.17571162708326,
+            137.76215674167887
+          ],
+          "raw_cumulative_max_cm": 823.4763793945312
+        },
+        {
+          "window": "roof_walk",
+          "begin_s": 82.4,
+          "end_s": 84.8,
+          "samples": 22,
+          "correction_count_change": 0,
+          "local_x_span_cm": 356.01583936990875,
+          "max_seat_relative_offset_cm": null,
+          "first_position": [
+            -249.7895712498519,
+            74.99999946497664,
+            409.8027087933047
+          ],
+          "last_position": [
+            106.22626812005686,
+            74.9999994649766,
+            409.84254890832506
+          ],
+          "raw_cumulative_max_cm": 823.4763793945312
+        }
+      ]
+    },
+    {
+      "source": "D:\\GitHub\\RVSurvival\\RVSurvival\\Saved\\Gate6PhysicalRefinement\\History\\physical_host_100ms_2loss_20261007-094112\\physical_host_100ms_2loss_client.json",
+      "windows": [
+        {
+          "window": "moving_cab_seat",
+          "begin_s": 15.6,
+          "end_s": 17.2,
+          "samples": 15,
+          "correction_count_change": 0,
+          "local_x_span_cm": 1.1368683772161603e-13,
+          "max_seat_relative_offset_cm": 0.0,
+          "first_position": [
+            190.00000000000003,
+            49.0,
+            138.0
+          ],
+          "last_position": [
+            189.99999999999997,
+            49.0,
+            138.0
+          ],
+          "raw_cumulative_max_cm": 0.0
+        },
+        {
+          "window": "moving_standing_aisle",
+          "begin_s": 19,
+          "end_s": 20.3,
+          "samples": 12,
+          "correction_count_change": 0,
+          "local_x_span_cm": 0.05277889586844253,
+          "max_seat_relative_offset_cm": null,
+          "first_position": [
+            129.97174168334212,
+            0.00012718541953393725,
+            177.18738106740307
+          ],
+          "last_position": [
+            129.97084683714692,
+            0.0001271854195421529,
+            177.18738106404206
+          ],
+          "raw_cumulative_max_cm": 272.09564208984375
+        },
+        {
+          "window": "moving_dinette_front",
+          "begin_s": 21.4,
+          "end_s": 22.4,
+          "samples": 9,
+          "correction_count_change": 0,
+          "local_x_span_cm": 24.971675153390677,
+          "max_seat_relative_offset_cm": 0.0,
+          "first_position": [
+            129.97167515338413,
+            0.000127185419552589,
+            177.18738106746872
+          ],
+          "last_position": [
+            105.00000000000072,
+            -82.0,
+            137.99999999999997
+          ],
+          "raw_cumulative_max_cm": 272.09564208984375
+        },
+        {
+          "window": "dinette_rear",
+          "begin_s": 27.0,
+          "end_s": 28.1,
+          "samples": 10,
+          "correction_count_change": 0,
+          "local_x_span_cm": 0.0,
+          "max_seat_relative_offset_cm": 0.0,
+          "first_position": [
+            -55.00000000000079,
+            -82.0,
+            138.00000000000003
+          ],
+          "last_position": [
+            -55.00000000000079,
+            -82.0,
+            138.00000000000003
+          ],
+          "raw_cumulative_max_cm": 649.4649658203125
+        },
+        {
+          "window": "roof_walk",
+          "begin_s": 82.4,
+          "end_s": 84.8,
+          "samples": 22,
+          "correction_count_change": 0,
+          "local_x_span_cm": 352.6768313183582,
+          "max_seat_relative_offset_cm": null,
+          "first_position": [
+            -246.46926888060665,
+            75.00000680509119,
+            409.8095512922204
+          ],
+          "last_position": [
+            106.20756243775156,
+            75.00000680510534,
+            409.8698971273147
+          ],
+          "raw_cumulative_max_cm": 649.4649658203125
+        }
+      ]
+    },
+    {
+      "source": "D:\\GitHub\\RVSurvival\\RVSurvival\\Saved\\Gate6PhysicalRefinement\\History\\physical_host_100ms_2loss_20261007-102536\\physical_host_100ms_2loss_client.json",
+      "windows": [
+        {
+          "window": "moving_cab_seat",
+          "begin_s": 15.6,
+          "end_s": 17.2,
+          "samples": 14,
+          "correction_count_change": 0,
+          "local_x_span_cm": 1.1368683772161603e-13,
+          "max_seat_relative_offset_cm": 0.0,
+          "first_position": [
+            190.0,
+            49.0,
+            137.99999999999997
+          ],
+          "last_position": [
+            190.00000000000006,
+            49.0,
+            138.00000000000003
+          ],
+          "raw_cumulative_max_cm": 0.0
+        },
+        {
+          "window": "moving_standing_aisle",
+          "begin_s": 19,
+          "end_s": 20.3,
+          "samples": 12,
+          "correction_count_change": 0,
+          "local_x_span_cm": 0.03280888035629914,
+          "max_seat_relative_offset_cm": null,
+          "first_position": [
+            129.97151255588997,
+            0.00013802376072558076,
+            177.18738098893758
+          ],
+          "last_position": [
+            129.97086224672978,
+            0.00013802376068827726,
+            177.1873809857791
+          ],
+          "raw_cumulative_max_cm": 270.6021728515625
+        },
+        {
+          "window": "moving_dinette_front",
+          "begin_s": 21.4,
+          "end_s": 22.4,
+          "samples": 9,
+          "correction_count_change": 0,
+          "local_x_span_cm": 24.97171243321462,
+          "max_seat_relative_offset_cm": 0.0,
+          "first_position": [
+            129.9717124332125,
+            0.0001380237606536383,
+            177.18738098894414
+          ],
+          "last_position": [
+            104.9999999999997,
+            -82.0,
+            137.99999999999997
+          ],
+          "raw_cumulative_max_cm": 270.6021728515625
+        },
+        {
+          "window": "dinette_rear",
+          "begin_s": 27.0,
+          "end_s": 28.1,
+          "samples": 10,
+          "correction_count_change": 0,
+          "local_x_span_cm": 0.0,
+          "max_seat_relative_offset_cm": 0.0,
+          "first_position": [
+            -55.00000000000098,
+            -82.0,
+            137.99999999999997
+          ],
+          "last_position": [
+            -55.00000000000098,
+            -82.0,
+            137.99999999999997
+          ],
+          "raw_cumulative_max_cm": 694.1331787109375
+        },
+        {
+          "window": "roof_walk",
+          "begin_s": 82.4,
+          "end_s": 84.8,
+          "samples": 22,
+          "correction_count_change": 0,
+          "local_x_span_cm": 366.00996082683264,
+          "max_seat_relative_offset_cm": null,
+          "first_position": [
+            -259.80238623056476,
+            75.00002064276923,
+            409.79374840299255
+          ],
+          "last_position": [
+            106.20757459626785,
+            75.0000206427692,
+            409.8383633372533
+          ],
+          "raw_cumulative_max_cm": 694.1331787109375
+        }
+      ]
+    }
+  ],
+  "final_source_host_driver": {
+    "source": "D:\\GitHub\\RVSurvival\\RVSurvival\\Saved\\Gate6PhysicalRefinement\\physical_host_100ms_2loss_client.json",
+    "windows": [
+      {
+        "window": "moving_cab_seat",
+        "begin_s": 15.6,
+        "end_s": 17.2,
+        "samples": 14,
+        "correction_count_change": 0,
+        "local_x_span_cm": 8.526512829121202e-14,
+        "max_seat_relative_offset_cm": 0.0,
+        "first_position": [
+          189.99999999999997,
+          49.0,
+          138.0
+        ],
+        "last_position": [
+          190.0,
+          49.0,
+          137.99999999999997
+        ],
+        "raw_cumulative_max_cm": 0.0
+      },
+      {
+        "window": "moving_standing_aisle",
+        "begin_s": 19,
+        "end_s": 20.3,
+        "samples": 12,
+        "correction_count_change": 0,
+        "local_x_span_cm": 0.052895153047046506,
+        "max_seat_relative_offset_cm": null,
+        "first_position": [
+          129.9702341498848,
+          6.113392332540712e-05,
+          177.18738609873878
+        ],
+        "last_position": [
+          129.96930170607212,
+          6.113392327478095e-05,
+          177.1873860952618
+        ],
+        "raw_cumulative_max_cm": 243.83985900878906
+      },
+      {
+        "window": "moving_dinette_front",
+        "begin_s": 21.4,
+        "end_s": 22.4,
+        "samples": 9,
+        "correction_count_change": 0,
+        "local_x_span_cm": 24.970193911634425,
+        "max_seat_relative_offset_cm": 0.0,
+        "first_position": [
+          129.97019391163496,
+          6.113392322859568e-05,
+          177.18738609879273
+        ],
+        "last_position": [
+          105.00000000000054,
+          -82.0,
+          138.0
+        ],
+        "raw_cumulative_max_cm": 243.83985900878906
+      },
+      {
+        "window": "dinette_rear",
+        "begin_s": 27.0,
+        "end_s": 28.1,
+        "samples": 11,
+        "correction_count_change": 0,
+        "local_x_span_cm": 0.0,
+        "max_seat_relative_offset_cm": 0.0,
+        "first_position": [
+          -54.99999999999933,
+          -82.0,
+          137.99999999999997
+        ],
+        "last_position": [
+          -54.99999999999933,
+          -82.0,
+          137.99999999999997
+        ],
+        "raw_cumulative_max_cm": 691.0496826171875
+      },
+      {
+        "window": "roof_walk",
+        "begin_s": 82.4,
+        "end_s": 84.8,
+        "samples": 22,
+        "correction_count_change": 0,
+        "local_x_span_cm": 362.67935126757715,
+        "max_seat_relative_offset_cm": null,
+        "first_position": [
+          -256.4691027010329,
+          75.00001431456396,
+          409.7956922216394
+        ],
+        "last_position": [
+          106.21024856654425,
+          75.00001431435982,
+          409.8316556905813
+        ],
+        "raw_cumulative_max_cm": 691.0496826171875
+      }
+    ]
+  },
+  "final_source_client_driver": {
+    "source": "D:\\GitHub\\RVSurvival\\RVSurvival\\Saved\\Gate6PhysicalRefinement\\physical_client_100ms_2loss_server.json",
+    "windows": [
+      {
+        "window": "moving_cab_seat",
+        "begin_s": 15.6,
+        "end_s": 17.2,
+        "samples": 15,
+        "correction_count_change": 0,
+        "local_x_span_cm": 8.526512829121202e-14,
+        "max_seat_relative_offset_cm": 0.0,
+        "first_position": [
+          190.0,
+          49.0,
+          138.00000000000003
+        ],
+        "last_position": [
+          190.0,
+          48.99999999999999,
+          138.0
+        ],
+        "raw_cumulative_max_cm": 0.0
+      },
+      {
+        "window": "moving_standing_aisle",
+        "begin_s": 19,
+        "end_s": 20.3,
+        "samples": 11,
+        "correction_count_change": 0,
+        "local_x_span_cm": 0.16817710048161416,
+        "max_seat_relative_offset_cm": null,
+        "first_position": [
+          129.92736383770378,
+          -0.00019861933750221555,
+          177.18770117052998
+        ],
+        "last_position": [
+          129.75918673722217,
+          -0.0011736821038652832,
+          177.18874018413132
+        ],
+        "raw_cumulative_max_cm": 0.0
+      },
+      {
+        "window": "moving_dinette_front",
+        "begin_s": 21.4,
+        "end_s": 22.4,
+        "samples": 9,
+        "correction_count_change": 0,
+        "local_x_span_cm": 1.5916157281026244e-12,
+        "max_seat_relative_offset_cm": 0.0,
+        "first_position": [
+          104.99999999999986,
+          -82.00000000000001,
+          138.00000000000003
+        ],
+        "last_position": [
+          104.9999999999994,
+          -82.0,
+          138.0
+        ],
+        "raw_cumulative_max_cm": 0.0
+      },
+      {
+        "window": "dinette_rear",
+        "begin_s": 27.0,
+        "end_s": 28.1,
+        "samples": 10,
+        "correction_count_change": 0,
+        "local_x_span_cm": 2.7782220968219917e-12,
+        "max_seat_relative_offset_cm": 0.0,
+        "first_position": [
+          -54.99999999999957,
+          -82.0,
+          138.0
+        ],
+        "last_position": [
+          -55.00000000000054,
+          -82.0,
+          138.0
+        ],
+        "raw_cumulative_max_cm": 0.0
+      },
+      {
+        "window": "roof_walk",
+        "begin_s": 82.4,
+        "end_s": 84.8,
+        "samples": 22,
+        "correction_count_change": 0,
+        "local_x_span_cm": 366.023663220785,
+        "max_seat_relative_offset_cm": null,
+        "first_position": [
+          -259.80074005268233,
+          75.00001370458665,
+          409.69019443107555
+        ],
+        "last_position": [
+          106.22292316810271,
+          75.00000864338922,
+          409.57648706904
+        ],
+        "raw_cumulative_max_cm": 0.0
+      }
+    ]
+  }
+}

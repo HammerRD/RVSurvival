@@ -5,6 +5,7 @@ New-Item -ItemType Directory -Force -Path $base | Out-Null
 foreach($name in @('launch_process.py','process_startup.py','process_ready.py','process.py')){
  $text=(Get-Content -LiteralPath ($root+'\Tools\Validation\Gate6\'+$name) -Raw).Replace('Saved/Gate6Validation/','Saved/Gate6PhysicalResources/')
  if($name -eq 'process.py'){
+  $text+="`nif config.get('network'):`n for setting,value in [('PktLagMin',100),('PktLagMax',100),('PktLoss',2)]:unreal.SystemLibrary.execute_console_command(own,'NetEmulation.'+setting+' '+str(value),own)`n"
   # Use the actual surface-aligned power interaction, which opens the same panel.
   $text=$text.Replace('def focus(a):',"power_station=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVInteriorStation) if str(a.get_editor_property('StationName'))=='Power')`ndef focus(a):")
   $text=$text.Replace('focus(panel)','focus(power_station)')

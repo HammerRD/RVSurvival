@@ -1,0 +1,21 @@
+{
+  "unexpected_content_changes": 0,
+  "assets": [
+    {
+      "path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\Maps\\Gate6FuelElectricalTest.umap",
+      "modified": "2026-10-07T08:18:37.6089761-04:00",
+      "sha256": "3E424B869380ECA38352023881A1DD785613BA96B76C72E99A8EFA5E78E139D1",
+      "bytes": 155261
+    },
+    {
+      "path": "D:\\GitHub\\RVSurvival\\RVSurvival\\Content\\Vehicles\\Gate6\\BP_ClassCSystemsMotorhome.uasset",
+      "modified": "2026-10-07T08:18:37.5410634-04:00",
+      "sha256": "6F0179A705026A0D5CC9A9E610EC5CE04EF2B331BD45B95293D2F917423718D2",
+      "bytes": 79987
+    }
+  ],
+  "engine_association": "5.8",
+  "vendor_files": 108,
+  "checked_at": "2026-10-07T10:45:14.4685828-04:00",
+  "compared_to": "fce8422"
+}

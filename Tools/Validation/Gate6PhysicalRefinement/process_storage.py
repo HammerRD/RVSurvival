@@ -2,7 +2,7 @@
 Isolated exterior fixture placement is explicit; not manual walking evidence.
 """
 from pathlib import Path
-prefix=Path('D:/GitHub/RVSurvival/RVSurvival/Tools/Validation/Gate6LayoutRework/process_auxiliary.py').read_text(encoding='utf-8-sig').split('at(0,setup);')[0]
+prefix=Path('D:/GitHub/RVSurvival/RVSurvival/Saved/Gate6PhysicalRefinement/auxiliary_prefix.py').read_text(encoding='utf-8-sig').split('at(0,setup);')[0]
 exec(compile(prefix,'auxiliary-fixture-prefix','exec'))
 def key(k,on):unreal.RVInteriorMotorhome.dispatch_development_key(pc,k,on)
 at(0,setup);at(1,lambda:aim(de if isdriver else pe));at(1.2,lambda:key('E',True));at(2.1,lambda:key('E',False))

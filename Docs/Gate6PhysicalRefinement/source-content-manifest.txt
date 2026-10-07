@@ -18,6 +18,7 @@ Source/RVSurvival/Private/Vehicles/RVVehicleEntryPoint.cpp
 Source/RVSurvival/Public/Player/RVInputMappings.h
 Source/RVSurvival/Public/Player/RVLadderClimbComponent.h
 Source/RVSurvival/Public/Player/RVPlayerController.h
+Source/RVSurvival/Public/Player/RVSurvivorCharacter.h
 Source/RVSurvival/Public/UI/RVControlsWidget.h
 Source/RVSurvival/Public/Vehicles/RVInteriorMotorhome.h
 Source/RVSurvival/Public/Vehicles/RVLadder.h

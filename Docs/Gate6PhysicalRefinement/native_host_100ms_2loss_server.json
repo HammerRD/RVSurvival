@@ -1,10 +1,10 @@
 {
-  "pid": 3844,
+  "pid": 25168,
   "role": "server",
   "config": {
     "driver": "host",
-    "name": "native_host_100ms_2loss",
     "disconnect": "",
+    "name": "native_host_100ms_2loss",
     "network": true
   },
   "results": [
@@ -21,12 +21,12 @@
     {
       "case": "normal_3_passenger_to_aisle",
       "pass": true,
-      "detail": "[129.97967854452207, -0.002133211799066098, 177.1876247031803]"
+      "detail": "[129.9737705858466, 9.964359826123586e-05, 177.18609026479515]"
     },
     {
       "case": "normal_V_driver_to_passenger_1",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_1",
@@ -36,7 +36,7 @@
     {
       "case": "normal_V_driver_to_passenger_2",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_2",
@@ -46,7 +46,7 @@
     {
       "case": "normal_V_driver_to_passenger_3",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_3",
@@ -56,7 +56,7 @@
     {
       "case": "normal_V_driver_to_passenger_4",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_4",
@@ -66,7 +66,7 @@
     {
       "case": "normal_V_driver_to_passenger_5",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_5",
@@ -76,7 +76,7 @@
     {
       "case": "normal_V_driver_to_passenger_6",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_6",
@@ -86,7 +86,7 @@
     {
       "case": "normal_V_driver_to_passenger_7",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_7",
@@ -96,7 +96,7 @@
     {
       "case": "normal_V_driver_to_passenger_8",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_8",
@@ -106,7 +106,7 @@
     {
       "case": "normal_V_driver_to_passenger_9",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_9",
@@ -116,7 +116,7 @@
     {
       "case": "normal_V_driver_to_passenger_10",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_10",
@@ -126,7 +126,7 @@
     {
       "case": "normal_V_driver_to_passenger_11",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_11",
@@ -136,7 +136,7 @@
     {
       "case": "normal_V_driver_to_passenger_12",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_12",
@@ -146,7 +146,7 @@
     {
       "case": "normal_V_driver_to_passenger_13",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_13",
@@ -156,7 +156,7 @@
     {
       "case": "normal_V_driver_to_passenger_14",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_14",
@@ -166,7 +166,7 @@
     {
       "case": "normal_V_driver_to_passenger_15",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_15",
@@ -176,7 +176,7 @@
     {
       "case": "normal_V_driver_to_passenger_16",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_16",
@@ -186,7 +186,7 @@
     {
       "case": "normal_V_driver_to_passenger_17",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_17",
@@ -196,7 +196,7 @@
     {
       "case": "normal_V_driver_to_passenger_18",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_18",
@@ -206,7 +206,7 @@
     {
       "case": "normal_V_driver_to_passenger_19",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_19",
@@ -216,7 +216,7 @@
     {
       "case": "normal_V_driver_to_passenger_20",
       "pass": true,
-      "detail": "[190.0, 49.00000000000001, 137.99999999999997]"
+      "detail": "[190.0, 49.00000000000001, 138.00000000000003]"
     },
     {
       "case": "normal_1_return_driver_20",
@@ -226,22 +226,22 @@
     {
       "case": "host_or_client_driving",
       "pass": true,
-      "detail": "2181.8053609953017"
+      "detail": "2180.8665677095205"
     },
     {
       "case": "moving_V_rejected_without_release",
       "pass": true,
-      "detail": "[189.99999999999983, -49.0, 138.0]"
+      "detail": "[189.9999999999994, -49.0, 138.00000000000003]"
     },
     {
       "case": "moving_walk_to_actual_bed_foot",
       "pass": true,
-      "detail": "[-124.57780206158546, -0.06382860779601632, 191.6385499103364]"
+      "detail": "[-124.58328777614503, -0.001844339765788009, 191.63858682626937]"
     },
     {
       "case": "gentle_turn_passenger_floor",
       "pass": true,
-      "detail": "[-124.39247774992789, -1.6356500935954963, 191.62318866930005]"
+      "detail": "[-124.4136480308265, -1.5521765284555835, 191.62358507158044]"
     },
     {
       "case": "braked_before_bed",
@@ -251,22 +251,22 @@
     {
       "case": "moving_corrections_within_existing_gate3_bound",
       "pass": true,
-      "detail": "{'CorrectionCount': 0, 'MaxCorrectionCm': 0.0, 'MaxLocalStepCm': 9.999822616577148, 'FrameChanges': 0, 'BaseChanges': 0}"
+      "detail": "{'CorrectionCount': 0, 'MaxCorrectionCm': 0.0, 'MaxLocalStepCm': 9.727740287780762, 'FrameChanges': 0, 'BaseChanges': 0}"
     },
     {
       "case": "recently_stopped_native_V_passenger",
       "pass": true,
-      "detail": "[189.9999999999992, 49.00000000000108, 138.0]"
+      "detail": "[190.0000000000005, 49.00000000000358, 138.0]"
     },
     {
       "case": "recently_stopped_native_1_driver",
       "pass": true,
-      "detail": "[190.0000000000001, -48.999999999998835, 137.99999999999997]"
+      "detail": "[189.99999999999994, -48.99999999999744, 138.0]"
     },
     {
       "case": "normal_E_bed_reserved_0",
       "pass": true,
-      "detail": "[-244.9999999999997, 48.0000000000029, 195.00000000000003]"
+      "detail": "[-245.00000000000014, 47.999999999998465, 195.0]"
     },
     {
       "case": "normal_Z_sleep_0",
@@ -276,12 +276,12 @@
     {
       "case": "normal_R_E_safe_wake_0",
       "pass": true,
-      "detail": "[-114.96310563344024, 0.0003404289374344671, 191.48854499520138]"
+      "detail": "[-114.96348811352107, 2.381885060742661e-05, 191.48857522400718]"
     },
     {
       "case": "normal_E_bed_reserved_1",
       "pass": true,
-      "detail": "[-244.9999999999997, 48.0000000000029, 195.00000000000003]"
+      "detail": "[-245.00000000000014, 47.999999999998465, 195.0]"
     },
     {
       "case": "normal_Z_sleep_1",
@@ -291,12 +291,12 @@
     {
       "case": "normal_R_E_safe_wake_1",
       "pass": true,
-      "detail": "[-114.96310563344024, 0.0003404289374344671, 191.48854499520138]"
+      "detail": "[-114.96348811352107, 2.381885060742661e-05, 191.48857522400718]"
     },
     {
       "case": "normal_E_bed_reserved_2",
       "pass": true,
-      "detail": "[-244.9999999999997, 48.0000000000029, 195.00000000000003]"
+      "detail": "[-245.00000000000014, 47.999999999998465, 195.0]"
     },
     {
       "case": "normal_Z_sleep_2",
@@ -306,12 +306,12 @@
     {
       "case": "normal_R_E_safe_wake_2",
       "pass": true,
-      "detail": "[-114.96310563344024, 0.0003404289374344671, 191.48854499520138]"
+      "detail": "[-114.96348811352107, 2.381885060742661e-05, 191.48857522400718]"
     },
     {
       "case": "normal_E_bed_reserved_3",
       "pass": true,
-      "detail": "[-244.9999999999997, 48.0000000000029, 195.00000000000003]"
+      "detail": "[-245.00000000000014, 47.999999999998465, 195.0]"
     },
     {
       "case": "normal_Z_sleep_3",
@@ -321,7 +321,7 @@
     {
       "case": "normal_R_E_safe_wake_3",
       "pass": true,
-      "detail": "[-114.96310563344024, 0.0003404289374344671, 191.48854499520138]"
+      "detail": "[-114.96348811352107, 2.381885060742661e-05, 191.48857522400718]"
     },
     {
       "case": "zero_seated_walking_or_falling_samples",
@@ -333,5 +333,8 @@
       "pass": true,
       "detail": "0"
     }
-  ]
+  ],
+  "source_checkpoint": "6760ed3",
+  "module_sha256": "BA4F6986B7D1CE7EAB29D8B26F9E58879A0E0E69730002A6936E7F6D421DF5AF",
+  "evidence_kind": "Native input diagnostics; full sustained hardware/manual controls pending"
 }

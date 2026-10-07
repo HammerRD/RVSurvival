@@ -1,0 +1,17 @@
+{
+  "map": "/Game/Maps/Gate6FuelElectricalTest",
+  "actors": 69,
+  "rest_points": [
+    "Rear bed"
+  ],
+  "physical_entry": true,
+  "roof_surface_cm": 319.6,
+  "ladder_roof_access": true,
+  "PIE_started": false,
+  "clients": 1,
+  "one_process": true,
+  "net_mode": "canonical config restoration after shutdown",
+  "emulation_enabled": false,
+  "additional_launch_parameters": "",
+  "save_all": true
+}

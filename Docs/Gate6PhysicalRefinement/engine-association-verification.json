@@ -1,0 +1,14 @@
+{
+  "installed_engine": {
+    "InstallLocation": "D:\\Epic Games\\UE_5.8",
+    "NamespaceId": "ue",
+    "ItemId": "18b3b415bc434c5b974f50488360ca31",
+    "ArtifactId": "UE_5.8",
+    "AppVersion": "5.8.3-58210709+++UE5+Release-5.8-Windows",
+    "AppName": "UE_5.8"
+  },
+  "project_association": "5.8",
+  "resolution": "Native DesktopPlatform enumerates Launcher installations and strips UE_ to resolve 5.8",
+  "conversion_dialog_observed": false,
+  "checked_at": "2026-10-07T10:22:17.4800572-04:00"
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "suite": "Earlier Gate5 entry/front shell",
+    "checks": 22,
+    "failed": 0,
+    "receipt": "regression-refined-entry.json"
+  },
+  {
+    "suite": "Gate1 interaction",
+    "checks": 23,
+    "failed": 0,
+    "receipt": "Gate1Regression/summary.json"
+  },
+  {
+    "suite": "Gate2 strengthened vehicle",
+    "checks": 30,
+    "failed": 0,
+    "receipt": "Gate2Regression/shared.json"
+  },
+  {
+    "suite": "Gate2 inventory/possession",
+    "checks": 4,
+    "failed": 0,
+    "receipt": "Gate2Regression/inventory-possession.json"
+  },
+  {
+    "suite": "Gate4 inventory",
+    "checks": 24,
+    "failed": 0,
+    "receipt": "regression-inventory.json"
+  },
+  {
+    "suite": "Gate5 needs",
+    "checks": 27,
+    "failed": 0,
+    "receipt": "regression-needs.json"
+  }
+]

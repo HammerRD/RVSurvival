@@ -1,5 +1,5 @@
 {
-  "pid": 40932,
+  "pid": 49928,
   "authority": false,
   "config": {
     "network": true,
@@ -26,7 +26,7 @@
     {
       "case": "driver_physical_step_door_entry",
       "pass": true,
-      "detail": "[92.25657300712015, 3.0063766551323448, 177.27583108529132]"
+      "detail": "[92.24906074185543, 3.6004345786725076, 177.229271298791]"
     },
     {
       "case": "physical_entry_then_E_driver",
@@ -36,7 +36,7 @@
     {
       "case": "walker_physical_step_door_entry",
       "pass": true,
-      "detail": "[92.29999999999998, 3.9299999999999997, 177.18]"
+      "detail": "[92.18, 6.21, 177.27]"
     },
     {
       "case": "physical_entry_then_E_passenger",
@@ -51,7 +51,7 @@
     {
       "case": "moving_passenger_3_rear",
       "pass": true,
-      "detail": "[129.94000000000065, -1.9984014443252818e-15, 177.19000000000005]"
+      "detail": "[129.94000000000312, -3.552713678800501e-15, 177.19000000000008]"
     },
     {
       "case": "moving_driver_3_rejected_before_release",
@@ -101,7 +101,7 @@
     {
       "case": "stopped_driver_3_rear",
       "pass": true,
-      "detail": "[129.98412652228168, 0.0001380263684462299, 177.18856542526723]"
+      "detail": "[129.98347810658038, 0.0001389928222633878, 177.18844597226814]"
     },
     {
       "case": "rear_back_to_passenger",
@@ -116,7 +116,7 @@
     {
       "case": "walker_physical_step_door_exit",
       "pass": true,
-      "detail": "[89.94239079968011, 242.28769214017007, 72.25207238632623]"
+      "detail": "[89.86049244842893, 242.33257049390727, 72.38368742700314]"
     },
     {
       "case": "ladder_reserved_replicates",
@@ -126,7 +126,7 @@
     {
       "case": "roof_dismount_supported_walking",
       "pass": true,
-      "detail": "[-314.9999999999986, 74.99999999999999, 409.75]"
+      "detail": "[-315.000000000001, 75.0, 409.75]"
     },
     {
       "case": "roof_presence_locks_propulsion",
@@ -136,7 +136,7 @@
     {
       "case": "roof_walk_past_fixtures",
       "pass": true,
-      "detail": "[106.22999999999935, 75.0, 409.73]"
+      "detail": "[106.2199999999984, 75.00000000000001, 409.5799999999999]"
     },
     {
       "case": "roof_return_ladder_reserved",
@@ -146,7 +146,7 @@
     {
       "case": "roof_ladder_ground_return",
       "pass": true,
-      "detail": "[-457.12753150974055, 74.86769214017016, 72.57549836576214]"
+      "detail": "[-457.0994111508658, 74.5325704939073, 72.7373180948849]"
     },
     {
       "case": "door_closed_converges_after_physical_exit",
@@ -156,30 +156,30 @@
     {
       "case": "closed_door_physically_blocks_entry",
       "pass": true,
-      "detail": "[92.70000000000014, 155.48000000000002, 98.14000000000001]"
+      "detail": "[92.6999999999994, 155.48, 98.13]"
     },
     {
       "case": "physical_reentry_restores_frame",
       "pass": true,
-      "detail": "[92.20000000000141, 4.199999999999999, 177.15]"
+      "detail": "[92.23999999999958, 4.060000000000003, 177.17000000000002]"
     },
     {
       "case": "physical_front_to_rear_walk",
       "pass": true,
-      "detail": "[-124.65999999999983, 0.030000000000000488, 191.64000000000001]"
+      "detail": "[-124.55999999999969, 0.03000000000000172, 191.64000000000001]"
     },
     {
       "case": "repeat_physical_exit_no_locked_state",
       "pass": true,
-      "detail": "[90.00239077815014, 243.26769214017006, 72.2520215600043]"
+      "detail": "[89.91048340308367, 243.3025704939073, 72.3736423061477]"
     },
     {
       "case": "driver_physical_exit_after_cab_release",
       "pass": true,
-      "detail": "[89.86848388232622, 242.7855428591072, 72.24686281779083]"
+      "detail": "[89.63379768119925, 242.29759692834085, 72.38039737880948]"
     }
   ],
-  "source_checkpoint": "05294c1",
-  "module_sha256": "BA4F6986B7D1CE7EAB29D8B26F9E58879A0E0E69730002A6936E7F6D421DF5AF",
+  "source_checkpoint": "6760ed3",
+  "module_sha256": "A7E3B18FBACA5B51CCBF41372F624DD02799FF4373110841698AD389AF864DC9",
   "evidence_kind": "Native input diagnostics; full sustained hardware/manual controls pending"
 }

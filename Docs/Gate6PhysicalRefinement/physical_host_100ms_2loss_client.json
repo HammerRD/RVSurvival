@@ -1,11 +1,11 @@
 {
-  "pid": 29160,
+  "pid": 45708,
   "authority": false,
   "config": {
     "network": true,
+    "name": "physical_host_100ms_2loss",
     "driver": "host",
-    "disconnect": "",
-    "name": "physical_host_100ms_2loss"
+    "disconnect": ""
   },
   "results": [
     {
@@ -26,7 +26,7 @@
     {
       "case": "driver_physical_step_door_entry",
       "pass": true,
-      "detail": "[92.22, 3.16, 177.27]"
+      "detail": "[92.23999999999998, 3.37, 177.22]"
     },
     {
       "case": "physical_entry_then_E_driver",
@@ -36,7 +36,7 @@
     {
       "case": "walker_physical_step_door_entry",
       "pass": true,
-      "detail": "[92.19210543034657, 6.210728260011849, 177.28223035264318]"
+      "detail": "[92.201317392553, 5.1761503751761095, 177.3288345905142]"
     },
     {
       "case": "physical_entry_then_E_passenger",
@@ -51,7 +51,7 @@
     {
       "case": "moving_passenger_3_rear",
       "pass": true,
-      "detail": "[129.97151255588997, 0.00013802376072558076, 177.18738098893758]"
+      "detail": "[129.97023414988433, 6.113392332540712e-05, 177.18738609873878]"
     },
     {
       "case": "moving_driver_3_rejected_before_release",
@@ -101,7 +101,7 @@
     {
       "case": "stopped_driver_3_rear",
       "pass": true,
-      "detail": "[129.97999999999905, -1.4470974424216687e-15, 177.18999999999997]"
+      "detail": "[129.97999999999888, -1.0909810796358413e-15, 177.19000000000003]"
     },
     {
       "case": "rear_back_to_passenger",
@@ -116,7 +116,7 @@
     {
       "case": "walker_physical_step_door_exit",
       "pass": true,
-      "detail": "[87.18156037865774, 242.29728207622446, 72.49196783422292]"
+      "detail": "[86.65779083177273, 242.40810616815105, 72.55544305988506]"
     },
     {
       "case": "ladder_reserved_replicates",
@@ -126,7 +126,7 @@
     {
       "case": "roof_dismount_supported_walking",
       "pass": true,
-      "detail": "[-315.0013957069736, 75.00002064276921, 409.74913106147386]"
+      "detail": "[-315.0013941635942, 75.00001431456063, 409.7491342688856]"
     },
     {
       "case": "roof_presence_locks_propulsion",
@@ -136,7 +136,7 @@
     {
       "case": "roof_walk_past_fixtures",
       "pass": true,
-      "detail": "[106.20757459626785, 75.0000206427692, 409.8383633372533]"
+      "detail": "[106.21024856654425, 75.00001431435982, 409.8316556905813]"
     },
     {
       "case": "roof_return_ladder_reserved",
@@ -146,7 +146,7 @@
     {
       "case": "roof_ladder_ground_return",
       "pass": true,
-      "detail": "[-459.50532601940256, 74.51890098600946, 71.91221829650371]"
+      "detail": "[-459.98142174446537, 74.1854544087391, 71.98334246306536]"
     },
     {
       "case": "door_closed_converges_after_physical_exit",
@@ -156,30 +156,30 @@
     {
       "case": "closed_door_physically_blocks_entry",
       "pass": true,
-      "detail": "[92.8681053410578, 155.51528674294488, 98.14996332174248]"
+      "detail": "[92.96662112196353, 155.4787789232863, 98.14996161686344]"
     },
     {
       "case": "physical_reentry_restores_frame",
       "pass": true,
-      "detail": "[92.26415604236651, 3.5176608092552826, 177.23822024706615]"
+      "detail": "[92.24442821459853, 3.6309949285381506, 177.22958644941826]"
     },
     {
       "case": "physical_front_to_rear_walk",
       "pass": true,
-      "detail": "[-124.93105758240938, -0.007959592340955592, 191.63992463778575]"
+      "detail": "[-124.93058219246102, -0.008339161893692491, 191.63992598243178]"
     },
     {
       "case": "repeat_physical_exit_no_locked_state",
       "pass": true,
-      "detail": "[86.96938313119432, 241.5940309205452, 72.48765174854726]"
+      "detail": "[86.64828669369545, 243.32277002674402, 72.55437510365734]"
     },
     {
       "case": "driver_physical_exit_after_cab_release",
       "pass": true,
-      "detail": "[87.433480117251, 242.3858999003499, 72.49430880240644]"
+      "detail": "[86.8356607257999, 242.41826508142472, 72.55829344619282]"
     }
   ],
-  "source_checkpoint": "05294c1",
-  "module_sha256": "BA4F6986B7D1CE7EAB29D8B26F9E58879A0E0E69730002A6936E7F6D421DF5AF",
+  "source_checkpoint": "6760ed3",
+  "module_sha256": "A7E3B18FBACA5B51CCBF41372F624DD02799FF4373110841698AD389AF864DC9",
   "evidence_kind": "Native input diagnostics; full sustained hardware/manual controls pending"
 }

@@ -1,0 +1,27 @@
+[2026.10.07-14.06.55:519][594]LogPython: GATE1_RESULT {"case": "reset_count", "pass": true, "detail": "0"}
+[2026.10.07-14.06.56:719][738]LogPython: GATE1_RESULT {"case": "movement_W", "pass": true, "detail": "<Struct 'Vector' (0x000001EC94AE8510) {x: -518.153137, y: -450.000000, z: 89.650000}>"}
+[2026.10.07-14.06.57:415][821]LogPython: GATE1_RESULT {"case": "movement_S", "pass": true, "detail": "<Struct 'Vector' (0x000001EC94AC8B00) {x: -597.499682, y: -450.000000, z: 89.650000}>"}
+[2026.10.07-14.06.58:114][905]LogPython: GATE1_RESULT {"case": "movement_D", "pass": true, "detail": "<Struct 'Vector' (0x000001EC94AE8510) {x: -597.499682, y: -368.153136, z: 89.650000}>"}
+[2026.10.07-14.06.58:815][989]LogPython: GATE1_RESULT {"case": "movement_A", "pass": true, "detail": "<Struct 'Vector' (0x000001EC94AC8B00) {x: -597.499682, y: -450.002331, z: 89.650000}>"}
+[2026.10.07-14.06.59:716][ 97]LogPython: GATE1_RESULT {"case": "jump", "pass": true, "detail": "<Struct 'Vector' (0x000001EC94AC8B00) {x: -600.000000, y: -450.000000, z: 152.457551}>"}
+[2026.10.07-14.07.01:016][253]LogPython: GATE1_RESULT {"case": "mouse_yaw", "pass": true, "detail": "<Struct 'Rotator' (0x000001EC94AC8B00) {pitch: 0.000000, yaw: 4.025000, roll: 0.000000}>"}
+[2026.10.07-14.07.01:515][313]LogPython: GATE1_RESULT {"case": "mouse_pitch", "pass": true, "detail": "<Struct 'Rotator' (0x000001EC94AC8B00) {pitch: 4.025000, yaw: 4.025000, roll: 0.000000}>"}
+[2026.10.07-14.07.02:916][481]LogPython: GATE1_RESULT {"case": "hold_before_half_second", "pass": true, "detail": "0"}
+[2026.10.07-14.07.03:316][529]LogPython: GATE1_RESULT {"case": "hold_completion", "pass": true, "detail": "1"}
+[2026.10.07-14.07.04:216][637]LogPython: GATE1_RESULT {"case": "continued_hold_no_repeat", "pass": true, "detail": "1"}
+[2026.10.07-14.07.06:116][865]LogPython: GATE1_RESULT {"case": "early_release", "pass": true, "detail": "1"}
+[2026.10.07-14.07.08:016][ 93]LogPython: GATE1_RESULT {"case": "look_away_cancel", "pass": true, "detail": "1"}
+[2026.10.07-14.07.10:017][333]LogPython: GATE1_RESULT {"case": "out_of_range_cancel", "pass": true, "detail": "1"}
+[2026.10.07-14.07.12:017][573]LogPython: GATE1_RESULT {"case": "line_of_sight_cancel", "pass": true, "detail": "1"}
+[2026.10.07-14.07.13:218][717]LogPython: GATE1_SINGLE_DONE
+[2026.10.07-14.07.24:231][  4]LogPython: GATE1_WORLDS ['/Game/Maps/UEDPIE_1_Gate1Test.Gate1Test', '/Game/Maps/UEDPIE_0_Gate1Test.Gate1Test']
+[2026.10.07-14.07.24:722][ 63]LogPython: GATE1_MULTI_RESULT {"case": "reset_count", "pass": true, "detail": "[0, 0]"}
+[2026.10.07-14.07.25:727][183]LogPython: GATE1_MULTI_RESULT {"case": "host_moves_independently", "pass": true, "detail": "[<Struct 'Vector' (0x000001EC94AEA220) {x: -652.537049, y: -523.137922, z: 89.650000}>, <Struct 'Vector' (0x000001EC94AEA3B0) {x: -600.000000, y: -390.000000, z: 89.650000}>]"}
+[2026.10.07-14.07.26:727][303]LogPython: GATE1_MULTI_RESULT {"case": "client_moves_independently", "pass": true, "detail": "[<Struct 'Vector' (0x000001EC94AEA270) {x: -652.537049, y: -523.137922, z: 89.650000}>, <Struct 'Vector' (0x000001EC94AEA180) {x: -652.534270, y: -376.863788, z: 89.650000}>]"}
+[2026.10.07-14.07.29:429][627]LogPython: GATE1_MULTI_RESULT {"case": "host_interacts_and_replicates", "pass": true, "detail": "[1, 1]"}
+[2026.10.07-14.07.31:530][879]LogPython: GATE1_MULTI_RESULT {"case": "remote_interacts_and_replicates", "pass": true, "detail": "[2, 2]"}
+[2026.10.07-14.07.33:723][142]LogPython: GATE1_MULTI_RESULT {"case": "simultaneous_two_increments", "pass": true, "detail": "[4, 4]"}
+[2026.10.07-14.07.34:723][262]LogPython: GATE1_MULTI_RESULT {"case": "both_continued_holds_no_duplicate", "pass": true, "detail": "[4, 4]"}
+[2026.10.07-14.07.37:726][622]LogPython: GATE1_MULTI_RESULT {"case": "remote_early_release", "pass": true, "detail": "[4, 4]"}
+[2026.10.07-14.07.39:232][802]LogPython: GATE1_MULTI_DONE
+[2026.10.07-14.07.43:227][268]LogPython: GATE2_GATE1_REGRESSION_DONE
