@@ -80,6 +80,13 @@ bool URVRecoveryComponent::RecoverAuthority(ARVPlayerController* PC,FString& Fee
  }
  FCollisionQueryParams Params(SCENE_QUERY_STAT(RVRecoveryPlacement),false,RV);
  TArray<AActor*> Attached;RV->GetAttachedActors(Attached,true,true);Params.AddIgnoredActors(Attached);
+ auto SupportedGround=[](const FHitResult& Hit)
+ {
+  if(Hit.ImpactNormal.Z<.9)return false;
+  // A pawn or its attached geometry is not stable terrain for recovery.
+  for(auto* Actor=Hit.GetActor();Actor;Actor=Actor->GetAttachParentActor())if(Actor->IsA<APawn>())return false;
+  return true;
+ };
  for(auto* C:Seated)Params.AddIgnoredActor(C);for(auto* C:Evacuate)Params.AddIgnoredActor(C);
  const FQuat Upright=FRotator(0,RV->GetActorRotation().Yaw,0).Quaternion();
  FVector Chosen=FVector::ZeroVector;TArray<FVector> SafePassengers;bool Found=false;
@@ -90,7 +97,7 @@ bool URVRecoveryComponent::RecoverAuthority(ARVPlayerController* PC,FString& Fee
   for(FVector Foot:{FVector::ZeroVector,FVector(340,105,0),FVector(340,-105,0),FVector(-340,105,0),FVector(-340,-105,0)})
   {
    FVector P=Target+Upright.RotateVector(Foot);FHitResult Hit;
-   if(!GetWorld()->LineTraceSingleByChannel(Hit,P+FVector(0,0,600),P-FVector(0,0,1000),ECC_Visibility,Params) || Hit.ImpactNormal.Z<.9){Supported=false;break;}
+   if(!GetWorld()->LineTraceSingleByChannel(Hit,P+FVector(0,0,600),P-FVector(0,0,1000),ECC_Visibility,Params) || !SupportedGround(Hit)){Supported=false;break;}
    Low=FMath::Min(Low,double(Hit.ImpactPoint.Z));High=FMath::Max(High,double(Hit.ImpactPoint.Z));
   }
   if(!Supported || High-Low>45)continue;
@@ -105,7 +112,7 @@ bool URVRecoveryComponent::RecoverAuthority(ARVPlayerController* PC,FString& Fee
    for(int32 i=0;i<16;++i)
    {
     const float Angle=i*PI/8;FVector P=Target+FVector(FMath::Cos(Angle)*650,FMath::Sin(Angle)*650,0);FHitResult Hit;
-    if(!GetWorld()->LineTraceSingleByChannel(Hit,P+FVector(0,0,400),P-FVector(0,0,800),ECC_Visibility,Params) || Hit.ImpactNormal.Z<.9)continue;
+    if(!GetWorld()->LineTraceSingleByChannel(Hit,P+FVector(0,0,400),P-FVector(0,0,800),ECC_Visibility,Params) || !SupportedGround(Hit))continue;
     P=Hit.ImpactPoint+FVector(0,0,Half+3);
     if(GetWorld()->OverlapAnyTestByObjectType(P,FQuat::Identity,FCollisionObjectQueryParams::AllObjects,FCollisionShape::MakeCapsule(Radius,Half),Params))continue;
     if(FBox(PlacementCenter-PlacementExtent,PlacementCenter+PlacementExtent).ExpandBy(FVector(Radius,Radius,Half)).IsInside(Upright.UnrotateVector(P-Target)))continue;
@@ -140,17 +147,30 @@ bool URVRecoveryComponent::DebugOverturn(float Roll)
  return false;
 #endif
 }
-AActor* URVRecoveryComponent::DebugCreateSurface(FVector Location,FRotator Rotation,FVector Extent)
+AActor* URVRecoveryComponent::DebugCreateSurface(FVector Location,FRotator Rotation,FVector Extent,bool bPawnSurface)
 {
 #if !UE_BUILD_SHIPPING && !UE_BUILD_TEST
  if(!GetWorld() || !GetWorld()->IsGameWorld() || Location.ContainsNaN() || Rotation.ContainsNaN() || Extent.ContainsNaN() || Extent.GetMin()<=0)return nullptr;
  // Local, disposable test fixture in each process, never an editor asset.
- auto* Surface=GetWorld()->SpawnActor<AStaticMeshActor>(Location,Rotation);
- if(!Surface)return nullptr;
- Surface->GetStaticMeshComponent()->SetMobility(EComponentMobility::Movable);
- Surface->GetStaticMeshComponent()->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,TEXT("/Engine/BasicShapes/Cube.Cube")));
- Surface->GetStaticMeshComponent()->SetCollisionProfileName(TEXT("BlockAll"));
- Surface->SetActorScale3D(Extent/50);return Surface;
+ AActor* Surface=nullptr;UStaticMeshComponent* Mesh=nullptr;
+ if(bPawnSurface)
+ {
+  Surface=GetWorld()->SpawnActor<APawn>(Location,Rotation);
+  if(!Surface)return nullptr;
+  Mesh=NewObject<UStaticMeshComponent>(Surface);Surface->AddInstanceComponent(Mesh);Surface->SetRootComponent(Mesh);
+  Mesh->SetMobility(EComponentMobility::Movable);
+  Mesh->RegisterComponent();
+ }
+ else
+ {
+  auto* Static=GetWorld()->SpawnActor<AStaticMeshActor>(Location,Rotation);
+  if(!Static)return nullptr;Surface=Static;Mesh=Static->GetStaticMeshComponent();
+ }
+ Mesh->SetMobility(EComponentMobility::Movable);
+ Mesh->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,TEXT("/Engine/BasicShapes/Cube.Cube")));
+ Mesh->SetCollisionProfileName(TEXT("BlockAll"));
+ if(bPawnSurface)Mesh->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+ Surface->SetActorLocationAndRotation(Location,Rotation);Surface->SetActorScale3D(Extent/50);return Surface;
 #else
  return nullptr;
 #endif

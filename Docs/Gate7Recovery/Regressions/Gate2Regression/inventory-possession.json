@@ -1,0 +1,26 @@
+[
+  {
+    "case": "inventory_survives_driver_passenger_possession",
+    "pass": true,
+    "world": "/Game/Maps/UEDPIE_0_Gate2VehicleTest.Gate2VehicleTest",
+    "pawn": "RVSurvivorCharacter_0"
+  },
+  {
+    "case": "inventory_survives_driver_passenger_possession",
+    "pass": true,
+    "world": "/Game/Maps/UEDPIE_0_Gate2VehicleTest.Gate2VehicleTest",
+    "pawn": "RVSurvivorCharacter_1"
+  },
+  {
+    "case": "inventory_survives_driver_passenger_possession",
+    "pass": true,
+    "world": "/Game/Maps/UEDPIE_1_Gate2VehicleTest.Gate2VehicleTest",
+    "pawn": "RVSurvivorCharacter_0"
+  },
+  {
+    "case": "inventory_survives_driver_passenger_possession",
+    "pass": true,
+    "world": "/Game/Maps/UEDPIE_1_Gate2VehicleTest.Gate2VehicleTest",
+    "pawn": "RVSurvivorCharacter_1"
+  }
+]

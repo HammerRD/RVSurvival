@@ -16,6 +16,7 @@ isdriver=authority==(config['driver']=='host');dp=p if isdriver else other;wp=ot
 entries=unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVVehicleEntryPoint)
 de=next(a for a in entries if a.get_editor_property('Seat')==driver and abs(v.get_actor_transform().inverse_transform_location(a.get_actor_location()).y)>100)
 pe=next(a for a in entries if a.get_editor_property('Seat')==passenger and abs(v.get_actor_transform().inverse_transform_location(a.get_actor_location()).y)>100)
+bed=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVRestPoint) if str(a.get_editor_property('DisplayName'))=='Rear bed')
 events=[];held={};results=[];samples=[];before=None;resources=None;frames=0;maximum_speed=0;walk_start=None;interior_start=None
 def check(n,b,d=''):
  results.append({'case':n,'pass':bool(b),'detail':str(d)});unreal.log('RECOVERY_NET '+role+' '+n+' '+str(bool(b)))
@@ -133,6 +134,26 @@ def turn():
 def turning_interior():
  q=v.get_actor_transform().inverse_transform_location(wp.get_actor_location());frame=wp.get_component_by_class(unreal.RVPassengerReferenceFrameComponent)
  check('moving_interior_turn_after_recovery',frame.get_editor_property('ReferenceFrame')==v and 140<q.z<230,{'local':str(q),'corrections':frame.get_editor_property('CorrectionCount'),'max_cm':frame.get_editor_property('MaxCorrectionCm')})
+def bed_approach():
+ if authority:wp.set_actor_location(v.get_actor_transform().transform_location(unreal.Vector(-240,0,180)),False,True)
+def bed_aim():
+ if not isdriver:pc.set_control_rotation(unreal.MathLibrary.find_look_at_rotation(p.get_actor_location()+unreal.Vector(0,0,p.get_editor_property('BaseEyeHeight')),bed.get_actor_location()))
+def bed_enter():
+ if not isdriver:press('E',.85)
+def bed_sleep():
+ if not isdriver:press('Z')
+def sleeping():
+ mode=wp.get_editor_property('PlayerState').get_component_by_class(unreal.RVNeedsComponent).get_editor_property('State').rest_mode
+ check('normal_E_Z_sleep_before_rollover',wp.get_component_by_class(unreal.RVRestPoseComponent).get_editor_property('RestPoint')==bed and 'SLEEPING' in str(mode),str(mode))
+def bed_recovered():
+ after=snapshot();deltas=[b-a for a,b in zip(resources['resources'],after['resources'])]
+ check('bed_recovery_upright',v.get_actor_up_vector().z>.98 and r.get_editor_property('RecoveryRevision')==5)
+ check('bed_recovery_preserves_items_mechanics_needs_values',after['items']==resources['items'] and after['mechanical']==resources['mechanical'] and [n[:-1] for n in after['needs']]==[n[:-1] for n in resources['needs']])
+ check('bed_recovery_preserves_resources',all(abs(d)<=limit for d,limit in zip(deltas,[.001,.001,.1,.1])),deltas)
+ pose=wp.get_component_by_class(unreal.RVRestPoseComponent)
+ needs=wp.get_editor_property('PlayerState').get_component_by_class(unreal.RVNeedsComponent)
+ check('bed_recovery_wakes_releases_rest_pose',pose.get_editor_property('RestPoint') is None and 'AWAKE' in str(needs.get_editor_property('State').rest_mode))
+ check('bed_recovery_walking_collision_restored',wp.get_component_by_class(unreal.CharacterMovementComponent).get_editor_property('MovementMode')==unreal.MovementMode.MOVE_WALKING and wp.get_component_by_class(unreal.CapsuleComponent).get_collision_enabled()==unreal.CollisionEnabled.QUERY_AND_PHYSICS)
 def finish():
  hold_throttle(False)
  for key in list(held):unreal.RVInteriorMotorhome.dispatch_development_key(pc,key,False)
@@ -143,7 +164,7 @@ events.extend([(7.5,lambda:hold_throttle(True)),(25.5,lambda:check('held_throttl
 for i,roll in enumerate([90,-90,180]):
  t=8+i*20;label=str(roll);revision=i+1
  events.extend([(t,lambda roll=roll:fixture(roll)),(t+11,lambda label=label:preflight(label)),(t+12,lambda host=i!=1:recover(host)),(t+16,lambda label=label,rev=revision:complete(label,rev)),(t+17,lambda:press('F8')),(t+19,lambda rev=revision:reject_repeat(rev))])
-events.extend([(69,stand),(72,standing_check),(74,lambda:fixture(90,True)),(85,lambda:preflight('uneven')),(86,lambda:recover(False)),(90,lambda:complete('uneven',4,False)),(92,evac_check),(92.5,walk_after_recovery),(95,walked),(96,drive),(102,driven),(102.2,brake),(106,park),(113,approach_passenger),(114,aim_passenger),(114.5,enter_passenger),(116.5,lambda:check('normal_passenger_seat_reentry',occupants())),(118,enter_interior),(120,restored_interior),(121,drive),(122,walk_inside),(125,interior_walking),(126.5,turn),(129,turning_interior),(131,finish)])
+events.extend([(69,stand),(72,standing_check),(74,lambda:fixture(90,True)),(85,lambda:preflight('uneven')),(86,lambda:recover(False)),(90,lambda:complete('uneven',4,False)),(92,evac_check),(92.5,walk_after_recovery),(95,walked),(96,drive),(102,driven),(102.2,brake),(106,park),(113,approach_passenger),(114,aim_passenger),(114.5,enter_passenger),(116.5,lambda:check('normal_passenger_seat_reentry',occupants())),(118,enter_interior),(120,restored_interior),(121,drive),(122,walk_inside),(125,interior_walking),(126.5,turn),(129,turning_interior),(130,brake),(134,park),(140,bed_approach),(141,bed_aim),(141.5,bed_enter),(143,bed_sleep),(144, sleeping),(145,lambda:fixture(90)),(156,lambda:preflight('bed')),(157,lambda:recover(False)),(161,bed_recovered),(162,walk_after_recovery),(165,walked),(168,finish)])
 events.sort(key=lambda e:e[0])
 def tick(dt):
  global frames,maximum_speed

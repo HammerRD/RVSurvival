@@ -1,0 +1,77 @@
+[
+  {
+    "case": "reset_count",
+    "pass": true,
+    "detail": "0"
+  },
+  {
+    "case": "movement_W",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x000002DFB89FCDD0) {x: -518.149639, y: -450.000000, z: 89.650000}>"
+  },
+  {
+    "case": "movement_S",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x000002DFB89E53C0) {x: -601.861521, y: -450.000000, z: 89.650000}>"
+  },
+  {
+    "case": "movement_D",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x000002DFB89FCDD0) {x: -601.861521, y: -368.128408, z: 89.650000}>"
+  },
+  {
+    "case": "movement_A",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x000002DFB89E53C0) {x: -601.861521, y: -449.974440, z: 89.650000}>"
+  },
+  {
+    "case": "jump",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x000002DFB89E53C0) {x: -600.000000, y: -450.000000, z: 152.180090}>"
+  },
+  {
+    "case": "mouse_yaw",
+    "pass": true,
+    "detail": "<Struct 'Rotator' (0x000002DFB89E53C0) {pitch: 0.000000, yaw: 4.025000, roll: 0.000000}>"
+  },
+  {
+    "case": "mouse_pitch",
+    "pass": true,
+    "detail": "<Struct 'Rotator' (0x000002DFB89E53C0) {pitch: 4.025000, yaw: 4.025000, roll: 0.000000}>"
+  },
+  {
+    "case": "hold_before_half_second",
+    "pass": true,
+    "detail": "0"
+  },
+  {
+    "case": "hold_completion",
+    "pass": true,
+    "detail": "1"
+  },
+  {
+    "case": "continued_hold_no_repeat",
+    "pass": true,
+    "detail": "1"
+  },
+  {
+    "case": "early_release",
+    "pass": true,
+    "detail": "1"
+  },
+  {
+    "case": "look_away_cancel",
+    "pass": true,
+    "detail": "1"
+  },
+  {
+    "case": "out_of_range_cancel",
+    "pass": true,
+    "detail": "1"
+  },
+  {
+    "case": "line_of_sight_cancel",
+    "pass": true,
+    "detail": "1"
+  }
+]

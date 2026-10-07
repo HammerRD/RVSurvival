@@ -29,7 +29,7 @@ public:
  bool IsPrototypeRecoveryAvailable()const;
  bool RecoverAuthority(ARVPlayerController* Requester,FString& Feedback);
  UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) bool DebugOverturn(float Roll);
- UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) AActor* DebugCreateSurface(FVector Location,FRotator Rotation,FVector Extent);
+ UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) AActor* DebugCreateSurface(FVector Location,FRotator Rotation,FVector Extent,bool bPawnSurface=false);
 private:
  float StableTime=0;
 };

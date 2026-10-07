@@ -30,6 +30,10 @@ def block():
 def unblock():
  global blocker
  blocker.destroy_actor();blocker=None
+def pawn_ground():
+ global blocker
+ q=v.get_actor_location();blocker=r.debug_create_surface(unreal.Vector(q.x,q.y,200),unreal.Rotator(),unreal.Vector(1000,1000,200),True);assert blocker
+ p.set_actor_location(unreal.Vector(q.x+650,q.y,490),False,True)
 def debug_recover():unreal.SystemLibrary.execute_console_command(pc,'RVRecover',pc)
 def request(label):
  global before
@@ -49,7 +53,7 @@ for i,roll in enumerate([90,-90,180]):
  t=i*20
  events.extend([(t,lambda roll=roll:fixture(roll)),(t+12,lambda label=str(roll):request(label)),(t+15,lambda label=str(roll):recovered(label)),(t+17,lambda label=str(roll),revision=i+1:repeated(label,revision))])
 events.extend([(11,lambda:photo('overturned-prompt')),(16,lambda:photo('recovered'))])
-events.extend([(60,lambda:fixture(25)),(64,press),(65,lambda:check('minor_lean_rejected',r.get_editor_property('RecoveryRevision')==3 and not r.get_editor_property('bConfirmedOverturned'))),(66,lambda:fixture(90)),(78,force_motion),(79,press),(82,lambda:check('moving_recovery_rejected',r.get_editor_property('RecoveryRevision')==3)),(84,block),(85,press),(86,lambda:check('obstructed_elevated_destination_rejected',r.get_editor_property('RecoveryRevision')==3,pc.get_editor_property('RecoveryFeedback'))),(87,unblock),(88,debug_recover),(91,lambda:check('development_command_safe_recovery',v.get_actor_up_vector().z>.98 and r.get_editor_property('RecoveryRevision')==4)),(93,debug_recover),(94,lambda:check('development_command_upright_rejected',r.get_editor_property('RecoveryRevision')==4)),(95,finish)])
+events.extend([(60,lambda:fixture(25)),(64,press),(65,lambda:check('minor_lean_rejected',r.get_editor_property('RecoveryRevision')==3 and not r.get_editor_property('bConfirmedOverturned'))),(66,lambda:fixture(90)),(78,force_motion),(79,press),(82,lambda:check('moving_recovery_rejected',r.get_editor_property('RecoveryRevision')==3)),(84,block),(85,press),(86,lambda:check('obstructed_elevated_destination_rejected',r.get_editor_property('RecoveryRevision')==3,pc.get_editor_property('RecoveryFeedback'))),(87,unblock),(88,pawn_ground),(90,press),(91,lambda:check('pawn_vehicle_surface_is_not_recovery_ground',r.get_editor_property('RecoveryRevision')==3 and 'No clear supported' in pc.get_editor_property('RecoveryFeedback'),pc.get_editor_property('RecoveryFeedback'))),(92,unblock),(94,debug_recover),(98,lambda:check('development_command_safe_recovery',v.get_actor_up_vector().z>.98 and r.get_editor_property('RecoveryRevision')==4)),(100,debug_recover),(102,lambda:check('development_command_upright_rejected',r.get_editor_property('RecoveryRevision')==4)),(104,finish)])
 events.sort(key=lambda e:e[0])
 def tick(dt):
  global held

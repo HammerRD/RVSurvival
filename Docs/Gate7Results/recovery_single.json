@@ -8,17 +8,17 @@
     {
       "case": "90_settled_ready",
       "pass": true,
-      "detail": "{'position': \"<Struct 'Vector' (0x000001356E92E450) {x: 6000.668246, y: 6000.377268, z: 122.000030}>\", 'rotation': \"<Struct 'Rotator' (0x000001356E92E450) {pitch: -0.000006, yaw: -0.072739, roll: 90.000011}>\", 'speed': 0.0, 'ready': True, 'revision': 0, 'feedback': ''}"
+      "detail": "{'position': \"<Struct 'Vector' (0x0000024738C4E630) {x: 6000.667566, y: 6000.374501, z: 122.000051}>\", 'rotation': \"<Struct 'Rotator' (0x0000024738C4E630) {pitch: -0.000014, yaw: -0.071357, roll: 90.000098}>\", 'speed': 0.0, 'ready': True, 'revision': 0, 'feedback': ''}"
     },
     {
       "case": "90_upright",
       "pass": true,
-      "detail": "{'position': \"<Struct 'Vector' (0x000001356E92E360) {x: 5850.129924, y: 6000.361997, z: 17.656805}>\", 'rotation': \"<Struct 'Rotator' (0x000001356E92E360) {pitch: 0.322180, yaw: -0.075864, roll: 0.000335}>\", 'speed': 0.0, 'ready': False, 'revision': 1, 'feedback': 'Prototype RV recovery complete; release driving controls before resuming'}"
+      "detail": "{'position': \"<Struct 'Vector' (0x0000024738BDBCB0) {x: 5850.129236, y: 6000.359215, z: 17.656927}>\", 'rotation': \"<Struct 'Rotator' (0x0000024738BDBCB0) {pitch: 0.322236, yaw: -0.074456, roll: 0.000486}>\", 'speed': 0.0, 'ready': False, 'revision': 1, 'feedback': 'Prototype RV recovery complete; release driving controls before resuming'}"
     },
     {
       "case": "90_near_original",
       "pass": true,
-      "detail": "{'position': \"<Struct 'Vector' (0x000001356E93F940) {x: 5850.129924, y: 6000.361997, z: 17.656805}>\", 'rotation': \"<Struct 'Rotator' (0x000001356E93F940) {pitch: 0.322180, yaw: -0.075864, roll: 0.000335}>\", 'speed': 0.0, 'ready': False, 'revision': 1, 'feedback': 'Prototype RV recovery complete; release driving controls before resuming'}"
+      "detail": "{'position': \"<Struct 'Vector' (0x0000024738C5FB20) {x: 5850.129236, y: 6000.359215, z: 17.656927}>\", 'rotation': \"<Struct 'Rotator' (0x0000024738C5FB20) {pitch: 0.322236, yaw: -0.074456, roll: 0.000486}>\", 'speed': 0.0, 'ready': False, 'revision': 1, 'feedback': 'Prototype RV recovery complete; release driving controls before resuming'}"
     },
     {
       "case": "90_repeat_unavailable",
@@ -28,7 +28,7 @@
     {
       "case": "90_upright_repeat_rejected",
       "pass": true,
-      "detail": "{'position': \"<Struct 'Vector' (0x000001356E9EEDB0) {x: 5850.129924, y: 6000.361997, z: 17.656805}>\", 'rotation': \"<Struct 'Rotator' (0x000001356E9EEDB0) {pitch: 0.322180, yaw: -0.075864, roll: 0.000335}>\", 'speed': 0.0, 'ready': False, 'revision': 1, 'feedback': 'RV is not confirmed overturned'}"
+      "detail": "{'position': \"<Struct 'Vector' (0x000002478B21F080) {x: 5850.129236, y: 6000.359215, z: 17.656927}>\", 'rotation': \"<Struct 'Rotator' (0x000002478B21F080) {pitch: 0.322236, yaw: -0.074456, roll: 0.000486}>\", 'speed': 0.0, 'ready': False, 'revision': 1, 'feedback': 'RV is not confirmed overturned'}"
     },
     {
       "case": "debug_roll_-90",
@@ -38,17 +38,17 @@
     {
       "case": "-90_settled_ready",
       "pass": true,
-      "detail": "{'position': \"<Struct 'Vector' (0x0000013489F94880) {x: 6000.756957, y: 6000.408034, z: 121.999935}>\", 'rotation': \"<Struct 'Rotator' (0x0000013489F94880) {pitch: -0.000013, yaw: 0.050287, roll: -89.999845}>\", 'speed': 0.0, 'ready': True, 'revision': 1, 'feedback': 'RV is not confirmed overturned'}"
+      "detail": "{'position': \"<Struct 'Vector' (0x000002469F764B50) {x: 6000.764186, y: 6000.410464, z: 121.999880}>\", 'rotation': \"<Struct 'Rotator' (0x000002469F764B50) {pitch: -0.000014, yaw: 0.052310, roll: -89.999730}>\", 'speed': 0.0, 'ready': True, 'revision': 1, 'feedback': 'RV is not confirmed overturned'}"
     },
     {
       "case": "-90_upright",
       "pass": true,
-      "detail": "{'position': \"<Struct 'Vector' (0x000001356E92E450) {x: 5850.230892, y: 6000.403373, z: 18.127169}>\", 'rotation': \"<Struct 'Rotator' (0x000001356E92E450) {pitch: 0.212180, yaw: 0.050308, roll: 0.004064}>\", 'speed': 0.0, 'ready': False, 'revision': 2, 'feedback': 'Prototype RV recovery complete; release driving controls before resuming'}"
+      "detail": "{'position': \"<Struct 'Vector' (0x0000024738C4E630) {x: 5850.260125, y: 6000.486830, z: 17.922240}>\", 'rotation': \"<Struct 'Rotator' (0x0000024738C4E630) {pitch: 0.261059, yaw: 0.075591, roll: 0.014622}>\", 'speed': 0.0, 'ready': False, 'revision': 2, 'feedback': 'Prototype RV recovery complete; release driving controls before resuming'}"
     },
     {
       "case": "-90_near_original",
       "pass": true,
-      "detail": "{'position': \"<Struct 'Vector' (0x0000013489F948D0) {x: 5850.230892, y: 6000.403373, z: 18.127169}>\", 'rotation': \"<Struct 'Rotator' (0x0000013489F948D0) {pitch: 0.212180, yaw: 0.050308, roll: 0.004064}>\", 'speed': 0.0, 'ready': False, 'revision': 2, 'feedback': 'Prototype RV recovery complete; release driving controls before resuming'}"
+      "detail": "{'position': \"<Struct 'Vector' (0x000002469F764BA0) {x: 5850.260125, y: 6000.486830, z: 17.922240}>\", 'rotation': \"<Struct 'Rotator' (0x000002469F764BA0) {pitch: 0.261059, yaw: 0.075591, roll: 0.014622}>\", 'speed': 0.0, 'ready': False, 'revision': 2, 'feedback': 'Prototype RV recovery complete; release driving controls before resuming'}"
     },
     {
       "case": "-90_repeat_unavailable",
@@ -58,7 +58,7 @@
     {
       "case": "-90_upright_repeat_rejected",
       "pass": true,
-      "detail": "{'position': \"<Struct 'Vector' (0x0000013489F96EF0) {x: 5850.230892, y: 6000.403373, z: 18.127169}>\", 'rotation': \"<Struct 'Rotator' (0x0000013489F96EF0) {pitch: 0.212180, yaw: 0.050308, roll: 0.004064}>\", 'speed': 0.0, 'ready': False, 'revision': 2, 'feedback': 'RV is not confirmed overturned'}"
+      "detail": "{'position': \"<Struct 'Vector' (0x000002469F7671C0) {x: 5850.260125, y: 6000.486830, z: 17.922240}>\", 'rotation': \"<Struct 'Rotator' (0x000002469F7671C0) {pitch: 0.261059, yaw: 0.075591, roll: 0.014622}>\", 'speed': 0.0, 'ready': False, 'revision': 2, 'feedback': 'RV is not confirmed overturned'}"
     },
     {
       "case": "debug_roll_180",
@@ -68,17 +68,17 @@
     {
       "case": "180_settled_ready",
       "pass": true,
-      "detail": "{'position': \"<Struct 'Vector' (0x000001348A06C970) {x: 5997.733219, y: 5986.530096, z: 329.998092}>\", 'rotation': \"<Struct 'Rotator' (0x000001348A06C970) {pitch: 0.000761, yaw: 1.218806, roll: 179.996904}>\", 'speed': 0.0, 'ready': True, 'revision': 2, 'feedback': 'RV is not confirmed overturned'}"
+      "detail": "{'position': \"<Struct 'Vector' (0x000002469F83CC40) {x: 5997.746215, y: 5986.376122, z: 330.001065}>\", 'rotation': \"<Struct 'Rotator' (0x000002469F83CC40) {pitch: 0.000117, yaw: 1.243810, roll: -179.998393}>\", 'speed': 0.0, 'ready': True, 'revision': 2, 'feedback': 'RV is not confirmed overturned'}"
     },
     {
       "case": "180_upright",
       "pass": true,
-      "detail": "{'position': \"<Struct 'Vector' (0x000001356E93D690) {x: 5847.099426, y: 5986.358101, z: 17.983539}>\", 'rotation': \"<Struct 'Rotator' (0x000001356E93D690) {pitch: 0.247521, yaw: 1.175145, roll: -0.041367}>\", 'speed': 0.0, 'ready': False, 'revision': 3, 'feedback': 'Prototype RV recovery complete; release driving controls before resuming'}"
+      "detail": "{'position': \"<Struct 'Vector' (0x0000024738C5D870) {x: 5847.106468, y: 5986.536463, z: 17.981273}>\", 'rotation': \"<Struct 'Rotator' (0x0000024738C5D870) {pitch: 0.249354, yaw: 1.288549, roll: 0.034430}>\", 'speed': 0.0, 'ready': False, 'revision': 3, 'feedback': 'Prototype RV recovery complete; release driving controls before resuming'}"
     },
     {
       "case": "180_near_original",
       "pass": true,
-      "detail": "{'position': \"<Struct 'Vector' (0x0000013489F94880) {x: 5847.099426, y: 5986.358101, z: 17.983539}>\", 'rotation': \"<Struct 'Rotator' (0x0000013489F94880) {pitch: 0.247521, yaw: 1.175145, roll: -0.041367}>\", 'speed': 0.0, 'ready': False, 'revision': 3, 'feedback': 'Prototype RV recovery complete; release driving controls before resuming'}"
+      "detail": "{'position': \"<Struct 'Vector' (0x000002469F764B50) {x: 5847.106468, y: 5986.536463, z: 17.981273}>\", 'rotation': \"<Struct 'Rotator' (0x000002469F764B50) {pitch: 0.249354, yaw: 1.288549, roll: 0.034430}>\", 'speed': 0.0, 'ready': False, 'revision': 3, 'feedback': 'Prototype RV recovery complete; release driving controls before resuming'}"
     },
     {
       "case": "180_repeat_unavailable",
@@ -88,7 +88,7 @@
     {
       "case": "180_upright_repeat_rejected",
       "pass": true,
-      "detail": "{'position': \"<Struct 'Vector' (0x000001348A06EDB0) {x: 5847.099426, y: 5986.358101, z: 17.983539}>\", 'rotation': \"<Struct 'Rotator' (0x000001348A06EDB0) {pitch: 0.247521, yaw: 1.175145, roll: -0.041367}>\", 'speed': 0.0, 'ready': False, 'revision': 3, 'feedback': 'RV is not confirmed overturned'}"
+      "detail": "{'position': \"<Struct 'Vector' (0x000002469F83EFE0) {x: 5847.106468, y: 5986.536463, z: 17.981273}>\", 'rotation': \"<Struct 'Rotator' (0x000002469F83EFE0) {pitch: 0.249354, yaw: 1.288549, roll: 0.034430}>\", 'speed': 0.0, 'ready': False, 'revision': 3, 'feedback': 'RV is not confirmed overturned'}"
     },
     {
       "case": "debug_roll_25",
@@ -116,6 +116,11 @@
       "detail": "No clear supported recovery position; move nearby obstructions"
     },
     {
+      "case": "pawn_vehicle_surface_is_not_recovery_ground",
+      "pass": true,
+      "detail": "No clear supported recovery position; move nearby obstructions"
+    },
+    {
       "case": "development_command_safe_recovery",
       "pass": true,
       "detail": ""
@@ -126,5 +131,5 @@
       "detail": ""
     }
   ],
-  "sample_count": 5671
+  "sample_count": 6212
 }

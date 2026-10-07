@@ -1,12 +1,12 @@
 {
-  "pid": 26916,
+  "pid": 47784,
   "role": "client",
   "config": {
-    "name": "recovery_host_100ms_2loss",
     "entry_probe": false,
-    "network": true,
     "emulation_target": "Everyone",
-    "driver": "host"
+    "driver": "host",
+    "name": "recovery_host_100ms_2loss",
+    "network": true
   },
   "results": [
     {
@@ -17,12 +17,12 @@
     {
       "case": "90_confirmed",
       "pass": true,
-      "detail": "<Struct 'Rotator' (0x000001A1797A0F10) {pitch: -0.000049, yaw: -0.000001, roll: 90.000317}>"
+      "detail": "<Struct 'Rotator' (0x0000028D750B4BF0) {pitch: -0.000120, yaw: 0.000000, roll: 90.000355}>"
     },
     {
       "case": "90_upright_converged",
       "pass": true,
-      "detail": "<Struct 'Rotator' (0x000001A1797A3440) {pitch: -0.049239, yaw: -0.000000, roll: -0.000000}>"
+      "detail": "<Struct 'Rotator' (0x0000028D750B7490) {pitch: -0.047593, yaw: -0.000000, roll: -0.000000}>"
     },
     {
       "case": "90_nearby",
@@ -32,17 +32,22 @@
     {
       "case": "90_items_needs_mechanics_exact",
       "pass": true,
-      "detail": "{'before': {'items': [('29BE7CFE465CF57CB8CB6E8D35AE7425', 3, 0.7300000190734863, 0.0, 0), ('9539D0D246E97FA74BEE76A046153AC2', 1, 0.6100000143051147, 0.0, 0), ('BEE8A2D84347D72E8EA8BB9525C404BC', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-41529C4E4E4', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-588EC57B487', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.299960362576265, 4.7, 888.4021911293415, 111.20659724902872]}, 'after': {'items': [('29BE7CFE465CF57CB8CB6E8D35AE7425', 3, 0.7300000190734863, 0.0, 0), ('9539D0D246E97FA74BEE76A046153AC2', 1, 0.6100000143051147, 0.0, 0), ('BEE8A2D84347D72E8EA8BB9525C404BC', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-41529C4E4E4', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-588EC57B487', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.299953070895015, 4.7, 888.4017050064675, 111.20781252923827]}}"
+      "detail": "{'before': {'items': [('86EBBA4547FA6E5EFDBF2A9A18444FED', 1, 0.6100000143051147, 0.0, 0), ('8CC2199A4E91A64FFF520BB7796A8531', 3, 0.7300000190734863, 0.0, 0), ('EBA119214B162F96487743B5A7215193', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-03EA419D453', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-5AEFE644488', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.299939716901754, 4.7, 888.4023978286041, 111.20677096076408]}, 'after': {'items': [('86EBBA4547FA6E5EFDBF2A9A18444FED', 1, 0.6100000143051147, 0.0, 0), ('8CC2199A4E91A64FFF520BB7796A8531', 3, 0.7300000190734863, 0.0, 0), ('EBA119214B162F96487743B5A7215193', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-03EA419D453', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-5AEFE644488', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.29993138341844, 4.7, 888.4022589419948, 111.2081598746512]}}"
     },
     {
       "case": "90_resources_no_reset_or_loss",
       "pass": true,
-      "detail": "[-7.291681249910198e-06, 0.0, -0.0004861228740082879, 0.0012152802095499737]"
+      "detail": "[-8.333483314970636e-06, 0.0, -0.0001388866093066099, 0.001388913887126364]"
     },
     {
       "case": "90_seats_possession_preserved",
       "pass": true,
       "detail": ""
+    },
+    {
+      "case": "held_throttle_requires_release_after_recovery",
+      "pass": true,
+      "detail": "0.0"
     },
     {
       "case": "upright_repeat_rejected_1",
@@ -52,12 +57,12 @@
     {
       "case": "-90_confirmed",
       "pass": true,
-      "detail": "<Struct 'Rotator' (0x000001A1797A3580) {pitch: 0.000000, yaw: 0.000000, roll: -89.999998}>"
+      "detail": "<Struct 'Rotator' (0x0000028D750B7580) {pitch: -0.072147, yaw: 0.044942, roll: -89.870329}>"
     },
     {
       "case": "-90_upright_converged",
       "pass": true,
-      "detail": "<Struct 'Rotator' (0x000001A1797A33A0) {pitch: -2.521757, yaw: 0.000000, roll: -0.000000}>"
+      "detail": "<Struct 'Rotator' (0x0000028D750B7440) {pitch: 2.711722, yaw: 0.000000, roll: -0.000000}>"
     },
     {
       "case": "-90_nearby",
@@ -67,12 +72,12 @@
     {
       "case": "-90_items_needs_mechanics_exact",
       "pass": true,
-      "detail": "{'before': {'items': [('29BE7CFE465CF57CB8CB6E8D35AE7425', 3, 0.7300000190734863, 0.0, 0), ('9539D0D246E97FA74BEE76A046153AC2', 1, 0.6100000143051147, 0.0, 0), ('BEE8A2D84347D72E8EA8BB9525C404BC', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-41529C4E4E4', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-588EC57B487', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.299921775246766, 4.7, 888.4033133240199, 111.21302088416789]}, 'after': {'items': [('29BE7CFE465CF57CB8CB6E8D35AE7425', 3, 0.7300000190734863, 0.0, 0), ('9539D0D246E97FA74BEE76A046153AC2', 1, 0.6100000143051147, 0.0, 0), ('BEE8A2D84347D72E8EA8BB9525C404BC', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-41529C4E4E4', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-588EC57B487', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.29991448354135, 4.7, 888.4028272114186, 111.2142361684054]}}"
+      "detail": "{'before': {'items': [('86EBBA4547FA6E5EFDBF2A9A18444FED', 1, 0.6100000143051147, 0.0, 0), ('8CC2199A4E91A64FFF520BB7796A8531', 3, 0.7300000190734863, 0.0, 0), ('EBA119214B162F96487743B5A7215193', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-03EA419D453', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-5AEFE644488', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.29990003820979, 4.7, 888.4038670839241, 111.2133682299999]}, 'after': {'items': [('86EBBA4547FA6E5EFDBF2A9A18444FED', 1, 0.6100000143051147, 0.0, 0), ('8CC2199A4E91A64FFF520BB7796A8531', 3, 0.7300000190734863, 0.0, 0), ('EBA119214B162F96487743B5A7215193', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-03EA419D453', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-5AEFE644488', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.29989274643646, 4.7, 888.4033809663696, 111.21458352555558]}}"
     },
     {
       "case": "-90_resources_no_reset_or_loss",
       "pass": true,
-      "detail": "[-7.291705415468641e-06, 0.0, -0.0004861126012656314, 0.0012152842375172668]"
+      "detail": "[-7.291773329143325e-06, 0.0, -0.0004861175544874641, 0.0012152955556814504]"
     },
     {
       "case": "-90_seats_possession_preserved",
@@ -87,12 +92,12 @@
     {
       "case": "180_confirmed",
       "pass": true,
-      "detail": "<Struct 'Rotator' (0x000001A179773D00) {pitch: 0.002670, yaw: 1.372111, roll: 179.998310}>"
+      "detail": "<Struct 'Rotator' (0x0000028D75087BC0) {pitch: 0.003206, yaw: 1.406252, roll: -179.960912}>"
     },
     {
       "case": "180_upright_converged",
       "pass": true,
-      "detail": "<Struct 'Rotator' (0x000001A1797A36C0) {pitch: -0.056794, yaw: 1.405934, roll: 2.784070}>"
+      "detail": "<Struct 'Rotator' (0x0000028D750B7800) {pitch: -2.739159, yaw: 1.407858, roll: -0.067294}>"
     },
     {
       "case": "180_nearby",
@@ -102,12 +107,12 @@
     {
       "case": "180_items_needs_mechanics_exact",
       "pass": true,
-      "detail": "{'before': {'items': [('29BE7CFE465CF57CB8CB6E8D35AE7425', 3, 0.7300000190734863, 0.0, 0), ('9539D0D246E97FA74BEE76A046153AC2', 1, 0.6100000143051147, 0.0, 0), ('BEE8A2D84347D72E8EA8BB9525C404BC', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-41529C4E4E4', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-588EC57B487', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.29988204945034, 4.7, 888.4047904600012, 111.21962476402969]}, 'after': {'items': [('29BE7CFE465CF57CB8CB6E8D35AE7425', 3, 0.7300000190734863, 0.0, 0), ('9539D0D246E97FA74BEE76A046153AC2', 1, 0.6100000143051147, 0.0, 0), ('BEE8A2D84347D72E8EA8BB9525C404BC', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-41529C4E4E4', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-588EC57B487', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.29987371610034, 4.7, 888.4046515522263, 111.221013655697]}}"
+      "detail": "{'before': {'items': [('86EBBA4547FA6E5EFDBF2A9A18444FED', 1, 0.6100000143051147, 0.0, 0), ('8CC2199A4E91A64FFF520BB7796A8531', 3, 0.7300000190734863, 0.0, 0), ('EBA119214B162F96487743B5A7215193', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-03EA419D453', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-5AEFE644488', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.299860240922605, 4.7, 888.4053421491268, 111.21997049055561]}, 'after': {'items': [('86EBBA4547FA6E5EFDBF2A9A18444FED', 1, 0.6100000143051147, 0.0, 0), ('8CC2199A4E91A64FFF520BB7796A8531', 3, 0.7300000190734863, 0.0, 0), ('EBA119214B162F96487743B5A7215193', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-03EA419D453', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-5AEFE644488', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.29985190751552, 4.7, 888.405203270941, 111.22135939173793]}}"
     },
     {
       "case": "180_resources_no_reset_or_loss",
       "pass": true,
-      "detail": "[-8.333349995837125e-06, 0.0, -0.00013890777495362272, 0.0013888916673181484]"
+      "detail": "[-8.333407087945943e-06, 0.0, -0.00013887818579405575, 0.0013889011823238206]"
     },
     {
       "case": "180_seats_possession_preserved",
@@ -127,12 +132,12 @@
     {
       "case": "uneven_confirmed",
       "pass": true,
-      "detail": "<Struct 'Rotator' (0x000001A1797A2130) {pitch: 13.072892, yaw: 9.724280, roll: 61.900753}>"
+      "detail": "<Struct 'Rotator' (0x0000028D750B6180) {pitch: 13.116803, yaw: 9.736257, roll: 61.807238}>"
     },
     {
       "case": "uneven_upright_converged",
       "pass": true,
-      "detail": "<Struct 'Rotator' (0x000001A1797A1E10) {pitch: 2.716675, yaw: 1.406136, roll: 1.403890}>"
+      "detail": "<Struct 'Rotator' (0x0000028D750B5BE0) {pitch: 2.719747, yaw: 1.406140, roll: 1.403966}>"
     },
     {
       "case": "uneven_nearby",
@@ -142,17 +147,17 @@
     {
       "case": "uneven_items_needs_mechanics_exact",
       "pass": true,
-      "detail": "{'before': {'items': [('29BE7CFE465CF57CB8CB6E8D35AE7425', 3, 0.7300000190734863, 0.0, 0), ('9539D0D246E97FA74BEE76A046153AC2', 1, 0.6100000143051147, 0.0, 0), ('BEE8A2D84347D72E8EA8BB9525C404BC', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-41529C4E4E4', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-588EC57B487', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.29981849133385, 4.7, 888.4107460315644, 111.230215108058]}, 'after': {'items': [('29BE7CFE465CF57CB8CB6E8D35AE7425', 3, 0.7300000190734863, 0.0, 0), ('9539D0D246E97FA74BEE76A046153AC2', 1, 0.6100000143051147, 0.0, 0), ('BEE8A2D84347D72E8EA8BB9525C404BC', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-41529C4E4E4', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-588EC57B487', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.299811199469275, 4.7, 888.410259951836, 111.2314304188227]}}"
+      "detail": "{'before': {'items': [('86EBBA4547FA6E5EFDBF2A9A18444FED', 1, 0.6100000143051147, 0.0, 0), ('8CC2199A4E91A64FFF520BB7796A8531', 3, 0.7300000190734863, 0.0, 0), ('EBA119214B162F96487743B5A7215193', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-03EA419D453', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-5AEFE644488', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.299796625878834, 4.7, 888.4112977361323, 111.23056081375074]}, 'after': {'items': [('86EBBA4547FA6E5EFDBF2A9A18444FED', 1, 0.6100000143051147, 0.0, 0), ('8CC2199A4E91A64FFF520BB7796A8531', 3, 0.7300000190734863, 0.0, 0), ('EBA119214B162F96487743B5A7215193', 3, 0.7300000190734863, 0.0, 0)], 'needs': [('BobbysPC-03EA419D453', 62.0, 73.0, 41.0, 100.0, '<RVRestMode.AWAKE: 0>'), ('BobbysPC-5AEFE644488', 81.0, 58.0, 22.0, 100.0, '<RVRestMode.AWAKE: 0>')], 'mechanical': (0.7200000286102295, 8.5, 88.0, 0.8299999833106995), 'resources': [47.29978933417591, 4.7, 888.4108116215332, 111.23177609757175]}}"
     },
     {
       "case": "uneven_resources_no_reset_or_loss",
       "pass": true,
-      "detail": "[-7.291864577041451e-06, 0.0, -0.00048607972837544366, 0.00121531076469239]"
+      "detail": "[-7.291702921463639e-06, 0.0, -0.00048611459908443067, 0.001215283821011326]"
     },
     {
       "case": "standing_passenger_safe_after_recovery",
       "pass": true,
-      "detail": "<Struct 'Vector' (0x000001A1797A2310) {x: 6646.070337, y: 6001.681386, z: 142.715435}>"
+      "detail": "<Struct 'Vector' (0x0000028D750B6360) {x: 6646.051657, y: 6001.673401, z: 142.714922}>"
     },
     {
       "case": "driver_preserved_after_standing_recovery",
@@ -162,12 +167,12 @@
     {
       "case": "standing_movement_after_recovery",
       "pass": true,
-      "detail": "<Struct 'Vector' (0x000001A1797A0F10) {x: 6646.070337, y: 6834.331180, z: 128.172620}>"
+      "detail": "<Struct 'Vector' (0x0000028D750B4BF0) {x: 6646.051657, y: 6834.379972, z: 128.171115}>"
     },
     {
       "case": "driving_after_recovery",
       "pass": true,
-      "detail": "1890.915648198685"
+      "detail": "1896.132582173728"
     },
     {
       "case": "normal_passenger_seat_reentry",
@@ -182,17 +187,60 @@
     {
       "case": "moving_interior_walking_after_recovery",
       "pass": true,
-      "detail": "{'local': \"<Struct 'Vector' (0x000001A1796E3990) {x: 62.098135, y: -0.000033, z: 177.188651}>\", 'start': \"<Struct 'Vector' (0x000001A1796E2A40) {x: 129.984156, y: -0.000033, z: 177.188571}>\", 'corrections': 0, 'max_cm': 0.0}"
+      "detail": "{'local': \"<Struct 'Vector' (0x0000028D74FF28B0) {x: 62.101536, y: 0.000134, z: 177.188631}>\", 'start': \"<Struct 'Vector' (0x0000028D74FF3A30) {x: 129.984086, y: 0.000134, z: 177.188558}>\", 'corrections': 0, 'max_cm': 0.0}"
     },
     {
       "case": "moving_interior_turn_after_recovery",
       "pass": true,
-      "detail": "{'local': \"<Struct 'Vector' (0x000001A179773D00) {x: 62.098031, y: -0.000033, z: 177.188651}>\", 'corrections': 0, 'max_cm': 0.0}"
+      "detail": "{'local': \"<Struct 'Vector' (0x0000028D75087BC0) {x: 62.101441, y: 0.000134, z: 177.188631}>\", 'corrections': 0, 'max_cm': 0.0}"
+    },
+    {
+      "case": "normal_E_Z_sleep_before_rollover",
+      "pass": true,
+      "detail": "<RVRestMode.SLEEPING: 2>"
+    },
+    {
+      "case": "bed_confirmed",
+      "pass": true,
+      "detail": "<Struct 'Rotator' (0x0000028D74FF28B0) {pitch: 0.300038, yaw: 53.408865, roll: 92.393500}>"
+    },
+    {
+      "case": "bed_recovery_upright",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bed_recovery_preserves_items_mechanics_needs_values",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bed_recovery_preserves_resources",
+      "pass": true,
+      "detail": "[-8.333374161395568e-06, 0.0, -0.0001389120250223641, 0.0013888956952854414]"
+    },
+    {
+      "case": "bed_recovery_wakes_releases_rest_pose",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bed_recovery_walking_collision_restored",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "standing_movement_after_recovery",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x0000028D750B6360) {x: 6645.185282, y: 6835.049803, z: 128.173172}>"
     }
   ],
+  "module_sha256": "685F3052FA9351BEECC0A3BB5D8B1F39571A2CEAF46863E503210336F39BA493",
+  "source_checkpoint": "1cd677f",
+  "evidence_kind": "PIE with native Enhanced Input events; initial placement/fault fixtures; recovery never called directly",
   "sample_summary": {
-    "count": 8631,
-    "max_speed_cm_s": 2272.9627233286765,
-    "max_correction_cm": null
+    "max_correction_cm": null,
+    "count": 10852,
+    "max_speed_cm_s": 2265.480565049592
   }
 }
