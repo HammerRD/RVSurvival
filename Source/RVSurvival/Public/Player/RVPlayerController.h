@@ -19,6 +19,7 @@ public:
     UFUNCTION(BlueprintCallable, Category="RV|Seats") void RequestSwitchSeat(FName TargetSeat);
     UFUNCTION(Server, Reliable) void ServerSwitchSeat(FName TargetSeat);
     UFUNCTION(BlueprintCallable, Category="RV|Seats") void RequestLivingArea();
+    UFUNCTION(BlueprintCallable, Category="RV|Controls") void ToggleControls();
     UFUNCTION(Server, Reliable) void ServerLivingArea();
     UPROPERTY(Replicated, BlueprintReadOnly, Category="RV|Seats") FString SeatFeedback;
     UPROPERTY(Replicated, BlueprintReadOnly, Category="RV|Seats") TObjectPtr<ARVVehicleBase> SeatedVehicle;
@@ -41,6 +42,11 @@ private:
     void WakeKey(); void SleepKey();
     void PatchKey(); void RadiatorKey(); void EngineRepairKey();
     void HoodKey();
+    void DriverKey(); void PassengerKey(); void NextSeatKey();
+    void OrbitHold(const struct FInputActionValue& Value);
+    void OrbitYaw(const struct FInputActionValue& Value); void OrbitPitch(const struct FInputActionValue& Value);
+    bool bOrbitHeld=false;
+    UPROPERTY(Transient) TObjectPtr<class URVControlsWidget> ControlsWidget;
     UPROPERTY(Transient) TObjectPtr<class UInputMappingContext> ResourceMapping;
     UPROPERTY(Transient) TArray<TObjectPtr<class UInputAction>> ResourceActions;
     UPROPERTY(Transient) TObjectPtr<class UInputMappingContext> MechanicalMapping;

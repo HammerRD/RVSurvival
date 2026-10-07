@@ -128,6 +128,7 @@ void ARVInteriorMotorhome::OnConstruction(const FTransform& Transform)
         Part->SetRelativeLocation(Def.Center); Part->SetBoxExtent(Def.Extent);
         Part->SetCollisionProfileName(TEXT("BlockAll")); Part->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
         if (Def.bPassengerFloor) Part->ComponentTags.Add(TEXT("RVPassengerPlatform"));
+        if (Def.Name.ToString().StartsWith(TEXT("RoofWalk"))) Part->ComponentTags.Add(TEXT("RVRoofPlatform"));
         Part->SetNetAddressable(); Part->RegisterComponent(); GeneratedParts.Add(Part);
         Part->ComponentTags.Add(TEXT("RVGeneratedLayout"));
         if (Def.bVisiblePrototype)
@@ -193,7 +194,7 @@ void ARVInteriorMotorhome::BeginPlay()
         Point->AttachToComponent(GetMesh(),FAttachmentTransformRules::SnapToTargetNotIncludingScale);
         Point->SetActorRelativeLocation(Def.Position); Point->ForceNetUpdate();
     }
-    if (bEnableStandingDoor) for (bool Enter : {true,false})
+    if (bEnableStandingDoor && !bPhysicalDoorEntry) for (bool Enter : {true,false})
     {
         auto* Point=GetWorld()->SpawnActorDeferred<ARVInteriorAccessPoint>(ARVInteriorAccessPoint::StaticClass(),GetActorTransform(),this);
         Point->Vehicle=this; Point->bEnter=Enter; Point->FinishSpawning(GetActorTransform());

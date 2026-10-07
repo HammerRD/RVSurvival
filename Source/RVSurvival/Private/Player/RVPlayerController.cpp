@@ -1,4 +1,7 @@
 #include "Player/RVPlayerController.h"
+#include "Player/RVInputMappings.h"
+#include "UI/RVControlsWidget.h"
+#include "InputActionValue.h"
 #include "Mechanical/RVServicePoint.h"
 #include "Vehicles/RVResourcePoint.h"
 #include "Vehicles/RVSystemsMotorhome.h"
@@ -47,22 +50,32 @@ void ARVPlayerController::PlayerTick(float DeltaTime)
             if(bMechanicalMappingActive) Input->AddMappingContext(MechanicalMapping,3);
             else Input->RemoveMappingContext(MechanicalMapping);
         }
-    if (!SeatedVehicle) return;
-    const auto Seats = SeatedVehicle->GetSeats();
-    if (WasInputKeyJustPressed(EKeys::One))
-        for (auto* Seat : Seats) if (Seat->bDriverSeat) { RequestSwitchSeat(Seat->GetFName()); break; }
-    if (WasInputKeyJustPressed(EKeys::Two))
-        for (auto* Seat : Seats) if (!Seat->bDriverSeat && !Seat->bInteriorOnly) { RequestSwitchSeat(Seat->GetFName()); break; }
-    if (WasInputKeyJustPressed(EKeys::V))
-    {
-        int32 Current = INDEX_NONE;
-        for (int32 Index=0; Index<Seats.Num(); ++Index)
-            if (Seats[Index]->Occupant && ((Seats[Index]->bDriverSeat && GetPawn()==SeatedVehicle)
-                || GetPawn()==Seats[Index]->Occupant)) Current=Index;
-        for (int32 Offset=1; Offset<Seats.Num(); ++Offset)
-        { auto* Seat=Seats[(Current+Offset+Seats.Num())%Seats.Num()]; if (!Seat->Occupant) { RequestSwitchSeat(Seat->GetFName()); return; } }
-        SeatFeedback=TEXT("No other seat is available.");
-    }
+}
+void ARVPlayerController::DriverKey()
+{ if(SeatedVehicle)for(auto* Seat:SeatedVehicle->GetSeats())if(Seat->bDriverSeat){RequestSwitchSeat(Seat->GetFName());break;} }
+void ARVPlayerController::PassengerKey()
+{ if(SeatedVehicle)for(auto* Seat:SeatedVehicle->GetSeats())if(!Seat->bDriverSeat && !Seat->bInteriorOnly){RequestSwitchSeat(Seat->GetFName());break;} }
+void ARVPlayerController::NextSeatKey()
+{
+    if(!SeatedVehicle)return;
+    const auto Seats=SeatedVehicle->GetSeats();int32 Current=INDEX_NONE;
+    for(int32 Index=0;Index<Seats.Num();++Index)
+        if(Seats[Index]->Occupant && Seats[Index]->OccupantController.Get()==this)Current=Index;
+    for(int32 Offset=1;Offset<Seats.Num();++Offset)
+    {auto* Seat=Seats[(Current+Offset+Seats.Num())%Seats.Num()];if(!Seat->Occupant){RequestSwitchSeat(Seat->GetFName());return;}}
+    SeatFeedback=TEXT("No other seat is available.");
+}
+void ARVPlayerController::OrbitHold(const FInputActionValue& Value){bOrbitHeld=Value.Get<bool>();}
+void ARVPlayerController::OrbitYaw(const FInputActionValue& Value)
+{if(bOrbitHeld && GetPawn()==SeatedVehicle)if(auto* RV=Cast<ARVMotorhome>(SeatedVehicle))RV->OrbitCamera(Value.Get<float>(),0);}
+void ARVPlayerController::OrbitPitch(const FInputActionValue& Value)
+{if(bOrbitHeld && GetPawn()==SeatedVehicle)if(auto* RV=Cast<ARVMotorhome>(SeatedVehicle))RV->OrbitCamera(0,-Value.Get<float>());}
+void ARVPlayerController::ToggleControls()
+{
+    if(!IsLocalController())return;
+    if(ControlsWidget){ControlsWidget->RemoveFromParent();ControlsWidget=nullptr;SetInputMode(FInputModeGameOnly());bShowMouseCursor=false;ResetIgnoreMoveInput();ResetIgnoreLookInput();}
+    else
+    {FlushPressedKeys();ControlsWidget=CreateWidget<URVControlsWidget>(this);ControlsWidget->AddToViewport(20);ControlsWidget->SetDesiredSizeInViewport(FVector2D(640,650));ControlsWidget->SetPositionInViewport(FVector2D(40,40));FInputModeUIOnly Mode;Mode.SetWidgetToFocus(ControlsWidget->TakeWidget());SetInputMode(Mode);bShowMouseCursor=true;SetIgnoreMoveInput(true);SetIgnoreLookInput(true);}
 }
 void ARVPlayerController::RequestLivingArea()
 {
@@ -92,6 +105,8 @@ void ARVPlayerController::PawnLeavingGame()
 }
 void ARVPlayerController::EndPlay(const EEndPlayReason::Type Reason)
 {
+    if(ControlsWidget){ControlsWidget->RemoveFromParent();ControlsWidget=nullptr;}
+    RVInputMappings::Unregister(ResourceInputLocalPlayer.Get(),ResourceMapping);
     if(HasAuthority() && IsValid(MechanicalPoint) && MechanicalPoint->RepairPlayer && MechanicalPoint->RepairPlayer==PlayerState)
         MechanicalPoint->CancelAuthority(TEXT("Repair canceled: player left; supplies retained"));
     if(auto* Local=ResourceInputLocalPlayer.Get()) if(auto* Input=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
@@ -158,10 +173,14 @@ void ARVPlayerController::SetupInputComponent()
     if(!ResourceMapping)
     {
         ResourceMapping=NewObject<UInputMappingContext>(this);
-        for(FKey Key:{EKeys::H,EKeys::J,EKeys::K,EKeys::L,EKeys::O,EKeys::Escape,EKeys::R,EKeys::Z,EKeys::Three})
+        for(FKey Key:{EKeys::H,EKeys::J,EKeys::K,EKeys::L,EKeys::O,EKeys::Escape,EKeys::R,EKeys::Z,EKeys::Three,EKeys::One,EKeys::Two,EKeys::V,EKeys::F10,EKeys::RightMouseButton,EKeys::MouseX,EKeys::MouseY})
         {
             auto* Action=NewObject<UInputAction>(this); Action->ValueType=EInputActionValueType::Boolean;
-            ResourceMapping->MapKey(Action,Key); ResourceActions.Add(Action);
+            const int32 Index=ResourceActions.Num();
+            const TCHAR* Names[]={TEXT("Lights"),TEXT("Generator"),TEXT("Fridge"),TEXT("StationPower"),TEXT("EngineIdle"),TEXT("ClosePanel"),TEXT("Stand"),TEXT("Sleep"),TEXT("RearInterior"),TEXT("DriverSeat"),TEXT("PassengerSeat"),TEXT("NextSeat"),TEXT("Controls"),TEXT("OrbitHold"),TEXT("OrbitYaw"),TEXT("OrbitPitch")};
+            const TCHAR* Labels[]={TEXT("Lights"),TEXT("Generator"),TEXT("Fridge"),TEXT("Station power"),TEXT("Engine idle"),TEXT("Close panel"),TEXT("Stand from bed"),TEXT("Rest / sleep"),TEXT("Move to rear living area"),TEXT("Driver seat"),TEXT("Passenger seat"),TEXT("Next seat (stopped)"),TEXT("Controls menu"),TEXT("Orbit camera hold"),TEXT("Orbit horizontal"),TEXT("Orbit vertical")};
+            if(Index>=14){Action->ValueType=EInputActionValueType::Axis1D;Action->bConsumeInput=false;}
+            RVInputMappings::Map(ResourceMapping,Action,Key,FName(Names[Index]),Labels[Index]);ResourceActions.Add(Action);
         }
     }
     Input->BindAction(ResourceActions[0],ETriggerEvent::Started,this,&ThisClass::LightsKey);
@@ -173,6 +192,14 @@ void ARVPlayerController::SetupInputComponent()
     Input->BindAction(ResourceActions[6],ETriggerEvent::Started,this,&ThisClass::WakeKey);
     Input->BindAction(ResourceActions[7],ETriggerEvent::Started,this,&ThisClass::SleepKey);
     Input->BindAction(ResourceActions[8],ETriggerEvent::Started,this,&ThisClass::RequestLivingArea);
+    Input->BindAction(ResourceActions[9],ETriggerEvent::Started,this,&ThisClass::DriverKey);
+    Input->BindAction(ResourceActions[10],ETriggerEvent::Started,this,&ThisClass::PassengerKey);
+    Input->BindAction(ResourceActions[11],ETriggerEvent::Started,this,&ThisClass::NextSeatKey);
+    Input->BindAction(ResourceActions[12],ETriggerEvent::Started,this,&ThisClass::ToggleControls);
+    for(auto Event:{ETriggerEvent::Triggered,ETriggerEvent::Completed,ETriggerEvent::Canceled})Input->BindAction(ResourceActions[13],Event,this,&ThisClass::OrbitHold);
+    Input->BindAction(ResourceActions[14],ETriggerEvent::Triggered,this,&ThisClass::OrbitYaw);
+    Input->BindAction(ResourceActions[15],ETriggerEvent::Triggered,this,&ThisClass::OrbitPitch);
+    RVInputMappings::Register(this,ResourceMapping);
     if(!MechanicalMapping)
     {
         MechanicalMapping=NewObject<UInputMappingContext>(this);

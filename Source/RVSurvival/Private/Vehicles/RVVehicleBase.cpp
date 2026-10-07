@@ -1,4 +1,5 @@
 #include "Vehicles/RVVehicleBase.h"
+#include "Player/RVInputMappings.h"
 #include "Vehicles/RVVehicleMovementComponent.h"
 #include "Vehicles/RVVehicleSeatComponent.h"
 #include "Vehicles/RVVehicleEntryPoint.h"
@@ -221,11 +222,11 @@ void ARVVehicleBase::EndPlay(const EEndPlayReason::Type Reason)
 void ARVVehicleBase::CreateInput()
 {
     if (Mapping) return; Mapping = NewObject<UInputMappingContext>(this);
-    auto Axis = [this](TObjectPtr<UInputAction>& A, FKey Positive, FKey Negative)
-    { A = NewObject<UInputAction>(this); A->ValueType = EInputActionValueType::Axis1D; Mapping->MapKey(A, Positive); Mapping->MapKey(A, Negative).Modifiers.Add(NewObject<UInputModifierNegate>(Mapping)); };
-    Axis(ThrottleAction, EKeys::W, EKeys::S); Axis(SteeringAction, EKeys::D, EKeys::A);
-    HandbrakeAction = NewObject<UInputAction>(this); Mapping->MapKey(HandbrakeAction, EKeys::SpaceBar);
-    ExitAction = NewObject<UInputAction>(this); Mapping->MapKey(ExitAction, EKeys::E);
+    auto Axis = [this](TObjectPtr<UInputAction>& A, FKey Positive, FKey Negative,FName PositiveName,FName NegativeName,const TCHAR* PositiveLabel,const TCHAR* NegativeLabel)
+    { A = NewObject<UInputAction>(this); A->ValueType = EInputActionValueType::Axis1D; RVInputMappings::Map(Mapping,A,Positive,PositiveName,PositiveLabel); RVInputMappings::Map(Mapping,A,Negative,NegativeName,NegativeLabel); Mapping->GetMapping(Mapping->GetMappings().Num()-1).Modifiers.Add(NewObject<UInputModifierNegate>(Mapping)); };
+    Axis(ThrottleAction,EKeys::W,EKeys::S,TEXT("Accelerate"),TEXT("BrakeReverse"),TEXT("Accelerate"),TEXT("Brake / reverse")); Axis(SteeringAction,EKeys::D,EKeys::A,TEXT("SteerRight"),TEXT("SteerLeft"),TEXT("Steer right"),TEXT("Steer left"));
+    HandbrakeAction = NewObject<UInputAction>(this); RVInputMappings::Map(Mapping,HandbrakeAction,EKeys::SpaceBar,TEXT("Handbrake"),TEXT("Handbrake"));
+    ExitAction = NewObject<UInputAction>(this); RVInputMappings::Map(Mapping,ExitAction,EKeys::E,TEXT("VehicleExit"),TEXT("Exit vehicle"));
 }
 void ARVVehicleBase::PawnClientRestart()
 {
@@ -233,10 +234,10 @@ void ARVVehicleBase::PawnClientRestart()
     bExitInputArmed = false; LocalPossessionTime = GetWorld()->GetTimeSeconds();
     if (auto* PC = Cast<APlayerController>(Controller)) if (auto* Local = PC->GetLocalPlayer())
         if (auto* Input = Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
-        { InputLocalPlayer = Local; Input->RemoveMappingContext(Mapping); Input->AddMappingContext(Mapping, 1); }
+        { InputLocalPlayer = Local; RVInputMappings::Register(PC,Mapping); Input->RemoveMappingContext(Mapping); Input->AddMappingContext(Mapping, 1); }
 }
 void ARVVehicleBase::RemoveInput()
-{ if (auto* Local = InputLocalPlayer.Get()) if (auto* Input = Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>()) if (Mapping) Input->RemoveMappingContext(Mapping); InputLocalPlayer.Reset(); }
+{ RVInputMappings::Unregister(InputLocalPlayer.Get(),Mapping); if (auto* Local = InputLocalPlayer.Get()) if (auto* Input = Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>()) if (Mapping) Input->RemoveMappingContext(Mapping); InputLocalPlayer.Reset(); }
 void ARVVehicleBase::UnPossessed() { RemoveInput(); LocalThrottle = LocalSteering = 0; Super::UnPossessed(); }
 void ARVVehicleBase::OnRep_Controller() { Super::OnRep_Controller(); if (!IsLocallyControlled()) RemoveInput(); }
 void ARVVehicleBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)

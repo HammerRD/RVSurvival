@@ -98,7 +98,7 @@ void ARVPrototypeHUD::DrawHUD()
     if (const auto* Pawn = Cast<ARVSurvivorCharacter>(PlayerOwner->GetPawn()))
     {
         if(const auto* Climb=Pawn->FindComponentByClass<URVLadderClimbComponent>();Climb && Climb->Ladder)
-        { DrawText(TEXT("Ladder | W up | S down | E stand at bottom | controlled top, no roof access"),FLinearColor::White,20,35); return; }
+        { DrawText(TEXT("Ladder | climb up/down | interact: dismount at ground or supported roof | F10 Controls"),FLinearColor::White,20,35); return; }
         DrawText(Pawn->GetInteraction()->GetPrompt().ToString(), FLinearColor::White,
             Canvas->ClipX * 0.5f - 150.f, Canvas->ClipY * 0.5f + 35.f);
         auto* Inventory=Pawn->FindComponentByClass<URVInventoryComponent>();

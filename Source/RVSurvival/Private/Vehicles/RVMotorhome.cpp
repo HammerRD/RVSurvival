@@ -7,6 +7,13 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "UObject/ConstructorHelpers.h"
+void ARVMotorhome::OrbitCamera(float Yaw,float Pitch)
+{
+    FRotator Rotation=CameraArm->GetRelativeRotation();
+    Rotation.Yaw=FRotator::NormalizeAxis(Rotation.Yaw+Yaw);
+    Rotation.Pitch=FMath::Clamp(Rotation.Pitch+Pitch,-70.f,10.f);
+    CameraArm->SetRelativeRotation(Rotation);
+}
 ARVMotorhome::ARVMotorhome(const FObjectInitializer& Init) : Super(Init)
 {
     DriverSeat = CreateDefaultSubobject<URVVehicleSeatComponent>(TEXT("DriverSeat")); DriverSeat->SetupAttachment(GetMesh());

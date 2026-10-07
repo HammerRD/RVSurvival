@@ -1,0 +1,53 @@
+{
+  "saved": true,
+  "removed_rest_markers": [
+    "Gate5_Dinette rest"
+  ],
+  "roof_surface_cm": 319.6,
+  "new_collision": [
+    [
+      "RoofWalkMain",
+      [
+        -65,
+        0,
+        316.6
+      ],
+      [
+        290,
+        116,
+        3
+      ],
+      true
+    ],
+    [
+      "RoofAC",
+      [
+        68,
+        0,
+        333.6
+      ],
+      [
+        30,
+        22,
+        14
+      ],
+      false
+    ],
+    [
+      "RoofVentRear",
+      [
+        -211,
+        27,
+        322.5
+      ],
+      [
+        24,
+        24,
+        3
+      ],
+      false
+    ]
+  ],
+  "physical_door_entry": true,
+  "validation": "pending"
+}

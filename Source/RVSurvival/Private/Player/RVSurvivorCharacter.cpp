@@ -1,4 +1,5 @@
 #include "Player/RVSurvivorCharacter.h"
+#include "Player/RVInputMappings.h"
 #include "Camera/CameraComponent.h"
 #include "Interaction/RVInteractionComponent.h"
 #include "EnhancedInputComponent.h"
@@ -49,25 +50,27 @@ void ARVSurvivorCharacter::CreateInput()
 {
     if (Mapping) return;
     Mapping = NewObject<UInputMappingContext>(this);
-    auto Axis = [this](TObjectPtr<UInputAction>& Action, FKey Positive, FKey Negative)
+    auto Axis = [this](TObjectPtr<UInputAction>& Action, FKey Positive, FKey Negative,FName PositiveName,FName NegativeName,const TCHAR* PositiveLabel,const TCHAR* NegativeLabel)
     {
         Action = NewObject<UInputAction>(this);
         Action->ValueType = EInputActionValueType::Axis1D;
-        Mapping->MapKey(Action, Positive);
-        Mapping->MapKey(Action, Negative).Modifiers.Add(NewObject<UInputModifierNegate>(Mapping));
+        RVInputMappings::Map(Mapping,Action,Positive,PositiveName,PositiveLabel);
+        RVInputMappings::Map(Mapping,Action,Negative,NegativeName,NegativeLabel);
+        Mapping->GetMapping(Mapping->GetMappings().Num()-1).Modifiers.Add(NewObject<UInputModifierNegate>(Mapping));
     };
-    Axis(ForwardAction, EKeys::W, EKeys::S);
-    Axis(RightAction, EKeys::D, EKeys::A);
+    Axis(ForwardAction,EKeys::W,EKeys::S,TEXT("Forward"),TEXT("Backward"),TEXT("Walk / climb up"),TEXT("Walk back / climb down"));
+    Axis(RightAction,EKeys::D,EKeys::A,TEXT("Right"),TEXT("Left"),TEXT("Walk right"),TEXT("Walk left"));
     YawAction = NewObject<UInputAction>(this);
     YawAction->ValueType = EInputActionValueType::Axis1D;
-    Mapping->MapKey(YawAction, EKeys::MouseX);
+    RVInputMappings::Map(Mapping,YawAction,EKeys::MouseX,TEXT("LookYaw"),TEXT("Look horizontal"));
     PitchAction = NewObject<UInputAction>(this);
     PitchAction->ValueType = EInputActionValueType::Axis1D;
-    Mapping->MapKey(PitchAction, EKeys::MouseY).Modifiers.Add(NewObject<UInputModifierNegate>(Mapping));
+    RVInputMappings::Map(Mapping,PitchAction,EKeys::MouseY,TEXT("LookPitch"),TEXT("Look vertical"));
+    Mapping->GetMapping(Mapping->GetMappings().Num()-1).Modifiers.Add(NewObject<UInputModifierNegate>(Mapping));
     JumpAction = NewObject<UInputAction>(this);
-    Mapping->MapKey(JumpAction, EKeys::SpaceBar);
+    RVInputMappings::Map(Mapping,JumpAction,EKeys::SpaceBar,TEXT("Jump"),TEXT("Jump"));
     InteractAction = NewObject<UInputAction>(this);
-    Mapping->MapKey(InteractAction, EKeys::E);
+    RVInputMappings::Map(Mapping,InteractAction,EKeys::E,TEXT("Interact"),TEXT("Interact / stand / ladder dismount"));
 }
 void ARVSurvivorCharacter::PawnClientRestart()
 {
@@ -76,7 +79,7 @@ void ARVSurvivorCharacter::PawnClientRestart()
     if (APlayerController* PC = Cast<APlayerController>(Controller))
         if (ULocalPlayer* Local = PC->GetLocalPlayer())
             if (auto* Input = Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
-            { InputLocalPlayer = Local; Input->RemoveMappingContext(Mapping); Input->AddMappingContext(Mapping, 0); }
+            { InputLocalPlayer = Local; RVInputMappings::Register(PC,Mapping); Input->RemoveMappingContext(Mapping); Input->AddMappingContext(Mapping, 0); }
 }
 void ARVSurvivorCharacter::Restart()
 {
@@ -131,6 +134,7 @@ void ARVSurvivorCharacter::EndPlay(const EEndPlayReason::Type Reason)
 }
 void ARVSurvivorCharacter::RemoveInput()
 {
+    RVInputMappings::Unregister(InputLocalPlayer.Get(),Mapping);
     if (auto* Local = InputLocalPlayer.Get())
         if (auto* Input = Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
             if (Mapping) Input->RemoveMappingContext(Mapping);

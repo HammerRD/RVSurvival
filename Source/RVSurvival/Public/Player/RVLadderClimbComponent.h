@@ -14,6 +14,7 @@ public:
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out) const override;
     UPROPERTY(ReplicatedUsing=OnRep_Ladder,BlueprintReadOnly) TObjectPtr<ARVLadder> Ladder;
+    UPROPERTY(Replicated,BlueprintReadOnly) TObjectPtr<ARVLadder> RoofLadder;
     bool BeginAuthority(ARVLadder* Target);
     bool EndAuthority();
     void ClimbInput(float Value);

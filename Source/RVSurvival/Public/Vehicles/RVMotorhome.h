@@ -9,6 +9,7 @@ class RVSURVIVAL_API ARVMotorhome : public ARVVehicleBase
     GENERATED_BODY()
 public:
     ARVMotorhome(const FObjectInitializer& Initializer);
+    void OrbitCamera(float Yaw,float Pitch);
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="RV|Seats") TObjectPtr<class URVVehicleSeatComponent> DriverSeat;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="RV|Seats") TObjectPtr<class URVVehicleSeatComponent> PassengerSeat;
 protected:
