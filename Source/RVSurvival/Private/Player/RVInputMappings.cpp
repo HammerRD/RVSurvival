@@ -24,7 +24,7 @@ void RVInputMappings::Register(APlayerController* Controller,UInputMappingContex
 {
     if(Controller)if(auto* Local=Controller->GetLocalPlayer())
         if(auto* Subsystem=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
-            if(auto* Settings=Subsystem->GetUserSettings())Settings->RegisterInputMappingContext(Context);
+            if(auto* Settings=Subsystem->GetUserSettings())if(!Settings->IsMappingContextRegistered(Context))Settings->RegisterInputMappingContext(Context);
 }
 void RVInputMappings::Unregister(ULocalPlayer* Local,UInputMappingContext* Context)
 {

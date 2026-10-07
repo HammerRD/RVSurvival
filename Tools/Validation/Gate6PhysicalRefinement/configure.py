@@ -37,7 +37,9 @@ def configure():
     ladder.set_editor_property('bRoofAccess',True)
     ladder.set_editor_property('RoofSurfaceHeight',319.6)
     ladder.set_editor_property('RoofExitLocal',unreal.Vector(-315,75,410))
-    ladder.set_editor_property('ClimbHeight',322.6)
+    # Rail endpoint keeps the full 88cm standing half-capsule above the roof
+    # before the validated lateral dismount, rather than using a blind Z nudge.
+    ladder.set_editor_property('ClimbHeight',335.6)
     ladder.set_actor_label('Gate6_RearLadder_RoofAccess')
     assert levels.save_current_level()
     bp_path='/Game/Vehicles/Gate6/BP_ClassCSystemsMotorhome'

@@ -37,8 +37,9 @@ def tick(dt):
     if held:unreal.RVInteriorMotorhome.dispatch_development_key(pc,held[0],False);held=None
     unreal.unregister_slate_post_tick_callback(h)
     from runner_runtime import release_runners
+    levels=unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)
+    levels.editor_request_end_play()
     release_runners()
-    unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_end_play()
     return
   if time.time()<next_sample:return
   next_sample=time.time()+.05

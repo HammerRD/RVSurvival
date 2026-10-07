@@ -1,0 +1,42 @@
+{
+  "actual_window_inputs": [
+    "F10 opened Controls",
+    "Escape closed Controls and restored gameplay",
+    "3 from stopped driver restored survivor aisle walking",
+    "Z at visible rear-bed pose changed Resting to Sleeping",
+    "R restored safe standing Awake"
+  ],
+  "held_input_diagnostics": [
+    "E opened side door",
+    "W physically climbed steps and crossed open doorway without entry teleport",
+    "W walked from front to rear",
+    "E entered driver from standing interior",
+    "E entered rear bed"
+  ],
+  "current": {
+    "time": 1791374438.4155343,
+    "command": 8,
+    "local": [
+      -114.96413157943243,
+      -0.0015336876313718746,
+      191.48862242472413
+    ],
+    "pawn": "RVInteriorTestCharacter_0",
+    "speed": 0.0,
+    "look": "<Struct 'Rotator' (0x000001EC7D2E2F40) {pitch: -10.000000, yaw: 360.016181, roll: 0.000000}>",
+    "seat_feedback": "Living area | Hold E at cab seat to sit",
+    "mode": "<MovementMode.MOVE_WALKING: 1>",
+    "radius": 30.0,
+    "half": 88.0,
+    "collision": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>",
+    "frame": "<Object '/Game/Maps/UEDPIE_0_Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.BP_ClassCSystemsMotorhome_C_0' (0x000001ECB54F1800) Class 'BP_ClassCSystemsMotorhome_C'>",
+    "prompt": "",
+    "rest": "<RVRestMode.AWAKE: 0>",
+    "ladder": "None",
+    "door_open": true
+  },
+  "manual_acceptance": "partial; complete exact E-hold/W routes and multiplayer pending",
+  "failures": [
+    "Controls initially showed only survivor mappings; delayed controller user-settings registration requires correction"
+  ]
+}

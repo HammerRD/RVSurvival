@@ -42,6 +42,9 @@ void ARVPlayerController::PlayerTick(float DeltaTime)
 {
     Super::PlayerTick(DeltaTime);
     if (!IsLocalController()) return;
+    // PlayerController setup may precede local EnhancedInput user-settings init.
+    // Retry idempotently after init so cab/rear/rest controls appear in the menu.
+    if(ResourceMapping)RVInputMappings::Register(this,ResourceMapping);
     // Service-only bindings must not consume remapped gameplay keys elsewhere.
     if (MechanicalMapping && bMechanicalMappingActive!=IsValid(MechanicalPoint))
         if (auto* Local=GetLocalPlayer()) if(auto* Input=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
