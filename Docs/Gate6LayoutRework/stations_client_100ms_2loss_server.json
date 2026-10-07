@@ -1,11 +1,11 @@
 {
-  "pid": 33712,
+  "pid": 49572,
   "role": "server",
   "config": {
-    "name": "stations_client_100ms_2loss",
+    "network": true,
     "driver": "client",
-    "disconnect": "",
-    "network": true
+    "name": "stations_client_100ms_2loss",
+    "disconnect": ""
   },
   "results": [
     {
@@ -21,7 +21,7 @@
     {
       "case": "parked_leave_and_walk_Workbench",
       "pass": true,
-      "detail": "{'relative_walk_cm': 31.193259479884947, 'position': [-53.32795703691547, 0.0003356014129884647, 182.53905498029886]}"
+      "detail": "{'relative_walk_cm': 31.186169945850917, 'position': [-53.326170787288326, 0.00021200889164422598, 182.58715298812072]}"
     },
     {
       "case": "parked_normal_E_Kitchen",
@@ -31,7 +31,7 @@
     {
       "case": "parked_leave_and_walk_Kitchen",
       "pass": true,
-      "detail": "{'relative_walk_cm': 27.8691690716324, 'position': [-25.45878797399826, -0.0003613705987785692, 177.2846635424265]}"
+      "detail": "{'relative_walk_cm': 31.198081610690252, 'position': [-22.128089179272333, -0.00019648041309696263, 177.25556580462225]}"
     },
     {
       "case": "parked_normal_E_Medical",
@@ -41,7 +41,7 @@
     {
       "case": "parked_leave_and_walk_Medical",
       "pass": true,
-      "detail": "{'relative_walk_cm': 31.21540323133944, 'position': [-93.39867927142787, 0.0015319352540026866, 191.56224552200334]}"
+      "detail": "{'relative_walk_cm': 31.215310001840123, 'position': [-93.52249062387375, 0.0009043155368686911, 191.53681935652793]}"
     },
     {
       "case": "parked_normal_E_Power",
@@ -51,7 +51,7 @@
     {
       "case": "parked_leave_and_walk_Power",
       "pass": true,
-      "detail": "{'relative_walk_cm': 31.222594669119417, 'position': [39.89340431590214, -0.000349596478974093, 177.3776016758027]}"
+      "detail": "{'relative_walk_cm': 31.215309881041506, 'position': [39.76497085456707, -0.0001863122711964738, 177.30188937997772]}"
     },
     {
       "case": "parked_normal_E_Navigation",
@@ -61,12 +61,12 @@
     {
       "case": "parked_leave_and_walk_Navigation",
       "pass": true,
-      "detail": "{'relative_walk_cm': 31.219223132218175, 'position': [8.674181183685658, -0.0003393058348897499, 177.45517824872684]}"
+      "detail": "{'relative_walk_cm': 31.21531002661017, 'position': [8.549660827957895, -0.0001784366030314461, 177.40474138180878]}"
     },
     {
       "case": "real_driving_before_moving_station_uses",
       "pass": true,
-      "detail": "1519.2368418350395"
+      "detail": "1509.7709600221538"
     },
     {
       "case": "moving_normal_E_Workbench",
@@ -76,7 +76,7 @@
     {
       "case": "moving_leave_and_walk_Workbench",
       "pass": true,
-      "detail": "{'relative_walk_cm': 31.208625057521395, 'position': [-93.36045916112573, -0.01198779310539297, 191.42460054020466]}"
+      "detail": "{'relative_walk_cm': 31.211247252248615, 'position': [-93.3396409683262, -0.0017841601008732099, 191.42388713286022]}"
     },
     {
       "case": "moving_normal_E_Kitchen",
@@ -86,7 +86,7 @@
     {
       "case": "moving_leave_and_walk_Kitchen",
       "pass": true,
-      "detail": "{'relative_walk_cm': 27.87991818156852, 'position': [-65.50075826314998, -0.011995304251114369, 190.46277912119405]}"
+      "detail": "{'relative_walk_cm': 31.2022150458278, 'position': [-62.15544125804881, -0.001755377653172509, 188.93357021302558]}"
     },
     {
       "case": "moving_normal_E_Medical",
@@ -96,7 +96,7 @@
     {
       "case": "moving_leave_and_walk_Medical",
       "pass": true,
-      "detail": "{'relative_walk_cm': 27.883151377532712, 'position': [-96.64662336157015, -0.011966041452497475, 191.46070764576154]}"
+      "detail": "{'relative_walk_cm': 31.21240235490985, 'position': [-93.31596032768691, -0.0014956198134026023, 191.4386006271239]}"
     },
     {
       "case": "moving_normal_E_Power",
@@ -106,7 +106,7 @@
     {
       "case": "moving_leave_and_walk_Power",
       "pass": true,
-      "detail": "{'relative_walk_cm': 28.029778723577355, 'position': [39.91903047857231, -0.7496664389045837, 177.10571029401817]}"
+      "detail": "{'relative_walk_cm': 31.368025704369725, 'position': [39.91131288433521, -0.7375759154432593, 177.33385653723758]}"
     },
     {
       "case": "moving_normal_E_Navigation",
@@ -116,12 +116,12 @@
     {
       "case": "moving_leave_and_walk_Navigation",
       "pass": true,
-      "detail": "{'relative_walk_cm': 31.20523401090219, 'position': [8.739700962381631, -1.163135387319663, 177.31100604335728]}"
+      "detail": "{'relative_walk_cm': 27.880438415921205, 'position': [12.063283335690858, -1.1247850681436846, 177.5152337855403]}"
     },
     {
       "case": "station_route_existing_correction_bound",
       "pass": true,
-      "detail": "{'CorrectionCount': 0, 'MaxCorrectionCm': 0.0, 'MaxLocalStepCm': 5.3349456787109375, 'FrameChanges': 0, 'BaseChanges': 0}"
+      "detail": "{'CorrectionCount': 0, 'MaxCorrectionCm': 0.0, 'MaxLocalStepCm': 5.266568183898926, 'FrameChanges': 0, 'BaseChanges': 0}"
     },
     {
       "case": "zero_seated_movement_violations",

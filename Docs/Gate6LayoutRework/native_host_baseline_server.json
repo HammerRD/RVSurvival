@@ -1,10 +1,11 @@
 {
-  "pid": 48676,
+  "pid": 32008,
   "role": "server",
   "config": {
     "network": false,
     "driver": "host",
-    "name": "native_host_baseline"
+    "name": "native_host_baseline",
+    "disconnect": ""
   },
   "results": [
     {
@@ -20,227 +21,227 @@
     {
       "case": "normal_3_passenger_to_aisle",
       "pass": true,
-      "detail": "[129.97447985322168, -5.5856599313006735e-05, 177.1862983271211]"
+      "detail": "[129.99250197097896, 4.977509625087441e-06, 177.18967967342363]"
     },
     {
       "case": "normal_V_driver_to_passenger_1",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_1",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_2",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_2",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_3",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_3",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_4",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_4",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_5",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_5",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_6",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_6",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_7",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_7",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_8",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_8",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_9",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_9",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_10",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_10",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_11",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_11",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_12",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_12",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_13",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_13",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_14",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_14",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_15",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_15",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_16",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_16",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_17",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_17",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_18",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_18",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_19",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_19",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "normal_V_driver_to_passenger_20",
       "pass": true,
-      "detail": "[189.99999999999997, 49.0, 138.0]"
+      "detail": "[189.99999999999997, 48.99999999999999, 138.0]"
     },
     {
       "case": "normal_1_return_driver_20",
       "pass": true,
-      "detail": "[190.0, -49.0, 137.99999999999997]"
+      "detail": "[190.0, -49.00000000000001, 138.0]"
     },
     {
       "case": "host_or_client_driving",
       "pass": true,
-      "detail": "2181.3304671760066"
+      "detail": "2181.3314833851705"
     },
     {
       "case": "moving_V_rejected_without_release",
       "pass": true,
-      "detail": "[190.00000000000037, -49.00000000000001, 138.0]"
+      "detail": "[190.00000000000054, -48.99999999999999, 138.0]"
     },
     {
       "case": "moving_walk_to_actual_bed_foot",
       "pass": true,
-      "detail": "[-124.58385353678555, -0.009992812943978057, 191.6385808238229]"
+      "detail": "[-124.58483904735279, -0.004881901551216494, 191.63858800944075]"
     },
     {
       "case": "gentle_turn_passenger_floor",
       "pass": true,
-      "detail": "[-124.40346368629064, -1.5619305018213985, 191.6234073294022]"
+      "detail": "[-124.40715773953988, -1.566076135927362, 191.6233257596757]"
     },
     {
       "case": "braked_before_bed",
@@ -248,64 +249,79 @@
       "detail": "0.0"
     },
     {
+      "case": "moving_corrections_within_existing_gate3_bound",
+      "pass": true,
+      "detail": "{'CorrectionCount': 0, 'MaxCorrectionCm': 0.0, 'MaxLocalStepCm': 4.7496771812438965, 'FrameChanges': 0, 'BaseChanges': 0}"
+    },
+    {
+      "case": "recently_stopped_native_V_passenger",
+      "pass": true,
+      "detail": "[189.99999999999963, 49.00000000000199, 138.0]"
+    },
+    {
+      "case": "recently_stopped_native_1_driver",
+      "pass": true,
+      "detail": "[189.99999999999926, -48.99999999999832, 138.0]"
+    },
+    {
       "case": "normal_E_bed_reserved_0",
       "pass": true,
-      "detail": "[-245.0000000000009, 47.999999999995964, 202.0]"
+      "detail": "[-244.9999999999992, 47.99999999999392, 195.0]"
     },
     {
       "case": "normal_Z_sleep_0",
       "pass": true,
-      "detail": ""
+      "detail": "<RVRestMode.SLEEPING: 2>"
     },
     {
       "case": "normal_R_E_safe_wake_0",
       "pass": true,
-      "detail": "[-114.96335071701289, 0.00015982608657338915, 191.48856412763243]"
+      "detail": "[-114.96349339904343, 2.360577421711696e-05, 191.48857560666485]"
     },
     {
       "case": "normal_E_bed_reserved_1",
       "pass": true,
-      "detail": "[-245.0000000000009, 47.999999999995964, 202.0]"
+      "detail": "[-244.9999999999992, 47.99999999999392, 195.0]"
     },
     {
       "case": "normal_Z_sleep_1",
       "pass": true,
-      "detail": ""
+      "detail": "<RVRestMode.SLEEPING: 2>"
     },
     {
       "case": "normal_R_E_safe_wake_1",
       "pass": true,
-      "detail": "[-114.96335071701289, 0.00015982608657338915, 191.48856412763243]"
+      "detail": "[-114.96349339904343, 2.360577421711696e-05, 191.48857560666485]"
     },
     {
       "case": "normal_E_bed_reserved_2",
       "pass": true,
-      "detail": "[-245.0000000000009, 47.999999999995964, 202.0]"
+      "detail": "[-244.9999999999992, 47.99999999999392, 195.0]"
     },
     {
       "case": "normal_Z_sleep_2",
       "pass": true,
-      "detail": ""
+      "detail": "<RVRestMode.SLEEPING: 2>"
     },
     {
       "case": "normal_R_E_safe_wake_2",
       "pass": true,
-      "detail": "[-114.96335071701289, 0.00015982608657338915, 191.48856412763243]"
+      "detail": "[-114.96349339904343, 2.360577421711696e-05, 191.48857560666485]"
     },
     {
       "case": "normal_E_bed_reserved_3",
       "pass": true,
-      "detail": "[-245.0000000000009, 47.999999999995964, 202.0]"
+      "detail": "[-244.9999999999992, 47.99999999999392, 195.0]"
     },
     {
       "case": "normal_Z_sleep_3",
       "pass": true,
-      "detail": ""
+      "detail": "<RVRestMode.SLEEPING: 2>"
     },
     {
       "case": "normal_R_E_safe_wake_3",
       "pass": true,
-      "detail": "[-114.96335071701289, 0.00015982608657338915, 191.48856412763243]"
+      "detail": "[-114.96349339904343, 2.360577421711696e-05, 191.48857560666485]"
     },
     {
       "case": "zero_seated_walking_or_falling_samples",

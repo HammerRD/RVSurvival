@@ -1,10 +1,11 @@
 {
-  "pid": 6456,
+  "pid": 51164,
   "role": "client",
   "config": {
     "network": false,
     "driver": "host",
-    "name": "native_host_baseline"
+    "name": "native_host_baseline",
+    "disconnect": ""
   },
   "results": [
     {
@@ -20,7 +21,7 @@
     {
       "case": "normal_3_passenger_to_aisle",
       "pass": true,
-      "detail": "[129.97447985322168, -5.5856599309733745e-05, 177.1862983271211]"
+      "detail": "[129.99250197097896, 4.97750962180632e-06, 177.18967967342363]"
     },
     {
       "case": "normal_V_driver_to_passenger_1",
@@ -225,22 +226,22 @@
     {
       "case": "host_or_client_driving",
       "pass": true,
-      "detail": "2208.453588896776"
+      "detail": "2259.2867814875353"
     },
     {
       "case": "moving_V_rejected_without_release",
       "pass": true,
-      "detail": "[190.0000000000003, -48.99999999999999, 138.00000000000003]"
+      "detail": "[189.99999999999946, -49.0, 137.99999999999997]"
     },
     {
       "case": "moving_walk_to_actual_bed_foot",
       "pass": true,
-      "detail": "[-124.899614005664, -5.585413954882704e-05, 191.64000021293984]"
+      "detail": "[-124.89963561231667, 4.980713248770024e-06, 191.64000229970833]"
     },
     {
       "case": "gentle_turn_passenger_floor",
       "pass": true,
-      "detail": "[-124.89832435551303, -2.164638975409569, 191.6133744722928]"
+      "detail": "[-124.89833810195152, -2.164509387860358, 191.61337825059394]"
     },
     {
       "case": "braked_before_bed",
@@ -248,64 +249,79 @@
       "detail": "0.0"
     },
     {
+      "case": "moving_corrections_within_existing_gate3_bound",
+      "pass": true,
+      "detail": "{'CorrectionCount': 0, 'MaxCorrectionCm': 0.0, 'MaxLocalStepCm': 4.876840114593506, 'FrameChanges': 0, 'BaseChanges': 0}"
+    },
+    {
+      "case": "recently_stopped_native_V_passenger",
+      "pass": true,
+      "detail": "[189.9999999999995, 48.9999999999977, 138.00000000000003]"
+    },
+    {
+      "case": "recently_stopped_native_1_driver",
+      "pass": true,
+      "detail": "[189.9999999999992, -48.99999999999929, 138.0]"
+    },
+    {
       "case": "normal_E_bed_reserved_0",
       "pass": true,
-      "detail": "[-248.93869142958664, 50.224792595970314, 200.61043617668957]"
+      "detail": "[-249.08031083814822, 47.97868247477351, 193.59157265030572]"
     },
     {
       "case": "normal_Z_sleep_0",
       "pass": true,
-      "detail": ""
+      "detail": "<RVRestMode.SLEEPING: 2>"
     },
     {
       "case": "normal_R_E_safe_wake_0",
       "pass": true,
-      "detail": "[-114.9633507170124, 0.00015982608451281521, 191.48856412763243]"
+      "detail": "[-114.96349339904263, 2.360577211391046e-05, 191.48857560666485]"
     },
     {
       "case": "normal_E_bed_reserved_1",
       "pass": true,
-      "detail": "[-248.93869142958664, 50.224792595970314, 200.61043617668957]"
+      "detail": "[-249.08031083814822, 47.97868247477351, 193.59157265030572]"
     },
     {
       "case": "normal_Z_sleep_1",
       "pass": true,
-      "detail": ""
+      "detail": "<RVRestMode.SLEEPING: 2>"
     },
     {
       "case": "normal_R_E_safe_wake_1",
       "pass": true,
-      "detail": "[-114.9633507170124, 0.00015982608451281521, 191.48856412763243]"
+      "detail": "[-114.96349339904263, 2.360577211391046e-05, 191.48857560666485]"
     },
     {
       "case": "normal_E_bed_reserved_2",
       "pass": true,
-      "detail": "[-248.93869142958664, 50.224792595970314, 200.61043617668957]"
+      "detail": "[-249.08031083814822, 47.97868247477351, 193.59157265030572]"
     },
     {
       "case": "normal_Z_sleep_2",
       "pass": true,
-      "detail": ""
+      "detail": "<RVRestMode.SLEEPING: 2>"
     },
     {
       "case": "normal_R_E_safe_wake_2",
       "pass": true,
-      "detail": "[-114.9633507170124, 0.00015982608451281521, 191.48856412763243]"
+      "detail": "[-114.96349339904263, 2.360577211391046e-05, 191.48857560666485]"
     },
     {
       "case": "normal_E_bed_reserved_3",
       "pass": true,
-      "detail": "[-248.93869142958664, 50.224792595970314, 200.61043617668957]"
+      "detail": "[-249.08031083814822, 47.97868247477351, 193.59157265030572]"
     },
     {
       "case": "normal_Z_sleep_3",
       "pass": true,
-      "detail": ""
+      "detail": "<RVRestMode.SLEEPING: 2>"
     },
     {
       "case": "normal_R_E_safe_wake_3",
       "pass": true,
-      "detail": "[-114.9633507170124, 0.00015982608451281521, 191.48856412763243]"
+      "detail": "[-114.96349339904263, 2.360577211391046e-05, 191.48857560666485]"
     },
     {
       "case": "zero_seated_walking_or_falling_samples",

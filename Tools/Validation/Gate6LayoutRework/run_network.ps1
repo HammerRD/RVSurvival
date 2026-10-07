@@ -1,4 +1,4 @@
-param([string]$Driver='host',[switch]$Emulated,[switch]$Auxiliary,[switch]$Stations,[ValidateSet('','Bed','RearSeat','Ladder')][string]$Disconnect='')
+param([string]$Driver='host',[switch]$Emulated,[switch]$Auxiliary,[switch]$Stations,[switch]$Doors,[ValidateSet('','Bed','RearSeat','Ladder')][string]$Disconnect='')
 $ErrorActionPreference='Stop'
 $root='D:\GitHub\RVSurvival\RVSurvival'
 if(Get-Process UnrealEditor -ErrorAction SilentlyContinue){throw 'Refuse concurrent editor'}
@@ -6,10 +6,11 @@ foreach($name in @('launch_process.py','process_startup.py','process_ready.py'))
  $text=(Get-Content -LiteralPath ($root+'\Tools\Validation\Gate6Refinement\'+$name) -Raw).Replace('Gate6Refinement','Gate6LayoutRework')
  Set-Content -LiteralPath ($root+'\Saved\Gate6LayoutRework\'+$name) -Value $text -Encoding utf8
 }
-Copy-Item -LiteralPath ($root+'\Tools\Validation\Gate6LayoutRework\'+$(if($Disconnect){'process_disconnect.py'}elseif($Stations){'process_stations.py'}elseif($Auxiliary){'process_auxiliary.py'}else{'process_refinement.py'})) -Destination ($root+'\Saved\Gate6LayoutRework\process_refinement.py')
+Copy-Item -LiteralPath ($root+'\Tools\Validation\Gate6LayoutRework\'+$(if($Disconnect){'process_disconnect.py'}elseif($Doors){'process_doors.py'}elseif($Stations){'process_stations.py'}elseif($Auxiliary){'process_auxiliary.py'}else{'process_refinement.py'})) -Destination ($root+'\Saved\Gate6LayoutRework\process_refinement.py')
 $name='native_'+$Driver+$(if($Emulated){'_100ms_2loss'}else{'_baseline'})
 if($Auxiliary){$name='aux_'+$Driver+$(if($Emulated){'_100ms_2loss'}else{'_baseline'})}
 if($Stations){$name='stations_'+$Driver+$(if($Emulated){'_100ms_2loss'}else{'_baseline'})}
+if($Doors){$name='doors_'+$Driver+$(if($Emulated){'_100ms_2loss'}else{'_baseline'})}
 if($Disconnect){$name='disconnect_'+$Disconnect+$(if($Emulated){'_100ms_2loss'}else{'_baseline'})}
 $history=$root+'\Saved\Gate6LayoutRework\History\'+$name+'_'+(Get-Date -Format 'yyyyMMdd-HHmmss')
 foreach($suffix in @('.log','_child.log','_server.json','_client.json')){

@@ -11,6 +11,7 @@ foreach($name in @('launch_process.py','process_startup.py','process_ready.py','
  }
  if($name -eq 'launch_process.py'){
   $text=$text.Replace("unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_begin_play()","s.set_editor_property('AdditionalLaunchParameters','-ExecCmds='+chr(34)+'py D:/GitHub/RVSurvival/RVSurvival/Saved/Gate6LayoutResources/process_startup.py'+chr(34)+' -abslog='+chr(34)+B+'resources_child.log'+chr(34))`nunreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_begin_play()")
+  $text=$text.Replace("  unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_end_play();ending=time.time()+4","  from runner_runtime import release_runners`n  release_runners();unreal.log('LAYOUT_RESOURCE_RUNNERS_RELEASED_BEFORE_STOP')`n  unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_end_play();ending=time.time()+4")
  }
  Set-Content -LiteralPath ($base+'\'+$name) -Value $text -Encoding utf8
 }

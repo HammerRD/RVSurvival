@@ -1,0 +1,42 @@
+{
+  "pid": 31684,
+  "role": "client",
+  "config": {
+    "network": false,
+    "driver": "host",
+    "disconnect": "",
+    "name": "doors_host_baseline"
+  },
+  "results": [
+    {
+      "case": "all_54_registered_parts_unique",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "closed_door_blocks_normal_W",
+      "pass": true,
+      "detail": "[129.98205907246862, 86.89943723105705, 177.33999613876887]"
+    },
+    {
+      "case": "parked_0_replicated_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "parked_0_one_visible_DoorMesh",
+      "pass": true,
+      "detail": "{'original_hidden': 1, 'live_visible': 1}"
+    },
+    {
+      "case": "parked_0_one_visible_GlassMesh",
+      "pass": true,
+      "detail": "{'original_hidden': 1, 'live_visible': 1}"
+    },
+    {
+      "case": "exception",
+      "pass": false,
+      "detail": "Exception(\"RVInteractiveDoor: Property 'Visual' for attribute 'Visual' on 'RVInteractiveDoor' is protected and cannot be read\")"
+    }
+  ]
+}

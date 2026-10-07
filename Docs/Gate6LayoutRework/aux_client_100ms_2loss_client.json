@@ -1,10 +1,11 @@
 {
-  "pid": 52196,
+  "pid": 16796,
   "role": "client",
   "config": {
-    "driver": "client",
     "network": true,
-    "name": "aux_client_100ms_2loss"
+    "driver": "client",
+    "name": "aux_client_100ms_2loss",
+    "disconnect": ""
   },
   "results": [
     {
@@ -20,22 +21,22 @@
     {
       "case": "moving_front_bench_native_E",
       "pass": true,
-      "detail": "[105.00000000000009, -81.99999999999999, 137.99999999999997]"
+      "detail": "[104.99999999999991, -82.0, 138.00000000000003]"
     },
     {
       "case": "moving_front_bench_stand",
       "pass": true,
-      "detail": "[99.89029113230666, 2.784810740745582e-05, 177.18999501938634]"
+      "detail": "[99.90000000000057, 0.0, 177.19000000000003]"
     },
     {
       "case": "moving_rear_bench_native_E",
       "pass": true,
-      "detail": "[-69.99999999999987, -82.0, 137.99999999999997]"
+      "detail": "[-55.00000000000087, -82.0, 138.00000000000003]"
     },
     {
       "case": "moving_rear_bench_stand",
       "pass": true,
-      "detail": "[-100.00000000000011, -4.797762845122018e-15, 191.49]"
+      "detail": "[-94.99000000000167, -2.4147438882762714e-15, 191.49000000000004]"
     },
     {
       "case": "other_player_pantry_view_is_private",
@@ -70,27 +71,27 @@
     {
       "case": "normal_E_side_exit_both_players",
       "pass": true,
-      "detail": "{'driver': [-12.650208209193124, 239.84525807363832, 72.39431281159223], 'walker': [87.34696638575988, 240.23348268155394, 72.39419650440286]}"
+      "detail": "{'driver': [-10.338463339185182, 239.98841408640226, 72.3786222810538], 'walker': [89.65663614233387, 239.430681173354, 72.37847514207813]}"
     },
     {
       "case": "shared_exterior_native_E",
       "pass": true,
-      "detail": "{'expected': \"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVExteriorStoragePoint_3.Container' (0x000001730612BE00) Class 'RVContainerComponent'>\", 'actual': \"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVExteriorStoragePoint_3.Container' (0x000001730612BE00) Class 'RVContainerComponent'>\", 'feedback': ''}"
+      "detail": "{'expected': \"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVExteriorStoragePoint_6.Container' (0x0000020414759B00) Class 'RVContainerComponent'>\", 'actual': \"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVExteriorStoragePoint_6.Container' (0x0000020414759B00) Class 'RVContainerComponent'>\", 'feedback': ''}"
     },
     {
       "case": "shared_exterior_contention_no_duplicate_native_T",
       "pass": true,
-      "detail": "[\"<Struct 'Guid' (0x000001731686A9CC) {}>\"]"
+      "detail": "[\"<Struct 'Guid' (0x00000203BA1BF50C) {}>\"]"
     },
     {
-      "case": "native_E_client_ladder_host_driver",
+      "case": "native_E_ladder_and_other_player_driver",
       "pass": true,
-      "detail": "[-419.8473722261489, 73.2755164005319, 75.6403113988095]"
+      "detail": "[-419.087640457533, 77.26728665587018, 75.60943559480283]"
     },
     {
       "case": "native_W_controlled_ladder_top",
       "pass": true,
-      "detail": "{'position': [-420.8745539692262, 73.27174347810666, 256.85095333759466], 'height': 178.85095333759466}"
+      "detail": "{'position': [-420.1104074318715, 77.26879171429692, 253.97943712379032], 'height': 175.97943712379032}"
     },
     {
       "case": "occupied_ladder_prevents_driving",
@@ -105,17 +106,17 @@
     {
       "case": "native_S_E_bottom_exit_restores_world_movement",
       "pass": true,
-      "detail": "[-460.02786117057957, 73.12066719516724, 72.24501062738027]"
+      "detail": "[-459.2676604257447, 77.48728661125818, 72.22949545129902]"
     },
     {
       "case": "ladder_exit_releases_drive_lock",
       "pass": true,
-      "detail": "378.41178455005775"
+      "detail": "377.9637397674223"
     },
     {
       "case": "ladder_world_walk_away",
       "pass": true,
-      "detail": "[-1030.3769485913315, 71.35405954445741, 72.28403036423025]"
+      "detail": "{'position': [-1050.6941848999472, 80.73055860762997, 72.26956104510295], 'actual_world_walk_cm': 112.66497991833863}"
     }
   ]
 }
