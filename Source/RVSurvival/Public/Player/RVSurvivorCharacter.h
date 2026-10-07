@@ -26,6 +26,7 @@ public:
     virtual void GetActorEyesViewPoint(FVector& OutLocation, FRotator& OutRotation) const override;
     URVInteractionComponent* GetInteraction() const { return Interaction; }
     void SetVehicleSeat(ARVVehicleBase* Vehicle);
+    UFUNCTION(NetMulticast, Reliable) void MulticastRecoveryPlacement(FVector Position, FRotator Rotation);
     UPROPERTY(ReplicatedUsing=OnRep_VehicleSeat, BlueprintReadOnly, Category="RV|Seats") TObjectPtr<ARVVehicleBase> SeatedVehicle;
 protected:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<class URVRestPoseComponent> RestPose;

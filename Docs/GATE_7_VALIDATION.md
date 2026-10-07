@@ -177,3 +177,7 @@ Remaining limitations: first-order thermal model and provisional rates; service 
 Local recovery checkpoints: d9dc8b0 user acceptance/read-only audit; dfa4dad saved integration; bf17b5f both physical roles/network setup;523c6a6 corrected roadside and retained failures;8ff142d stress/reconnect. Final closure is a separate commit, recorded in Git/final report rather than a self-referential hash here. Working tree preserves only the pre-existing engine config and three IDE files outside task commits. No push.
 
 Next recommended task: manual Gate7MechanicalTest roadside/service playtest and measured refrigerator-collision follow-up; await explicit Gate8 authorization. Stop after Gate7.
+
+## 2026-10-07 rollover refinement — validation in progress
+Added a compiled prototype recovery component and remappable F8 / development RVRecover command. Earlier Gate7 acceptance does not yet cover this new refinement. Three near-ground single-player orientations passed 18 checks on the initial clearance policy. Separate-process validation remains pending: first paired run stopped on a test-only unpossessed-pawn PlayerState lookup; needs snapshot now reacquires PlayerState actors. Initial high-drop fixture self-righted and a Python distance API error was corrected. Failed receipts/logs remain under Saved/Gate7Validation/History. No Gate8 work.
+

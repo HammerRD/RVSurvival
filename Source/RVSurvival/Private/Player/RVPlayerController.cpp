@@ -1,4 +1,35 @@
 #include "Player/RVPlayerController.h"
+#include "Vehicles/RVMechanicalMotorhome.h"
+#include "Vehicles/RVRecoveryComponent.h"
+#include "EngineUtils.h"
+#include "TimerManager.h"
+void ARVPlayerController::RequestRecoverRV()
+{
+    if(!IsLocalController() || !GetPawn()) return;
+    ARVMechanicalMotorhome* Target=Cast<ARVMechanicalMotorhome>(SeatedVehicle);
+    float Closest=1000;
+    if(!Target) for(TActorIterator<ARVMechanicalMotorhome> It(GetWorld());It;++It)
+    {
+        const float Distance=FVector::Dist(GetPawn()->GetActorLocation(),It->GetActorLocation());
+        if(Distance<Closest){Closest=Distance;Target=*It;}
+    }
+    if(!Target){RecoveryFeedback=TEXT("Move closer to the RV");return;}
+    TWeakObjectPtr<ARVMechanicalMotorhome> WeakTarget(Target);
+    GetWorld()->GetTimerManager().SetTimerForNextTick(FTimerDelegate::CreateWeakLambda(this,[this,WeakTarget]
+    {if(WeakTarget.IsValid())ServerRecoverRV(WeakTarget.Get());}));
+}
+void ARVPlayerController::ServerRecoverRV_Implementation(ARVMechanicalMotorhome* Target)
+{
+    if(Target && Target->Recovery)Target->Recovery->RecoverAuthority(this,RecoveryFeedback);
+    else RecoveryFeedback=TEXT("Recovery target is unavailable");
+    ForceNetUpdate();
+}
+void ARVPlayerController::RVRecover()
+{
+#if !UE_BUILD_SHIPPING && !UE_BUILD_TEST
+    RequestRecoverRV();
+#endif
+}
 #include "Player/RVInputMappings.h"
 #include "UI/RVControlsWidget.h"
 #include "InputActionValue.h"
@@ -23,7 +54,7 @@
 #include "Player/RVSurvivorCharacter.h"
 void ARVPlayerController::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 { Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME_CONDITION(ARVPlayerController, SeatedVehicle, COND_OwnerOnly); DOREPLIFETIME_CONDITION(ARVPlayerController, SeatFeedback, COND_OwnerOnly);
-DOREPLIFETIME_CONDITION(ARVPlayerController, ResourcePoint, COND_OwnerOnly);
+DOREPLIFETIME_CONDITION(ARVPlayerController, RecoveryFeedback, COND_OwnerOnly); DOREPLIFETIME_CONDITION(ARVPlayerController, ResourcePoint, COND_OwnerOnly);
 DOREPLIFETIME_CONDITION(ARVPlayerController, ResourceFeedback, COND_OwnerOnly); DOREPLIFETIME_CONDITION(ARVPlayerController,MechanicalPoint,COND_OwnerOnly);DOREPLIFETIME_CONDITION(ARVPlayerController,MechanicalFeedback,COND_OwnerOnly); }
 void ARVPlayerController::RequestSwitchSeat(FName TargetSeat)
 {
@@ -186,13 +217,13 @@ void ARVPlayerController::SetupInputComponent()
         for(int32 i=0;i<UE_ARRAY_COUNT(Keys);++i)
             RVInputMappings::Map(DrivingControlsCatalog,NewObject<UInputAction>(DrivingControlsCatalog),Keys[i],DrivingNames[i],DrivingLabels[i]);
         ResourceMapping=NewObject<UInputMappingContext>(this);
-        for(FKey Key:{EKeys::H,EKeys::J,EKeys::K,EKeys::L,EKeys::O,EKeys::Escape,EKeys::R,EKeys::Z,EKeys::Three,EKeys::One,EKeys::Two,EKeys::V,EKeys::F10,EKeys::RightMouseButton,EKeys::MouseX,EKeys::MouseY})
+        for(FKey Key:{EKeys::H,EKeys::J,EKeys::K,EKeys::L,EKeys::O,EKeys::Escape,EKeys::R,EKeys::Z,EKeys::Three,EKeys::One,EKeys::Two,EKeys::V,EKeys::F10,EKeys::RightMouseButton,EKeys::MouseX,EKeys::MouseY,EKeys::F8})
         {
             auto* Action=NewObject<UInputAction>(this); Action->ValueType=EInputActionValueType::Boolean;
             const int32 Index=ResourceActions.Num();
-            const TCHAR* Names[]={TEXT("Lights"),TEXT("Generator"),TEXT("Fridge"),TEXT("StationPower"),TEXT("EngineIdle"),TEXT("ClosePanel"),TEXT("Stand"),TEXT("Sleep"),TEXT("RearInterior"),TEXT("DriverSeat"),TEXT("PassengerSeat"),TEXT("NextSeat"),TEXT("Controls"),TEXT("OrbitHold"),TEXT("OrbitYaw"),TEXT("OrbitPitch")};
-            const TCHAR* Labels[]={TEXT("Lights"),TEXT("Generator"),TEXT("Fridge"),TEXT("Station power"),TEXT("Engine idle"),TEXT("Close panel"),TEXT("Stand from bed"),TEXT("Rest / sleep"),TEXT("Move to rear living area"),TEXT("Driver seat"),TEXT("Passenger seat"),TEXT("Next seat (stopped)"),TEXT("Controls menu"),TEXT("Orbit camera hold"),TEXT("Orbit horizontal"),TEXT("Orbit vertical")};
-            if(Index>=14){Action->ValueType=EInputActionValueType::Axis1D;Action->bConsumeInput=false;}
+            const TCHAR* Names[]={TEXT("Lights"),TEXT("Generator"),TEXT("Fridge"),TEXT("StationPower"),TEXT("EngineIdle"),TEXT("ClosePanel"),TEXT("Stand"),TEXT("Sleep"),TEXT("RearInterior"),TEXT("DriverSeat"),TEXT("PassengerSeat"),TEXT("NextSeat"),TEXT("Controls"),TEXT("OrbitHold"),TEXT("OrbitYaw"),TEXT("OrbitPitch"),TEXT("RecoverRV")};
+            const TCHAR* Labels[]={TEXT("Lights"),TEXT("Generator"),TEXT("Fridge"),TEXT("Station power"),TEXT("Engine idle"),TEXT("Close panel"),TEXT("Stand from bed"),TEXT("Rest / sleep"),TEXT("Move to rear living area"),TEXT("Driver seat"),TEXT("Passenger seat"),TEXT("Next seat (stopped)"),TEXT("Controls menu"),TEXT("Orbit camera hold"),TEXT("Orbit horizontal"),TEXT("Orbit vertical"),TEXT("Recover RV (prototype)")};
+            if(Index==14 || Index==15){Action->ValueType=EInputActionValueType::Axis1D;Action->bConsumeInput=false;}
             RVInputMappings::Map(ResourceMapping,Action,Key,FName(Names[Index]),Labels[Index]);ResourceActions.Add(Action);
         }
     }
@@ -212,6 +243,7 @@ void ARVPlayerController::SetupInputComponent()
     for(auto Event:{ETriggerEvent::Triggered,ETriggerEvent::Completed,ETriggerEvent::Canceled})Input->BindAction(ResourceActions[13],Event,this,&ThisClass::OrbitHold);
     Input->BindAction(ResourceActions[14],ETriggerEvent::Triggered,this,&ThisClass::OrbitYaw);
     Input->BindAction(ResourceActions[15],ETriggerEvent::Triggered,this,&ThisClass::OrbitPitch);
+    Input->BindAction(ResourceActions[16],ETriggerEvent::Started,this,&ThisClass::RequestRecoverRV);
     RVInputMappings::Register(this,ResourceMapping);
     if(!MechanicalMapping)
     {

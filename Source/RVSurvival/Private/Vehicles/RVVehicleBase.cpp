@@ -246,7 +246,18 @@ void ARVVehicleBase::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
     { Input->BindAction(ThrottleAction, Event, this, &ThisClass::Throttle); Input->BindAction(SteeringAction, Event, this, &ThisClass::Steering); Input->BindAction(HandbrakeAction, Event, this, &ThisClass::Handbrake); }
     Input->BindAction(ExitAction, ETriggerEvent::Started, this, &ThisClass::Exit);
 }
-void ARVVehicleBase::Throttle(const FInputActionValue& V) { LocalThrottle = V.Get<float>(); }
-void ARVVehicleBase::Steering(const FInputActionValue& V) { LocalSteering = V.Get<float>(); }
+void ARVVehicleBase::Throttle(const FInputActionValue& V)
+{ if(FMath::IsNearlyZero(V.Get<float>())) bRecoveryThrottleLatch=false; LocalThrottle=bRecoveryThrottleLatch?0:V.Get<float>(); }
+void ARVVehicleBase::Steering(const FInputActionValue& V)
+{ if(FMath::IsNearlyZero(V.Get<float>())) bRecoverySteeringLatch=false; LocalSteering=bRecoverySteeringLatch?0:V.Get<float>(); }
+void ARVVehicleBase::MulticastClearRecoveryDrive_Implementation()
+{
+    bRecoveryThrottleLatch=!FMath::IsNearlyZero(LocalThrottle);
+    bRecoverySteeringLatch=!FMath::IsNearlyZero(LocalSteering);
+    LocalThrottle=LocalSteering=ServerThrottle=ServerSteering=0;
+    bLocalHandbrake=false;bServerHandbrake=true;LastInputTime=0;
+    GetVehicleMovement()->SetThrottleInput(0);GetVehicleMovement()->SetBrakeInput(0);
+    GetVehicleMovement()->SetSteeringInput(0);GetVehicleMovement()->SetHandbrakeInput(true);
+}
 void ARVVehicleBase::Handbrake(const FInputActionValue& V) { bLocalHandbrake = V.Get<bool>(); }
 void ARVVehicleBase::Exit() { if (bExitInputArmed) if (auto* PC = Cast<ARVPlayerController>(Controller)) PC->ServerExitVehicle(); }

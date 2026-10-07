@@ -34,6 +34,10 @@ public:
     UFUNCTION(BlueprintCallable) void RequestRefuel(FGuid ItemId, int32 ExpectedRevision);
     UFUNCTION(Server, Reliable) void ServerRefuel(FGuid ItemId, int32 ExpectedRevision);
     UFUNCTION(BlueprintCallable) void RequestCloseResource();
+    UFUNCTION(BlueprintCallable) void RequestRecoverRV();
+    UFUNCTION(Server,Reliable) void ServerRecoverRV(class ARVMechanicalMotorhome* Target);
+    UFUNCTION(Exec) void RVRecover();
+    UPROPERTY(Replicated,BlueprintReadOnly) FString RecoveryFeedback;
     double SeatEntryTime = 0;
 private:
     bool ValidateResourceAccess(bool FuelFill) const;

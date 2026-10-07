@@ -30,6 +30,7 @@ public:
     bool TrySwitchSeat(ARVPlayerController* Controller, FName TargetSeat);
     void ReleaseDisconnected(ARVPlayerController* Controller);
     void ReceiveDriveInput(ARVPlayerController* Controller, float Throttle, float Steering, bool Handbrake);
+    UFUNCTION(NetMulticast,Reliable) void MulticastClearRecoveryDrive();
     void SetAuthorityDriveLock(AActor* Requester,bool bLocked);
     UFUNCTION(BlueprintPure, Category="RV|Seats") bool IsDriver(const ARVPlayerController* PlayerController) const;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="RV|Seats") float MaxEntryExitSpeed = 150.f;
@@ -47,6 +48,7 @@ private:
     void Exit();
     float LocalThrottle = 0, LocalSteering = 0, InputSendTime = 0;
     bool bLocalHandbrake = false;
+    bool bRecoveryThrottleLatch=false, bRecoverySteeringLatch=false;
     bool bExitInputArmed = false;
     double LocalPossessionTime = 0;
     float ServerThrottle = 0, ServerSteering = 0;

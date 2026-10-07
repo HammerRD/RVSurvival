@@ -22,6 +22,22 @@
 #include "Survival/RVNeedsComponent.h"
 #include "Survival/RVRestPoseComponent.h"
 #include "Vehicles/RVSeatPoseComponent.h"
+void ARVSurvivorCharacter::MulticastRecoveryPlacement_Implementation(FVector Position, FRotator Rotation)
+{
+    DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+    SetBase(static_cast<UPrimitiveComponent*>(nullptr));
+    PassengerReferenceFrame->ResetForRecovery();
+    auto* Movement=GetCharacterMovement();
+    Movement->StopMovementImmediately();
+    Movement->CurrentFloor.Clear();
+    Movement->Activate(true);
+    if(IsLocallyControlled()) Movement->ResetPredictionData_Client();
+    GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+    SetActorLocationAndRotation(Position,Rotation,false,nullptr,ETeleportType::TeleportPhysics);
+    Movement->SetMovementMode(MOVE_Walking);
+    ConsumeMovementInputVector();
+    if(HasAuthority()) ForceNetUpdate();
+}
 #include "Player/RVLadderClimbComponent.h"
 #include "Survival/RVRestPoint.h"
 static bool CanMoveWhileAwake(const ARVSurvivorCharacter* Character)

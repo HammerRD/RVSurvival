@@ -1,4 +1,6 @@
 #include "UI/RVPrototypeHUD.h"
+#include "Vehicles/RVRecoveryComponent.h"
+#include "EngineUtils.h"
 #include "UI/RVMechanicalWidget.h"
 #include "Blueprint/WidgetLayoutLibrary.h"
 #include "Mechanical/RVServicePoint.h"
@@ -31,6 +33,14 @@ void ARVPrototypeHUD::DrawHUD()
 {
     Super::DrawHUD();
     if (!Canvas || !PlayerOwner) return;
+    if(auto* PC=Cast<ARVPlayerController>(PlayerOwner))
+    {
+        bool Ready=false;
+        if(PC->GetPawn())for(TActorIterator<ARVMechanicalMotorhome> It(GetWorld());It;++It)
+            if(It->Recovery->bConfirmedOverturned && (PC->SeatedVehicle==*It || FVector::Dist(PC->GetPawn()->GetActorLocation(),It->GetActorLocation())<=It->Recovery->RequestRange)){Ready=true;break;}
+        if(Ready)DrawText(RVInputMappings::KeyLabel(PC,TEXT("RecoverRV"),TEXT("F8"))+TEXT(" Recover RV (prototype)"),FLinearColor::Yellow,20,65,nullptr,1);
+        if(!PC->RecoveryFeedback.IsEmpty())DrawText(PC->RecoveryFeedback,FLinearColor::White,20,90,nullptr,.85f);
+    }
     const auto* MechanicalPC=Cast<ARVPlayerController>(PlayerOwner);
     AActor* MechanicalVehicle=MechanicalPC && MechanicalPC->MechanicalPoint?MechanicalPC->MechanicalPoint->Vehicle.Get():MechanicalPC?Cast<ARVMechanicalMotorhome>(MechanicalPC->SeatedVehicle.Get()):nullptr;
     if(!MechanicalVehicle && PlayerOwner->GetPawn())if(const auto* Frame=PlayerOwner->GetPawn()->FindComponentByClass<URVPassengerReferenceFrameComponent>())MechanicalVehicle=Cast<ARVMechanicalMotorhome>(Frame->ReferenceFrame.Get());

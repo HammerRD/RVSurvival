@@ -12,6 +12,7 @@ public:
     URVInteractionComponent();
     void BeginInteraction();
     void EndInteraction();
+    bool HasActiveInteraction() const { return ActiveTarget.IsValid(); }
     UFUNCTION(BlueprintPure, Category="RV|Interaction") FText GetPrompt() const;
     virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 protected:

@@ -6,10 +6,11 @@
 #include "Components/StaticMeshComponent.h"
 #include "Vehicles/RVInteractiveDoor.h"
 #include "Vehicles/RVEngineHood.h"
+#include "Vehicles/RVRecoveryComponent.h"
 ARVMechanicalMotorhome::ARVMechanicalMotorhome(const FObjectInitializer& Init):Super(Init)
-{CoolingSystem=CreateDefaultSubobject<URVCoolingComponent>(TEXT("CoolingSystem"));}
-float ARVMechanicalMotorhome::GetMechanicalOutputScale()const{return EngineHood && EngineHood->bOpen?0:CoolingSystem->Engine.OutputScale;}
-bool ARVMechanicalMotorhome::CanOperateEngine()const{return !CoolingSystem->Engine.bShutdown && (!EngineHood || !EngineHood->bOpen);}
+{CoolingSystem=CreateDefaultSubobject<URVCoolingComponent>(TEXT("CoolingSystem"));Recovery=CreateDefaultSubobject<URVRecoveryComponent>(TEXT("Recovery"));}
+float ARVMechanicalMotorhome::GetMechanicalOutputScale()const{return Recovery->StopsPropulsion() || (EngineHood && EngineHood->bOpen)?0:CoolingSystem->Engine.OutputScale;}
+bool ARVMechanicalMotorhome::CanOperateEngine()const{return !Recovery->StopsPropulsion() && !CoolingSystem->Engine.bShutdown && (!EngineHood || !EngineHood->bOpen);}
 void ARVMechanicalMotorhome::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps)const
 {Super::GetLifetimeReplicatedProps(OutLifetimeProps);DOREPLIFETIME(ARVMechanicalMotorhome,EngineService);DOREPLIFETIME(ARVMechanicalMotorhome,EngineHood);}
 void ARVMechanicalMotorhome::BeginPlay()

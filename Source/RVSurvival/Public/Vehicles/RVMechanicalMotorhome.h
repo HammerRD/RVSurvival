@@ -18,6 +18,7 @@ public:
     UPROPERTY(Replicated,BlueprintReadOnly) TObjectPtr<class ARVInteractiveDoor> EngineHood;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out) const override;
     UPROPERTY(VisibleAnywhere,BlueprintReadOnly) TObjectPtr<URVCoolingComponent> CoolingSystem;
+    UPROPERTY(VisibleAnywhere,BlueprintReadOnly) TObjectPtr<class URVRecoveryComponent> Recovery;
     virtual float GetMechanicalOutputScale() const override;
     virtual bool CanOperateEngine() const override;
 };
