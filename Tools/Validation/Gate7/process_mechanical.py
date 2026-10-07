@@ -58,7 +58,7 @@ def setup():
 def aim_service():aim(point)
 def inspect():press('E',.85)
 def panel():check('normal_E_diagnosis_authoritative',pc.get_editor_property('MechanicalPoint')==point and cooling('RadiatorCondition')<.3,{'point':str(pc.get_editor_property('MechanicalPoint')),'radiator':cooling('RadiatorCondition'),'location':str(p.get_actor_location()),'target':str(point.get_actor_location()),'prompt':str(p.get_component_by_class(unreal.RVInteractionComponent).get_prompt())})
-def panel_photo():unreal.SystemLibrary.execute_console_command(pc,'shot filename='+str(B/(config['name']+'_'+role+'_service.png'))+' -nosuffix showui',pc)
+def panel_photo():unreal.SystemLibrary.execute_console_command(pc,'shot showui filename='+str(B/(config['name']+'_'+role+'_service.png'))+' -nosuffix',pc)
 def open_hood():
  if authority:press('P')
 def hood_check():check('hood_open_replicates',bool(v.get_editor_property('EngineHood').get_editor_property('bOpen')))

@@ -1,4 +1,4 @@
-> **Current resumed pass: IN PROGRESS.** The earlier Gate 7 acceptance below covers the preserved mechanical checkpoint. Its saved map requires integration and regression against the newly user-accepted Gate 6 physical-entry/roof/seating configuration before renewed acceptance.
+> **Current resumed pass: ACCEPTED, 2026-10-07.** Preserved mechanical foundation integrated with the user-accepted Gate6 physical-entry/seating/roof baseline; fresh results and limitations are recorded in the closure below. Gate8 was not started.
 
 # Gate 7 mechanical failure and repair validation
 
@@ -117,7 +117,7 @@ No fatal Unreal crash or World Memory Leak occurred in this Gate7 work. Clean co
 - Repairs require parked/off/cool and an open hood. Engine service is recoverable.65 condition, not guaranteed perfect restoration. Fixed simplified front protection remains even when hood opens; the mechanical underside is intentionally not a sealed hull. No crouch/prone/under-RV traversal is claimed.
 - Native visual/window review and real binding dispatcher testing are documented; failed desktop viewport activation is not represented as successful hardware playtesting. Separate-process emulation is a finite PIE matrix, not proof against every network/streaming/packaged configuration.
 - Live thermal ticks cap a single hitch to2real seconds; explicit debug advances support up to86400 simulation seconds. No offline catch-up/persistence implemented. Fluid weights remain fixed prototype metadata; legacy field names remain for compatibility.
-- Prior limits retained: beds/rest and seat-to-seat switching require stopped RV; ladder is parked/controlled top/no roof access. Exterior storage doors remain static preparatory parts; no full compartment-opening animations added.
+- Stopped beds/rest and seat-to-seat limits remain. The resumed map now uses the accepted parked ladder/roof access with propulsion interlock; earlier mechanical-baseline tests used the controlled endpoint. Exterior storage doors remain static preparatory parts; no full compartment-opening animations added.
 
 ## Recovery, saved state and closure
 
@@ -143,3 +143,37 @@ Client mechanical repeat: first timed sequence missed initial normal-E driver en
 Fresh stress passes18/18 in140.65s, including100 fluid transfers/100 cancels/100 timed commits/100 heat-cool cycles and actual W traction restored at950.55cm/s. Impaired moving-storage route passes8server/8client. First disconnect run passed11/8 assertions but failed the clean-log criterion: generic appended emulation referenced absent module-global pc. The disconnect runner intentionally uses function-local controller/world references. Skip that footer for disconnect and apply native emulation on initial join and each rejoin using reacquired controller; a clean repeat is required. No Unreal fatal/world-memory-leak or forced kill occurred.
 
 Corrected disconnect clean repeat passes11server/8client for two native disconnect/reconnect cycles with bidirectional emulation reapplied in joined worlds. Both current logs scan clean for Python errors/fatal/world leaks, so the earlier19 passing assertions with a setup error are not counted as acceptance. Entry/front-shell22 and Gate1 interaction23 fresh regressions pass; remaining regressions/build/save closure continue.
+
+## Resumed Gate7 closure - ACCEPTED, 2026-10-07
+
+This closure supersedes the resumed-pass pending notes. Existing mechanical gameplay C++ was preserved; the saved Gate7 map/Blueprint now include the accepted physical side door, sole bed rest point, fitted kitchen/roof collision and parked roof-access ladder. All earlier maps/fallbacks and108vendor files match the prior accepted state.
+
+| Fresh executed group | Result |
+| --- | --- |
+| Mechanical single player |43/43 |
+| Host-driver separate-process mechanical100ms/2% |32server/26client |
+| Client-driver separate-process mechanical100ms/2% |25server/33client |
+| Physical entry/cab/Dinette/bed/roof/exit, both impaired roles |34/34 per role combination |
+| Moving pantry/exterior storage, impaired host driving |8server/8client |
+| Two real repair disconnect/reconnect cycles, clean impaired repeat |11server/8client |
+| Conservation/timer/thermal stress |18/18 in140.65s;100 transactions/cancels/commits/heat-cool cycles each |
+| Entry/front collision regression |22/22 |
+| Gate1 movement/interaction/multiplayer |23/23 |
+| Gate2 driving/possession/blocked-exit prerequisite and restoration |30/30, plus inventory-after-possession receipt |
+| Gate4 inventory |24/24 |
+| Gate5 survival |27/27 |
+| Gate6 resources, separate processes/emulation |31server/29client |
+| Saved packages, seven maps reloaded twice |50/50, SaveAll/clean quit |
+| Final actual UMG visibility/capture |3/3, normal E service path; panel and survival readable |
+
+The legacy Gate2 Console Input.+key repeat failed re-entry before blocking exits. Its empty prompt/unoccupied prerequisite and failed assertions remain in FailedAttempts. A scoped wrapper uses the already accepted native InputKey dispatcher; all30unchanged prerequisite/exit/restoration checks then pass. No production exit/seat/collision code was changed. This comparison establishes that the retained failure did not demonstrate unsafe release of an occupied seat; it does not retroactively prove every earlier missed-input root cause.
+
+Screenshot review found SHOWUI was placed after filename without a flag; installed UGameViewportClient parsing accepts it first or as-showui. Corrected test capture and ran a real UMG probe: service and survival visible, native E opens service, final image in Gate7AcceptedInterior/ui-final.png. This was a capture omission, not a hidden UI gameplay fix.
+
+Final DevelopmentEditor/Win64 build succeeded, target up-to-date,1.54s. Module SHA256 remains A7E3B18FBACA5B51CCBF41372F624DD02799FF4373110841698AD389AF864DC9, matching fresh physical/storage provenance. Editor and PIE shut down normally; no active test/build automation remains. Final native preferences restored and verified with editor closed: standalone1player,one process,emulation off,empty child launch parameters; backup retained. Vendor108/108hashes match and only Gate7MechanicalTest/BP_ClassCMechanicalMotorhome content differ from37b12e5. No purchased source or Gate1–6 map changes.
+
+Remaining limitations: first-order thermal model and provisional rates; service requires parked/off/cool/open hood; temporary patch retains leak/condition limitations and engine service restores only.65; no other mechanical failure subsystems or full persistence. Beds/seat-to-seat stopped-only; passenger3 moving supported, driver3 stopped; roof parked/interlocked with ordinary edge fall risk, no moving/rolled roof certification. Refrigerator collision remains explicitly DEFERRED/nonblocking per the user brief: combined interior mesh requires measured geometry rather than a guessed aisle-blocking box. One initial scripted outer-driver E miss remains of unestablished exact cause; failed evidence retained and later diagnostic/native routes pass. No new full hardware-manual, packaged or dedicated-server certification is claimed.
+
+Local recovery checkpoints: d9dc8b0 user acceptance/read-only audit; dfa4dad saved integration; bf17b5f both physical roles/network setup;523c6a6 corrected roadside and retained failures;8ff142d stress/reconnect. Final closure is a separate commit, recorded in Git/final report rather than a self-referential hash here. Working tree preserves only the pre-existing engine config and three IDE files outside task commits. No push.
+
+Next recommended task: manual Gate7MechanicalTest roadside/service playtest and measured refrigerator-collision follow-up; await explicit Gate8 authorization. Stop after Gate7.

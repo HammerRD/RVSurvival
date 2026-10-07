@@ -109,3 +109,5 @@ Latest refinement acceptance remains pending complete held-key human routes and 
 
 ## Gate7 resumed integration - 2026-10-07
 Gate7MechanicalTest now inherits the user-accepted physical side-door, single rear-bed rest, roof/ladder and fitted cabinet configuration. Mechanical service remains a separate component/endpoint; native moving bases and validated cab departure are preserved. Parked roof use locks propulsion independently of cooling readiness. The refrigerator collision gap remains a measured-layout follow-up rather than a guessed combined-mesh blocker.
+
+Resumed Gate7 closure: ACCEPTED after fresh mechanical/both-role impaired network, stress and Gates1–6 representative regressions; see GATE_7_VALIDATION.md for exact scope/evidence/failed history. Saved physical-entry/roof layout retained,108vendor hashes unchanged. Refrigerator collision remains a nonblocking measured-layout follow-up. Full persistence/later systems remain unimplemented; no Gate8.

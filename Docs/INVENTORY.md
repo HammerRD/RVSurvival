@@ -94,3 +94,5 @@ Gate7 closure: ACCEPTED. Used coolant GUID/condition/litres/revision survive ext
 
 ## Gate7 resumed integration - 2026-10-07
 Gate7 resumed integration retains the existing coolant GUID/litre/revision transactions and tagged tool/part requirements. Removing the obsolete Dinette rest point does not change container identity or light-interior/heavy-exterior supply organization. Fresh single-player mechanical suite passes43 checks; paired/stress results are recorded in GATE_7_VALIDATION.md.
+
+Resumed Gate7 closure: ACCEPTED after fresh mechanical/both-role impaired network, stress and Gates1–6 representative regressions; see GATE_7_VALIDATION.md for exact scope/evidence/failed history. Saved physical-entry/roof layout retained,108vendor hashes unchanged. Refrigerator collision remains a nonblocking measured-layout follow-up. Full persistence/later systems remain unimplemented; no Gate8.

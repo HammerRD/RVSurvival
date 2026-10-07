@@ -83,3 +83,5 @@ Saved content changes are limited to Gate6FuelElectricalTest and BP_ClassCSystem
 
 ## Gate7 resumed integration - 2026-10-07
 Gate7 resumption preserves existing native mechanical components, data assets/tags, owned RPCs, TimerManager and UMG. Accepted Gate6 movement/input code is reused unchanged. A scoped saved-map migration transfers primitive collision records between worlds, releases UObject wrappers before loading another level, and updates only the Gate7 project-side map/BP. No engine transport, timer or movement framework is duplicated.
+
+Resumed Gate7 closure: ACCEPTED after fresh mechanical/both-role impaired network, stress and Gates1–6 representative regressions; see GATE_7_VALIDATION.md for exact scope/evidence/failed history. Saved physical-entry/roof layout retained,108vendor hashes unchanged. Refrigerator collision remains a nonblocking measured-layout follow-up. Full persistence/later systems remain unimplemented; no Gate8.

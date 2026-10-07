@@ -12,3 +12,5 @@ The user's Gate 5 survival brief supersedes the earlier roadmap's fuel-loop assi
 7. Mechanical failure and repair: ACCEPTED 2026-10-07 after live single/separate-process/bidirectional-emulated, roadside, stress, collision/camera/saved-package and prior-gate regression validation. Cooling/radiator/coolant failure chain, overheat engine consequences and authoritative roadside repair. See GATE_7_VALIDATION.md. Gate 8 is not authorized.
 
 Current authorized work stops after Gate 7. Compile success is not gate acceptance. Earlier Gate6-only authorization statements above are historical; the current user request supersedes them.
+
+Gate7 resumed closure2026-10-07: ACCEPTED against user-manually-accepted Gate6 physical-entry/roof baseline; fresh mechanical/network/stress/representative regressions, saved reload, UI and final build passed. Optional refrigerator collision remains deferred. Current authorized work stops here; Gate8 is not started.

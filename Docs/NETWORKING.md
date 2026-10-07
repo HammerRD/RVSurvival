@@ -103,3 +103,5 @@ Fresh separate-process diagnostics and exact emulation settings are recorded und
 
 ## Gate7 resumed integration - 2026-10-07
 The resumed Gate7 regression matrix uses explicit closed-editor PIE_ListenServer configuration because the private PlayNetMode enum is not exported to editor Python. Back up native preferences before changing that section, run distinct processes, then restore standalone/one-player/no-emulation/no-child-script preferences after clean shutdown. Test readiness requires both survivors and replicated mechanical/door/seat endpoints; failed setup is retained separately from gameplay results.
+
+Resumed Gate7 closure: ACCEPTED after fresh mechanical/both-role impaired network, stress and Gates1–6 representative regressions; see GATE_7_VALIDATION.md for exact scope/evidence/failed history. Saved physical-entry/roof layout retained,108vendor hashes unchanged. Refrigerator collision remains a nonblocking measured-layout follow-up. Full persistence/later systems remain unimplemented; no Gate8.

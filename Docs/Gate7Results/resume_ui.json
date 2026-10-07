@@ -1,0 +1,19 @@
+{
+  "results": [
+    {
+      "case": "native_E_service_open",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "mechanical_UMG_visible",
+      "pass": true,
+      "detail": "1"
+    },
+    {
+      "case": "survival_UMG_preserved",
+      "pass": true,
+      "detail": "1"
+    }
+  ]
+}

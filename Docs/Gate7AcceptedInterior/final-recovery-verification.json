@@ -1,0 +1,15 @@
+{
+  "engine_association": "5.8",
+  "module_sha256": "A7E3B18FBACA5B51CCBF41372F624DD02799FF4373110841698AD389AF864DC9",
+  "checked_at": "2026-10-07T12:38:15.6224474-04:00",
+  "editor_closed": true,
+  "build": "Succeeded Development Editor Win64, target up to date, 1.54s",
+  "baseline": "37b12e5",
+  "vendor_files": 108,
+  "changed_content": [
+    "Content/Maps/Gate7MechanicalTest.umap",
+    "Content/Vehicles/Gate7/BP_ClassCMechanicalMotorhome.uasset"
+  ],
+  "changed_vendor_files": 0,
+  "verified_after_final_ui": true
+}

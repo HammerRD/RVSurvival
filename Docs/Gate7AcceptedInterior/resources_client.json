@@ -1,0 +1,155 @@
+{
+  "pid": 24988,
+  "authority": false,
+  "config": {
+    "network": true,
+    "name": "resources"
+  },
+  "results": [
+    {
+      "case": "client_debug_mutation_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "one_winner_pickup_contention",
+      "pass": true,
+      "detail": "[(\"<Struct 'Guid' (0x000001EC78A27EEC) {}>\", 20.0)]"
+    },
+    {
+      "case": "full_can_state_replicated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "own_fill_open",
+      "pass": true,
+      "detail": "Panel ready"
+    },
+    {
+      "case": "concurrent_refuel_conservation",
+      "pass": true,
+      "detail": "{'total': 205.0, 'tank': 200.0, 'can': 5.0}"
+    },
+    {
+      "case": "partial_tank_can_remaining",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "owner_or_ownership_feedback",
+      "pass": true,
+      "detail": "Fuel can not owned"
+    },
+    {
+      "case": "second_transfer_conserves_remaining",
+      "pass": true,
+      "detail": "{'total': 5.0, 'tank': 5.0, 'can': 0.0}"
+    },
+    {
+      "case": "empty_can_after_transfer",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "dropped_can_replicates_once",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "drop_guid_amount_condition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "repick_contention_single_identity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shared_exterior_open",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shared_partial_fuel_container",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "one_container_winner_no_fuel_duplicate",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "both_can_open_control_panel",
+      "pass": true,
+      "detail": "RV control panel ready"
+    },
+    {
+      "case": "generator_state_converged",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "lights_and_sources_converged",
+      "pass": true,
+      "detail": "Generator"
+    },
+    {
+      "case": "stale_control_rejected",
+      "pass": true,
+      "detail": "Panel changed; refresh and retry"
+    },
+    {
+      "case": "native_host_panel_H_switch",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native_client_panel_H_switch",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "out_of_range_does_not_stop_generator",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "remote_generator_stop_converged",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fuel_battery_bounds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "solar_authoritative_input",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "independent_process",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "panel_no_ownership_lock",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "invalid_request_burst_no_mutation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "generator_before_disconnect",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}
