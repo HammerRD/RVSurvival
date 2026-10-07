@@ -145,3 +145,5 @@ Gate6 refinement milestone: actual mattress E/Z/R and both real dinette cushion 
 - Verified real bed body/camera plus native-window R/E and Z instructions, repeated wake and aisle walking. No vendor modifications (108 hashes checked).
 - Native discrete-event wrapper removes console Input.+key repeat artifacts. Corrected emulated reverse-role auxiliary passes 22 checks per process; owner-only UI and stable compartment identity are now tested correctly.
 - Recovery status remains WIP / NOT ACCEPTED until final persistence, normal-input cleanup and regression matrix pass. Gate 7 has not begun.
+
+Gate6 second-refinement stable layout checkpoint: saved surface-aligned console queries, individual light overhead/bed-end containers, fitted wardrobe collision, enabled rear seats and scoped saved-part lookup. Parked/moving station E and walk-away baseline passes; bed/seat/ladder disconnect cleanup passes with latency/loss. Full refinement acceptance remains pending; no Gate7 work.

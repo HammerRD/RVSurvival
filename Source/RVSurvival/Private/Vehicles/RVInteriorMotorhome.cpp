@@ -194,7 +194,18 @@ void ARVInteriorMotorhome::BeginPlay()
 }
 UStaticMeshComponent* ARVInteriorMotorhome::FindVisualPart(FName Name) const
 {
-    for (const auto& Part : GeneratedParts) if (Part && Part->GetFName()==Name) return Cast<UStaticMeshComponent>(Part.Get());
+    // Saved construction components survive level serialization; GeneratedParts
+    // is transient. Reacquire owned registered parts, including numeric suffixes.
+    if (Name.IsNone()) return nullptr;
+    const TInlineComponentArray<UStaticMeshComponent*> Parts(this);
+    for (auto* Part:Parts)
+        if (IsValid(Part) && Part->IsRegistered() && Part->GetFName()==Name) return Part;
+    // Match only an added generation suffix. Do not alias distinct configured
+    // numeric identifiers such as Window_10 and Window_11.
+    const FString Prefix=Name.ToString()+TEXT("_");
+    for (auto* Part:Parts)
+        if (IsValid(Part) && Part->IsRegistered() && Part->GetName().StartsWith(Prefix)
+            && Part->GetName().Mid(Prefix.Len()).IsNumeric()) return Part;
     return nullptr;
 }
 bool ARVInteriorMotorhome::ValidateSeatDestination(const URVVehicleSeatComponent* Seat,const ARVSurvivorCharacter* Character) const

@@ -12,6 +12,8 @@ pc=unreal.GameplayStatics.get_player_controller(w,0);p=pc.get_controlled_pawn()
 other=next(c for c in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVSurvivorCharacter) if c!=p)
 hp=p if authority else other;cp=other if authority else p
 isdriver=authority==(config['driver']=='host');dp=p if isdriver else other;wp=other if isdriver else p
+climbing_host=config['driver']=='client';isclimber=authority==climbing_host
+climber=hp if climbing_host else cp;ladder_driver=cp if climbing_host else hp;walk_origin=None
 v=unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVSystemsMotorhome)[0]
 driver=next(s for s in v.get_seats() if s.get_editor_property('bDriverSeat'))
 passenger=next(s for s in v.get_seats() if not s.get_editor_property('bDriverSeat') and not s.get_editor_property('bInteriorOnly'))
@@ -105,26 +107,31 @@ def conserved():
 at(53,conserved);tap(53.5,'I')
 def ladder_approach():
     if authority:
-        q=v.get_actor_transform().inverse_transform_location(de.get_actor_location());place(hp,(q.x,q.y-125,100));place(cp,(-520,75,75))
-at(55,ladder_approach);at(56,lambda:aim(de if authority else ladder));at(56.2,lambda:key('E',True));at(57.1,lambda:key('E',False))
-at(58.5,lambda:check('native_E_client_ladder_host_driver',ladder.get_editor_property('Occupant')==cp and driver.get_editor_property('Occupant')==hp,local(cp)))
+        q=v.get_actor_transform().inverse_transform_location(de.get_actor_location());place(ladder_driver,(q.x,q.y-125,100));place(climber,(-520,75,75))
+at(55,ladder_approach);at(56,lambda:aim(ladder if isclimber else de));at(56.2,lambda:key('E',True));at(57.1,lambda:key('E',False))
+at(58.5,lambda:check('native_E_ladder_and_other_player_driver',ladder.get_editor_property('Occupant')==climber and driver.get_editor_property('Occupant')==ladder_driver,local(climber)))
 at(59,lambda:key('W',True))
-at(61.2,lambda:key('W',False) if not authority else None)
+at(61.2,lambda:key('W',False) if isclimber else None)
 def top_check():
-    q=local(cp);height=cp.get_actor_location().z-ladder.bottom_world().z if hasattr(ladder,'bottom_world') else q[2]-ladder.get_editor_property('BottomLocal').z
-    check('native_W_controlled_ladder_top',ladder.get_editor_property('Occupant')==cp and 155<height<195,{'position':q,'height':height})
+    q=local(climber);height=q[2]-ladder.get_editor_property('BottomLocal').z
+    check('native_W_controlled_ladder_top',ladder.get_editor_property('Occupant')==climber and 155<height<195,{'position':q,'height':height})
     check('occupied_ladder_prevents_driving',v.get_velocity().length()<10,v.get_velocity().length())
-at(62.5,top_check);tap(63,'E','client');at(64,lambda:check('top_has_no_unvalidated_roof_exit',ladder.get_editor_property('Occupant')==cp))
-at(64.5,lambda:key('S',True) if not authority else None);at(66.7,lambda:key('S',False) if not authority else None)
-at(66.8,lambda:key('W',False) if authority else None);tap(67.5,'E','client')
-at(69,lambda:check('native_S_E_bottom_exit_restores_world_movement',ladder.get_editor_property('Occupant') is None and walking(cp) and str(cp.get_component_by_class(unreal.CapsuleComponent).get_collision_enabled()).find('QUERY_AND_PHYSICS')>=0,local(cp)))
-at(69.2,lambda:key('W',True) if authority else None);at(70.2,lambda:key('W',False) if authority else None)
+at(62.5,top_check);tap(63,'E','host' if climbing_host else 'client');at(64,lambda:check('top_has_no_unvalidated_roof_exit',ladder.get_editor_property('Occupant')==climber))
+at(64.5,lambda:key('S',True) if isclimber else None);at(66.7,lambda:key('S',False) if isclimber else None)
+at(66.8,lambda:key('W',False) if not isclimber else None);tap(67.5,'E','host' if climbing_host else 'client')
+at(69,lambda:check('native_S_E_bottom_exit_restores_world_movement',ladder.get_editor_property('Occupant') is None and walking(climber) and str(climber.get_component_by_class(unreal.CapsuleComponent).get_collision_enabled()).find('QUERY_AND_PHYSICS')>=0,local(climber)))
+at(69.2,lambda:key('W',True) if not isclimber else None);at(70.2,lambda:key('W',False) if not isclimber else None)
 at(70.3,lambda:check('ladder_exit_releases_drive_lock',v.get_velocity().length()>10,v.get_velocity().length()))
-at(70.4,lambda:key('SpaceBar',True) if authority else None)
+at(70.4,lambda:key('SpaceBar',True) if not isclimber else None)
 def walk_away():
-    if not authority:pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw+180));key('W',True)
-at(70.5,walk_away);at(70.8,lambda:key('W',False) if not authority else None)
-at(72,lambda:check('ladder_world_walk_away',walking(cp) and local(cp)[0]<-480,local(cp)))
+    global walk_origin
+    q=climber.get_actor_location();walk_origin=[q.x,q.y]
+    if isclimber:pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw+180));key('W',True)
+at(70.5,walk_away);at(70.8,lambda:key('W',False) if isclimber else None)
+def walk_away_check():
+    q=climber.get_actor_location();distance=((q.x-walk_origin[0])**2+(q.y-walk_origin[1])**2)**.5
+    check('ladder_world_walk_away',walking(climber) and distance>=25,{'position':local(climber),'actual_world_walk_cm':distance})
+at(72,walk_away_check)
 def finish():
     global active
     if not active:return
@@ -137,12 +144,14 @@ def finish():
     release_runners()
 at(74,finish);events.sort(key=lambda e:e[0])
 def tick(dt):
-    global idx,nextsample,hp,cp,dp,wp,input_frame
+    global idx,nextsample,hp,cp,dp,wp,climber,ladder_driver,input_frame
     if not active:return
     input_frame+=1
     if not authority:
         remote=next((c for c in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVSurvivorCharacter) if c!=p),None)
-        if remote:hp=remote;cp=p;dp=p if isdriver else remote;wp=remote if isdriver else p
+        if remote:
+            hp=remote;cp=p;dp=p if isdriver else remote;wp=remote if isdriver else p
+            climber=hp if climbing_host else cp;ladder_driver=cp if climbing_host else hp
     t=time.time()-start
     if t<0:return
     try:

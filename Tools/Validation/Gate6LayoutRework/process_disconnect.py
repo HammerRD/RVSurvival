@@ -59,16 +59,19 @@ elif mode=='RearSeat':
 else:
  hold(4,'W',1.8,True)
  at(7,lambda:check('client_native_W_ladder_before_disconnect',ladder.get_editor_property('Occupant')==cp and cp.get_component_by_class(unreal.CharacterMovementComponent).get_editor_property('MovementMode')==unreal.MovementMode.MOVE_FLYING))
-def finish():
+def finish(release=True):
  global active
  if not active:return
  for k in ['E','W','S','Three','Z']:key(k,False)
  role='server' if authority else 'client'
  (B/(config['name']+'_'+role+'.json')).write_text(json.dumps({'pid':os.getpid(),'role':role,'config':config,'results':results},indent=2),encoding='utf-8')
  active=False;unreal.unregister_slate_post_tick_callback(h)
+ if release:
+  from runner_runtime import release_runners
+  release_runners()
 def disconnect_client():
  if authority:return
- check('client_disconnect_requested',True);finish()
+ check('client_disconnect_requested',True);finish(False)
  controller=pc;execute=unreal.SystemLibrary.execute_console_command
  from runner_runtime import release_runners
  release_runners();execute(controller,'disconnect',controller)

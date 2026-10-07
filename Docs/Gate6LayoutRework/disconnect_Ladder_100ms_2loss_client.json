@@ -1,0 +1,27 @@
+{
+  "pid": 51404,
+  "role": "client",
+  "config": {
+    "disconnect": "Ladder",
+    "name": "disconnect_Ladder_100ms_2loss",
+    "network": true,
+    "driver": "host"
+  },
+  "results": [
+    {
+      "case": "normal_E_initial_reservation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_native_W_ladder_before_disconnect",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_disconnect_requested",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

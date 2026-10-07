@@ -1,0 +1,42 @@
+{
+  "pid": 3588,
+  "role": "server",
+  "config": {
+    "name": "disconnect_Bed_100ms_2loss",
+    "network": true,
+    "driver": "host",
+    "disconnect": "Bed"
+  },
+  "results": [
+    {
+      "case": "normal_E_initial_reservation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_E_Z_actual_bed_sleep",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "disconnect_removes_survivor_and_all_reservations",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shared_pantry_unchanged",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "remaining_player_needs_awake",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "remaining_host_can_drive_after_disconnect",
+      "pass": true,
+      "detail": "413.7532408704843"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "pid": 6360,
+  "role": "server",
+  "config": {
+    "driver": "host",
+    "network": true,
+    "name": "disconnect_RearSeat_100ms_2loss",
+    "disconnect": "RearSeat"
+  },
+  "results": [
+    {
+      "case": "normal_E_initial_reservation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "simultaneous_native_E_one_bench_owner",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "winning_rear_seat_native_E_stand",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_native_E_rear_seat_before_disconnect",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "disconnect_removes_survivor_and_all_reservations",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shared_pantry_unchanged",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "remaining_player_needs_awake",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "remaining_host_can_drive_after_disconnect",
+      "pass": true,
+      "detail": "413.75028732641607"
+    }
+  ]
+}
