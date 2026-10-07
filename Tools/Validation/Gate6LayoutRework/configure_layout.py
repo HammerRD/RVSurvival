@@ -23,7 +23,7 @@ def configure():
     rv.set_editor_property('Stations',stations)
     rv.set_editor_property('PowerPanelLocation',unreal.Vector(224,-14,126))
     storage={'Water supplies':(45,60,176),'Personal supplies':(-185,-65,262),
-             'Pantry':(15,62,269),'Medical storage':(-110,-48,256)}
+             'Pantry':(15,62,269),'Medical storage':(-110,-57,256)}
     changed=[]
     light_tags=['Item.Category.Food','Item.Category.Water','Item.Category.Medical','Item.Category.Tool']
     interior_limits={'Pantry':(8,18,['Item.Category.Food','Item.Category.Water']),
@@ -51,7 +51,7 @@ def configure():
                 actor.set_actor_location(rv.get_actor_transform().transform_location(unreal.Vector(45,-28,155)),False,True)
                 actor.set_editor_property('InteractionExtent',unreal.Vector(12,8,3))
     # Individually named light-cargo cabinets; no unrestricted heavy automotive cargo.
-    overhead=[('Bed-end cabinet',(-110,-48,190),['Item.Category.Food','Item.Category.Water','Item.Category.Medical','Item.Category.Tool'],10,20),
+    overhead=[('Bed-end cabinet',(-110,-57,190),['Item.Category.Food','Item.Category.Water','Item.Category.Medical','Item.Category.Tool'],10,20),
               ('Dinette overhead - dry food',(25,-62,273),['Item.Category.Food','Item.Category.Water'],6,14),
               ('Rear overhead - medical backup',(-290,62,274),['Item.Category.Medical'],4,10),
               ('Kitchen overhead - small tools',(-40,62,273),['Item.Category.Tool'],5,10)]
@@ -67,6 +67,11 @@ def configure():
         changed.append({'role':name,'local':local,'weight':weight,'volume':volume,'allowed':allowed})
     for prop in ['DinetteFrontSeat','DinetteRearSeat']:
         rv.get_editor_property(prop).set_editor_property('bEnabled',True)
+    # Keep the seated body between the measured wardrobe side (x=-83.3)
+    # and table edge, on the actual rear cushion rather than its back edge.
+    rear=rv.get_editor_property('DinetteRearSeat')
+    rear.set_editor_property('RelativeLocation',unreal.Vector(-55,-82,138))
+    rear.set_editor_property('StandingAisleLocation',unreal.Vector(-55,0,180))
     collision=rv.get_editor_property('InteriorCollision')
     corrected={'KitchenCabinet':((20,80,130),(65,35,43)),
                'Dinette':((15,-80,125),(45,30,27)),
@@ -77,7 +82,9 @@ def configure():
             center,extent=corrected[str(d.name)]
             d.set_editor_property('Center',unreal.Vector(*center));d.set_editor_property('Extent',unreal.Vector(*extent))
             collision[index]=d
-    for name,center,extent in [('DinetteFrontBench',(105,-82,123),(20,30,13)),('DinetteRearBench',(-70,-82,123),(20,30,13)),('BedEndWardrobe',(-110,-83,199),(35,35,101))]:
+    # Read-only vendor vertices put the wardrobe side at x=-83.3 above
+    # cushion height, and cabinet handles around y=-58.3. Retain this wall.
+    for name,center,extent in [('DinetteFrontBench',(105,-82,123),(20,30,13)),('DinetteRearBench',(-55,-82,123),(15,30,13)),('BedEndWardrobe',(-118.5,-89,199),(35.5,31,101))]:
         d=next((d for d in collision if str(d.name)==name),None)
         if d is None:d=unreal.RVInteriorCollision()
         d.set_editor_property('Name',name);d.set_editor_property('Center',unreal.Vector(*center));d.set_editor_property('Extent',unreal.Vector(*extent))

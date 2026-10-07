@@ -1,11 +1,11 @@
 {
-  "pid": 28640,
+  "pid": 2216,
   "role": "client",
   "config": {
-    "disconnect": "",
-    "name": "aux_host_baseline",
     "network": false,
-    "driver": "host"
+    "driver": "host",
+    "name": "aux_host_baseline",
+    "disconnect": ""
   },
   "results": [
     {
@@ -21,22 +21,22 @@
     {
       "case": "moving_front_bench_native_E",
       "pass": true,
-      "detail": "[95.80219828470936, -82.02109504358877, 138.83456488438185]"
+      "detail": "[95.54932213490551, -82.01815710487983, 138.83270638978124]"
     },
     {
       "case": "moving_front_bench_stand",
       "pass": true,
-      "detail": "[99.95643082296952, 0.00011611767956781821, 177.18760976303713]"
+      "detail": "[99.95711325852986, 0.00012828448300260546, 177.18760993189892]"
     },
     {
       "case": "moving_rear_bench_native_E",
-      "pass": false,
-      "detail": "[-4.570001611590608, 0.00011603246431262976, 177.19487441419952]"
+      "pass": true,
+      "detail": "[-79.89246389641369, -82.18675083240667, 137.65852233236586]"
     },
     {
       "case": "moving_rear_bench_stand",
       "pass": true,
-      "detail": "[-4.5702346368741615, 0.00011603145116040892, 177.1948744141857]"
+      "detail": "[-94.9254702635297, -0.0005729444157327294, 191.48808458811368]"
     },
     {
       "case": "moving_pantry_native_E",
@@ -51,7 +51,7 @@
     {
       "case": "moving_transfer_back_native_Tab_T",
       "pass": true,
-      "detail": "{'pantry': 0, 'player': 1, 'feedback': '', 'open': \"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVStoragePoint_0.Container' (0x000002167034D480) Class 'RVContainerComponent'>\"}"
+      "detail": "{'pantry': 0, 'player': 1, 'feedback': '', 'open': \"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVStoragePoint_0.Container' (0x0000016103659D80) Class 'RVContainerComponent'>\"}"
     },
     {
       "case": "parked_before_exterior",
@@ -71,27 +71,27 @@
     {
       "case": "normal_E_side_exit_both_players",
       "pass": true,
-      "detail": "{'driver': [88.69473431934904, 240.15555354891794, 72.37970386970837], 'walker': [-11.304813459080833, 239.84163851877915, 72.37980695731682]}"
+      "detail": "{'driver': [88.62643688278791, 240.16089069203986, 72.39490582985506], 'walker': [-11.374966393966076, 239.84674397775854, 72.39519538670878]}"
     },
     {
       "case": "shared_exterior_native_E",
       "pass": true,
-      "detail": "{'expected': \"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVExteriorStoragePoint_3.Container' (0x0000021710EC9880) Class 'RVContainerComponent'>\", 'actual': \"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVExteriorStoragePoint_3.Container' (0x0000021710EC9880) Class 'RVContainerComponent'>\", 'feedback': ''}"
+      "detail": "{'expected': \"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVExteriorStoragePoint_6.Container' (0x000001610365DC00) Class 'RVContainerComponent'>\", 'actual': \"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVExteriorStoragePoint_6.Container' (0x000001610365DC00) Class 'RVContainerComponent'>\", 'feedback': ''}"
     },
     {
       "case": "shared_exterior_contention_no_duplicate_native_T",
       "pass": true,
-      "detail": "[\"<Struct 'Guid' (0x00000216B6316ACC) {}>\"]"
+      "detail": "[\"<Struct 'Guid' (0x000001611BB3CC5C) {}>\"]"
     },
     {
       "case": "native_E_ladder_and_other_player_driver",
       "pass": true,
-      "detail": "[-418.630043029617, 73.585102556077, 75.62496504261492]"
+      "detail": "[-418.6921451464207, 73.57057445630608, 75.64162502521374]"
     },
     {
       "case": "native_W_controlled_ladder_top",
       "pass": true,
-      "detail": "{'position': [-419.64777526331045, 73.58211807162525, 256.26521338193515], 'height': 178.26521338193515}"
+      "detail": "{'position': [-419.70947803291654, 73.56783070533044, 256.28187565642645], 'height': 178.28187565642645}"
     },
     {
       "case": "occupied_ladder_prevents_driving",
@@ -106,17 +106,17 @@
     {
       "case": "native_S_E_bottom_exit_restores_world_movement",
       "pass": true,
-      "detail": "[-458.8106739276967, 73.4611543825672, 72.23042708235123]"
+      "detail": "[-458.8727647628808, 73.44468416146663, 72.24691461892719]"
     },
     {
       "case": "ladder_exit_releases_drive_lock",
       "pass": true,
-      "detail": "415.6160887442754"
+      "detail": "416.5052899698695"
     },
     {
       "case": "ladder_world_walk_away",
       "pass": true,
-      "detail": "{'position': [-1050.2138096355698, 72.03190473238988, 72.2739161826369], 'actual_world_walk_cm': 112.67045863787126}"
+      "detail": "{'position': [-1050.5450552078764, 71.98953181030856, 72.27737296234629], 'actual_world_walk_cm': 112.6632992098303}"
     }
   ]
 }

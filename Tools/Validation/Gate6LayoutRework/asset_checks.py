@@ -6,6 +6,9 @@ def inspect_refined_assets(check):
  check('live_house_door_saved_enabled',c.get_editor_property('bInteractiveHouseDoor'))
  check('saved_replaceable_door_parts',str(c.get_editor_property('HouseDoorPartName'))=='Art_RV_Van_Door_Back' and str(c.get_editor_property('HouseDoorGlassPartName'))=='Art_RV_Glass_Door_Back')
  check('both_rear_seats_enabled',all(c.get_editor_property(n).get_editor_property('bEnabled') for n in ['DinetteFrontSeat','DinetteRearSeat']))
+ check('rear_cushion_clear_of_wardrobe',c.get_editor_property('DinetteRearSeat').get_editor_property('RelativeLocation').x==-55)
+ boxes={str(b.name):b for b in c.get_editor_property('InteriorCollision')}
+ check('wardrobe_wall_retained_and_fitted',boxes['BedEndWardrobe'].center.x==-118.5 and boxes['BedEndWardrobe'].extent.x==35.5)
  defs={str(d.name):d for d in c.get_editor_property('Stations')}
  check('five_surface_aligned_stations',set(defs)=={'Kitchen','Workbench','Medical','Power','Navigation'})
  check('console_queries_saved',defs['Navigation'].position.x==224 and defs['Navigation'].position.z==141 and defs['Power'].position.z==126)

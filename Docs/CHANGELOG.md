@@ -147,3 +147,5 @@ Gate6 refinement milestone: actual mattress E/Z/R and both real dinette cushion 
 - Recovery status remains WIP / NOT ACCEPTED until final persistence, normal-input cleanup and regression matrix pass. Gate 7 has not begun.
 
 Gate6 second-refinement stable layout checkpoint: saved surface-aligned console queries, individual light overhead/bed-end containers, fitted wardrobe collision, enabled rear seats and scoped saved-part lookup. Parked/moving station E and walk-away baseline passes; bed/seat/ladder disconnect cleanup passes with latency/loss. Full refinement acceptance remains pending; no Gate7 work.
+
+Second-refinement rear-seat regression diagnosed/fixed: fitted wardrobe proxy still obstructed the seated upper body. Measured vendor wall and handle geometry drove the project-side proxy and cushion placement correction; destination checks remain intact. Rejected normal E seat entry now provides feedback. Saved map and Blueprint retain vendor sources unchanged. Full repeat validation pending.

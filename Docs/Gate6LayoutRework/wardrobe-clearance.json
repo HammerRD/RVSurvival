@@ -1,0 +1,39 @@
+{
+  "blocker": "BP_ClassCSystemsMotorhome_C_0.BedEndWardrobe",
+  "vendor_modified": false,
+  "rear_seat": [
+    -55,
+    -82,
+    138
+  ],
+  "measured_vendor_side_x": -83.3077,
+  "source": "Read-only LOD0 vertex inspection and native overlap rejection log",
+  "table_rear_edge_x": -30,
+  "final_box": {
+    "center": [
+      -118.5,
+      -89,
+      199
+    ],
+    "extent": [
+      35.5,
+      31,
+      101
+    ]
+  },
+  "validated_body_half_height_cm": 45,
+  "previous_box": {
+    "center": [
+      -110,
+      -83,
+      199
+    ],
+    "extent": [
+      35,
+      35,
+      101
+    ]
+  },
+  "validated_body_radius_cm": 20,
+  "measured_cabinet_handle_y": -58.2829
+}

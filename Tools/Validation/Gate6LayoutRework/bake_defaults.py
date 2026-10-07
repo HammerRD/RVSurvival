@@ -13,7 +13,8 @@ def bake():
  for prop in ['Stations','InteriorCollision','PowerPanelLocation']:
   cdo.set_editor_property(prop,rv.get_editor_property(prop))
  for prop in ['DinetteFrontSeat','DinetteRearSeat']:
-  cdo.get_editor_property(prop).set_editor_property('bEnabled',True)
+  for field in ['bEnabled','RelativeLocation','StandingAisleLocation']:
+   cdo.get_editor_property(prop).set_editor_property(field,rv.get_editor_property(prop).get_editor_property(field))
  unreal.BlueprintEditorLibrary.compile_blueprint(bp)
  assert unreal.EditorAssetLibrary.save_loaded_asset(bp,False)
  # Compile can replace the placed actor. Do not reuse its old wrapper.
