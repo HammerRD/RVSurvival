@@ -63,8 +63,11 @@ at(6,lambda:key('W',True) if isdriver else None)
 at(7,lambda:aim(fe) if not isdriver else None);at(7.2,lambda:key('E',True) if not isdriver else None);at(8.1,lambda:key('E',False) if not isdriver else None)
 at(9,lambda:check('moving_front_bench_native_E',front.get_editor_property('Occupant')==wp and v.get_velocity().length()>150,local(wp)))
 tap(9.5,'E','walker');at(10.8,lambda:check('moving_front_bench_stand',walking(wp) and wp.get_component_by_class(unreal.RVPassengerReferenceFrameComponent).get_editor_property('ReferenceFrame')==v,local(wp)))
-at(11,lambda:aim(re) if not isdriver else None);at(11.2,lambda:key('E',True) if not isdriver else None);at(12.1,lambda:key('E',False) if not isdriver else None)
-at(13,lambda:check('moving_rear_bench_native_E',rear.get_editor_property('Occupant')==wp,local(wp)))
+def approach_rear_bench():
+    if not isdriver:pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw+180));key('W',True)
+at(10.85,approach_rear_bench);at(11.4,lambda:key('W',False) if not isdriver else None)
+at(11.5,lambda:aim(re) if not isdriver else None);at(11.7,lambda:key('E',True) if not isdriver else None);at(12.6,lambda:key('E',False) if not isdriver else None)
+at(13.2,lambda:check('moving_rear_bench_native_E',rear.get_editor_property('Occupant')==wp,local(wp)))
 tap(13.5,'E','walker');at(14.8,lambda:check('moving_rear_bench_stand',walking(wp) and wp.get_component_by_class(unreal.RVPassengerReferenceFrameComponent).get_editor_property('ReferenceFrame')==v,local(wp)))
 at(15,lambda:aim(pantry) if not isdriver else None);at(15.2,lambda:key('E',True) if not isdriver else None);at(16.1,lambda:key('E',False) if not isdriver else None)
 def pantry_view_check():

@@ -78,6 +78,7 @@ public:
     UFUNCTION(BlueprintCallable, Category="RV|Configuration") void ConfigureProjectChassisCollision(FVector Center, FVector Extent);
     UFUNCTION(BlueprintCallable, Category="RV|Configuration") void RefreshConfiguration();
     UFUNCTION(BlueprintCallable, Category="RV|Configuration") static TArray<FVector> InspectArtSurfaces(class UStaticMesh* ArtMesh);
+    UFUNCTION(BlueprintCallable, Category="RV|Development",meta=(DevelopmentOnly)) static TArray<FVector> InspectArtVertices(class UStaticMesh* ArtMesh,FVector RegionMin,FVector RegionMax);
     UFUNCTION(BlueprintCallable, Category="RV|Development",meta=(DevelopmentOnly)) static class ACameraActor* CreateDevelopmentObserverCamera(UObject* WorldContext,FVector Location,FRotator Rotation);
     UFUNCTION(BlueprintCallable, Category="RV|Development",meta=(DevelopmentOnly)) static bool DispatchDevelopmentKey(class APlayerController* LocalController,FName KeyName,bool bPressed);
 private:

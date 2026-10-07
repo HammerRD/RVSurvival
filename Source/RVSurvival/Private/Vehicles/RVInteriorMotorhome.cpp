@@ -2,6 +2,7 @@
 #include "Camera/CameraActor.h"
 #include "Camera/CameraComponent.h"
 #include "Engine/Engine.h"
+#include "Engine/OverlapResult.h"
 #include "InputKeyEventArgs.h"
 #include "Vehicles/RVInteractiveDoor.h"
 #include "Net/UnrealNetwork.h"
@@ -65,6 +66,23 @@ TArray<FVector> ARVInteriorMotorhome::InspectArtSurfaces(UStaticMesh* Mesh)
         const FVector C(Positions[Description->GetVertexInstanceVertex(Corners[2])]);
         const FVector N = FVector::CrossProduct(B-A,C-A).GetSafeNormal();
         if (FMath::Abs(N.Z) > .95) Points.Add((A+B+C)/3);
+    }
+#endif
+    return Points;
+}
+TArray<FVector> ARVInteriorMotorhome::InspectArtVertices(UStaticMesh* Mesh,FVector RegionMin,FVector RegionMax)
+{
+    TArray<FVector> Points;
+#if WITH_EDITOR && !UE_BUILD_SHIPPING && !UE_BUILD_TEST
+    if (!Mesh) return Points;
+    auto* Description=Mesh->GetMeshDescription(0); if (!Description) return Points;
+    FStaticMeshAttributes Attributes(*Description);
+    const auto Positions=Attributes.GetVertexPositions();
+    const FBox Region(RegionMin,RegionMax);
+    for (const auto Vertex:Description->Vertices().GetElementIDs())
+    {
+        const FVector Point(Positions[Vertex]);
+        if (Region.IsInsideOrOn(Point)) Points.Add(Point);
     }
 #endif
     return Points;
@@ -222,8 +240,18 @@ bool ARVInteriorMotorhome::ValidateSeatDestination(const URVVehicleSeatComponent
         || !Floor.GetComponent() || !Floor.GetComponent()->ComponentHasTag(TEXT("RVPassengerPlatform")) || Floor.ImpactNormal.Z<.7) return false;
     // A seated pose intentionally occupies its cushion. Check its upper body against
     // all other furniture/walls/players, not a standing capsule through the cushion/floor.
-    return !GetWorld()->OverlapBlockingTestByChannel(Point+FVector(0,0,30),Seat->GetComponentQuat(),ECC_Pawn,
-        FCollisionShape::MakeCapsule(20,45),Params);
+    const FCollisionShape Body=FCollisionShape::MakeCapsule(20,45);
+    const bool bBlocked=GetWorld()->OverlapBlockingTestByChannel(Point+FVector(0,0,30),Seat->GetComponentQuat(),ECC_Pawn,Body,Params);
+#if !UE_BUILD_SHIPPING && !UE_BUILD_TEST
+    if (bBlocked)
+    {
+        TArray<FOverlapResult> Hits;
+        GetWorld()->OverlapMultiByChannel(Hits,Point+FVector(0,0,30),Seat->GetComponentQuat(),ECC_Pawn,Body,Params);
+        for (const auto& Hit:Hits) if (Hit.bBlockingHit)
+            UE_LOG(LogTemp,Warning,TEXT("RV seat destination %s blocked by %s.%s"),*Seat->GetName(),*GetNameSafe(Hit.GetActor()),*GetNameSafe(Hit.GetComponent()));
+    }
+#endif
+    return !bBlocked;
 }
 bool ARVInteriorMotorhome::TryStandingDoor(ARVSurvivorCharacter* Character, bool Enter)
 {

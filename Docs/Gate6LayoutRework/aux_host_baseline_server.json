@@ -1,7 +1,8 @@
 {
-  "pid": 53004,
+  "pid": 49544,
   "role": "server",
   "config": {
+    "disconnect": "",
     "name": "aux_host_baseline",
     "network": false,
     "driver": "host"
@@ -20,22 +21,22 @@
     {
       "case": "moving_front_bench_native_E",
       "pass": true,
-      "detail": "[104.99999999999997, -82.0, 138.0]"
+      "detail": "[105.0000000000002, -82.0, 137.99999999999997]"
     },
     {
       "case": "moving_front_bench_stand",
       "pass": true,
-      "detail": "[99.7923915017238, 0.0002440009414530329, 177.18876050068477]"
+      "detail": "[99.78467952706748, -0.0008787527689604233, 177.18881161833576]"
     },
     {
       "case": "moving_rear_bench_native_E",
-      "pass": true,
-      "detail": "[-69.99999999999993, -82.0, 138.00000000000003]"
+      "pass": false,
+      "detail": "[-4.6320626673146705, -0.0002462221711368953, 177.34411104764453]"
     },
     {
       "case": "moving_rear_bench_stand",
       "pass": true,
-      "detail": "[-99.96655031826916, -0.0010599636164540704, 191.48833351630023]"
+      "detail": "[-4.656308455155949, -0.00048438852413570146, 177.34426695519338]"
     },
     {
       "case": "moving_pantry_native_E",
@@ -50,7 +51,7 @@
     {
       "case": "moving_transfer_back_native_Tab_T",
       "pass": true,
-      "detail": "{'pantry': 0, 'player': 1, 'feedback': 'Item no longer available', 'open': \"<Object '/Game/Maps/UEDPIE_0_Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVStoragePoint_0.Container' (0x00000154F5272F80) Class 'RVContainerComponent'>\"}"
+      "detail": "{'pantry': 0, 'player': 1, 'feedback': '', 'open': \"<Object '/Game/Maps/UEDPIE_0_Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVStoragePoint_0.Container' (0x000001DE936B0500) Class 'RVContainerComponent'>\"}"
     },
     {
       "case": "parked_before_exterior",
@@ -70,27 +71,27 @@
     {
       "case": "normal_E_side_exit_both_players",
       "pass": true,
-      "detail": "{'driver': [92.80944276449807, 240.00178971287772, 71.8682398300493], 'walker': [-7.187311610881238, 240.00180389980443, 72.43793442148365]}"
+      "detail": "{'driver': [92.80758770400101, 240.00021013460957, 71.8752246384421], 'walker': [-7.189196638752264, 240.0002117924666, 72.44228317554294]}"
     },
     {
       "case": "shared_exterior_native_E",
       "pass": true,
-      "detail": ""
+      "detail": "{'expected': \"<Object '/Game/Maps/UEDPIE_0_Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVExteriorStoragePoint_0.Container' (0x000001DF59E93480) Class 'RVContainerComponent'>\", 'actual': \"<Object '/Game/Maps/UEDPIE_0_Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVExteriorStoragePoint_0.Container' (0x000001DF59E93480) Class 'RVContainerComponent'>\", 'feedback': ''}"
     },
     {
       "case": "shared_exterior_contention_no_duplicate_native_T",
       "pass": true,
-      "detail": "[\"<Struct 'Guid' (0x00000154D613578C) {}>\"]"
+      "detail": "[\"<Struct 'Guid' (0x000001DF6066999C) {}>\"]"
     },
     {
-      "case": "native_E_client_ladder_host_driver",
+      "case": "native_E_ladder_and_other_player_driver",
       "pass": true,
-      "detail": "[-414.9999999999998, 74.99999999999989, 78.0]"
+      "detail": "[-414.999999999999, 74.99999999999727, 78.0]"
     },
     {
       "case": "native_W_controlled_ladder_top",
       "pass": true,
-      "detail": "{'position': [-414.9999999998613, 75.00448437824161, 258.07601760635663], 'height': 180.07601760635663}"
+      "detail": "{'position': [-415.0000000000413, 75.00052647011455, 258.0756638947032], 'height': 180.0756638947032}"
     },
     {
       "case": "occupied_ladder_prevents_driving",
@@ -105,17 +106,17 @@
     {
       "case": "native_S_E_bottom_exit_restores_world_movement",
       "pass": true,
-      "detail": "[-455.2002858739174, 74.9991245315872, 74.8444313364463]"
+      "detail": "[-455.19942203477495, 74.99989718661459, 74.83332689712186]"
     },
     {
       "case": "ladder_exit_releases_drive_lock",
       "pass": true,
-      "detail": "417.35394183984573"
+      "detail": "418.1347246498448"
     },
     {
       "case": "ladder_world_walk_away",
       "pass": true,
-      "detail": "[-1047.069710155913, 74.3433570681882, 78.24214303872405]"
+      "detail": "{'position': [-1047.0811721786508, 75.36382584293801, 78.22172207702602], 'actual_world_walk_cm': 112.67015532164518}"
     }
   ]
 }

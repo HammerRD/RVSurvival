@@ -61,7 +61,13 @@ bool ARVVehicleBase::CanEnter(URVVehicleSeatComponent* Seat, ARVSurvivorCharacte
 }
 bool ARVVehicleBase::TryEnter(URVVehicleSeatComponent* Seat, ARVSurvivorCharacter* Character)
 {
-    if (!HasAuthority() || !CanEnter(Seat, Character) || !ValidateSeatDestination(Seat, Character)) return false;
+    if (!HasAuthority() || !CanEnter(Seat, Character)) return false;
+    if (!ValidateSeatDestination(Seat, Character))
+    {
+        CastChecked<ARVPlayerController>(Character->GetController())->SeatFeedback=TEXT("Seat destination obstructed or unsupported; remain standing.");
+        Character->GetController()->ForceNetUpdate();
+        return false;
+    }
     auto* PC = CastChecked<ARVPlayerController>(Character->GetController());
     Seat->Occupant = Character; Seat->OccupantController = PC;
     PC->SeatedVehicle = this; PC->SeatEntryTime = GetWorld()->GetTimeSeconds();

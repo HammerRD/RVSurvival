@@ -1,7 +1,8 @@
 {
-  "pid": 27072,
+  "pid": 28640,
   "role": "client",
   "config": {
+    "disconnect": "",
     "name": "aux_host_baseline",
     "network": false,
     "driver": "host"
@@ -20,22 +21,22 @@
     {
       "case": "moving_front_bench_native_E",
       "pass": true,
-      "detail": "[95.47801854556042, -81.83373980931937, 138.84933821173868]"
+      "detail": "[95.80219828470936, -82.02109504358877, 138.83456488438185]"
     },
     {
       "case": "moving_front_bench_stand",
       "pass": true,
-      "detail": "[99.94162352895705, 0.00021692100479092107, 177.1875887538389]"
+      "detail": "[99.95643082296952, 0.00011611767956781821, 177.18760976303713]"
     },
     {
       "case": "moving_rear_bench_native_E",
-      "pass": true,
-      "detail": "[-94.51394749997621, -82.13951213346064, 137.56148994208488]"
+      "pass": false,
+      "detail": "[-4.570001611590608, 0.00011603246431262976, 177.19487441419952]"
     },
     {
       "case": "moving_rear_bench_stand",
       "pass": true,
-      "detail": "[-99.9251974533676, -0.0009170233419099616, 191.48807110607942]"
+      "detail": "[-4.5702346368741615, 0.00011603145116040892, 177.1948744141857]"
     },
     {
       "case": "moving_pantry_native_E",
@@ -50,7 +51,7 @@
     {
       "case": "moving_transfer_back_native_Tab_T",
       "pass": true,
-      "detail": "{'pantry': 0, 'player': 1, 'feedback': 'Item no longer available', 'open': \"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVStoragePoint_0.Container' (0x0000029BB8D53E80) Class 'RVContainerComponent'>\"}"
+      "detail": "{'pantry': 0, 'player': 1, 'feedback': '', 'open': \"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVStoragePoint_0.Container' (0x000002167034D480) Class 'RVContainerComponent'>\"}"
     },
     {
       "case": "parked_before_exterior",
@@ -70,27 +71,27 @@
     {
       "case": "normal_E_side_exit_both_players",
       "pass": true,
-      "detail": "{'driver': [90.67253939229221, 239.37478781518593, 72.43774135901897], 'walker': [-9.32456919488834, 239.93549142850244, 72.43803689289793]}"
+      "detail": "{'driver': [88.69473431934904, 240.15555354891794, 72.37970386970837], 'walker': [-11.304813459080833, 239.84163851877915, 72.37980695731682]}"
     },
     {
       "case": "shared_exterior_native_E",
-      "pass": false,
-      "detail": ""
+      "pass": true,
+      "detail": "{'expected': \"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVExteriorStoragePoint_3.Container' (0x0000021710EC9880) Class 'RVContainerComponent'>\", 'actual': \"<Object '/Game/Maps/Gate6FuelElectricalTest.Gate6FuelElectricalTest:PersistentLevel.RVExteriorStoragePoint_3.Container' (0x0000021710EC9880) Class 'RVContainerComponent'>\", 'feedback': ''}"
     },
     {
       "case": "shared_exterior_contention_no_duplicate_native_T",
       "pass": true,
-      "detail": "[\"<Struct 'Guid' (0x0000029B60E70D9C) {}>\"]"
+      "detail": "[\"<Struct 'Guid' (0x00000216B6316ACC) {}>\"]"
     },
     {
-      "case": "native_E_client_ladder_host_driver",
+      "case": "native_E_ladder_and_other_player_driver",
       "pass": true,
-      "detail": "[-418.0891421993015, 77.24323043222478, 75.67419870721973]"
+      "detail": "[-418.630043029617, 73.585102556077, 75.62496504261492]"
     },
     {
       "case": "native_W_controlled_ladder_top",
       "pass": true,
-      "detail": "{'position': [-419.1112487573213, 77.24949588768811, 256.87514428258044], 'height': 178.87514428258044}"
+      "detail": "{'position': [-419.64777526331045, 73.58211807162525, 256.26521338193515], 'height': 178.26521338193515}"
     },
     {
       "case": "occupied_ladder_prevents_driving",
@@ -105,17 +106,17 @@
     {
       "case": "native_S_E_bottom_exit_restores_world_movement",
       "pass": true,
-      "detail": "[-458.27017002859236, 77.46972258623094, 72.28977813827986]"
+      "detail": "[-458.8106739276967, 73.4611543825672, 72.23042708235123]"
     },
     {
       "case": "ladder_exit_releases_drive_lock",
       "pass": true,
-      "detail": "409.9390683015512"
+      "detail": "415.6160887442754"
     },
     {
       "case": "ladder_world_walk_away",
       "pass": true,
-      "detail": "[-1049.6781909303422, 80.20983033068615, 72.26997667109288]"
+      "detail": "{'position': [-1050.2138096355698, 72.03190473238988, 72.2739161826369], 'actual_world_walk_cm': 112.67045863787126}"
     }
   ]
 }
