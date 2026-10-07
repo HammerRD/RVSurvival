@@ -3,6 +3,8 @@
 #include "Vehicles/RVVehicleSeatComponent.h"
 #include "Vehicles/RVVehicleBase.h"
 #include "Player/RVSurvivorCharacter.h"
+#include "Player/RVInputMappings.h"
+#include "GameFramework/PlayerController.h"
 #include "Components/BoxComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/TextRenderComponent.h"
@@ -36,8 +38,8 @@ bool ARVVehicleEntryPoint::CanInteract_Implementation(APawn* Pawn) const
     const auto* Vehicle = Seat ? Cast<ARVVehicleBase>(Seat->GetOwner()) : nullptr;
     return Vehicle && Vehicle->CanEnter(Seat, Cast<ARVSurvivorCharacter>(Pawn));
 }
-FText ARVVehicleEntryPoint::GetInteractionText_Implementation(APawn*) const
-{ return FText::Format(NSLOCTEXT("RV", "EnterSeat", "Hold E: Enter {0}"), Seat ? Seat->SeatLabel : FText::GetEmpty()); }
+FText ARVVehicleEntryPoint::GetInteractionText_Implementation(APawn* Pawn) const
+{ return FText::Format(NSLOCTEXT("RV", "EnterSeatRemappable", "Hold {0}: Enter {1}"), FText::FromString(RVInputMappings::KeyLabel(Pawn?Cast<APlayerController>(Pawn->GetController()):nullptr,TEXT("Interact"),TEXT("E"))), Seat ? Seat->SeatLabel : FText::GetEmpty()); }
 void ARVVehicleEntryPoint::CompleteInteraction_Implementation(APawn* Pawn)
 { if (HasAuthority() && Seat) if (auto* V = Cast<ARVVehicleBase>(Seat->GetOwner())) V->TryEnter(Seat, Cast<ARVSurvivorCharacter>(Pawn)); }
 ARVVehicleInteriorSeatPoint::ARVVehicleInteriorSeatPoint()

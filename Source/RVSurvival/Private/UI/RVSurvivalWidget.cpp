@@ -5,6 +5,7 @@
 #include "Player/RVPlayerState.h"
 #include "Survival/RVNeedsComponent.h"
 #include "GameFramework/PlayerController.h"
+#include "Player/RVInputMappings.h"
 void URVSurvivalWidget::NativeOnInitialized()
 {
     Super::NativeOnInitialized();
@@ -39,5 +40,10 @@ void URVSurvivalWidget::Refresh()
     const auto* Needs=BoundNeeds.Get();
     if(!Needs || !Values || !Status) return;
     Values->SetText(FText::FromString(FString::Printf(TEXT("Nutrition %.0f | Hydration %.0f | Fatigue %.0f"),Needs->State.Nutrition,Needs->State.Hydration,Needs->State.Fatigue)));
-    Status->SetText(FText::FromString(Needs->GetWarnings()+TEXT("  ")+Needs->Feedback));
+    // Replicated needs remain input-independent; translate prototype hints locally.
+    FString Hints=Needs->GetWarnings()+TEXT("  ")+Needs->Feedback;
+    Hints.ReplaceInline(TEXT("R / E:"),*(RVInputMappings::KeyLabel(GetOwningPlayer(),TEXT("Stand"),TEXT("R"))+TEXT(" / ")+RVInputMappings::KeyLabel(GetOwningPlayer(),TEXT("Interact"),TEXT("E"))+TEXT(":")),ESearchCase::CaseSensitive);
+    Hints.ReplaceInline(TEXT("Z:"),*(RVInputMappings::KeyLabel(GetOwningPlayer(),TEXT("Sleep"),TEXT("Z"))+TEXT(":")),ESearchCase::CaseSensitive);
+    Hints.ReplaceInline(TEXT("R: retry"),*(RVInputMappings::KeyLabel(GetOwningPlayer(),TEXT("Stand"),TEXT("R"))+TEXT(": retry")),ESearchCase::CaseSensitive);
+    Status->SetText(FText::FromString(Hints));
 }

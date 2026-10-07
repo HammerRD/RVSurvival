@@ -7,6 +7,8 @@
 #include "Survival/RVNeedsComponent.h"
 #include "Player/RVPlayerState.h"
 #include "Player/RVSurvivorCharacter.h"
+#include "Player/RVInputMappings.h"
+#include "GameFramework/PlayerController.h"
 #include "Components/StaticMeshComponent.h"
 #include "Net/UnrealNetwork.h"
 ARVRestPoint::ARVRestPoint()
@@ -82,8 +84,8 @@ bool ARVRestPoint::CanContinueRest(const ARVSurvivorCharacter* Character) const
 }
 bool ARVRestPoint::CanInteract_Implementation(APawn* Pawn) const
 { return !Occupant && CanContinueRest(Cast<ARVSurvivorCharacter>(Pawn)); }
-FText ARVRestPoint::GetInteractionText_Implementation(APawn*) const
-{ return FText::FromString(DisplayName.ToString()+(Occupant?TEXT(" (occupied)"):TEXT(" | Hold E to rest (parked)"))); }
+FText ARVRestPoint::GetInteractionText_Implementation(APawn* Pawn) const
+{ return FText::FromString(DisplayName.ToString()+(Occupant?FString(TEXT(" (occupied)")):TEXT(" | Hold ")+RVInputMappings::KeyLabel(Pawn?Cast<APlayerController>(Pawn->GetController()):nullptr,TEXT("Interact"),TEXT("E"))+TEXT(" to rest (parked)"))); }
 void ARVRestPoint::CompleteInteraction_Implementation(APawn* Pawn)
 {
     if(!HasAuthority() || !CanInteract_Implementation(Pawn)) return;

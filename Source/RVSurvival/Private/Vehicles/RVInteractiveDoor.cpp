@@ -2,6 +2,8 @@
 #include "Components/BoxComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/Pawn.h"
+#include "GameFramework/PlayerController.h"
+#include "Player/RVInputMappings.h"
 #include "Net/UnrealNetwork.h"
 ARVInteractiveDoor::ARVInteractiveDoor()
 {
@@ -51,9 +53,10 @@ bool ARVInteractiveDoor::IsSwingClear(bool ToOpen) const
 }
 bool ARVInteractiveDoor::CanInteract_Implementation(APawn* Pawn) const
 { return IsValid(Pawn) && Pawn->GetController(); }
-FText ARVInteractiveDoor::GetInteractionText_Implementation(APawn*) const
+FText ARVInteractiveDoor::GetInteractionText_Implementation(APawn* Pawn) const
 {
-    return FText::FromString(DoorLabel.ToString()+(IsSwingClear(!bOpen)?(bOpen?TEXT(" | Hold E: close"):TEXT(" | Hold E: open")):TEXT(" | Door swing obstructed; move clear")));
+    const FString Key=RVInputMappings::KeyLabel(Pawn?Cast<APlayerController>(Pawn->GetController()):nullptr,TEXT("Interact"),TEXT("E"));
+    return FText::FromString(DoorLabel.ToString()+(IsSwingClear(!bOpen)?TEXT(" | Hold ")+Key+(bOpen?TEXT(": close"):TEXT(": open")):TEXT(" | Door swing obstructed; move clear")));
 }
 void ARVInteractiveDoor::CompleteInteraction_Implementation(APawn* Pawn)
 {

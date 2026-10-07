@@ -1,16 +1,17 @@
-param([ValidateSet('host','client')][string]$Driver='host',[switch]$Emulated)
+param([ValidateSet('host','client')][string]$Driver='host',[switch]$Emulated,[ValidateSet('','Roof','Ladder')][string]$Disconnect='')
 $ErrorActionPreference='Stop'
 $root='D:\GitHub\RVSurvival\RVSurvival'
 $folder=$root+'\Saved\Gate6PhysicalRefinement'
 if(Get-Process UnrealEditor -ErrorAction SilentlyContinue){throw 'Refuse concurrent editor'}
 foreach($file in @('launch_process.py','process_startup.py','process_ready.py','process_refinement.py')){Copy-Item -LiteralPath ($root+'\Tools\Validation\Gate6PhysicalRefinement\'+$file) -Destination ($folder+'\'+$file)}
 $name='physical_'+$Driver+$(if($Emulated){'_100ms_2loss'}else{'_baseline'})
+if($Disconnect){$name='disconnect_'+$Disconnect+$(if($Emulated){'_100ms_2loss'}else{'_baseline'})}
 $history=$folder+'\History\'+$name+'_'+(Get-Date -Format yyyyMMdd-HHmmss)
 foreach($suffix in @('.log','_child.log','_server.json','_client.json')){
  $previous=$folder+'\'+$name+$suffix
  if(Test-Path -LiteralPath $previous){New-Item -ItemType Directory -Force -Path $history|Out-Null;Copy-Item -LiteralPath $previous -Destination $history}
 }
-@{name=$name;driver=$Driver;network=[bool]$Emulated}|ConvertTo-Json|Set-Content -LiteralPath ($folder+'\case.json') -Encoding utf8
+@{name=$name;driver=$Driver;network=[bool]$Emulated;disconnect=$Disconnect}|ConvertTo-Json|Set-Content -LiteralPath ($folder+'\case.json') -Encoding utf8
 $start=Get-Date
 $arguments='"'+$root+'\RVSurvival.uproject" -ExecCmds="py D:/GitHub/RVSurvival/RVSurvival/Saved/Gate6PhysicalRefinement/launch_process.py" -abslog="'+$folder+'\'+$name+'.log"'
 $job=Start-Process -FilePath 'D:/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe' -ArgumentList $arguments -WindowStyle Hidden -PassThru
