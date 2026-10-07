@@ -38,7 +38,7 @@
     {
       "case": "gate6_saved_fixture_intact",
       "pass": true,
-      "detail": "{'actors': 65, 'pickups': 14, 'storage': 5, 'rest': 2, 'gamemode': '/Game/Survival/BP_Gate5GameMode.BP_Gate5GameMode_C'}"
+      "detail": "{'actors': 70, 'pickups': 14, 'storage': 9, 'rest': 2, 'gamemode': '/Game/Survival/BP_Gate5GameMode.BP_Gate5GameMode_C'}"
     },
     {
       "case": "load_/Game/Maps/Gate6FuelElectricalTest",
@@ -83,7 +83,7 @@
     {
       "case": "gate6_saved_fixture_intact",
       "pass": true,
-      "detail": "{'actors': 65, 'pickups': 14, 'storage': 5, 'rest': 2, 'gamemode': '/Game/Survival/BP_Gate5GameMode.BP_Gate5GameMode_C'}"
+      "detail": "{'actors': 70, 'pickups': 14, 'storage': 9, 'rest': 2, 'gamemode': '/Game/Survival/BP_Gate5GameMode.BP_Gate5GameMode_C'}"
     },
     {
       "case": "load_/Game/Maps/Gate6FuelElectricalTest",
@@ -251,6 +251,31 @@
       "detail": ""
     },
     {
+      "case": "both_rear_seats_enabled",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "rear_cushion_clear_of_wardrobe",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "wardrobe_wall_retained_and_fitted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "five_surface_aligned_stations",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "console_queries_saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
       "case": "saved_rear_lying_state",
       "pass": true,
       "detail": ""
@@ -264,6 +289,16 @@
       "case": "saved_wake_aisle",
       "pass": true,
       "detail": ""
+    },
+    {
+      "case": "one_saved_ladder",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "individual_saved_overheads_and_bed_end",
+      "pass": true,
+      "detail": "{'Pantry', 'Rear overhead - medical backup', 'Medical storage', 'Kitchen overhead - small tools', 'Water supplies', 'External storage', 'Bed-end cabinet', 'Personal supplies', 'Dinette overhead - dry food'}"
     },
     {
       "case": "save_all_completed",
@@ -325,9 +360,9 @@
     {
       "path": "/Game/Maps/Gate6FuelElectricalTest",
       "counts": {
-        "actors": 65,
+        "actors": 70,
         "pickups": 14,
-        "storage": 5,
+        "storage": 9,
         "rest": 2,
         "gamemode": "/Game/Survival/BP_Gate5GameMode.BP_Gate5GameMode_C"
       }
@@ -385,9 +420,9 @@
     {
       "path": "/Game/Maps/Gate6FuelElectricalTest",
       "counts": {
-        "actors": 65,
+        "actors": 70,
         "pickups": 14,
-        "storage": 5,
+        "storage": 9,
         "rest": 2,
         "gamemode": "/Game/Survival/BP_Gate5GameMode.BP_Gate5GameMode_C"
       }

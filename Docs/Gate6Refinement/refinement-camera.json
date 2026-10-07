@@ -13,32 +13,32 @@
     {
       "case": "low_speed",
       "pass": true,
-      "detail": "476.245400369329"
+      "detail": "476.2436469098352"
     },
     {
       "case": "low_camera_clear",
       "pass": true,
-      "detail": "{'camera_local': [-1424.9728839083268, -0.0036347150229030564, 697.2792803011438], 'speed': 476.245400369329, 'yaw': 0.052596708421516015, 'view': \"<Struct 'Rotator' (0x000001DDEE3303D0) {pitch: -12.000000, yaw: 0.051958, roll: 0.000000}>\"}"
+      "detail": "{'camera_local': [-1424.972948980908, -0.003625963646990786, 697.2790335149783], 'speed': 476.2436469098352, 'yaw': 0.07549173674617571, 'view': \"<Struct 'Rotator' (0x000001381E580970) {pitch: -12.000000, yaw: 0.074854, roll: -0.000000}>\"}"
     },
     {
       "case": "road_speed",
       "pass": true,
-      "detail": "1772.2839203430146"
+      "detail": "1772.2697850172246"
     },
     {
       "case": "road_camera_clear",
       "pass": true,
-      "detail": "{'camera_local': [-1424.9965972097948, -0.0037330651081425156, 697.1893360789371], 'speed': 1772.2839203430146, 'yaw': 0.06151594301898001, 'view': \"<Struct 'Rotator' (0x000001DDEE3CE4F0) {pitch: -12.000000, yaw: 0.060859, roll: 0.000000}>\"}"
+      "detail": "{'camera_local': [-1424.9965775773717, -0.0037071345631594743, 697.1894105547361], 'speed': 1772.2697850172246, 'yaw': 0.08436742733409201, 'view': \"<Struct 'Rotator' (0x000001381E580E20) {pitch: -12.000000, yaw: 0.083715, roll: -0.000000}>\"}"
     },
     {
       "case": "approximately_60mph",
       "pass": true,
-      "detail": "2683.4482711194814"
+      "detail": "2683.4545323848783"
     },
     {
       "case": "highway_camera_clear",
       "pass": true,
-      "detail": "{'camera_local': [-1424.6006927682745, -0.0033642922947001905, 698.6878356076993], 'speed': 2683.4482711194814, 'yaw': 0.06361521590111743, 'view': \"<Struct 'Rotator' (0x000001DDEE3CE590) {pitch: -12.000000, yaw: 0.063036, roll: -0.000000}>\"}"
+      "detail": "{'camera_local': [-1424.600694301164, -0.0033643542578813902, 698.68782981869], 'speed': 2683.4545323848783, 'yaw': 0.08639592254650534, 'view': \"<Struct 'Rotator' (0x000001381E60AA90) {pitch: -12.000000, yaw: 0.085817, roll: -0.000000}>\"}"
     },
     {
       "case": "turn_camera_follows_yaw",
@@ -48,17 +48,17 @@
     {
       "case": "turn_camera_clear",
       "pass": true,
-      "detail": "{'camera_local': [-1424.9285780973178, 0.5816924563599031, 697.4467934695208], 'speed': 2668.2130738617757, 'yaw': 20.891911881108683, 'view': \"<Struct 'Rotator' (0x000001DDEE3CE540) {pitch: -12.000000, yaw: 20.993917, roll: 0.000000}>\"}"
+      "detail": "{'camera_local': [-1424.9285366573, 0.5816830546049658, 697.4469505662299], 'speed': 2668.22344354857, 'yaw': 20.91256854808505, 'view': \"<Struct 'Rotator' (0x000001381E60AA90) {pitch: -12.000000, yaw: 21.014572, roll: -0.000000}>\"}"
     },
     {
       "case": "actual_reverse",
       "pass": true,
-      "detail": "-1510.6441803401294"
+      "detail": "-1510.6442390662323"
     },
     {
       "case": "reverse_camera_clear",
       "pass": true,
-      "detail": "{'camera_local': [-1425.687657256108, -0.004218276009623878, 694.5574371215586], 'speed': 1510.653409017081, 'yaw': 82.6416412243143, 'view': \"<Struct 'Rotator' (0x000001DDEE3CE680) {pitch: -12.000000, yaw: 82.640868, roll: -0.000000}>\"}"
+      "detail": "{'camera_local': [-1425.6876618630752, -0.004219080713482981, 694.5574195063299], 'speed': 1510.6534678963255, 'yaw': 82.66236925722238, 'view': \"<Struct 'Rotator' (0x000001381E60AB80) {pitch: -12.000000, yaw: 82.661595, roll: 0.000000}>\"}"
     },
     {
       "case": "stopped_for_obstacle",
@@ -68,12 +68,12 @@
     {
       "case": "boom_obstacle",
       "pass": true,
-      "detail": "{'camera_local': [-833.4958668455383, -0.0020223807714501163, 541.293708740035], 'retraction': 611.6997296244751}"
+      "detail": "{'camera_local': [-833.4958369448813, -0.00202237147584583, 541.2938221515404], 'retraction': 611.6997296244751}"
     },
     {
       "case": "near_obstacle",
       "pass": true,
-      "detail": "{'camera_local': [-404.1197805735651, -0.0008850308872752066, 428.0898151720659], 'retraction': 1055.7480884576978}"
+      "detail": "{'camera_local': [-404.11974729765996, -0.0008850267582829474, 428.08985947975526], 'retraction': 1055.7481093384733}"
     },
     {
       "case": "camera_recovers_after_obstacle",
@@ -83,7 +83,7 @@
     {
       "case": "recovered_camera_clear",
       "pass": true,
-      "detail": "{'camera_local': [-1424.9837772387127, -0.0035891394495592976, 697.237965059137], 'speed': 0.0, 'yaw': 82.64665228167094, 'view': \"<Struct 'Rotator' (0x000001DDEE332BD0) {pitch: -12.000000, yaw: 82.646021, roll: 0.000000}>\"}"
+      "detail": "{'camera_local': [-1424.9837241737146, -0.003589122969742675, 697.2381663316737], 'speed': 0.0, 'yaw': 82.66749018204439, 'view': \"<Struct 'Rotator' (0x000001381E583170) {pitch: -12.000000, yaw: 82.666859, roll: -0.000000}>\"}"
     }
   ]
 }

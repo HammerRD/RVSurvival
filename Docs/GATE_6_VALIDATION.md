@@ -1,6 +1,6 @@
 # Gate 6 fuel and electrical validation
 
-Status: Second manual-playtest refinement IN PROGRESS / NOT ACCEPTED pending the real-control matrix. Historical Gate 6 technical acceptance and earlier refinement results are retained below; they do not establish that the newly reported issues are resolved. Gates 1-5 remain accepted; Gate 7 is not authorized.
+Status: ACCEPTED after the second manual-playtest refinement, 2026-10-06. The final section below supersedes earlier in-progress checkpoints and provisional coordinates. Normal player input, live visual inspection and separate-process host/client validation passed. Gates 1-5 remain accepted; Gate 7 is not authorized.
 Baseline recovery checkpoint: 8e80050. Pre-existing Config/DefaultEngine.ini and IDE files remain outside Gate 6 commits.
 
 ## Framework review (2026-10-06)
@@ -266,3 +266,93 @@ Wardrobe/rear-cushion correction: exact overlap blocker was BedEndWardrobe. Read
 Fresh separate-process results after the measured wardrobe/cushion correction: host-driver baseline and client-driver 100ms/2% native-control runs each pass 65/65 in both processes, including twenty V/1 cycles, moving switch rejection retaining driver, recently-stopped V/1, front-to-bed-foot highway walking and four E/Z/R-or-E bed cycles. Zero below-floor or seated-walking samples. Instrumentation: CorrectionCount 0 and MaxCorrectionCm 0 in both roles; maximum local step 4.88cm baseline and 6.75cm emulated. Native-window twenty V/1 cycles are separately preserved in native-v-20.json.
 Auxiliary runs pass 22/22 per process in both roles: both moving cushions, safe standing, turning pantry deposit/return preserving 62% condition, driver 3 aisle, side exit, shared exterior contention with actual item transfer/no duplicate GUID, host/client ladder W/S/E and actual world walk-away, plus drive-lock release. Station runs pass 25/25 per process in both roles parked/moving E and real walk-away for all five roles. Door runs pass 43/43 per process in both roles: actual W blocked closed door, four E open/close cycles parked/moving, one visible leaf/glass per state, matching collision rotation/Pawn blocking, retained passenger frame and all 54 visual parts uniquely reacquired. Reviewed fresh screenshots confirm no ghost door/glass and visible remote lying bed body. Fuel/electrical emulated regression passes 31 server/29 client. Exterior/camera, saved-asset and prior-gate regressions remain underway; overall refinement acceptance still pending.
 Door inspection initially accessed a protected Visual property and guessed legacy enum names; corrected to public component enumeration and verified ECC_PAWN/CollisionResponseType.ECR_BLOCK. These were caught Python test exceptions, not Unreal crashes. Failed receipts/history remain. See Epic's [Python collision enum index](https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/genindex-E).
+
+## Second manual-playtest refinement - final results (2026-10-06)
+
+This section supersedes the provisional second-refinement coordinates and pending notes above. Gate 6 remains ACCEPTED after actual normal-control and visual verification in Gate6FuelElectricalTest. Gate 7 was not started.
+
+### Saved physical layout
+
+Only Content/Maps/Gate6FuelElectricalTest.umap and Content/Vehicles/Gate6/BP_ClassCSystemsMotorhome.uasset changed in Content relative to recovery 298ee09. The saved map has 70 actors, 14 pickups, nine saved storage points, two rest points and one ladder. Seven exterior compartments and five station endpoints are composed at runtime. All prior maps/fallbacks and 108 purchased source files are unchanged.
+
+| Role | Actual purchased surface | Final RV-local query position (cm) |
+|---|---|---|
+| Dinette rest / portable workbench | Real table, not sink | Workbench (-18,-30,154); Dinette rest at table |
+| Water supplies | Kitchen sink cabinet | (45,60,176) |
+| Kitchen | Stove/cooking surface | (-40,60,179) |
+| Bed-end cabinet | Lower wardrobe at bed foot, not under bed | (-110,-57,190) |
+| Personal supplies | Upper cabinet above bathroom sink | (-185,-65,262) |
+| Medical use | Bathroom first-aid cabinet/counter area | (-185,-65,196) |
+| Medical storage | Upper bed-foot wardrobe | (-110,-57,256) |
+| Navigation/radio | Actual cab radio face | (224,0,141) |
+| Electrical monitor / direct controls | Existing lower dash switches | (224,14,126) / (224,-14,126) |
+| Bed interaction | Actual mattress surface | (-255,48,183), query extent (90,48,3) |
+
+The former generic Storage counter in this map becomes the real Bed-end cabinet container; prior Gate3 maps retain their original six station roles. Names, UI roles, filters and physical query surfaces agree. Targets use invisible surface queries in normal play; optional development debug display remains. No protruding marker cubes were visible in the final spatial pass.
+
+| Individual light interior storage | Capacity | Allowed role |
+|---|---|---|
+| Pantry, kitchen overhead (15,62,269) | 8 kg / 18 L | Food/water |
+| Dinette overhead - dry food (25,-62,273) | 6 kg / 14 L | Food/water |
+| Kitchen overhead - small tools (-40,62,273) | 5 kg / 10 L | Tools |
+| Rear overhead - medical backup (-290,62,274) | 4 kg / 10 L | Medical |
+| Personal supplies, bathroom upper cabinet | 6 kg / 12 L | Light food/water/medical/tools |
+| Medical storage, upper wardrobe | 4 kg / 8 L | Medical |
+| Bed-end cabinet, lower wardrobe | 10 kg / 20 L | Light food/water/medical/tools |
+| Water supplies, sink cabinet | 12 kg / 20 L | Water |
+
+These are independent reusable URVContainerComponents, individually configurable. Heavy automotive parts, fuel/material tags and physically carried bulky objects are excluded from interior storage. Exterior parts Art_RV_Van_Compartment_01 through _07 retain Tools/repair, Fluids/spares, Spare parts, Camping, General cargo, Bulky gear and Service/electrical supplies respectively. All seven were approached on foot, opened with normal E, visually matched to their own door and closed with I in the final live walk-around. They retain static compartment art; opening animations remain future work.
+
+### Root causes and fixes
+
+**V floor fall:** The real V path transfers possession back to ACharacter. ACharacter::Restart re-enabled MOVE_Walking after the seat had disabled capsule collision. The seat pointer was unchanged, so its RepNotify did not reapply the movement lock. Earlier tests checked occupancy/attachment rather than sustained movement mode after possession, missing this path. Survivor Restart now reapplies seated state after Super; seat transfer also reapplies it after possession/attachment. Destination floor/support, finite transform, named cushion and upper-body clearance are validated before releasing the current seat. Failed placement keeps the source seat and displays feedback. No arbitrary Z offset is used. Normal E seat entry has explicit obstruction/unsupported-destination feedback too.
+
+**Duplicate door/glass:** GeneratedParts was transient, but saved construction mesh components survived into PIE. Looking up the original vendor leaf only through that empty tracking array failed, leaving it visible alongside the live door. BeginPlay now hides all matching owned original door/glass components, and construction removes tagged/configured generated remnants. FindVisualPart reacquires an exact registered component by name, with narrowly scoped generated numeric-suffix fallback; all 54 parts resolve uniquely. One ARVInteractiveDoor owns the visible purchased leaf/glass, replicated hinge state and matching query collision. Collision remains active; unsafe swings reject. Vendor assets are untouched.
+
+**Bed failure:** The old tiny target was below/beside the mattress; furniture proxies were on the wrong side of the purchased interior. Revised placement was genuinely blocked by the Bathroom proxy, as overlap diagnostics confirmed. Correct furniture-side collision and a broad invisible mattress query now expose the real E interaction. URVRestPoseComponent places the horizontal prototype body at (-245,48,195), yaw180, with a configurable head camera (80,0,25). It validates actual named Bed support/body clearance. R/E restores collision, native movement and a supported aisle; preferred wake (-115,0,185) then living-area fallback. The visible horizontal body, bed-view HUD, Z Sleeping, hardware R/E stand-up and subsequent walk to/through the side door were verified live, not inferred from a component flag. Beds remain parked-only with auto-wake.
+
+**Rear seating and wardrobe:** Two usable dinette end cushions use the existing authoritative reusable seats. Front (105,-82,138), yaw180; rear (-55,-82,138), yaw0. The first wardrobe proxy and rear position (-70,-82,138) still blocked normal E: exact blocker BedEndWardrobe. Read-only LOD0 vertex measurement placed its side at x approximately -83.3 and handles at y approximately -58.3. Final wardrobe box centre (-118.5,-89,199), extent (35.5,31,101), retains the wall; the rear seat moves forward within the cushion between that wall and the table edge. No collision bypass. Both prototype seated bodies were visually inspected on the real cushions. Each seat has named support, validated standing aisle, occupancy rejection, replication and disconnect cleanup.
+
+**Ladder:** ARVLadder / URVLadderClimbComponent use supported CharacterMovement MOVE_Flying, plane constraints, normal W/S input and native networking/prediction. Server reservation, full-capsule rail/ground-exit validation and a temporary propulsion lock protect the parked climb. E enters, W climbs, S descends, E exits at bottom. Previous movement parameters/collision are restored; top exit is rejected. Roof traversal is disabled. Live ascent to the controlled top, descent, normal exit and over 100 cm ordinary world walk-away passed. There is no custom physics solver or final animation requirement.
+
+### Real player controls and visual evidence
+
+Native-window 20 V/1 cycles yielded 454 samples, 39 observed possession changes, seat-local Z 138 cm and zero floor-fall/bad-mode samples (native-v-20.json). Separate-process automated repeats deliver press/release through APlayerController::InputKey and the real Enhanced Input bindings; they do not call seat/rest/door gameplay functions directly. Input.+key is unsuitable for raw toggles because Enhanced Input injects Pressed each forced-input frame; the development-only native-event dispatcher fixes that harness discrepancy without altering shipping gameplay input.
+
+The final live SP pass used E interaction, 3 living area, hardware Z/R/E, both rear seats, normal W walking, all interior stations/containers, side door/exit, ladder W/S/E and seven exterior containers. Read-only mouse-look assistance aligned queries; observer cameras only changed presentation to inspect the lying/seated body, never actor placement or possession. After the initial approach fixture there were no character teleport shortcuts. All targets were inspected against actual purchased art. FinalVisualPass contains the reviewed screenshots, primitive spatial receipt and command/observed-state JSONL. Each container opened its matching name and closed; each ordinary station allowed immediate walking afterward. These stateless counters/container/panel views do not independently lock movement/camera, so no unnecessary six-way use-state implementation was added.
+
+The manual aid initially aimed the side exit at C++ defaults rather than saved instance coordinates. Reading the live saved endpoint corrected the aim: outside (92.4,148,140), inside (92.4,50,150). Normal E then exited after repeated bed use with MOVE_Walking and QueryAndPhysics. This was an aid aiming mistake, not a gameplay exit fix. One brief command-file sharing race was handled with bounded read/write retries and explicit file contexts.
+
+### Fresh final test matrix
+
+All rows below have zero failed checks. Host/client are separate processes; role reversal and emulated rows use approximately 100 ms outgoing latency / 2% packet loss. Counts describe distinct targeted checks, not a claim of exhaustive correctness.
+
+| Suite | Server / client checks | Tested behavior |
+|---|---|---|
+| Native host-driver baseline | 65 / 65 | Normal E, occupied 1/2, 3 aisle, 20 V/1 cycles, moving rejection, recently-stopped switch, highway aisle walking, four E/Z/R-or-E bed cycles |
+| Native client-driver, 100ms/2% | 65 / 65 | Same real control paths with roles reversed |
+| Auxiliary host-driver baseline | 22 / 22 | Both moving benches, standing, turning pantry deposit/return with condition, driver 3, side exit, shared exterior transfer/contention, ladder and world walk-away |
+| Auxiliary client-driver, 100ms/2% | 22 / 22 | Same roles reversed; host climbs while client driving is safely locked |
+| All five stations, baseline and emulated reverse | 25 / 25 each run | Parked/moving E, leave and actual walk-away at Workbench/Medical/Kitchen/Power/Navigation |
+| Door, baseline and emulated reverse | 43 / 43 each run | Four E cycles parked/moving, W blocked when closed, one leaf/glass, matching collision rotation/Pawn block, retained frame, unique 54-part lookup |
+| Bed disconnect, emulated | 6 / 3 | Sleep reservation released; other player needs/pantry intact; drive resumes |
+| Rear-seat contention/disconnect, emulated | 8 / 5 | Occupied rejection, release, others intact |
+| Ladder disconnect, emulated | 6 / 3 | Reservation/propulsion lock released; others intact |
+| Fuel/electrical regression, emulated | 31 / 29 | Accepted resource/panel/refuel/inventory authority preserved |
+| Prior representative regressions | Entry 22; Gate1 23; Gate2 24; inventory 24; needs 27 | Movement/hold/shared interaction, seats/driving/possession, capacity/drop/transfers/contention, needs/consumables/rest including accelerated 24-hour clamps |
+| Exterior / camera | 33 / 17 | Continuous walk-around/front/sides/rear/wells/underside/door/storage; low/road/about60mph/turn/reverse/obstacle camera |
+| Saved editor/maps | 61 | Every Gate1-6 map loaded twice, saved final configuration, support/camera/door/54 parts, clean save/shutdown |
+
+Final native-control runs recorded zero seated-walking and below-floor samples. Measured CorrectionCount and MaxCorrectionCm were zero in both roles in those runs; maximum passenger-local step 4.88 cm baseline / 6.75 cm emulated. Peak driver speed approximately 3627 cm/s (81 mph). These finite flat-road windows do not promise zero corrections under arbitrary terrain or network conditions. Older accepted long moving-route regression evidence remains above; acceptance thresholds were not weakened. Fresh door/remote-bed images also show the visible states from both roles.
+
+### Recovery, build and remaining limits
+
+Stable/WIP checkpoints: 298ee09 recovery; 47b15e7 V/door fix and native input evidence; 3799ab6 explicitly WIP rear-seat foundation; fe1a21e bed/dinette/ladder; 535a2c7 mattress/network controls; 6c793c1 explicitly WIP spatial/native-input checkpoint; e26b05a saved layout/disconnect/stations; 721829d explicitly WIP measured wardrobe blocker; e2ec3c1 fitted wardrobe/rear cushion; 7ff6374 final normal-control/moving-station/door matrix. Final visual/regression and acceptance documentation receives a separate commit. Maps/assets were saved at milestones and after final PIE. Final Development Editor / Win64 build succeeded (up to date, 1.15 s); preceding meaningful compilation is build-art-inspection.log. Complete source/content paths are in Gate6LayoutRework/source-content-manifest.txt.
+
+Caught harness failures were retained: forced-key toggle scheduling, stale owner-only/remote observation expectations, wardrobe obstruction, protected Python property and incorrect collision enum inspection. These were corrected and fresh relevant suites rerun. No Unreal fatal error, World Memory Leak or Python error occurred in the final manual session; clean Stop PIE and normal editor shutdown completed. Resource runners now release before Stop. Manual controls use scoped reacquisition, explicit file close, bounded samples and releasable callback modules; the final cleanup smoke is recorded separately. Leak detection is enabled.
+
+Limitations: replaceable prototype sit/lie/climb presentation, no production animation; V seat-to-seat stopped-only with clear rejection while moving, passenger 3-to-aisle moving supported and driver 3 requires stop; parked-only bed with safe occupied-wake retry/auto-wake; parked ladder controlled endpoint/no roof and externally pushed/tilted vehicle not newly validated; exterior container doors still static art; no new packaged/dedicated-server, rollover, rough-terrain or larger-party certification. Camera physics/tuning are unchanged (arm1400 cm, height340 cm, pitch-12 degrees, probe16 cm, FOV85). No new Gate7 gameplay.
+
+The final tree is intentionally not globally clean: pre-existing Config/DefaultEngine.ini, .vsconfig, Automation_RVSurvival.slnx and RVSurvival.slnx are preserved outside refinement commits. Gate6 changes and evidence are saved/committed. Next recommended task: a human follow-up playtest in Gate6FuelElectricalTest using the documented controls, then await explicit authorization before any Gate7 work.
+### Closure verification - 2026-10-07
+Resume inspection confirmed both saved Gate6 assets match HEAD7ff6374 byte-for-byte and are intact;no Unreal reopening or passed-test repeats were necessary. Build-final.log records Succeeded, and manual-final.log records clean StopPIE/editor shutdown, one released control callback and no Python/fatal/world-leak error. All108 vendor hashes were verified again at closure. The optional cleanup smoke launched before interruption exited via the script executor before its timed callbacks ran;it is not counted as a pass. Revised bounded/module-owned helper source passed Python syntax checks;the actual earlier manual run's clean shutdown is the runtime evidence. Local Git fsmonitor IPC reported an unavailable daemon on resume;read/write Git commands use a per-command core.fsmonitor=false override without changing repository config. Pre-existing four unrelated changes remain excluded.

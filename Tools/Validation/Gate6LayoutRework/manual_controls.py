@@ -5,9 +5,9 @@ Commands perform mouse-look setup or native key holds and export visible PIE sho
 import unreal,json,time
 from pathlib import Path
 B=Path('D:/GitHub/RVSurvival/RVSurvival/Saved/Gate6LayoutRework')
-last=0;held=None;nexttick=0
+last=0;held=None;nexttick=0;observer_name=None
 def tick(dt):
- global last,held,nexttick
+ global last,held,nexttick,observer_name
  if time.time()<nexttick:return
  nexttick=time.time()+.05
  try:
@@ -16,7 +16,8 @@ def tick(dt):
   if not p:return
   v=unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVSystemsMotorhome)[0]
   if held and time.time()>held[1]:unreal.RVInteriorMotorhome.dispatch_development_key(pc,held[0],False);held=None
-  try:r=json.load(open(B/'manual-command.json'))
+  try:
+   with open(B/'manual-command.json') as command_file:r=json.load(command_file)
   except (OSError,ValueError):r={}
   if r.get('id',0)>last:
    last=r['id'];op=r.get('op')
@@ -37,20 +38,36 @@ def tick(dt):
    elif op=='hold':
     if held:unreal.RVInteriorMotorhome.dispatch_development_key(pc,held[0],False)
     unreal.RVInteriorMotorhome.dispatch_development_key(pc,r['key'],True);held=(r['key'],time.time()+r['seconds'])
+   elif op in ['observer','restore']:
+    # Only the name survives this tick; reacquire and destroy before changing worlds.
+    if observer_name:
+     old=next((a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.CameraActor) if a.get_name()==observer_name),None)
+     pc.set_view_target_with_blend(p,0)
+     if old:old.destroy_actor()
+     observer_name=None
+    if op=='observer':
+     q=v.get_actor_transform().inverse_transform_location(p.get_actor_location())
+     position=v.get_actor_transform().transform_location(q+unreal.Vector(60,70,85))
+     rotation=unreal.MathLibrary.find_look_at_rotation(position,p.get_actor_location()+unreal.Vector(0,0,25))
+     camera=unreal.RVInteriorMotorhome.create_development_observer_camera(w,position,rotation)
+     observer_name=camera.get_name();pc.set_view_target_with_blend(camera,0)
    elif op=='photo':unreal.SystemLibrary.execute_console_command(pc,'shot filename='+str(B/r['name']).replace('\\','/')+' -nosuffix'+(' showui' if r.get('ui') else ''),pc)
   q=v.get_actor_transform().inverse_transform_location(p.get_actor_location())
-  row={'time':time.time(),'local':[q.x,q.y,q.z],'look':str(pc.get_control_rotation()),'pawn':p.get_name()}
+  row={'time':time.time(),'command_id':last,'local':[q.x,q.y,q.z],'look':str(pc.get_control_rotation()),'pawn':p.get_name()}
   if isinstance(p,unreal.RVSurvivorCharacter):
    row['prompt']=str(p.get_component_by_class(unreal.RVInteractionComponent).get_prompt())
    row['movement']=str(p.get_component_by_class(unreal.CharacterMovementComponent).get_editor_property('MovementMode'))
    row['capsule']=str(p.get_component_by_class(unreal.CapsuleComponent).get_collision_enabled())
+   row['seated_vehicle']=str(p.get_editor_property('SeatedVehicle'))
+   row['seat_feedback']=pc.get_editor_property('SeatFeedback')
    row['rest']=str(pc.player_state.get_component_by_class(unreal.RVNeedsComponent).get_editor_property('State').rest_mode)
    row['pose']=str(p.get_component_by_class(unreal.RVRestPoseComponent).get_editor_property('RestPoint'))
    inventory=p.get_component_by_class(unreal.RVInventoryComponent)
    row['inventory_feedback']=inventory.get_editor_property('Feedback')
    opened=inventory.get_editor_property('OpenContainer')
    row['container']=str(opened.get_editor_property('DisplayName')) if opened else None
-  json.dump(row,open(B/'manual-current.json','w'),indent=2)
+  with open(B/'manual-current.json','w') as snapshot:
+   json.dump(row,snapshot,indent=2)
  except (StopIteration,IndexError):return
  except Exception as e:unreal.log_error('MANUAL_CONTROL '+repr(e));unreal.unregister_slate_post_tick_callback(h)
 h=unreal.register_slate_post_tick_callback(tick)

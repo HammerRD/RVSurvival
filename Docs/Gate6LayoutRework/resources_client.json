@@ -1,5 +1,5 @@
 {
-  "pid": 41276,
+  "pid": 44548,
   "authority": false,
   "config": {
     "network": true,
@@ -14,7 +14,7 @@
     {
       "case": "one_winner_pickup_contention",
       "pass": true,
-      "detail": "[(\"<Struct 'Guid' (0x0000019C5B9BD6DC) {}>\", 20.0)]"
+      "detail": "[(\"<Struct 'Guid' (0x000002CE4B3888FC) {}>\", 20.0)]"
     },
     {
       "case": "full_can_state_replicated",

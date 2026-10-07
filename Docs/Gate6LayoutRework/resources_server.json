@@ -1,5 +1,5 @@
 {
-  "pid": 53132,
+  "pid": 36784,
   "authority": true,
   "config": {
     "network": true,
@@ -9,7 +9,7 @@
     {
       "case": "one_winner_pickup_contention",
       "pass": true,
-      "detail": "[(\"<Struct 'Guid' (0x000002267006E00C) {}>\", 20.0)]"
+      "detail": "[(\"<Struct 'Guid' (0x00000231DB20D6DC) {}>\", 20.0)]"
     },
     {
       "case": "full_can_state_replicated",

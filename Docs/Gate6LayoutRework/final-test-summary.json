@@ -1,0 +1,194 @@
+[
+  {
+    "role": "server",
+    "suite": "native_host_baseline",
+    "receipt": "Docs/Gate6LayoutRework/native_host_baseline_server.json",
+    "failures": 0,
+    "pid": 32008,
+    "checks": 65
+  },
+  {
+    "role": "client",
+    "suite": "native_host_baseline",
+    "receipt": "Docs/Gate6LayoutRework/native_host_baseline_client.json",
+    "failures": 0,
+    "pid": 51164,
+    "checks": 65
+  },
+  {
+    "role": "server",
+    "suite": "native_client_100ms_2loss",
+    "receipt": "Docs/Gate6LayoutRework/native_client_100ms_2loss_server.json",
+    "failures": 0,
+    "pid": 45880,
+    "checks": 65
+  },
+  {
+    "role": "client",
+    "suite": "native_client_100ms_2loss",
+    "receipt": "Docs/Gate6LayoutRework/native_client_100ms_2loss_client.json",
+    "failures": 0,
+    "pid": 9572,
+    "checks": 65
+  },
+  {
+    "role": "server",
+    "suite": "aux_host_baseline",
+    "receipt": "Docs/Gate6LayoutRework/aux_host_baseline_server.json",
+    "failures": 0,
+    "pid": 41668,
+    "checks": 22
+  },
+  {
+    "role": "client",
+    "suite": "aux_host_baseline",
+    "receipt": "Docs/Gate6LayoutRework/aux_host_baseline_client.json",
+    "failures": 0,
+    "pid": 2216,
+    "checks": 22
+  },
+  {
+    "role": "server",
+    "suite": "aux_client_100ms_2loss",
+    "receipt": "Docs/Gate6LayoutRework/aux_client_100ms_2loss_server.json",
+    "failures": 0,
+    "pid": 34048,
+    "checks": 22
+  },
+  {
+    "role": "client",
+    "suite": "aux_client_100ms_2loss",
+    "receipt": "Docs/Gate6LayoutRework/aux_client_100ms_2loss_client.json",
+    "failures": 0,
+    "pid": 16796,
+    "checks": 22
+  },
+  {
+    "role": "server",
+    "suite": "stations_host_baseline",
+    "receipt": "Docs/Gate6LayoutRework/stations_host_baseline_server.json",
+    "failures": 0,
+    "pid": 46000,
+    "checks": 25
+  },
+  {
+    "role": "client",
+    "suite": "stations_host_baseline",
+    "receipt": "Docs/Gate6LayoutRework/stations_host_baseline_client.json",
+    "failures": 0,
+    "pid": 39356,
+    "checks": 25
+  },
+  {
+    "role": "server",
+    "suite": "stations_client_100ms_2loss",
+    "receipt": "Docs/Gate6LayoutRework/stations_client_100ms_2loss_server.json",
+    "failures": 0,
+    "pid": 49572,
+    "checks": 25
+  },
+  {
+    "role": "client",
+    "suite": "stations_client_100ms_2loss",
+    "receipt": "Docs/Gate6LayoutRework/stations_client_100ms_2loss_client.json",
+    "failures": 0,
+    "pid": 29160,
+    "checks": 25
+  },
+  {
+    "role": "server",
+    "suite": "doors_host_baseline",
+    "receipt": "Docs/Gate6LayoutRework/doors_host_baseline_server.json",
+    "failures": 0,
+    "pid": 51212,
+    "checks": 43
+  },
+  {
+    "role": "client",
+    "suite": "doors_host_baseline",
+    "receipt": "Docs/Gate6LayoutRework/doors_host_baseline_client.json",
+    "failures": 0,
+    "pid": 38320,
+    "checks": 43
+  },
+  {
+    "role": "server",
+    "suite": "doors_client_100ms_2loss",
+    "receipt": "Docs/Gate6LayoutRework/doors_client_100ms_2loss_server.json",
+    "failures": 0,
+    "pid": 42632,
+    "checks": 43
+  },
+  {
+    "role": "client",
+    "suite": "doors_client_100ms_2loss",
+    "receipt": "Docs/Gate6LayoutRework/doors_client_100ms_2loss_client.json",
+    "failures": 0,
+    "pid": 34144,
+    "checks": 43
+  },
+  {
+    "role": "server",
+    "suite": "disconnect_Bed_100ms_2loss",
+    "receipt": "Docs/Gate6LayoutRework/disconnect_Bed_100ms_2loss_server.json",
+    "failures": 0,
+    "pid": 3588,
+    "checks": 6
+  },
+  {
+    "role": "client",
+    "suite": "disconnect_Bed_100ms_2loss",
+    "receipt": "Docs/Gate6LayoutRework/disconnect_Bed_100ms_2loss_client.json",
+    "failures": 0,
+    "pid": 25536,
+    "checks": 3
+  },
+  {
+    "role": "server",
+    "suite": "disconnect_RearSeat_100ms_2loss",
+    "receipt": "Docs/Gate6LayoutRework/disconnect_RearSeat_100ms_2loss_server.json",
+    "failures": 0,
+    "pid": 6360,
+    "checks": 8
+  },
+  {
+    "role": "client",
+    "suite": "disconnect_RearSeat_100ms_2loss",
+    "receipt": "Docs/Gate6LayoutRework/disconnect_RearSeat_100ms_2loss_client.json",
+    "failures": 0,
+    "pid": 53128,
+    "checks": 5
+  },
+  {
+    "role": "server",
+    "suite": "disconnect_Ladder_100ms_2loss",
+    "receipt": "Docs/Gate6LayoutRework/disconnect_Ladder_100ms_2loss_server.json",
+    "failures": 0,
+    "pid": 39068,
+    "checks": 6
+  },
+  {
+    "role": "client",
+    "suite": "disconnect_Ladder_100ms_2loss",
+    "receipt": "Docs/Gate6LayoutRework/disconnect_Ladder_100ms_2loss_client.json",
+    "failures": 0,
+    "pid": 51404,
+    "checks": 3
+  },
+  {
+    "role": "server",
+    "suite": "resources",
+    "receipt": "Docs/Gate6LayoutRework/resources_server.json",
+    "failures": 0,
+    "pid": 36784,
+    "checks": 31
+  },
+  {
+    "role": "client",
+    "suite": "resources",
+    "receipt": "Docs/Gate6LayoutRework/resources_client.json",
+    "failures": 0,
+    "pid": 44548,
+    "checks": 29
+  }
+]

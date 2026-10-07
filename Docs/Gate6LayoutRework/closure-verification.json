@@ -1,0 +1,29 @@
+{
+  "gate6": "ACCEPTED",
+  "unrelated_changes": [
+    "Config/DefaultEngine.ini",
+    ".vsconfig",
+    "Automation_RVSurvival.slnx",
+    "RVSurvival.slnx"
+  ],
+  "assets": [
+    {
+      "sha256": "8EB21ABB2A2F92FC7EEBD003475D094B2BEEDA8A74F7BE9E393EB40579AE511D",
+      "path": "Content/Maps/Gate6FuelElectricalTest.umap",
+      "bytes": 156689
+    },
+    {
+      "sha256": "549FC5C0813176C513CB79A264909BF185CB8FD4C5DF7EEA11EB4546159DEC20",
+      "path": "Content/Vehicles/Gate6/BP_ClassCSystemsMotorhome.uasset",
+      "bytes": 78387
+    }
+  ],
+  "closed_on": "2026-10-07",
+  "gate7_started": false,
+  "manual_shutdown": "clean",
+  "build": "Succeeded - Development Editor Win64",
+  "optional_cleanup_smoke": "Executor exited before callbacks; not counted as pass",
+  "unreal_reopened_on_resume": false,
+  "vendor_count": 108,
+  "vendor_changed": 0
+}

@@ -3,97 +3,97 @@
     {
       "case": "front_center",
       "pass": true,
-      "detail": "{'position': [441.51173544743006, 0.0004061071843925303, 69.56226513300194], 'capsule_radius': 34.0}"
+      "detail": "{'position': [441.51821657832113, 0.00017672902770765676, 69.43971418684832], 'capsule_radius': 34.0}"
     },
     {
       "case": "front_left",
       "pass": true,
-      "detail": "{'position': [441.5117359791027, -74.99959388008017, 69.56128852385257], 'capsule_radius': 34.0}"
+      "detail": "{'position': [441.518216843266, -74.9998232684561, 69.43927928887832], 'capsule_radius': 34.0}"
     },
     {
       "case": "front_right",
       "pass": true,
-      "detail": "{'position': [441.5119639285377, 75.00040609444069, 69.56323962488858], 'capsule_radius': 34.0}"
+      "detail": "{'position': [441.51822221818065, 75.00017672651258, 69.44014902826581], 'capsule_radius': 34.0}"
     },
     {
       "case": "front_center_jump",
       "pass": true,
-      "detail": "{'position': [441.49618931891536, 0.00041208294456177345, 69.56240896047946], 'capsule_radius': 34.0}"
+      "detail": "{'position': [441.5029227781361, 0.0001766905886518573, 69.4398649549789], 'capsule_radius': 34.0}"
     },
     {
       "case": "cab_right",
       "pass": true,
-      "detail": "{'position': [309.72989990747453, 140.10098986075846, 70.78244064090809], 'capsule_radius': 34.0}"
+      "detail": "{'position': [309.71942479911564, 140.10059712626853, 70.70280920568543], 'capsule_radius': 34.0}"
     },
     {
       "case": "cab_left",
       "pass": true,
-      "detail": "{'position': [309.7298273586232, -140.10029016414552, 70.77878012401574], 'capsule_radius': 34.0}"
+      "detail": "{'position': [309.71938349353195, -140.10019505049786, 70.70119179258533], 'capsule_radius': 34.0}"
     },
     {
       "case": "front_wheel_right",
       "pass": true,
-      "detail": "{'position': [295.73109641330893, 140.10099035741308, 70.91186015892016], 'capsule_radius': 34.0}"
+      "detail": "{'position': [295.7207088643022, 140.10059513016992, 70.8368820363252], 'capsule_radius': 34.0}"
     },
     {
       "case": "front_wheel_left",
       "pass": true,
-      "detail": "{'position': [295.7310239349932, -140.10027870756227, 70.90820727123923], 'capsule_radius': 34.0}"
+      "detail": "{'position': [295.72066755872874, -140.1005970776172, 70.83526462091092], 'capsule_radius': 34.0}"
     },
     {
       "case": "front_corner_right",
       "pass": true,
-      "detail": "{'position': [-258.32232758904047, 161.00910452117586, 76.03434854464051], 'capsule_radius': 34.0}"
+      "detail": "{'position': [-170.1786816842561, 161.00816908334943, 75.29906167391438], 'capsule_radius': 34.0}"
     },
     {
       "case": "front_corner_left",
       "pass": true,
-      "detail": "{'position': [-570.8241433274496, -111.58512802912706, 78.92003690344511], 'capsule_radius': 34.0}"
+      "detail": "{'position': [-570.1367927112645, -111.58032588030989, 79.12807144005], 'capsule_radius': 34.0}"
     },
     {
       "case": "side_right_middle",
       "pass": true,
-      "detail": "{'position': [-25.24146927928797, 161.10108538546766, 73.87958230086241], 'capsule_radius': 34.0}"
+      "detail": "{'position': [-25.249850560006813, 161.10069270640287, 73.9110584056123], 'capsule_radius': 34.0}"
     },
     {
       "case": "side_left_middle",
       "pass": true,
-      "detail": "{'position': [-25.24154171433316, -161.09999611282964, 73.87538424561416], 'capsule_radius': 34.0}"
+      "detail": "{'position': [-25.249890786311994, -161.10007738200486, 73.90919968702624], 'capsule_radius': 34.0}"
     },
     {
       "case": "rear_wheel_right",
       "pass": true,
-      "detail": "{'position': [-115.2337773351407, 161.1010854710285, 74.71157799501678], 'capsule_radius': 34.0}"
+      "detail": "{'position': [-115.2415959804825, 161.10069512053448, 74.77294209573684], 'capsule_radius': 34.0}"
     },
     {
       "case": "rear_wheel_left",
       "pass": true,
-      "detail": "{'position': [-115.23384977018584, -161.10000796580465, 74.70737993961279], 'capsule_radius': 34.0}"
+      "detail": "{'position': [-115.24163620678604, -161.10007983118226, 74.77108337712264], 'capsule_radius': 34.0}"
     },
     {
       "case": "rear_right",
       "pass": true,
-      "detail": "{'position': [-315.21668417294165, 161.1010876057297, 76.56045222933946], 'capsule_radius': 34.0}"
+      "detail": "{'position': [-315.22325242171706, 161.10069417657192, 76.68824427089582], 'capsule_radius': 34.0}"
     },
     {
       "case": "rear_left",
       "pass": true,
-      "detail": "{'position': [-315.2167566570325, -161.10003233889296, 76.55624886900334], 'capsule_radius': 34.0}"
+      "detail": "{'position': [-315.2232927901521, -161.10009218789813, 76.68637071133983], 'capsule_radius': 34.0}"
     },
     {
       "case": "rear_center",
       "pass": true,
-      "detail": "{'position': [-398.59737191467997, 0.00029685748209737817, 77.23845890621195], 'capsule_radius': 34.0}"
+      "detail": "{'position': [-398.61521851819356, 0.0001308549341618487, 77.38243890725448], 'capsule_radius': 34.0}"
     },
     {
       "case": "rear_corner_right",
       "pass": true,
-      "detail": "{'position': [-398.51862706444217, -45.92627975493406, 77.16893697494412], 'capsule_radius': 34.0}"
+      "detail": "{'position': [-398.5363049905421, -46.41509684691574, 77.31046292520391], 'capsule_radius': 34.0}"
     },
     {
       "case": "rear_corner_left",
       "pass": true,
-      "detail": "{'position': [-398.51859566224323, 46.41956950524695, 77.16869074825614], 'capsule_radius': 34.0}"
+      "detail": "{'position': [-398.53630861228424, 46.41122953942084, 77.3110155225495], 'capsule_radius': 34.0}"
     },
     {
       "case": "structural_bumper",
@@ -163,7 +163,7 @@
     {
       "case": "complete_continuous_walkaround",
       "pass": true,
-      "detail": "{'waypoints_completed': 5, 'position': [464.5142297485995, 16.7716241413403, 69.34982315828218]}"
+      "detail": "{'waypoints_completed': 5, 'position': [464.599796702668, 16.602164125522666, 69.21875010093213]}"
     }
   ],
   "structural_traces": [

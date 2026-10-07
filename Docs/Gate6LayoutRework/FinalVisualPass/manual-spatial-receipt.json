@@ -1,0 +1,250 @@
+{
+  "visual_audit_required": true,
+  "exterior": [
+    {
+      "name": "01 Tools / repair supplies",
+      "part": "Art_RV_Van_Compartment_01",
+      "local": [
+        91.486,
+        -130.0,
+        61.88149557495119
+      ]
+    },
+    {
+      "name": "02 Fluids / spare supplies",
+      "part": "Art_RV_Van_Compartment_02",
+      "local": [
+        -20.648,
+        -129.99999999999997,
+        61.82058642578124
+      ]
+    },
+    {
+      "name": "03 Spare parts",
+      "part": "Art_RV_Van_Compartment_03",
+      "local": [
+        -228.07800762939453,
+        -130.0,
+        67.26076968383789
+      ]
+    },
+    {
+      "name": "04 Camping equipment",
+      "part": "Art_RV_Van_Compartment_04",
+      "local": [
+        -314.0570152587891,
+        -130.0,
+        75.65960876464842
+      ]
+    },
+    {
+      "name": "05 General cargo",
+      "part": "Art_RV_Van_Compartment_05",
+      "local": [
+        -7.355,
+        129.99999999999997,
+        70.18404502868653
+      ]
+    },
+    {
+      "name": "06 Bulky gear",
+      "part": "Art_RV_Van_Compartment_06",
+      "local": [
+        -225.72600762939453,
+        130.0,
+        70.18449681091307
+      ]
+    },
+    {
+      "name": "07 Service / electrical supplies",
+      "part": "Art_RV_Van_Compartment_07",
+      "local": [
+        -319.25649206542965,
+        130.0,
+        103.48899999999999
+      ]
+    }
+  ],
+  "access": [
+    {
+      "enter": true,
+      "local": [
+        92.39999999999999,
+        148.0,
+        139.99999999999997
+      ]
+    },
+    {
+      "enter": false,
+      "local": [
+        92.39999999999999,
+        50.0,
+        150.0
+      ]
+    }
+  ],
+  "part_lookup": {
+    "count": 54,
+    "found": 54,
+    "unique": 54
+  },
+  "stations": [
+    {
+      "name": "Workbench",
+      "local": [
+        -17.999999999999996,
+        -30.0,
+        154.0
+      ],
+      "completed": 1
+    },
+    {
+      "name": "Medical",
+      "local": [
+        -185.0,
+        -64.99999999999999,
+        196.0
+      ],
+      "completed": 1
+    },
+    {
+      "name": "Kitchen",
+      "local": [
+        -40.00000000000001,
+        60.0,
+        179.0
+      ],
+      "completed": 1
+    },
+    {
+      "name": "Power",
+      "local": [
+        224.0,
+        14.0,
+        125.99999999999999
+      ],
+      "completed": 1
+    },
+    {
+      "name": "Navigation",
+      "local": [
+        224.00000000000003,
+        -2.5343225781848666e-18,
+        141.0
+      ],
+      "completed": 1
+    }
+  ],
+  "storage": [
+    {
+      "name": "External storage",
+      "local": [
+        599.4783434629436,
+        -350.16316545164455,
+        78.52705733930519
+      ],
+      "kg": 100.0,
+      "litres": 120.0
+    },
+    {
+      "name": "Pantry",
+      "local": [
+        15.000000000000002,
+        61.99999999999999,
+        269.00000000000006
+      ],
+      "kg": 8.0,
+      "litres": 18.0
+    },
+    {
+      "name": "Personal supplies",
+      "local": [
+        -185.0,
+        -65.00000000000001,
+        262.0
+      ],
+      "kg": 6.0,
+      "litres": 12.0
+    },
+    {
+      "name": "Medical storage",
+      "local": [
+        -110.0,
+        -56.99999999999999,
+        255.99999999999994
+      ],
+      "kg": 4.0,
+      "litres": 8.0
+    },
+    {
+      "name": "Water supplies",
+      "local": [
+        45.0,
+        60.0,
+        175.99999999999997
+      ],
+      "kg": 12.0,
+      "litres": 20.0
+    },
+    {
+      "name": "Dinette overhead - dry food",
+      "local": [
+        25.0,
+        -62.0,
+        273.0
+      ],
+      "kg": 6.0,
+      "litres": 14.0
+    },
+    {
+      "name": "Rear overhead - medical backup",
+      "local": [
+        -290.0,
+        61.99999999999999,
+        274.00000000000006
+      ],
+      "kg": 4.0,
+      "litres": 10.0
+    },
+    {
+      "name": "Kitchen overhead - small tools",
+      "local": [
+        -40.00000000000001,
+        62.00000000000001,
+        273.0
+      ],
+      "kg": 5.0,
+      "litres": 10.0
+    },
+    {
+      "name": "Bed-end cabinet",
+      "local": [
+        -109.99999999999999,
+        -57.00000000000001,
+        190.0
+      ],
+      "kg": 10.0,
+      "litres": 20.0
+    }
+  ],
+  "original_door_parts": [
+    {
+      "name": "Art_RV_Glass_Door_Back",
+      "visible": false,
+      "hidden": true
+    },
+    {
+      "name": "Art_RV_Van_Door_Back",
+      "visible": false,
+      "hidden": true
+    }
+  ],
+  "house_door_open": true,
+  "player": [
+    94.33134588020026,
+    -252.1943445482816,
+    71.25540346821882
+  ],
+  "mode": "<MovementMode.MOVE_WALKING: 1>",
+  "capsule": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>"
+}
