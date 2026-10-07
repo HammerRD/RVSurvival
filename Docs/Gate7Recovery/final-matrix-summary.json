@@ -1,0 +1,82 @@
+[
+  {
+    "moving": [
+      {
+        "case": "moving_interior_walking_after_recovery",
+        "pass": true,
+        "detail": "{'local': \"<Struct 'Vector' (0x00000181419E0B00) {x: 65.457558, y: 0.000438, z: 177.408579}>\", 'start': \"<Struct 'Vector' (0x00000181419E1410) {x: 129.984231, y: 0.000178, z: 177.188584}>\", 'corrections': 0, 'max_cm': 0.0}"
+      },
+      {
+        "case": "moving_interior_turn_after_recovery",
+        "pass": true,
+        "detail": "{'local': \"<Struct 'Vector' (0x00000181419E0B00) {x: 65.429361, y: 0.572877, z: 177.406912}>\", 'corrections': 0, 'max_cm': 0.0}"
+      }
+    ],
+    "driver": "host",
+    "module": "D660263C23367C3F4933A5D0C0548C1432334A9138E23FB44AA046C15886473B",
+    "role": "server",
+    "pid": 5636,
+    "checks": 47,
+    "failures": 0
+  },
+  {
+    "moving": [
+      {
+        "case": "moving_interior_walking_after_recovery",
+        "pass": true,
+        "detail": "{'local': \"<Struct 'Vector' (0x0000024DF5222BD0) {x: 65.561702, y: 0.001161, z: 177.382084}>\", 'start': \"<Struct 'Vector' (0x0000024DF52204C0) {x: 129.984191, y: 0.000222, z: 177.188577}>\", 'corrections': 0, 'max_cm': 0.0}"
+      },
+      {
+        "case": "moving_interior_turn_after_recovery",
+        "pass": true,
+        "detail": "{'local': \"<Struct 'Vector' (0x0000024DF5222BD0) {x: 65.427698, y: 0.601941, z: 177.380921}>\", 'corrections': 0, 'max_cm': 0.0}"
+      }
+    ],
+    "driver": "client",
+    "module": "D660263C23367C3F4933A5D0C0548C1432334A9138E23FB44AA046C15886473B",
+    "role": "server",
+    "pid": 49676,
+    "checks": 47,
+    "failures": 0
+  },
+  {
+    "moving": [
+      {
+        "case": "moving_interior_walking_after_recovery",
+        "pass": true,
+        "detail": "{'local': \"<Struct 'Vector' (0x00000285898729A0) {x: 65.435004, y: 0.000178, z: 177.188659}>\", 'start': \"<Struct 'Vector' (0x0000028589873B20) {x: 129.984231, y: 0.000178, z: 177.188584}>\", 'corrections': 0, 'max_cm': 0.0}"
+      },
+      {
+        "case": "moving_interior_turn_after_recovery",
+        "pass": true,
+        "detail": "{'local': \"<Struct 'Vector' (0x0000028589907D00) {x: 65.434902, y: 0.000178, z: 177.188659}>\", 'corrections': 0, 'max_cm': 0.0}"
+      }
+    ],
+    "driver": "host",
+    "module": "D660263C23367C3F4933A5D0C0548C1432334A9138E23FB44AA046C15886473B",
+    "role": "client",
+    "pid": 40320,
+    "checks": 45,
+    "failures": 0
+  },
+  {
+    "moving": [
+      {
+        "case": "moving_interior_walking_after_recovery",
+        "pass": true,
+        "detail": "{'local': \"<Struct 'Vector' (0x0000027963567BC0) {x: 65.441277, y: -0.000000, z: 177.380031}>\", 'start': \"<Struct 'Vector' (0x00000279634D2950) {x: 129.980000, y: 0.000000, z: 177.190000}>\", 'corrections': 0, 'max_cm': 0.0}"
+      },
+      {
+        "case": "moving_interior_turn_after_recovery",
+        "pass": true,
+        "detail": "{'local': \"<Struct 'Vector' (0x00000279634D38A0) {x: 65.432195, y: 0.643000, z: 177.380000}>\", 'corrections': 0, 'max_cm': 0.0}"
+      }
+    ],
+    "driver": "client",
+    "module": "D660263C23367C3F4933A5D0C0548C1432334A9138E23FB44AA046C15886473B",
+    "role": "client",
+    "pid": 39732,
+    "checks": 45,
+    "failures": 0
+  }
+]

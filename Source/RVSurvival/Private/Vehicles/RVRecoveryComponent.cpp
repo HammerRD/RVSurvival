@@ -89,6 +89,7 @@ bool URVRecoveryComponent::RecoverAuthority(ARVPlayerController* PC,FString& Fee
  };
  for(auto* C:Seated)Params.AddIgnoredActor(C);for(auto* C:Evacuate)Params.AddIgnoredActor(C);
  const FQuat Upright=FRotator(0,RV->GetActorRotation().Yaw,0).Quaternion();
+ const FBox OldBodyBounds=RV->GetComponentsBoundingBox();
  FVector Chosen=FVector::ZeroVector;TArray<FVector> SafePassengers;bool Found=false;
  const FVector Offsets[]={FVector::ZeroVector,FVector(150,0,0),FVector(-150,0,0),FVector(0,150,0),FVector(0,-150,0),FVector(300,0,0),FVector(-300,0,0),FVector(0,300,0),FVector(0,-300,0)};
  for(const auto& Offset:Offsets)
@@ -107,13 +108,18 @@ bool URVRecoveryComponent::RecoverAuthority(ARVPlayerController* PC,FString& Fee
   SafePassengers.Reset();
   for(auto* C:Evacuate)
   {
-   bool Safe=false;const float Radius=FMath::Max(C->GetCapsuleComponent()->GetScaledCapsuleRadius(),C->FindComponentByClass<URVPassengerReferenceFrameComponent>()->GetOutsideCapsuleRadius());
+   bool Safe=false;const auto* Capsule=C->GetCapsuleComponent();
+   const float OutsideRadius=C->FindComponentByClass<URVPassengerReferenceFrameComponent>()->GetOutsideCapsuleRadius()*Capsule->GetScaledCapsuleRadius()/Capsule->GetUnscaledCapsuleRadius();
+   const float Radius=FMath::Max(Capsule->GetScaledCapsuleRadius(),OutsideRadius);
    const float Half=C->GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
    for(int32 i=0;i<16;++i)
    {
     const float Angle=i*PI/8;FVector P=Target+FVector(FMath::Cos(Angle)*650,FMath::Sin(Angle)*650,0);FHitResult Hit;
     if(!GetWorld()->LineTraceSingleByChannel(Hit,P+FVector(0,0,400),P-FVector(0,0,800),ECC_Visibility,Params) || !SupportedGround(Hit))continue;
     P=Hit.ImpactPoint+FVector(0,0,Half+3);
+    // The passenger RPC can precede vehicle physics replication. Keep egress
+    // clear of both poses so the old client chassis cannot depenetrate them.
+    if(OldBodyBounds.IsValid && OldBodyBounds.ExpandBy(FVector(Radius,Radius,Half)).IsInside(P))continue;
     if(GetWorld()->OverlapAnyTestByObjectType(P,FQuat::Identity,FCollisionObjectQueryParams::AllObjects,FCollisionShape::MakeCapsule(Radius,Half),Params))continue;
     if(FBox(PlacementCenter-PlacementExtent,PlacementCenter+PlacementExtent).ExpandBy(FVector(Radius,Radius,Half)).IsInside(Upright.UnrotateVector(P-Target)))continue;
     if(SafePassengers.ContainsByPredicate([&](const FVector& Other){return FVector::Dist2D(P,Other)<Radius*2+20;}))continue;

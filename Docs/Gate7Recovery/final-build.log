@@ -1,0 +1,10 @@
+Using bundled DotNet SDK version: 10.0 win-x64
+Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" RVSurvivalEditor Win64 Development -Project=D:/GitHub/RVSurvival/RVSurvival/RVSurvival.uproject -WaitMutex -NoHotReloadFromIDE
+Log file: C:\Users\bobgo\AppData\Local\UnrealBuildTool\Log.txt
+Using 'git status' to determine working set for adaptive non-unity build (D:\GitHub\RVSurvival\RVSurvival).
+Target is up to date
+Output binary: D:\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealEditor.exe
+
+Result: Succeeded
+Total execution time: 0.71 seconds
+Trace written to file C:\Users\bobgo\AppData\Local\UnrealBuildTool\Trace.uba with size 1.6kb

@@ -1,4 +1,4 @@
-> **Current resumed pass: ACCEPTED, 2026-10-07.** Preserved mechanical foundation integrated with the user-accepted Gate6 physical-entry/seating/roof baseline; fresh results and limitations are recorded in the closure below. Gate8 was not started.
+> **Current Gate7 pass, including rollover refinement: ACCEPTED, 2026-10-07.** Preserved mechanical foundation integrated with the user-accepted Gate6 physical-entry/seating/roof baseline; fresh results and limitations are recorded in the closure below. Gate8 was not started.
 
 # Gate 7 mechanical failure and repair validation
 
@@ -178,7 +178,7 @@ Local recovery checkpoints: d9dc8b0 user acceptance/read-only audit; dfa4dad sav
 
 Next recommended task: manual Gate7MechanicalTest roadside/service playtest and measured refrigerator-collision follow-up; await explicit Gate8 authorization. Stop after Gate7.
 
-## 2026-10-07 rollover refinement — validation in progress
+## Initial rollover refinement checkpoint — historical progress
 Added a compiled prototype recovery component and remappable F8 / development RVRecover command. Earlier Gate7 acceptance does not yet cover this new refinement. Three near-ground single-player orientations passed 18 checks on the initial clearance policy. Separate-process validation remains pending: first paired run stopped on a test-only unpossessed-pawn PlayerState lookup; needs snapshot now reacquires PlayerState actors. Initial high-drop fixture self-righted and a Python distance API error was corrected. Failed receipts/logs remain under Saved/Gate7Validation/History. No Gate8 work.
 
 
@@ -187,3 +187,47 @@ Recovery progress checkpoint: host/client requests and all three orientations pa
 
 Final-safety checkpoint: final ground filter rejects pawns/attached vehicle geometry as support. Fresh single-player result: 26 checks passed, including blocked/high destination and vehicle-like support rejection; updated prompt visually reviewed. Host-driver impaired separate-process result: 47 server / 45 client checks passed, including held throttle, re-entry, moving-interior walking/turning, normal E/Z bed use, rollover during sleep, forced wake/pose release/collision restoration and walking afterward. Final client-driver sleep repeat, final-source regressions and saved-package closure remain pending. Vendor hashes: 108 checked, 0 changed. No Content diff from c84e89b.
 
+
+## Final rollover refinement — 2026-10-07
+
+Status: **ACCEPTED after the final checks below.** Gate8 was not started.
+
+### Behavior and architecture
+
+`URVRecoveryComponent` is composed by `ARVMechanicalMotorhome`. Server-only native component ticks confirm up-vector Z <0.35 (approximately 70 degrees from upright), speed <=30 cm/s, angular speed <=5 degrees/s for 3 seconds. A confirmed overturn stops engine output. Normal driving, minor leaning and motion do not qualify.
+
+Remappable **Recover RV defaults to F8**, with a readable prototype prompt for seated players or players within 10 m. `RVRecover` is a development console command routed through the same owned-controller Reliable ServerRecoverRV RPC and validation. The free prototype policy is disabled in Shipping/Test code; it is not a final-game free reset. Future equipment/cost restrictions belong at the component boundary. No winch, towing, collision damage or Gate8 systems were implemented.
+
+Placement preflights nine offsets within 3 m, five support traces (normal Z >=0.9; height variation <=45 cm), a 4 m maximum vertical change and a conservative upright body box. Box center (0,0,200), half extents (550,250,210) cm; initial root ground clearance 45 cm. All parameters exposed in the component remain configurable. Pawn/attached vehicle geometry cannot be support ground. Collision checks include nearby players/objects, and passenger capsule destinations are validated before any mutation.
+
+Seated occupants, seat reservations and possession remain intact. Standing interior occupants are evacuated to supported capsule-clear ground; stable bed/rest state is ended before evacuation. Active ladder/roof use, interaction, repair or recent seat transitions reject safely. Egress must clear both the old chassis bounds and the proposed upright body: the character RPC can arrive before vehicle physics replication. World movement policy, capsule collision, movement mode and prediction resume. Old saved moves are discarded while **CurrentTimeStamp is retained**. This is one explicit exceptional recovery placement, not per-tick passenger transform forcing.
+
+Chaos `ResetVehicleState`, upright `TeleportPhysics`, zero linear/angular velocity and native rigid-body replication handle the vehicle. Held throttle/steering release latches survive repeated clearing; a two-second native drive lock permits settling. Recovery keeps the same vehicle and item/container/resource records. Fuel, battery, cooling/engine condition, inventory GUIDs/quantities/condition and numerical needs are never recreated or healed. Engine-idle request is intentionally cleared; ordinary accepted driver auto-engine/idle behavior resumes after settling. Rest mode intentionally becomes Awake when an interior sleeper is evacuated.
+
+### Actual validation
+
+Evidence uses native Enhanced Input E/F8/W/S/D/Space/3/Z events and owned RPC paths, with explicitly identified setup/fault/approach fixtures. It is not a sustained Windows hardware-key manual playtest. Recovery itself is never invoked directly by the harness. The actual gameplay HUD was visually inspected; [overturned prompt](Gate7Recovery/overturned-prompt.png) and [upright result](Gate7Recovery/recovered.png) show the real purchased model.
+
+- Single-player: 26 passing checks. Left/right/roof rollovers settle through Chaos, recover nearby and reject upright repeats. Minor lean, forced motion, obstructed/high placement and a vehicle-like pawn support surface reject. Development command succeeds only when eligible.
+- Separate-process listen server, **100 ms outgoing latency / 2% loss on both processes**, host driving and client driving: **47 server / 45 client checks passed per combination**. Distinct PIDs and final module hashes are recorded in [matrix summary](Gate7Recovery/final-matrix-summary.json) and recovery receipts in Gate7Results.
+- Host and client requests succeed through server authority. Driver/passenger seats and possession survive left/right/roof recovery. Held throttle remains cleared until released. Standing passengers recover safely on a 2-degree/1-degree sloped surface and can walk afterward. Vehicle driving resumes.
+- After recovery, normal E passenger-seat re-entry and 3 living-area transition work; passenger walking and gentle turning remain based correctly while the other player drives. Correction measurements are retained in matrix result details.
+- Normal E/Z bed use enters Sleeping before another rollover. Recovery wakes the sleeper, clears the lying/rest pose, restores QueryAndPhysics collision and Walking, preserves numerical needs/resources/items/mechanics, and permits subsequent walking in both driver combinations.
+- Conservation fixtures use damaged radiator/engine state, partial coolant/fuel/battery values, different player needs, conditioned food stacks and shared exterior cargo. Item GUID/quantity/condition, mechanics and numerical needs compare exactly; five-second fuel/battery flow remains bounded at the separately asserted 0.01 debug electrical scale. Ordinary idle/load consumption continues; conservation does not claim time has stopped.
+- Final-source representative regressions: entry/front collision 22; Gate1 movement/interaction 23; Gate2 native seat lifecycle 30 plus four inventory/possession checks; inventory/pickup/drop/capacity/container cases 24; survival/consumption/rest cases 27. Fresh evidence is in Gate7Recovery/Regressions. Moving interior, turns, mechanical output, seat controls and fuel/electrical state are additionally exercised by the recovery matrices.
+
+### Failures investigated and fixed
+
+The first airborne high-drop fixture self-righted before eligibility, so it was replaced with near-ground physics-settled overturns. A Python distance API call and an unpossessed-driver-pawn PlayerState lookup were corrected in the harness. The unavailable Python deferred-spawn API was replaced with disposable native game-world surface fixtures; the Gameplay Tag library uses Epic's declared ScriptName. Setup/debug rate calls now assert success; resource comparison separately accounts for genuine ongoing idle/electrical flow rather than silently assuming zero time scale.
+
+A real passenger recovery bug was found: resetting native client prediction restarted CurrentTimeStamp and generated expired ServerMove warnings. Retaining the movement clock while clearing old moves fixed it; final paired logs contain no expired-timestamp sequence. Held-input latches now retain prior release requirements across repeated drive clearing. Visual inspection found overlap with the inventory hint; the recovery prompt was moved to a dedicated readable panel. Surface filtering rejects pawn/vehicle support, and egress clears the old chassis as well as the new pose to accommodate replication ordering.
+
+Initial compile overload ambiguity and placement initialization warning were corrected; the new base-reset call uses UE5.8 FMovementBaseInterfaceData. Final code builds successfully. The toolchain's pre-existing Incredibuild license notice is not a C++ warning/failure. Failed attempts remain in Saved/Gate7Validation/History; they are not included as passing gameplay evidence. Leak detection was never suppressed. No fatal error, reproducible automation crash or World Memory Leaks failure occurred in final runs; Stop PIE and shutdown were clean.
+
+### Limits and recovery discipline
+
+This is bounded prototype rescue, not physical winching. Conservative clearance can reject crowded/steep/unloaded terrain; nothing is deleted, collision is not globally disabled, and no unsafe forced destination is used. Real map recovery on arbitrary terrain and a packaged Shipping build were not certified. No rollover collision damage, equipment requirement/cost gameplay or full persistence was added. Existing accepted bed/seat/roof restrictions remain.
+
+Saved packages, final build, closed-editor preferences, process cleanup and vendor verification are recorded in Gate7Recovery closure evidence. All **108 vendor hashes remain unchanged**; purchased source and prior maps/fallbacks are preserved. No Content files changed from c84e89b. Local recovery checkpoints: `00cac8b` (explicit WIP compiled foundation), `1cd677f` (prediction/placement safety), `494c831` (vehicle-ground rejection and sleep safety). The final acceptance/checkpoint commit follows this closure; its exact hash is reported to the user. Pre-existing DefaultEngine.ini and three IDE files remain excluded and untouched. No Gate8 work.
+
+Final closure confirmed: 56 saved-package checks passed across all seven maps loaded twice, including the recovery component and normal tuning. All modified editor packages saved; Stop PIE and shutdown clean. Final Development Editor/Win64 build succeeded (up to date, 0.71 s); module SHA256 D660263C23367C3F4933A5D0C0548C1432334A9138E23FB44AA046C15886473B. Final host/client matrices both pass 47 server /45 client checks; 0 expired-timestamp, fatal or world-leak errors in final paired logs. Standalone, one-player, one-process PIE restored, test launch command removed, emulation disabled. Zero Unreal/ShaderCompileWorker/UHT/UBT processes remain. All108vendor files unchanged and no Content diff. See Gate7Recovery/closure.json, recovery_saved_audit.json in Gate7Results, and final-build.log.

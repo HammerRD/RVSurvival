@@ -53,7 +53,7 @@
     {
       "case": "shared_container_replication",
       "pass": true,
-      "detail": "{'server_count': 1, 'client_count': 1, 'client_open': \"<Object '/Game/Maps/UEDPIE_1_Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVStoragePoint_5.Container' (0x0000026BCD68A500) Class 'RVContainerComponent'>\", 'server_open': \"<Object '/Game/Maps/UEDPIE_0_Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVStoragePoint_5.Container' (0x0000026CE9384600) Class 'RVContainerComponent'>\", 'feedback': ''}"
+      "detail": "{'server_count': 1, 'client_count': 1, 'client_open': \"<Object '/Game/Maps/UEDPIE_1_Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVStoragePoint_5.Container' (0x000001B28D67CD00) Class 'RVContainerComponent'>\", 'server_open': \"<Object '/Game/Maps/UEDPIE_0_Gate4InventoryTest.Gate4InventoryTest:PersistentLevel.RVStoragePoint_5.Container' (0x000001B264351680) Class 'RVContainerComponent'>\", 'feedback': ''}"
     },
     {
       "case": "contended_pickup_one_winner",
@@ -98,7 +98,7 @@
     {
       "case": "unique_runtime_ids",
       "pass": true,
-      "detail": "['A643C6444B98BBA904112A84B399CBB8', '2C31ACF74A3D1F5BE7851C920AA3B456', 'BEC1F2294B2F729C46F6428A4A710031', 'F0656F8240B89C81CC0E238415FF8C7F', 'DE8839C2406474BB0548A3B4FAC97FA4', 'A75186174D401EF898FD64A8505B497B', '88795ED14EB48D22DCBC589C8A168287']"
+      "detail": "['B650DF544104E4957F10A786DAA6A1FA', 'DD92ACA845728605D781CF81802085D2', 'F767715B4B7106F4A75AC3B2949CF113', 'EAE01E5A4497814108EE428660157052', 'AC859B7943917C99CBC96F8BDBAECE02', '6FDB3DD2415FBA3EE35E158CB39D24D3', 'D5D3C62942166E287D3F7FA07E4502F1']"
     },
     {
       "case": "custom_state_preserved",

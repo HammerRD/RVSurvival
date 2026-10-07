@@ -1,0 +1,15 @@
+{
+  "closed_editor_config_restoration": true,
+  "native_section": "[/Script/UnrealEd.LevelEditorPlaySettings]",
+  "values": {
+    "PlayNumberOfClients": "1",
+    "RunUnderOneProcess": "True",
+    "PlayNetMode": "PIE_Standalone",
+    "bLaunchSeparateServer": "False",
+    "AdditionalLaunchParameters": ""
+  },
+  "network_emulation_enabled": false,
+  "backup": "D:\\GitHub\\RVSurvival\\RVSurvival\\Saved\\Gate7Resume\\EditorPreferences-before-cleanup-20261007-162231.ini",
+  "file_sha256": "99374c259c1af16e050eaf3a8189c4d6a566eaefe5278a2106974c03df3f1f98",
+  "checked_at": "2026-10-07T16:22:31.624155"
+}
