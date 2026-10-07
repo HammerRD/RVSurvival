@@ -1,4 +1,4 @@
-> **Current additional Gate6 refinement: NOT ACCEPTED yet - held-key manual-player routes and transition smoothness remain unresolved.** Earlier acceptance below is historical baseline evidence. Existing completed Gate7 checkpoint c8e28ff is preserved and paused; no Gate7 work was resumed by this refinement. See the final physical-entry/seating/roof section and Bobby checklist below.
+> **Current status: ACCEPTED by the user after successful manual playtest, 2026-10-07.** Historical diagnostic limitations and measurements below remain preserved. Gate 7 is now authorized; Gate 8 is not.
 
 # Gate 6 fuel and electrical validation
 

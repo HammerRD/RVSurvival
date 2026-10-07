@@ -1,3 +1,5 @@
+> **Current resumed pass: IN PROGRESS.** The earlier Gate 7 acceptance below covers the preserved mechanical checkpoint. Its saved map requires integration and regression against the newly user-accepted Gate 6 physical-entry/roof/seating configuration before renewed acceptance.
+
 # Gate 7 mechanical failure and repair validation
 
 Status: **ACCEPTED**, 2026-10-07. Gate 8 was not started. Accepted Gate 6 baseline: `2ef5b83`. This verdict covers the prototype behavior and bounded tests below, not final mechanical balancing or a packaged shipping build.

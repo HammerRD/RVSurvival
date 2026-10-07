@@ -192,3 +192,7 @@ Supersedes prior second-refinement WIP/pending notes;executed tests/build/saves 
 - Final Development Editor build succeeded; Git working-set changes relinked identical gameplay source, followed by refreshed physical-role checks on the final module. All editor shutdowns were clean, 108vendor hashes match, and only the Gate6 map/project BP changed. Transition smoothness and full sustained-key manual routes remain unresolved; this additional refinement is NOT ACCEPTED and Gate7 stays paused.
 - Final saved-state inspection passed without PIE; Python private-enum cleanup attempts failed and are retained. Supported Save All/quit completed; actual persisted preferences then restored in the closed editor's native config: standalone1player,one-process,emulation off,empty child launch command. Previous config backed up; unrelated sections preserved. In-memory settings alone are not treated as persistence proof.
 - Existing completed Gate7 checkpoint c8e28ff is preserved and paused; no Gate7 resumed and no later-gate development.
+
+## 2026-10-07 - Gate 7 resumed against manually accepted Gate 6
+- User reports successful Gate6 manual playtest and accepts the refinement. Prior diagnostic/correction history remains recorded.
+- Read-only saved Gate7 audit found legacy physical-entry=false, Dinette rest and controlled-top ladder. Preserved mechanical foundation c8e28ff; scoped map integration and fresh validation are required. No Gate8.
