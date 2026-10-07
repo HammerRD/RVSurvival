@@ -62,7 +62,7 @@ def brake():
  global braking
  if isdriver:braking=True;key('S',True)
 def setup():
- cmd('t.MaxFPS 60');cmd('t.IdleWhenNotForeground 0')
+ cmd('t.MaxFPS 60');cmd('t.IdleWhenNotForeground 0');cmd('rv.Passenger.Debug 1')
  if config.get('network'):
   for setting,value in [('PktLagMin',100),('PktLagMax',100),('PktLoss',2)]:cmd('NetEmulation.'+setting+' '+str(value))
  if authority:
@@ -75,6 +75,7 @@ at(3.1,lambda:walk((92.4,0),'driver'));at(6,lambda:check('driver_physical_step_d
 interact(6.2,de,'driver');at(8,lambda:check('physical_entry_then_E_driver',driver.get_editor_property('Occupant')==dp))
 at(8.2,lambda:walk((92.4,0)));at(11.5,lambda:check('walker_physical_step_door_entry',safe_inside(wp),local(wp)))
 interact(11.7,pe);at(13.5,lambda:check('physical_entry_then_E_passenger',passenger.get_editor_property('Occupant')==wp))
+at(13.6,lambda:[c.get_component_by_class(unreal.RVPassengerReferenceFrameComponent).reset_diagnostics() for c in [dp,wp]])
 tap(14,'One');at(15,lambda:check('occupied_driver_rejects_keeps_passenger',driver.get_editor_property('Occupant')==dp and passenger.get_editor_property('Occupant')==wp))
 hold(15.2,'W',8,'driver');tap(17.5,'Three');at(19,lambda:check('moving_passenger_3_rear',safe_inside(wp) and v.get_velocity().length()>150,local(wp)))
 tap(19.2,'Three','driver');at(20.5,lambda:check('moving_driver_3_rejected_before_release',driver.get_editor_property('Occupant')==dp and v.get_velocity().length()>150))
@@ -145,7 +146,11 @@ def tick(dt):
   if not authority:
    remote=next((c for c in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVSurvivorCharacter) if c!=p),None)
    if remote:hp=remote;cp=p;dp=p if isdriver else remote;wp=remote if isdriver else p
-  while idx<len(events) and elapsed>=events[idx][0]:fn=events[idx][1];idx+=1;fn()
+  while idx<len(events) and elapsed>=events[idx][0]:
+   fn=events[idx][1];idx+=1
+   terminating=fn.__name__=='finish' or (fn.__name__=='disconnect_client' and not authority)
+   fn()
+   if terminating:return # Managed module globals were released by disconnect.
   if not active:return
   if braking and v.get_velocity().length()<10:
    key('S',False);key('SpaceBar',True);braking=False

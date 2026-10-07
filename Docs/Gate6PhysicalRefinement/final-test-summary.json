@@ -1,0 +1,116 @@
+{
+  "status": "NOT ACCEPTED - full manual hold routes pending",
+  "evidence_kind": "diagnostics, not full manual acceptance",
+  "suites": [
+    {
+      "suite": "disconnect_Ladder_100ms_2loss",
+      "server_checks": 26,
+      "client_checks": 24,
+      "failed": [
+        0,
+        0
+      ],
+      "pids": [
+        11016,
+        9428
+      ]
+    },
+    {
+      "suite": "disconnect_Roof_100ms_2loss",
+      "server_checks": 27,
+      "client_checks": 25,
+      "failed": [
+        0,
+        0
+      ],
+      "pids": [
+        21220,
+        26540
+      ]
+    },
+    {
+      "suite": "physical_client_100ms_2loss",
+      "server_checks": 34,
+      "client_checks": 34,
+      "failed": [
+        0,
+        0
+      ],
+      "pids": [
+        22656,
+        50332
+      ]
+    },
+    {
+      "suite": "physical_host_baseline",
+      "server_checks": 34,
+      "client_checks": 34,
+      "failed": [
+        0,
+        0
+      ],
+      "pids": [
+        23456,
+        32064
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "suite": "disconnect_Ladder_100ms_2loss",
+      "role": "server",
+      "samples": 1490,
+      "raw_max_correction_cm": 0.0,
+      "peak_speed_cm_s": 2961.990819110897
+    },
+    {
+      "suite": "disconnect_Ladder_100ms_2loss",
+      "role": "client",
+      "samples": 1454,
+      "raw_max_correction_cm": 800.3734741210938,
+      "peak_speed_cm_s": 3035.1508334516407
+    },
+    {
+      "suite": "disconnect_Roof_100ms_2loss",
+      "role": "server",
+      "samples": 1588,
+      "raw_max_correction_cm": 0.0,
+      "peak_speed_cm_s": 2965.370068390637
+    },
+    {
+      "suite": "disconnect_Roof_100ms_2loss",
+      "role": "client",
+      "samples": 1562,
+      "raw_max_correction_cm": 800.522705078125,
+      "peak_speed_cm_s": 2971.319158967171
+    },
+    {
+      "suite": "physical_client_100ms_2loss",
+      "role": "server",
+      "samples": 2394,
+      "raw_max_correction_cm": 0.0,
+      "peak_speed_cm_s": 2964.1242658533706
+    },
+    {
+      "suite": "physical_client_100ms_2loss",
+      "role": "client",
+      "samples": 2424,
+      "raw_max_correction_cm": 670.2464599609375,
+      "peak_speed_cm_s": 3011.1791152938617
+    },
+    {
+      "suite": "physical_host_baseline",
+      "role": "server",
+      "samples": 2404,
+      "raw_max_correction_cm": 0.0,
+      "peak_speed_cm_s": 2964.0424961344297
+    },
+    {
+      "suite": "physical_host_baseline",
+      "role": "client",
+      "samples": 2426,
+      "raw_max_correction_cm": 143.04795837402344,
+      "peak_speed_cm_s": 2982.492284250394
+    }
+  ]
+}

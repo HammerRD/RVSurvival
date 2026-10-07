@@ -1,10 +1,23 @@
-param([ValidateSet('host','client')][string]$Driver='host',[switch]$Emulated,[ValidateSet('','Roof','Ladder')][string]$Disconnect='')
+param([ValidateSet('host','client')][string]$Driver='host',[switch]$Emulated,[ValidateSet('','Roof','Ladder')][string]$Disconnect='',[ValidateSet('physical','native','storage','stations','doors')][string]$Mode='physical')
 $ErrorActionPreference='Stop'
 $root='D:\GitHub\RVSurvival\RVSurvival'
 $folder=$root+'\Saved\Gate6PhysicalRefinement'
 if(Get-Process UnrealEditor -ErrorAction SilentlyContinue){throw 'Refuse concurrent editor'}
 foreach($file in @('launch_process.py','process_startup.py','process_ready.py','process_refinement.py')){Copy-Item -LiteralPath ($root+'\Tools\Validation\Gate6PhysicalRefinement\'+$file) -Destination ($folder+'\'+$file)}
+if($Mode -ne 'physical'){
+ $sourcePath=if($Mode -eq 'storage'){$root+'\Tools\Validation\Gate6PhysicalRefinement\process_storage.py'}else{$root+'\Tools\Validation\Gate6LayoutRework\process_'+$(if($Mode -eq 'native'){'refinement'}else{$Mode})+'.py'}
+ $source=(Get-Content -LiteralPath $sourcePath -Raw).Replace('Saved/Gate6LayoutRework','Saved/Gate6PhysicalRefinement')
+ if($Mode -in @('storage','stations','doors')){
+  $prefix=(Get-Content -LiteralPath ($root+'\Tools\Validation\Gate6LayoutRework\process_auxiliary.py') -Raw).Replace('Saved/Gate6LayoutRework','Saved/Gate6PhysicalRefinement')
+  $prefix=$prefix -replace '(?m)^exitpoint=next\(.*$', 'exitpoint=None # physical doorway, no teleport endpoint'
+  Set-Content -LiteralPath ($folder+'\auxiliary_prefix.py') -Value $prefix -Encoding utf8
+  $source=$source.Replace('Tools/Validation/Gate6LayoutRework/process_auxiliary.py','Saved/Gate6PhysicalRefinement/auxiliary_prefix.py')
+ }
+ $source+="`nif config.get('network'):`n for setting,value in [('PktLagMin',100),('PktLagMax',100),('PktLoss',2)]:unreal.SystemLibrary.execute_console_command(pc,'NetEmulation.'+setting+' '+str(value),pc)`n"
+ Set-Content -LiteralPath ($folder+'\process_refinement.py') -Value $source -Encoding utf8
+}
 $name='physical_'+$Driver+$(if($Emulated){'_100ms_2loss'}else{'_baseline'})
+if($Mode -ne 'physical'){$name=$Mode+'_'+$Driver+$(if($Emulated){'_100ms_2loss'}else{'_baseline'})}
 if($Disconnect){$name='disconnect_'+$Disconnect+$(if($Emulated){'_100ms_2loss'}else{'_baseline'})}
 $history=$folder+'\History\'+$name+'_'+(Get-Date -Format yyyyMMdd-HHmmss)
 foreach($suffix in @('.log','_child.log','_server.json','_client.json')){
