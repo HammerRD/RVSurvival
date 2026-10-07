@@ -1,0 +1,7 @@
+# Gate 6 physical-entry, cab-transition, dinette and roof refinement
+Status: IN PROGRESS / NOT ACCEPTED for this new refinement. Existing accepted work is preserved.
+Recovery baseline fce8422 (engine association 5.8), with completed Gate7 c8e28ff preserved and paused. Intended UE5.8 project opened without Convert Project modal; saved project descriptor confirms canonical 5.8.
+Read-only saved Gate6 audit confirms Dinette rest actor at actual table, parked ladder intentionally rejects roof dismount, and doorway-adjacent KitchenCabinet proxy extends into the capsule approach. Actual roof horizontal vendor triangles are near319.5916cm; no vendor edits.
+Current native input uses transient EnhancedInput contexts but has no implemented Controls remapping menu or player-mappable settings. Seat1/2/V are legacy polling; rear3 is a controller EnhancedInput action. This refinement will make these paths configurable through supported EnhancedInput user settings rather than claiming existing remapping UI is complete.
+Pre-existing Config/DefaultEngine.ini and IDE files remain excluded. Baseline stopped PIE and closed saved editor cleanly before inspection.
+A read-only inspection initially used get_relative_location instead of reflected RelativeLocation. Corrected and reran; scoped wrappers released before clean quit. No acceptance test claimed from that error.
