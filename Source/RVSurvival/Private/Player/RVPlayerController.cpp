@@ -45,6 +45,7 @@ void ARVPlayerController::PlayerTick(float DeltaTime)
     // PlayerController setup may precede local EnhancedInput user-settings init.
     // Retry idempotently after init so cab/rear/rest controls appear in the menu.
     if(ResourceMapping)RVInputMappings::Register(this,ResourceMapping);
+    if(DrivingControlsCatalog)RVInputMappings::Register(this,DrivingControlsCatalog);
     // Service-only bindings must not consume remapped gameplay keys elsewhere.
     if (MechanicalMapping && bMechanicalMappingActive!=IsValid(MechanicalPoint))
         if (auto* Local=GetLocalPlayer()) if(auto* Input=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
@@ -110,6 +111,7 @@ void ARVPlayerController::EndPlay(const EEndPlayReason::Type Reason)
 {
     if(ControlsWidget){ControlsWidget->RemoveFromParent();ControlsWidget=nullptr;}
     RVInputMappings::Unregister(ResourceInputLocalPlayer.Get(),ResourceMapping);
+    RVInputMappings::Unregister(ResourceInputLocalPlayer.Get(),DrivingControlsCatalog);
     if(HasAuthority() && IsValid(MechanicalPoint) && MechanicalPoint->RepairPlayer && MechanicalPoint->RepairPlayer==PlayerState)
         MechanicalPoint->CancelAuthority(TEXT("Repair canceled: player left; supplies retained"));
     if(auto* Local=ResourceInputLocalPlayer.Get()) if(auto* Input=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
@@ -175,6 +177,14 @@ void ARVPlayerController::SetupInputComponent()
     if(!Local || !Input) return;
     if(!ResourceMapping)
     {
+        // Register driving defaults for the Controls menu before first possession.
+        // This catalog is never applied to gameplay input and owns no vehicle/world references.
+        DrivingControlsCatalog=NewObject<UInputMappingContext>(this);
+        const FKey Keys[]={EKeys::W,EKeys::S,EKeys::D,EKeys::A,EKeys::SpaceBar,EKeys::E};
+        const TCHAR* DrivingNames[]={TEXT("Accelerate"),TEXT("BrakeReverse"),TEXT("SteerRight"),TEXT("SteerLeft"),TEXT("Handbrake"),TEXT("VehicleExit")};
+        const TCHAR* DrivingLabels[]={TEXT("Accelerate"),TEXT("Brake / reverse"),TEXT("Steer right"),TEXT("Steer left"),TEXT("Handbrake"),TEXT("Exit vehicle")};
+        for(int32 i=0;i<UE_ARRAY_COUNT(Keys);++i)
+            RVInputMappings::Map(DrivingControlsCatalog,NewObject<UInputAction>(DrivingControlsCatalog),Keys[i],DrivingNames[i],DrivingLabels[i]);
         ResourceMapping=NewObject<UInputMappingContext>(this);
         for(FKey Key:{EKeys::H,EKeys::J,EKeys::K,EKeys::L,EKeys::O,EKeys::Escape,EKeys::R,EKeys::Z,EKeys::Three,EKeys::One,EKeys::Two,EKeys::V,EKeys::F10,EKeys::RightMouseButton,EKeys::MouseX,EKeys::MouseY})
         {

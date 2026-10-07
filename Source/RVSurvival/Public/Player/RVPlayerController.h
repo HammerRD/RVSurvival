@@ -48,6 +48,7 @@ private:
     bool bOrbitHeld=false;
     UPROPERTY(Transient) TObjectPtr<class URVControlsWidget> ControlsWidget;
     UPROPERTY(Transient) TObjectPtr<class UInputMappingContext> ResourceMapping;
+    UPROPERTY(Transient) TObjectPtr<class UInputMappingContext> DrivingControlsCatalog;
     UPROPERTY(Transient) TArray<TObjectPtr<class UInputAction>> ResourceActions;
     UPROPERTY(Transient) TObjectPtr<class UInputMappingContext> MechanicalMapping;
     UPROPERTY(Transient) TArray<TObjectPtr<class UInputAction>> MechanicalActions;

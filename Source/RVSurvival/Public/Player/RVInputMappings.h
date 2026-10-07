@@ -11,4 +11,5 @@ namespace RVInputMappings
     void Map(UInputMappingContext* Context,UInputAction* Action,FKey Key,FName Name,const TCHAR* Label);
     void Register(APlayerController* Controller,UInputMappingContext* Context);
     void Unregister(ULocalPlayer* Local,UInputMappingContext* Context);
+    FString KeyLabel(APlayerController* Controller,FName Name,const TCHAR* Fallback);
 }

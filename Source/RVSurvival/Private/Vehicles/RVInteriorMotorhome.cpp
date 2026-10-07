@@ -332,7 +332,7 @@ bool ARVInteriorMotorhome::TryMoveToLivingArea(ARVPlayerController* PC)
     for (auto* Seat : GetSeats()) if (Seat->Occupant && Seat->OccupantController.Get()==PC)
     {
         // A moving driver must retain control; a passenger can safely join the rigid interior frame.
-        if (Seat->bDriverSeat && GetVelocity().Size()>MaxEntryExitSpeed)
+        if (Seat->bDriverSeat && GetVelocity().Size()>MaxDriverCabDepartureSpeed)
         { PC->SeatFeedback=TEXT("Stop before leaving the driver seat."); return false; }
         auto* Character=Seat->Occupant.Get(); FVector Position; UPrimitiveComponent* Floor=nullptr;
         const FVector Preferred=Seat->bInteriorOnly ? Seat->StandingAisleLocation : StandingEntryLocation;

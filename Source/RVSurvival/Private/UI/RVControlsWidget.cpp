@@ -36,7 +36,7 @@ TSharedRef<SWidget> URVControlsWidget::RebuildWidget()
     SetIsFocusable(true);
     auto* Border=WidgetTree->ConstructWidget<UBorder>();Border->SetBrushColor(FLinearColor(.025f,.025f,.025f,.97f));Border->SetPadding(FMargin(24));WidgetTree->RootWidget=Border;
     auto* Box=WidgetTree->ConstructWidget<UVerticalBox>();Border->SetContent(Box);
-    auto* Title=WidgetTree->ConstructWidget<UTextBlock>();Title->SetText(FText::FromString(TEXT("Controls | select a key to change it | Escape closes")));Box->AddChildToVerticalBox(Title);
+    auto* Title=WidgetTree->ConstructWidget<UTextBlock>();Title->SetText(FText::FromString(TEXT("Controls | select a key to change it | Escape closes")));Title->SetAutoWrapText(true);Box->AddChildToVerticalBox(Title);
     auto* Scroll=WidgetTree->ConstructWidget<UScrollBox>();Box->AddChildToVerticalBox(Scroll)->SetSize(FSlateChildSize(ESlateSizeRule::Fill));
     if(auto* PC=GetOwningPlayer())if(auto* Subsystem=PC->GetLocalPlayer()->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
         if(auto* Settings=Subsystem->GetUserSettings())if(auto* Profile=Settings->GetActiveKeyProfile())

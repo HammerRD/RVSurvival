@@ -14,6 +14,7 @@
 #include "Engine/Canvas.h"
 #include "GameFramework/PlayerController.h"
 #include "Player/RVPlayerController.h"
+#include "Player/RVInputMappings.h"
 #include "Vehicles/RVVehicleBase.h"
 #include "Inventory/RVInventoryComponent.h"
 #include "InputCoreTypes.h"
@@ -91,7 +92,12 @@ void ARVPrototypeHUD::DrawHUD()
         const auto* Seat=Character?Cast<URVVehicleSeatComponent>(Character->GetRootComponent()->GetAttachParent()):nullptr;
         DrawText(Driver ? TEXT("PROTOTYPE RV | W: accelerate  S: brake/reverse  A/D: steer  Space: handbrake  E: exit when stopped")
             : Seat && Seat->bInteriorOnly ? TEXT("RV living-area seat | E: stand in aisle") : TEXT("RV passenger | E: exit when stopped"), FLinearColor::White, 20, 35);
-        DrawText(TEXT("1 driver | 2 passenger | V next seat (stopped) | 3 living area"), FLinearColor::White, 20, 60);
+        DrawText(FString::Printf(TEXT("%s driver | %s passenger | %s next seat (stopped) | %s living area | %s Controls"),
+            *RVInputMappings::KeyLabel(PlayerOwner,TEXT("DriverSeat"),TEXT("1")),
+            *RVInputMappings::KeyLabel(PlayerOwner,TEXT("PassengerSeat"),TEXT("2")),
+            *RVInputMappings::KeyLabel(PlayerOwner,TEXT("NextSeat"),TEXT("V")),
+            *RVInputMappings::KeyLabel(PlayerOwner,TEXT("RearInterior"),TEXT("3")),
+            *RVInputMappings::KeyLabel(PlayerOwner,TEXT("Controls"),TEXT("F10"))), FLinearColor::White, 20, 60);
         DrawText(PC->SeatFeedback, FLinearColor::Yellow, 20, 85);
         return;
     }

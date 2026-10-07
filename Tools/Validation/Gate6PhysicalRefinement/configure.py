@@ -21,8 +21,11 @@ def configure():
         if str(d.name)=='KitchenCabinet':
             d.set_editor_property('Center',unreal.Vector(5,80,130));d.set_editor_property('Extent',unreal.Vector(50,35,43))
     definitions=[('RoofWalkMain',(-65,0,316.6),(290,116,3),True),
-                 ('RoofAC',(68,0,333.6),(30,22,14),False),
-                 ('RoofVentRear',(-211,27,322.5),(24,24,3),False)]
+                 ('RoofAC',(68,0,333.6),(30,22,14),True),
+                 ('RoofVentRear',(-211,27,322.5),(19,19,3),True),
+                 ('RoofVentMiddle',(-63.6,0,322.5),(23,23,3),True),
+                 ('RoofVentBackLeft',(-269.2,-66.9,322.5),(23,23,3),True),
+                 ('RoofVentPipe',(-111.7,105,323.1),(3,5,3.5),True)]
     for name,center,extent,floor in definitions:
         d=next((d for d in collision if str(d.name)==name),None)
         if d is None:d=unreal.RVInteriorCollision()

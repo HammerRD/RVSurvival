@@ -65,6 +65,7 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="RV|Storage") TArray<FRVExteriorCompartmentDefinition> ExteriorCompartments;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="RV|Entry") bool bEnableStandingDoor = false;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="RV|Entry") bool bPhysicalDoorEntry = false;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="RV|Entry",meta=(ClampMin="0")) float MaxDriverCabDepartureSpeed = 10.f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="RV|Entry") FVector StandingEntryLocation = FVector(130,0,180);
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="RV|Entry") FVector OutsideDoorLocation = FVector(122,148,140);
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="RV|Entry") FVector InsideDoorLocation = FVector(122,75,150);

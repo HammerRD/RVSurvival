@@ -31,3 +31,13 @@ void RVInputMappings::Unregister(ULocalPlayer* Local,UInputMappingContext* Conte
     if(Local && Context)if(auto* Subsystem=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
         if(auto* Settings=Subsystem->GetUserSettings())Settings->UnregisterInputMappingContext(Context);
 }
+FString RVInputMappings::KeyLabel(APlayerController* Controller,FName Name,const TCHAR* Fallback)
+{
+    if(Controller)if(auto* Local=Controller->GetLocalPlayer())
+        if(auto* Subsystem=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
+            if(auto* Settings=Subsystem->GetUserSettings())if(auto* Profile=Settings->GetActiveKeyProfile())
+                if(const auto* Row=Profile->GetPlayerMappingRows().Find(Name))
+                    for(const auto& Mapping:Row->Mappings)if(Mapping.GetSlot()==EPlayerMappableKeySlot::First)
+                        return Mapping.GetCurrentKey().GetDisplayName().ToString();
+    return Fallback;
+}
