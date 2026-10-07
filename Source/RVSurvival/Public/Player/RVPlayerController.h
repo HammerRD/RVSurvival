@@ -24,6 +24,10 @@ public:
     UPROPERTY(Replicated, BlueprintReadOnly, Category="RV|Seats") TObjectPtr<ARVVehicleBase> SeatedVehicle;
     UPROPERTY(Replicated, BlueprintReadOnly) TObjectPtr<class ARVResourcePoint> ResourcePoint;
     UPROPERTY(Replicated, BlueprintReadOnly) FString ResourceFeedback;
+    UPROPERTY(Replicated, BlueprintReadOnly) TObjectPtr<class ARVServicePoint> MechanicalPoint;
+    UPROPERTY(Replicated, BlueprintReadOnly) FString MechanicalFeedback;
+    UFUNCTION(BlueprintCallable) void RequestService(FName Action,int32 ExpectedRevision,FGuid ItemId,int32 ItemRevision);
+    UFUNCTION(Server,Reliable) void ServerService(FName Action,int32 ExpectedRevision,FGuid ItemId,int32 ItemRevision);
     UFUNCTION(BlueprintCallable) void RequestResourceControl(FName Control, bool Enabled, int32 ExpectedRevision);
     UFUNCTION(Server, Reliable) void ServerResourceControl(FName Control, bool Enabled, int32 ExpectedRevision);
     UFUNCTION(BlueprintCallable) void RequestRefuel(FGuid ItemId, int32 ExpectedRevision);
@@ -35,6 +39,7 @@ private:
     void ToggleResource(FName Control);
     void LightsKey(); void GeneratorKey(); void FridgeKey(); void StationKey(); void IdleKey(); void CloseKey();
     void WakeKey(); void SleepKey();
+    void PatchKey(); void RadiatorKey(); void EngineRepairKey();
     UPROPERTY(Transient) TObjectPtr<class UInputMappingContext> ResourceMapping;
     UPROPERTY(Transient) TArray<TObjectPtr<class UInputAction>> ResourceActions;
     TWeakObjectPtr<class ULocalPlayer> ResourceInputLocalPlayer;

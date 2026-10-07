@@ -15,3 +15,8 @@ UE_DEFINE_GAMEPLAY_TAG_STATIC(RVItemBulky, "Item.Category.Bulky");
 UE_DEFINE_GAMEPLAY_TAG_STATIC(RVItemHandCarry, "Item.Capability.HandCarry");
 UE_DEFINE_GAMEPLAY_TAG_STATIC(RVCraftingMetal, "Crafting.Material.Metal");
 UE_DEFINE_GAMEPLAY_TAG_STATIC(RVCraftingTool, "Crafting.Tool.General");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(RVCoolant, "Resource.Fluid.Coolant");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(RVMechanicTool, "Repair.Tool.Mechanic");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(RVRadiatorPatch, "Repair.Part.RadiatorPatch");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(RVRadiatorReplacement, "Repair.Part.RadiatorReplacement");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(RVEngineRepair, "Repair.Part.EngineService");

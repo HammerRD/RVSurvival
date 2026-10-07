@@ -46,12 +46,12 @@ void ARVSystemsMotorhome::Tick(float DT)
         if(SimulationAccumulator>=.25)
         {
             const double Elapsed=SimulationAccumulator; SimulationAccumulator=0;
-            Electrical->AdvanceAuthority(Elapsed*Electrical->TimeScale,Driver || Electrical->bEngineIdleRequested,Move->GetThrottleInput(),GetVelocity().Size());
+            Electrical->AdvanceAuthority(Elapsed*Electrical->TimeScale,(Driver || Electrical->bEngineIdleRequested) && CanOperateEngine(),Move->GetThrottleInput(),GetVelocity().Size());
         }
         // Gate both directions at the supported engine torque boundary. Braking/steering/physics persist.
-        const bool CanPropel=PropulsionFuel->Litres>0;
-        if(CanPropel!=bTorqueEnabled)
-        { CastChecked<UChaosWheeledVehicleMovementComponent>(GetVehicleMovement())->SetMaxEngineTorque(CanPropel?ConfiguredEngineTorque:0); bTorqueEnabled=CanPropel; }
+        const float Torque=PropulsionFuel->Litres>0?ConfiguredEngineTorque*FMath::Clamp(GetMechanicalOutputScale(),0.f,1.f):0;
+        if(!FMath::IsNearlyEqual(Torque,AppliedEngineTorque))
+        { Move->SetMaxEngineTorque(Torque); AppliedEngineTorque=Torque; }
     }
     const bool LightOn=Electrical->IsLoadPowered(TEXT("InteriorLights"));
     FrontLight->SetVisibility(LightOn); RearLight->SetVisibility(LightOn);

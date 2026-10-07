@@ -189,3 +189,50 @@ bool URVInventoryComponent::DebugSetFuelCan(FGuid Id, double Litres)
     return false;
 #endif
 }
+
+bool URVInventoryComponent::DrainFluidAuthority(const FGuid& Id,int32 Revision,FGameplayTag Type,double Maximum,double& Drained,FString& Error)
+{
+    Drained=0;
+    if(!GetOwner() || !GetOwner()->HasAuthority() || !Type.IsValid() || !FMath::IsFinite(Maximum) || Maximum<=0)
+    {Error=TEXT("Invalid fluid transfer");return false;}
+    auto* I=Contents.Items.FindByPredicate([&](const auto& Item){return Item.Id==Id;});
+    if(!I || !I->Definition || !I->Definition->Fuel.bFuelContainer || !I->bFuelInitialized || I->Quantity!=1 || I->Definition->Fuel.FuelType!=Type)
+    {Error=TEXT("Compatible fluid container not owned");return false;}
+    if(Revision!=I->FuelRevision){Error=TEXT("Stale fluid request");return false;}
+    if(!FMath::IsFinite(I->FuelLitres) || I->FuelLitres<=0 || I->FuelLitres>I->Definition->Fuel.CapacityLitres)
+    {Error=TEXT("Fluid container empty or invalid");return false;}
+    Drained=FMath::Min(Maximum,I->FuelLitres);I->FuelLitres-=Drained;++I->FuelRevision;
+    Contents.MarkItemDirty(*I);GetOwner()->ForceNetUpdate();Error.Empty();return true;
+}
+bool URVInventoryComponent::RepairRequirementsAuthority(const TArray<FRVRepairRequirement>& Requirements,bool Commit,FString& Error)
+{
+    if(!GetOwner() || !GetOwner()->HasAuthority() || Requirements.IsEmpty()){Error=TEXT("Invalid repair requirements");return false;}
+    TArray<int32> Consume;Consume.Init(0,Contents.Items.Num());
+    for(const auto& R:Requirements)
+    {
+        if(!R.Tag.IsValid() || R.Quantity<=0 || R.Quantity>1000 || !FMath::IsFinite(R.MinimumCondition) || R.MinimumCondition<0 || R.MinimumCondition>1)
+        {Error=TEXT("Invalid repair configuration");return false;}
+        int32 Need=R.Quantity;
+        for(int32 N=0;N<Contents.Items.Num() && Need>0;++N)
+        {
+            const auto& I=Contents.Items[N];
+            if(!I.Definition || I.Condition<R.MinimumCondition || !I.Definition->Tags.HasTag(R.Tag))continue;
+            const int32 Taken=FMath::Min(Need,FMath::Max(0,I.Quantity-Consume[N]));Need-=Taken;
+            if(R.bConsume)Consume[N]+=Taken;
+        }
+        if(Need>0){Error=FString::Printf(TEXT("Missing usable %s x%d"),*R.Tag.ToString(),Need);return false;}
+    }
+    if(Commit)
+    {
+        // Validate every requirement before any mutation; no yield or callback
+        // between the inventory commit and the service outcome on the game thread.
+        for(int32 N=Contents.Items.Num()-1;N>=0;--N)if(Consume[N]>0)
+        {
+            Contents.Items[N].Quantity-=Consume[N];
+            if(Contents.Items[N].Quantity<=0){Contents.Items.RemoveAt(N);Contents.MarkArrayDirty();}
+            else Contents.MarkItemDirty(Contents.Items[N]);
+        }
+        GetOwner()->ForceNetUpdate();
+    }
+    Error.Empty();return true;
+}

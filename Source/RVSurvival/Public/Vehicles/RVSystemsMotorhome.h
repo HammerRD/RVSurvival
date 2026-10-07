@@ -14,6 +14,8 @@ public:
     ARVSystemsMotorhome(const FObjectInitializer& Init);
     virtual void BeginPlay() override;
     virtual void Tick(float Seconds) override;
+    virtual float GetMechanicalOutputScale() const { return 1; }
+    virtual bool CanOperateEngine() const { return true; }
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<URVFuelComponent> PropulsionFuel;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<URVFuelComponent> GeneratorFuel;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<URVBatteryComponent> HouseBattery;
@@ -26,5 +28,5 @@ public:
 private:
     double SimulationAccumulator=0;
     float ConfiguredEngineTorque=0;
-    bool bTorqueEnabled=true;
+    float AppliedEngineTorque=-1;
 };

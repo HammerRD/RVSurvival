@@ -3,6 +3,7 @@
 #include "Components/ActorComponent.h"
 #include "Net/Serialization/FastArraySerializer.h"
 #include "Inventory/RVItemDefinition.h"
+#include "Mechanical/RVMechanicalProfile.h"
 #include "RVInventoryComponent.generated.h"
 
 USTRUCT(BlueprintType)
@@ -61,6 +62,8 @@ public:
     bool RefuelAuthority(class URVFuelComponent* Tank, const FGuid& Id, int32 ExpectedRevision, double& Transferred, FString& Error);
     UFUNCTION(BlueprintCallable) bool DebugSetFuelCan(FGuid Id, double Litres);
     bool ConsumeOneAuthority(const FGuid& Id, FRVItemInstance& Consumed, FString& Error);
+    bool RepairRequirementsAuthority(const TArray<FRVRepairRequirement>& Requirements, bool Commit, FString& Error);
+    bool DrainFluidAuthority(const FGuid& Id,int32 ExpectedRevision,FGameplayTag Type,double Maximum,double& Drained,FString& Error);
     void OpenContainerAuthority(URVInventoryComponent* Container);
     UPROPERTY(Replicated, BlueprintReadOnly) TObjectPtr<URVInventoryComponent> OpenContainer;
     UPROPERTY(Replicated, BlueprintReadOnly) FString Feedback;

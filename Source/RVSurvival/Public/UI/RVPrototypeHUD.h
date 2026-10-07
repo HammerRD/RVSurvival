@@ -12,6 +12,7 @@ public:
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
 private:
     UPROPERTY(Transient) TObjectPtr<class URVSurvivalWidget> SurvivalWidget;
+    UPROPERTY(Transient) TObjectPtr<class URVMechanicalWidget> MechanicalWidget;
     bool bInventoryVisible = false;
     bool bSelectContainer = false;
     int32 SelectedRow = 0;

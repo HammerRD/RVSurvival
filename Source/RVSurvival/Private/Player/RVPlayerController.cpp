@@ -1,4 +1,5 @@
 #include "Player/RVPlayerController.h"
+#include "Mechanical/RVServicePoint.h"
 #include "Vehicles/RVResourcePoint.h"
 #include "Vehicles/RVSystemsMotorhome.h"
 #include "Resources/RVElectricalComponent.h"
@@ -20,7 +21,7 @@
 void ARVPlayerController::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 { Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME_CONDITION(ARVPlayerController, SeatedVehicle, COND_OwnerOnly); DOREPLIFETIME_CONDITION(ARVPlayerController, SeatFeedback, COND_OwnerOnly);
 DOREPLIFETIME_CONDITION(ARVPlayerController, ResourcePoint, COND_OwnerOnly);
-DOREPLIFETIME_CONDITION(ARVPlayerController, ResourceFeedback, COND_OwnerOnly); }
+DOREPLIFETIME_CONDITION(ARVPlayerController, ResourceFeedback, COND_OwnerOnly); DOREPLIFETIME_CONDITION(ARVPlayerController,MechanicalPoint,COND_OwnerOnly);DOREPLIFETIME_CONDITION(ARVPlayerController,MechanicalFeedback,COND_OwnerOnly); }
 void ARVPlayerController::RequestSwitchSeat(FName TargetSeat)
 {
     if (!IsLocalController() || !SeatedVehicle) return;
@@ -137,7 +138,7 @@ void ARVPlayerController::SetupInputComponent()
     if(!ResourceMapping)
     {
         ResourceMapping=NewObject<UInputMappingContext>(this);
-        for(FKey Key:{EKeys::H,EKeys::J,EKeys::K,EKeys::L,EKeys::O,EKeys::Escape,EKeys::R,EKeys::Z,EKeys::Three})
+        for(FKey Key:{EKeys::H,EKeys::J,EKeys::K,EKeys::L,EKeys::O,EKeys::Escape,EKeys::R,EKeys::Z,EKeys::Three,EKeys::B,EKeys::N,EKeys::M})
         {
             auto* Action=NewObject<UInputAction>(this); Action->ValueType=EInputActionValueType::Boolean;
             ResourceMapping->MapKey(Action,Key); ResourceActions.Add(Action);
@@ -152,6 +153,9 @@ void ARVPlayerController::SetupInputComponent()
     Input->BindAction(ResourceActions[6],ETriggerEvent::Started,this,&ThisClass::WakeKey);
     Input->BindAction(ResourceActions[7],ETriggerEvent::Started,this,&ThisClass::SleepKey);
     Input->BindAction(ResourceActions[8],ETriggerEvent::Started,this,&ThisClass::RequestLivingArea);
+    Input->BindAction(ResourceActions[9],ETriggerEvent::Started,this,&ThisClass::PatchKey);
+    Input->BindAction(ResourceActions[10],ETriggerEvent::Started,this,&ThisClass::RadiatorKey);
+    Input->BindAction(ResourceActions[11],ETriggerEvent::Started,this,&ThisClass::EngineRepairKey);
     if(auto* Subsystem=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
     { ResourceInputLocalPlayer=Local; Subsystem->RemoveMappingContext(ResourceMapping); Subsystem->AddMappingContext(ResourceMapping,2); }
 }
@@ -175,4 +179,18 @@ void ARVPlayerController::GeneratorKey() { ToggleResource(TEXT("Generator")); }
 void ARVPlayerController::FridgeKey() { ToggleResource(TEXT("Refrigerator")); }
 void ARVPlayerController::StationKey() { ToggleResource(TEXT("PoweredStation")); }
 void ARVPlayerController::IdleKey() { ToggleResource(TEXT("EngineIdle")); }
-void ARVPlayerController::CloseKey() { if(ResourcePoint) RequestCloseResource(); }
+void ARVPlayerController::CloseKey() { if(ResourcePoint) RequestCloseResource(); if(MechanicalPoint)RequestService(TEXT("Close"),-1,FGuid(),-1); }
+void ARVPlayerController::RequestService(FName Action,int32 Expected,FGuid Item,int32 ItemRevision)
+{
+    if(!IsLocalController())return;
+    GetWorld()->GetTimerManager().SetTimerForNextTick(FTimerDelegate::CreateWeakLambda(this,[this,Action,Expected,Item,ItemRevision]
+    {if(IsLocalController())ServerService(Action,Expected,Item,ItemRevision);}));
+}
+void ARVPlayerController::ServerService_Implementation(FName Action,int32 Expected,FGuid Item,int32 ItemRevision)
+{
+    if(!HasAuthority() || !IsValid(MechanicalPoint))return;
+    MechanicalPoint->RequestAuthority(this,Action,Expected,Item,ItemRevision);
+}
+void ARVPlayerController::PatchKey(){if(MechanicalPoint)RequestService(TEXT("Patch"),MechanicalPoint->Revision,FGuid(),-1);}
+void ARVPlayerController::RadiatorKey(){if(MechanicalPoint)RequestService(TEXT("ReplaceRadiator"),MechanicalPoint->Revision,FGuid(),-1);}
+void ARVPlayerController::EngineRepairKey(){if(MechanicalPoint)RequestService(TEXT("EngineService"),MechanicalPoint->Revision,FGuid(),-1);}

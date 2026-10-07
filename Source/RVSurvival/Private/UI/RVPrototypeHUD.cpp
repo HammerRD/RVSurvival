@@ -1,4 +1,6 @@
 #include "UI/RVPrototypeHUD.h"
+#include "UI/RVMechanicalWidget.h"
+#include "Mechanical/RVServicePoint.h"
 #include "Vehicles/RVSystemsMotorhome.h"
 #include "Vehicles/RVResourcePoint.h"
 #include "Resources/RVElectricalComponent.h"
@@ -18,12 +20,15 @@
 void ARVPrototypeHUD::EndPlay(const EEndPlayReason::Type Reason)
 {
     if(SurvivalWidget) { SurvivalWidget->RemoveFromParent(); SurvivalWidget=nullptr; }
+    if(MechanicalWidget){MechanicalWidget->RemoveFromParent();MechanicalWidget=nullptr;}
     Super::EndPlay(Reason);
 }
 void ARVPrototypeHUD::DrawHUD()
 {
     Super::DrawHUD();
     if (!Canvas || !PlayerOwner) return;
+    if(!MechanicalWidget && PlayerOwner->IsLocalController())
+    {MechanicalWidget=CreateWidget<URVMechanicalWidget>(PlayerOwner,URVMechanicalWidget::StaticClass());MechanicalWidget->AddToPlayerScreen();MechanicalWidget->SetPositionInViewport(FVector2D(20,120),false);}
     auto* PS=PlayerOwner->GetPlayerState<ARVPlayerState>();
     auto* Needs=PS?PS->Needs.Get():nullptr;
     if(Needs)
@@ -95,7 +100,8 @@ void ARVPrototypeHUD::DrawHUD()
             if(PlayerOwner->WasInputKeyJustPressed(EKeys::T)) Inventory->RequestTransfer(Items[SelectedRow].Id,1,!bSelectContainer);
             if(!bSelectContainer && PlayerOwner->WasInputKeyJustPressed(EKeys::G)) Inventory->RequestDrop(Items[SelectedRow].Id,1);
             if(!bSelectContainer && PlayerOwner->WasInputKeyJustPressed(EKeys::F))
-                if(auto* PC=Cast<ARVPlayerController>(PlayerOwner)) PC->RequestRefuel(Items[SelectedRow].Id,Items[SelectedRow].FuelRevision);
+                if(auto* PC=Cast<ARVPlayerController>(PlayerOwner))
+                {if(PC->MechanicalPoint)PC->RequestService(TEXT("Refill"),PC->MechanicalPoint->Revision,Items[SelectedRow].Id,Items[SelectedRow].FuelRevision);else PC->RequestRefuel(Items[SelectedRow].Id,Items[SelectedRow].FuelRevision);}
             if(!bSelectContainer && Needs && PlayerOwner->WasInputKeyJustPressed(EKeys::C)) Needs->RequestConsume(Items[SelectedRow].Id);
         }
         const float UIScale=FMath::Min(1.f,FMath::Min((Canvas->ClipX-30.f)/720.f,(Canvas->ClipY-100.f)/420.f));
