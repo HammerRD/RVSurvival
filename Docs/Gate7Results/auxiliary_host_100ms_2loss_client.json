@@ -1,0 +1,128 @@
+{
+  "pid": 42424,
+  "role": "client",
+  "config": {
+    "driver": "host",
+    "emulation_target": "Everyone",
+    "name": "auxiliary_host_100ms_2loss",
+    "entry_probe": false,
+    "network": true
+  },
+  "results": [
+    {
+      "case": "normal_E_initial_seats",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_3_standing",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_front_bench_native_E",
+      "pass": true,
+      "detail": "[74.95456250162707, -82.0422675886791, 138.83827513263446]"
+    },
+    {
+      "case": "moving_front_bench_stand",
+      "pass": true,
+      "detail": "[99.95412229161343, 0.00016279303128150858, 177.18782788757807]"
+    },
+    {
+      "case": "moving_rear_bench_native_E",
+      "pass": true,
+      "detail": "[-70.26184810675892, -82.20452319983458, 137.65472978807801]"
+    },
+    {
+      "case": "moving_rear_bench_stand",
+      "pass": true,
+      "detail": "[-94.9303799018437, -5.082183741755841e-05, 191.48812425368192]"
+    },
+    {
+      "case": "moving_pantry_native_E",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_turn_transfer_to_pantry_native_T",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_transfer_back_native_Tab_T",
+      "pass": true,
+      "detail": "{'pantry': 0, 'player': 1, 'feedback': '', 'open': \"<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.RVStoragePoint_0.Container' (0x0000017D67FE2580) Class 'RVContainerComponent'>\"}"
+    },
+    {
+      "case": "parked_before_exterior",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "normal_3_driver_aisle",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "door_open_shared_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_E_side_exit_both_players",
+      "pass": true,
+      "detail": "{'driver': [86.53977494069869, 240.18046751640014, 72.41893689418269], 'walker': [-13.459942597973395, 239.86693905423988, 72.41926969116928]}"
+    },
+    {
+      "case": "shared_exterior_native_E",
+      "pass": true,
+      "detail": "{'expected': \"<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.RVExteriorStoragePoint_5.Container' (0x0000017DB76FC300) Class 'RVContainerComponent'>\", 'actual': \"<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.RVExteriorStoragePoint_5.Container' (0x0000017DB76FC300) Class 'RVContainerComponent'>\", 'feedback': ''}"
+    },
+    {
+      "case": "shared_exterior_contention_no_duplicate_native_T",
+      "pass": true,
+      "detail": "[\"<Struct 'Guid' (0x0000017D5D1FAB8C) {}>\"]"
+    },
+    {
+      "case": "native_E_ladder_and_other_player_driver",
+      "pass": true,
+      "detail": "[-420.7841235114479, 73.6078911080881, 75.66580894469972]"
+    },
+    {
+      "case": "native_W_controlled_ladder_top",
+      "pass": true,
+      "detail": "{'position': [-420.7841235113908, 73.6084141531249, 257.36825480201435], 'height': 179.36825480201435}"
+    },
+    {
+      "case": "occupied_ladder_prevents_driving",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "top_has_no_unvalidated_roof_exit",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native_S_E_bottom_exit_restores_world_movement",
+      "pass": true,
+      "detail": "[-460.96475585131486, 73.48368781572856, 72.27124380729647]"
+    },
+    {
+      "case": "ladder_exit_releases_drive_lock",
+      "pass": true,
+      "detail": "373.4629760454333"
+    },
+    {
+      "case": "ladder_world_walk_away",
+      "pass": true,
+      "detail": "{'position': [-1052.595650369096, 72.00216407841003, 72.25478450179281], 'actual_world_walk_cm': 112.66306880616422}"
+    }
+  ],
+  "sample_summary": {
+    "max_correction_cm": null,
+    "max_speed_cm_s": 4147.083288085234,
+    "count": 675
+  }
+}

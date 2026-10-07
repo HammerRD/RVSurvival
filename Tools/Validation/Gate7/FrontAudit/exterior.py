@@ -3,6 +3,7 @@ B='D:/GitHub/RVSurvival/RVSurvival/Saved/Gate7FrontAudit/'
 w=next(w for w in unreal.ObjectIterator(unreal.World) if 'UEDPIE_' in w.get_path_name() and w.get_name()=='Gate7MechanicalTest')
 pc=unreal.GameplayStatics.get_player_controller(w,0);p=pc.get_controlled_pawn()
 v=unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVInteriorMotorhome)[0]
+unreal.SystemLibrary.execute_console_command(pc,'t.MaxFPS 60',pc)
 cap=p.get_component_by_class(unreal.CapsuleComponent);frame=p.get_component_by_class(unreal.RVPassengerReferenceFrameComponent)
 t=0;idx=0;events=[];results=[];samples=[];active_case=None;route_target=None;trace_results=[];route_waypoint=0
 def local(a):q=v.get_actor_transform().inverse_transform_location(a);return [q.x,q.y,q.z]

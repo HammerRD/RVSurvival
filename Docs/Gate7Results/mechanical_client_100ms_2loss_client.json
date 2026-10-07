@@ -1,20 +1,26 @@
 {
-  "pid": 47780,
+  "pid": 51420,
   "role": "client",
   "config": {
+    "entry_probe": false,
     "driver": "client",
-    "network": true,
     "name": "mechanical_client_100ms_2loss",
-    "entry_probe": false
+    "network": true,
+    "emulation_target": "Everyone"
   },
   "results": [
     {
       "case": "normal_E_diagnosis_authoritative",
       "pass": true,
-      "detail": "{'point': \"<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.RVServicePoint_0' (0x00000287BAFFDC00) Class 'RVServicePoint'>\", 'radiator': 0.20000000298023224, 'location': \"<Struct 'Vector' (0x000002875C121D20) {x: 552.301433, y: 75.404407, z: 90.149997}>\", 'target': \"<Struct 'Vector' (0x000002875C121D20) {x: 419.310000, y: 0.130000, z: 136.460000}>\", 'prompt': 'Hold E: inspect engine / cooling service'}"
+      "detail": "{'point': \"<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.RVServicePoint_0' (0x000001FC38746E00) Class 'RVServicePoint'>\", 'radiator': 0.20000000298023224, 'location': \"<Struct 'Vector' (0x000001FBEC4BC330) {x: 552.148594, y: 75.948452, z: 90.150002}>\", 'target': \"<Struct 'Vector' (0x000001FBEC4BC330) {x: 418.550000, y: 0.280000, z: 138.330000}>\", 'prompt': 'Hold E: inspect engine / cooling service'}"
     },
     {
       "case": "hood_open_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_debug_cannot_author_fault_clear_or_temperature",
       "pass": true,
       "detail": ""
     },
@@ -106,12 +112,17 @@
     {
       "case": "actual_vehicle_moving_under_fault",
       "pass": true,
-      "detail": "3932.603963595564"
+      "detail": "3806.6748676685165"
     },
     {
       "case": "moving_coolant_leak_replicates",
       "pass": true,
-      "detail": "11.879996645450673"
+      "detail": "11.884997870326117"
+    },
+    {
+      "case": "fault_causes_temperature_rise_under_actual_drive",
+      "pass": true,
+      "detail": "93.62910074200593"
     },
     {
       "case": "roadside_braking_stops",
@@ -161,13 +172,12 @@
     {
       "case": "recoverable_fault_returns_to_travel",
       "pass": true,
-      "detail": "{'speed': 1908.9838402803769, 'temperature': 80.90795465486153}"
+      "detail": "{'speed': 1916.2942961719382, 'temperature': 81.40324683822232}"
     }
   ],
   "sample_summary": {
-    "max_speed_cm_s": 4130.975000739605,
-    "count": 632,
-    "max_correction_cm": 678.2405395507812,
-    "moving_after_fixture_reset_max_correction_cm": 301.8919677734375
+    "max_speed_cm_s": 4279.741573169702,
+    "max_correction_cm": 574.274169921875,
+    "count": 632
   }
 }

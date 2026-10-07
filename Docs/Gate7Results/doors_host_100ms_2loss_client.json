@@ -1,0 +1,228 @@
+{
+  "pid": 32088,
+  "role": "client",
+  "config": {
+    "driver": "host",
+    "emulation_target": "Everyone",
+    "name": "doors_host_100ms_2loss",
+    "entry_probe": false,
+    "network": true
+  },
+  "results": [
+    {
+      "case": "all_54_registered_parts_unique",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "closed_door_blocks_normal_W",
+      "pass": true,
+      "detail": "[129.9716841289308, 86.89944289478656, 177.3399889562785]"
+    },
+    {
+      "case": "parked_0_replicated_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "parked_0_one_visible_DoorMesh",
+      "pass": true,
+      "detail": "{'original_hidden': 1, 'live_visible': 1}"
+    },
+    {
+      "case": "parked_0_one_visible_GlassMesh",
+      "pass": true,
+      "detail": "{'original_hidden': 1, 'live_visible': 1}"
+    },
+    {
+      "case": "parked_0_collision_matches_visual",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "parked_0_walker_retains_native_frame",
+      "pass": true,
+      "detail": "[132.34575927633367, -22.83718622159112, 177.3399889562785]"
+    },
+    {
+      "case": "parked_1_replicated_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "parked_1_one_visible_DoorMesh",
+      "pass": true,
+      "detail": "{'original_hidden': 1, 'live_visible': 1}"
+    },
+    {
+      "case": "parked_1_one_visible_GlassMesh",
+      "pass": true,
+      "detail": "{'original_hidden': 1, 'live_visible': 1}"
+    },
+    {
+      "case": "parked_1_collision_matches_visual",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "parked_1_walker_retains_native_frame",
+      "pass": true,
+      "detail": "[132.34575927633367, -22.83718622159112, 177.3399889562785]"
+    },
+    {
+      "case": "parked_2_replicated_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "parked_2_one_visible_DoorMesh",
+      "pass": true,
+      "detail": "{'original_hidden': 1, 'live_visible': 1}"
+    },
+    {
+      "case": "parked_2_one_visible_GlassMesh",
+      "pass": true,
+      "detail": "{'original_hidden': 1, 'live_visible': 1}"
+    },
+    {
+      "case": "parked_2_collision_matches_visual",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "parked_2_walker_retains_native_frame",
+      "pass": true,
+      "detail": "[132.34575927633367, -22.83718622159112, 177.3399889562785]"
+    },
+    {
+      "case": "parked_3_replicated_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "parked_3_one_visible_DoorMesh",
+      "pass": true,
+      "detail": "{'original_hidden': 1, 'live_visible': 1}"
+    },
+    {
+      "case": "parked_3_one_visible_GlassMesh",
+      "pass": true,
+      "detail": "{'original_hidden': 1, 'live_visible': 1}"
+    },
+    {
+      "case": "parked_3_collision_matches_visual",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "parked_3_walker_retains_native_frame",
+      "pass": true,
+      "detail": "[132.34575927633367, -22.83718622159112, 177.3399889562785]"
+    },
+    {
+      "case": "real_moving_door_test",
+      "pass": true,
+      "detail": "1788.5333626364031"
+    },
+    {
+      "case": "moving_4_replicated_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_4_one_visible_DoorMesh",
+      "pass": true,
+      "detail": "{'original_hidden': 1, 'live_visible': 1}"
+    },
+    {
+      "case": "moving_4_one_visible_GlassMesh",
+      "pass": true,
+      "detail": "{'original_hidden': 1, 'live_visible': 1}"
+    },
+    {
+      "case": "moving_4_collision_matches_visual",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_4_walker_retains_native_frame",
+      "pass": true,
+      "detail": "[132.34586010489897, -22.837186221591146, 177.33998895622355]"
+    },
+    {
+      "case": "moving_5_replicated_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_5_one_visible_DoorMesh",
+      "pass": true,
+      "detail": "{'original_hidden': 1, 'live_visible': 1}"
+    },
+    {
+      "case": "moving_5_one_visible_GlassMesh",
+      "pass": true,
+      "detail": "{'original_hidden': 1, 'live_visible': 1}"
+    },
+    {
+      "case": "moving_5_collision_matches_visual",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_5_walker_retains_native_frame",
+      "pass": true,
+      "detail": "[132.34581023580336, -22.837186221591168, 177.3399889562673]"
+    },
+    {
+      "case": "moving_6_replicated_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_6_one_visible_DoorMesh",
+      "pass": true,
+      "detail": "{'original_hidden': 1, 'live_visible': 1}"
+    },
+    {
+      "case": "moving_6_one_visible_GlassMesh",
+      "pass": true,
+      "detail": "{'original_hidden': 1, 'live_visible': 1}"
+    },
+    {
+      "case": "moving_6_collision_matches_visual",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_6_walker_retains_native_frame",
+      "pass": true,
+      "detail": "[132.3457090865733, -22.83718622159114, 177.33998895626644]"
+    },
+    {
+      "case": "moving_7_replicated_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_7_one_visible_DoorMesh",
+      "pass": true,
+      "detail": "{'original_hidden': 1, 'live_visible': 1}"
+    },
+    {
+      "case": "moving_7_one_visible_GlassMesh",
+      "pass": true,
+      "detail": "{'original_hidden': 1, 'live_visible': 1}"
+    },
+    {
+      "case": "moving_7_collision_matches_visual",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_7_walker_retains_native_frame",
+      "pass": true,
+      "detail": "[132.34570908637684, -22.837186221590926, 177.33998895626448]"
+    }
+  ]
+}

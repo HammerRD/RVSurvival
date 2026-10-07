@@ -1,0 +1,143 @@
+{
+  "pid": 15480,
+  "role": "client",
+  "config": {
+    "name": "mechanical_host_100ms_2loss",
+    "entry_probe": false,
+    "driver": "host",
+    "network": true
+  },
+  "results": [
+    {
+      "case": "normal_E_diagnosis_authoritative",
+      "pass": true,
+      "detail": "{'point': \"<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.RVServicePoint_0' (0x0000020E8BF24B00) Class 'RVServicePoint'>\", 'radiator': 0.20000000298023224, 'location': \"<Struct 'Vector' (0x0000020FF3D81D20) {x: 552.489009, y: 75.684113, z: 90.149999}>\", 'target': \"<Struct 'Vector' (0x0000020FF3D81D20) {x: 418.820000, y: 0.210000, z: 138.350000}>\", 'prompt': 'Hold E: inspect engine / cooling service'}"
+    },
+    {
+      "case": "hood_open_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_debug_cannot_author_fault_clear_or_temperature",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_missing_tool_rejected",
+      "pass": true,
+      "detail": "Missing usable mechanic tool kit x1"
+    },
+    {
+      "case": "one_authoritative_repair_reservation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "start_does_not_consume",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "cancellation_converges_without_consumption",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_patch_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "only_client_patch_consumed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "foreign_guid_cannot_drain_coolant",
+      "pass": true,
+      "detail": "Compatible fluid container not owned"
+    },
+    {
+      "case": "coolant_converges_capacity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "duplicate_requests_conserve_fluid",
+      "pass": true,
+      "detail": "7.0"
+    },
+    {
+      "case": "fluid_guids_state_intact",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host_full_repair_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host_replacement_consumed_only_once",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shutdown_warning_output_replicated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_engine_service_restores_operation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "engine_service_preserves_radiator_fault",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_radiator_replace_restores_cooling",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "actual_vehicle_moving_under_fault",
+      "pass": true,
+      "detail": "3822.8717598436187"
+    },
+    {
+      "case": "moving_coolant_leak_replicates",
+      "pass": true,
+      "detail": "11.884998995065764"
+    },
+    {
+      "case": "moving_passenger_frame_and_floor",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x0000020FFC6421D0) {x: -34.598586, y: 0.000027, z: 177.339668}>"
+    },
+    {
+      "case": "moving_passenger_corrections_bounded",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "roadside_braking_stops",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "recoverable_fault_returns_to_travel",
+      "pass": true,
+      "detail": "{'speed': 2038.3796592328188, 'temperature': 81.03687074365861}"
+    }
+  ],
+  "sample_summary": {
+    "max_correction_cm": 574.7052001953125,
+    "count": 629,
+    "max_speed_cm_s": 4253.13971711198,
+    "moving_after_fixture_reset_max_correction_cm": 0.0
+  }
+}

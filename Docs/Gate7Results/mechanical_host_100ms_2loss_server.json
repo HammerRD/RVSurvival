@@ -1,0 +1,172 @@
+{
+  "pid": 43456,
+  "role": "server",
+  "config": {
+    "name": "mechanical_host_100ms_2loss",
+    "entry_probe": false,
+    "driver": "host",
+    "network": true
+  },
+  "results": [
+    {
+      "case": "normal_E_diagnosis_authoritative",
+      "pass": true,
+      "detail": "{'point': \"<Object '/Game/Maps/UEDPIE_0_Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.RVServicePoint_0' (0x000001558D782800) Class 'RVServicePoint'>\", 'radiator': 0.20000000298023224, 'location': \"<Struct 'Vector' (0x0000015584DD3990) {x: 552.618013, y: -74.315832, z: 90.150000}>\", 'target': \"<Struct 'Vector' (0x0000015584DD3990) {x: 418.501678, y: 0.568922, z: 139.440086}>\", 'prompt': 'Hold E: inspect engine / cooling service'}"
+    },
+    {
+      "case": "hood_open_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "one_authoritative_repair_reservation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "start_does_not_consume",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "cancellation_converges_without_consumption",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "valid_second_repair_rejected_no_consumption",
+      "pass": true,
+      "detail": "Another repair is already in progress"
+    },
+    {
+      "case": "client_patch_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "only_client_patch_consumed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "foreign_guid_cannot_drain_coolant",
+      "pass": true,
+      "detail": "Compatible fluid container not owned"
+    },
+    {
+      "case": "coolant_converges_capacity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "duplicate_requests_conserve_fluid",
+      "pass": true,
+      "detail": "7.0"
+    },
+    {
+      "case": "fluid_guids_state_intact",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host_full_repair_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host_replacement_consumed_only_once",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shutdown_warning_output_replicated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_engine_service_restores_operation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "engine_service_preserves_radiator_fault",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_radiator_replace_restores_cooling",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_E_driver_possession",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "actual_vehicle_moving_under_fault",
+      "pass": true,
+      "detail": "3818.303460125508"
+    },
+    {
+      "case": "moving_coolant_leak_replicates",
+      "pass": true,
+      "detail": "11.879998984932978"
+    },
+    {
+      "case": "roadside_braking_stops",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "roadside_normal_E_exit",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "roadside_exterior_supplies_access",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "roadside_coolant_guid_state_from_storage",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "roadside_normal_E_diagnosis",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "roadside_stopped_off_cool_service",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "roadside_timed_patch_complete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "roadside_refill_restores_supply",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "roadside_driver_reentry",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "recoverable_fault_returns_to_travel",
+      "pass": true,
+      "detail": "{'speed': 1966.5811562311792, 'temperature': 78.58246111787575}"
+    }
+  ],
+  "sample_summary": {
+    "max_correction_cm": 0.0,
+    "count": 631,
+    "max_speed_cm_s": 4131.522873900434
+  }
+}

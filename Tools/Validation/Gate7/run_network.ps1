@@ -21,10 +21,11 @@ if($Mode -in @('stations','doors')){
  $prefix|Set-Content ($base+'auxiliary_prefix.py') -Encoding utf8
  $source=$source.Replace('Tools/Validation/Gate6LayoutRework/process_auxiliary.py','Saved/Gate7Validation/auxiliary_prefix.py')
 }
+$source+="`nif config.get('network'):`n for setting,value in [('PktLagMin',100),('PktLagMax',100),('PktLoss',2)]:unreal.SystemLibrary.execute_console_command(pc,'NetEmulation.'+setting+' '+str(value),pc)`n"
 $source|Set-Content ($base+'process_refinement.py') -Encoding utf8
 $name=$Mode+'_'+$Driver+$(if($Emulated){'_100ms_2loss'}else{'_baseline'})
 if($EntryProbe){$name+='_entry_probe'}
-@{name=$name;driver=$Driver;network=[bool]$Emulated;entry_probe=[bool]$EntryProbe}|ConvertTo-Json|Set-Content ($base+'case.json') -Encoding utf8
+@{name=$name;driver=$Driver;network=[bool]$Emulated;emulation_target='Everyone';entry_probe=[bool]$EntryProbe}|ConvertTo-Json|Set-Content ($base+'case.json') -Encoding utf8
 $began=Get-Date
 foreach($suffix in @('.log','_child.log','_server.json','_client.json')){if(Test-Path ($base+$name+$suffix)){New-Item -ItemType Directory -Force ($base+'History/'+$name+'-'+(Get-Date -Format yyyyMMddHHmmss))|Out-Null;Copy-Item ($base+$name+$suffix) ($base+'History/'+$name+'-'+(Get-Date -Format yyyyMMddHHmmss)+'/')}}
 $args='"'+$root+'/RVSurvival.uproject" -ExecCmds="py '+$base+'launch_process.py" -abslog="'+$base+$name+'.log"'

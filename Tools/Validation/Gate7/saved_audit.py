@@ -36,6 +36,10 @@ try:
  dev=unreal.load_asset('/Game/Development/Mechanical/DA_AcceleratedMechanical')
  check('saved_separate_development_repairs',dev is not None and all(r.duration_seconds==.25 for r in dev.get_editor_property('Repairs')))
  del dev;gc.collect();unreal.SystemLibrary.collect_garbage()
+ settings=unreal.get_default_object(unreal.load_class(None,'/Script/UnrealEd.LevelEditorPlaySettings'))
+ settings.set_editor_property('PlayNumberOfClients',1);settings.set_editor_property('RunUnderOneProcess',True);settings.set_editor_property('AdditionalLaunchParameters','')
+ network=settings.get_editor_property('NetworkEmulationSettings');network.set_editor_property('bIsNetworkEmulationEnabled',False);settings.set_editor_property('NetworkEmulationSettings',network)
+ del settings,network
  check('save_all_completed',unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True,True))
 except Exception as e:check('audit_exception',False,repr(e))
 (B/'saved-audit.json').write_text(json.dumps({'results':rows,'maps':maps},indent=2),encoding='utf-8')

@@ -114,7 +114,7 @@ def enter_driver():
 def drive():
  if isdriver():check('normal_E_driver_possession',pc.get_controlled_pawn()==v);press('W',18)
 def minorfault():
- if authority:c.debug_set_state(.7,12,95,1);c.debug_set_time_scale(20)
+ if authority:c.debug_set_state(.7,12,70,1);c.debug_set_time_scale(20)
 def walk():
  if not isdriver():pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw+180));press('W',.7)
 def turn():
@@ -122,6 +122,7 @@ def turn():
 def moving():
  check('actual_vehicle_moving_under_fault',v.get_velocity().length()>400,v.get_velocity().length())
  check('moving_coolant_leak_replicates',cooling('CoolantLitres')<12 and cooling('LeakLitresPerSecond')>0,cooling('CoolantLitres'))
+ check('fault_causes_temperature_rise_under_actual_drive',cooling('TemperatureC')>71,cooling('TemperatureC'))
  if not isdriver():
   frame=p.get_component_by_class(unreal.RVPassengerReferenceFrameComponent);q=v.get_actor_transform().inverse_transform_location(p.get_actor_location());check('moving_passenger_frame_and_floor',frame.get_editor_property('ReferenceFrame')==v and q.z>140,q);check('moving_passenger_corrections_bounded',frame.get_editor_property('MaxCorrectionCm')<30,frame.get_editor_property('MaxCorrectionCm'))
 def brake():

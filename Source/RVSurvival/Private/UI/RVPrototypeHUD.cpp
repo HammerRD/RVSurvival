@@ -1,5 +1,6 @@
 #include "UI/RVPrototypeHUD.h"
 #include "UI/RVMechanicalWidget.h"
+#include "Blueprint/WidgetLayoutLibrary.h"
 #include "Mechanical/RVServicePoint.h"
 #include "Vehicles/RVMechanicalMotorhome.h"
 #include "Player/RVPassengerReferenceFrameComponent.h"
@@ -39,7 +40,11 @@ void ARVPrototypeHUD::DrawHUD()
     if(MechanicalWidget)
     {
         MechanicalWidget->SetVisibility(MechanicalVehicle?ESlateVisibility::HitTestInvisible:ESlateVisibility::Collapsed);
-        MechanicalWidget->SetPositionInViewport(FVector2D(-20,380),false);
+        const float Scale=UWidgetLayoutLibrary::GetViewportScale(PlayerOwner);
+        const float Height=FMath::Max(100.f,MechanicalWidget->GetDesiredSize().Y*Scale);
+        const float PreferredTop=MechanicalPC && (MechanicalPC->SeatedVehicle || MechanicalPC->ResourcePoint)?380.f:110.f;
+        const float Top=FMath::Clamp(PreferredTop,20.f,FMath::Max(20.f,Canvas->ClipY-Height-20.f));
+        MechanicalWidget->SetPositionInViewport(FVector2D(-20,Top),true);
         MechanicalWidget->SetAnchorsInViewport(FAnchors(1,0));
         MechanicalWidget->SetAlignmentInViewport(FVector2D(1,0));
     }
