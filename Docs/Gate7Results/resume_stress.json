@@ -1,0 +1,95 @@
+{
+  "results": [
+    {
+      "case": "normal_E_stress_service",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "100_exact_fluid_transfers_conserve_litres",
+      "pass": true,
+      "detail": "4.000000000000021"
+    },
+    {
+      "case": "CoolantFull_drop_preserves_guid_fluid_revision_condition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "CoolantFull_normal_E_repick_preserves_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "CoolantPartial_drop_preserves_guid_fluid_revision_condition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "CoolantPartial_normal_E_repick_preserves_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "CoolantEmpty_drop_preserves_guid_fluid_revision_condition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "CoolantEmpty_normal_E_repick_preserves_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "100_cancels_preserve_all_parts_tools",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "canceled_timers_no_late_completions",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "100_repair_completions_consume_exact_parts",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "last_stack_removed_no_negative_no_free_repair",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "100_heat_shutdown_cool_cycles_bounded",
+      "pass": true,
+      "detail": "{'maximum_c': 42.075245130995455}"
+    },
+    {
+      "case": "actual_E_driver_before_shutdown_input",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "actual_W_shutdown_prevents_propulsion",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "actual_E_exit_after_shutdown",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "actual_M_recovers_shutdown",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "actual_W_after_repair_restores_traction",
+      "pass": true,
+      "detail": "950.5528193420156"
+    }
+  ],
+  "elapsed_seconds": 140.6517562866211
+}

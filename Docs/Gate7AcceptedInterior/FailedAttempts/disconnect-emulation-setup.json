@@ -1,0 +1,9 @@
+{
+  "status": "not accepted as clean run",
+  "assertions": "11 server /8 client passed",
+  "error": "Appended generic emulation footer referenced module-global pc absent in function-scoped disconnect runner; NameError",
+  "fix": "Skip generic footer for disconnect; apply native emulation with reacquired local controller at initial join and rejoin",
+  "raw_logs": "Saved/Gate7Validation/History/disconnect_host_100ms_2loss-*",
+  "world_memory_leak": false,
+  "forced_kill": false
+}

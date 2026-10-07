@@ -8,6 +8,10 @@ session=json.loads((B/'session.json').read_text());start=session['start'];config
 rows=[];phase=0;due=start;held=None;authority=None;cycle=0;old_pawn='';stock_ids=[];initial_revision=0
 
 def check(n,ok,d=''):rows.append({'case':n,'pass':bool(ok),'detail':str(d)});unreal.log('GATE7_DISCONNECT '+json.dumps(rows[-1]))
+
+def emulate(pc):
+ if config.get('network'):
+  for setting,value in [('PktLagMin',100),('PktLagMax',100),('PktLoss',2)]:unreal.SystemLibrary.execute_console_command(pc,'NetEmulation.'+setting+' '+str(value),pc)
 def current():
  for candidate in unreal.ObjectIterator(unreal.World):
   pc=unreal.GameplayStatics.get_player_controller(candidate,0)
@@ -47,6 +51,7 @@ def server_step(now):
  global phase,due,cycle,stock_ids,initial_revision
  w,pc,p,v,c,point=context();chars=unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVSurvivorCharacter)
  if phase==0:
+  emulate(pc)
   unreal.SystemLibrary.execute_console_command(pc,'t.MaxFPS 60',pc);c.debug_set_time_scale(0);c.debug_set_state(.2,9,20,1)
   p.set_actor_location(v.get_actor_transform().transform_location(unreal.Vector(550,-75,100)),False,True)
   seed(p.get_component_by_class(unreal.RVInventoryComponent),'MechanicTools',1);seed(p.get_component_by_class(unreal.RVInventoryComponent),'RadiatorPatch',2)
@@ -82,6 +87,7 @@ def client_step(now):
  if phase==0:
   w,pc,p,v,c,point=context();unreal.SystemLibrary.execute_console_command(pc,'t.MaxFPS 60',pc)
   if (p.get_actor_location()-point.get_actor_location()).length()>250:return
+  emulate(pc)
   phase=1;due=now+4
  elif phase==1 and now>due:aim();phase=2;due=now+.5
  elif phase==2 and now>due:key('E',.85);phase=3;due=now+1.5
@@ -96,6 +102,7 @@ def client_step(now):
  elif phase==6:
   w,pc,p,v,c,point=context()
   if not p.get_editor_property('PlayerState') or not p.get_component_by_class(unreal.RVInventoryComponent).get_items():return
+  emulate(pc)
   check('client_'+str(cycle)+'_rejoined_same_process',unreal.GameplayStatics.get_game_mode(w) is None)
   aim();phase=7;due=now+.5
  elif phase==7 and now>due:key('E',.85);phase=8;due=now+1.5

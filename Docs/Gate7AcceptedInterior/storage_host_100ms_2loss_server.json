@@ -1,0 +1,54 @@
+{
+  "pid": 39096,
+  "config": {
+    "name": "storage_host_100ms_2loss",
+    "network": true,
+    "driver": "host",
+    "disconnect": ""
+  },
+  "results": [
+    {
+      "case": "E_driver_and_passenger",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "3_standing_walker",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_pantry_E_owner_view",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gentle_turn_transfer_to_pantry_T",
+      "pass": true,
+      "detail": "2633.783984055665"
+    },
+    {
+      "case": "pantry_return_preserves_condition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stopped_before_exterior_fixture",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "shared_exterior_E_owner_view",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "simultaneous_T_conserves_one_tool_and_GUID",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "source_checkpoint": "523c6a6",
+  "module_sha256": "A7E3B18FBACA5B51CCBF41372F624DD02799FF4373110841698AD389AF864DC9",
+  "evidence_kind": "Native input diagnostics; full sustained hardware/manual controls pending"
+}
