@@ -1,18 +1,18 @@
 {
-  "pid": 49100,
+  "pid": 10356,
   "role": "server",
   "config": {
-    "entry_probe": false,
+    "emulation_target": "Everyone",
     "driver": "client",
-    "name": "mechanical_client_100ms_2loss",
+    "entry_probe": false,
     "network": true,
-    "emulation_target": "Everyone"
+    "name": "mechanical_client_100ms_2loss"
   },
   "results": [
     {
       "case": "normal_E_diagnosis_authoritative",
       "pass": true,
-      "detail": "{'point': \"<Object '/Game/Maps/UEDPIE_0_Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.RVServicePoint_0' (0x000002791F5C1400) Class 'RVServicePoint'>\", 'radiator': 0.20000000298023224, 'location': \"<Struct 'Vector' (0x00000278C412FD00) {x: 552.331919, y: -74.051436, z: 90.150003}>\", 'target': \"<Struct 'Vector' (0x00000278C412FD00) {x: 418.180166, y: 0.784927, z: 139.597958}>\", 'prompt': 'Hold E: inspect engine / cooling service'}"
+      "detail": "{'point': \"<Object '/Game/Maps/UEDPIE_0_Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.RVServicePoint_0' (0x000001D091ED8C00) Class 'RVServicePoint'>\", 'radiator': 0.20000000298023224, 'location': \"<Struct 'Vector' (0x000001D08B1136C0) {x: 553.464316, y: -70.263849, z: 90.150001}>\", 'target': \"<Struct 'Vector' (0x000001D08B1136C0) {x: 418.851161, y: 3.730151, z: 139.412916}>\", 'prompt': 'Hold E: inspect engine / cooling service'}"
     },
     {
       "case": "hood_open_replicates",
@@ -102,22 +102,22 @@
     {
       "case": "actual_vehicle_moving_under_fault",
       "pass": true,
-      "detail": "3803.2114305986042"
+      "detail": "3805.0124831880194"
     },
     {
       "case": "moving_coolant_leak_replicates",
       "pass": true,
-      "detail": "11.879997858405192"
+      "detail": "11.87999922811993"
     },
     {
       "case": "fault_causes_temperature_rise_under_actual_drive",
       "pass": true,
-      "detail": "93.77184734587279"
+      "detail": "93.82272121986462"
     },
     {
       "case": "moving_passenger_frame_and_floor",
       "pass": true,
-      "detail": "<Struct 'Vector' (0x00000278C4153EE0) {x: -37.559934, y: -1.025254, z: 177.458418}>"
+      "detail": "<Struct 'Vector' (0x000001D08B168E70) {x: -34.170566, y: -0.953024, z: 177.437278}>"
     },
     {
       "case": "moving_passenger_corrections_bounded",
@@ -132,12 +132,12 @@
     {
       "case": "recoverable_fault_returns_to_travel",
       "pass": true,
-      "detail": "{'speed': 1954.436551324773, 'temperature': 78.93568038474015}"
+      "detail": "{'speed': 1953.4472267437561, 'temperature': 78.66104959728368}"
     }
   ],
   "sample_summary": {
-    "max_speed_cm_s": 4138.716924936263,
+    "max_speed_cm_s": 4133.641255658739,
     "max_correction_cm": 0.0,
-    "count": 628
+    "count": 632
   }
 }

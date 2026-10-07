@@ -1,17 +1,18 @@
 {
-  "pid": 43456,
+  "pid": 53148,
   "role": "server",
   "config": {
-    "name": "mechanical_host_100ms_2loss",
+    "emulation_target": "Everyone",
+    "network": true,
     "entry_probe": false,
     "driver": "host",
-    "network": true
+    "name": "mechanical_host_100ms_2loss"
   },
   "results": [
     {
       "case": "normal_E_diagnosis_authoritative",
       "pass": true,
-      "detail": "{'point': \"<Object '/Game/Maps/UEDPIE_0_Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.RVServicePoint_0' (0x000001558D782800) Class 'RVServicePoint'>\", 'radiator': 0.20000000298023224, 'location': \"<Struct 'Vector' (0x0000015584DD3990) {x: 552.618013, y: -74.315832, z: 90.150000}>\", 'target': \"<Struct 'Vector' (0x0000015584DD3990) {x: 418.501678, y: 0.568922, z: 139.440086}>\", 'prompt': 'Hold E: inspect engine / cooling service'}"
+      "detail": "{'point': \"<Object '/Game/Maps/UEDPIE_0_Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.RVServicePoint_0' (0x000001BB1C07B400) Class 'RVServicePoint'>\", 'radiator': 0.20000000298023224, 'location': \"<Struct 'Vector' (0x000001BB12CED780) {x: 552.631812, y: -74.713108, z: 90.150002}>\", 'target': \"<Struct 'Vector' (0x000001BB12CED780) {x: 418.522079, y: 0.243695, z: 139.902396}>\", 'prompt': 'Hold E: inspect engine / cooling service'}"
     },
     {
       "case": "hood_open_replicates",
@@ -106,12 +107,17 @@
     {
       "case": "actual_vehicle_moving_under_fault",
       "pass": true,
-      "detail": "3818.303460125508"
+      "detail": "3818.2048572835247"
     },
     {
       "case": "moving_coolant_leak_replicates",
       "pass": true,
-      "detail": "11.879998984932978"
+      "detail": "11.879996873140415"
+    },
+    {
+      "case": "fault_causes_temperature_rise_under_actual_drive",
+      "pass": true,
+      "detail": "93.57622932566103"
     },
     {
       "case": "roadside_braking_stops",
@@ -161,12 +167,12 @@
     {
       "case": "recoverable_fault_returns_to_travel",
       "pass": true,
-      "detail": "{'speed': 1966.5811562311792, 'temperature': 78.58246111787575}"
+      "detail": "{'speed': 1966.602660612423, 'temperature': 78.47339987230352}"
     }
   ],
   "sample_summary": {
-    "max_correction_cm": 0.0,
-    "count": 631,
-    "max_speed_cm_s": 4131.522873900434
+    "count": 629,
+    "max_speed_cm_s": 4133.811745483533,
+    "max_correction_cm": 0.0
   }
 }

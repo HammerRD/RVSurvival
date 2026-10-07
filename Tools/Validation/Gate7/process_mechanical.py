@@ -1,5 +1,5 @@
 """Paired authority/contention and normal-input roadside service plus driving."""
-import unreal,json,time,os
+import unreal,json,time,os,math
 from pathlib import Path
 B=Path('D:/GitHub/RVSurvival/RVSurvival/Saved/Gate7Validation')
 session=json.loads((B/'session.json').read_text());config=session['config'];start=session['start']
@@ -7,7 +7,29 @@ w=next(a for a in unreal.ObjectIterator(unreal.World) if a.get_name()=='Gate7Mec
 authority=unreal.GameplayStatics.get_game_mode(w) is not None;role='server' if authority else 'client'
 pc=unreal.GameplayStatics.get_player_controller(w,0);p=pc.get_controlled_pawn()
 v=unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVMechanicalMotorhome)[0];c=v.get_editor_property('CoolingSystem');point=v.get_editor_property('EngineService')
-inv=p.get_component_by_class(unreal.RVInventoryComponent);results=[];samples=[];events=[];held={};frames=0
+inv=p.get_component_by_class(unreal.RVInventoryComponent);results=[];samples=[];events=[];held={};frames=0;route=None
+
+def stop_route():
+ global route
+ if route:unreal.RVInteriorMotorhome.dispatch_development_key(pc,'W',False)
+ route=None
+
+def walk_route(points):
+ global route
+ if not isdriver():return
+ stop_route();route={'points':list(points),'until':time.time()+5}
+ unreal.RVInteriorMotorhome.dispatch_development_key(pc,'W',True)
+
+def steer_route():
+ global route
+ if not route:return
+ q=v.get_actor_transform().inverse_transform_location(p.get_actor_location());x,y=route['points'][0]
+ if math.hypot(x-q.x,y-q.y)<9:
+  route['points'].pop(0)
+  if not route['points']:stop_route();return
+  x,y=route['points'][0]
+ if time.time()>route['until']:raise RuntimeError('Physical roadside walking waypoint timed out')
+ pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw+math.degrees(math.atan2(y-q.y,x-q.x))))
 def other():return next(x for x in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVSurvivorCharacter) if x!=p and x.get_editor_property('PlayerState'))
 def cooling(f):return c.get_editor_property('Cooling').get_editor_property(f)
 def engine(f):return c.get_editor_property('Engine').get_editor_property(f)
@@ -18,7 +40,9 @@ def fluids():return sum(i.fuel_litres for q in [inv,other().get_component_by_cla
 def press(key,seconds=.2):
  if key in held:unreal.RVInteriorMotorhome.dispatch_development_key(pc,key,False)
  unreal.RVInteriorMotorhome.dispatch_development_key(pc,key,True);held[key]=(time.time()+seconds,frames+3)
-def aim(a):pc.set_control_rotation(unreal.MathLibrary.find_look_at_rotation(pc.get_controlled_pawn().get_actor_location()+unreal.Vector(0,0,64),a.get_actor_location()))
+def aim(a):
+ stop_route()
+ pc.set_control_rotation(unreal.MathLibrary.find_look_at_rotation(pc.get_controlled_pawn().get_actor_location()+unreal.Vector(0,0,p.get_editor_property('BaseEyeHeight')),a.get_actor_location()))
 def request(action,i=None,revision=None):pc.request_service(action,point.get_editor_property('Revision') if revision is None else revision,i.id if i else unreal.Guid(),i.fuel_revision if i else -1)
 def setup():
  for command in ['t.MaxFPS 60','t.IdleWhenNotForeground 0']:
@@ -110,9 +134,11 @@ def aim_driver():
  if isdriver():
   entry=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVVehicleEntryPoint) if a.get_editor_property('Seat').get_editor_property('bDriverSeat') and abs(v.get_actor_transform().inverse_transform_location(a.get_actor_location()).y)>100);aim(entry)
 def enter_driver():
- if isdriver():press('E',.85)
+ if isdriver():
+  unreal.log('GATE7_DRIVER_ENTRY '+json.dumps({'location':str(p.get_actor_location()),'prompt':str(p.get_component_by_class(unreal.RVInteractionComponent).get_prompt()),'control_rotation':str(pc.get_control_rotation()),'feedback':str(pc.get_editor_property('SeatFeedback')),'hood_open':v.get_editor_property('EngineHood').get_editor_property('bOpen'),'movement_active':p.get_component_by_class(unreal.CharacterMovementComponent).is_active()}))
+  press('E',.85)
 def drive():
- if isdriver():check('normal_E_driver_possession',pc.get_controlled_pawn()==v);press('W',18)
+ if isdriver():check('normal_E_driver_possession',pc.get_controlled_pawn()==v,{'feedback':str(pc.get_editor_property('SeatFeedback')),'prompt':str(p.get_component_by_class(unreal.RVInteractionComponent).get_prompt())});press('W',18)
 def minorfault():
  if authority:c.debug_set_state(.7,12,70,1);c.debug_set_time_scale(20)
 def walk():
@@ -133,7 +159,10 @@ def stopped():check('roadside_braking_stops',v.get_velocity().length()<150,v.get
 def exit_driver():
  if isdriver():press('E',.85)
 def outside():
- if isdriver():check('roadside_normal_E_exit',pc.get_controlled_pawn()==p and p.get_component_by_class(unreal.CharacterMovementComponent).get_editor_property('MovementMode')==unreal.MovementMode.MOVE_WALKING);pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw+180));press('W',.4)
+ if isdriver():
+  check('roadside_normal_E_exit',pc.get_controlled_pawn()==p and p.get_component_by_class(unreal.CharacterMovementComponent).get_editor_property('MovementMode')==unreal.MovementMode.MOVE_WALKING)
+  target=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVExteriorStoragePoint) if str(a.get_editor_property('DoorPartName'))=='Art_RV_Van_Compartment_02')
+  q=v.get_actor_transform().inverse_transform_location(target.get_actor_location());walk_route([(q.x,-210)])
 def aim_stock():
  if isdriver():
   target=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVExteriorStoragePoint) if str(a.get_editor_property('DoorPartName'))=='Art_RV_Van_Compartment_02');aim(target)
@@ -146,15 +175,15 @@ def take_stock():
 def retrieved():
  if isdriver():check('roadside_coolant_guid_state_from_storage',count('CoolantPartial')==1 and abs(item('CoolantPartial').fuel_litres-1.75)<1e-8 and abs(item('CoolantPartial').condition-.61)<.001);press('I')
 def walk_front():
- if isdriver():pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw));press('W',1)
+ if isdriver():walk_route([(500,-210),(550,0)])
 def walk_center():
- if isdriver():pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw+90));press('W',.5)
+ pass # waypoint route already turns after physically clearing the front bumper
 def roadside_inspect():
  if isdriver():press('E',.85)
 def roadside_aim():
  if isdriver():aim(point)
 def roadside_open():
- if isdriver():check('roadside_normal_E_diagnosis',pc.get_editor_property('MechanicalPoint')==point);press('P')
+ if isdriver():check('roadside_normal_E_diagnosis',pc.get_editor_property('MechanicalPoint')==point,{'location':str(v.get_actor_transform().inverse_transform_location(p.get_actor_location())),'prompt':str(p.get_component_by_class(unreal.RVInteractionComponent).get_prompt())});press('P')
 def roadside_patch():
  if isdriver():check('roadside_stopped_off_cool_service',c.can_service());press('B')
 def roadside_refill():
@@ -162,14 +191,15 @@ def roadside_refill():
 def roadside_refilled():
  if isdriver():check('roadside_refill_restores_supply',cooling('CoolantLitres')>11.9 and item('CoolantPartial').fuel_litres<1.75);press('P')
 def back_side():
- if isdriver():pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw+270));press('W',.5)
+ if isdriver():walk_route([(550,-210),(190,-220)])
 def back_cab():
- if isdriver():pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw+180));press('W',.7)
+ pass # continuing the same native walking route, no placement shortcut
 def continue_travel():
  if isdriver():check('roadside_driver_reentry',pc.get_controlled_pawn()==v);press('W',4)
 def recovered_driving():
  check('recoverable_fault_returns_to_travel',v.get_velocity().length()>200 and cooling('TemperatureC')<c.get_editor_property('Tuning').overheat_c and engine('Condition')>.5,{'speed':v.get_velocity().length(),'temperature':cooling('TemperatureC')})
 def finish():
+ stop_route()
  for key in held:unreal.RVInteriorMotorhome.dispatch_development_key(pc,key,False)
  unreal.unregister_slate_post_tick_callback(h)
  (B/(config['name']+'_'+role+'.json')).write_text(json.dumps({'pid':os.getpid(),'role':role,'config':config,'results':results,'samples':samples},indent=2),encoding='utf-8')
@@ -184,6 +214,7 @@ def tick(dt):
    if time.time()>deadline and frames>=frame:unreal.RVInteriorMotorhome.dispatch_development_key(pc,key,False);del held[key]
   if events and time.time()-start>=events[0][0]:
    _,fn=events.pop(0);fn()
+  steer_route()
   if time.time()>nextsample:
    nextsample=time.time()+.25
    frame=p.get_component_by_class(unreal.RVPassengerReferenceFrameComponent);q=v.get_actor_transform().inverse_transform_location(p.get_actor_location())

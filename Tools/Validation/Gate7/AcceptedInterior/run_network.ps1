@@ -8,9 +8,9 @@ if($LASTEXITCODE -ne 0){throw 'Cannot configure listen-server mode'}
 foreach($file in @('launch_process.py','process_startup.py','process_ready.py','process_refinement.py')){Copy-Item -LiteralPath ($root+'\Tools\Validation\Gate7\AcceptedInterior\'+$file) -Destination ($folder+'\'+$file)}
 if($Mode -ne 'physical'){
  $sourcePath=if($Mode -eq 'storage'){$root+'\Tools\Validation\Gate7\AcceptedInterior\process_storage.py'}else{$root+'\Tools\Validation\Gate6LayoutRework\process_'+$(if($Mode -eq 'native'){'refinement'}else{$Mode})+'.py'}
- $source=(Get-Content -LiteralPath $sourcePath -Raw).Replace('Saved/Gate6LayoutRework','Saved/Gate7AcceptedInterior')
+ $source=(Get-Content -LiteralPath $sourcePath -Raw).Replace('Saved/Gate6LayoutRework','Saved/Gate7AcceptedInterior').Replace('Gate6FuelElectricalTest','Gate7MechanicalTest')
  if($Mode -in @('storage','stations','doors')){
-  $prefix=(Get-Content -LiteralPath ($root+'\Tools\Validation\Gate6LayoutRework\process_auxiliary.py') -Raw).Replace('Saved/Gate6LayoutRework','Saved/Gate7AcceptedInterior')
+  $prefix=(Get-Content -LiteralPath ($root+'\Tools\Validation\Gate6LayoutRework\process_auxiliary.py') -Raw).Replace('Saved/Gate6LayoutRework','Saved/Gate7AcceptedInterior').Replace('Gate6FuelElectricalTest','Gate7MechanicalTest')
   $prefix=$prefix -replace '(?m)^exitpoint=next\(.*$', 'exitpoint=None # physical doorway, no teleport endpoint'
   Set-Content -LiteralPath ($folder+'\auxiliary_prefix.py') -Value $prefix -Encoding utf8
   $source=$source.Replace('Tools/Validation/Gate6LayoutRework/process_auxiliary.py','Saved/Gate7AcceptedInterior/auxiliary_prefix.py')
