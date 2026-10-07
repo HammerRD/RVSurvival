@@ -1,0 +1,22 @@
+{
+  "time": 1791375340.1148512,
+  "command": 25,
+  "local": [
+    -455.1968689674076,
+    75.00841786439508,
+    74.38626573843726
+  ],
+  "pawn": "RVInteriorTestCharacter_0",
+  "speed": 0.0,
+  "look": "<Struct 'Rotator' (0x0000021FAE9EB800) {pitch: -56.207571, yaw: -179.977780, roll: -0.000001}>",
+  "seat_feedback": "Living area | Hold E at cab seat to sit",
+  "mode": "<MovementMode.MOVE_WALKING: 1>",
+  "radius": 34.0,
+  "half": 88.0,
+  "collision": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>",
+  "frame": "None",
+  "prompt": "",
+  "rest": "<RVRestMode.AWAKE: 0>",
+  "ladder": "None",
+  "door_open": true
+}
