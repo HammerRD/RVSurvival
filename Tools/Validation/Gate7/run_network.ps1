@@ -2,6 +2,8 @@ param([string]$Driver='host',[switch]$Emulated,[switch]$EntryProbe,[ValidateSet(
 $ErrorActionPreference='Stop'
 $root='D:/GitHub/RVSurvival/RVSurvival';$base=$root+'/Saved/Gate7Validation/'
 if(Get-Process UnrealEditor -ErrorAction SilentlyContinue){throw 'Editor still running'}
+& 'D:/Epic Games/UE_5.8/Engine/Binaries/ThirdParty/Python3/Win64/python.exe' ($root+'/Tools/Validation/Gate7/set_listen_preferences.py')
+if($LASTEXITCODE -ne 0){throw 'Cannot configure listen-server mode'}
 foreach($name in @('launch_process.py','process_startup.py','process_ready.py')){
  $source=Get-Content ($root+'/Tools/Validation/Gate6Refinement/'+$name) -Raw
  $source=$source.Replace('Gate6Refinement','Gate7Validation').Replace('Gate6FuelElectricalTest','Gate7MechanicalTest')

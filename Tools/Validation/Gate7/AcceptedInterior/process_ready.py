@@ -11,6 +11,7 @@ def tick(dt):
   if len(unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVResourcePoint))!=2:return
   vehicles=unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVSystemsMotorhome)
   if len(vehicles)!=1:return
+  if vehicles[0].get_editor_property('EngineService') is None or vehicles[0].get_editor_property('EngineHood') is None:return
   house=vehicles[0].get_editor_property('HouseDoor')
   if house is None or house.get_editor_property('DoorMesh') is None:return
   entries=unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVVehicleEntryPoint)

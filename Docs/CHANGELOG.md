@@ -196,3 +196,5 @@ Supersedes prior second-refinement WIP/pending notes;executed tests/build/saves 
 ## 2026-10-07 - Gate 7 resumed against manually accepted Gate 6
 - User reports successful Gate6 manual playtest and accepts the refinement. Prior diagnostic/correction history remains recorded.
 - Read-only saved Gate7 audit found legacy physical-entry=false, Dinette rest and controlled-top ladder. Preserved mechanical foundation c8e28ff; scoped map integration and fresh validation are required. No Gate8.
+
+Gate7 saved-layout milestone: physical entry and roof configuration propagated into the project-side mechanical map/BP; obsolete Dinette rest removed. Fresh single43/43, paired physical34/34 in both impaired role combinations and host mechanical32/26 pass. Corrected inherited standalone PIE launch-mode assumption using scoped closed-editor native config with backup; failed setup preserved. Final reverse mechanical/stress/regression closure pending.

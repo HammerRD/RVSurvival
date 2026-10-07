@@ -106,3 +106,6 @@ ARVLadder/URVLadderClimbComponent now support a validated roof endpoint. Parked 
 F10 opens the native Enhanced Input user-settings Controls menu. Walking/climbing, interact/stand/dismount, driver/passenger/next/rear, rest/sleep, vehicle exit and orbit defaults are player-mappable. The passive driving catalog makes driving rows available before first possession without consuming walking input. Native profiles own remapping/persistence; temporary contexts unregister at teardown. Cab/door/bed hints use the current local binding.
 
 Latest refinement acceptance remains pending complete held-key human routes and unresolved transition smoothness. See GATE_6_VALIDATION.md and Gate6PhysicalRefinement evidence; prior historical acceptance is not fresh manual evidence.
+
+## Gate7 resumed integration - 2026-10-07
+Gate7MechanicalTest now inherits the user-accepted physical side-door, single rear-bed rest, roof/ladder and fitted cabinet configuration. Mechanical service remains a separate component/endpoint; native moving bases and validated cab departure are preserved. Parked roof use locks propulsion independently of cooling readiness. The refrigerator collision gap remains a measured-layout follow-up rather than a guessed combined-mesh blocker.

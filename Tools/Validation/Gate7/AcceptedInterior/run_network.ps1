@@ -3,6 +3,8 @@ $ErrorActionPreference='Stop'
 $root='D:\GitHub\RVSurvival\RVSurvival'
 $folder=$root+'\Saved\Gate7AcceptedInterior'
 if(Get-Process UnrealEditor -ErrorAction SilentlyContinue){throw 'Refuse concurrent editor'}
+& 'D:/Epic Games/UE_5.8/Engine/Binaries/ThirdParty/Python3/Win64/python.exe' ($root+'\Tools\Validation\Gate7\set_listen_preferences.py')
+if($LASTEXITCODE -ne 0){throw 'Cannot configure listen-server mode'}
 foreach($file in @('launch_process.py','process_startup.py','process_ready.py','process_refinement.py')){Copy-Item -LiteralPath ($root+'\Tools\Validation\Gate7\AcceptedInterior\'+$file) -Destination ($folder+'\'+$file)}
 if($Mode -ne 'physical'){
  $sourcePath=if($Mode -eq 'storage'){$root+'\Tools\Validation\Gate7\AcceptedInterior\process_storage.py'}else{$root+'\Tools\Validation\Gate6LayoutRework\process_'+$(if($Mode -eq 'native'){'refinement'}else{$Mode})+'.py'}
