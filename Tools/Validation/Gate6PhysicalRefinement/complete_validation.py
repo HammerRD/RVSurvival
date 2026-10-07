@@ -14,7 +14,12 @@ for path in sorted(docs.glob('*_server.json')):
   if raw.exists():
    data=json.loads(raw.read_text(encoding='utf-8-sig'));samples=data.get('samples',[])
    # Raw metrics include fixture and intentional seat/bed/ladder transitions.
-   metrics.append({'suite':name,'role':role,'samples':len(samples),'raw_max_correction_cm':max((s.get('max_correction',0) for s in samples),default=0),'peak_speed_cm_s':max((s.get('speed',0) for s in samples),default=0)})
+   seen={};timeline=[]
+   for s in samples:
+    who=s.get('who');count=s.get('corrections',0)
+    if count!=seen.get(who,0):timeline.append({'t':s.get('t'),'who':who,'count':count,'max_cm':s.get('max_correction'),'position':s.get('pos')});seen[who]=count
+   measured=[s['max_correction'] for s in samples if 'max_correction' in s]
+   metrics.append({'suite':name,'role':role,'samples':len(samples),'raw_max_correction_cm':max(measured) if measured else None,'peak_speed_cm_s':max((s.get('speed',0) for s in samples),default=0),'correction_timeline':timeline})
 summary={'status':'NOT ACCEPTED - full manual hold routes pending','evidence_kind':'diagnostics, not full manual acceptance','suites':rows,'metrics':metrics}
 (docs/'final-test-summary.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
 table='\n'.join('| '+r['suite']+' | '+str(r['server_checks'])+' / '+str(r['client_checks'])+' | '+str(r['failed'])+' |' for r in rows)
@@ -30,6 +35,7 @@ section='''
 - Cab RearInterior defaults to3 and is remappable. Passenger release supports the accepted moving frame; driver release requires effectively stopped speed (new tunable MaxDriverCabDepartureSpeed10cm/s). Existing full-capsule/supported aisle validation precedes releasing occupancy. Native release restores possession, movement, collision, base, camera and input. Invalid placement retains the seat. Available cab/rear seats remain normal E interactions; occupied seats reject.
 - Ladder originally deliberately rejected the upper exit and stopped climbing at180cm. New parked roof access uses replicated ladder/roof state, native CMC flying/plane constraints and validated rail/ground/roof capsule sweeps. ClimbHeight335.6 accounts for the actual88cm half-capsule. Roof dismount lands near(-315,75), on support measured at319.6cm (vendor triangle319.5916). RoofWalkMain is fitted to actual roof height; separate AC, rear/middle/back-left vents and pipe collision match measured fixtures. Their walkable tops retain the native RV frame. E at top restores walking; hold E at the upper ladder query reserves return, S descends, E at bottom restores world movement. Per-character weak propulsion locks remain while on the roof and release on descent/disconnect. No floating platform, vendor edit, custom prediction or transform-forcing movement solution.
 - Original input had transient Enhanced Input contexts but no implemented remapping menu;1/2/V used fixed-key polling. RVInputMappings, URVControlsWidget and URVControlRowWidget now use native player-mappable metadata, UEnhancedInputUserSettings profiles and UMG InputKeySelector. F10 opens, Escape/Return closes, native settings save remaps. A passive controller-owned driving catalog exposes defaults before first possession without applying input. Cab/door/bed/survival hints follow local bindings. Initialization registration retries idempotently; teardown unregisters contexts and removes widgets. No separate key-save framework.
+- Telemetry additionally found repeated autonomous CharacterMovement corrections while a passenger was seat-attached in MOVE_None. Native CMC ticking now pauses only during the authoritative seated transform, restores its prior tick policy before standing, and clears/ignores seated walking input. Server authority and world/interior correction rules remain enabled. Subsequent native20-cycle/highway/bed regression results are distinguished from earlier physical-route receipts and are followed by final-source physical reruns.
 
 Saved content is limited to Gate6FuelElectricalTest and BP_ClassCSystemsMotorhome. Current configuration69actors; the removed Dinette rest was the70th. All prior maps/fallbacks, seven exterior compartments, vendor108files, Chaos tuning and existing Gate7 content are preserved. See configured.json and source-content-manifest.txt.
 
@@ -70,5 +76,9 @@ The remaining flows require a human sustained-key pass or a supported tool capab
 '''
 p=root/'Docs/GATE_6_VALIDATION.md';old=p.read_bytes();marker=b'\n## Gate 6 physical-entry, seating and roof refinement - 2026-10-07'
 if marker in old:old=old.split(marker,1)[0]
-p.write_bytes(old.rstrip()+section.encode('utf-8')+b'\n')
+notice='''> **Current additional Gate6 refinement: NOT ACCEPTED yet - complete held-key manual-player routes are pending.** Earlier acceptance below is historical baseline evidence. Existing completed Gate7 checkpoint c8e28ff is preserved and paused; no Gate7 work was resumed by this refinement. See the final physical-entry/seating/roof section and Bobby checklist below.
+
+'''.encode('utf-8')
+if old.startswith(b'> **Current additional Gate6 refinement:'):old=old.split(b'\n\n',1)[1]
+p.write_bytes(notice+old.rstrip()+section.encode('utf-8')+b'\n')
 print('Recorded '+str(len(rows))+' diagnostic suites; manual acceptance remains pending.')

@@ -105,8 +105,8 @@ void ARVSurvivorCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
     Input->BindAction(InteractAction, ETriggerEvent::Completed, this, &ThisClass::StopInteract);
     Input->BindAction(InteractAction, ETriggerEvent::Canceled, this, &ThisClass::StopInteract);
 }
-void ARVSurvivorCharacter::MoveForward(const FInputActionValue& V) { if(auto* Climb=FindComponentByClass<URVLadderClimbComponent>();Climb && Climb->Ladder) { Climb->ClimbInput(V.Get<float>()); return; } if(CanMoveWhileAwake(this)) AddMovementInput(FRotationMatrix(FRotator(0, GetControlRotation().Yaw, 0)).GetUnitAxis(EAxis::X), V.Get<float>()); }
-void ARVSurvivorCharacter::MoveRight(const FInputActionValue& V) { if(auto* Climb=FindComponentByClass<URVLadderClimbComponent>();Climb && Climb->Ladder) return; if(CanMoveWhileAwake(this)) AddMovementInput(FRotationMatrix(FRotator(0, GetControlRotation().Yaw, 0)).GetUnitAxis(EAxis::Y), V.Get<float>()); }
+void ARVSurvivorCharacter::MoveForward(const FInputActionValue& V) { if(SeatedVehicle)return; if(auto* Climb=FindComponentByClass<URVLadderClimbComponent>();Climb && Climb->Ladder) { Climb->ClimbInput(V.Get<float>()); return; } if(CanMoveWhileAwake(this)) AddMovementInput(FRotationMatrix(FRotator(0, GetControlRotation().Yaw, 0)).GetUnitAxis(EAxis::X), V.Get<float>()); }
+void ARVSurvivorCharacter::MoveRight(const FInputActionValue& V) { if(SeatedVehicle)return; if(auto* Climb=FindComponentByClass<URVLadderClimbComponent>();Climb && Climb->Ladder) return; if(CanMoveWhileAwake(this)) AddMovementInput(FRotationMatrix(FRotator(0, GetControlRotation().Yaw, 0)).GetUnitAxis(EAxis::Y), V.Get<float>()); }
 void ARVSurvivorCharacter::LookYaw(const FInputActionValue& V) { AddControllerYawInput(V.Get<float>()); }
 void ARVSurvivorCharacter::LookPitch(const FInputActionValue& V) { AddControllerPitchInput(V.Get<float>()); }
 void ARVSurvivorCharacter::StartJump() { if (!SeatedVehicle && CanMoveWhileAwake(this)) Jump(); }
@@ -150,6 +150,21 @@ void ARVSurvivorCharacter::OnRep_VehicleSeat()
 {
     bUseControllerRotationYaw = !SeatedVehicle;
     GetCapsuleComponent()->SetCollisionEnabled(SeatedVehicle ? ECollisionEnabled::NoCollision : ECollisionEnabled::QueryAndPhysics);
-    if (SeatedVehicle) { StopJumping(); GetCharacterMovement()->StopMovementImmediately(); GetCharacterMovement()->DisableMovement(); }
-    else GetCharacterMovement()->SetMovementMode(MOVE_Walking);
+    auto* Movement=GetCharacterMovement();
+    ConsumeMovementInputVector();
+    if (SeatedVehicle)
+    {
+        StopJumping();Movement->StopMovementImmediately();Movement->DisableMovement();
+        // The authoritative seat attachment owns the seated transform. MOVE_None
+        // alone still sends autonomous character moves against a moving seat.
+        // Pause native movement ticking, not authority/correction rules; resume
+        // the previous tick policy before normal standing/base movement.
+        if(!bSeatMovementTickPaused){bPreviousMovementTickEnabled=Movement->IsComponentTickEnabled();bSeatMovementTickPaused=true;}
+        Movement->SetComponentTickEnabled(false);
+    }
+    else
+    {
+        if(bSeatMovementTickPaused){Movement->SetComponentTickEnabled(bPreviousMovementTickEnabled);bSeatMovementTickPaused=false;}
+        Movement->SetMovementMode(MOVE_Walking);
+    }
 }

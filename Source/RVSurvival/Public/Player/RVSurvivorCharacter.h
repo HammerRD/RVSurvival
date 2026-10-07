@@ -37,6 +37,8 @@ private:
     void CreateInput();
     void RemoveInput();
     UFUNCTION() void OnRep_VehicleSeat();
+    bool bSeatMovementTickPaused=false;
+    bool bPreviousMovementTickEnabled=true;
     TWeakObjectPtr<ULocalPlayer> InputLocalPlayer;
     void MoveForward(const FInputActionValue& Value);
     void MoveRight(const FInputActionValue& Value);

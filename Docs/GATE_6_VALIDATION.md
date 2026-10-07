@@ -1,3 +1,5 @@
+> **Current additional Gate6 refinement: NOT ACCEPTED yet - complete held-key manual-player routes are pending.** Earlier acceptance below is historical baseline evidence. Existing completed Gate7 checkpoint c8e28ff is preserved and paused; no Gate7 work was resumed by this refinement. See the final physical-entry/seating/roof section and Bobby checklist below.
+
 # Gate 6 fuel and electrical validation
 
 Status: ACCEPTED after the second manual-playtest refinement, 2026-10-06. The final section below supersedes earlier in-progress checkpoints and provisional coordinates. Normal player input, live visual inspection and separate-process host/client validation passed. Gates 1-5 remain accepted; Gate 7 is not authorized.
@@ -367,6 +369,7 @@ Resume inspection confirmed both saved Gate6 assets match HEAD7ff6374 byte-for-b
 - Cab RearInterior defaults to3 and is remappable. Passenger release supports the accepted moving frame; driver release requires effectively stopped speed (new tunable MaxDriverCabDepartureSpeed10cm/s). Existing full-capsule/supported aisle validation precedes releasing occupancy. Native release restores possession, movement, collision, base, camera and input. Invalid placement retains the seat. Available cab/rear seats remain normal E interactions; occupied seats reject.
 - Ladder originally deliberately rejected the upper exit and stopped climbing at180cm. New parked roof access uses replicated ladder/roof state, native CMC flying/plane constraints and validated rail/ground/roof capsule sweeps. ClimbHeight335.6 accounts for the actual88cm half-capsule. Roof dismount lands near(-315,75), on support measured at319.6cm (vendor triangle319.5916). RoofWalkMain is fitted to actual roof height; separate AC, rear/middle/back-left vents and pipe collision match measured fixtures. Their walkable tops retain the native RV frame. E at top restores walking; hold E at the upper ladder query reserves return, S descends, E at bottom restores world movement. Per-character weak propulsion locks remain while on the roof and release on descent/disconnect. No floating platform, vendor edit, custom prediction or transform-forcing movement solution.
 - Original input had transient Enhanced Input contexts but no implemented remapping menu;1/2/V used fixed-key polling. RVInputMappings, URVControlsWidget and URVControlRowWidget now use native player-mappable metadata, UEnhancedInputUserSettings profiles and UMG InputKeySelector. F10 opens, Escape/Return closes, native settings save remaps. A passive controller-owned driving catalog exposes defaults before first possession without applying input. Cab/door/bed/survival hints follow local bindings. Initialization registration retries idempotently; teardown unregisters contexts and removes widgets. No separate key-save framework.
+- Telemetry additionally found repeated autonomous CharacterMovement corrections while a passenger was seat-attached in MOVE_None. Native CMC ticking now pauses only during the authoritative seated transform, restores its prior tick policy before standing, and clears/ignores seated walking input. Server authority and world/interior correction rules remain enabled. Subsequent native20-cycle/highway/bed regression results are distinguished from earlier physical-route receipts and are followed by final-source physical reruns.
 
 Saved content is limited to Gate6FuelElectricalTest and BP_ClassCSystemsMotorhome. Current configuration69actors; the removed Dinette rest was the70th. All prior maps/fallbacks, seven exterior compartments, vendor108files, Chaos tuning and existing Gate7 content are preserved. See configured.json and source-content-manifest.txt.
 
@@ -384,7 +387,9 @@ Both endpoint PIDs differ. Emulated cases use explicit native NetEmulation.PktLa
 |---|---|---|
 | disconnect_Ladder_100ms_2loss | 26 / 24 | [0, 0] |
 | disconnect_Roof_100ms_2loss | 27 / 25 | [0, 0] |
+| native_host_100ms_2loss | 65 / 65 | [0, 0] |
 | physical_client_100ms_2loss | 34 / 34 | [0, 0] |
+| physical_host_100ms_2loss | 34 / 34 | [0, 0] |
 | physical_host_baseline | 34 / 34 | [0, 0] |
 
 The physical routes cover open-door steps/entry, cab E, occupied1 rejection, passenger3 while moving, moving driver3 rejection, both Dinette seats Awake, bed/Z/R and player independence, stopped driver3, rear-to-cab E, physical exit, roof walking/return/down, propulsion lock, closed-door block, backing clear of swing, re-entry and front/rear/back-out walking. Roof/ladder disconnect cases verify reservation release, remaining Awake player and resumed propulsion. Native20-cycle, stations/door/storage/resource/prior-gate regression receipts are recorded separately when executed.
