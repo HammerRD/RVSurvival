@@ -39,3 +39,6 @@ The real rear ladder now targets parked roof access using collision at the purch
 The user accepted Gate6 physical-entry/roof/seating after successful manual playtest on 2026-10-07 and authorized Gate7 only. The existing deterministic cooling/repair loop is being revalidated against that mobile-base layout. Gate8 remains unauthorized; no additional mechanical subsystems, combat, world generation or streaming are introduced.
 
 Resumed Gate7 closure: ACCEPTED after fresh mechanical/both-role impaired network, stress and Gates1–6 representative regressions; see GATE_7_VALIDATION.md for exact scope/evidence/failed history. Saved physical-entry/roof layout retained,108vendor hashes unchanged. Refrigerator collision remains a nonblocking measured-layout follow-up. Full persistence/later systems remain unimplemented; no Gate8.
+
+## Gate 8 medical prototype
+Medical needs reinforce the RV as the mobile survival base: stabilize injuries using carried/linked supplies, support teammates, and preserve injury consequences after revive. Splints/bandages stabilize; medicine temporarily reduces pain. Advanced station treatment is parked-only; basic treatment supports transit. No combat, full disease/surgery, dependency or permanent-character replacement implementation. See MEDICAL.md for current prototype rules.

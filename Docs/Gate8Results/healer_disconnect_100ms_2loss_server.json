@@ -1,0 +1,21 @@
+{
+  "pid": 36992,
+  "role": "server",
+  "results": [
+    {
+      "case": "server_survived_disconnect",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "healer_disconnect_no_late_treatment",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "downed_patient_retained",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

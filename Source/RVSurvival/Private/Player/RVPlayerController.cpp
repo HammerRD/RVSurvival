@@ -1,4 +1,6 @@
 #include "Player/RVPlayerController.h"
+#include "Player/RVPlayerState.h"
+#include "Medical/RVHealthComponent.h"
 #include "Vehicles/RVMechanicalMotorhome.h"
 #include "Vehicles/RVRecoveryComponent.h"
 #include "EngineUtils.h"
@@ -20,6 +22,7 @@ void ARVPlayerController::RequestRecoverRV()
 }
 void ARVPlayerController::ServerRecoverRV_Implementation(ARVMechanicalMotorhome* Target)
 {
+    if(const auto* PS=GetPlayerState<ARVPlayerState>();PS && !PS->Health->CanAct()) { RecoveryFeedback=TEXT("Teammate assistance required" ); return; }
     if(Target && Target->Recovery)Target->Recovery->RecoverAuthority(this,RecoveryFeedback);
     else RecoveryFeedback=TEXT("Recovery target is unavailable");
     ForceNetUpdate();
@@ -34,7 +37,7 @@ void ARVPlayerController::RVRecover()
 #include "UI/RVControlsWidget.h"
 #include "UI/RVMedicalWidget.h"
 #include "Medical/RVMedicalStation.h"
-#include "Medical/RVHealthComponent.h"
+
 #include "InputActionValue.h"
 #include "Mechanical/RVServicePoint.h"
 #include "Vehicles/RVResourcePoint.h"
@@ -43,7 +46,7 @@ void ARVPlayerController::RVRecover()
 #include "Inventory/RVInventoryComponent.h"
 #include "Vehicles/RVVehicleBase.h"
 #include "Net/UnrealNetwork.h"
-#include "Player/RVPlayerState.h"
+
 #include "Survival/RVNeedsComponent.h"
 #include "Vehicles/RVVehicleSeatComponent.h"
 #include "Vehicles/RVInteriorMotorhome.h"
@@ -132,7 +135,7 @@ void ARVPlayerController::ServerLivingArea_Implementation()
 void ARVPlayerController::ServerDrive_Implementation(float Throttle, float Steering, bool Handbrake)
 { if (SeatedVehicle) { const auto* PS=GetPlayerState<ARVPlayerState>();const bool Allowed=!PS || PS->Health->CanAct(); SeatedVehicle->ReceiveDriveInput(this,Allowed?Throttle:0,Allowed?Steering:0,Allowed?Handbrake:true); } }
 void ARVPlayerController::ServerExitVehicle_Implementation()
-{ if (SeatedVehicle && GetWorld()->GetTimeSeconds() - SeatEntryTime > .75) SeatedVehicle->TryExit(this); }
+{ if(const auto* PS=GetPlayerState<ARVPlayerState>();PS && !PS->Health->CanAct())return; if (SeatedVehicle && GetWorld()->GetTimeSeconds() - SeatEntryTime > .75) SeatedVehicle->TryExit(this); }
 void ARVPlayerController::PawnLeavingGame()
 {
     if(HasAuthority() && IsValid(MechanicalPoint) && MechanicalPoint->RepairPlayer && MechanicalPoint->RepairPlayer==PlayerState)
@@ -161,6 +164,7 @@ void ARVPlayerController::EndPlay(const EEndPlayReason::Type Reason)
 
 bool ARVPlayerController::ValidateResourceAccess(bool Fill) const
 {
+    const auto* PS=GetPlayerState<ARVPlayerState>();if(PS && !PS->Health->CanAct())return false;
     const APawn* P=GetPawn();
     if(!HasAuthority() || !P || !IsValid(ResourcePoint) || !IsValid(ResourcePoint->Vehicle) || ResourcePoint->bFuelFill!=Fill) return false;
     if(Fill && ResourcePoint->Vehicle->GetVelocity().Size()>150) return false;
@@ -298,6 +302,7 @@ void ARVPlayerController::RequestService(FName Action,int32 Expected,FGuid Item,
 void ARVPlayerController::ServerService_Implementation(FName Action,int32 Expected,FGuid Item,int32 ItemRevision)
 {
     if(!HasAuthority() || !IsValid(MechanicalPoint))return;
+    if(Action!=TEXT("Close"))if(const auto* PS=GetPlayerState<ARVPlayerState>();PS && !PS->Health->CanAct())return;
     MechanicalPoint->RequestAuthority(this,Action,Expected,Item,ItemRevision);
 }
 void ARVPlayerController::PatchKey(){if(MechanicalPoint)RequestService(TEXT("Patch"),MechanicalPoint->Revision,FGuid(),-1);}
@@ -321,3 +326,4 @@ void ARVPlayerController::ClientOpenMedical_Implementation()
 {
     if(!MedicalWidget) ToggleMedical();
 }
+

@@ -226,3 +226,10 @@ Rollover closure: both final-source driver-role matrices 47 server /45 client ch
 
 
 Gate 8 in-progress checkpoint: saved medical test map/profile derivatives and linked medical station; remappable F9 UMG assessment/treatment UI; qualitative medical HUD; downed action/mobility policy; passenger-frame-relative treatment interruption; finite configuration/GUID and bleeding-before-revive guards. Normal UI bandage observed; 16 focused treatment transaction cases passed after a preserved Python GUID comparison harness failure. Gate 8 remains NOT ACCEPTED pending multiplayer, full manual controls, stress and regressions. No Gate 9 work.
+
+## Gate 8 focused medical validation checkpoint
+- Added downed authority guards for vehicle recovery/exit, resource/service requests and rest entry; retained native Unreal movement and networking.
+- Added SaveGame-compatible Blood/Vitality declarations and clearer injury recovery text; full medical persistence/travel remains deferred.
+- Recorded normal medical-panel cancellation/retry, separate-process moving treatment in both roles, isolated passenger correction measurements, medical boundary/medication-expiry tests, repeated timed transactions and both disconnect directions.
+- Improved test-runner cleanup and invalid-PIE sampler handling. Failed harness runs remain documented; leak detection is unchanged.
+- Gate 8 remains in progress. Gate 9 has not started.

@@ -1,0 +1,7 @@
+{
+  "kind": "20 repeated timer transactions, duplicate requests and every-fifth cancellation/retry",
+  "completed_cycles": 20,
+  "cancelled_retried": 4,
+  "final_quantity": 0,
+  "failures": []
+}

@@ -14,6 +14,8 @@ for name in ['Bandage','Splint','PainMedication']:
 samples=[];last=0
 def tick(dt):
  global last
+ if not unreal.SystemLibrary.is_valid(health):
+  unreal.unregister_slate_post_tick_callback(h);return
  if time.time()-last<.5:return
  last=time.time()
  samples.append({'time':last,'feedback':health.get_editor_property('Feedback'),'pain':health.get_pain(),'movement_scale':health.get_movement_scale(),'speed':p.get_velocity().length(),'position':str(p.get_actor_location()),'injuries':[{'type':str(i.kind),'bleed':i.bleeding_per_minute,'stabilized':i.get_editor_property('bStabilized'),'revision':i.revision} for i in health.get_editor_property('Injuries')],'items':[{'id':unreal.GuidLibrary.conv_guid_to_string(i.id),'quantity':i.quantity,'condition':i.condition,'name':str(i.definition.get_editor_property('DisplayName'))} for i in inventory.get_items()]})
@@ -21,3 +23,4 @@ def tick(dt):
 h=unreal.register_slate_post_tick_callback(tick)
 def release():unreal.unregister_slate_post_tick_callback(h)
 (B/'manual-ui-ready.json').write_text(json.dumps({'initial_fixture':True,'input':'normal OS F9 and UMG mouse clicks; not component shortcut'},indent=2),encoding='utf-8')
+

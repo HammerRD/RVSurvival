@@ -14,3 +14,5 @@ The user's Gate 5 survival brief supersedes the earlier roadmap's fuel-loop assi
 Current authorized work stops after Gate 7. Compile success is not gate acceptance. Earlier Gate6-only authorization statements above are historical; the current user request supersedes them.
 
 Gate7 resumed closure2026-10-07: ACCEPTED against user-manually-accepted Gate6 physical-entry/roof baseline; fresh mechanical/network/stress/representative regressions, saved reload, UI and final build passed. Optional refrigerator collision remains deferred. Current authorized work stops here; Gate8 is not started.
+
+8. Medical/injury foundation: user-authorized and IN PROGRESS on2026-10-08 after Gate7 acceptance. See GATE_8_VALIDATION.md. Gate9 not started; prior statements that Gate8 was unauthorized describe historical Gate7 closure.

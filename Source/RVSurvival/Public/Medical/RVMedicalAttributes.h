@@ -20,9 +20,9 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out) const override;
     virtual void PreAttributeChange(const FGameplayAttribute& Attribute, float& Value) override;
     virtual void PreAttributeBaseChange(const FGameplayAttribute& Attribute, float& Value) const override;
-    UPROPERTY(BlueprintReadOnly, ReplicatedUsing=OnRep_Blood) FGameplayAttributeData Blood;
+    UPROPERTY(BlueprintReadOnly, SaveGame, ReplicatedUsing=OnRep_Blood) FGameplayAttributeData Blood;
     RV_MEDICAL_ACCESSORS(Blood)
-    UPROPERTY(BlueprintReadOnly, ReplicatedUsing=OnRep_Vitality) FGameplayAttributeData Vitality;
+    UPROPERTY(BlueprintReadOnly, SaveGame, ReplicatedUsing=OnRep_Vitality) FGameplayAttributeData Vitality;
     RV_MEDICAL_ACCESSORS(Vitality)
     UPROPERTY(BlueprintReadOnly, ReplicatedUsing=OnRep_Analgesia) FGameplayAttributeData Analgesia;
     RV_MEDICAL_ACCESSORS(Analgesia)
@@ -31,3 +31,4 @@ private:
     UFUNCTION() void OnRep_Vitality(const FGameplayAttributeData& Previous);
     UFUNCTION() void OnRep_Analgesia(const FGameplayAttributeData& Previous);
 };
+

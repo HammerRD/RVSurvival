@@ -1,0 +1,21 @@
+{
+  "pid": 3172,
+  "role": "server",
+  "results": [
+    {
+      "case": "server_survived_disconnect",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "patient_disconnect_releases_hold",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "patient_disconnect_retains_supply",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

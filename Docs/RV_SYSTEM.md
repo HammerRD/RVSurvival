@@ -119,3 +119,6 @@ Recovery keeps this vehicle actor and its resource/item/mechanical records. It v
 
 Placement policy is deliberately conservative and tunable: 9 offsets within 3 m, maximum 4 m vertical change, five ground samples with normal Z at least 0.9 and height spread at most 45 cm, padded body clearance center (0,0,200), half extent (550,250,210) cm, initial ground clearance 45 cm. Pawns/attached vehicle geometry cannot serve as recovery ground. Crowded/steep/unloaded terrain can reject; no obstruction is deleted or collision globally disabled.
 
+
+## Gate 8 medical station (in progress)
+Gate8MedicalTest adds a project-side medical station at the existing medical location, linked to existing Medical storage. Basic treatment is designed for moving interior use; advanced kit requires a reachable configured station and parked vehicle. Seats/rest/workstations and vendor art remain unchanged. Medical state follows PlayerState across survivor/driver possession. See MEDICAL.md and validation for actual coverage.

@@ -12,7 +12,8 @@ def configure():
  ('PainMedication',unreal.RVTreatmentKind.ANALGESIC,2,3,0,False),
  ('FirstAidKit',unreal.RVTreatmentKind.REVIVE,12,3,0,False),
  ('AdvancedKit',unreal.RVTreatmentKind.PRESSURE_DRESSING,6,3,1,True),
- ('DiagnosticBandage',unreal.RVTreatmentKind.BANDAGE,1,2,1,False)]
+ ('DiagnosticBandage',unreal.RVTreatmentKind.BANDAGE,1,2,1,False),
+ ('DiagnosticPainMedication',unreal.RVTreatmentKind.ANALGESIC,.2,3,0,False)]
  for name,kind,duration,severity,reduction,station in specs:
   folder='/Game/Development/Medical' if name.startswith('Diagnostic') else '/Game/Medical'
   asset=unreal.load_asset(folder+'/DA_'+name) or tools.create_asset('DA_'+name,folder,unreal.RVItemDefinition,factory)
@@ -27,7 +28,9 @@ def configure():
   medical=asset.get_editor_property('Medical');medical.set_editor_property('bMedicalSupply',True)
   medical.set_editor_property('Treatment',kind);medical.set_editor_property('DurationSeconds',duration)
   medical.set_editor_property('MaximumSeverity',severity);medical.set_editor_property('BleedingReduction',reduction)
+  if name=='DiagnosticPainMedication':medical.set_editor_property('MedicationSeconds',2)
   medical.set_editor_property('bRequiresStation',station);medical.set_editor_property('bRequiresParked',station)
   asset.set_editor_property('Medical',medical)
   assert unreal.EditorAssetLibrary.save_loaded_asset(asset)
 configure()
+

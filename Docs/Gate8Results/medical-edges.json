@@ -1,0 +1,95 @@
+{
+  "kind": "medical boundary diagnostics",
+  "results": [
+    {
+      "case": "bleed_severity_1",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bleed_severity_2",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bleed_severity_3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "combined_bleed_reduces_blood",
+      "pass": true,
+      "detail": "86.49986267089844"
+    },
+    {
+      "case": "severe_rejected_by_basic_bandage",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "severe_bleed_unchanged",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native_GAS_timed_relief_active",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "final_medication_item_removed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native_GAS_relief_expired",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "pain_returns_with_injury",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "concussion_recovers_over_time",
+      "pass": true,
+      "detail": "0.41668325662612915"
+    },
+    {
+      "case": "head_status_tag_present",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "downed_rejects_drop",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "downed_speed_zero",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "downed_cannot_act",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "vital_bounds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "terminal_foundation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "reset_releases_treatment",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

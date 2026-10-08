@@ -181,7 +181,7 @@ void URVNeedsComponent::ServerConsume_Implementation(FGuid Id)
 }
 bool URVNeedsComponent::BeginRestAuthority(ARVRestPoint* Point,ARVSurvivorCharacter* Character)
 {
-    if(!GetOwner()->HasAuthority() || !Point || Character!=ResolveSurvivor() || !Point->CanContinueRest(Character) || Point->Occupant || Character->SeatedVehicle) return false;
+    if(!GetOwner()->HasAuthority() || !Cast<ARVPlayerState>(GetOwner())->Health->CanAct() || !Point || Character!=ResolveSurvivor() || !Point->CanContinueRest(Character) || Point->Occupant || Character->SeatedVehicle) return false;
     EndRestAuthority();
     if (State.RestMode!=ERVRestMode::Awake) return false;
     if (Point->bUseLyingPose)
@@ -211,6 +211,7 @@ void URVNeedsComponent::ServerRestMode_Implementation(ERVRestMode Mode)
     if (DebugAllowed()) UE_LOG(LogTemp,Log,TEXT("RVRest request=%d before=%d point=%s character=%s valid=%d"),int32(Mode),int32(State.RestMode),*GetNameSafe(RestLocation),*GetNameSafe(RestingCharacter.Get()),IsValid(RestLocation)&&RestLocation->CanContinueRest(RestingCharacter.Get()));
     ON_SCOPE_EXIT { OnRep_State(); GetOwner()->ForceNetUpdate(); };
     if(Mode==ERVRestMode::Awake) { EndRestAuthority(); if(State.RestMode==ERVRestMode::Awake) Feedback=TEXT("Awake"); return; }
+    if(!Cast<ARVPlayerState>(GetOwner())->Health->CanAct())return;
     if((Mode!=ERVRestMode::Resting && Mode!=ERVRestMode::Sleeping) || !IsValid(RestLocation) || !RestLocation->CanContinueRest(RestingCharacter.Get())) return;
     State.RestMode=Mode; OnRep_State(); GetOwner()->ForceNetUpdate();
 }
@@ -233,3 +234,4 @@ bool URVNeedsComponent::DebugAdvanceTime(float Seconds)
 { if(!DebugAllowed() || !FMath::IsFinite(Seconds) || Seconds<0 || Seconds>86400*30) return false; Advance(Seconds); GetOwner()->ForceNetUpdate(); return true; }
 void URVNeedsComponent::CopyPersistentValuesTo(URVNeedsComponent* Destination) const
 { if(GetOwner()->HasAuthority() && Destination && Destination->GetOwner()->HasAuthority()) { Destination->Tuning=Tuning; Destination->State=State; Destination->State.RestMode=ERVRestMode::Awake; Destination->bCopiedPersistentState=true; } }
+

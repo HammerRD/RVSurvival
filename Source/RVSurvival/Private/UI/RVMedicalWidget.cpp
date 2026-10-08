@@ -67,7 +67,7 @@ void URVMedicalWidget::NativeTick(const FGeometry& G,float Delta)
     static const TCHAR* Regions[]={TEXT("Head"),TEXT("Torso"),TEXT("Left arm"),TEXT("Right arm"),TEXT("Left leg"),TEXT("Right leg")};
     static const TCHAR* Types[]={TEXT("Wound"),TEXT("Fracture"),TEXT("Burn"),TEXT("Concussion")};
     if(!H->Injuries.IsEmpty())
-    {const auto& I=H->Injuries[InjuryIndex%H->Injuries.Num()];Status+=FString::Printf(TEXT("%s — %s | %s\n%s | %s | %s"),Regions[uint8(I.Region)],Types[uint8(I.Kind)],I.Severity>=3?TEXT("severe"):I.Severity>=2?TEXT("moderate"):TEXT("minor"),I.BleedingPerMinute>0?TEXT("ACTIVE BLEEDING"):TEXT("No active bleeding"),I.bStabilized?TEXT("Stabilized; recovery needed"):TEXT("Untreated"),I.InfectionRisk>=.3f?TEXT("Contamination risk"):TEXT("Low contamination risk"));}
+    {const auto& I=H->Injuries[InjuryIndex%H->Injuries.Num()];Status+=FString::Printf(TEXT("%s — %s | %s\n%s | %s | %s"),Regions[uint8(I.Region)],Types[uint8(I.Kind)],I.Severity>=3?TEXT("severe"):I.Severity>=2?TEXT("moderate"):TEXT("minor"),I.BleedingPerMinute>0?TEXT("ACTIVE BLEEDING"):TEXT("No active bleeding"),I.Healing>=1?TEXT("Recovered"):I.bStabilized?TEXT("Stabilized; recovery needed"):I.Healing>0?TEXT("Recovering"):TEXT("Untreated"),I.InfectionRisk>=.3f?TEXT("Contamination risk"):TEXT("Low contamination risk"));}
     else Status+=TEXT("No recorded injuries");Summary->SetText(FText::FromString(Status));
     auto* C=PS->Needs->ResolveSurvivor();auto* Inventory=C?C->FindComponentByClass<URVInventoryComponent>():nullptr;
     auto Items=Inventory?Inventory->GetItems():TArray<FRVItemInstance>();Items.RemoveAll([](const auto& I){return !I.Definition || !I.Definition->Medical.bMedicalSupply;});
@@ -76,3 +76,4 @@ void URVMedicalWidget::NativeTick(const FGeometry& G,float Delta)
     if(PS->Health->ActiveTreatment.IsValid())Detail+=FString::Printf(TEXT("\nTreatment: %.1f s remaining"),FMath::Max(0.,PS->Health->TreatmentEndTime-GetWorld()->GetGameState()->GetServerWorldTimeSeconds()));
     Feedback->SetText(FText::FromString(Detail));
 }
+

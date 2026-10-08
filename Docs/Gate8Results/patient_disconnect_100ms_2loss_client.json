@@ -1,0 +1,12 @@
+{
+  "pid": 38820,
+  "role": "client",
+  "results": [
+    {
+      "case": "client_exits_during_hold",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "intentional_disconnect": true
+}

@@ -18,7 +18,11 @@ def tick(dt):
   try:ready=json.load(open(B+'ready.json'))['id']==sid
   except (OSError,ValueError,KeyError):ready=False
   if ready:
-   loaded=True;json.dump({'id':sid,'start':time.time()+3,'config':case},open(B+'session.json','w'));load_runner(B+'process_refinement.py')
+   loaded=True;json.dump({'id':sid,'start':time.time()+3,'config':case},open(B+'session.json','w'))
+   try:load_runner(B+'process_refinement.py')
+   except Exception:
+    import traceback;traceback.print_exc()
+    release_runners();unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_end_play();ending=time.time()+4
  if loaded and not ending and all(os.path.exists(B+case['name']+'_'+r+'.json') and os.path.getmtime(B+case['name']+'_'+r+'.json')>start for r in ['server','client']):
   release_runners();unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_end_play();ending=time.time()+4
  if t>240 and not ending:
@@ -28,6 +32,7 @@ def tick(dt):
   # release helper imported at module scope
   release_runners();q()
 h=unreal.register_slate_post_tick_callback(tick)
+
 
 
 

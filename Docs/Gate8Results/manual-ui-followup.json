@@ -1,0 +1,215 @@
+{
+  "samples": [
+    {
+      "time": 1791434994.990019,
+      "feedback": "",
+      "pain": 40.0,
+      "movement_scale": 0.3499999940395355,
+      "speed": 0.0,
+      "position": "<Struct 'Vector' (0x0000017B132FEC70) {x: 100.000000, y: 430.000000, z: 90.150000}>",
+      "injuries": [
+        {
+          "type": "<RVInjuryKind.WOUND: 0>",
+          "bleed": 3.0,
+          "stabilized": false,
+          "revision": 0
+        },
+        {
+          "type": "<RVInjuryKind.FRACTURE: 1>",
+          "bleed": 0.0,
+          "stabilized": false,
+          "revision": 0
+        }
+      ],
+      "items": [
+        {
+          "id": "62C8F7D442575BE6623A9BB31D2A4C04",
+          "quantity": 3,
+          "condition": 0.8299999833106995,
+          "name": "Bandage"
+        },
+        {
+          "id": "82BA03184B191A827D425DBFD872E5E1",
+          "quantity": 3,
+          "condition": 0.8299999833106995,
+          "name": "Splint"
+        },
+        {
+          "id": "FAAC3EE74272457437D8219A543797E7",
+          "quantity": 3,
+          "condition": 0.8299999833106995,
+          "name": "PainMedication"
+        }
+      ]
+    },
+    {
+      "time": 1791435037.0811071,
+      "feedback": "Treatment cancelled — supply retained",
+      "pain": 40.0,
+      "movement_scale": 0.3499999940395355,
+      "speed": 0.0,
+      "position": "<Struct 'Vector' (0x0000017B13394F60) {x: 100.000000, y: 430.000000, z: 90.150000}>",
+      "injuries": [
+        {
+          "type": "<RVInjuryKind.WOUND: 0>",
+          "bleed": 3.0,
+          "stabilized": false,
+          "revision": 0
+        },
+        {
+          "type": "<RVInjuryKind.FRACTURE: 1>",
+          "bleed": 0.0,
+          "stabilized": false,
+          "revision": 0
+        }
+      ],
+      "items": [
+        {
+          "id": "62C8F7D442575BE6623A9BB31D2A4C04",
+          "quantity": 3,
+          "condition": 0.8299999833106995,
+          "name": "Bandage"
+        },
+        {
+          "id": "82BA03184B191A827D425DBFD872E5E1",
+          "quantity": 3,
+          "condition": 0.8299999833106995,
+          "name": "Splint"
+        },
+        {
+          "id": "FAAC3EE74272457437D8219A543797E7",
+          "quantity": 3,
+          "condition": 0.8299999833106995,
+          "name": "PainMedication"
+        }
+      ]
+    },
+    {
+      "time": 1791435052.1929328,
+      "feedback": "Treatment completed",
+      "pain": 40.0,
+      "movement_scale": 0.6499999761581421,
+      "speed": 0.0,
+      "position": "<Struct 'Vector' (0x0000017B1336A8B0) {x: 100.000000, y: 430.000000, z: 90.150000}>",
+      "injuries": [
+        {
+          "type": "<RVInjuryKind.WOUND: 0>",
+          "bleed": 3.0,
+          "stabilized": false,
+          "revision": 0
+        },
+        {
+          "type": "<RVInjuryKind.FRACTURE: 1>",
+          "bleed": 0.0,
+          "stabilized": true,
+          "revision": 1
+        }
+      ],
+      "items": [
+        {
+          "id": "62C8F7D442575BE6623A9BB31D2A4C04",
+          "quantity": 3,
+          "condition": 0.8299999833106995,
+          "name": "Bandage"
+        },
+        {
+          "id": "82BA03184B191A827D425DBFD872E5E1",
+          "quantity": 2,
+          "condition": 0.8299999833106995,
+          "name": "Splint"
+        },
+        {
+          "id": "FAAC3EE74272457437D8219A543797E7",
+          "quantity": 3,
+          "condition": 0.8299999833106995,
+          "name": "PainMedication"
+        }
+      ]
+    },
+    {
+      "time": 1791435031.521615,
+      "feedback": "Treatment started — cancel to stop",
+      "pain": 40.0,
+      "movement_scale": 0.3499999940395355,
+      "speed": 0.0,
+      "position": "<Struct 'Vector' (0x0000017B13397E90) {x: 100.000000, y: 430.000000, z: 90.150000}>",
+      "injuries": [
+        {
+          "type": "<RVInjuryKind.WOUND: 0>",
+          "bleed": 3.0,
+          "stabilized": false,
+          "revision": 0
+        },
+        {
+          "type": "<RVInjuryKind.FRACTURE: 1>",
+          "bleed": 0.0,
+          "stabilized": false,
+          "revision": 0
+        }
+      ],
+      "items": [
+        {
+          "id": "62C8F7D442575BE6623A9BB31D2A4C04",
+          "quantity": 3,
+          "condition": 0.8299999833106995,
+          "name": "Bandage"
+        },
+        {
+          "id": "82BA03184B191A827D425DBFD872E5E1",
+          "quantity": 3,
+          "condition": 0.8299999833106995,
+          "name": "Splint"
+        },
+        {
+          "id": "FAAC3EE74272457437D8219A543797E7",
+          "quantity": 3,
+          "condition": 0.8299999833106995,
+          "name": "PainMedication"
+        }
+      ]
+    },
+    {
+      "time": 1791435109.4508936,
+      "feedback": "Treatment completed",
+      "pain": 14.984107971191406,
+      "movement_scale": 0.6499999761581421,
+      "speed": 0.0,
+      "position": "<Struct 'Vector' (0x0000017A1E4A1910) {x: 100.142224, y: 430.000000, z: 90.150000}>",
+      "injuries": [
+        {
+          "type": "<RVInjuryKind.WOUND: 0>",
+          "bleed": 3.0,
+          "stabilized": false,
+          "revision": 0
+        },
+        {
+          "type": "<RVInjuryKind.FRACTURE: 1>",
+          "bleed": 0.0,
+          "stabilized": true,
+          "revision": 2
+        }
+      ],
+      "items": [
+        {
+          "id": "62C8F7D442575BE6623A9BB31D2A4C04",
+          "quantity": 3,
+          "condition": 0.8299999833106995,
+          "name": "Bandage"
+        },
+        {
+          "id": "82BA03184B191A827D425DBFD872E5E1",
+          "quantity": 2,
+          "condition": 0.8299999833106995,
+          "name": "Splint"
+        },
+        {
+          "id": "FAAC3EE74272457437D8219A543797E7",
+          "quantity": 2,
+          "condition": 0.8299999833106995,
+          "name": "PainMedication"
+        }
+      ]
+    }
+  ],
+  "kind": "Initial fixture; normal OS F9 and visible UMG mouse input; sparse observations"
+}
