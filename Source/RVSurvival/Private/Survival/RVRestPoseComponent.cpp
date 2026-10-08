@@ -12,11 +12,13 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Engine/StaticMesh.h"
 #include "Net/UnrealNetwork.h"
+#include "Player/RVCharacterPresentationComponent.h"
 URVRestPoseComponent::URVRestPoseComponent() { SetIsReplicatedByDefault(true); }
 void URVRestPoseComponent::BeginPlay()
 {
     Super::BeginPlay();
     auto* C=Cast<ARVSurvivorCharacter>(GetOwner()); if (!C) return;
+    if(const auto* Visual=C->FindComponentByClass<URVCharacterPresentationComponent>();Visual && Visual->HasConfiguredVisuals()){OnRep_RestPoint();return;}
     auto MakePart=[this,C](const TCHAR* Name,const TCHAR* Asset,FVector Location,FVector Scale,FRotator Rotation)
     {
         auto* Part=NewObject<UStaticMeshComponent>(C,Name);
@@ -78,7 +80,8 @@ void URVRestPoseComponent::OnRep_RestPoint()
         // Swap only presentation. Do not rotate the native network-smoothed mesh or duplicate its standing prototype.
         TArray<USceneComponent*> Children; C->GetMesh()->GetChildrenComponents(true,Children); Children.Add(C->GetMesh());
         PreviousVisualVisibility.Reset();
-        for (auto* Child:Children) if (auto* Part=Cast<UPrimitiveComponent>(Child))
+        const auto* Visual=C->FindComponentByClass<URVCharacterPresentationComponent>();
+        for (auto* Child:Children) if ((!Visual || !Visual->HasConfiguredVisuals())) if (auto* Part=Cast<UPrimitiveComponent>(Child))
         { PreviousVisualVisibility.Emplace(TWeakObjectPtr<UPrimitiveComponent>(Part),bool(Part->bHiddenInGame)); Part->SetHiddenInGame(true); }
         C->BaseEyeHeight=RestPoint->LyingCameraOffset.Z;
         if (Camera) Camera->SetRelativeLocation(RestPoint->LyingCameraOffset);

@@ -21,3 +21,13 @@ IK Rig/Retargeter remain available for replacement meshes; no retargeting is nee
 ## Planned risk-based validation
 
 Inspect actual in-game skeletal poses and first-person views. Test affected locomotion, seats/possession, bed, ladder/roof, medical/downed/revive and moving interior first. Use a representative separate-process impaired-network pass near closure, plus one broad critical-system smoke pass. Do not rerun all historical gates after visual tuning. No acceptance claim until visible behavior, final build, saves, vendor audit and clean shutdown pass.
+
+## Skeletal integration checkpoint — 2026-10-08
+
+Epic AssetTools migration completed: 43 packages, including Manny Simple, SK_Mannequin, materials/textures and selected unarmed locomotion clips. No rifle/pistol/attack assets were migrated. Saved project-side visual profile, humanoid Blueprint, GameMode derivative, 27-sample directional locomotion Blend Space, normal Animation Blueprint and seven prototype pose sequences. Saved Gate8_5CharacterTest with 86 actors, preserving Gate8MedicalTest and its medical/storage setup.
+
+NativeUpdateAnimation derives presentation inputs from CharacterMovement's own velocity rather than vehicle world translation. The Animation Blueprint contains native BlendSpace/SequencePlayer/Blend Poses by Int nodes, not a custom animation evaluator. Pose priority reads existing bed, health, seat, ladder and treatment state. The component changes only discrete skeletal visual offsets and owner-head visibility. Primary capsule movement, seats/rest authority, camera controls, CharacterMovement solver and networking remain their existing systems. Seat/rest primitive substitutes remain fallback for unconfigured characters.
+
+Configured six medical region mappings and seven bone-attached future equipment anchors. Gameplay does not depend on Manny bone names; they belong to the replaceable Data Asset. Controlled prototype poses, not ragdoll. Full seated/bed/ladder/downed visual inspection and runtime/network acceptance remain pending.
+
+Build initially reported CacheInitialMeshOffset requiring FRotator and editor graph arrays containing TObjectPtr; corrected those API/type mismatches. Foundation repeat succeeded in 6.80 seconds; idle-based pose authoring build succeeded in 23.68 seconds. Content authoring saved all packages and editor exited cleanly without logged Python/fatal/world-leak errors. Recovery baseline checkpoint 0bae815 precedes the integration.

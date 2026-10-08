@@ -5,11 +5,13 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Engine/StaticMesh.h"
 #include "GameFramework/PlayerController.h"
+#include "Player/RVCharacterPresentationComponent.h"
 URVSeatPoseComponent::URVSeatPoseComponent()
 { PrimaryComponentTick.bCanEverTick=true; PrimaryComponentTick.TickInterval=.05f; }
 void URVSeatPoseComponent::BeginPlay()
 {
     Super::BeginPlay(); auto* C=Cast<ARVSurvivorCharacter>(GetOwner()); if (!C) return;
+    if(const auto* Visual=C->FindComponentByClass<URVCharacterPresentationComponent>();Visual && Visual->HasConfiguredVisuals()) return;
     auto Add=[this,C](FVector Location,FVector Scale)
     {
         auto* Part=NewObject<UStaticMeshComponent>(C);
@@ -36,6 +38,7 @@ void URVSeatPoseComponent::TickComponent(float Delta,ELevelTick Type,FActorCompo
     {
         if (auto* PC=Cast<APlayerController>(C->GetController());PC && PC->IsLocalController())
             PC->SetControlRotation(FRotator(0,Seat->GetComponentRotation().Yaw,0));
+        if(const auto* Visual=C->FindComponentByClass<URVCharacterPresentationComponent>();Visual && Visual->HasConfiguredVisuals()) return;
         TArray<USceneComponent*> Children; C->GetMesh()->GetChildrenComponents(true,Children); Children.Add(C->GetMesh());
         for (auto* Child:Children) if (auto* Part=Cast<UPrimitiveComponent>(Child))
         { PreviousVisibility.Emplace(TWeakObjectPtr<UPrimitiveComponent>(Part),bool(Part->bHiddenInGame)); Part->SetHiddenInGame(true); }

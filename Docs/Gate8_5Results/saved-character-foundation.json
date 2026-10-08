@@ -1,0 +1,10 @@
+{
+  "mesh": "/Game/Characters/Mannequins/Meshes/SKM_Manny_Simple.SKM_Manny_Simple",
+  "skeleton": "/Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin",
+  "animation_blueprint": "/Game/Characters/RV/Animations/ABP_RVHumanoid.ABP_RVHumanoid",
+  "body_regions": 6,
+  "equipment_anchors": 7,
+  "map": "/Game/Maps/Gate8_5CharacterTest",
+  "actors": 86,
+  "saved": true
+}

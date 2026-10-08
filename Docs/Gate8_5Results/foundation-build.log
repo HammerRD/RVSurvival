@@ -1,0 +1,112 @@
+Using bundled DotNet SDK version: 10.0 win-x64
+Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" RVSurvivalEditor Win64 Development -Project=D:/GitHub/RVSurvival/RVSurvival/RVSurvival.uproject -WaitMutex -NoHotReloadFromIDE
+Log file: C:\Users\bobgo\AppData\Local\UnrealBuildTool\Log.txt
+Using 'git status' to determine working set for adaptive non-unity build (D:\GitHub\RVSurvival\RVSurvival).
+Invalidating makefile for RVSurvivalEditor (source file added)
+UHT compiled-in object format Default
+Building RVSurvivalEditor...
+===== Toolchain Information =====
+Using ISPC compiler (D:\Epic Games\UE_5.8\Engine\Source\ThirdParty\Intel\ISPC\bin\Windows\ispc.exe)
+  Intel(r) Implicit SPMD Program Compiler (Intel(r) ISPC), 1.24.0 (build commit  @ 20250404, LLVM 18.1.2) 
+Using Visual Studio 14.44.35229 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[Adaptive Build] Excluded from RVSurvival unity file: RVCharacterContentLibrary.cpp, RVCharacterPresentationComponent.cpp, RVHumanoidAnimInstance.cpp, RVSurvivorCharacter.cpp, RVRestPoseComponent.cpp, RVSeatPoseComponent.cpp
+=================================
+Determining max actions to execute in parallel (16 physical cores, 24 logical cores)
+  Executing up to 16 processes, one per physical core
+  Requested 1.5 GB memory per action, 8.27 GB available: limiting max parallel actions to 5
+Using XGE executor to run 10 action(s)
+Distributing 10 actions to XGE
+UnrealBuildTool Compile
+
+--------------------Build System Warning---------------------------------------
+License not activated:
+    License is not activated. Please activate the license in the coordinator.
+    This build will run in standalone mode.
+
+-------------------------------------------------------------------------------
+ 
+Build ID: {1E8FF143-6B2D-4756-AD2C-FA873E6A07A0}
+ 
+--------------------Project: Default-------------------------------------------
+[1/10] Compile [x64] RVCharacterPresentationComponent.cpp (0:12.43 at +0:00)
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\Player\RVCharacterPresentationComponent.cpp(63,12): error C2664: 'void ACharacter::CacheInitialMeshOffset(FVector,FRotator)': cannot convert argument 2 from 'UE::Math::TQuat<double>' to 'FRotator'
+        C->CacheInitialMeshOffset(Offset,Profile->MeshRotation.Quaternion());
+           ^
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\Player\RVCharacterPresentationComponent.cpp(63,74): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+        C->CacheInitialMeshOffset(Offset,Profile->MeshRotation.Quaternion());
+                                                                         ^
+D:\Epic Games\UE_5.8\Engine\Source\Runtime\Engine\Classes\GameFramework\Character.h(527,26): note: see declaration of 'ACharacter::CacheInitialMeshOffset'
+	ENGINE_API virtual void CacheInitialMeshOffset(FVector MeshRelativeLocation, FRotator MeshRelativeRotation);
+	                        ^
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\Player\RVCharacterPresentationComponent.cpp(63,12): note: while trying to match the argument list '(FVector, UE::Math::TQuat<double>)'
+        C->CacheInitialMeshOffset(Offset,Profile->MeshRotation.Quaternion());
+           ^
+
+Error executing C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\cl.exe (tool returned code: 2)
+[2/10] Compile [x64] RVCharacterContentLibrary.cpp (0:14.54 at +0:00)
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\Player\RVCharacterContentLibrary.cpp(75,74): error C3535: cannot deduce type for 'auto *' from 'ElementType'
+        with
+        [
+            ElementType=TObjectPtr<UEdGraph>
+        ]
+    UEdGraph* Graph=nullptr;for(auto* Candidate:Blueprint->FunctionGraphs) if(Candidate->GetFName()==TEXT("AnimGraph")) Graph=Candidate;
+                                                                         ^
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\Player\RVCharacterContentLibrary.cpp(75,74): error C2440: 'initializing': cannot convert from 'ElementType' to '<error type> *'
+        with
+        [
+            ElementType=TObjectPtr<UEdGraph>
+        ]
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\Player\RVCharacterContentLibrary.cpp(75,74): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\Player\RVCharacterContentLibrary.cpp(75,127): error C2440: '=': cannot convert from '<error type> *' to 'UEdGraph *'
+    UEdGraph* Graph=nullptr;for(auto* Candidate:Blueprint->FunctionGraphs) if(Candidate->GetFName()==TEXT("AnimGraph")) Graph=Candidate;
+                                                                                                                              ^
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\Player\RVCharacterContentLibrary.cpp(75,127): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or parenthesized function-style cast
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\Player\RVCharacterContentLibrary.cpp(79,28): error C3535: cannot deduce type for 'auto *' from 'ElementType'
+        with
+        [
+            ElementType=const TObjectPtr<UEdGraphNode>
+        ]
+    for(auto* Node:OldNodes) if(auto* Candidate=Cast<UAnimGraphNode_Root>(Node)) Root=Candidate;else Graph->RemoveNode(Node);
+                           ^
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\Player\RVCharacterContentLibrary.cpp(79,28): error C2440: 'initializing': cannot convert from 'ElementType' to '<error type> *'
+        with
+        [
+            ElementType=const TObjectPtr<UEdGraphNode>
+        ]
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\Player\RVCharacterContentLibrary.cpp(79,28): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\Player\RVCharacterContentLibrary.cpp(79,109): error C2664: 'bool UEdGraph::RemoveNode(UEdGraphNode *,bool,bool)': cannot convert argument 1 from '<error type> *' to 'UEdGraphNode *'
+    for(auto* Node:OldNodes) if(auto* Candidate=Cast<UAnimGraphNode_Root>(Node)) Root=Candidate;else Graph->RemoveNode(Node);
+                                                                                                            ^
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\Player\RVCharacterContentLibrary.cpp(79,120): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or parenthesized function-style cast
+    for(auto* Node:OldNodes) if(auto* Candidate=Cast<UAnimGraphNode_Root>(Node)) Root=Candidate;else Graph->RemoveNode(Node);
+                                                                                                                       ^
+D:\Epic Games\UE_5.8\Engine\Source\Runtime\Engine\Classes\EdGraph\EdGraph.h(167,18): note: see declaration of 'UEdGraph::RemoveNode'
+	ENGINE_API bool RemoveNode( UEdGraphNode* NodeToRemove, bool bBreakAllLinks = true, bool bAlwaysMarkDirty = true );
+	                ^
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\Player\RVCharacterContentLibrary.cpp(79,109): note: while trying to match the argument list '(<error type> *)'
+    for(auto* Node:OldNodes) if(auto* Candidate=Cast<UAnimGraphNode_Root>(Node)) Root=Candidate;else Graph->RemoveNode(Node);
+                                                                                                            ^
+
+Error executing C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\cl.exe (tool returned code: 2)
+[3/10] Compile [x64] RVHumanoidAnimInstance.cpp (0:20.53 at +0:00)
+[4/10] Compile [x64] RVSeatPoseComponent.cpp (0:20.56 at +0:00)
+[5/10] Compile [x64] RVRestPoseComponent.cpp (0:20.79 at +0:00)
+[6/10] Compile [x64] RVSurvivorCharacter.cpp (0:21.35 at +0:00)
+[7/10] Compile [x64] Module.RVSurvival.cpp (0:37.54 at +0:00)
+---------------------- Done ----------------------
+ 
+    Rebuild All: 0 succeeded, 1 failed, 0 skipped
+ 
+1 build system warning(s):
+   - License not activated
+ 
+--------------------Build System Warning---------------------------------------
+The build failure may be related to interference from an antivirus application present on this machine:
+    Antivirus application(s): "Avast/AVG Internet Security"
+
+-------------------------------------------------------------------------------
+Total time in XGE executor: 40.67 seconds
+
+Result: Failed (OtherCompilationError)
+Total execution time: 49.07 seconds
+Trace written to file C:\Users\bobgo\AppData\Local\UnrealBuildTool\Trace.uba with size 4.1kb

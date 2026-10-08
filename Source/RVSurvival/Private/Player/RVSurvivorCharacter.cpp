@@ -23,6 +23,7 @@
 #include "Medical/RVHealthComponent.h"
 #include "Survival/RVRestPoseComponent.h"
 #include "Vehicles/RVSeatPoseComponent.h"
+#include "Player/RVCharacterPresentationComponent.h"
 void ARVSurvivorCharacter::MulticastRecoveryPlacement_Implementation(FVector Position, FRotator Rotation)
 {
     DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
@@ -61,6 +62,7 @@ ARVSurvivorCharacter::ARVSurvivorCharacter(const FObjectInitializer& Init)
     RestPose = CreateDefaultSubobject<URVRestPoseComponent>(TEXT("RestPose"));
     CreateDefaultSubobject<URVSeatPoseComponent>(TEXT("SeatPose"));
     CreateDefaultSubobject<URVLadderClimbComponent>(TEXT("LadderClimb"));
+    CreateDefaultSubobject<URVCharacterPresentationComponent>(TEXT("CharacterPresentation"));
     bUseControllerRotationYaw = true;
     BaseEyeHeight = 64.f;
     Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCamera"));
