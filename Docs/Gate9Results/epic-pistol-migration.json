@@ -1,6 +1,7 @@
 {
   "source": "installed UE5.8 Epic template",
   "packages": [
+    "/Game/Characters/Mannequins/Anims/Pistol/Aim/AO_Pistol",
     "/Game/Characters/Mannequins/Anims/Pistol/MF_Pistol_Idle_ADS",
     "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_Fire_Montage",
     "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_Reload",

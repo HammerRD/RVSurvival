@@ -1,0 +1,184 @@
+{
+  "role": "client",
+  "process_id": 55608,
+  "network": false,
+  "results": [
+    {
+      "case": "host/client real magazine loads and replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host and client fire through owned authority",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "simultaneous independent fire consumes one each",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "partial magazine reload conserves both inventories",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "owned invalid-request probes actually queued",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stale and foreign weapon/magazine intents do not mutate ammo",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "invalid sequence cannot poison subsequent normal fire",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "head hit stops infected and death converges",
+      "pass": true,
+      "detail": "(0.0, <RVInfectedState.DEAD: 5>)"
+    },
+    {
+      "case": "client trace damage and infected death converge",
+      "pass": true,
+      "detail": "(0.0, <RVInfectedState.DEAD: 5>)"
+    },
+    {
+      "case": "friendly fire creates logical head/torso wounds",
+      "pass": true,
+      "detail": "['<RVBodyRegion.HEAD: 0>', '<RVBodyRegion.TORSO: 1>', '<RVBodyRegion.TORSO: 1>']"
+    },
+    {
+      "case": "combat feeds existing downed state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "downed normal fire is rejected without round loss",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "accepted dressings stabilize combat wounds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "accepted revive restores active and retains wounds",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "inventories": {
+    "host": [
+      {
+        "id": "D96F3D0D42F9EACB2E9AB58ED2822A11",
+        "definition": "DA_9mmHandgun",
+        "quantity": 1,
+        "condition": 0.8100000023841858,
+        "rounds": 0,
+        "revision": 9,
+        "loaded_in": "00000000000000000000000000000000"
+      },
+      {
+        "id": "1FFCA78C472B9BCB5F861EAC551C1D44",
+        "definition": "DA_9mmMagazine",
+        "quantity": 1,
+        "condition": 0.8100000023841858,
+        "rounds": 13,
+        "revision": 4,
+        "loaded_in": "00000000000000000000000000000000"
+      },
+      {
+        "id": "28BE76BA4288E104FC9706BC4E6805D5",
+        "definition": "DA_9mmMagazine",
+        "quantity": 1,
+        "condition": 0.8100000023841858,
+        "rounds": 10,
+        "revision": 6,
+        "loaded_in": "D96F3D0D42F9EACB2E9AB58ED2822A11"
+      },
+      {
+        "id": "6FB184BE4E6D1BD967217FB36877238F",
+        "definition": "DA_9mmMagazine",
+        "quantity": 1,
+        "condition": 0.8100000023841858,
+        "rounds": 15,
+        "revision": 0,
+        "loaded_in": "00000000000000000000000000000000"
+      },
+      {
+        "id": "297F343748C69A3D85074198F00F1CC2",
+        "definition": "DA_FirstAidKit",
+        "quantity": 1,
+        "condition": 0.8100000023841858,
+        "rounds": 0,
+        "revision": 0,
+        "loaded_in": "00000000000000000000000000000000"
+      }
+    ],
+    "client": [
+      {
+        "id": "870908F34AEAAF051A48E58108D025B6",
+        "definition": "DA_9mmHandgun",
+        "quantity": 1,
+        "condition": 0.8100000023841858,
+        "rounds": 0,
+        "revision": 8,
+        "loaded_in": "00000000000000000000000000000000"
+      },
+      {
+        "id": "2550B8F34918E89414B281B18DE35301",
+        "definition": "DA_9mmMagazine",
+        "quantity": 1,
+        "condition": 0.8100000023841858,
+        "rounds": 13,
+        "revision": 4,
+        "loaded_in": "00000000000000000000000000000000"
+      },
+      {
+        "id": "17022B774301A9FE4C1E3394E7E9413E",
+        "definition": "DA_9mmMagazine",
+        "quantity": 1,
+        "condition": 0.8100000023841858,
+        "rounds": 11,
+        "revision": 5,
+        "loaded_in": "870908F34AEAAF051A48E58108D025B6"
+      },
+      {
+        "id": "0C48860942D861EABC5C309F2F1F27F6",
+        "definition": "DA_9mmMagazine",
+        "quantity": 1,
+        "condition": 0.8100000023841858,
+        "rounds": 15,
+        "revision": 0,
+        "loaded_in": "00000000000000000000000000000000"
+      }
+    ]
+  },
+  "passed": 14,
+  "total": 14,
+  "medical_feedback": "",
+  "client_wounds": [
+    [
+      "<RVBodyRegion.HEAD: 0>",
+      0.0,
+      1
+    ],
+    [
+      "<RVBodyRegion.TORSO: 1>",
+      0.0,
+      1
+    ],
+    [
+      "<RVBodyRegion.TORSO: 1>",
+      0.0,
+      1
+    ]
+  ]
+}

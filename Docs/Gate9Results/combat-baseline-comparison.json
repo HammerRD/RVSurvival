@@ -1,0 +1,8 @@
+{
+  "distinct_processes": true,
+  "all_cases_pass": true,
+  "exact_inventory_convergence": true,
+  "server": 2008,
+  "client": 55608,
+  "network": false
+}

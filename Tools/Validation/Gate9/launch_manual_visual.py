@@ -23,8 +23,9 @@ def tick(dt):
   worlds=None
  if loaded and not ending and (B/'manual-visual-done.json').exists() and (B/'manual-visual-done.json').stat().st_mtime>started:
   release_runners();unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_end_play();ending=time.time()+4
- if not ending and time.time()-started>200:
+ if not ending and time.time()-started>340:
   release_runners();unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_end_play();ending=time.time()+4
  if ending and time.time()>ending:
   unreal.unregister_slate_post_tick_callback(handle);release_runners();unreal.SystemLibrary.quit_editor()
 handle=unreal.register_slate_post_tick_callback(tick)
+

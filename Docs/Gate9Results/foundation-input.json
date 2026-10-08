@@ -71,7 +71,17 @@
       "detail": ""
     },
     {
-      "case": "holster releases magazine without losing rounds",
+      "case": "holster preserves loaded magazine and rounds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "reequip retains loaded magazine",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal U unload preserves every round",
       "pass": true,
       "detail": ""
     },
@@ -81,6 +91,6 @@
       "detail": ""
     }
   ],
-  "passed": 16,
-  "total": 16
+  "passed": 18,
+  "total": 18
 }

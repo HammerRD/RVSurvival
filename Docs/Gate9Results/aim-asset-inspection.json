@@ -1,0 +1,42 @@
+{
+  "axes": [
+    {
+      "DisplayName": "None",
+      "Min": "-1.0",
+      "Max": "1.0"
+    },
+    {
+      "DisplayName": "None",
+      "Min": "-1.0",
+      "Max": "1.0"
+    },
+    {
+      "DisplayName": "None",
+      "Min": "0.0",
+      "Max": "100.0"
+    }
+  ],
+  "samples": [
+    {
+      "position": "<Struct 'Vector' (0x000001B81A897848) {x: 0.000000, y: -1.000000, z: 0.000000}>",
+      "clip": "/Game/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS_AO_CD.MF_Pistol_Idle_ADS_AO_CD",
+      "additive": "<AdditiveAnimationType.AAT_ROTATION_OFFSET_MESH_SPACE: 2>",
+      "base_type": "<AdditiveBasePoseType.ABPT_ANIM_FRAME: 3>",
+      "base": "<Object '/Game/Characters/Mannequins/Anims/Pistol/MF_Pistol_Idle_ADS.MF_Pistol_Idle_ADS' (0x000001B839098C00) Class 'AnimSequence'>"
+    },
+    {
+      "position": "<Struct 'Vector' (0x000001B81A897748) {x: 0.000000, y: 1.000000, z: 0.000000}>",
+      "clip": "/Game/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS_AO_CU.MF_Pistol_Idle_ADS_AO_CU",
+      "additive": "<AdditiveAnimationType.AAT_ROTATION_OFFSET_MESH_SPACE: 2>",
+      "base_type": "<AdditiveBasePoseType.ABPT_ANIM_FRAME: 3>",
+      "base": "<Object '/Game/Characters/Mannequins/Anims/Pistol/MF_Pistol_Idle_ADS.MF_Pistol_Idle_ADS' (0x000001B839098C00) Class 'AnimSequence'>"
+    },
+    {
+      "position": "<Struct 'Vector' (0x000001B81A897CC8) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+      "clip": "/Game/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS1.MF_Pistol_Idle_ADS1",
+      "additive": "<AdditiveAnimationType.AAT_ROTATION_OFFSET_MESH_SPACE: 2>",
+      "base_type": "<AdditiveBasePoseType.ABPT_ANIM_FRAME: 3>",
+      "base": "<Object '/Game/Characters/Mannequins/Anims/Pistol/MF_Pistol_Idle_ADS.MF_Pistol_Idle_ADS' (0x000001B839098C00) Class 'AnimSequence'>"
+    }
+  ]
+}

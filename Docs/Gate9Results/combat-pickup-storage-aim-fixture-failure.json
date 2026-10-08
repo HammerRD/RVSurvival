@@ -1,0 +1,46 @@
+{
+  "results": [
+    {
+      "case": "normal E picks up physical partial magazine",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "pickup preserves six rounds and condition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "drop removes owned record without consuming rounds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "repick preserves GUID, rounds and condition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal E opens reusable shared storage",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "partial magazine transfers to container with state",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "container return preserves same identity and rounds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "close restores normal walking with no open container",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "passed": 6,
+  "total": 8
+}

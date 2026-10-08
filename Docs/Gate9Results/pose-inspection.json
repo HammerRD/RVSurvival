@@ -1,0 +1,11 @@
+{
+  "anim_pitch": 4.550000190734863,
+  "speed": 0.0,
+  "pose": 0,
+  "hand_rotation": "<Struct 'Rotator' (0x0000015BDEAFFD50) {pitch: -79.245596, yaw: -49.571303, roll: -156.430988}>",
+  "head_location": "<Struct 'Vector' (0x0000015BDEAFFD50) {x: -212.494897, y: -2489.986427, z: 159.278704}>",
+  "hand_location": "<Struct 'Vector' (0x0000015BDEAFFD50) {x: -189.827238, y: -2490.523801, z: 192.187570}>",
+  "actor_rotation": "<Struct 'Rotator' (0x0000015BDEAFEF90) {pitch: 0.000000, yaw: -29.400002, roll: 0.000000}>",
+  "eyes": "(<Struct 'Vector' (0x0000015BDEAFEF90) {x: -182.575724, y: -2509.818076, z: 154.000000}>, <Struct 'Rotator' (0x0000015BDEAFFD50) {pitch: 4.550000, yaw: 330.599998, roll: 0.000000}>)",
+  "aim_axes": "[{}, {}, {}]"
+}

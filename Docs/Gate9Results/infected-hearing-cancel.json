@@ -1,0 +1,31 @@
+{
+  "results": [
+    {
+      "case": "fixture player initially outside sight cone",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "gunshot registers native hearing stimulus",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "hearing leads to investigate or chase",
+      "pass": true,
+      "detail": "<RVInfectedState.CHASE: 3>"
+    },
+    {
+      "case": "windup was reached then victim escaped",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "out-of-range windup causes no late medical injury",
+      "pass": true,
+      "detail": "0"
+    }
+  ],
+  "passed": 5,
+  "total": 5
+}

@@ -31,7 +31,8 @@ def tick(dt):
    elif name=='aim_release':unreal.RVInteriorMotorhome.dispatch_development_key(pc,'RightMouseButton',False)
    elif name=='snapshot':snap('observer_handgun')
  (out/'manual-visual-state.json').write_text(json.dumps({'seen':sorted(seen),'shot_sequence':combat.shot_sequence,'rounds':combat.get_loaded_rounds(),'enemy_state':str(enemy.state),'enemy_vitality':enemy.vitality,'camera':str(pc.get_view_target())},indent=2))
- if (B/'visual-stop.json').exists() or time.time()-started>170:
+ if (B/'visual-stop.json').exists() or time.time()-started>300:
   unreal.RVInteriorMotorhome.dispatch_development_key(pc,'RightMouseButton',False);unreal.unregister_slate_post_tick_callback(handle)
   (out/'manual-visual-done.json').write_text(json.dumps({'seen':sorted(seen),'time':time.time()}))
 handle=unreal.register_slate_post_tick_callback(tick)
+

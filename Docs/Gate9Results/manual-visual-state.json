@@ -1,0 +1,18 @@
+{
+  "seen": [
+    "aim",
+    "aim_hold",
+    "equipped",
+    "fire",
+    "observer",
+    "ready",
+    "reload",
+    "restore",
+    "snapshot"
+  ],
+  "shot_sequence": 1,
+  "rounds": 14,
+  "enemy_state": "<RVInfectedState.IDLE: 0>",
+  "enemy_vitality": 65.0,
+  "camera": "<Object '/Game/Maps/UEDPIE_0_Gate9CombatInfectedTest.Gate9CombatInfectedTest:PersistentLevel.BP_Gate9Survivor_C_0' (0x0000015C67A3AA00) Class 'BP_Gate9Survivor_C'>"
+}

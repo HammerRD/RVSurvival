@@ -116,3 +116,38 @@ fixture dressings were requested every five seconds, shorter than the accepted
 8-second action duration. The test now waits ten seconds between dressings and
 14 seconds for the 12-second revive. Original server/client receipts are retained
 as `process-baseline-treatment-timing-*.json`. No medical rules were weakened.
+
+## Focused multiplayer, inventory and stress evidence
+
+`combat_baseline_server.json` and `combat_baseline_client.json` pass 24/24 and
+14/14 respectively in distinct processes. `combat-baseline-comparison.json` checks
+exact GUID/definition/quantity/condition/round/revision/loaded relationship agreement.
+Fixture admissions account for ten server checks; they are not ten gameplay tests.
+Native fire/reload, concurrent independent shots, stale/foreign intent rejection,
+subsequent valid fire, infected head/torso deaths, player head/torso wounds/downing,
+downed fire rejection, three sequential dressings and revive retaining injuries pass.
+
+`combat-stress.json`: 100 actual normal semiautomatic input presses, seven completed
+reloads over 60.1 seconds. Exactly 100 shots, 120 initial rounds reduced to 20,
+all nine item GUIDs retained, conditions/quantities/bounds valid, one loaded magazine,
+and final unload without loss. Six meaningful invariant checks, not one artificial
+assertion for every shot.
+
+`combat-pickup-storage.json` passes 8/8 using normal held E for world pickup and
+storage opening, followed by accepted inventory UI request methods for drop/transfer.
+A six-round magazine preserves identity, condition and rounds through drop, repick,
+container transfer and return. Container aiming required settling the capsule-relative
+eye origin after changing yaw. Failed fixture receipts remain. The inaccessible Python
+deferred-spawn helper was replaced by reacquiring existing map actors; no source
+or saved-map reconstruction was needed.
+
+`infected-hearing-cancel.json` passes 5/5: initial player outside sight cone, actual
+gunshot in native Hearing, investigate/chase, attack windup and victim range escape
+with no late wound. This test complements, rather than substitutes for, sight/bite tests.
+
+Manual OS 4/R/LMB actions equip, complete reload and decrement one round. Rendered
+pose is NOT yet approved: inspection found Epic AO_Pistol axes authored -1..1,
+but degree-valued pitch fed Y and saturated upward at a small angle. A presentation
+conversion to NormalizedAimPitch is being compiled; no CharacterMovement or physics
+change. Failure screenshots are retained. Network emulation, remaining body-region
+and visual validation, moving-RV and final representative regressions remain pending.
