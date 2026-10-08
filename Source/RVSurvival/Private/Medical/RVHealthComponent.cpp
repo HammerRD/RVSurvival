@@ -139,6 +139,20 @@ bool URVHealthComponent::DebugApplyInjury(ERVInjuryKind Kind,ERVBodyRegion Regio
     if(Kind==ERVInjuryKind::Wound) I.BleedingPerMinute=I.Severity<1.5f?Tuning()->MinorBleedPerMinute:(I.Severity<2.5f?Tuning()->ModerateBleedPerMinute:Tuning()->SevereBleedPerMinute);
     Injuries.Add(I); GetOwner()->ForceNetUpdate(); return true;
 }
+bool URVHealthComponent::ApplyWoundAuthority(ERVBodyRegion Region,float Severity,float Damage,float Contamination)
+{
+    if(!GetOwner() || !GetOwner()->HasAuthority() || LifeState==ERVMedicalLifeState::Terminal
+        || uint8(Region)>uint8(ERVBodyRegion::RightLeg) || !FMath::IsFinite(Severity)
+        || !FMath::IsFinite(Damage) || Damage<0 || !FMath::IsFinite(Contamination))return false;
+    auto* PS=Cast<ARVPlayerState>(GetOwner());if(!PS)return false;
+    auto& I=Injuries.AddDefaulted_GetRef();I.Id=FGuid::NewGuid();I.Kind=ERVInjuryKind::Wound;
+    I.InjuryTag=TAG_RVWound;I.Region=Region;I.Severity=FMath::Clamp(Severity,1.f,3.f);
+    I.Pain=I.Severity*10;I.InfectionRisk=FMath::Clamp(Contamination,0.f,1.f);
+    const auto* P=Tuning();I.BleedingPerMinute=I.Severity<1.5f?P->MinorBleedPerMinute:I.Severity<2.5f?P->ModerateBleedPerMinute:P->SevereBleedPerMinute;
+    PS->MedicalAbilitySystem->SetNumericAttributeBase(URVMedicalAttributes::GetVitalityAttribute(),
+        FMath::Clamp(PS->MedicalAttributes->GetVitality()-Damage,0.f,100.f));
+    UpdateLifeState(0);GetOwner()->ForceNetUpdate();return true;
+}
 bool URVHealthComponent::DebugSetVitals(float Blood,float Vitality)
 {
     if(!DebugAllowed() || !FMath::IsFinite(Blood) || !FMath::IsFinite(Vitality)) return false;

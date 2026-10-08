@@ -1,4 +1,5 @@
 #include "Player/RVSurvivorCharacter.h"
+#include "Combat/RVCombatComponent.h"
 #include "Player/RVInputMappings.h"
 #include "Camera/CameraComponent.h"
 #include "Interaction/RVInteractionComponent.h"
@@ -60,6 +61,7 @@ ARVSurvivorCharacter::ARVSurvivorCharacter(const FObjectInitializer& Init)
 {
     bReplicates = true;
     Inventory = CreateDefaultSubobject<URVInventoryComponent>(TEXT("Inventory"));
+    CreateDefaultSubobject<URVCombatComponent>(TEXT("Combat"));
     RestPose = CreateDefaultSubobject<URVRestPoseComponent>(TEXT("RestPose"));
     CreateDefaultSubobject<URVSeatPoseComponent>(TEXT("SeatPose"));
     CreateDefaultSubobject<URVLadderClimbComponent>(TEXT("LadderClimb"));
@@ -121,6 +123,7 @@ void ARVSurvivorCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
     Super::SetupPlayerInputComponent(PlayerInputComponent);
     CreateInput();
     UEnhancedInputComponent* Input = CastChecked<UEnhancedInputComponent>(PlayerInputComponent);
+    FindComponentByClass<URVCombatComponent>()->BindInput(Input);
     Input->BindAction(ForwardAction, ETriggerEvent::Triggered, this, &ThisClass::MoveForward);
     Input->BindAction(RightAction, ETriggerEvent::Triggered, this, &ThisClass::MoveRight);
     Input->BindAction(YawAction, ETriggerEvent::Triggered, this, &ThisClass::LookYaw);
@@ -163,6 +166,7 @@ void ARVSurvivorCharacter::EndPlay(const EEndPlayReason::Type Reason)
 }
 void ARVSurvivorCharacter::RemoveInput()
 {
+    if(auto* Combat=FindComponentByClass<URVCombatComponent>())Combat->RemoveInput();
     RVInputMappings::Unregister(InputLocalPlayer.Get(),Mapping);
     if (auto* Local = InputLocalPlayer.Get())
         if (auto* Input = Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())

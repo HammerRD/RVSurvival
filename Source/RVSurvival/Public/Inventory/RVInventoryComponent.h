@@ -27,6 +27,11 @@ struct FRVItemInstance : public FFastArraySerializerItem
     UPROPERTY(EditAnywhere, BlueprintReadOnly, SaveGame) bool bFuelInitialized = false;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, SaveGame) double FuelLitres = 0;
     UPROPERTY(BlueprintReadOnly, SaveGame) int32 FuelRevision = 0;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, SaveGame) bool bMagazineInitialized=false;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, SaveGame) int32 MagazineRounds=0;
+    UPROPERTY(BlueprintReadOnly, SaveGame) int32 CombatRevision=0;
+    // Loaded magazines remain ordinary inventory records, reserved by weapon GUID.
+    UPROPERTY(BlueprintReadOnly, SaveGame) FGuid LoadedInWeapon;
 };
 
 USTRUCT()
@@ -62,6 +67,9 @@ public:
     bool RefuelAuthority(class URVFuelComponent* Tank, const FGuid& Id, int32 ExpectedRevision, double& Transferred, FString& Error);
     UFUNCTION(BlueprintCallable) bool DebugSetFuelCan(FGuid Id, double Litres);
     bool ConsumeOneAuthority(const FGuid& Id, FRVItemInstance& Consumed, FString& Error);
+    bool SwapMagazineAuthority(FGuid Weapon,FGuid Magazine,int32 ExpectedRevision,FString& Error);
+    bool FireMagazineAuthority(FGuid Weapon,int32 ExpectedRevision,FRVItemInstance& FiredWeapon,FString& Error);
+    bool ReleaseMagazineAuthority(FGuid Weapon);
     bool RepairRequirementsAuthority(const TArray<FRVRepairRequirement>& Requirements, bool Commit, FString& Error);
     bool DrainFluidAuthority(const FGuid& Id,int32 ExpectedRevision,FGameplayTag Type,double Maximum,double& Drained,FString& Error);
     void OpenContainerAuthority(URVInventoryComponent* Container);

@@ -34,6 +34,15 @@ FString URVInventoryComponent::CanAccept(const FRVItemInstance& I) const
             || (I.bFuelInitialized && (!FMath::IsFinite(I.FuelLitres) || I.FuelLitres<0 || I.FuelLitres>F.CapacityLitres || I.FuelRevision<0)))
             return TEXT("Invalid fuel container state");
     }
+    if(D->Combat.bMagazine || D->Combat.bFirearm)
+    {
+        const auto& C=D->Combat;
+        if(D->bStackable || I.Quantity!=1 || !C.Caliber.IsValid() || C.bMagazine==C.bFirearm
+            || C.MagazineCapacity<1 || C.InitialRounds<0 || C.InitialRounds>C.MagazineCapacity
+            || I.CombatRevision<0 || (I.bMagazineInitialized && (I.MagazineRounds<0 || I.MagazineRounds>C.MagazineCapacity)))
+            return TEXT("Invalid combat item state");
+    }
+    if(I.LoadedInWeapon.IsValid()) return TEXT("Unload magazine before moving it");
     if(I.Quantity>(D->bStackable?FMath::Max(1,D->MaxStackSize):1)) return TEXT("Invalid stack size");
     if(D->bRequiresPhysicalCarry && !bAllowPhysicalCarry) return TEXT("Requires physical carrying");
     if(!AllowedTags.IsEmpty() && !D->Tags.HasAny(AllowedTags)) return TEXT("Item category not allowed");
@@ -51,6 +60,10 @@ bool URVInventoryComponent::AddAuthority(const FRVItemInstance& Item, FString& E
     Added.Id=Item.Id; Added.Definition=Item.Definition; Added.Quantity=Item.Quantity;
     Added.Condition=Item.Condition; Added.Location=Item.Location; Added.CustomState=Item.CustomState;
     Added.bFuelInitialized=Item.bFuelInitialized; Added.FuelLitres=Item.FuelLitres; Added.FuelRevision=Item.FuelRevision;
+    Added.bMagazineInitialized=Item.bMagazineInitialized; Added.MagazineRounds=Item.MagazineRounds;
+    Added.CombatRevision=Item.CombatRevision; Added.LoadedInWeapon=Item.LoadedInWeapon;
+    if(Added.Definition->Combat.bMagazine && !Added.bMagazineInitialized)
+    { Added.bMagazineInitialized=true; Added.MagazineRounds=Added.Definition->Combat.InitialRounds; }
     if(Added.Definition->Fuel.bFuelContainer && !Added.bFuelInitialized)
     { Added.bFuelInitialized=true; Added.FuelLitres=Added.Definition->Fuel.InitialLitres; }
     Contents.MarkItemDirty(Added); GetOwner()->ForceNetUpdate(); return true;
@@ -62,6 +75,8 @@ bool URVInventoryComponent::TransferAuthority(URVInventoryComponent* Destination
     const int32 Index=Contents.Items.IndexOfByPredicate([&](const auto& I){ return I.Id==Id; });
     if(Index==INDEX_NONE || Quantity<=0 || Quantity>Contents.Items[Index].Quantity) { Error=TEXT("Item no longer available"); return false; }
     FRVItemInstance Moving=Contents.Items[Index]; Moving.Quantity=Quantity;
+    if(Moving.LoadedInWeapon.IsValid() || Contents.Items.ContainsByPredicate([&](const auto& I){return I.LoadedInWeapon==Id;}))
+    {Error=TEXT("Unload weapon before transferring");return false;}
     if(Quantity<Contents.Items[Index].Quantity) Moving.Id=FGuid::NewGuid();
     // Both operations execute serially on the server game thread; no yield between validation and commit.
     if(!Destination->AddAuthority(Moving,Error)) return false;
@@ -74,10 +89,50 @@ bool URVInventoryComponent::ConsumeOneAuthority(const FGuid& Id, FRVItemInstance
     if (!GetOwner() || !GetOwner()->HasAuthority()) { Error=TEXT("Authority required"); return false; }
     const int32 Index=Contents.Items.IndexOfByPredicate([&](const auto& I){return I.Id==Id;});
     if(Index==INDEX_NONE || Contents.Items[Index].Quantity<1) { Error=TEXT("Item no longer owned"); return false; }
+    if(Contents.Items[Index].LoadedInWeapon.IsValid() || (Contents.Items[Index].Definition &&
+       (Contents.Items[Index].Definition->Combat.bFirearm || Contents.Items[Index].Definition->Combat.bMagazine)))
+    {Error=TEXT("Combat items cannot be consumed");return false;}
     Consumed=Contents.Items[Index]; Consumed.Quantity=1;
     if(Contents.Items[Index].Quantity==1) { Contents.Items.RemoveAt(Index); Contents.MarkArrayDirty(); }
     else { --Contents.Items[Index].Quantity; Contents.MarkItemDirty(Contents.Items[Index]); }
     GetOwner()->ForceNetUpdate(); return true;
+}
+bool URVInventoryComponent::SwapMagazineAuthority(FGuid Weapon,FGuid Magazine,int32 Revision,FString& Error)
+{
+    if(!GetOwner() || !GetOwner()->HasAuthority()){Error=TEXT("Authority required");return false;}
+    auto* W=Contents.Items.FindByPredicate([&](const auto& I){return I.Id==Weapon;});
+    auto* M=Contents.Items.FindByPredicate([&](const auto& I){return I.Id==Magazine;});
+    if(!W || !W->Definition || !W->Definition->Combat.bFirearm || W->CombatRevision!=Revision)
+    {Error=TEXT("Stale or unowned weapon");return false;}
+    if(!M || !M->Definition || !M->Definition->Combat.bMagazine || M->LoadedInWeapon.IsValid()
+        || !M->bMagazineInitialized || M->Definition->Combat.Caliber!=W->Definition->Combat.Caliber || M->Condition<=0)
+    {Error=TEXT("Compatible spare magazine required");return false;}
+    for(auto& I:Contents.Items)if(I.LoadedInWeapon==Weapon)
+    {I.LoadedInWeapon.Invalidate();++I.CombatRevision;Contents.MarkItemDirty(I);}
+    M->LoadedInWeapon=Weapon;++M->CombatRevision;++W->CombatRevision;
+    Contents.MarkItemDirty(*M);Contents.MarkItemDirty(*W);GetOwner()->ForceNetUpdate();Error.Empty();return true;
+}
+bool URVInventoryComponent::ReleaseMagazineAuthority(FGuid Weapon)
+{
+    if(!GetOwner() || !GetOwner()->HasAuthority())return false;
+    bool Changed=false;
+    for(auto& I:Contents.Items)if(I.LoadedInWeapon==Weapon)
+    {I.LoadedInWeapon.Invalidate();++I.CombatRevision;Contents.MarkItemDirty(I);Changed=true;}
+    if(Changed)if(auto* W=Contents.Items.FindByPredicate([&](const auto& I){return I.Id==Weapon;}))
+    {++W->CombatRevision;Contents.MarkItemDirty(*W);}
+    if(Changed)GetOwner()->ForceNetUpdate();return Changed;
+}
+bool URVInventoryComponent::FireMagazineAuthority(FGuid Weapon,int32 Revision,FRVItemInstance& FiredWeapon,FString& Error)
+{
+    if(!GetOwner() || !GetOwner()->HasAuthority()){Error=TEXT("Authority required");return false;}
+    auto* W=Contents.Items.FindByPredicate([&](const auto& I){return I.Id==Weapon;});
+    auto* M=Contents.Items.FindByPredicate([&](const auto& I){return I.LoadedInWeapon==Weapon;});
+    if(!W || !W->Definition || !W->Definition->Combat.bFirearm || W->CombatRevision!=Revision || W->Condition<=0)
+    {Error=TEXT("Stale or unowned weapon");return false;}
+    if(!M || !M->Definition || !M->bMagazineInitialized || M->MagazineRounds<=0)
+    {Error=TEXT("Magazine empty — reload");return false;}
+    --M->MagazineRounds;++M->CombatRevision;++W->CombatRevision;
+    FiredWeapon=*W;Contents.MarkItemDirty(*M);Contents.MarkItemDirty(*W);GetOwner()->ForceNetUpdate();Error.Empty();return true;
 }
 void URVInventoryComponent::OpenContainerAuthority(URVInventoryComponent* Container)
 { if(GetOwner()->HasAuthority()) { OpenContainer=Container; Feedback.Empty(); GetOwner()->ForceNetUpdate(); } }
@@ -127,6 +182,8 @@ void URVInventoryComponent::ServerDrop_Implementation(FGuid Id, int32 Quantity)
     const APawn* Pawn=Cast<APawn>(GetOwner()); if(!Pawn || !Pawn->GetController()) return;
     const int32 Index=Contents.Items.IndexOfByPredicate([&](const auto& I){return I.Id==Id;});
     if(Index==INDEX_NONE || Quantity<=0 || Quantity>Contents.Items[Index].Quantity) return;
+    if(Contents.Items[Index].LoadedInWeapon.IsValid() || Contents.Items.ContainsByPredicate([&](const auto& I){return I.LoadedInWeapon==Id;}))
+    {Feedback=TEXT("Unload weapon before dropping");return;}
     FVector Eye; FRotator Rotation; Pawn->GetActorEyesViewPoint(Eye,Rotation);
     FCollisionQueryParams Params(SCENE_QUERY_STAT(RVDrop),false,Pawn);
     FHitResult Hit; FVector Position; bool bFound=false; UPrimitiveComponent* Support=nullptr;

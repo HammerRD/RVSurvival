@@ -26,6 +26,8 @@ public:
     UFUNCTION(BlueprintPure) FGameplayTagContainer GetStatusTags() const;
     UFUNCTION(BlueprintCallable, meta=(DevelopmentOnly)) bool DebugSetInfectionRisk(FGuid Injury, float Risk);
     UFUNCTION(BlueprintPure) bool CanAct() const { return LifeState==ERVMedicalLifeState::Active; }
+    // Production damage entry: server creates ordinary injuries and changes existing GAS vitals.
+    bool ApplyWoundAuthority(ERVBodyRegion Region,float Severity,float VitalityDamage,float Contamination);
     UFUNCTION(BlueprintCallable, meta=(DevelopmentOnly)) bool DebugApplyInjury(ERVInjuryKind Kind, ERVBodyRegion Region, float Severity);
     UFUNCTION(BlueprintCallable, meta=(DevelopmentOnly)) bool DebugSetVitals(float Blood, float Vitality);
     UFUNCTION(BlueprintCallable, meta=(DevelopmentOnly)) bool DebugSetTimeScale(float Scale);

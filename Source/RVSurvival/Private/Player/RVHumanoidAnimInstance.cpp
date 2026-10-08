@@ -2,10 +2,11 @@
 #include "Player/RVSurvivorCharacter.h"
 #include "Player/RVCharacterPresentationComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Combat/RVInfected.h"
 void URVHumanoidAnimInstance::NativeUpdateAnimation(float Delta)
 {
     Super::NativeUpdateAnimation(Delta);
-    const auto* Character=Cast<ARVSurvivorCharacter>(TryGetPawnOwner());
+    const auto* Character=Cast<ACharacter>(TryGetPawnOwner());
     if(!Character) return;
     const auto* Visual=Character->FindComponentByClass<URVCharacterPresentationComponent>();
     const auto* Movement=Character->GetCharacterMovement();
@@ -13,7 +14,8 @@ void URVHumanoidAnimInstance::NativeUpdateAnimation(float Delta)
     GroundSpeed=Velocity.Size2D();
     Direction=GroundSpeed>1?FMath::RadiansToDegrees(FMath::Atan2(FVector::DotProduct(Velocity,Character->GetActorRightVector()),FVector::DotProduct(Velocity,Character->GetActorForwardVector()))):0;
     PoseIndex=Visual?int32(Visual->VisualState):0;
-    if(PoseIndex==4 && Character->SeatedVehicle) PoseIndex=10;
+    if(const auto* Survivor=Cast<ARVSurvivorCharacter>(Character);Survivor && PoseIndex==4 && Survivor->SeatedVehicle) PoseIndex=10;
+    if(const auto* Infected=Cast<ARVInfected>(Character))PoseIndex=Infected->State==ERVInfectedState::Dead?4:Infected->State==ERVInfectedState::Attack?6:0;
     ClimbPlayRate=FMath::Clamp(Velocity.Z/100.f,-1.5f,1.5f);
     if(PoseIndex==0)
     {

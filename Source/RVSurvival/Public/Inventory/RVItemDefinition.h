@@ -29,11 +29,32 @@ struct FRVFuelContainerMetadata
 };
 
 /** Immutable catalog data. Stored instances reference definitions rather than world actors. */
+USTRUCT(BlueprintType)
+struct FRVCombatItemMetadata
+{
+    GENERATED_BODY()
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) bool bFirearm=false;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) bool bMagazine=false;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FGameplayTag Caliber;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="1")) int32 MagazineCapacity=15;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="0")) int32 InitialRounds=15;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="0.1")) float ShotInterval=.25f;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="0.1")) float ReloadSeconds=2;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="1")) float RangeCm=10000;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="0")) float Damage=30;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FName HandAnchor=TEXT("Tool");
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FTransform GripOffset;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) TObjectPtr<class USoundBase> ShotSound;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) TObjectPtr<class UAnimMontage> FireMontage;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) TObjectPtr<class UAnimMontage> ReloadMontage;
+};
+
 UCLASS(BlueprintType)
 class RVSURVIVAL_API URVItemDefinition : public UPrimaryDataAsset
 {
     GENERATED_BODY()
 public:
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FRVCombatItemMetadata Combat;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FRVMedicalSupplyMetadata Medical;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FRVConsumableMetadata Consumable;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FRVFuelContainerMetadata Fuel;
