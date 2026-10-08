@@ -1,0 +1,80 @@
+{
+  "pid": 15528,
+  "role": "client",
+  "kind": "owned RPC diagnostics, no UI acceptance",
+  "results": [
+    {
+      "case": "patient_downed_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "healer_independent_active",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bleeding_revive_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "teammate_bleeding_stopped",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "dressing_consumed_once",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "patient_still_downed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "revive_active_converges",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "concurrent_request_single_consumption",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "revive_retains_injuries",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "revive_partial_vitals",
+      "pass": true,
+      "detail": "30.011493682861328"
+    },
+    {
+      "case": "healer_unaffected_blood",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "condition_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "awake_revive_rejected",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "config": {
+    "packet_loss_percent": 2,
+    "healer": "client",
+    "network": true,
+    "latency_ms": 100
+  },
+  "module_sha256": "4CB701FD0051C447DEDA63708B97D61B45D96AB39BAA8F851D4DAD10F10CC9A4",
+  "source_checkpoint": "803e970"
+}
