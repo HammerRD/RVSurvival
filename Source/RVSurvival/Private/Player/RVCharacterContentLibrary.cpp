@@ -43,6 +43,8 @@ AActor* URVCharacterContentLibrary::SpawnPoseFixture(UObject* Context,FVector Po
 #include "AnimGraphNode_BlendSpacePlayer.h"
 #include "AnimGraphNode_SequencePlayer.h"
 #include "K2Node_VariableGet.h"
+#include "AnimGraphNode_BlendListByBool.h"
+#include "AnimGraphNode_Slot.h"
 #include "Kismet2/BlueprintEditorUtils.h"
 #include "Kismet2/KismetEditorUtilities.h"
 #include "EdGraph/EdGraph.h"
@@ -159,7 +161,7 @@ bool URVCharacterContentLibrary::PopulateLocomotion(UBlendSpace* BlendSpace,cons
     return false;
 #endif
 }
-bool URVCharacterContentLibrary::BuildAnimationGraph(UAnimBlueprint* Blueprint,UBlendSpace* Locomotion,const TArray<UAnimSequence*>& Poses)
+bool URVCharacterContentLibrary::BuildAnimationGraph(UAnimBlueprint* Blueprint,UBlendSpace* Locomotion,const TArray<UAnimSequence*>& Poses,UBlendSpace* ArmedLocomotion)
 {
 #if WITH_EDITOR
     if(!Blueprint || !Locomotion || Poses.Num()!=10 || !Blueprint->ParentClass->IsChildOf(URVHumanoidAnimInstance::StaticClass())) return false;
@@ -178,7 +180,16 @@ bool URVCharacterContentLibrary::BuildAnimationGraph(UAnimBlueprint* Blueprint,U
     Link(Variable(TEXT("GroundSpeed"),0),TEXT("GroundSpeed"),Walk,TEXT("X"));Link(Variable(TEXT("Direction"),100),TEXT("Direction"),Walk,TEXT("Y"));
     FGraphNodeCreator<UAnimGraphNode_BlendListByInt> MakeModes(*Graph);auto* Modes=MakeModes.CreateNode();MakeModes.Finalize();
     while(Modes->Node.GetBlendTimes().Num()<11) Modes->Node.AddPose();Modes->ReconstructNode();Modes->NodePosX=0;
-    Link(Variable(TEXT("PoseIndex"),-200),TEXT("PoseIndex"),Modes,TEXT("ActiveChildIndex"));Link(Walk,TEXT("Pose"),Modes,TEXT("BlendPose_0"));
+    Link(Variable(TEXT("PoseIndex"),-200),TEXT("PoseIndex"),Modes,TEXT("ActiveChildIndex"));
+    if(ArmedLocomotion)
+    {
+        FGraphNodeCreator<UAnimGraphNode_BlendSpacePlayer> MakeArmed(*Graph);auto* Armed=MakeArmed.CreateNode();MakeArmed.Finalize();Armed->SetAnimationAsset(ArmedLocomotion);Armed->ReconstructNode();Armed->NodePosX=-600;Armed->NodePosY=-300;
+        Link(Variable(TEXT("GroundSpeed"),-450),TEXT("GroundSpeed"),Armed,TEXT("X"));Link(Variable(TEXT("Direction"),-350),TEXT("Direction"),Armed,TEXT("Y"));
+        FGraphNodeCreator<UAnimGraphNode_BlendListByBool> MakeReady(*Graph);auto* Ready=MakeReady.CreateNode();MakeReady.Finalize();Ready->ReconstructNode();
+        Link(Walk,TEXT("Pose"),Ready,TEXT("BlendPose_1"));Link(Armed,TEXT("Pose"),Ready,TEXT("BlendPose_0"));Link(Variable(TEXT("bWeaponReady"),-550),TEXT("bWeaponReady"),Ready,TEXT("bActiveValue"));
+        Link(Ready,TEXT("Pose"),Modes,TEXT("BlendPose_0"));
+    }
+    else Link(Walk,TEXT("Pose"),Modes,TEXT("BlendPose_0"));
     for(int32 Index=0;Index<Poses.Num();++Index)
     {
         FGraphNodeCreator<UAnimGraphNode_SequencePlayer> MakePose(*Graph);auto* Player=MakePose.CreateNode();MakePose.Finalize();Player->SetAnimationAsset(Poses[Index]);Player->NodePosX=-600;Player->NodePosY=(Index+1)*180;
@@ -189,7 +200,10 @@ bool URVCharacterContentLibrary::BuildAnimationGraph(UAnimBlueprint* Blueprint,U
         }
         Link(Player,TEXT("Pose"),Modes,FName(*FString::Printf(TEXT("BlendPose_%d"),Index+1)));
     }
-    Link(Modes,TEXT("Pose"),Root,TEXT("Result"));Root->NodePosX=400;
+    if(ArmedLocomotion)
+    {FGraphNodeCreator<UAnimGraphNode_Slot> MakeSlot(*Graph);auto* Slot=MakeSlot.CreateNode();MakeSlot.Finalize();Slot->Node.SlotName=TEXT("DefaultSlot");Slot->ReconstructNode();
+     Link(Modes,TEXT("Pose"),Slot,TEXT("Source"));Link(Slot,TEXT("Pose"),Root,TEXT("Result"));}
+    else Link(Modes,TEXT("Pose"),Root,TEXT("Result"));Root->NodePosX=400;
     if(!Success){UE_LOG(LogTemp,Error,TEXT("RV character AnimGraph pin authoring failed"));return false;}
     FBlueprintEditorUtils::MarkBlueprintAsStructurallyModified(Blueprint);FKismetEditorUtilities::CompileBlueprint(Blueprint);Blueprint->MarkPackageDirty();return Blueprint->Status!=BS_Error;
 #else

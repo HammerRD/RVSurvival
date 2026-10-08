@@ -1,0 +1,86 @@
+{
+  "results": [
+    {
+      "case": "fixture item admitted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fixture item admitted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fixture item admitted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fixture item admitted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "Gate 9 opt-in saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "ordinary actor movement remains walking",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal 4 equips owned GUID",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal R starts authoritative reload",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "reload loads real magazine",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal LMB consumes exactly one round",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "semi-auto held button does not repeat",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "partial reload conserves total ammunition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal RMB applies aim",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "aim release restores",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "holster releases magazine without losing rounds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "all GUIDs remain unique",
+      "pass": false,
+      "detail": ""
+    }
+  ],
+  "passed": 15,
+  "total": 16
+}

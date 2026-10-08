@@ -1,0 +1,53 @@
+Using bundled DotNet SDK version: 10.0 win-x64
+Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" RVSurvivalEditor Win64 Development -Project=D:/GitHub/RVSurvival/RVSurvival/RVSurvival.uproject -WaitMutex -NoHotReloadFromIDE
+Log file: C:\Users\bobgo\AppData\Local\UnrealBuildTool\Log.txt
+Using 'git status' to determine working set for adaptive non-unity build (D:\GitHub\RVSurvival\RVSurvival).
+UHT compiled-in object format Default
+Building RVSurvivalEditor...
+===== Toolchain Information =====
+Using ISPC compiler (D:\Epic Games\UE_5.8\Engine\Source\ThirdParty\Intel\ISPC\bin\Windows\ispc.exe)
+  Intel(r) Implicit SPMD Program Compiler (Intel(r) ISPC), 1.24.0 (build commit  @ 20250404, LLVM 18.1.2) 
+Using Visual Studio 14.44.35229 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[Adaptive Build] Excluded from RVSurvival unity file: RVCombatComponent.cpp, RVCombatContentLibrary.cpp, RVInfected.cpp, RVInfectedController.cpp, RVInventoryComponent.cpp, RVWorldItem.cpp, RVCharacterContentLibrary.cpp, RVHumanoidAnimInstance.cpp, RVSurvivorCharacter.cpp, RVPrototypeHUD.cpp
+=================================
+Determining max actions to execute in parallel (16 physical cores, 24 logical cores)
+  Executing up to 16 processes, one per physical core
+  Requested 1.5 GB memory per action, 8.9 GB available: limiting max parallel actions to 5
+Using XGE executor to run 10 action(s)
+Distributing 10 actions to XGE
+UnrealBuildTool Compile
+
+--------------------Build System Warning---------------------------------------
+License not activated:
+    License is not activated. Please activate the license in the coordinator.
+    This build will run in standalone mode.
+
+-------------------------------------------------------------------------------
+ 
+Build ID: {1D814299-92A7-4807-ADF2-E309C3863219}
+ 
+--------------------Project: Default-------------------------------------------
+[1/10] Compile [x64] RVHumanoidAnimInstance.cpp (0:02.54 at +0:00)
+[2/10] Compile [x64] RVWorldItem.cpp (0:02.96 at +0:00)
+[3/10] Compile [x64] RVInventoryComponent.cpp (0:03.06 at +0:00)
+[4/10] Compile [x64] RVCombatComponent.cpp (0:03.84 at +0:00)
+[5/10] Compile [x64] RVSurvivorCharacter.cpp (0:04.29 at +0:00)
+[6/10] Compile [x64] RVPrototypeHUD.cpp (0:04.93 at +0:00)
+[7/10] Compile [x64] Module.RVSurvival.cpp (0:15.12 at +0:00)
+[8/10] Link [x64] UnrealEditor-RVSurvival.lib (0:00.07 at +0:15)
+   Creating library D:/GitHub/RVSurvival/RVSurvival/Intermediate/Build/Win64/x64/UnrealEditor/Development/RVSurvival/UnrealEditor-RVSurvival.lib and object D:/GitHub/RVSurvival/RVSurvival/Intermediate/Build/Win64/x64/UnrealEditor/Development/RVSurvival/UnrealEditor-RVSurvival.exp
+[9/10] Link [x64] UnrealEditor-RVSurvival.dll (0:00.65 at +0:15)
+[10/10] WriteMetadata RVSurvivalEditor.target (0:00.36 at +0:15)
+---------------------- Done ----------------------
+ 
+    Rebuild All: 1 succeeded, 0 failed, 0 skipped
+ 
+1 build system warning(s):
+   - License not activated
+ 
+Total time in XGE executor: 18.69 seconds
+Output binary: D:\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealEditor.exe
+
+Result: Succeeded
+Total execution time: 20.50 seconds
+Trace written to file C:\Users\bobgo\AppData\Local\UnrealBuildTool\Trace.uba with size 2.6kb

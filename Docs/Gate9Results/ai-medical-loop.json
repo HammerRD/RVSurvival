@@ -1,0 +1,648 @@
+{
+  "results": [
+    {
+      "case": "infected has native AIController",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native sight acquires/chases",
+      "pass": true,
+      "detail": "<RVInfectedState.CHASE: 3>"
+    },
+    {
+      "case": "native NavMesh path changes position",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x00000247866CF800) {x: 307.655841, y: -2500.000000, z: 90.000000}>"
+    },
+    {
+      "case": "infected attack creates medical wound",
+      "pass": true,
+      "detail": "['<RVBodyRegion.TORSO: 1>']"
+    },
+    {
+      "case": "bite retains contamination and bleeding",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "firearm damages/kills infected through actual trace",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "dead state replicated source entered once",
+      "pass": true,
+      "detail": "(<RVInfectedState.DEAD: 5>, 1)"
+    },
+    {
+      "case": "dead infected cannot continue attacks",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "samples": [
+    {
+      "time": 0.008364677429199219,
+      "enemy_position": [
+        900.0,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.IDLE: 0>",
+      "vitality": 65.0,
+      "attacks": 0,
+      "shot_sequence": 0,
+      "rounds": 0,
+      "player_injuries": 0,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 0.30887603759765625,
+      "enemy_position": [
+        851.6794203440328,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.CHASE: 3>",
+      "vitality": 65.0,
+      "attacks": 0,
+      "shot_sequence": 0,
+      "rounds": 0,
+      "player_injuries": 0,
+      "movement_status": "<PathFollowingStatus.MOVING: 3>"
+    },
+    {
+      "time": 0.6090552806854248,
+      "enemy_position": [
+        755.6660131228092,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.CHASE: 3>",
+      "vitality": 65.0,
+      "attacks": 0,
+      "shot_sequence": 0,
+      "rounds": 0,
+      "player_injuries": 0,
+      "movement_status": "<PathFollowingStatus.MOVING: 3>"
+    },
+    {
+      "time": 0.9091231822967529,
+      "enemy_position": [
+        659.6637102050419,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.CHASE: 3>",
+      "vitality": 65.0,
+      "attacks": 0,
+      "shot_sequence": 0,
+      "rounds": 0,
+      "player_injuries": 0,
+      "movement_status": "<PathFollowingStatus.MOVING: 3>"
+    },
+    {
+      "time": 1.217695951461792,
+      "enemy_position": [
+        560.9911989003616,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.CHASE: 3>",
+      "vitality": 65.0,
+      "attacks": 0,
+      "shot_sequence": 0,
+      "rounds": 0,
+      "player_injuries": 0,
+      "movement_status": "<PathFollowingStatus.MOVING: 3>"
+    },
+    {
+      "time": 1.5265967845916748,
+      "enemy_position": [
+        462.3237430882932,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.CHASE: 3>",
+      "vitality": 65.0,
+      "attacks": 0,
+      "shot_sequence": 0,
+      "rounds": 0,
+      "player_injuries": 0,
+      "movement_status": "<PathFollowingStatus.MOVING: 3>"
+    },
+    {
+      "time": 1.834298849105835,
+      "enemy_position": [
+        363.6562876213028,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.CHASE: 3>",
+      "vitality": 65.0,
+      "attacks": 0,
+      "shot_sequence": 0,
+      "rounds": 0,
+      "player_injuries": 0,
+      "movement_status": "<PathFollowingStatus.MOVING: 3>"
+    },
+    {
+      "time": 2.1349611282348633,
+      "enemy_position": [
+        267.65552036223215,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.CHASE: 3>",
+      "vitality": 65.0,
+      "attacks": 0,
+      "shot_sequence": 0,
+      "rounds": 0,
+      "player_injuries": 0,
+      "movement_status": "<PathFollowingStatus.MOVING: 3>"
+    },
+    {
+      "time": 2.438192367553711,
+      "enemy_position": [
+        170.0184649461511,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.CHASE: 3>",
+      "vitality": 65.0,
+      "attacks": 0,
+      "shot_sequence": 0,
+      "rounds": 0,
+      "player_injuries": 0,
+      "movement_status": "<PathFollowingStatus.MOVING: 3>"
+    },
+    {
+      "time": 2.7389159202575684,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.ATTACK: 4>",
+      "vitality": 65.0,
+      "attacks": 1,
+      "shot_sequence": 0,
+      "rounds": 15,
+      "player_injuries": 0,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 3.047403335571289,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.ATTACK: 4>",
+      "vitality": 65.0,
+      "attacks": 1,
+      "shot_sequence": 0,
+      "rounds": 15,
+      "player_injuries": 0,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 3.355745553970337,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.ATTACK: 4>",
+      "vitality": 65.0,
+      "attacks": 1,
+      "shot_sequence": 0,
+      "rounds": 15,
+      "player_injuries": 0,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 3.664238929748535,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.ATTACK: 4>",
+      "vitality": 65.0,
+      "attacks": 1,
+      "shot_sequence": 0,
+      "rounds": 15,
+      "player_injuries": 1,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 3.9719457626342773,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.ATTACK: 4>",
+      "vitality": 65.0,
+      "attacks": 1,
+      "shot_sequence": 0,
+      "rounds": 15,
+      "player_injuries": 1,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 4.280419588088989,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.ATTACK: 4>",
+      "vitality": 65.0,
+      "attacks": 1,
+      "shot_sequence": 0,
+      "rounds": 15,
+      "player_injuries": 1,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 4.580665111541748,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.ATTACK: 4>",
+      "vitality": 65.0,
+      "attacks": 2,
+      "shot_sequence": 0,
+      "rounds": 15,
+      "player_injuries": 1,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 4.889086723327637,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.ATTACK: 4>",
+      "vitality": 65.0,
+      "attacks": 2,
+      "shot_sequence": 0,
+      "rounds": 15,
+      "player_injuries": 1,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 5.1967151165008545,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.ATTACK: 4>",
+      "vitality": 65.0,
+      "attacks": 2,
+      "shot_sequence": 0,
+      "rounds": 15,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 5.4974045753479,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.ATTACK: 4>",
+      "vitality": 65.0,
+      "attacks": 2,
+      "shot_sequence": 0,
+      "rounds": 15,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 5.798181056976318,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.ATTACK: 4>",
+      "vitality": 45.5,
+      "attacks": 2,
+      "shot_sequence": 1,
+      "rounds": 14,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 6.1052515506744385,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.ATTACK: 4>",
+      "vitality": 45.5,
+      "attacks": 2,
+      "shot_sequence": 1,
+      "rounds": 14,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 6.405354976654053,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.ATTACK: 4>",
+      "vitality": 15.5,
+      "attacks": 3,
+      "shot_sequence": 2,
+      "rounds": 13,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 6.705548524856567,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.DEAD: 5>",
+      "vitality": 0.0,
+      "attacks": 3,
+      "shot_sequence": 3,
+      "rounds": 12,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 7.0142436027526855,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.DEAD: 5>",
+      "vitality": 0.0,
+      "attacks": 3,
+      "shot_sequence": 3,
+      "rounds": 12,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 7.314809083938599,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.DEAD: 5>",
+      "vitality": 0.0,
+      "attacks": 3,
+      "shot_sequence": 4,
+      "rounds": 11,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 7.615751028060913,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.DEAD: 5>",
+      "vitality": 0.0,
+      "attacks": 3,
+      "shot_sequence": 4,
+      "rounds": 11,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 7.923292875289917,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.DEAD: 5>",
+      "vitality": 0.0,
+      "attacks": 3,
+      "shot_sequence": 4,
+      "rounds": 11,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 8.223353862762451,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.DEAD: 5>",
+      "vitality": 0.0,
+      "attacks": 3,
+      "shot_sequence": 4,
+      "rounds": 11,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 8.531805515289307,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.DEAD: 5>",
+      "vitality": 0.0,
+      "attacks": 3,
+      "shot_sequence": 4,
+      "rounds": 11,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 8.833038091659546,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.DEAD: 5>",
+      "vitality": 0.0,
+      "attacks": 3,
+      "shot_sequence": 4,
+      "rounds": 11,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 9.140089511871338,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.DEAD: 5>",
+      "vitality": 0.0,
+      "attacks": 3,
+      "shot_sequence": 4,
+      "rounds": 11,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 9.448537111282349,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.DEAD: 5>",
+      "vitality": 0.0,
+      "attacks": 3,
+      "shot_sequence": 4,
+      "rounds": 11,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 9.750028848648071,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.DEAD: 5>",
+      "vitality": 0.0,
+      "attacks": 3,
+      "shot_sequence": 4,
+      "rounds": 11,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 10.056557416915894,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.DEAD: 5>",
+      "vitality": 0.0,
+      "attacks": 3,
+      "shot_sequence": 4,
+      "rounds": 11,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 10.35698938369751,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.DEAD: 5>",
+      "vitality": 0.0,
+      "attacks": 3,
+      "shot_sequence": 4,
+      "rounds": 11,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 10.666300058364868,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.DEAD: 5>",
+      "vitality": 0.0,
+      "attacks": 3,
+      "shot_sequence": 4,
+      "rounds": 11,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 10.973376750946045,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.DEAD: 5>",
+      "vitality": 0.0,
+      "attacks": 3,
+      "shot_sequence": 4,
+      "rounds": 11,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 11.281734228134155,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.DEAD: 5>",
+      "vitality": 0.0,
+      "attacks": 3,
+      "shot_sequence": 4,
+      "rounds": 11,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 11.581795930862427,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.DEAD: 5>",
+      "vitality": 0.0,
+      "attacks": 3,
+      "shot_sequence": 4,
+      "rounds": 11,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    },
+    {
+      "time": 11.881881475448608,
+      "enemy_position": [
+        90.01753839974745,
+        -2500.0,
+        90.0
+      ],
+      "state": "<RVInfectedState.DEAD: 5>",
+      "vitality": 0.0,
+      "attacks": 3,
+      "shot_sequence": 4,
+      "rounds": 11,
+      "player_injuries": 2,
+      "movement_status": "<PathFollowingStatus.IDLE: 0>"
+    }
+  ],
+  "passed": 8,
+  "total": 8
+}

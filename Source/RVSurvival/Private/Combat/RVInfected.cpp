@@ -63,6 +63,7 @@ void ARVInfected::CompleteAttack()
 }
 void ARVInfected::OnRep_State()
 {if(State==ERVInfectedState::Dead){GetCharacterMovement()->StopMovementImmediately();GetCharacterMovement()->DisableMovement();
+ if(Tuning()->BodyMapping){GetMesh()->SetRelativeLocation(Tuning()->BodyMapping->DownedOffset-FVector(0,0,GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight()));}
  GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);GetMesh()->SetCollisionEnabled(ECollisionEnabled::NoCollision);}}
 void ARVInfected::EndPlay(const EEndPlayReason::Type Reason)
 {GetWorld()->GetTimerManager().ClearTimer(AttackTimer);AttackVictim.Reset();Super::EndPlay(Reason);}

@@ -13,6 +13,7 @@ public:
     UPROPERTY(BlueprintReadOnly,Category="Presentation") float Direction=0;
     UPROPERTY(BlueprintReadOnly,Category="Presentation") int32 PoseIndex=0;
     UPROPERTY(BlueprintReadOnly,Category="Presentation") float ClimbPlayRate=1;
+    UPROPERTY(BlueprintReadOnly,Category="Presentation") bool bWeaponReady=false;
 private:
     bool bWasFalling=false;
     float LandingRemaining=0;

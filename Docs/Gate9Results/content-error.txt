@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "D:/GitHub/RVSurvival/RVSurvival/Tools/Validation/Gate9/create_content.py", line 76, in <module>
+    result=build();(out/'saved-foundation.json').write_text(json.dumps(result,indent=2))
+           ^^^^^^^
+  File "D:/GitHub/RVSurvival/RVSurvival/Tools/Validation/Gate9/create_content.py", line 53, in build
+    assert unreal.RVCharacterContentLibrary.build_animation_graph(bp,unreal.load_asset('/Game/Characters/RV/Animations/BS_RVLocomotion'),poses,armed);assert unreal.EditorAssetLibrary.save_loaded_asset(bp,False)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

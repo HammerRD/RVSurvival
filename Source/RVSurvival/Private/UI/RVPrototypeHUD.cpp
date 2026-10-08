@@ -1,4 +1,5 @@
 #include "UI/RVPrototypeHUD.h"
+#include "Combat/RVCombatComponent.h"
 #include "Vehicles/RVRecoveryComponent.h"
 #include "EngineUtils.h"
 #include "UI/RVMechanicalWidget.h"
@@ -33,6 +34,14 @@ void ARVPrototypeHUD::DrawHUD()
 {
     Super::DrawHUD();
     if (!Canvas || !PlayerOwner) return;
+    if(APawn* P=PlayerOwner->GetPawn())if(auto* Combat=P->FindComponentByClass<URVCombatComponent>();Combat && Combat->bEnabled)
+    {
+        FRVItemInstance W;const bool Equipped=Combat->GetWeapon(W);
+        const FString Status=Equipped?FString::Printf(TEXT("%s | %d rounds%s"),*W.Definition->DisplayName.ToString(),Combat->GetLoadedRounds(),Combat->ReloadEnds>0?TEXT(" | reloading"):TEXT("")):TEXT("Handgun holstered");
+        DrawText(Status,FLinearColor::White,20,Canvas->ClipY-240,nullptr,.85f);
+        DrawText(RVInputMappings::KeyLabel(PlayerOwner,TEXT("EquipWeapon"),TEXT("4"))+TEXT(" equip/holster | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Fire"),TEXT("LMB"))+TEXT(" fire | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Aim"),TEXT("RMB"))+TEXT(" aim | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Reload"),TEXT("R"))+TEXT(" swap magazine"),FLinearColor::White,20,Canvas->ClipY-218,nullptr,.7f);
+        DrawText(Combat->Feedback,FLinearColor::Yellow,20,Canvas->ClipY-198,nullptr,.8f);
+    }
     if(auto* PC=Cast<ARVPlayerController>(PlayerOwner))
     {
         bool Ready=false;
@@ -156,7 +165,8 @@ void ARVPrototypeHUD::DrawHUD()
             for(int32 Row=0;Row<Records.Num();++Row)
             {
                 const auto& Item=Records[Row]; if(!Item.Definition) continue;
-                const FString Fuel=Item.Definition->Fuel.bFuelContainer?FString::Printf(TEXT(" | %.2f L"),Item.FuelLitres):FString();
+                FString Fuel=Item.Definition->Fuel.bFuelContainer?FString::Printf(TEXT(" | %.2f L"),Item.FuelLitres):FString();
+                if(Item.Definition->Combat.bMagazine)Fuel+=FString::Printf(TEXT(" | %d/%d rounds%s"),Item.MagazineRounds,Item.Definition->Combat.MagazineCapacity,Item.LoadedInWeapon.IsValid()?TEXT(" loaded"):TEXT(" spare"));
                 InventoryText(FString::Printf(TEXT("%s%s x%d | %.0f%%%s"),Active && Row==SelectedRow?TEXT("> "):TEXT(""),*Item.Definition->DisplayName.ToString(),Item.Quantity,Item.Condition*100,*Fuel),FLinearColor::White,X,180+Row*22);
             }
         };

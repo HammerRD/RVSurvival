@@ -29,6 +29,8 @@ public:
     UPROPERTY(Replicated,BlueprintReadOnly) FString Feedback;
     UPROPERTY(EditAnywhere,BlueprintReadOnly) bool bFriendlyFire=true;
     UPROPERTY(EditAnywhere,BlueprintReadOnly) float AimFOVScale=.8f;
+    UPROPERTY(EditAnywhere,BlueprintReadOnly) float AimSensitivityScale=.7f;
+    float GetLookScale() const {return bEnabled && bAiming?AimSensitivityScale:1.f;}
     UFUNCTION(BlueprintPure) int32 GetLoadedRounds() const;
     UFUNCTION(BlueprintPure) bool GetWeapon(FRVItemInstance& Item) const;
     UFUNCTION(Server,Reliable) void ServerEquip(FGuid Id);
@@ -55,6 +57,8 @@ private:
     uint32 LocalRequest=0;
     float UnaimedFOV=0;
     bool bLocalAimApplied=false;
+    bool bHitQueriesConfigured=false;
+    double PresentedReloadEnd=0;
     UPROPERTY(Transient) TObjectPtr<UStaticMeshComponent> WeaponVisual;
     UPROPERTY(Transient) TObjectPtr<URVItemDefinition> VisualDefinition;
     UPROPERTY(Transient) TObjectPtr<UInputMappingContext> Mapping;

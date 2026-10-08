@@ -42,9 +42,15 @@ struct FRVCombatItemMetadata
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="0.1")) float ReloadSeconds=2;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="1")) float RangeCm=10000;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="0")) float Damage=30;
+    UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,meta=(ClampMin="0")) float HeadDamageMultiplier=2;
+    UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,meta=(ClampMin="0")) float LimbDamageMultiplier=.75f;
+    UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,meta=(ClampMin="1",ClampMax="3")) float WoundSeverity=2;
+    UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,meta=(ClampMin="0")) float RecoilPitch=.7f;
+    UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,meta=(ClampMin="0")) float HearingRange=5000;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FName HandAnchor=TEXT("Tool");
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FTransform GripOffset;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) TObjectPtr<class USoundBase> ShotSound;
+    UPROPERTY(EditDefaultsOnly,BlueprintReadOnly) TObjectPtr<class UMaterialInterface> ShotEffectMaterial;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) TObjectPtr<class UAnimMontage> FireMontage;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) TObjectPtr<class UAnimMontage> ReloadMontage;
 };
@@ -66,6 +72,7 @@ public:
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FGameplayTagContainer Tags;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FGameplayTagContainer CraftingTags;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) TSoftObjectPtr<UStaticMesh> WorldMesh;
+    UPROPERTY(EditDefaultsOnly,BlueprintReadOnly) FVector WorldVisualScale=FVector(.2f);
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) TSoftObjectPtr<UTexture2D> Icon;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="0")) float WeightKg = 1;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="0")) float VolumeLitres = 1;

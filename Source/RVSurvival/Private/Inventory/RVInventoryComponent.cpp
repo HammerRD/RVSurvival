@@ -114,7 +114,7 @@ bool URVInventoryComponent::SwapMagazineAuthority(FGuid Weapon,FGuid Magazine,in
 }
 bool URVInventoryComponent::ReleaseMagazineAuthority(FGuid Weapon)
 {
-    if(!GetOwner() || !GetOwner()->HasAuthority())return false;
+    if(!GetOwner() || !GetOwner()->HasAuthority() || !Weapon.IsValid())return false;
     bool Changed=false;
     for(auto& I:Contents.Items)if(I.LoadedInWeapon==Weapon)
     {I.LoadedInWeapon.Invalidate();++I.CombatRevision;Contents.MarkItemDirty(I);Changed=true;}

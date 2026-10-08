@@ -61,7 +61,7 @@ ARVSurvivorCharacter::ARVSurvivorCharacter(const FObjectInitializer& Init)
 {
     bReplicates = true;
     Inventory = CreateDefaultSubobject<URVInventoryComponent>(TEXT("Inventory"));
-    CreateDefaultSubobject<URVCombatComponent>(TEXT("Combat"));
+    Combat=CreateDefaultSubobject<URVCombatComponent>(TEXT("Combat"));
     RestPose = CreateDefaultSubobject<URVRestPoseComponent>(TEXT("RestPose"));
     CreateDefaultSubobject<URVSeatPoseComponent>(TEXT("SeatPose"));
     CreateDefaultSubobject<URVLadderClimbComponent>(TEXT("LadderClimb"));
@@ -137,8 +137,8 @@ void ARVSurvivorCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 }
 void ARVSurvivorCharacter::MoveForward(const FInputActionValue& V) { if(SeatedVehicle)return; if(auto* Climb=FindComponentByClass<URVLadderClimbComponent>();Climb && Climb->Ladder) { Climb->ClimbInput(V.Get<float>()); return; } if(CanMoveWhileAwake(this)) AddMovementInput(FRotationMatrix(FRotator(0, GetControlRotation().Yaw, 0)).GetUnitAxis(EAxis::X), V.Get<float>()); }
 void ARVSurvivorCharacter::MoveRight(const FInputActionValue& V) { if(SeatedVehicle)return; if(auto* Climb=FindComponentByClass<URVLadderClimbComponent>();Climb && Climb->Ladder) return; if(CanMoveWhileAwake(this)) AddMovementInput(FRotationMatrix(FRotator(0, GetControlRotation().Yaw, 0)).GetUnitAxis(EAxis::Y), V.Get<float>()); }
-void ARVSurvivorCharacter::LookYaw(const FInputActionValue& V) { AddControllerYawInput(V.Get<float>()); }
-void ARVSurvivorCharacter::LookPitch(const FInputActionValue& V) { AddControllerPitchInput(V.Get<float>()); }
+void ARVSurvivorCharacter::LookYaw(const FInputActionValue& V) { AddControllerYawInput(V.Get<float>()*(Combat?Combat->GetLookScale():1.f)); }
+void ARVSurvivorCharacter::LookPitch(const FInputActionValue& V) { AddControllerPitchInput(V.Get<float>()*(Combat?Combat->GetLookScale():1.f)); }
 void ARVSurvivorCharacter::StartJump() { if (!SeatedVehicle && CanMoveWhileAwake(this)) Jump(); }
 void ARVSurvivorCharacter::StopJump() { StopJumping(); }
 void ARVSurvivorCharacter::StartInteract()
@@ -166,7 +166,7 @@ void ARVSurvivorCharacter::EndPlay(const EEndPlayReason::Type Reason)
 }
 void ARVSurvivorCharacter::RemoveInput()
 {
-    if(auto* Combat=FindComponentByClass<URVCombatComponent>())Combat->RemoveInput();
+    if(Combat)Combat->RemoveInput();
     RVInputMappings::Unregister(InputLocalPlayer.Get(),Mapping);
     if (auto* Local = InputLocalPlayer.Get())
         if (auto* Input = Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())

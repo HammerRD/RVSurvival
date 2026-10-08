@@ -29,6 +29,8 @@ void ARVWorldItem::BeginPlay()
     if(HasAuthority() && !Item.Id.IsValid()) Item.Id=FGuid::NewGuid();
     if(HasAuthority() && Item.Definition && Item.Definition->Fuel.bFuelContainer && !Item.bFuelInitialized)
     { Item.bFuelInitialized=true; Item.FuelLitres=Item.Definition->Fuel.InitialLitres; }
+    if(HasAuthority() && Item.Definition && Item.Definition->Combat.bMagazine && !Item.bMagazineInitialized)
+    {Item.bMagazineInitialized=true;Item.MagazineRounds=Item.Definition->Combat.InitialRounds;}
     OnRep_Item();
 }
 bool ARVWorldItem::IsNetRelevantFor(const AActor* RealViewer, const AActor* ViewTarget, const FVector& SrcLocation) const
@@ -39,7 +41,7 @@ bool ARVWorldItem::IsNetRelevantFor(const AActor* RealViewer, const AActor* View
     return Super::IsNetRelevantFor(RealViewer,ViewTarget,SrcLocation);
 }
 void ARVWorldItem::OnRep_Item()
-{ if(Item.Definition && !Item.Definition->WorldMesh.IsNull()) Mesh->SetStaticMesh(Item.Definition->WorldMesh.LoadSynchronous()); }
+{ if(Item.Definition && !Item.Definition->WorldMesh.IsNull()) {Mesh->SetStaticMesh(Item.Definition->WorldMesh.LoadSynchronous());Mesh->SetRelativeScale3D(Item.Definition->WorldVisualScale);} }
 void ARVWorldItem::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 { Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(ARVWorldItem,Item); }
 bool ARVWorldItem::CanInteract_Implementation(APawn* Pawn) const

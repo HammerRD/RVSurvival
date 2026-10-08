@@ -1,0 +1,41 @@
+{
+  "results": [
+    {
+      "case": "fixture item admitted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fixture item admitted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fixture item admitted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fixture item admitted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "Gate 9 opt-in saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "ordinary actor movement remains walking",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "runner error",
+      "pass": false,
+      "detail": "Traceback (most recent call last):\n  File \"D:/GitHub/RVSurvival/RVSurvival/Tools/Validation/Gate9/foundation_input.py\", line 42, in tick\n    events[index][1]();index+=1\n    ^^^^^^^^^^^^^^^^^^\n  File \"D:/GitHub/RVSurvival/RVSurvival/Tools/Validation/Gate9/foundation_input.py\", line 23, in <lambda>\n    tap(.2,'Four');at(.6,lambda:check('normal 4 equips owned GUID',unreal.GuidLibrary.equal_equal_guid_guid(combat.equipped_weapon,weapon().id)))\n                                                                                                                                   ^^^^^^^^\n  File \"D:/GitHub/RVSurvival/RVSurvival/Tools/Validation/Gate9/foundation_input.py\", line 14, in weapon\n    def weapon():return next(i for i in items() if i.definition.get_editor_property('Combat').b_firearm)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:/GitHub/RVSurvival/RVSurvival/Tools/Validation/Gate9/foundation_input.py\", line 14, in <genexpr>\n    def weapon():return next(i for i in items() if i.definition.get_editor_property('Combat').b_firearm)\n                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'RVCombatItemMetadata' object has no attribute 'b_firearm'\n"
+    }
+  ],
+  "passed": 6,
+  "total": 7
+}

@@ -21,6 +21,7 @@ ARVInfectedController::ARVInfectedController()
     Sight=CreateDefaultSubobject<UAISenseConfig_Sight>(TEXT("Sight"));Hearing=CreateDefaultSubobject<UAISenseConfig_Hearing>(TEXT("Hearing"));
     Sight->DetectionByAffiliation.bDetectEnemies=Sight->DetectionByAffiliation.bDetectFriendlies=Sight->DetectionByAffiliation.bDetectNeutrals=true;
     Hearing->DetectionByAffiliation.bDetectEnemies=Hearing->DetectionByAffiliation.bDetectFriendlies=Hearing->DetectionByAffiliation.bDetectNeutrals=true;
+    Senses->ConfigureSense(*Sight);Senses->ConfigureSense(*Hearing);
 }
 void ARVInfectedController::OnPossess(APawn* PossessedPawn)
 {
@@ -35,9 +36,9 @@ void ARVInfectedController::OnPossess(APawn* PossessedPawn)
 }
 void ARVInfectedController::PerceptionChanged(AActor* Actor,FAIStimulus Stimulus)
 {
-    if(!Cast<ARVSurvivorCharacter>(Actor))return;
     if(Stimulus.Type==UAISense::GetSenseID<UAISense_Sight>())
-    {if(Stimulus.WasSuccessfullySensed()){VisibleTarget=Actor;LastKnown=Stimulus.StimulusLocation;}
+    {if(!Cast<ARVSurvivorCharacter>(Actor))return;
+     if(Stimulus.WasSuccessfullySensed()){VisibleTarget=Actor;LastKnown=Stimulus.StimulusLocation;}
      else if(VisibleTarget==Actor){VisibleTarget.Reset();InvestigateUntil=GetWorld()->GetTimeSeconds()+6;}}
     else if(Stimulus.WasSuccessfullySensed() && !VisibleTarget.IsValid())
     {LastKnown=Stimulus.StimulusLocation;InvestigateUntil=GetWorld()->GetTimeSeconds()+6;}
@@ -49,7 +50,10 @@ void ARVInfectedController::UpdateBehavior()
     if(V){const auto* PS=V->GetPlayerState<ARVPlayerState>();if(!PS || !PS->Health->CanAct()){VisibleTarget.Reset();V=nullptr;}}
     if(V)
     {LastKnown=V->GetActorLocation();if(FVector::DistSquared(I->GetActorLocation(),LastKnown)<=FMath::Square(P->AttackRange*.9f))
-     {StopMovement();SetFocus(V);I->BeginAttack(V);}else{ClearFocus(EAIFocusPriority::Gameplay);I->State=ERVInfectedState::Chase;MoveToActor(V,P->AttackRange*.65f,true,true,true,nullptr,true);}return;}
+     {StopMovement();SetFocus(V);I->BeginAttack(V);}else{ClearFocus(EAIFocusPriority::Gameplay);I->State=ERVInfectedState::Chase;
+      // Native reach tests add collision radii. StopOnOverlap previously stopped
+      // outside melee reach; keep the goal clearance without adding our radius.
+      MoveToActor(V,P->AttackRange*.5f,false,true,true,nullptr,true);}return;}
     ClearFocus(EAIFocusPriority::Gameplay);const double Now=GetWorld()->GetTimeSeconds();
     if(Now<InvestigateUntil){I->State=ERVInfectedState::Investigate;MoveToLocation(LastKnown,60,true,true,false,true);return;}
     if(Now>=NextWander){NextWander=Now+5;FNavLocation Point;if(auto* Nav=FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());Nav && Nav->GetRandomReachablePointInRadius(Home,P->WanderRadius,Point))

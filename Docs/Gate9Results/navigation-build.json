@@ -1,0 +1,25 @@
+{
+  "navigation_system": "<Object '/Game/Maps/Gate9CombatInfectedTest.Gate9CombatInfectedTest:NavigationSystemV1_0' (0x000001A514E7C000) Class 'NavigationSystemV1'>",
+  "config": "<Object '/Game/Maps/Gate9CombatInfectedTest.Gate9CombatInfectedTest:PersistentLevel.WorldSettings_1.NavigationSystemConfig_0' (0x000001A50918F110) Class 'NavigationSystemConfig'>",
+  "console_api": "None",
+  "build_deferred_until_load_unlocked": true,
+  "diagnostics": {
+    "Gate3_10km_TestGround": "navRelevant=1 collision=BlockAll mobility=0",
+    "RecastNavMesh-Default": "tiles=1323 radius=35.0 height=144.0"
+  },
+  "built": true,
+  "nav_actors": [
+    "RecastNavMesh-Default"
+  ],
+  "path_valid": true,
+  "path_points": 2,
+  "floor_actors": [
+    {
+      "label": "Gate3_10km_TestGround",
+      "position": "<Struct 'Vector' (0x000001A50F684A60) {x: 0.000000, y: 0.000000, z: -50.000000}>",
+      "scale": "<Struct 'Vector' (0x000001A50F684A60) {x: 10000.000000, y: 10000.000000, z: 1.000000}>",
+      "mesh": "<Object '/Engine/BasicShapes/Cube.Cube' (0x000001A4E6BE2800) Class 'StaticMesh'>"
+    }
+  ],
+  "saved": true
+}

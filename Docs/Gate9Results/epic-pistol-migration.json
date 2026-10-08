@@ -1,0 +1,24 @@
+{
+  "source": "installed UE5.8 Epic template",
+  "packages": [
+    "/Game/Characters/Mannequins/Anims/Pistol/MF_Pistol_Idle_ADS",
+    "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_Fire_Montage",
+    "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_Reload",
+    "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Fwd",
+    "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Bwd",
+    "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Left",
+    "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Right",
+    "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Fwd_Left",
+    "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Fwd_Right",
+    "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Bwd_Left",
+    "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Bwd_Right",
+    "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Fwd",
+    "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Bwd",
+    "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Left",
+    "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Right",
+    "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Fwd_Left",
+    "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Fwd_Right",
+    "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Bwd_Left",
+    "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Bwd_Right"
+  ]
+}

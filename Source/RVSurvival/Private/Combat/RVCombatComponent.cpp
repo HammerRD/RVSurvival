@@ -8,6 +8,7 @@
 #include "Survival/RVNeedsComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "Camera/CameraComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
@@ -21,6 +22,11 @@
 #include "Net/UnrealNetwork.h"
 #include "TimerManager.h"
 #include "DrawDebugHelpers.h"
+#include "NativeGameplayTags.h"
+#include "Animation/AnimMontage.h"
+#include "Engine/StaticMeshActor.h"
+#include "Components/PointLightComponent.h"
+UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_RV9mm,"Item.Ammo.9mm");
 
 URVCombatComponent::URVCombatComponent(){SetIsReplicatedByDefault(true);PrimaryComponentTick.bCanEverTick=true;}
 URVInventoryComponent* URVCombatComponent::Inventory() const{return GetOwner()->FindComponentByClass<URVInventoryComponent>();}
@@ -48,13 +54,14 @@ void URVCombatComponent::ServerEquip_Implementation(FGuid Id)
 void URVCombatComponent::ServerAim_Implementation(bool Value){bAiming=Value && CanUse() && EquippedWeapon.IsValid();GetOwner()->ForceNetUpdate();}
 void URVCombatComponent::ServerFire_Implementation(FGuid Weapon,int32 Revision,uint32 Request)
 {
-    if(Request==0 || Request<=LastRequest)return;LastRequest=Request;
+    if(Request==0 || Request<=LastRequest)return;
     FRVItemInstance W;
     if(!CanUse() || ReloadEnds>0 || Weapon!=EquippedWeapon || !GetWeapon(W)){Feedback=TEXT("Cannot fire in this state");return;}
     const auto& C=W.Definition->Combat;const double Now=GetWorld()->GetTimeSeconds();
     if(!FMath::IsFinite(C.ShotInterval) || C.ShotInterval<.1f || !FMath::IsFinite(C.RangeCm) || C.RangeCm<1 || !FMath::IsFinite(C.Damage) || C.Damage<0)return;
     if(Now<NextShotTime){Feedback=TEXT("Weapon cycling");return;}
     if(!Inventory()->FireMagazineAuthority(Weapon,Revision,W,Feedback))return;
+    LastRequest=Request;
     NextShotTime=Now+C.ShotInterval;++ShotSequence;
     auto* Pawn=Cast<APawn>(GetOwner());FVector Eye;FRotator Rotation;Pawn->GetActorEyesViewPoint(Eye,Rotation);
     FHitResult Hit;FCollisionQueryParams Params(SCENE_QUERY_STAT(RVFirearm),true,GetOwner());
@@ -64,10 +71,11 @@ void URVCombatComponent::ServerFire_Implementation(FGuid Weapon,int32 Revision,u
     {
         if(bFriendlyFire)if(auto* PS=Victim->GetPlayerState<ARVPlayerState>())
         {ERVBodyRegion Region=ERVBodyRegion::Torso;if(auto* P=Victim->FindComponentByClass<URVCharacterPresentationComponent>())P->ResolveBodyRegion(Hit.BoneName,Region);
-         PS->Health->ApplyWoundAuthority(Region,C.Damage>=40?3.f:2.f,C.Damage*(Region==ERVBodyRegion::Head?2.f:1.f),.2f);}
+         const bool Limb=Region==ERVBodyRegion::LeftArm || Region==ERVBodyRegion::RightArm || Region==ERVBodyRegion::LeftLeg || Region==ERVBodyRegion::RightLeg;
+         PS->Health->ApplyWoundAuthority(Region,C.WoundSeverity,C.Damage*(Region==ERVBodyRegion::Head?C.HeadDamageMultiplier:Limb?C.LimbDamageMultiplier:1.f),.2f);}
     }
     else if(Hit.GetActor())UGameplayStatics::ApplyPointDamage(Hit.GetActor(),C.Damage,Rotation.Vector(),Hit,Pawn->GetController(),Pawn,nullptr);
-    UAISense_Hearing::ReportNoiseEvent(GetWorld(),Eye,1.f,Pawn,5000.f,TEXT("Gunshot"));
+    UAISense_Hearing::ReportNoiseEvent(GetWorld(),Eye,1.f,Pawn,C.HearingRange,TEXT("Gunshot"));
     MulticastShot(Eye,Hit.bBlockingHit?Hit.ImpactPoint:End);GetOwner()->ForceNetUpdate();
 }
 void URVCombatComponent::ServerReload_Implementation(FGuid Magazine,int32 Revision)
@@ -86,9 +94,25 @@ void URVCombatComponent::CancelReload(){GetWorld()->GetTimerManager().ClearTimer
 void URVCombatComponent::MulticastShot_Implementation(FVector_NetQuantize Start,FVector_NetQuantize End)
 {
     FRVItemInstance W;if(GetWeapon(W) && W.Definition->Combat.ShotSound)UGameplayStatics::PlaySoundAtLocation(this,W.Definition->Combat.ShotSound,Start);
+    if(GetWeapon(W))if(auto* C=Cast<ACharacter>(GetOwner());C && W.Definition->Combat.FireMontage)C->PlayAnimMontage(W.Definition->Combat.FireMontage);
+    if(GetWeapon(W) && W.Definition->Combat.ShotEffectMaterial)
+    {
+        auto Effect=[&](FVector Position,float Scale,float Seconds,bool Light)
+        {
+            FActorSpawnParameters Params;Params.ObjectFlags|=RF_Transient;
+            auto* A=GetWorld()->SpawnActor<AStaticMeshActor>(Position,FRotator::ZeroRotator,Params);if(!A)return;
+            auto* M=A->GetStaticMeshComponent();M->SetMobility(EComponentMobility::Movable);M->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+            M->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,TEXT("/Engine/BasicShapes/Sphere.Sphere")));M->SetMaterial(0,W.Definition->Combat.ShotEffectMaterial);
+            A->SetActorScale3D(FVector(Scale));A->SetLifeSpan(Seconds);
+            if(Light){auto* L=NewObject<UPointLightComponent>(A);L->SetupAttachment(M);L->SetIntensity(18000);L->SetAttenuationRadius(150);L->SetCastShadows(false);L->RegisterComponent();
+                if(WeaponVisual)A->AttachToComponent(WeaponVisual,FAttachmentTransformRules::KeepWorldTransform);}
+        };
+        const FVector Muzzle=WeaponVisual?WeaponVisual->GetComponentTransform().TransformPosition(FVector(12,0,0)):FVector(Start);
+        Effect(Muzzle,.035f,.08f,true);Effect(End,.025f,.5f,false);
+    }
     // Bounded prototype effect. Cosmetic loss never repeats an authoritative shot.
     DrawDebugLine(GetWorld(),Start,End,FColor::Yellow,false,.08f,0,.7f);DrawDebugPoint(GetWorld(),End,5,FColor::Orange,false,.3f);
-    if(auto* P=Cast<APawn>(GetOwner());P && P->IsLocallyControlled())if(auto* PC=Cast<APlayerController>(P->GetController()))PC->AddPitchInput(-.7f);
+    if(auto* P=Cast<APawn>(GetOwner());P && P->IsLocallyControlled())if(auto* PC=Cast<APlayerController>(P->GetController());PC && GetWeapon(W))PC->AddPitchInput(-W.Definition->Combat.RecoilPitch);
 }
 void URVCombatComponent::UpdateVisual()
 {
@@ -101,6 +125,11 @@ void URVCombatComponent::UpdateVisual()
     const auto* PS=C->GetPlayerState<ARVPlayerState>();
     const auto* Survivor=Cast<ARVSurvivorCharacter>(C);
     WeaponVisual->SetVisibility(D && bEnabled && PS && PS->Health->CanAct() && (!Survivor || !Survivor->SeatedVehicle));
+    if(ReloadEnds!=PresentedReloadEnd)
+    {PresentedReloadEnd=ReloadEnds;if(D && D->Combat.ReloadMontage)
+      {if(ReloadEnds>0){const auto* GS=GetWorld()->GetGameState();const float Remaining=ReloadEnds-(GS?GS->GetServerWorldTimeSeconds():GetWorld()->GetTimeSeconds());
+        if(Remaining>.05f)C->PlayAnimMontage(D->Combat.ReloadMontage,D->Combat.ReloadMontage->GetPlayLength()/Remaining);}
+       else C->StopAnimMontage(D->Combat.ReloadMontage);}}
     if(C->IsLocallyControlled())if(auto* Camera=C->FindComponentByClass<UCameraComponent>())
     {const bool Aim=bAiming && CanUse();if(Aim && !bLocalAimApplied){UnaimedFOV=Camera->FieldOfView;Camera->SetFieldOfView(UnaimedFOV*AimFOVScale);}
      else if(!Aim && bLocalAimApplied)Camera->SetFieldOfView(UnaimedFOV);bLocalAimApplied=Aim;}
@@ -108,6 +137,10 @@ void URVCombatComponent::UpdateVisual()
 void URVCombatComponent::TickComponent(float Delta,ELevelTick Type,FActorComponentTickFunction* Function)
 {
     Super::TickComponent(Delta,Type,Function);
+    if(!bEnabled)return;
+    if(!bHitQueriesConfigured)if(auto* C=Cast<ACharacter>(GetOwner());C && C->GetMesh()->GetSkeletalMeshAsset())
+    {C->GetMesh()->SetCollisionEnabled(ECollisionEnabled::QueryOnly);C->GetMesh()->SetCollisionResponseToAllChannels(ECR_Ignore);
+     C->GetMesh()->SetCollisionResponseToChannel(ECC_Visibility,ECR_Block);C->GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Visibility,ECR_Ignore);bHitQueriesConfigured=true;}
     if(GetOwner()->HasAuthority())
     {if(!CanUse()){bAiming=false;if(ReloadEnds>0)CancelReload();}FRVItemInstance W;if(EquippedWeapon.IsValid() && !GetWeapon(W)){CancelReload();Inventory()->ReleaseMagazineAuthority(EquippedWeapon);EquippedWeapon.Invalidate();}}
     UpdateVisual();
@@ -119,9 +152,11 @@ void URVCombatComponent::BindInput(UEnhancedInputComponent* Input)
     if(!Mapping){Mapping=NewObject<UInputMappingContext>(this);
         auto Make=[&](TObjectPtr<UInputAction>& A,FKey Key,FName Name,const TCHAR* Label){A=NewObject<UInputAction>(this);RVInputMappings::Map(Mapping,A,Key,Name,Label);};
         Make(EquipAction,EKeys::Four,TEXT("EquipWeapon"),TEXT("Equip / holster handgun"));Make(FireAction,EKeys::LeftMouseButton,TEXT("Fire"),TEXT("Fire handgun"));
-        Make(AimAction,EKeys::RightMouseButton,TEXT("Aim"),TEXT("Aim handgun"));Make(ReloadAction,EKeys::R,TEXT("Reload"),TEXT("Reload / stand up"));}
+        Make(AimAction,EKeys::RightMouseButton,TEXT("Aim"),TEXT("Aim handgun"));Make(ReloadAction,EKeys::R,TEXT("Reload"),TEXT("Reload / stand up"));
+        // Shared defaults must still reach the accepted bed-wake/vehicle-orbit context.
+        AimAction->bConsumeInput=false;ReloadAction->bConsumeInput=false;}
     if(auto* Local=PC->GetLocalPlayer())if(auto* S=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
-    {InputLocalPlayer=Local;RVInputMappings::Register(PC,Mapping);S->RemoveMappingContext(Mapping);S->AddMappingContext(Mapping,0);}
+    {InputLocalPlayer=Local;RVInputMappings::Register(PC,Mapping);S->RemoveMappingContext(Mapping);S->AddMappingContext(Mapping,4);}
     Input->BindAction(EquipAction,ETriggerEvent::Started,this,&ThisClass::EquipInput);Input->BindAction(FireAction,ETriggerEvent::Started,this,&ThisClass::FireInput);
     Input->BindAction(AimAction,ETriggerEvent::Started,this,&ThisClass::AimStart);Input->BindAction(AimAction,ETriggerEvent::Completed,this,&ThisClass::AimStop);Input->BindAction(AimAction,ETriggerEvent::Canceled,this,&ThisClass::AimStop);
     Input->BindAction(ReloadAction,ETriggerEvent::Started,this,&ThisClass::ReloadInput);
