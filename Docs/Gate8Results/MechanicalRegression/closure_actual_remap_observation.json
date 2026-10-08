@@ -1,0 +1,30 @@
+{
+  "limitation": "F11 triggers Unreal fullscreen; orbit used supported Enhanced Input mapping injection, not OS mouse motion",
+  "evidence_kind": "actual Windows client keyboard/mouse observation",
+  "network": "100 ms latency / 2% loss",
+  "map": "Gate6FuelElectricalTest",
+  "results": [
+    {
+      "pass": true,
+      "case": "Controls UI persisted temporary Medical F7"
+    },
+    {
+      "pass": true,
+      "case": "actual OS F7 opened Medical UI"
+    },
+    {
+      "pass": true,
+      "case": "Controls UI restored Medical F9"
+    },
+    {
+      "pass": true,
+      "case": "fresh client OS F9 opened Medical UI after reload"
+    },
+    {
+      "pass": true,
+      "case": "Close returned normal gameplay view"
+    }
+  ],
+  "source_checkpoint": "7dd237a",
+  "module_sha256": "A233708851E276C8C6618D7B1FC7E23C067C74B0D97B002388C6620FE6DD8F13"
+}

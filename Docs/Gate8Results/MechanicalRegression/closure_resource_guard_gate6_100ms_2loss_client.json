@@ -1,0 +1,29 @@
+{
+  "pid": 53400,
+  "role": "client",
+  "results": [
+    {
+      "case": "normal_E_resource_panel_registered",
+      "pass": false,
+      "detail": "{'feedback': '', 'position': \"<Struct 'Vector' (0x0000024E7F6D6CC0) {x: 112.741299, y: 0.390084, z: 195.699830}>\", 'panel': \"<Struct 'Vector' (0x0000024E7F6D6CC0) {x: 226.760000, y: -13.610000, z: 144.360000}>\"}"
+    },
+    {
+      "case": "healthy_owned_resource_request_changes_load",
+      "pass": false,
+      "detail": "Panel out of reach or blocked"
+    },
+    {
+      "case": "downed_owned_resource_request_rejected",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "downed_resource_owner_feedback",
+      "pass": true,
+      "detail": "Panel out of reach or blocked"
+    }
+  ],
+  "evidence_kind": "accepted Gate6 approach fixture; normal E; owned resource request API with healthy positive control and downed repeat",
+  "source_checkpoint": "7dd237a",
+  "module_sha256": "A233708851E276C8C6618D7B1FC7E23C067C74B0D97B002388C6620FE6DD8F13"
+}

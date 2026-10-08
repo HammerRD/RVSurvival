@@ -1,5 +1,4 @@
 {
-  "baseline": "0b6eff6",
   "files": [
     "Content/Development/Medical/DA_DiagnosticBandage.uasset",
     "Content/Development/Medical/DA_DiagnosticPainMedication.uasset",
@@ -20,6 +19,7 @@
     "Docs/GAME_DESIGN.md",
     "Docs/GATE_8_VALIDATION.md",
     "Docs/Gate8Results/action-audit-build.log",
+    "Docs/Gate8Results/bounded-closure-coverage.json",
     "Docs/Gate8Results/changed-files.json",
     "Docs/Gate8Results/client-station-visual-observation.json",
     "Docs/Gate8Results/downed-build.log",
@@ -45,6 +45,15 @@
     "Docs/Gate8Results/manual_client_ui_100ms_2loss_server.json",
     "Docs/Gate8Results/manual-ui-bandage-samples.json",
     "Docs/Gate8Results/manual-ui-followup.json",
+    "Docs/Gate8Results/MechanicalRegression/closure_access_guards_repeat_100ms_2loss_client.json",
+    "Docs/Gate8Results/MechanicalRegression/closure_access_guards_repeat_100ms_2loss_server.json",
+    "Docs/Gate8Results/MechanicalRegression/closure_actual_remap_observation.json",
+    "Docs/Gate8Results/MechanicalRegression/closure_camera_remap_100ms_2loss_client.json",
+    "Docs/Gate8Results/MechanicalRegression/closure_camera_remap_100ms_2loss_server.json",
+    "Docs/Gate8Results/MechanicalRegression/closure_downed_guards_100ms_2loss_client.json",
+    "Docs/Gate8Results/MechanicalRegression/closure_downed_guards_100ms_2loss_server.json",
+    "Docs/Gate8Results/MechanicalRegression/closure_resource_guard_gate6_100ms_2loss_client.json",
+    "Docs/Gate8Results/MechanicalRegression/closure_resource_guard_gate6_100ms_2loss_server.json",
     "Docs/Gate8Results/MechanicalRegression/final_physical_host_100ms_2loss_client.json",
     "Docs/Gate8Results/MechanicalRegression/final_physical_host_100ms_2loss_server.json",
     "Docs/Gate8Results/MechanicalRegression/mechanical_host_100ms_2loss_client.json",
@@ -156,13 +165,17 @@
     "Tools/Validation/Gate8/manual_ui_fixture.py",
     "Tools/Validation/Gate8/medical_actions.py",
     "Tools/Validation/Gate8/medical_edges.py",
+    "Tools/Validation/Gate8/process_camera_closure.py",
     "Tools/Validation/Gate8/process_client_ui.py",
+    "Tools/Validation/Gate8/process_closure_guards.py",
     "Tools/Validation/Gate8/process_disconnect.py",
     "Tools/Validation/Gate8/process_interruptions.py",
     "Tools/Validation/Gate8/process_medical.py",
     "Tools/Validation/Gate8/process_moving_medication.py",
     "Tools/Validation/Gate8/process_moving.py",
     "Tools/Validation/Gate8/process_ready.py",
+    "Tools/Validation/Gate8/process_resource_guard.py",
+    "Tools/Validation/Gate8/process_restored_key.py",
     "Tools/Validation/Gate8/process_seated_driver_ui.py",
     "Tools/Validation/Gate8/process_startup.py",
     "Tools/Validation/Gate8/process_state_integration.py",
@@ -177,5 +190,6 @@
     "Tools/Validation/Gate8/treatment_single.py",
     "Tools/Validation/Gate8/treatment_stress.py",
     "Tools/Validation/Gate8/verify_vendor.py"
-  ]
+  ],
+  "baseline": "0b6eff6"
 }

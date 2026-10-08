@@ -251,3 +251,7 @@ Final fuel/electrical regression passed (31 server / 29 client). Mechanical regr
 ### Gate 8 accepted — final closure, 2026-10-08
 
 Completed medical GAS/component/data-asset foundation, injury state, authoritative timed self/teammate treatments, medication, downed/stabilization/revive, station/storage integration and remappable F9 UMG. Fixed unpossessed-driver patient lookup, DriverChair-obstructed medical ray and post-revive deterioration. Final impaired separate-process recovery and roof/door routes passed; saved map reloads and 108 vendor hashes passed; final build and clean shutdown recorded. Original failed timing/display fixtures retained with resolving evidence. Local milestone commits are listed in GATE_8_VALIDATION.md; no Gate 9. Known pre-existing config/solution changes excluded.
+
+### Gate 8 bounded closure after 7dd237a
+
+Added runtime orbit evidence through supported Enhanced Input injection and actual Windows remapping/F7 activation/restored F9 activation after fresh client startup. Representative downed service and recovery rejected with healthy positive controls. Resource guard attempt remains inconclusive because the active client also received Panel out of reach or blocked; no pass is claimed. Failed fixtures retained. Acceptance now explicitly qualifies that runtime coverage gap. No gameplay/content/vendor changes; no Gate9. Editor exited and normal play preferences restored. See bounded-closure-coverage.json.

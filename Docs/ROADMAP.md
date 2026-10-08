@@ -21,3 +21,5 @@ Gate7 resumed closure2026-10-07: ACCEPTED against user-manually-accepted Gate6 p
 ## Gate 8 closure — 2026-10-08
 
 Gate 8 medical/injury foundation is ACCEPTED. PlayerState-owned GAS attributes and reusable health/treatment components preserve accepted inventory, needs, seats, moving interior, resources, mechanical systems and prototype recovery. Both healer/driver roles, actual client UMG controls, impaired separate-process networking, transaction stress, recovery simulation, prior-gate representatives and saved-content/vendor audits passed within the documented scope. See GATE_8_VALIDATION.md and MEDICAL.md for architecture, failed history and limitations. Gate 9 is not started. Earlier pending/unauthorized statements describe historical checkpoints.
+
+Gate8 bounded closure qualification: runtime orbit/remapping and downed service/recovery have additional evidence. Downed resource rejection remains unproven because the healthy positive control was blocked by access validation. Gate8 acceptance is qualified by that specific runtime coverage gap; no Gate9. See GATE_8_VALIDATION.md.

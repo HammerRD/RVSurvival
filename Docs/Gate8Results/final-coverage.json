@@ -1,5 +1,5 @@
 {
-  "status": "ACCEPTED",
+  "status": "ACCEPTED_WITH_RUNTIME_RESOURCE_GUARD_LIMITATION",
   "final_closure_receipts": [
     {
       "receipt": "Docs/Gate8Results/saved-audit.json",
@@ -39,5 +39,6 @@
     }
   ],
   "vendor_files_unchanged": 108,
-  "scope": "Gate 8 only; failed and inconclusive historical receipts remain identified in validation notes"
+  "scope": "Gate 8 only; failed and inconclusive historical receipts remain identified in validation notes",
+  "bounded_closure": "bounded-closure-coverage.json"
 }

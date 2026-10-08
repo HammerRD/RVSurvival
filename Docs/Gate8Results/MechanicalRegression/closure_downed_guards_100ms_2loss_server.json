@@ -1,0 +1,54 @@
+{
+  "pid": 36104,
+  "role": "server",
+  "results": [
+    {
+      "case": "healthy_normal_E_service_available",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "healthy_native_P_opens_hood",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "downed_service_rejects_no_reservation_or_hood_change",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "healthy_normal_E_panel_available",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "healthy_native_J_generator_enabled",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "downed_resource_control_rejected_state_revision_unchanged",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "roll_confirmed_before_downed_request",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "downed_F8_rejected_revision_unchanged",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "healthy_same_client_F8_recovers",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "evidence_kind": "native Enhanced Input with authority fault/placement fixtures; representative downed guards",
+  "source_checkpoint": "7dd237a",
+  "module_sha256": "A233708851E276C8C6618D7B1FC7E23C067C74B0D97B002388C6620FE6DD8F13"
+}

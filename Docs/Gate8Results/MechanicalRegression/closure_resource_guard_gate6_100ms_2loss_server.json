@@ -1,0 +1,24 @@
+{
+  "pid": 18484,
+  "role": "server",
+  "results": [
+    {
+      "case": "normal_E_resource_panel_registered",
+      "pass": true,
+      "detail": "{'feedback': 'RV control panel ready', 'position': \"<Struct 'Vector' (0x0000024714300920) {x: 22.312692, y: 0.423310, z: 195.744646}>\", 'panel': \"<Struct 'Vector' (0x0000024714300920) {x: 226.478130, y: -13.252660, z: 144.903201}>\"}"
+    },
+    {
+      "case": "healthy_owned_resource_request_changes_load",
+      "pass": false,
+      "detail": "RV control panel ready"
+    },
+    {
+      "case": "downed_owned_resource_request_rejected",
+      "pass": false,
+      "detail": ""
+    }
+  ],
+  "evidence_kind": "accepted Gate6 approach fixture; normal E; owned resource request API with healthy positive control and downed repeat",
+  "source_checkpoint": "7dd237a",
+  "module_sha256": "A233708851E276C8C6618D7B1FC7E23C067C74B0D97B002388C6620FE6DD8F13"
+}

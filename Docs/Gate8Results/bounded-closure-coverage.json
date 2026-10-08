@@ -1,0 +1,44 @@
+{
+  "normal_play_restored": true,
+  "editor_closed": true,
+  "scope": "bounded Gate 8 closure only",
+  "orbit": {
+    "status": "passed",
+    "receipt": "MechanicalRegression/closure_camera_remap_100ms_2loss_client.json",
+    "method": "official Enhanced Input player-mapping injection; not OS mouse motion"
+  },
+  "baseline": "7dd237a",
+  "remapping": {
+    "status": "passed",
+    "receipt": "MechanicalRegression/closure_actual_remap_observation.json",
+    "method": "actual Windows F10 UI selector -> temporary F7 -> actual F7 medical panel -> restore F9 -> fresh-client actual F9"
+  },
+  "status": "ACCEPTED_WITH_RUNTIME_RESOURCE_GUARD_LIMITATION",
+  "downed_recovery": {
+    "status": "passed",
+    "cases": [
+      "roll_confirmed_before_downed_request",
+      "downed_F8_rejected_revision_unchanged",
+      "downed_F8_feedback",
+      "healthy_same_client_F8_recovers"
+    ],
+    "receipt": "MechanicalRegression/closure_downed_guards_100ms_2loss_client.json"
+  },
+  "gate9_started": false,
+  "new_features": "none",
+  "gameplay_changes": "none",
+  "downed_resource": {
+    "status": "inconclusive",
+    "reason": "Healthy owned request also rejected: Panel out of reach or blocked. Invalid positive control cannot isolate the downed guard; not counted as passed.",
+    "receipt": "MechanicalRegression/closure_resource_guard_gate6_100ms_2loss_client.json"
+  },
+  "downed_service": {
+    "status": "passed",
+    "cases": [
+      "healthy_client_native_P_opens_hood",
+      "downed_service_rejects_no_reservation_or_hood_change"
+    ],
+    "receipt": "MechanicalRegression/closure_access_guards_repeat_100ms_2loss_client.json",
+    "fixture": "server-prepared service panel context; label healthy_normal_E_service_available is a historical misnomer in this repeat; it does not establish E acquisition"
+  }
+}

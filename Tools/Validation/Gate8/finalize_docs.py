@@ -3,6 +3,8 @@ from pathlib import Path
 import json, subprocess
 root=Path(__file__).resolve().parents[3]
 results=root/'Docs/Gate8Results'
+if (results/'bounded-closure-coverage.json').exists():
+    raise RuntimeError('Historical initial-closure writer: preserve the subsequent qualified bounded-closure record')
 required=[results/'saved-audit.json',results/'resources_server.json',results/'resources_client.json']
 for case in ['recovery_host_100ms_2loss','final_physical_host_100ms_2loss','mechanical_missing_tool_100ms_2loss']:
     required.extend(results/'MechanicalRegression'/f'{case}_{role}.json' for role in ['server','client'])

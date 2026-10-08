@@ -1,0 +1,39 @@
+{
+  "pid": 39208,
+  "role": "server",
+  "results": [
+    {
+      "case": "healthy_normal_E_service_available",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "healthy_client_native_P_opens_hood",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "downed_service_rejects_no_reservation_or_hood_change",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "healthy_prepared_panel_context",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "healthy_client_native_H_toggles_lights",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "downed_resource_control_rejected_state_revision_unchanged",
+      "pass": false,
+      "detail": ""
+    }
+  ],
+  "evidence_kind": "native Enhanced Input with authority fault/placement fixtures; representative downed guards",
+  "source_checkpoint": "7dd237a",
+  "module_sha256": "A233708851E276C8C6618D7B1FC7E23C067C74B0D97B002388C6620FE6DD8F13"
+}
