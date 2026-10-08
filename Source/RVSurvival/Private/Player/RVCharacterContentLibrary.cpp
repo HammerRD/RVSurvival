@@ -5,6 +5,20 @@
 #include "Animation/BlendSpace.h"
 #include "Animation/Skeleton.h"
 #include "Engine/SkeletalMesh.h"
+#include "Animation/SkeletalMeshActor.h"
+#include "Engine/World.h"
+AActor* URVCharacterContentLibrary::SpawnPoseFixture(UObject* Context,FVector Position)
+{
+#if WITH_EDITOR
+    UWorld* World=Context?Context->GetWorld():nullptr;
+    if(!World || !World->IsGameWorld()) return nullptr;
+    FActorSpawnParameters Params;Params.ObjectFlags|=RF_Transient;
+    Params.SpawnCollisionHandlingOverride=ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+    return World->SpawnActor<ASkeletalMeshActor>(Position,FRotator::ZeroRotator,Params);
+#else
+    return nullptr;
+#endif
+}
 #if WITH_EDITOR
 #include "Animation/AnimData/IAnimationDataController.h"
 #include "AssetRegistry/AssetRegistryModule.h"
@@ -110,3 +124,4 @@ bool URVCharacterContentLibrary::BuildAnimationGraph(UAnimBlueprint* Blueprint,U
     return false;
 #endif
 }
+

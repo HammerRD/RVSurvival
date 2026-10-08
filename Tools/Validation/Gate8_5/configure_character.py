@@ -47,9 +47,10 @@ def assets():
  factory=unreal.BlueprintFactory();factory.set_editor_property('ParentClass',unreal.RVInteriorTestCharacter)
  character=unreal.load_asset(folder+'/BP_RVHumanoid') or tools.create_asset('BP_RVHumanoid',folder,unreal.Blueprint,factory)
  cls=unreal.EditorAssetLibrary.load_blueprint_class(folder+'/BP_RVHumanoid');cdo=unreal.get_default_object(cls)
- cdo.get_component_by_class(unreal.RVCharacterPresentationComponent).set_editor_property('Profile',profile)
+ unreal.BlueprintEditorLibrary.compile_blueprint(character)
+ character.modify();cdo.modify();component=cdo.get_editor_property('CharacterPresentation');component.modify();component.set_editor_property('Profile',profile)
  body=cdo.get_editor_property('Mesh');body.set_skeletal_mesh(mesh);body.set_anim_instance_class(unreal.EditorAssetLibrary.load_blueprint_class(folder+'/Animations/ABP_RVHumanoid'));body.set_relative_location(unreal.Vector(0,0,-88),False,False);body.set_relative_rotation(unreal.Rotator(yaw=-90),False,False)
- unreal.BlueprintEditorLibrary.compile_blueprint(character);assert unreal.EditorAssetLibrary.save_loaded_asset(character)
+ assert unreal.EditorAssetLibrary.save_loaded_asset(character,False)
  gm=unreal.load_asset(folder+'/BP_Gate8_5GameMode') or unreal.EditorAssetLibrary.duplicate_asset('/Game/Medical/BP_Gate8GameMode',folder+'/BP_Gate8_5GameMode')
  gmcls=unreal.EditorAssetLibrary.load_blueprint_class(folder+'/BP_Gate8_5GameMode');unreal.get_default_object(gmcls).set_editor_property('DefaultPawnClass',unreal.EditorAssetLibrary.load_blueprint_class(folder+'/BP_RVHumanoid'))
  unreal.BlueprintEditorLibrary.compile_blueprint(gm);assert unreal.EditorAssetLibrary.save_loaded_asset(gm)
@@ -61,10 +62,11 @@ def test_map():
   assert levels.load_level('/Game/Maps/Gate8MedicalTest')
   assert unreal.EditorLoadingAndSavingUtils.save_map(unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world(),target)
  else:assert levels.load_level(target)
- world=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world();world.get_world_settings().set_editor_property('DefaultGameMode',unreal.EditorAssetLibrary.load_blueprint_class('/Game/Characters/RV/BP_Gate8_5GameMode'))
- assert levels.save_current_level();assert unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True,True)
+ world=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world();world.get_world_settings().modify();world.get_world_settings().set_editor_property('DefaultGameMode',unreal.EditorAssetLibrary.load_blueprint_class('/Game/Characters/RV/BP_Gate8_5GameMode'))
+ assert unreal.EditorLoadingAndSavingUtils.save_map(world,target)
  return {'map':target,'actors':len(unreal.get_editor_subsystem(unreal.EditorActorSubsystem).get_all_level_actors()),'saved':True}
 try:
  result=assets();gc.collect();unreal.SystemLibrary.collect_garbage();result.update(test_map());(out/'saved-character-foundation.json').write_text(json.dumps(result,indent=2))
 finally:
  gc.collect();unreal.SystemLibrary.quit_editor()
+

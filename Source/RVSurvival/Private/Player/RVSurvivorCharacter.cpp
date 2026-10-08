@@ -62,7 +62,7 @@ ARVSurvivorCharacter::ARVSurvivorCharacter(const FObjectInitializer& Init)
     RestPose = CreateDefaultSubobject<URVRestPoseComponent>(TEXT("RestPose"));
     CreateDefaultSubobject<URVSeatPoseComponent>(TEXT("SeatPose"));
     CreateDefaultSubobject<URVLadderClimbComponent>(TEXT("LadderClimb"));
-    CreateDefaultSubobject<URVCharacterPresentationComponent>(TEXT("CharacterPresentation"));
+    CharacterPresentation=CreateDefaultSubobject<URVCharacterPresentationComponent>(TEXT("CharacterPresentation"));
     bUseControllerRotationYaw = true;
     BaseEyeHeight = 64.f;
     Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCamera"));

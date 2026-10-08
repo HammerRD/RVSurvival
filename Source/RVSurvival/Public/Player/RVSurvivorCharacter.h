@@ -29,6 +29,7 @@ public:
     UFUNCTION(NetMulticast, Reliable) void MulticastRecoveryPlacement(FVector Position, FRotator Rotation);
     UPROPERTY(ReplicatedUsing=OnRep_VehicleSeat, BlueprintReadOnly, Category="RV|Seats") TObjectPtr<ARVVehicleBase> SeatedVehicle;
 protected:
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<class URVCharacterPresentationComponent> CharacterPresentation;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<class URVRestPoseComponent> RestPose;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<class URVInventoryComponent> Inventory;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<class URVPassengerReferenceFrameComponent> PassengerReferenceFrame;

@@ -31,3 +31,11 @@ NativeUpdateAnimation derives presentation inputs from CharacterMovement's own v
 Configured six medical region mappings and seven bone-attached future equipment anchors. Gameplay does not depend on Manny bone names; they belong to the replaceable Data Asset. Controlled prototype poses, not ragdoll. Full seated/bed/ladder/downed visual inspection and runtime/network acceptance remain pending.
 
 Build initially reported CacheInitialMeshOffset requiring FRotator and editor graph arrays containing TObjectPtr; corrected those API/type mismatches. Foundation repeat succeeded in 6.80 seconds; idle-based pose authoring build succeeded in 23.68 seconds. Content authoring saved all packages and editor exited cleanly without logged Python/fatal/world-leak errors. Recovery baseline checkpoint 0bae815 precedes the integration.
+
+## Runtime configuration and first visual diagnostic — 2026-10-08
+
+Fresh PIE initially selected the old medical GameMode and the presentation component had no saved Profile. Corrected map authoring with an explicitly modified WorldSettings and forced map save, and exposed the native presentation default subobject through a reflected character property so Blueprint component defaults serialize. Fresh startup now loads Manny and the native animation instance; all six region lookups and seven attachment anchors resolve. Build succeeded in 22.80 seconds.
+
+A development-only transient pose fixture uses native SpawnActor because Unreal's internal deferred spawning functions are not exposed to Python. Corrected its skeletal actor include path; repeat build succeeded in 4.49 seconds. Python body-region binding returns the region or None, rather than a tuple; corrected the diagnostic accordingly. Runner releases references before stopping PIE and exiting; the diagnostic editor runs closed cleanly.
+
+Rendered pose atlas is diagnostic evidence only, not gameplay-state acceptance. Inspection found seated legs spreading too far and severe owner torso clipping when looking down. Lying and climbing poses render but their RV placement remains unvalidated. Gate 8.5 remains IN PROGRESS / NOT ACCEPTED. Next: correct pose axes and owner view, then test actual gameplay controls and network-sensitive character states.
