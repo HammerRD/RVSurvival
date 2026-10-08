@@ -1,0 +1,306 @@
+{
+  "pid": 33364,
+  "config": {
+    "name": "character_moving_client_100ms_2loss",
+    "driver": "client",
+    "network": true
+  },
+  "evidence_kind": "native control paths; server physics speed fixture for road/highway phases",
+  "results": [
+    {
+      "case": "normal_E_seats",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "3_rear_walkable",
+      "pass": true,
+      "detail": "{'position': [129.99085229773067, 0.00017468841139419008, 177.189523095498], 'animation_speed': 0.0, 'pose': 0, 'vehicle_speed': 0.0}"
+    },
+    {
+      "case": "low_stand",
+      "pass": true,
+      "detail": "{'before': [130.26359688546643, 0.01095368242052458, 177.18821268026403], 'after': [130.26282772955125, 0.011006724107928403, 177.1882175611642], 'speed': 508.6203687045532, 'corrections': 0, 'max_cm': 0.0}"
+    },
+    {
+      "case": "low_front",
+      "pass": true,
+      "detail": "{'position': [128.29072276350345, 0.008850706818406657, 177.20073184442504], 'animation_speed': 0.0, 'pose': 0, 'vehicle_speed': 508.6203707033994}"
+    },
+    {
+      "case": "low_rear",
+      "pass": true,
+      "detail": "{'position': [-124.44252252054112, -0.00015936928753478366, 191.6870621936392], 'animation_speed': 0.0, 'pose': 0, 'vehicle_speed': 508.6203755934053}"
+    },
+    {
+      "case": "road_stand",
+      "pass": true,
+      "detail": "{'before': [-124.61328987363724, -0.002186083994934071, 191.687980253942], 'after': [-124.61497385699985, -0.010878840110807421, 191.68798755229048], 'speed': 1806.726101981202, 'corrections': 0, 'max_cm': 0.0}"
+    },
+    {
+      "case": "road_front",
+      "pass": true,
+      "detail": "{'position': [96.53756431681292, 0.0039318742308391596, 177.24013663097878], 'animation_speed': 0.0, 'pose': 0, 'vehicle_speed': 1806.7261024834916}"
+    },
+    {
+      "case": "highway_stand",
+      "pass": true,
+      "detail": "{'before': [96.44264653659003, 0.0007471956001321486, 177.24049922496062], 'after': [96.45350881985088, 0.015276745601046915, 177.24046183457503], 'speed': 2703.9328732940094, 'corrections': 0, 'max_cm': 0.0}"
+    },
+    {
+      "case": "approximately_60mph",
+      "pass": true,
+      "detail": "2703.932906870091"
+    },
+    {
+      "case": "highway_rear",
+      "pass": true,
+      "detail": "{'position': [-124.71518932964192, -0.02340639377322817, 191.69241698951728], 'animation_speed': 0.0, 'pose': 0, 'vehicle_speed': 2703.9329544045595}"
+    },
+    {
+      "case": "highway_sideways",
+      "pass": true,
+      "detail": "{'position': [-124.78803232985297, 20.83713771660067, 191.6951496947095], 'animation_speed': 0.0, 'pose': 0, 'vehicle_speed': 2703.9329931786965}"
+    },
+    {
+      "case": "gentle_turn",
+      "pass": true,
+      "detail": "{'before': [-124.78795136537234, 20.837078325132975, 191.69514941977448], 'after': [-124.78327468939801, 20.836347677789348, 191.69513342887888], 'speed': 2703.9324303239787, 'corrections': 0, 'max_cm': 0.0}"
+    },
+    {
+      "case": "strong_turn",
+      "pass": true,
+      "detail": "{'before': [-124.70889897640076, 20.846105294366513, 191.6948454605302], 'after': [-124.70741079384463, 20.83828011149144, 191.6948394600592], 'speed': 1806.4748022869996, 'corrections': 0, 'max_cm': 0.0}"
+    },
+    {
+      "case": "parked_after_braking",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "braking_keeps_frame",
+      "pass": true,
+      "detail": "{'position': [-124.6276248188713, 20.842803130859814, 191.69445957710724], 'animation_speed': 0.0, 'pose': 0, 'vehicle_speed': 0.0}"
+    },
+    {
+      "case": "resume_keeps_frame",
+      "pass": true,
+      "detail": "{'position': [-124.58815733593286, 20.84447551188174, 191.69424487737328], 'animation_speed': 0.0, 'pose': 0, 'vehicle_speed': 950.4453570297492}"
+    },
+    {
+      "case": "resume_actually_driving",
+      "pass": true,
+      "detail": "950.4453570297492"
+    },
+    {
+      "case": "parked_after_braking",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "native_V_0_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_0_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_1_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_1_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_2_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_2_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_3_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_3_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_4_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_4_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_5_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_5_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_6_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_6_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_7_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_7_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_8_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_8_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_9_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_9_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_10_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_10_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_11_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_11_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_12_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_12_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_13_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_13_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_14_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_14_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_15_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_15_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_16_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_16_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_17_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_17_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_18_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_18_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    },
+    {
+      "case": "native_V_19_passenger",
+      "pass": true,
+      "detail": "[189.99999999999656, 49.00000000000079, 138.00000000000003]"
+    },
+    {
+      "case": "native_V_19_driver",
+      "pass": true,
+      "detail": "[190.0000000000062, -49.00000000000116, 137.99999999999997]"
+    }
+  ],
+  "sample_summary": {
+    "count": 956,
+    "max_speed_cm_s": 2700.0001217337845,
+    "max_correction_cm": 0
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "pid": 53676,
+  "results": [
+    {
+      "case": "client_native_E_fill_unobstructed",
+      "pass": true,
+      "detail": "Hold E: fuel fill | select owned can, F to refuel"
+    },
+    {
+      "case": "client_native_F_refuel_conserved",
+      "pass": true,
+      "detail": "Transferred 20.000 L"
+    },
+    {
+      "case": "client_native_E_exterior_unobstructed",
+      "pass": true,
+      "detail": "{'prompt': 'Hold E: open 02 Fluids / spare supplies', 'actual': \"<Object '/Game/Maps/Gate8_5CharacterTest.Gate8_5CharacterTest:PersistentLevel.RVExteriorStoragePoint_2.Container' (0x000002553A09CD00) Class 'RVContainerComponent'>\", 'expected': \"<Object '/Game/Maps/Gate8_5CharacterTest.Gate8_5CharacterTest:PersistentLevel.RVExteriorStoragePoint_2.Container' (0x000002553A09CD00) Class 'RVContainerComponent'>\", 'position': \"<Struct 'Vector' (0x00000254E676ABD0) {x: -18.116983, y: -269.808837, z: 90.150001}>\"}"
+    }
+  ],
+  "sample_count": 50
+}

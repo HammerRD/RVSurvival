@@ -1,0 +1,141 @@
+{
+  "pid": 25656,
+  "role": "server",
+  "config": {
+    "name": "character_stations_corrected",
+    "driver": "host",
+    "network": false
+  },
+  "results": [
+    {
+      "case": "normal_E_initial_seats",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "parked_normal_E_Workbench",
+      "pass": true,
+      "detail": "1"
+    },
+    {
+      "case": "parked_leave_and_walk_Workbench",
+      "pass": true,
+      "detail": "{'relative_walk_cm': 27.863906809075633, 'position': [-56.64897584552108, -0.00113334756819891, 185.51505411168773]}"
+    },
+    {
+      "case": "parked_normal_E_Kitchen",
+      "pass": true,
+      "detail": "1"
+    },
+    {
+      "case": "parked_leave_and_walk_Kitchen",
+      "pass": true,
+      "detail": "{'relative_walk_cm': 31.192787586656223, 'position': [-25.456188304887895, 0.0005611062409188307, 177.2695659929117]}"
+    },
+    {
+      "case": "parked_normal_E_Medical",
+      "pass": true,
+      "detail": "1"
+    },
+    {
+      "case": "parked_leave_and_walk_Medical",
+      "pass": true,
+      "detail": "{'relative_walk_cm': 31.2145510906405, 'position': [-93.37032553006186, -0.002372135337224747, 191.5431970898079]}"
+    },
+    {
+      "case": "parked_normal_E_Power",
+      "pass": true,
+      "detail": "1"
+    },
+    {
+      "case": "parked_leave_and_walk_Power",
+      "pass": true,
+      "detail": "{'relative_walk_cm': 31.214551090640555, 'position': [39.917016619796165, 0.0005497418790034424, 177.32486682828173]}"
+    },
+    {
+      "case": "parked_normal_E_Navigation",
+      "pass": true,
+      "detail": "1"
+    },
+    {
+      "case": "parked_leave_and_walk_Navigation",
+      "pass": true,
+      "detail": "{'relative_walk_cm': 31.2145510906405, 'position': [8.70246552916196, 0.0005299077738517434, 177.4213828132523]}"
+    },
+    {
+      "case": "real_driving_before_moving_station_uses",
+      "pass": true,
+      "detail": "1528.2844601507727"
+    },
+    {
+      "case": "moving_normal_E_Workbench",
+      "pass": true,
+      "detail": "2"
+    },
+    {
+      "case": "moving_leave_and_walk_Workbench",
+      "pass": true,
+      "detail": "{'relative_walk_cm': 31.215050684907457, 'position': [-93.35490344262953, 0.016747224141753843, 191.41392784107268]}"
+    },
+    {
+      "case": "moving_normal_E_Kitchen",
+      "pass": true,
+      "detail": "2"
+    },
+    {
+      "case": "moving_leave_and_walk_Kitchen",
+      "pass": true,
+      "detail": "{'relative_walk_cm': 31.196553440744875, 'position': [-62.17635178230703, 0.01728452280516543, 188.94369534993325]}"
+    },
+    {
+      "case": "moving_normal_E_Medical",
+      "pass": true,
+      "detail": "2"
+    },
+    {
+      "case": "moving_leave_and_walk_Medical",
+      "pass": true,
+      "detail": "{'relative_walk_cm': 31.214158862374614, 'position': [-93.31414816570565, 0.01718313832190687, 191.4386073933355]}"
+    },
+    {
+      "case": "moving_normal_E_Power",
+      "pass": true,
+      "detail": "2"
+    },
+    {
+      "case": "moving_leave_and_walk_Power",
+      "pass": true,
+      "detail": "{'relative_walk_cm': 31.355784825089522, 'position': [39.932968714659495, -0.7233446304842801, 177.35170437647827]}"
+    },
+    {
+      "case": "moving_normal_E_Navigation",
+      "pass": true,
+      "detail": "2"
+    },
+    {
+      "case": "moving_leave_and_walk_Navigation",
+      "pass": true,
+      "detail": "{'relative_walk_cm': 31.216337760314364, 'position': [8.762895214300542, -1.062632371060518, 177.55868713100548]}"
+    },
+    {
+      "case": "station_route_existing_correction_bound",
+      "pass": true,
+      "detail": "{'CorrectionCount': 0, 'MaxCorrectionCm': 0.0, 'MaxLocalStepCm': 6.177872180938721, 'FrameChanges': 0, 'BaseChanges': 0}"
+    },
+    {
+      "case": "zero_seated_movement_violations",
+      "pass": true,
+      "detail": "0"
+    },
+    {
+      "case": "zero_interior_floor_falls",
+      "pass": true,
+      "detail": "0"
+    }
+  ],
+  "sample_summary": {
+    "count": 810,
+    "max_speed_cm_s": 4498.104028280861,
+    "max_correction_cm": 0
+  }
+}

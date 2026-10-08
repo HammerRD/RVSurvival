@@ -255,3 +255,12 @@ Completed medical GAS/component/data-asset foundation, injury state, authoritati
 ### Gate 8 bounded closure after 7dd237a
 
 Added runtime orbit evidence through supported Enhanced Input injection and actual Windows remapping/F7 activation/restored F9 activation after fresh client startup. Representative downed service and recovery rejected with healthy positive controls. Resource guard attempt remains inconclusive because the active client also received Panel out of reach or blocked; no pass is claimed. Failed fixtures retained. Acceptance now explicitly qualifies that runtime coverage gap. No gameplay/content/vendor changes; no Gate9. Editor exited and normal play preferences restored. See bounded-closure-coverage.json.
+
+
+## 2026-10-08 — Gate 8.5 character/animation foundation
+
+Added a replaceable Epic Manny Simple / SK_Mannequin full-body character, native Animation Blueprint/27-sample directional Blend Space and controlled seat, bed, downed, ladder and treatment sequences. New presentation/profile/animation classes read accepted replicated gameplay and CharacterMovement; six configurable medical bone regions and seven future equipment anchors keep gameplay independent of art. Owner head hiding and shared 20 cm camera/authority-eye offset preserve usable first person. Distinct cab/dinette offsets and mattress/floor limb alignment were corrected through actual remote renders, not state-only assertions. Added /Game/Maps/Gate8_5CharacterTest and project-side character/GameMode/assets; no weapons or Gate 9 content.
+
+Separate-process reversed roles, approximately 60 mph moving passenger, 20 V/1 switches, physical door/roof/bed paths, 100 ms/2% loss, normal F9/UMG medical controls, workstation walk-away, moving pantry and inventory/needs representatives were exercised. Saved configuration, initial bad limb axes, brake/aim/identity/GUID and resource approach fixture failures were investigated rather than counted as passes. Detailed actual scope, evidence, known prototype limitations and checkpoint history are in GATE_8_5_VALIDATION.md. Gate 8 resource-control qualification and refrigerator backlog remain explicit. Final closure status follows build/saved audit.
+
+Gate 8.5 bounded follow-up closed the prior Gate 8 downed resource-control qualification with a successful healthy positive control and matched downed rejection in separate processes under 100 ms/2% loss. Original evidence/history retained. Final ladder arm alignment passed a new rendered climb/down/return check.

@@ -117,3 +117,12 @@ Owned Health RPCs nominate patient/injury revision and healer inventory GUID; se
 ## Gate 8 closure — 2026-10-08
 
 Gate 8 medical/injury foundation is ACCEPTED. PlayerState-owned GAS attributes and reusable health/treatment components preserve accepted inventory, needs, seats, moving interior, resources, mechanical systems and prototype recovery. Both healer/driver roles, actual client UMG controls, impaired separate-process networking, transaction stress, recovery simulation, prior-gate representatives and saved-content/vendor audits passed within the documented scope. See GATE_8_VALIDATION.md and MEDICAL.md for architecture, failed history and limitations. Gate 9 is not started. Earlier pending/unauthorized statements describe historical checkpoints.
+
+## Gate 8.5 skeletal presentation
+
+Character presentation derives from accepted replicated gameplay state and native CharacterMovement smoothing. PoseIndex/animation speed are local presentation inputs, not a second authoritative state channel. The unpossessed driver's medical state resolves via the vehicle PlayerState only when that survivor occupies the authoritative driver seat. Owner-only head hiding is refreshed on possession changes; observers keep a full body/head.
+
+Configured authoritative eyes and local camera share the same 20 cm forward offset; server interaction validation uses the existing authority path. Bone-region and equipment mappings are presentation configuration. Native actor movement, capsule collision, accepted passenger reference frame, seat occupancy, rest state, ladder and medical RPCs remain intact. Representative host/client reversed roles, separate processes and 100 ms/2% loss validate network-sensitive states. There is no new pose RPC, per-tick character teleport, GAS replacement or networked ragdoll. Historical Gate 8 downed resource-control qualification remains.
+
+
+Gate 8.5 targeted follow-up (2026-10-08): the ab601cf downed resource-control coverage qualification is now resolved in Gate8_5CharacterTest. Normal E registered the real power panel; a healthy owned client request changed the load; the matched downed request left load/revision unchanged and was rejected on both peers under separate-process 100 ms/2% loss. Evidence: Docs/Gate8_5Results/character_resource_guard_server.json and character_resource_guard_client.json. This supersedes retained-qualification notes for that one test; historical failed receipts remain. Gate 9 is not started.

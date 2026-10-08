@@ -1,0 +1,135 @@
+{
+  "pid": 37536,
+  "authority": true,
+  "config": {
+    "name": "character_final_poses_100ms_2loss",
+    "driver": "client",
+    "network": true,
+    "disconnect": ""
+  },
+  "evidence_kind": "native-held-input diagnostics; manual hold routes pending",
+  "results": [
+    {
+      "case": "saved_map_physical_entry_no_teleport_markers",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "only_rear_bed_is_rest_point",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "door_open_converges",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "driver_physical_step_door_entry",
+      "pass": true,
+      "detail": "[91.98037246796189, 7.093792560243189, 177.28603323289585]"
+    },
+    {
+      "case": "physical_entry_then_E_driver",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "remote_skeletal_driver",
+      "pass": true,
+      "detail": "<RVCharacterVisualState.DRIVER: 1>"
+    },
+    {
+      "case": "walker_physical_step_door_entry",
+      "pass": true,
+      "detail": "[92.25425893177086, 4.581273830003501, 177.11987271018359]"
+    },
+    {
+      "case": "physical_entry_then_E_passenger",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "occupied_driver_rejects_keeps_passenger",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_passenger_3_rear",
+      "pass": true,
+      "detail": "[129.93059058513012, -3.535146213069372e-05, 177.18766113592073]"
+    },
+    {
+      "case": "moving_driver_3_rejected_before_release",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_dinette_front_seated_awake",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "dinette_front_stand_no_sleep",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "dinette_rear_seated_awake",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "stopped_before_driver_departure",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "dinette_rear_stand_no_sleep",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bed_pose_and_rest_replicate",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bed_sleep_player_specific",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bed_wake_safe_aisle",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stopped_driver_3_rear",
+      "pass": true,
+      "detail": "[129.98348460993432, 6.523415695491119e-05, 177.1884472795894]"
+    }
+  ],
+  "visual_observations": [
+    {
+      "name": "driver",
+      "remote": true,
+      "pose_index": 1,
+      "local_position": [
+        190.0,
+        -48.99999999999999,
+        138.0
+      ],
+      "foot_bones": {
+        "foot_l": "<Struct 'Vector' (0x000001D8E3E80060) {x: 236.119042, y: -59.858724, z: 74.404704}>",
+        "foot_r": "<Struct 'Vector' (0x000001D8E3E80100) {x: 228.455837, y: -41.455859, z: 74.023274}>"
+      },
+      "camera": "<Struct 'Vector' (0x000001D8E3E800B0) {x: 125.046275, y: 14.277944, z: 182.488083}>"
+    }
+  ],
+  "sample_summary": {
+    "count": 1078,
+    "max_speed_cm_s": 2964.0437100182035,
+    "max_correction_cm": 0.0
+  }
+}

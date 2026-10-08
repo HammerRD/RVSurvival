@@ -68,7 +68,7 @@ def setup():
 
 def key(k,on):unreal.RVInteriorMotorhome.dispatch_development_key(pc,k,on)
 bad_seated=0;below_floor=0;walk_before={}
-def station(name):return next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVInteriorStation) if str(a.get_editor_property('StationName'))==name)
+def station(name):return next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVInteriorStation) if str(a.get_editor_property('StationName'))==('Medical station' if name=='Medical' else name))
 def walk_to(t,rear,duration):
  def begin():
   if not isdriver:pc.set_control_rotation(unreal.Rotator(yaw=v.get_actor_rotation().yaw+(180 if rear else 0)));key('W',True)
@@ -119,6 +119,28 @@ def finish():
  active=False;unreal.unregister_slate_post_tick_callback(h)
  from runner_runtime import release_runners
  release_runners()
+
+visual_camera=None
+visual_hidden=False
+
+def visual_station(name):
+ global visual_camera,visual_hidden
+ if not isdriver:return
+ mesh=wp.get_editor_property('Mesh');target=mesh.get_socket_location('pelvis')+unreal.Vector(0,0,25);q=v.get_actor_transform().inverse_transform_location(target);delta=unreal.Vector(70,-q.y,60);location=target+v.get_actor_transform().transform_location(delta)-v.get_actor_location()
+ rotation=unreal.MathLibrary.find_look_at_rotation(location,target)
+ if visual_camera is None:visual_camera=unreal.RVCharacterContentLibrary.spawn_observation_camera(v,location,rotation)
+ else:visual_camera.set_actor_location_and_rotation(location,rotation,False,True)
+ visual_camera.get_component_by_class(unreal.CameraComponent).set_field_of_view(120);pc.set_view_target_with_blend(visual_camera,0)
+ if not visual_hidden:cmd('showhud');visual_hidden=True
+
+def visual_restore():
+ global visual_hidden
+ pc.set_view_target_with_blend(pc.get_controlled_pawn(),0)
+ if visual_hidden:cmd('showhud');visual_hidden=False
+
+for t,n in [(9.6,'workbench'),(16.6,'medical'),(21.6,'panel'),(34.1,'moving-workbench')]:
+ at(t,lambda n=n:visual_station(n));at(t+.1,lambda n=n:cmd('shot showui filename='+str(B/(config['name']+'_'+('server' if authority else 'client')+'_'+n+'.png'))+' -nosuffix') if isdriver else None);at(t+.2,visual_restore)
+
 at(54,finish);events.sort(key=lambda e:e[0])
 def tick(dt):
  global idx,input_frame,nextsample,dp,wp,bad_seated,below_floor

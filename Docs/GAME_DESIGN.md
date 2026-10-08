@@ -47,3 +47,7 @@ Medical needs reinforce the RV as the mobile survival base: stabilize injuries u
 ## Gate 8 closure — 2026-10-08
 
 Gate 8 medical/injury foundation is ACCEPTED. PlayerState-owned GAS attributes and reusable health/treatment components preserve accepted inventory, needs, seats, moving interior, resources, mechanical systems and prototype recovery. Both healer/driver roles, actual client UMG controls, impaired separate-process networking, transaction stress, recovery simulation, prior-gate representatives and saved-content/vendor audits passed within the documented scope. See GATE_8_VALIDATION.md and MEDICAL.md for architecture, failed history and limitations. Gate 9 is not started. Earlier pending/unauthorized statements describe historical checkpoints.
+
+## Gate 8.5 humanoid presentation foundation
+
+The mobile-base survivor now has a replaceable Epic Manny Simple skeletal presentation in Gate8_5CharacterTest. Visual state follows accepted gameplay; the primary capsule, usable moving interior, seats, sleep, ladder, medical authority and logistical systems remain authoritative. Cab and dinette sitting, bed lying, controlled downed and prototype climbing/treatment poses establish readability without final animation polish. No combat, weapons, paid characters, clothing creator or Gate 9 gameplay is implemented. Alternate bodies/clothing can use another visual profile and compatible/retargeted animation assets.

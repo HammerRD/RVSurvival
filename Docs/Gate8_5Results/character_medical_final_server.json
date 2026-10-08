@@ -1,0 +1,91 @@
+{
+  "pid": 49212,
+  "role": "server",
+  "kind": "owned RPC diagnostics, no UI acceptance",
+  "results": [
+    {
+      "case": "patient_downed_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "healer_independent_active",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bleeding_revive_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "remote_pose_treatment",
+      "pass": true,
+      "detail": "6"
+    },
+    {
+      "case": "teammate_bleeding_stopped",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "dressing_consumed_once",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "patient_still_downed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "revive_active_converges",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "concurrent_request_single_consumption",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "revive_retains_injuries",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "revive_partial_vitals",
+      "pass": true,
+      "detail": "30.011993408203125"
+    },
+    {
+      "case": "healer_unaffected_blood",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "condition_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "awake_revive_rejected",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "visuals": [
+    {
+      "name": "treatment",
+      "pose_index": 6,
+      "region_transforms": {
+        "<RVBodyRegion.HEAD: 0>": "<Struct 'Transform' (0x000001461C6449F0) {rotation: {x: -0.596223, y: -0.436050, z: -0.460121, w: 0.492613}, translation: {x: 107.948683, y: -496.398664, z: 161.775745}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+        "<RVBodyRegion.TORSO: 1>": "<Struct 'Transform' (0x000001461C6449F0) {rotation: {x: -0.507293, y: -0.521297, z: -0.418127, w: 0.544126}, translation: {x: 102.502664, y: -500.547330, z: 113.030868}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+        "<RVBodyRegion.LEFT_ARM: 2>": "<Struct 'Transform' (0x000001461C6449F0) {rotation: {x: 0.935281, y: -0.123717, z: 0.059741, w: 0.326152}, translation: {x: 123.694890, y: -517.389761, z: 125.619834}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+        "<RVBodyRegion.RIGHT_ARM: 3>": "<Struct 'Transform' (0x000001461C6449F0) {rotation: {x: 0.106810, y: -0.985042, z: -0.104006, w: -0.086409}, translation: {x: 119.069064, y: -479.604938, z: 123.269592}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+        "<RVBodyRegion.LEFT_LEG: 4>": "<Struct 'Transform' (0x000001461C6449F0) {rotation: {x: -0.578050, y: -0.480551, z: -0.474150, w: 0.458377}, translation: {x: 114.756058, y: -515.446615, z: 52.372859}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+        "<RVBodyRegion.RIGHT_LEG: 5>": "<Struct 'Transform' (0x000001461C6449F0) {rotation: {x: 0.545441, y: -0.351806, z: -0.727090, w: -0.223757}, translation: {x: 92.992017, y: -487.155904, z: 50.427629}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>"
+      }
+    }
+  ]
+}

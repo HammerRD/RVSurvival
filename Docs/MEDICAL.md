@@ -95,3 +95,6 @@ seamless-travel copying and permanent death are not implemented in this gate.
 
 See `GATE_8_VALIDATION.md` for accepted results, exact test scope, retained failed
 harness attempts and prototype limitations. Gate 9 is not started.
+
+
+Gate 8.5 targeted follow-up (2026-10-08): the ab601cf downed resource-control coverage qualification is now resolved in Gate8_5CharacterTest. Normal E registered the real power panel; a healthy owned client request changed the load; the matched downed request left load/revision unchanged and was rejected on both peers under separate-process 100 ms/2% loss. Evidence: Docs/Gate8_5Results/character_resource_guard_server.json and character_resource_guard_client.json. This supersedes retained-qualification notes for that one test; historical failed receipts remain. Gate 9 is not started.

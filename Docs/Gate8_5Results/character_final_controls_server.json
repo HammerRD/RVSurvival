@@ -1,0 +1,290 @@
+{
+  "pid": 19052,
+  "authority": true,
+  "config": {
+    "name": "character_final_controls",
+    "driver": "host",
+    "network": false,
+    "disconnect": ""
+  },
+  "evidence_kind": "native-held-input diagnostics; manual hold routes pending",
+  "results": [
+    {
+      "case": "saved_map_physical_entry_no_teleport_markers",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "only_rear_bed_is_rest_point",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "door_open_converges",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "driver_physical_step_door_entry",
+      "pass": true,
+      "detail": "[92.22883112627436, 3.186699179769312, 177.2172367349496]"
+    },
+    {
+      "case": "physical_entry_then_E_driver",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "walker_physical_step_door_entry",
+      "pass": true,
+      "detail": "[92.45938161614953, 3.3649993070179933, 177.20265816140335]"
+    },
+    {
+      "case": "remote_skeletal_passenger",
+      "pass": true,
+      "detail": "<RVCharacterVisualState.PASSENGER: 2>"
+    },
+    {
+      "case": "physical_entry_then_E_passenger",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "occupied_driver_rejects_keeps_passenger",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_passenger_3_rear",
+      "pass": true,
+      "detail": "[129.92439238998054, -6.483552697959111e-05, 177.18770307303444]"
+    },
+    {
+      "case": "moving_driver_3_rejected_before_release",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "remote_skeletal_dinette_front",
+      "pass": true,
+      "detail": "<RVCharacterVisualState.PASSENGER: 2>"
+    },
+    {
+      "case": "moving_dinette_front_seated_awake",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "dinette_front_stand_no_sleep",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "remote_skeletal_dinette_rear",
+      "pass": true,
+      "detail": "<RVCharacterVisualState.PASSENGER: 2>"
+    },
+    {
+      "case": "dinette_rear_seated_awake",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "stopped_before_driver_departure",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "dinette_rear_stand_no_sleep",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bed_pose_and_rest_replicate",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "remote_skeletal_bed",
+      "pass": true,
+      "detail": "<RVCharacterVisualState.BED: 3>"
+    },
+    {
+      "case": "bed_sleep_player_specific",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bed_wake_safe_aisle",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stopped_driver_3_rear",
+      "pass": true,
+      "detail": "[129.98499795989784, 7.826430765678913e-05, 177.18871853414873]"
+    },
+    {
+      "case": "rear_back_to_passenger",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "rear_back_to_driver",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "walker_physical_step_door_exit",
+      "pass": true,
+      "detail": "[93.59766887971985, 241.77216311217626, 71.79280098120017]"
+    },
+    {
+      "case": "ladder_reserved_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "remote_skeletal_ladder",
+      "pass": true,
+      "detail": "<RVCharacterVisualState.LADDER: 5>"
+    },
+    {
+      "case": "roof_dismount_supported_walking",
+      "pass": true,
+      "detail": "[-315.0013383612675, 75.00000698201853, 409.74919999973145]"
+    },
+    {
+      "case": "roof_presence_locks_propulsion",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "roof_walk_past_fixtures",
+      "pass": true,
+      "detail": "[106.21136289238811, 75.00001894180102, 409.6281077542815]"
+    },
+    {
+      "case": "roof_return_ladder_reserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "roof_ladder_ground_return",
+      "pass": true,
+      "detail": "[-455.1890228104338, 75.00098611572682, 74.57839575726241]"
+    },
+    {
+      "case": "door_closed_converges_after_physical_exit",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "closed_door_physically_blocks_entry",
+      "pass": true,
+      "detail": "[92.94081613838814, 155.47279796877555, 98.17158792789925]"
+    },
+    {
+      "case": "physical_reentry_restores_frame",
+      "pass": true,
+      "detail": "[92.71548557012787, 3.5329010591326977, 177.219792770108]"
+    },
+    {
+      "case": "physical_front_to_rear_walk",
+      "pass": true,
+      "detail": "[-124.67210788496455, -0.011528977243257974, 191.63914630740757]"
+    },
+    {
+      "case": "repeat_physical_exit_no_locked_state",
+      "pass": true,
+      "detail": "[93.48629406297884, 242.8007512449386, 71.79190221192458]"
+    },
+    {
+      "case": "driver_physical_exit_after_cab_release",
+      "pass": true,
+      "detail": "[91.92344304495094, 242.20444487931036, 71.80035200037243]"
+    }
+  ],
+  "visual_observations": [
+    {
+      "name": "passenger",
+      "remote": true,
+      "pose_index": 2,
+      "local_position": [
+        190.0,
+        49.0,
+        138.00000000000003
+      ],
+      "foot_bones": {
+        "foot_l": "<Struct 'Vector' (0x00000238316FE180) {x: 236.119042, y: 38.141276, z: 74.404704}>",
+        "foot_r": "<Struct 'Vector' (0x00000238316FE180) {x: 228.455837, y: 56.544141, z: 74.023274}>"
+      },
+      "camera": "<Struct 'Vector' (0x00000238316FE1D0) {x: 126.857502, y: -16.182769, z: 182.474010}>"
+    },
+    {
+      "name": "dinette_front",
+      "remote": true,
+      "pose_index": 2,
+      "local_position": [
+        104.99999999999923,
+        -81.99999999999999,
+        138.00000000000003
+      ],
+      "foot_bones": {
+        "foot_l": "<Struct 'Vector' (0x00000238317211E0) {x: 58.880958, y: -71.141276, z: 99.404704}>",
+        "foot_r": "<Struct 'Vector' (0x0000023831721280) {x: 66.544163, y: -89.544141, z: 99.023274}>"
+      },
+      "camera": "<Struct 'Vector' (0x0000023831721230) {x: 10141.274561, y: 59.109815, z: 207.011583}>"
+    },
+    {
+      "name": "dinette_rear",
+      "remote": true,
+      "pose_index": 2,
+      "local_position": [
+        -55.00000000000011,
+        -82.0,
+        137.99999999999997
+      ],
+      "foot_bones": {
+        "foot_l": "<Struct 'Vector' (0x00000238317232B0) {x: -8.880958, y: -92.858724, z: 99.404704}>",
+        "foot_r": "<Struct 'Vector' (0x0000023831723350) {x: -16.544163, y: -74.455859, z: 99.023274}>"
+      },
+      "camera": "<Struct 'Vector' (0x0000023831723300) {x: 22113.723141, y: 142.342379, z: 206.814078}>"
+    },
+    {
+      "name": "bed",
+      "remote": true,
+      "pose_index": 3,
+      "local_position": [
+        -244.99999999999815,
+        47.99999999999997,
+        194.99999999999997
+      ],
+      "foot_bones": {
+        "foot_l": "<Struct 'Vector' (0x000002383179F170) {x: -166.173353, y: 32.805029, z: 197.777743}>",
+        "foot_r": "<Struct 'Vector' (0x000002383179F210) {x: -165.791960, y: 51.207982, z: 190.114716}>"
+      },
+      "camera": "<Struct 'Vector' (0x000002383179F1C0) {x: 22836.063440, y: 166.337121, z: 320.760841}>"
+    },
+    {
+      "name": "ladder",
+      "remote": true,
+      "pose_index": 5,
+      "local_position": [
+        -414.99999999995913,
+        74.99786460903779,
+        154.7039521663623
+      ],
+      "foot_bones": {
+        "foot_l": "<Struct 'Vector' (0x00000238327FFB20) {x: -396.381411, y: 63.294498, z: 77.684753}>",
+        "foot_r": "<Struct 'Vector' (0x00000238327FFBC0) {x: -432.499308, y: 66.588314, z: 77.821631}>"
+      },
+      "camera": "<Struct 'Vector' (0x00000238327FFB70) {x: 22373.109673, y: 336.228815, z: 212.725519}>"
+    }
+  ],
+  "sample_summary": {
+    "count": 2388,
+    "max_speed_cm_s": 2947.7106238795595,
+    "max_correction_cm": 0.0
+  }
+}

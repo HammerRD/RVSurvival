@@ -1,0 +1,106 @@
+{
+  "pid": 31600,
+  "role": "server",
+  "results": [
+    {
+      "case": "normal_E_initial_seats",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_3_standing",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_front_bench_native_E",
+      "pass": true,
+      "detail": "[104.9999999999998, -82.00000000000001, 137.99999999999997]"
+    },
+    {
+      "case": "moving_front_bench_stand",
+      "pass": true,
+      "detail": "[99.78467995251972, -0.0008738029277021249, 177.1888115787873]"
+    },
+    {
+      "case": "moving_rear_bench_native_E",
+      "pass": true,
+      "detail": "[-55.000000000000824, -82.00000000000001, 138.0]"
+    },
+    {
+      "case": "moving_rear_bench_stand",
+      "pass": true,
+      "detail": "[-94.94555131681173, -0.0007516780609128867, 191.48821484232033]"
+    },
+    {
+      "case": "moving_pantry_native_E",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_turn_transfer_to_pantry_native_T",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_transfer_back_native_Tab_T",
+      "pass": true,
+      "detail": "{'pantry': 0, 'player': 1, 'feedback': '', 'open': \"<Object '/Game/Maps/UEDPIE_0_Gate8_5CharacterTest.Gate8_5CharacterTest:PersistentLevel.RVStoragePoint_0.Container' (0x000001C8B5754D80) Class 'RVContainerComponent'>\"}"
+    },
+    {
+      "case": "driver_returned_survivor",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "exterior_normal_E",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "container_contention_no_duplication",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native_G_drop_condition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native_E_repick_identity",
+      "pass": true,
+      "detail": "{'world_id': '0F8AE1294E4A83E5417F709C4980BDB7', 'inventory_id': '0F8AE1294E4A83E5417F709C4980BDB7', 'condition': 0.6200000047683716}"
+    },
+    {
+      "case": "needs_set_fixture",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "needs_hour_drain",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "weight_capacity_reject",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "volume_capacity_reject",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "owned_consume_once",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "medical_component_and_active",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

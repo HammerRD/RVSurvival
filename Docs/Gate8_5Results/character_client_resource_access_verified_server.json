@@ -1,0 +1,16 @@
+{
+  "pid": 38524,
+  "results": [
+    {
+      "case": "seed_valid_fuel_can",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_native_F_refuel_conserved",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "sample_count": 50
+}

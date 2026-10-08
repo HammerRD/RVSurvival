@@ -1,5 +1,5 @@
 """Saved, project-side visual assets and one new test map; scoped UObject lifetimes."""
-import unreal,json,gc
+import unreal,json,gc,math
 from pathlib import Path
 root=Path('D:/GitHub/RVSurvival/RVSurvival');out=root/'Docs/Gate8_5Results'
 def assets():
@@ -20,9 +20,16 @@ def assets():
   poses[name]=unreal.RVCharacterContentLibrary.create_prototype_pose(folder+'/Animations/A_Prototype'+name,mesh,rotations(data),name=='Ladder',idle);assert poses[name]
   if name in ['Driver','Passenger','DownedSeated']:
    directions={'thigh_l':unreal.Vector(0,1,0),'thigh_r':unreal.Vector(0,1,0),'calf_l':unreal.Vector(0,0,-1),'calf_r':unreal.Vector(0,0,-1)}
-   if name=='Driver':directions.update({'upperarm_l':unreal.Vector(0,1,-0.6),'upperarm_r':unreal.Vector(0,1,-0.6),'lowerarm_l':unreal.Vector(0,1,0.7),'lowerarm_r':unreal.Vector(0,1,0.7)})
+   if name=='Driver':directions.update({'upperarm_l':unreal.Vector(0,1,-1),'upperarm_r':unreal.Vector(0,1,-1),'lowerarm_l':unreal.Vector(0,1,0.2),'lowerarm_r':unreal.Vector(0,1,0.2)})
    else:directions.update({'upperarm_l':unreal.Vector(0,0,-1),'upperarm_r':unreal.Vector(0,0,-1),'lowerarm_l':unreal.Vector(0,1,0.15),'lowerarm_r':unreal.Vector(0,1,0.15)})
    assert unreal.RVCharacterContentLibrary.align_pose_bones(poses[name],mesh,directions)
+  if name in ['Bed','Downed']:
+   transforms={str(k):v for k,v in unreal.RVCharacterContentLibrary.get_pose_bone_transforms(poses[name],mesh).items()};head=transforms['head'].translation;pelvis=transforms['pelvis'].translation;dx=head.x-pelvis.x;dy=head.y-pelvis.y;length=math.hypot(dx,dy);direction=unreal.Vector(-dx/length,-dy/length,0)
+   assert unreal.RVCharacterContentLibrary.align_pose_bones(poses[name],mesh,{k:direction for k in ['thigh_l','thigh_r','calf_l','calf_r','foot_l','foot_r']})
+  if name=='Ladder':
+   assert unreal.RVCharacterContentLibrary.align_pose_bones(poses[name],mesh,{'upperarm_l':unreal.Vector(.25,.5,1),'upperarm_r':unreal.Vector(-.25,.5,1),'lowerarm_l':unreal.Vector(0,.7,.7),'lowerarm_r':unreal.Vector(0,.7,.7)})
+  if name=='Treatment':
+   assert unreal.RVCharacterContentLibrary.align_pose_bones(poses[name],mesh,{'upperarm_l':unreal.Vector(0,1,-1),'upperarm_r':unreal.Vector(0,1,-1),'lowerarm_l':unreal.Vector(.2,1,.2),'lowerarm_r':unreal.Vector(-.2,1,.2)})
   assert unreal.EditorAssetLibrary.save_loaded_asset(poses[name],False)
  factory=unreal.BlendSpaceFactoryNew();factory.set_editor_property('TargetSkeleton',skeleton)
  blend=unreal.load_asset(folder+'/Animations/BS_RVLocomotion') or tools.create_asset('BS_RVLocomotion',folder+'/Animations',unreal.BlendSpace,factory)
@@ -44,6 +51,7 @@ def assets():
  regions=[]
  for region,bone,roots in [('HEAD','head',['neck_01']),('TORSO','spine_03',['pelvis','spine_01','clavicle_l','clavicle_r']),('LEFT_ARM','lowerarm_l',['upperarm_l']),('RIGHT_ARM','lowerarm_r',['upperarm_r']),('LEFT_LEG','calf_l',['thigh_l']),('RIGHT_LEG','calf_r',['thigh_r'])]:
   binding=unreal.RVBodyRegionBones();binding.set_editor_property('Region',getattr(unreal.RVBodyRegion,region));binding.set_editor_property('AnchorBone',bone);binding.set_editor_property('Roots',roots);regions.append(binding)
+ profile.set_editor_property('SeatedOffset',unreal.Vector(0,0,-25));profile.set_editor_property('InteriorSeatedOffset',unreal.Vector());profile.set_editor_property('BedMeshRotation',unreal.Rotator(yaw=90));profile.set_editor_property('BedOffset',unreal.Vector(-85,0,0));profile.set_editor_property('DownedOffset',unreal.Vector(85,0,15))
  profile.set_editor_property('BodyRegions',regions)
  anchors=[]
  for name,bone in [('Backpack','spine_03'),('LongGun','spine_03'),('HandgunHolster','pelvis'),('Tool','hand_r'),('CarriedItem','hand_l'),('Flashlight','hand_r'),('MedicalBag','hand_l')]:
@@ -57,9 +65,8 @@ def assets():
  body=cdo.get_editor_property('Mesh');body.set_skeletal_mesh(mesh);body.set_anim_instance_class(unreal.EditorAssetLibrary.load_blueprint_class(folder+'/Animations/ABP_RVHumanoid'));body.set_relative_location(unreal.Vector(0,0,-88),False,False);body.set_relative_rotation(unreal.Rotator(yaw=-90),False,False)
  assert unreal.EditorAssetLibrary.save_loaded_asset(character,False)
  gm=unreal.load_asset(folder+'/BP_Gate8_5GameMode') or unreal.EditorAssetLibrary.duplicate_asset('/Game/Medical/BP_Gate8GameMode',folder+'/BP_Gate8_5GameMode')
- gmcls=unreal.EditorAssetLibrary.load_blueprint_class(folder+'/BP_Gate8_5GameMode');unreal.get_default_object(gmcls).set_editor_property('DefaultPawnClass',unreal.EditorAssetLibrary.load_blueprint_class(folder+'/BP_RVHumanoid'))
- unreal.BlueprintEditorLibrary.compile_blueprint(gm);assert unreal.EditorAssetLibrary.save_loaded_asset(gm)
- assert unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True,True)
+ unreal.BlueprintEditorLibrary.compile_blueprint(gm);gm.modify();gmcls=unreal.EditorAssetLibrary.load_blueprint_class(folder+'/BP_Gate8_5GameMode');gm_cdo=unreal.get_default_object(gmcls);gm_cdo.modify();gm_cdo.set_editor_property('DefaultPawnClass',unreal.EditorAssetLibrary.load_blueprint_class(folder+'/BP_RVHumanoid'));assert unreal.EditorAssetLibrary.save_loaded_asset(gm,False)
+ assert unreal.EditorLoadingAndSavingUtils.save_dirty_packages(False,True)
  return {'mesh':mesh.get_path_name(),'skeleton':skeleton.get_path_name(),'animation_blueprint':bp.get_path_name(),'body_regions':6,'equipment_anchors':7}
 def test_map():
  levels=unreal.get_editor_subsystem(unreal.LevelEditorSubsystem);target='/Game/Maps/Gate8_5CharacterTest'

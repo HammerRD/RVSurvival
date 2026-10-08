@@ -1,0 +1,37 @@
+{
+  "pid": 4900,
+  "results": [
+    {
+      "case": "normal_E_ladder",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "remote_skeletal_ladder",
+      "pass": true,
+      "detail": "<RVCharacterVisualState.LADDER: 5>"
+    },
+    {
+      "case": "normal_down_and_ground_return",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "visuals": [
+    {
+      "name": "ladder",
+      "remote": true,
+      "pose_index": 5,
+      "local_position": [
+        -415.00000000000153,
+        75.02405496120578,
+        204.70703411333815
+      ],
+      "foot_bones": {
+        "foot_l": "<Struct 'Vector' (0x000002D9C056D5A0) {x: -412.741815, y: 69.925866, z: 126.492076}>",
+        "foot_r": "<Struct 'Vector' (0x000002D9C056D640) {x: -425.195677, y: 82.590773, z: 125.544966}>"
+      },
+      "camera": "<Struct 'Vector' (0x000002D9C056D5F0) {x: -615.430843, y: 169.204986, z: 264.260003}>"
+    }
+  ]
+}

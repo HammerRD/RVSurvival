@@ -1,0 +1,66 @@
+{
+  "pid": 12428,
+  "role": "client",
+  "results": [
+    {
+      "case": "normal_E_initial_seats",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_3_standing",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_front_bench_native_E",
+      "pass": true,
+      "detail": "[105.00000000000009, -82.0, 137.99999999999997]"
+    },
+    {
+      "case": "moving_front_bench_stand",
+      "pass": true,
+      "detail": "[99.86230041108516, -1.084450912819481e-05, 177.189992285905]"
+    },
+    {
+      "case": "moving_rear_bench_native_E",
+      "pass": true,
+      "detail": "[-54.99999999999971, -81.99999999999999, 138.00000000000003]"
+    },
+    {
+      "case": "moving_rear_bench_stand",
+      "pass": true,
+      "detail": "[-94.98984358810425, -7.916988794390177e-09, 191.49000000029545]"
+    },
+    {
+      "case": "other_player_pantry_view_is_private",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_turn_transfer_to_pantry_native_T",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_transfer_back_native_Tab_T",
+      "pass": true,
+      "detail": "{'pantry': 0, 'player': 1, 'feedback': '', 'open': 'None'}"
+    },
+    {
+      "case": "driver_returned_survivor",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "exterior_normal_E",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native_G_drop_condition",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

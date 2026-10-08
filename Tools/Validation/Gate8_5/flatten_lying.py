@@ -1,3 +1,4 @@
+"""Historical focused authoring iteration; configure_character.py reproduces final tuning."""
 import unreal,gc,math,json
 from pathlib import Path
 m=unreal.load_asset('/Game/Characters/Mannequins/Meshes/SKM_Manny_Simple');report={}

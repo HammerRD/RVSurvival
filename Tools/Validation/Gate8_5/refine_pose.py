@@ -1,3 +1,4 @@
+"""Historical focused authoring iteration; configure_character.py reproduces final tuning."""
 import unreal,gc
 from pathlib import Path
 folder='/Game/Characters/RV';profile=unreal.load_asset(folder+'/DA_MannyPresentation');profile.modify();profile.set_editor_property('BedOffset',unreal.Vector(85,0,-15));profile.set_editor_property('DownedOffset',unreal.Vector(85,0,4));profile.set_editor_property('SeatedOffset',unreal.Vector(0,0,-25));profile.set_editor_property('OwnerCameraOffset',unreal.Vector(20,0,0));assert unreal.EditorAssetLibrary.save_loaded_asset(profile,False);mesh=unreal.load_asset('/Game/Characters/Mannequins/Meshes/SKM_Manny_Simple')

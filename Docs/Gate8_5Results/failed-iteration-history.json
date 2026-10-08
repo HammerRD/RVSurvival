@@ -1,0 +1,173 @@
+[
+  {
+    "run": "character_stations",
+    "role": "server",
+    "failures": [
+      {
+        "case": "exception",
+        "pass": false,
+        "detail": "StopIteration()"
+      }
+    ],
+    "status": "historical fixture/pose iteration, not acceptance evidence"
+  },
+  {
+    "run": "character_stations",
+    "role": "client",
+    "failures": [
+      {
+        "case": "exception",
+        "pass": false,
+        "detail": "StopIteration()"
+      }
+    ],
+    "status": "historical fixture/pose iteration, not acceptance evidence"
+  },
+  {
+    "run": "character_storage_smoke",
+    "role": "server",
+    "failures": [
+      {
+        "case": "native_E_repick_identity",
+        "pass": false,
+        "detail": ""
+      }
+    ],
+    "status": "historical fixture/pose iteration, not acceptance evidence"
+  },
+  {
+    "run": "character_resources_smoke",
+    "role": "server",
+    "failures": [
+      {
+        "case": "native_client_panel_H_switch",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "case": "remote_generator_stop_converged",
+        "pass": false,
+        "detail": ""
+      }
+    ],
+    "status": "historical fixture/pose iteration, not acceptance evidence"
+  },
+  {
+    "run": "character_resources_smoke",
+    "role": "client",
+    "failures": [
+      {
+        "case": "own_fill_open",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "case": "owner_or_ownership_feedback",
+        "pass": false,
+        "detail": "Fuel fill out of reach, blocked or RV moving"
+      },
+      {
+        "case": "shared_exterior_open",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "case": "both_can_open_control_panel",
+        "pass": false,
+        "detail": "Fuel fill out of reach, blocked or RV moving"
+      },
+      {
+        "case": "stale_control_rejected",
+        "pass": false,
+        "detail": "Panel out of reach or blocked"
+      },
+      {
+        "case": "native_client_panel_H_switch",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "case": "remote_generator_stop_converged",
+        "pass": false,
+        "detail": ""
+      }
+    ],
+    "status": "historical fixture/pose iteration, not acceptance evidence"
+  },
+  {
+    "run": "character_resources_fixture",
+    "role": "client",
+    "failures": [
+      {
+        "case": "own_fill_open",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "case": "owner_or_ownership_feedback",
+        "pass": false,
+        "detail": "Fuel fill out of reach, blocked or RV moving"
+      },
+      {
+        "case": "shared_exterior_open",
+        "pass": false,
+        "detail": ""
+      }
+    ],
+    "status": "historical fixture/pose iteration, not acceptance evidence"
+  },
+  {
+    "run": "character_moving_host_baseline",
+    "role": "server",
+    "failures": [
+      {
+        "case": "parked_after_braking",
+        "pass": false,
+        "detail": "2173.0831749282866"
+      },
+      {
+        "case": "parked_after_braking",
+        "pass": false,
+        "detail": "1807.3823896097963"
+      },
+      {
+        "case": "native_V_0_passenger",
+        "pass": false,
+        "detail": "[190.0000000000031, -49.00000000000067, 138.0]"
+      },
+      {
+        "case": "native_V_1_passenger",
+        "pass": false,
+        "detail": "[190.00000000000307, -49.00000000000058, 137.99999999999997]"
+      }
+    ],
+    "status": "historical fixture/pose iteration, not acceptance evidence"
+  },
+  {
+    "run": "character_moving_host_baseline",
+    "role": "client",
+    "failures": [
+      {
+        "case": "parked_after_braking",
+        "pass": false,
+        "detail": "2205.7553347349817"
+      },
+      {
+        "case": "parked_after_braking",
+        "pass": false,
+        "detail": "1839.8994215728042"
+      },
+      {
+        "case": "native_V_0_passenger",
+        "pass": false,
+        "detail": "[190.0000000000024, -49.00000000000026, 138.00000000000003]"
+      },
+      {
+        "case": "native_V_1_passenger",
+        "pass": false,
+        "detail": "[189.9999999999976, -48.999999999999616, 138.0]"
+      }
+    ],
+    "status": "historical fixture/pose iteration, not acceptance evidence"
+  }
+]
