@@ -133,3 +133,13 @@ Gate 8 medical/injury foundation is ACCEPTED. PlayerState-owned GAS attributes a
 Gate8_5CharacterTest uses the purchased 54-part Class C RV with a real Epic humanoid; all vendor packages remain unchanged. Driver/front passenger use a configurable -25 cm cab mesh offset. Both dinette seats use a separate zero offset for their higher floor. Dinette remains seating and never starts sleep. The rear bed uses a controlled lying sequence, +90-degree mesh yaw and (-85,0,0) mesh offset to place head at pillow and legs on the mattress; Z/rest/sleep and R/E stand-up keep their accepted gameplay.
 
 The configured character also uses prototype ladder and controlled downed/treatment sequences. Ladder/roof restriction remains parked-only, beds require stopping, seat-to-seat switching requires stopping, driver-to-rear requires stopping; passenger-to-rear and standing interior movement remain supported while driving. Visual changes do not modify RV physics, entry collision, exterior compartments, seat placement authority or floor/base logic. Surface-aligned stations remain responsive without forced cinematic movement. Refrigerator collision stays deferred.
+
+## Gate 9 RV compatibility scope
+
+Combat is tested against the existing purchased-RV foundation, not a redesigned
+vehicle. Standing survivors may equip, reload and fire; seated/resting/climbing/
+treating states reject weapon use. Seat/window shooting is deferred. Existing cab,
+dinette, bed, physical door entry, roof/ladder and seven exterior compartments retain
+their architecture. Guns/magazines use ordinary configurable storage after unloading.
+Moving armed-passenger and normal-control regressions are recorded in Gate 9 evidence.
+Purchased source art, vehicle physics and reference-frame movement are preserved.

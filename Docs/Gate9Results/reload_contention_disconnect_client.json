@@ -1,0 +1,43 @@
+{
+  "role": "client",
+  "process_id": 55832,
+  "results": [
+    {
+      "case": "normal E opens shared magazine fixture",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "reload timer begins before spare transfer",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moved spare cancels reload without losing loaded ammo",
+      "pass": true,
+      "detail": "Compatible spare magazine required"
+    },
+    {
+      "case": "both spares replicated into shared container",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shared-magazine concurrent transfer creates one owner",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "all 60 rounds conserved across shared transactions",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client disconnects during actual pending reload",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "passed": 7,
+  "total": 7
+}

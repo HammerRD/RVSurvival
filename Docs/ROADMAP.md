@@ -32,3 +32,11 @@ The user authorized a character-presentation foundation between accepted Gate 8 
 Gate 8.5 targeted follow-up (2026-10-08): the ab601cf downed resource-control coverage qualification is now resolved in Gate8_5CharacterTest. Normal E registered the real power panel; a healthy owned client request changed the load; the matched downed request left load/revision unchanged and was rejected on both peers under separate-process 100 ms/2% loss. Evidence: Docs/Gate8_5Results/character_resource_guard_server.json and character_resource_guard_client.json. This supersedes retained-qualification notes for that one test; historical failed receipts remain. Gate 9 is not started.
 
 Gate 8.5 final closure: ACCEPTED, saved assets/map and 35-check fresh audit, successful final Development Editor/Win64 build, clean Unreal shutdown, original 108 vendor hashes and prior maps preserved. Native separate-process/rendered evidence and limitations are in GATE_8_5_VALIDATION.md. Gate 9 not started. Pre-existing unrelated four working-tree files remain excluded.
+
+## Gate 9 authorized development — 2026-10-08
+
+The user accepted Gate 8.5 and authorized Gate 9 only. Basic grounded handgun,
+real magazines, native body-region medical damage and one native-AI infected are
+implemented and under final regression validation. Actual acceptance belongs in
+GATE_9_VALIDATION.md; historical "Gate 9 not started" notes above describe earlier
+checkpoints. Gate 10 is not started or authorized by this pass.

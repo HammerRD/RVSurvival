@@ -190,7 +190,7 @@ bool URVCharacterContentLibrary::BuildAnimationGraph(UAnimBlueprint* Blueprint,U
         Link(Walk,TEXT("Pose"),Ready,TEXT("BlendPose_1"));
         if(WeaponAimOffset)
         {FGraphNodeCreator<UAnimGraphNode_RotationOffsetBlendSpace> MakeAim(*Graph);auto* Aim=MakeAim.CreateNode();MakeAim.Finalize();Aim->SetAnimationAsset(WeaponAimOffset);Aim->ReconstructNode();
-         Link(Armed,TEXT("Pose"),Aim,TEXT("BasePose"));Link(Variable(TEXT("AimPitch"),-650),TEXT("AimPitch"),Aim,TEXT("Y"));Link(Aim,TEXT("Pose"),Ready,TEXT("BlendPose_0"));}
+         Link(Armed,TEXT("Pose"),Aim,TEXT("BasePose"));Link(Variable(TEXT("NormalizedAimPitch"),-650),TEXT("NormalizedAimPitch"),Aim,TEXT("Y"));Link(Aim,TEXT("Pose"),Ready,TEXT("BlendPose_0"));}
         else Link(Armed,TEXT("Pose"),Ready,TEXT("BlendPose_0"));
         Link(Variable(TEXT("bWeaponReady"),-550),TEXT("bWeaponReady"),Ready,TEXT("bActiveValue"));
         Link(Ready,TEXT("Pose"),Modes,TEXT("BlendPose_0"));
@@ -216,5 +216,6 @@ bool URVCharacterContentLibrary::BuildAnimationGraph(UAnimBlueprint* Blueprint,U
     return false;
 #endif
 }
+
 
 

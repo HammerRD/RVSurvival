@@ -107,3 +107,24 @@ URVCharacterPresentationComponent reads existing replicated seat/rest/ladder/hea
 URVHumanoidAnimInstance reads CharacterMovement velocity (not RV world translation), directional speed, fall/landing and pose state. ABP_RVHumanoid uses native Blend Space Player, Sequence Players and Blend Poses by Int: locomotion, driver, passenger, bed, downed, ladder, treatment, fall, jump, landing and seated-down slumping. BS_RVLocomotion has 27 speed/direction samples: idle, 180 cm/s walk and 600 cm/s jog across eight directions with the backward seam. No bespoke evaluator, replicated ragdoll or movement solver. Ladder sequence play rate follows signed climb velocity.
 
 The existing ACharacter mesh and capsule remain movement/prediction foundations. Local full-body presentation hides its head bone and advances the camera 20 cm; GetActorEyesViewPoint applies the same profile offset so interaction geometry agrees on server/client. Seat and rest presentation substitutes are bypassed only for configured skeletal characters. URVCharacterContentLibrary wraps editor-only native AssetTools/animation data/AnimGraph authoring and transient observation fixtures; shipping stubs cannot generate animations. IK Rig/Retargeter can support a replacement skeleton; advanced IK/Control Rig is deferred. See GATE_8_5_VALIDATION.md.
+
+## Gate 9 combat/infected modules
+
+URVCombatComponent is optional on the existing survivor; Gate9's project-side
+Blueprint enables it. Inventory remains the owner of real gun/magazine records.
+URVInfectedProfile provides replaceable native Character/AI tuning and presentation.
+ARVInfectedController uses AI Perception and NavigationSystem inside a small native
+Behavior Tree task; RV-specific chase/investigate/attack policy is custom, engine
+scheduling/perception/path following are reused. No Blackboard is required for this
+single policy task; asset subtrees/Blackboard may be added when variants justify them.
+No second StateTree/GAS combat framework is introduced. Existing medical GAS attributes
+remain authoritative; native PointDamage feeds wound transactions through survivor
+TakeDamage. Optional profile-driven bone query spheres preserve head hits independently
+of first-person head hiding. Character capsule/base/prediction remain unchanged.
+
+Native Animation Blueprint armed Blend Space, normalized Epic pistol Aim Offset and
+DefaultSlot fire/reload Montages reuse the accepted skeleton/presentation profile.
+EngineCameras (Epic, already enabled by default) supplies native wave shake lifecycle,
+vertical/horizontal variation and blended recovery; only scalar weapon tuning is
+configured in its initializer. No custom recoil scheduler or animation engine.
+See COMBAT.md, INFECTED.md and GATE_9_VALIDATION.md. Scope remains Gate 9; no Gate 10.

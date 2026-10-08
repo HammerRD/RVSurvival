@@ -15,7 +15,9 @@ public:
     UPROPERTY(BlueprintReadOnly,Category="Presentation") float ClimbPlayRate=1;
     UPROPERTY(BlueprintReadOnly,Category="Presentation") bool bWeaponReady=false;
     UPROPERTY(BlueprintReadOnly,Category="Presentation") float AimPitch=0;
+    UPROPERTY(BlueprintReadOnly,Category="Presentation") float NormalizedAimPitch=0;
 private:
     bool bWasFalling=false;
     float LandingRemaining=0;
 };
+

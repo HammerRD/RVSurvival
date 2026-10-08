@@ -18,7 +18,7 @@ def tick(dt):
   try:ready=json.load(open(B+'ready.json'))['id']==sid
   except (OSError,ValueError,KeyError):ready=False
   if ready:
-   loaded=True;json.dump({'id':sid,'start':time.time()+3,'config':case},open(B+'session.json','w'));load_runner(B+'process_combat.py')
+   loaded=True;json.dump({'id':sid,'start':time.time()+3,'config':case},open(B+'session.json','w'));load_runner(B+case.get('runner','process_combat.py'))
  if (loaded and all(os.path.exists(B+case['name']+'_'+r+'.json') and os.path.getmtime(B+case['name']+'_'+r+'.json')>start for r in ['server','client'])) or t>240:
   if t>240:unreal.log_error('REFINE_TIMEOUT')
   unreal.unregister_slate_post_tick_callback(h)
@@ -32,5 +32,6 @@ def tick(dt):
    if clock()>due:unregister(exit_handle);quit_editor()
   release_runners();stop();exit_handle=register(exit_tick)
 h=unreal.register_slate_post_tick_callback(tick)
+
 
 

@@ -104,3 +104,23 @@ FRVMedicalSupplyMetadata on existing item definitions specifies treatment kind, 
 ## Gate 8 closure — 2026-10-08
 
 Gate 8 medical/injury foundation is ACCEPTED. PlayerState-owned GAS attributes and reusable health/treatment components preserve accepted inventory, needs, seats, moving interior, resources, mechanical systems and prototype recovery. Both healer/driver roles, actual client UMG controls, impaired separate-process networking, transaction stress, recovery simulation, prior-gate representatives and saved-content/vendor audits passed within the documented scope. See GATE_8_VALIDATION.md and MEDICAL.md for architecture, failed history and limitations. Gate 9 is not started. Earlier pending/unauthorized statements describe historical checkpoints.
+
+## Gate 9 firearm and magazine state
+
+The firearm and each magazine use ordinary non-stackable item instances. Definition
+combat metadata identifies capability/caliber/capacity and replaceable grip/mesh,
+montages, sound/effects and recoil tuning; no gameplay dispatch by item name.
+MagazineRounds, bMagazineInitialized, CombatRevision and LoadedInWeapon GUID are
+typed instance fields. Loading reserves a real magazine in the owner's inventory;
+partial reloads do not merge ammunition. Holster retains the loaded magazine.
+Remappable U unloads before either the gun or loaded magazine can transfer/drop.
+An unloaded firearm and spare magazines use the existing pickup/drop/container
+transactions. Native input tests preserve IDs, condition, revision and partial rounds
+through world and storage round trips; simultaneous claims/transfers are serialized
+on authority. Inventory rows show rounds/capacity and loaded/spare status.
+
+Prototype limitations: no separate chamber, no loose-cartridge loading, and nominal
+magazine weight includes ammunition rather than changing per round. Future persistence
+must serialize the usual item identity/definition key/condition and the typed magazine
+fields, then validate both ends of loaded GUID relationships. No save implementation
+or second combat inventory is introduced.

@@ -1,0 +1,253 @@
+{
+  "role": "client",
+  "process_id": 45080,
+  "network": false,
+  "results": [
+    {
+      "case": "host/client real magazine loads and replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host and client fire through owned authority",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "simultaneous independent fire consumes one each",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "partial magazine reload conserves both inventories",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "owned invalid-request probes actually queued",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stale and foreign weapon/magazine intents do not mutate ammo",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "invalid sequence cannot poison subsequent normal fire",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "head hit stops infected and death converges",
+      "pass": true,
+      "detail": "(0.0, <RVInfectedState.DEAD: 5>)"
+    },
+    {
+      "case": "client trace damage and infected death converge",
+      "pass": true,
+      "detail": "(0.0, <RVInfectedState.DEAD: 5>)"
+    },
+    {
+      "case": "friendly fire creates logical head/torso wounds",
+      "pass": true,
+      "detail": "['<RVBodyRegion.HEAD: 0>', '<RVBodyRegion.TORSO: 1>', '<RVBodyRegion.TORSO: 1>']"
+    },
+    {
+      "case": "combat feeds existing downed state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "downed normal fire is rejected without round loss",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "accepted dressings stabilize combat wounds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "accepted revive restores active and retains wounds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host trace maps <RVBodyRegion.HEAD: 0>",
+      "pass": true,
+      "detail": "[('<RVBodyRegion.HEAD: 0>', 2.0)]"
+    },
+    {
+      "case": "host trace maps <RVBodyRegion.TORSO: 1>",
+      "pass": true,
+      "detail": "[('<RVBodyRegion.TORSO: 1>', 2.0)]"
+    },
+    {
+      "case": "host trace maps <RVBodyRegion.LEFT_ARM: 2>",
+      "pass": true,
+      "detail": "[('<RVBodyRegion.LEFT_ARM: 2>', 2.0)]"
+    },
+    {
+      "case": "host trace maps <RVBodyRegion.RIGHT_ARM: 3>",
+      "pass": true,
+      "detail": "[('<RVBodyRegion.RIGHT_ARM: 3>', 2.0)]"
+    },
+    {
+      "case": "host trace maps <RVBodyRegion.LEFT_LEG: 4>",
+      "pass": true,
+      "detail": "[('<RVBodyRegion.LEFT_LEG: 4>', 2.0)]"
+    },
+    {
+      "case": "host trace maps <RVBodyRegion.RIGHT_LEG: 5>",
+      "pass": true,
+      "detail": "[('<RVBodyRegion.RIGHT_LEG: 5>', 2.0)]"
+    },
+    {
+      "case": "client trace maps <RVBodyRegion.HEAD: 0>",
+      "pass": true,
+      "detail": "[('<RVBodyRegion.HEAD: 0>', 2.0)]"
+    },
+    {
+      "case": "client trace maps <RVBodyRegion.TORSO: 1>",
+      "pass": true,
+      "detail": "[('<RVBodyRegion.TORSO: 1>', 2.0)]"
+    },
+    {
+      "case": "client trace maps <RVBodyRegion.LEFT_ARM: 2>",
+      "pass": true,
+      "detail": "[('<RVBodyRegion.LEFT_ARM: 2>', 2.0)]"
+    },
+    {
+      "case": "client trace maps <RVBodyRegion.RIGHT_ARM: 3>",
+      "pass": true,
+      "detail": "[('<RVBodyRegion.RIGHT_ARM: 3>', 2.0)]"
+    },
+    {
+      "case": "client trace maps <RVBodyRegion.LEFT_LEG: 4>",
+      "pass": true,
+      "detail": "[('<RVBodyRegion.LEFT_LEG: 4>', 2.0)]"
+    },
+    {
+      "case": "client trace maps <RVBodyRegion.RIGHT_LEG: 5>",
+      "pass": true,
+      "detail": "[('<RVBodyRegion.RIGHT_LEG: 5>', 2.0)]"
+    },
+    {
+      "case": "two normal held-E claims admit partial magazine exactly once",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "contention preserves six rounds and unique identity",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "inventories": {
+    "host": [
+      {
+        "id": "5C62859547D404520D88BBB1B33FA007",
+        "definition": "DA_9mmHandgun",
+        "quantity": 1,
+        "condition": 0.8100000023841858,
+        "rounds": 0,
+        "revision": 15,
+        "loaded_in": "00000000000000000000000000000000"
+      },
+      {
+        "id": "7C24AE434814998D4F651EA0A6F05ADB",
+        "definition": "DA_9mmMagazine",
+        "quantity": 1,
+        "condition": 0.8100000023841858,
+        "rounds": 13,
+        "revision": 4,
+        "loaded_in": "00000000000000000000000000000000"
+      },
+      {
+        "id": "CE935D6F409F43872C3A0A97EDB1E4C1",
+        "definition": "DA_9mmMagazine",
+        "quantity": 1,
+        "condition": 0.8100000023841858,
+        "rounds": 4,
+        "revision": 12,
+        "loaded_in": "5C62859547D404520D88BBB1B33FA007"
+      },
+      {
+        "id": "C89E22D24365873F4B22A4BC4A48D3B3",
+        "definition": "DA_9mmMagazine",
+        "quantity": 1,
+        "condition": 0.8100000023841858,
+        "rounds": 15,
+        "revision": 0,
+        "loaded_in": "00000000000000000000000000000000"
+      },
+      {
+        "id": "4C1B2EFF41A78207F24DE289BE45F26C",
+        "definition": "DA_FirstAidKit",
+        "quantity": 1,
+        "condition": 0.8100000023841858,
+        "rounds": 0,
+        "revision": 0,
+        "loaded_in": "00000000000000000000000000000000"
+      },
+      {
+        "id": "ECB13C924547DFAC3FB18393130C5B3E",
+        "definition": "DA_9mmMagazine",
+        "quantity": 1,
+        "condition": 1.0,
+        "rounds": 6,
+        "revision": 0,
+        "loaded_in": "00000000000000000000000000000000"
+      }
+    ],
+    "client": [
+      {
+        "id": "35F1F2694285B983A20A94A3049F4C67",
+        "definition": "DA_9mmHandgun",
+        "quantity": 1,
+        "condition": 0.8100000023841858,
+        "rounds": 0,
+        "revision": 14,
+        "loaded_in": "00000000000000000000000000000000"
+      },
+      {
+        "id": "FC7A48A948B2C798512755AEF93C6A02",
+        "definition": "DA_9mmMagazine",
+        "quantity": 1,
+        "condition": 0.8100000023841858,
+        "rounds": 13,
+        "revision": 4,
+        "loaded_in": "00000000000000000000000000000000"
+      },
+      {
+        "id": "22B09CA14F771DFDC6320A848CEBA93C",
+        "definition": "DA_9mmMagazine",
+        "quantity": 1,
+        "condition": 0.8100000023841858,
+        "rounds": 5,
+        "revision": 11,
+        "loaded_in": "35F1F2694285B983A20A94A3049F4C67"
+      },
+      {
+        "id": "9217CEC745C1E8A5D6C014859B341E04",
+        "definition": "DA_9mmMagazine",
+        "quantity": 1,
+        "condition": 0.8100000023841858,
+        "rounds": 15,
+        "revision": 0,
+        "loaded_in": "00000000000000000000000000000000"
+      }
+    ]
+  },
+  "passed": 28,
+  "total": 28,
+  "medical_feedback": "",
+  "client_wounds": [
+    [
+      "<RVBodyRegion.RIGHT_LEG: 5>",
+      3.0,
+      0
+    ]
+  ]
+}

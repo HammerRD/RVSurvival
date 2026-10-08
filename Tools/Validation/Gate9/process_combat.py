@@ -86,13 +86,51 @@ at(68,revive);at(82,lambda:check('accepted revive restores active and retains wo
 def snapshot():
  return {name:[{'id':guid(i.id),'definition':i.definition.get_name(),'quantity':i.quantity,'condition':i.condition,'rounds':i.magazine_rounds,'revision':i.combat_revision,'loaded_in':guid(i.loaded_in_weapon)} for i in items(c)] for name,c in [('host',hp),('client',cp)]}
 def finish():
- global active,w,pc,p,other,hp,cp,enemies
+ global active,w,pc,p,other,hp,cp,enemies,camera
  active=False
  for k in list(held):key(k,False)
  unreal.unregister_slate_post_tick_callback(handle)
  data={'role':role,'process_id':os.getpid(),'network':config.get('network',False),'results':results,'inventories':snapshot(),'passed':sum(r['pass'] for r in results),'total':len(results),'medical_feedback':health(hp).feedback,'client_wounds':[(str(i.region),i.bleeding_per_minute,i.revision) for i in health(cp).injuries]}
  (B/(config['name']+'_'+role+'.json')).write_text(json.dumps(data,indent=2));w=pc=p=other=hp=cp=None;enemies=[]
-at(85,finish);events.sort(key=lambda e:e[0])
+
+def region_scene():
+ if authority:
+  health(hp).debug_clear_injuries();health(cp).debug_clear_injuries();hp.set_actor_location(unreal.Vector(0,-6500,90),False,True);cp.set_actor_location(unreal.Vector(300,-6500,90),False,True)
+ p.character_movement.stop_movement_immediately();p.set_actor_location(unreal.Vector(0 if authority else 300,-6500,90),False,True);pc.set_control_rotation(unreal.Rotator(yaw=0 if authority else 180))
+at(86,region_scene);tap(87,'Four');tap(88,'Four','host')
+regions=[unreal.RVBodyRegion.HEAD,unreal.RVBodyRegion.TORSO,unreal.RVBodyRegion.LEFT_ARM,unreal.RVBodyRegion.RIGHT_ARM,unreal.RVBodyRegion.LEFT_LEG,unreal.RVBodyRegion.RIGHT_LEG]
+def clear_region_patient(patient):
+ if authority:check('development patient reset succeeds',health(patient).debug_clear_injuries())
+def aim_region(patient,region):aim(patient.get_component_by_class(unreal.RVCharacterPresentationComponent).get_body_region_transform(region).translation+unreal.Vector(0,0,2))
+def check_region(patient,region,label):check(label+' trace maps '+str(region),len(health(patient).injuries)==1 and health(patient).injuries[0].region==region,[(str(i.region),i.severity) for i in health(patient).injuries])
+for i,r in enumerate(regions):
+ t=90+i*3;at(t-1.5,lambda:clear_region_patient(cp));at(t-.3,lambda r=r:aim_region(cp,r) if authority else None);tap(t,'LeftMouseButton','host');at(t+1,lambda r=r:check_region(cp,r,'host'))
+tap(107,'Four','host');tap(108,'Four','client')
+for i,r in enumerate(regions):
+ t=110+i*3;at(t-1.5,lambda:clear_region_patient(hp));at(t-.3,lambda r=r:aim_region(hp,r) if not authority else None);tap(t,'LeftMouseButton','client');at(t+1,lambda r=r:check_region(hp,r,'client'))
+
+
+contested_identity=''
+def contention_fixture():
+ global contested_identity
+ pickup=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVWorldItem) if a.item.definition and a.item.definition.get_editor_property('Combat').get_editor_property('bMagazine') and a.item.magazine_rounds==6)
+ contested_identity=guid(pickup.item.id)
+ if authority:pickup.set_actor_location(unreal.Vector(130,-6500,110),False,True)
+ aim(unreal.Vector(130,-6500,110))
+at(128,contention_fixture);at(129,lambda:aim(unreal.Vector(130,-6500,110)))
+at(131,lambda:key('E',True));at(131.8,lambda:key('E',False))
+at(133.5,lambda:check('two normal held-E claims admit partial magazine exactly once',sum(guid(i.id)==contested_identity for c in [hp,cp] for i in items(c))==1))
+at(133.7,lambda:check('contention preserves six rounds and unique identity',sum(i.magazine_rounds for c in [hp,cp] for i in items(c) if guid(i.id)==contested_identity)==6))
+
+
+camera=None
+def observe_remote():
+ global camera
+ pos=other.get_actor_location()+unreal.Vector(150,-180,55);camera=unreal.RVCharacterContentLibrary.spawn_observation_camera(p,pos,unreal.MathLibrary.find_look_at_rotation(pos,other.get_actor_location()+unreal.Vector(0,0,35)));pc.set_view_target_with_blend(camera,0)
+def capture_remote():unreal.SystemLibrary.execute_console_command(pc,'shot showui filename=D:/GitHub/RVSurvival/RVSurvival/Docs/Gate9Results/Visuals/remote_ready_'+role+'.png -nosuffix',pc)
+at(5.2,observe_remote);at(5.5,capture_remote);at(5.8,lambda:pc.set_view_target_with_blend(p,0))
+
+at(136,finish);events.sort(key=lambda e:e[0])
 def tick(dt):
  global idx
  if not active:return
@@ -102,4 +140,7 @@ def tick(dt):
    if not active:return
  except Exception:check('runner error',False,traceback.format_exc());finish()
 handle=unreal.register_slate_post_tick_callback(tick)
+
+
+
 

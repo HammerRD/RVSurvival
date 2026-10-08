@@ -126,3 +126,25 @@ Configured authoritative eyes and local camera share the same 20 cm forward offs
 
 
 Gate 8.5 targeted follow-up (2026-10-08): the ab601cf downed resource-control coverage qualification is now resolved in Gate8_5CharacterTest. Normal E registered the real power panel; a healthy owned client request changed the load; the matched downed request left load/revision unchanged and was rejected on both peers under separate-process 100 ms/2% loss. Evidence: Docs/Gate8_5Results/character_resource_guard_server.json and character_resource_guard_client.json. This supersedes retained-qualification notes for that one test; historical failed receipts remain. Gate 9 is not started.
+
+## Gate 9 combat networking
+
+An opt-in survivor combat component receives owned reliable equip/aim/fire/reload/
+unload intents. Fire validates state, GUID ownership, weapon revision, accepted
+request sequence and cadence; authority consumes one magazine round before deriving
+its own eye/view trace and applying native point damage. Invalid requests do not
+advance the accepted nonce. Reload uses native TimerManager and rechecks ownership
+and revision at completion; a transferred spare interrupts without ammo loss.
+Native FastArray inventory replication carries rounds and loaded GUID relationships.
+Weapon/aim/reload-end/shot-counter properties replicate; feedback is owner-only.
+Unreliable shot effects cannot replay gameplay. Local engine camera shakes alter
+presentation and recover without modifying authoritative ControlRotation.
+
+Infected AI, perception, navigation, melee timers and damage run only on authority.
+Native CharacterMovement replicates position; discrete state/vitality/leg impairment/
+attack/death counters replicate. Player damage uses existing replicated injuries and
+GAS vitals. Both-role six-region hit, independent simultaneous fire, partial reload,
+invalid ownership/revision rejection, downed/treatment/revive, pickup contention and
+exact final inventory convergence pass in separate processes with 100 ms outgoing
+latency and 2% loss. See GATE_9_VALIDATION.md for actual scope and recovery failures.
+No competitive lag compensation or new networking protocol is implemented.

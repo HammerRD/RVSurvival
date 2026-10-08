@@ -12,6 +12,10 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Camera/CameraComponent.h"
+#include "Camera/PlayerCameraManager.h"
+#include "Camera/CameraModifier_CameraShake.h"
+#include "Shakes/DefaultCameraShakeBase.h"
+#include "Shakes/WaveOscillatorCameraShakePattern.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputAction.h"
@@ -24,11 +28,13 @@
 #include "Net/UnrealNetwork.h"
 #include "TimerManager.h"
 #include "DrawDebugHelpers.h"
+#include "HAL/IConsoleManager.h"
 #include "NativeGameplayTags.h"
 #include "Animation/AnimMontage.h"
 #include "Engine/StaticMeshActor.h"
 #include "Components/PointLightComponent.h"
 UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_RV9mm,"Item.Ammo.9mm");
+static TAutoConsoleVariable<int32> CombatDebugTrace(TEXT("rv.Combat.DebugTrace"),0,TEXT("Development-only shot trace overlay"));
 
 URVCombatComponent::URVCombatComponent(){SetIsReplicatedByDefault(true);PrimaryComponentTick.bCanEverTick=true;}
 URVInventoryComponent* URVCombatComponent::Inventory() const{return GetOwner()->FindComponentByClass<URVInventoryComponent>();}
@@ -113,8 +119,30 @@ void URVCombatComponent::MulticastShot_Implementation(FVector_NetQuantize Start,
         Effect(Muzzle,.035f,.08f,true);Effect(End,.025f,.5f,false);
     }
     // Bounded prototype effect. Cosmetic loss never repeats an authoritative shot.
-    DrawDebugLine(GetWorld(),Start,End,FColor::Yellow,false,.08f,0,.7f);DrawDebugPoint(GetWorld(),End,5,FColor::Orange,false,.3f);
-    if(auto* P=Cast<APawn>(GetOwner());P && P->IsLocallyControlled())if(auto* PC=Cast<APlayerController>(P->GetController());PC && GetWeapon(W))PC->AddPitchInput(-W.Definition->Combat.RecoilPitch);
+    #if !(UE_BUILD_SHIPPING || UE_BUILD_TEST)
+    if(CombatDebugTrace.GetValueOnGameThread())
+    {DrawDebugLine(GetWorld(),Start,End,FColor::Yellow,false,.08f,0,.7f);DrawDebugPoint(GetWorld(),End,5,FColor::Orange,false,.3f);}
+#endif
+    if(auto* P=Cast<APawn>(GetOwner());P && P->IsLocallyControlled())if(auto* PC=Cast<APlayerController>(P->GetController());PC && PC->PlayerCameraManager && GetWeapon(W))
+    {
+        const auto& Tuning=W.Definition->Combat;
+        const float Pitch=FMath::Clamp(Tuning.RecoilPitch,0.f,3.f),Yaw=FMath::Clamp(Tuning.RecoilYaw,0.f,1.f);
+        const float Recovery=FMath::Clamp(Tuning.RecoilRecoverySeconds,.05f,.5f);
+        if(!FMath::IsFinite(Pitch) || !FMath::IsFinite(Yaw) || !FMath::IsFinite(Recovery))return;
+        FAddCameraShakeParams Params;
+        // Native camera manager owns timing/blending/cleanup. Only scalar tuning is
+        // captured; recoil never changes the authoritative trace or ControlRotation.
+        Params.Initializer=FOnInitializeCameraShake::CreateLambda([Pitch,Yaw,Recovery](UCameraShakeBase* Shake)
+        {
+            auto* Wave=NewObject<UWaveOscillatorCameraShakePattern>(Shake);
+            Wave->Duration=Recovery;Wave->BlendInTime=.01f;Wave->BlendOutTime=Recovery*.8f;
+            Wave->LocationAmplitudeMultiplier=0;Wave->RotationAmplitudeMultiplier=1;Wave->Roll.Amplitude=0;Wave->FOV.Amplitude=0;
+            Wave->Pitch.Amplitude=Pitch;Wave->Pitch.Frequency=.8f/Recovery;Wave->Pitch.InitialOffsetType=EInitialWaveOscillatorOffsetType::Zero;
+            Wave->Yaw.Amplitude=Yaw;Wave->Yaw.Frequency=.8f/Recovery;Wave->Yaw.InitialOffsetType=EInitialWaveOscillatorOffsetType::Random;
+            Shake->SetRootShakePattern(Wave);
+        });
+        PC->PlayerCameraManager->StartCameraShake(UDefaultCameraShakeBase::StaticClass(),Params);
+    }
 }
 void URVCombatComponent::UpdateVisual()
 {
@@ -207,3 +235,6 @@ bool URVCombatComponent::DebugRequestReload(FGuid Magazine,int32 Revision)
     return false;
 #endif
 }
+
+
+

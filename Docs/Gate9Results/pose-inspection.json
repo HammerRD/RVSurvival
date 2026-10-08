@@ -1,11 +1,59 @@
 {
-  "anim_pitch": 4.550000190734863,
+  "anim_pitch": 0.0,
   "speed": 0.0,
   "pose": 0,
-  "hand_rotation": "<Struct 'Rotator' (0x0000015BDEAFFD50) {pitch: -79.245596, yaw: -49.571303, roll: -156.430988}>",
-  "head_location": "<Struct 'Vector' (0x0000015BDEAFFD50) {x: -212.494897, y: -2489.986427, z: 159.278704}>",
-  "hand_location": "<Struct 'Vector' (0x0000015BDEAFFD50) {x: -189.827238, y: -2490.523801, z: 192.187570}>",
-  "actor_rotation": "<Struct 'Rotator' (0x0000015BDEAFEF90) {pitch: 0.000000, yaw: -29.400002, roll: 0.000000}>",
-  "eyes": "(<Struct 'Vector' (0x0000015BDEAFEF90) {x: -182.575724, y: -2509.818076, z: 154.000000}>, <Struct 'Rotator' (0x0000015BDEAFFD50) {pitch: 4.550000, yaw: 330.599998, roll: 0.000000}>)",
-  "aim_axes": "[{}, {}, {}]"
+  "hand_rotation": "<Struct 'Rotator' (0x0000016496C74D80) {pitch: -8.574778, yaw: -178.264388, roll: -1.606789}>",
+  "head_location": "<Struct 'Vector' (0x0000016496C74D80) {x: -200.957306, y: -2495.561757, z: 160.734229}>",
+  "hand_location": "<Struct 'Vector' (0x0000016496C74D80) {x: -165.885705, y: -2484.572607, z: 150.863591}>",
+  "actor_rotation": "<Struct 'Rotator' (0x0000016496C77CB0) {pitch: 0.000000, yaw: 0.000000, roll: -0.000000}>",
+  "eyes": "(<Struct 'Vector' (0x0000016496C77CB0) {x: -180.000000, y: -2500.000000, z: 154.000000}>, <Struct 'Rotator' (0x0000016496C74D80) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>)",
+  "aim_axes": [
+    {
+      "DisplayName": "None",
+      "Min": "-1.0",
+      "Max": "1.0"
+    },
+    {
+      "DisplayName": "None",
+      "Min": "-1.0",
+      "Max": "1.0"
+    },
+    {
+      "DisplayName": "None",
+      "Min": "0.0",
+      "Max": "100.0"
+    }
+  ],
+  "aim_samples": [
+    {
+      "position": "<Struct 'Vector' (0x000001648C6692E8) {x: 0.000000, y: -1.000000, z: 0.000000}>",
+      "animation": "MF_Pistol_Idle_ADS_AO_CD",
+      "additive": "<AdditiveAnimationType.AAT_ROTATION_OFFSET_MESH_SPACE: 2>",
+      "base": "<Object '/Game/Characters/Mannequins/Anims/Pistol/MF_Pistol_Idle_ADS.MF_Pistol_Idle_ADS' (0x00000164A821D200) Class 'AnimSequence'>"
+    },
+    {
+      "position": "<Struct 'Vector' (0x00000164D60104C8) {x: 0.000000, y: 1.000000, z: 0.000000}>",
+      "animation": "MF_Pistol_Idle_ADS_AO_CU",
+      "additive": "<AdditiveAnimationType.AAT_ROTATION_OFFSET_MESH_SPACE: 2>",
+      "base": "<Object '/Game/Characters/Mannequins/Anims/Pistol/MF_Pistol_Idle_ADS.MF_Pistol_Idle_ADS' (0x00000164A821D200) Class 'AnimSequence'>"
+    },
+    {
+      "position": "<Struct 'Vector' (0x00000164D6011D88) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+      "animation": "MF_Pistol_Idle_ADS1",
+      "additive": "<AdditiveAnimationType.AAT_ROTATION_OFFSET_MESH_SPACE: 2>",
+      "base": "<Object '/Game/Characters/Mannequins/Anims/Pistol/MF_Pistol_Idle_ADS.MF_Pistol_Idle_ADS' (0x00000164A821D200) Class 'AnimSequence'>"
+    }
+  ],
+  "animation_bones": [
+    {
+      "clip": "/Game/Characters/Mannequins/Anims/Pistol/MF_Pistol_Idle_ADS",
+      "hand": "<Struct 'Transform' (0x0000016496A5EC40) {rotation: {x: -0.045456, y: -0.056198, z: 0.682807, w: -0.727015}, translation: {x: -14.712233, y: 35.217738, z: 148.692796}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "head": "<Struct 'Transform' (0x0000016496A5EC40) {rotation: {x: -0.113187, y: -0.769605, z: 0.264128, w: 0.570205}, translation: {x: -3.534765, y: 0.251100, z: 158.747368}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>"
+    },
+    {
+      "clip": "/Game/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS1",
+      "hand": "<Struct 'Transform' (0x0000016496A5EC40) {rotation: {x: -0.045456, y: -0.056198, z: 0.682807, w: -0.727015}, translation: {x: -14.712233, y: 35.217738, z: 148.692796}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+      "head": "<Struct 'Transform' (0x0000016496A5EC40) {rotation: {x: -0.113187, y: -0.769605, z: 0.264128, w: 0.570205}, translation: {x: -3.534765, y: 0.251100, z: 158.747368}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>"
+    }
+  ]
 }

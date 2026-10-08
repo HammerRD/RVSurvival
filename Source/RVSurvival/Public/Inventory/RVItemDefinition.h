@@ -46,6 +46,8 @@ struct FRVCombatItemMetadata
     UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,meta=(ClampMin="0")) float LimbDamageMultiplier=.75f;
     UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,meta=(ClampMin="1",ClampMax="3")) float WoundSeverity=2;
     UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,meta=(ClampMin="0")) float RecoilPitch=.7f;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, meta=(ClampMin="0")) float RecoilYaw=.12f;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, meta=(ClampMin="0.05")) float RecoilRecoverySeconds=.18f;
     UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,meta=(ClampMin="0")) float HearingRange=5000;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FName HandAnchor=TEXT("Tool");
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FTransform GripOffset;
@@ -82,3 +84,4 @@ public:
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) bool bEquippable = false;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) bool bRequiresPhysicalCarry = false;
 };
+

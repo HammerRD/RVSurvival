@@ -17,8 +17,9 @@ def tick(dt):
   if len(entries)<4 or any(a.get_editor_property('Seat') is None for a in entries):return
   s=json.load(open(B+'session.json'));json.dump({'id':s['id']},open(B+'ready.json','w'))
   if not s['start']:return
-  unreal.unregister_slate_post_tick_callback(h);load_runner(B+'process_combat.py')
+  unreal.unregister_slate_post_tick_callback(h);load_runner(B+s['config'].get('runner','process_combat.py'))
  except (StopIteration,OSError,ValueError):return
 h=unreal.register_slate_post_tick_callback(tick)
+
 
 

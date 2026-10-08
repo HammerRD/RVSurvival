@@ -266,3 +266,16 @@ Separate-process reversed roles, approximately 60 mph moving passenger, 20 V/1 s
 Gate 8.5 bounded follow-up closed the prior Gate 8 downed resource-control qualification with a successful healthy positive control and matched downed rejection in separate processes under 100 ms/2% loss. Original evidence/history retained. Final ladder arm alignment passed a new rendered climb/down/return check.
 
 Gate 8.5 final closure: ACCEPTED, saved assets/map and 35-check fresh audit, successful final Development Editor/Win64 build, clean Unreal shutdown, original 108 vendor hashes and prior maps preserved. Native separate-process/rendered evidence and limitations are in GATE_8_5_VALIDATION.md. Gate 9 not started. Pre-existing unrelated four working-tree files remain excluded.
+
+## 2026-10-08 — Gate 9 combat foundation in progress
+
+Added opt-in native firearm/magazine combat, Epic pistol animation integration and
+native AI Perception/Behavior Tree/NavMesh infected foundation. Damage routes through
+Unreal PointDamage into accepted medical wound records and GAS vitality. Real
+magazine GUIDs, rounds, condition and reservations survive holster/reload/unload,
+drop/repick and shared container transfers. Native input and separate-process
+host/client region/ownership/contention tests pass; a 100-shot reload-conservation
+stress run passes. Prototype first-person clearance and normalized aim-offset input
+were corrected after inspecting rendered failures. See GATE_9_VALIDATION.md for
+actual receipts and retained failures. Final emulation/regression validation and
+acceptance remain pending. Gate 10 has not begun.

@@ -1,0 +1,91 @@
+{
+  "results": [
+    {
+      "case": "normal E picks up physical partial magazine",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "pickup preserves six rounds and condition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "drop removes owned record without consuming rounds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "repick preserves GUID, rounds and condition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal E opens reusable shared storage",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "partial magazine transfers to container with state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "container return preserves same identity and rounds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "close restores normal walking with no open container",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal E acquires actual firearm mesh pickup",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "acquired firearm loads the six-round magazine",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fire consumes one real partial-magazine round",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native recoil changes view then recovers",
+      "pass": false,
+      "detail": "[1.4210854715202004e-14, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.1601077243739155e-05, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14]"
+    },
+    {
+      "case": "cosmetic recoil does not alter authoritative aim",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "empty/unloaded fire rejected without ammo or shot change",
+      "pass": true,
+      "detail": "Magazine empty \u2014 reload"
+    },
+    {
+      "case": "firearm drop/repick retains GUID condition and revision",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "firearm stores without identity/state loss",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "firearm returns from storage unchanged",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "passed": 16,
+  "total": 17
+}

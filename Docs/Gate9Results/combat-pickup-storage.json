@@ -39,8 +39,53 @@
       "case": "close restores normal walking with no open container",
       "pass": true,
       "detail": ""
+    },
+    {
+      "case": "normal E acquires actual firearm mesh pickup",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "acquired firearm loads the six-round magazine",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fire consumes one real partial-magazine round",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native recoil changes view then recovers",
+      "pass": true,
+      "detail": "[1.4210854715202004e-14, 0.1345594959054246, 0.3141879803707788, 0.44998050774642806, 0.56148220957148, 0.6174449586384441, 0.6223566017891464, 0.5904374128077308, 0.5277890766293538, 0.4420391034311848, 0.34179198117309895, 0.23595806806952524, 0.13302121852535365, 0.04045879111347972, 0.03574691850411682, 0.0914446819879231, 0.12465027280222785, 0.1355465769365196, 0.12630045603015105, 0.10087950368347265, 0.06468565553393546, 0.023914172313084237, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14, 1.4210854715202004e-14]"
+    },
+    {
+      "case": "cosmetic recoil does not alter authoritative aim",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "empty/unloaded fire rejected without ammo or shot change",
+      "pass": true,
+      "detail": "Magazine empty \u2014 reload"
+    },
+    {
+      "case": "firearm drop/repick retains GUID condition and revision",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "firearm stores without identity/state loss",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "firearm returns from storage unchanged",
+      "pass": true,
+      "detail": ""
     }
   ],
-  "passed": 8,
-  "total": 8
+  "passed": 17,
+  "total": 17
 }

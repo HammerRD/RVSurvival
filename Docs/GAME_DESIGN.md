@@ -51,3 +51,15 @@ Gate 8 medical/injury foundation is ACCEPTED. PlayerState-owned GAS attributes a
 ## Gate 8.5 humanoid presentation foundation
 
 The mobile-base survivor now has a replaceable Epic Manny Simple skeletal presentation in Gate8_5CharacterTest. Visual state follows accepted gameplay; the primary capsule, usable moving interior, seats, sleep, ladder, medical authority and logistical systems remain authoritative. Cab and dinette sitting, bed lying, controlled downed and prototype climbing/treatment poses establish readability without final animation polish. No combat, weapons, paid characters, clothing creator or Gate 9 gameplay is implemented. Alternate bodies/clothing can use another visual profile and compatible/retargeted animation assets.
+
+## Gate 9 grounded combat foundation (authorized 2026-10-08)
+
+One prototype 9mm handgun uses real inventory magazines, semiautomatic input and
+server-derived hits into six medical regions. Player consequences remain injury,
+bleeding, pain, contamination and downed/revive through the medical foundation.
+One free Epic humanoid prototype infected uses understandable sight/hearing, native
+navigation, bounded melee windup and data-driven head/limb lethality. There are no
+rarity tiers, universal reserve-ammo pool, damage-number UI or horde/director expansion.
+The RV remains the survival base; weapon management integrates with accepted storage,
+medical treatment and moving interior. Final art/animations, chamber manipulation,
+advanced ballistics and future encounter populations remain later work.

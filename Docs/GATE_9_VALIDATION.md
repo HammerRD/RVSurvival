@@ -151,3 +151,56 @@ but degree-valued pitch fed Y and saturated upward at a small angle. A presentat
 conversion to NormalizedAimPitch is being compiled; no CharacterMovement or physics
 change. Failure screenshots are retained. Network emulation, remaining body-region
 and visual validation, moving-RV and final representative regressions remain pending.
+
+## Verified presentation and full body-region multiplayer follow-up
+
+The normalized Epic aim input now uses degrees/90, matching its authored -1..1
+axis. The Gate9-only character profile uses OwnerCameraOffset (0,0,4) cm rather
+than the earlier profile's 20 cm forward offset, giving the full-body pistol pose
+clearance from the camera. Prior profiles/maps are unchanged. Grip translation
+(-8,0,8) cm with yaw 180 aligns the authored mesh's grip pivot to the configurable
+Tool hand anchor. OS 4/R/LMB equip/reload/fire and a rendered infected death were
+inspected. First-person aim/ready, reload and observation-camera body/grip are
+usable at prototype quality. Remote screenshots on both separate processes show
+a complete humanoid head/body and visible forward-facing handgun. Owner head
+hiding in an owner observation view is intentional, not remote head loss.
+
+`combat_regions_server.json` and `combat_regions_client.json` pass 50/50 and
+28/28 checks. Twelve server-only debug patient resets and ten inventory admissions
+are setup validation, not additional combat accomplishments. Actual normal input
+shots hit Head/Torso/LeftArm/RightArm/LeftLeg/RightLeg from host and client, and
+replicate the matching medical regions. Concurrent normal held-E claims admit the
+six-round world magazine exactly once. Cross-process inventories agree exactly.
+Default gameplay trace overlays are now development-only and disabled unless
+rv.Combat.DebugTrace is explicitly enabled; native muzzle/impact effects remain.
+Network-emulation and final RV regression closure are still pending.
+
+## Stable combat and RV multiplayer milestone — 2026-10-08
+
+Separate-process `combat_emulated` passed all recorded checks (50 server, 28
+client), including actual shots to all six medical regions from both roles,
+concurrent held-E pickup, exact magazine inventory convergence, and downed /
+treatment / revive. Outgoing emulation was 100 ms with 2% loss per endpoint.
+Reload contention and disconnect receipts pass 8 server / 7 client checks:
+a spare transferred during a pending reload aborts completion without ammo loss;
+shared-magazine contention admits one owner; disconnect leaves shared state intact.
+
+`moving_armed_host_emulated` and reciprocal `moving_armed_client` have no failed
+checks. Native 4/R/LMB equipped, loaded and fired on the standing passenger;
+walking/standing at low, road and approximately 60 mph fixture speeds, turning,
+braking and twenty stopped V round trips remained functional. Speed phases use
+server physics velocity fixtures, not a claim of human throttle acceleration.
+The recorded passenger correction count/max were zero in these runs.
+
+Camera recoil now uses native EngineCameras UDefaultCameraShakeBase with
+UWaveOscillatorCameraShakePattern: 0.7 degree pitch, randomized 0.12 degree yaw,
+0.18 second recovery, tunable item metadata. Native rotation multiplier must be
+explicitly enabled (its constructor defaults it to zero). The retained failed
+receipt records that discovery. The rerun measured excursion and return while
+ControlRotation remained unchanged. Gameplay ray direction is not camera-shake
+state. Pickup/drop/repick/storage, condition/GUID continuity and empty firing
+checks pass in the 17-check single-player receipt.
+
+Remaining before acceptance: targeted infected limb / obstacle / loss behavior,
+representative storage-survival-resource regressions, final saved-state/build /
+vendor audit, editor preference restoration, and documentation closure.

@@ -17,6 +17,7 @@ void URVHumanoidAnimInstance::NativeUpdateAnimation(float Delta)
     PoseIndex=Visual?int32(Visual->VisualState):0;
     const auto* Combat=Character->FindComponentByClass<URVCombatComponent>();bWeaponReady=Combat && Combat->bEnabled && Combat->EquippedWeapon.IsValid() && PoseIndex==0;
     AimPitch=FMath::Clamp(FRotator::NormalizeAxis(Character->GetBaseAimRotation().Pitch),-75.f,75.f);
+    NormalizedAimPitch=AimPitch/90.f; // Epic AO_Pistol uses normalized -1..1 axes, not degrees.
     if(const auto* Survivor=Cast<ARVSurvivorCharacter>(Character);Survivor && PoseIndex==4 && Survivor->SeatedVehicle) PoseIndex=10;
     if(const auto* Infected=Cast<ARVInfected>(Character))PoseIndex=Infected->State==ERVInfectedState::Dead?4:Infected->State==ERVInfectedState::Attack?6:0;
     ClimbPlayRate=FMath::Clamp(Velocity.Z/100.f,-1.5f,1.5f);
@@ -31,3 +32,4 @@ void URVHumanoidAnimInstance::NativeUpdateAnimation(float Delta)
     }
     else { bWasFalling=false;LandingRemaining=0; }
 }
+
