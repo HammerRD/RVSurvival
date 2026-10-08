@@ -99,8 +99,15 @@ void URVHealthComponent::TickComponent(float Delta,ELevelTick Type,FActorCompone
     float Blood=PS->MedicalAttributes->GetBlood()-Bleed*Seconds/60;
     if(Bleed<=0 && LifeState==ERVMedicalLifeState::Active) Blood+=Tuning()->BloodRecoveryPerMinute*Seconds/60;
     PS->MedicalAbilitySystem->SetNumericAttributeBase(URVMedicalAttributes::GetBloodAttribute(),FMath::Clamp(Blood,0.f,100.f));
-    if(Blood<Tuning()->CriticalBlood)
-        PS->MedicalAbilitySystem->SetNumericAttributeBase(URVMedicalAttributes::GetVitalityAttribute(),FMath::Max(0.f,PS->MedicalAttributes->GetVitality()-Seconds*.02f));
+    // Stabilized, revived patients must be able to recover, rather than inevitably
+    // deteriorating again before their deliberately slow blood recovery completes.
+    float Vitality=PS->MedicalAttributes->GetVitality();
+    if(Blood<Tuning()->CriticalBlood && (Bleed>0 || LifeState==ERVMedicalLifeState::Downed))
+        Vitality-=FMath::Max(0.f,Tuning()->CriticalVitalityLossPerMinute)*Seconds/60;
+    else if(Blood>=Tuning()->CriticalBlood && Bleed<=0 && LifeState==ERVMedicalLifeState::Active
+            && PS->Needs->State.Nutrition>20 && PS->Needs->State.Hydration>20)
+        Vitality+=FMath::Max(0.f,Tuning()->VitalityRecoveryPerMinute)*Seconds/60;
+    PS->MedicalAbilitySystem->SetNumericAttributeBase(URVMedicalAttributes::GetVitalityAttribute(),FMath::Clamp(Vitality,0.f,100.f));
     UpdateLifeState(Seconds);
     if(ActiveTreatment.IsValid()) { FString Error; if(!ValidateTreatment(Error)) CancelTreatment(Error); }
 }

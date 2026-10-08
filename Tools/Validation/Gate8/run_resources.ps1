@@ -14,6 +14,7 @@ foreach($name in @('launch_process.py','process_startup.py','process_ready.py','
   $text=$text.Replace("unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_begin_play()","s.set_editor_property('AdditionalLaunchParameters','-ExecCmds='+chr(34)+'py D:/GitHub/RVSurvival/RVSurvival/Saved/Gate8Resources/process_startup.py'+chr(34)+' -abslog='+chr(34)+B+'resources_child.log'+chr(34))`nunreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_begin_play()")
   $text=$text.Replace("  unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_end_play();ending=time.time()+4","  from runner_runtime import release_runners`n  release_runners();unreal.log('LAYOUT_RESOURCE_RUNNERS_RELEASED_BEFORE_STOP')`n  unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_end_play();ending=time.time()+4")
  }
+ if($name -eq 'launch_process.py'){$text=(Get-Content -LiteralPath ($root+'\Tools\Validation\Gate8\launch_process.py') -Raw).Replace('Saved/Gate8Validation/','Saved/Gate8Resources/').Replace('Gate8MedicalTest','Gate6FuelElectricalTest').Replace('process_refinement.py','process.py')}
  Set-Content -LiteralPath ($base+'\'+$name) -Value $text -Encoding utf8
 }
 if(Get-Process UnrealEditor -ErrorAction SilentlyContinue){throw 'Refuse concurrent editor'}

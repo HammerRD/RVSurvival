@@ -14,6 +14,7 @@ foreach($name in @('launch_process.py','process_startup.py','process_ready.py'))
   $source=$source.Replace("if t>240 and not ending:unreal.log_error('REFINE_TIMEOUT');", "if t>240 and not ending:`n  unreal.log_error('REFINE_TIMEOUT');")
   $source=$source.Replace('unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_end_play();ending=time.time()+4',"from runner_runtime import release_runners`n  release_runners();unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).editor_request_end_play();ending=time.time()+4")
  }
+ if($name -eq 'launch_process.py'){$source=(Get-Content ($root+'/Tools/Validation/Gate8/launch_process.py') -Raw).Replace('Saved/Gate8Validation/','Saved/Gate8MechanicalRegression/').Replace('Gate8MedicalTest','Gate7MechanicalTest')}
  $source|Set-Content ($base+$name) -Encoding utf8
 }
 $runner=if($Mode -in @('mechanical','disconnect','recovery')){$root+'/Tools/Validation/Gate7/process_'+$Mode+'.py'}else{$root+'/Tools/Validation/Gate6LayoutRework/process_'+$(if($Mode -eq 'native'){'refinement'}else{$Mode})+'.py'}

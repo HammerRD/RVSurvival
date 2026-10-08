@@ -1,0 +1,31 @@
+{
+  "pid": 49440,
+  "role": "client",
+  "results": [
+    {
+      "case": "out_of_range_rejected",
+      "pass": true,
+      "detail": "Patient out of reach"
+    },
+    {
+      "case": "line_of_sight_rejected",
+      "pass": true,
+      "detail": "Patient obstructed"
+    },
+    {
+      "case": "patient_movement_cancels_hold",
+      "pass": true,
+      "detail": "Treatment interrupted by movement \u2014 supply retained"
+    },
+    {
+      "case": "stabilization_after_cancellation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "revive_cancel_no_restore_or_consume",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

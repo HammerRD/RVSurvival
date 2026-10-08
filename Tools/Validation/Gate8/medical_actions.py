@@ -37,9 +37,16 @@ def after_splint():
  unreal.RVInteriorMotorhome.dispatch_development_key(pc,'W',True)
 def restored():
  speed=p.get_velocity().length();check('splint_native_walk_improved_not_full',speed>velocity_before+100 and 350<speed<430,speed);unreal.RVInteriorMotorhome.dispatch_development_key(pc,'W',False)
+def stabilize():
+ health.debug_apply_injury(unreal.RVInjuryKind.WOUND,unreal.RVBodyRegion.TORSO,2);i=injuries()[-1];health.request_treatment(ps,i.id,item_id,i.revision)
+def recovery_start():
+ check('recovery_bleeding_controlled',injuries()[-1].bleeding_per_minute==0)
+ health.debug_set_vitals(30,15);health.debug_set_time_scale(3600)
+def recovery_result():
+ health.debug_set_time_scale(1);check('two_hour_stabilized_patient_survives',health.can_act() and 40<attr('Blood')<60 and attr('Vitality')>=15,{'blood':attr('Blood'),'vitality':attr('Vitality')});check('slow_recovery_retains_injuries',len(injuries())==2 and all(i.healing<1 for i in injuries()),[i.healing for i in injuries()])
 def finish():
  unreal.unregister_slate_post_tick_callback(handle);(B/'medical-actions.json').write_text(json.dumps({'kind':'normal E repick/W walking; owned drop/treatment diagnostics','results':results},indent=2))
-events=[(1,fixture),(3,dropped),(4.5,repicked),(5.5,limited),(17,after_splint),(18,restored),(19,finish)]
+events=[(1,fixture),(3,dropped),(4.5,repicked),(5.5,limited),(17,after_splint),(18,restored),(19,stabilize),(24,recovery_start),(26,recovery_result),(27,finish)]
 def tick(dt):
  try:
   if events and time.time()-start>=events[0][0]:_,fn=events.pop(0);fn()

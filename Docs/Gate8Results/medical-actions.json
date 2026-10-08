@@ -1,0 +1,50 @@
+{
+  "kind": "normal E repick/W walking; owned drop/treatment diagnostics",
+  "results": [
+    {
+      "case": "medical_drop_removed_inventory",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "medical_world_drop_condition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_E_medical_repick_GUID_condition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "leg_fracture_native_walk_slowed",
+      "pass": true,
+      "detail": "210.0"
+    },
+    {
+      "case": "splint_retains_fracture",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "splint_native_walk_improved_not_full",
+      "pass": true,
+      "detail": "390.0"
+    },
+    {
+      "case": "recovery_bleeding_controlled",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "two_hour_stabilized_patient_survives",
+      "pass": true,
+      "detail": "{'blood': 48.034645080566406, 'vitality': 24.011470794677734}"
+    },
+    {
+      "case": "slow_recovery_retains_injuries",
+      "pass": true,
+      "detail": "[0.10030914098024368, 0.10020636767148972]"
+    }
+  ]
+}

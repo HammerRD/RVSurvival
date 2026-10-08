@@ -61,6 +61,8 @@ public:
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) float DownedBlood=25;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) float CriticalBlood=40;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) float BloodRecoveryPerMinute=.15f;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="0")) float CriticalVitalityLossPerMinute=1.2f;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="0")) float VitalityRecoveryPerMinute=.15f;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) float HealingPerHour=.05f;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) float DownedTimeoutSeconds=600;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) float TreatmentRangeCm=200;

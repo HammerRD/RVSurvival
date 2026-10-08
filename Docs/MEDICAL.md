@@ -28,7 +28,10 @@ is 0.5/3/10 normalized blood units per minute. A normal untreated leg fracture
 limits movement to 35%; splinting raises it to 65% until sufficient recovery.
 Existing gameplay has no sprint action to bypass this movement policy.
 
-Blood below the critical threshold also reduces Vitality. Blood at/below the
+Active bleeding at critically low Blood, or a critically low Blood downed state,
+reduces Vitality at the configured rate. Stabilized revived patients stop that
+deterioration while Blood slowly recovers. Above the critical Blood threshold,
+adequate nutrition/hydration permit configurable slow Vitality recovery. Blood at/below the
 downed threshold or very low Vitality causes Downed. Zero blood or the configured
 critical downed timeout causes Terminal. Terminal is a prototype state, not a
 permanent-character replacement system.
@@ -45,7 +48,7 @@ Re-dosing refreshes one effect rather than stacking unlimited relief.
 The owned health component sends reliable requests to the server. A request names
 patient PlayerState, injury GUID/revision and a supply GUID from the healer's
 existing inventory. The server reserves the patient for one treatment, checks
-eligibility/range/line of sight, and uses TimerManager for completion. It validates
+eligibility/range/server-derived eye-to-eye line of sight, and uses TimerManager for completion. It validates
 again during the hold and at completion. Supplies are consumed exactly once at
 successful completion through the accepted inventory transaction.
 
@@ -77,6 +80,7 @@ creates authoritative injuries or inventory items.
 
 ## Development and persistence preparation
 
+The default-disabled `rv.Medical.Debug` diagnostic compares visibility origins.
 PIE-authority-only development functions apply test injuries, set Blood/Vitality,
 set contamination risk, accelerate simulation and clear test state. Shipping/test
 builds reject these functions. Short-duration diagnostic supply definitions live
