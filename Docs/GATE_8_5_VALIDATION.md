@@ -114,3 +114,23 @@ Gate 8 qualification is retained unless an explicitly documented matched healthy
 Mixed-resource fixture: all 31 host checks passed; client panel switching/convergence, stale requests and disconnect passed, while its old fuel/exterior approach assertions did not. These remain recorded as failures, not a blanket regression pass. The isolated normal client E/I/F flow then opened the real fill and transferred exactly 20 L from its valid /Game/Resources/DA_FuelCanFull record; native E also opened the specific exterior compartment. One diagnostic iteration used an invalid /Game/Items path, another indexed a Python output string and aborted authority placement; both were harness errors. Normal approach needs clear line of sight, and direct diagnostic relocation needs a settled client/server position. No resource gameplay code was changed or authority bypassed.
 
 The bounded Gate 8 qualification follow-up now has a valid matched positive control in Gate8_5CharacterTest: normal E registered the real power panel; the healthy client's owned request changed InteriorLights; after authoritative downing, the same client's request from the same location was rejected, load/revision stayed unchanged, and owner feedback cleared panel access. Both peers passed in separate processes under 100 ms/2% loss. See character_resource_guard_server/client.json. This closes the specific ab601cf downed resource-control coverage qualification; historical inconclusive receipts remain preserved. No broader medical guarantee or Gate 9 work is implied.
+
+## Final closure — 2026-10-08
+
+Gate 8.5 is ACCEPTED within prototype animation scope. Fresh editor loaded the saved 86-actor Gate8_5CharacterTest with BP_Gate8_5GameMode, BP_RVHumanoid, final profile offsets, all six logical bone mappings, seven attachment specifications and all pose/graph assets. All 35 saved-audit checks passed. Final Development Editor / Win64 build succeeded (target up to date; preceding meaningful native build also succeeded). PIE was stopped before world/editor cleanup; final startup/audit shutdown exited cleanly with no fatal, Python error or World Memory Leak entry.
+
+All 108 purchased Content/RV packages match SHA-256 bytes at baseline 0b6eff6. Prior Gate 1–8 maps and project-side purchased motorhome Blueprint have no changes against ab601cf. Only the new character map and character content are added/configured. Saved editor preferences restored to one-player standalone, one process, no startup test script, emulation disabled; other settings preserved.
+
+Checkpoints: 0bae815, fd70f75, 05b1431 (explicit WIP recovery), 22afc44, bbb8030, 9cbadc9 (validated multiplayer/medical guard). Final local acceptance/documentation commit completes this closure. Working tree is clean for this work; pre-existing unrelated Config/DefaultEngine.ini, .vsconfig, Automation_RVSurvival.slnx and RVSurvival.slnx remain excluded and unchanged by the pass. No Gate 9.
+
+Exact next recommended task: a short human visual playtest of /Game/Maps/Gate8_5CharacterTest using ordinary controls, then explicit authorization for Gate 9. Keep prototype IK/pose polish and deferred refrigerator collision separate from future combat scope. Gate 8's specific resource-control qualification is closed by the matched-control follow-up above.
+
+Representative rendered evidence:
+
+![Remote standing character](Gate8_5Results/Visuals/idle.png)
+![Driver](Gate8_5Results/Visuals/driver.png)
+![Bed](Gate8_5Results/Visuals/bed.png)
+![Downed](Gate8_5Results/Visuals/downed.png)
+![Climbing](Gate8_5Results/Visuals/ladder.png)
+
+Full changed source/content list: Gate8_5Results/changed-files.json. Evidence images and final/failed receipts remain separate; large raw logs stay under Saved/Gate8_5Validation.

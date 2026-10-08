@@ -1,0 +1,179 @@
+{
+  "results": [
+    {
+      "case": "saved_new_map",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_86_actors",
+      "pass": true,
+      "detail": "86"
+    },
+    {
+      "case": "saved_presentation_game_mode",
+      "pass": true,
+      "detail": "BP_Gate8_5GameMode_C"
+    },
+    {
+      "case": "saved_opt_in_profile",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "epic_mesh_and_skeleton",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_OwnerCameraOffset",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002328E1B8FA0) {x: 20.000000, y: 0.000000, z: 0.000000}>"
+    },
+    {
+      "case": "saved_SeatedOffset",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002328E1B8F18) {x: 0.000000, y: 0.000000, z: -25.000000}>"
+    },
+    {
+      "case": "saved_InteriorSeatedOffset",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002328E1B8F30) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+    },
+    {
+      "case": "saved_BedOffset",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002328E1B8F60) {x: -85.000000, y: 0.000000, z: 0.000000}>"
+    },
+    {
+      "case": "saved_DownedOffset",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002328E1B8F78) {x: 85.000000, y: 0.000000, z: 15.000000}>"
+    },
+    {
+      "case": "saved_bed_orientation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "logical_bone_HEAD",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "logical_bone_TORSO",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "logical_bone_LEFT_ARM",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "logical_bone_RIGHT_ARM",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "logical_bone_LEFT_LEG",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "logical_bone_RIGHT_LEG",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "seven_named_attachment_specs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "accepted_54_part_art",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "seven_exterior_containers",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "physical_side_entry",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "sole_rear_bed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "roof_access",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "medical_station_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_sequence_Driver",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_sequence_Passenger",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_sequence_Bed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_sequence_Downed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_sequence_DownedSeated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_sequence_Ladder",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_sequence_Treatment",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_anim_blueprint",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved_blend_space",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "assets_save",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "new_map_save",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

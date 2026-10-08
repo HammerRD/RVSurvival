@@ -169,5 +169,90 @@
       }
     ],
     "status": "historical fixture/pose iteration, not acceptance evidence"
+  },
+  {
+    "run": "character_resources_surface",
+    "role": "client",
+    "failures": [
+      {
+        "case": "own_fill_open",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "case": "owner_or_ownership_feedback",
+        "pass": false,
+        "detail": "Fuel fill out of reach, blocked or RV moving"
+      },
+      {
+        "case": "shared_exterior_open",
+        "pass": false,
+        "detail": ""
+      }
+    ],
+    "status": "historical diagnostic fixture, superseded by valid isolated E/I/F and matched guard controls; no blanket pass"
+  },
+  {
+    "run": "character_client_resource_access",
+    "role": "server",
+    "failures": [
+      {
+        "case": "client_native_F_refuel_conserved",
+        "pass": false,
+        "detail": ""
+      }
+    ],
+    "status": "historical diagnostic fixture, superseded by valid isolated E/I/F and matched guard controls; no blanket pass"
+  },
+  {
+    "run": "character_client_resource_access",
+    "role": "client",
+    "failures": [
+      {
+        "case": "client_native_F_refuel_conserved",
+        "pass": false,
+        "detail": "Panel ready"
+      },
+      {
+        "case": "client_native_E_exterior_unobstructed",
+        "pass": false,
+        "detail": "Hold E: open 02 Fluids / spare supplies"
+      }
+    ],
+    "status": "historical diagnostic fixture, superseded by valid isolated E/I/F and matched guard controls; no blanket pass"
+  },
+  {
+    "run": "character_client_resource_access_final",
+    "role": "server",
+    "failures": [
+      {
+        "case": "exception",
+        "pass": false,
+        "detail": "IndexError('string index out of range')"
+      }
+    ],
+    "status": "historical diagnostic fixture, superseded by valid isolated E/I/F and matched guard controls; no blanket pass"
+  },
+  {
+    "run": "character_client_resource_access_final",
+    "role": "client",
+    "failures": [
+      {
+        "case": "client_native_E_fill_unobstructed",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "case": "client_native_F_refuel_conserved",
+        "pass": false,
+        "detail": "Fuel fill out of reach, blocked or RV moving"
+      },
+      {
+        "case": "client_native_E_exterior_unobstructed",
+        "pass": false,
+        "detail": "{'prompt': '', 'actual': 'None', 'expected': \"<Object '/Game/Maps/Gate8_5CharacterTest.Gate8_5CharacterTest:PersistentLevel.RVExteriorStoragePoint_3.Container' (0x0000020B4ED29380) Class 'RVContainerComponent'>\", 'position': \"<Struct 'Vector' (0x0000020AF9F27B70) {x: 100.000000, y: -430.000000, z: 90.150000}>\"}"
+      }
+    ],
+    "status": "historical diagnostic fixture, superseded by valid isolated E/I/F and matched guard controls; no blanket pass"
   }
 ]

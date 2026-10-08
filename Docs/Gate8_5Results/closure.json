@@ -1,0 +1,18 @@
+{
+  "accepted": true,
+  "saved_audit_pass": true,
+  "build_succeeded": true,
+  "editor_clean_exit": true,
+  "vendor_files": 108,
+  "prior_maps_changed": false,
+  "gate8_resource_qualification": "resolved by matched positive control",
+  "gate9_started": false,
+  "source_checkpoint_before_closure": "9cbadc9",
+  "module_sha256": "28412abcc6cd228c84451e1d02cf3ae082a44d8dd6eca3db8f5d21a16cb9212b",
+  "preexisting_excluded": [
+    "Config/DefaultEngine.ini",
+    ".vsconfig",
+    "Automation_RVSurvival.slnx",
+    "RVSurvival.slnx"
+  ]
+}
