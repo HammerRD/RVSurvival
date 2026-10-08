@@ -7,6 +7,21 @@
 #include "Engine/SkeletalMesh.h"
 #include "Animation/SkeletalMeshActor.h"
 #include "Engine/World.h"
+#include "Camera/CameraActor.h"
+AActor* URVCharacterContentLibrary::SpawnObservationCamera(UObject* Context,FVector Position,FRotator Rotation)
+{
+#if WITH_EDITOR
+    UWorld* World=Context?Context->GetWorld():nullptr;
+    if(!World || !World->IsGameWorld()) return nullptr;
+    FActorSpawnParameters Params;Params.ObjectFlags|=RF_Transient;
+    Params.SpawnCollisionHandlingOverride=ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+    auto* Camera=World->SpawnActor<ACameraActor>(Position,Rotation,Params);
+    if(Camera) if(auto* Parent=Cast<AActor>(Context)) Camera->AttachToActor(Parent,FAttachmentTransformRules::KeepWorldTransform);
+    return Camera;
+#else
+    return nullptr;
+#endif
+}
 AActor* URVCharacterContentLibrary::SpawnPoseFixture(UObject* Context,FVector Position)
 {
 #if WITH_EDITOR
@@ -21,6 +36,7 @@ AActor* URVCharacterContentLibrary::SpawnPoseFixture(UObject* Context,FVector Po
 }
 #if WITH_EDITOR
 #include "Animation/AnimData/IAnimationDataController.h"
+#include "Animation/AnimData/IAnimationDataModel.h"
 #include "AssetRegistry/AssetRegistryModule.h"
 #include "AnimGraphNode_Root.h"
 #include "AnimGraphNode_BlendListByInt.h"
@@ -35,6 +51,45 @@ AActor* URVCharacterContentLibrary::SpawnPoseFixture(UObject* Context,FVector Po
 #include "Misc/PackageName.h"
 #include "UObject/UnrealType.h"
 #endif
+bool URVCharacterContentLibrary::AlignPoseBones(UAnimSequence* Pose,USkeletalMesh* Mesh,const TMap<FName,FVector>& Directions)
+{
+#if WITH_EDITOR
+    if(!Pose || !Mesh || Pose->GetSkeleton()!=Mesh->GetSkeleton() || !Pose->GetPathName().StartsWith(TEXT("/Game/Characters/RV/"))) return false;
+    const auto& Ref=Mesh->GetRefSkeleton();TArray<FTransform> Local;TArray<FQuat> Global;
+    Local.SetNum(Ref.GetNum());Global.SetNum(Ref.GetNum());
+    for(int32 Bone=0;Bone<Ref.GetNum();++Bone)
+    {
+        const int32 Index=Mesh->GetSkeleton()->GetReferenceSkeleton().FindBoneIndex(Ref.GetBoneName(Bone));
+        Local[Bone]=Ref.GetRefBonePose()[Bone];
+        if(Index!=INDEX_NONE && Pose->GetDataModel()->IsValidBoneTrackName(Ref.GetBoneName(Bone))) Local[Bone]=Pose->GetDataModel()->GetBoneTrackTransform(Ref.GetBoneName(Bone),FFrameNumber(0));
+    }
+    auto& Controller=Pose->GetController();Controller.OpenBracket(FText::FromString(TEXT("Align prototype pose limbs")),false);
+    for(int32 Bone=0;Bone<Ref.GetNum();++Bone)
+    {
+        const int32 Parent=Ref.GetParentIndex(Bone);const FQuat ParentRotation=Parent==INDEX_NONE?FQuat::Identity:Global[Parent];
+        Global[Bone]=ParentRotation*Local[Bone].GetRotation();
+        if(const auto* Direction=Directions.Find(Ref.GetBoneName(Bone)))
+        {
+            FVector ChildVector=FVector::ZeroVector;
+            for(int32 Child=Bone+1;Child<Ref.GetNum();++Child)
+                if(Ref.GetParentIndex(Child)==Bone && Local[Child].GetTranslation().SizeSquared()>ChildVector.SizeSquared()) ChildVector=Local[Child].GetTranslation();
+            if(!ChildVector.IsNearlyZero() && !Direction->IsNearlyZero())
+            {
+                Global[Bone]=FQuat::FindBetweenNormals(Global[Bone].RotateVector(ChildVector).GetSafeNormal(),Direction->GetSafeNormal())*Global[Bone];
+                Local[Bone].SetRotation(ParentRotation.Inverse()*Global[Bone]);
+                TArray<FVector> Positions,Scales;TArray<FQuat> Rotations;
+                for(int32 Frame=0;Frame<=30;++Frame){Positions.Add(Local[Bone].GetTranslation());Scales.Add(Local[Bone].GetScale3D());Rotations.Add(Local[Bone].GetRotation());}
+                Controller.SetBoneTrackKeys(Ref.GetBoneName(Bone),Positions,Rotations,Scales,false);
+            }
+        }
+    }
+    Controller.NotifyPopulated();Controller.CloseBracket(false);Pose->PostEditChange();
+    Pose->CacheDerivedDataForCurrentPlatform();Pose->WaitOnExistingCompression();
+    Pose->MarkPackageDirty();return true;
+#else
+    return false;
+#endif
+}
 UAnimSequence* URVCharacterContentLibrary::CreatePrototypePose(const FString& AssetPath,USkeletalMesh* Mesh,const TMap<FName,FRotator>& BoneRotations,bool Climbing,UAnimSequence* BasePose)
 {
 #if WITH_EDITOR
@@ -124,4 +179,5 @@ bool URVCharacterContentLibrary::BuildAnimationGraph(UAnimBlueprint* Blueprint,U
     return false;
 #endif
 }
+
 

@@ -18,7 +18,12 @@ def assets():
  poses={}
  for name,data in [('Driver',driver),('Passenger',passenger),('Bed',lying),('Downed',lying),('Ladder',climb),('Treatment',treatment),('DownedSeated',downseat)]:
   poses[name]=unreal.RVCharacterContentLibrary.create_prototype_pose(folder+'/Animations/A_Prototype'+name,mesh,rotations(data),name=='Ladder',idle);assert poses[name]
-  assert unreal.EditorAssetLibrary.save_loaded_asset(poses[name])
+  if name in ['Driver','Passenger','DownedSeated']:
+   directions={'thigh_l':unreal.Vector(0,1,0),'thigh_r':unreal.Vector(0,1,0),'calf_l':unreal.Vector(0,0,-1),'calf_r':unreal.Vector(0,0,-1)}
+   if name=='Driver':directions.update({'upperarm_l':unreal.Vector(0,1,-0.6),'upperarm_r':unreal.Vector(0,1,-0.6),'lowerarm_l':unreal.Vector(0,1,0.7),'lowerarm_r':unreal.Vector(0,1,0.7)})
+   else:directions.update({'upperarm_l':unreal.Vector(0,0,-1),'upperarm_r':unreal.Vector(0,0,-1),'lowerarm_l':unreal.Vector(0,1,0.15),'lowerarm_r':unreal.Vector(0,1,0.15)})
+   assert unreal.RVCharacterContentLibrary.align_pose_bones(poses[name],mesh,directions)
+  assert unreal.EditorAssetLibrary.save_loaded_asset(poses[name],False)
  factory=unreal.BlendSpaceFactoryNew();factory.set_editor_property('TargetSkeleton',skeleton)
  blend=unreal.load_asset(folder+'/Animations/BS_RVLocomotion') or tools.create_asset('BS_RVLocomotion',folder+'/Animations',unreal.BlendSpace,factory)
  clips=[];coords=[]
@@ -35,7 +40,7 @@ def assets():
  assert unreal.EditorAssetLibrary.save_loaded_asset(bp)
  factory=unreal.DataAssetFactory();factory.set_editor_property('DataAssetClass',unreal.RVCharacterVisualProfile)
  profile=unreal.load_asset(folder+'/DA_MannyPresentation') or tools.create_asset('DA_MannyPresentation',folder,unreal.RVCharacterVisualProfile,factory)
- profile.set_editor_property('Body',mesh);profile.set_editor_property('AnimationClass',unreal.EditorAssetLibrary.load_blueprint_class(folder+'/Animations/ABP_RVHumanoid'));profile.set_editor_property('OwnerHiddenHead','head')
+ profile.set_editor_property('OwnerCameraOffset',unreal.Vector(20,0,0));profile.set_editor_property('Body',mesh);profile.set_editor_property('AnimationClass',unreal.EditorAssetLibrary.load_blueprint_class(folder+'/Animations/ABP_RVHumanoid'));profile.set_editor_property('OwnerHiddenHead','head')
  regions=[]
  for region,bone,roots in [('HEAD','head',['neck_01']),('TORSO','spine_03',['pelvis','spine_01','clavicle_l','clavicle_r']),('LEFT_ARM','lowerarm_l',['upperarm_l']),('RIGHT_ARM','lowerarm_r',['upperarm_r']),('LEFT_LEG','calf_l',['thigh_l']),('RIGHT_LEG','calf_r',['thigh_r'])]:
   binding=unreal.RVBodyRegionBones();binding.set_editor_property('Region',getattr(unreal.RVBodyRegion,region));binding.set_editor_property('AnchorBone',bone);binding.set_editor_property('Roots',roots);regions.append(binding)
@@ -69,4 +74,5 @@ try:
  result=assets();gc.collect();unreal.SystemLibrary.collect_garbage();result.update(test_map());(out/'saved-character-foundation.json').write_text(json.dumps(result,indent=2))
 finally:
  gc.collect();unreal.SystemLibrary.quit_editor()
+
 

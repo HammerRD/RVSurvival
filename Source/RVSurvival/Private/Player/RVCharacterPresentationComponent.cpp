@@ -11,6 +11,7 @@
 #include "Components/CapsuleComponent.h"
 #include "Components/SceneComponent.h"
 #include "Engine/SkeletalMesh.h"
+#include "Camera/CameraComponent.h"
 URVCharacterPresentationComponent::URVCharacterPresentationComponent()
 { PrimaryComponentTick.bCanEverTick=true; }
 bool URVCharacterPresentationComponent::HasConfiguredVisuals() const
@@ -23,6 +24,7 @@ void URVCharacterPresentationComponent::BeginPlay()
     Mesh->SetSkeletalMesh(Profile->Body);Mesh->SetAnimInstanceClass(Profile->AnimationClass);
     Mesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);Mesh->SetSimulatePhysics(false);
     Mesh->SetOwnerNoSee(false);Mesh->SetHiddenInGame(false);Mesh->SetRelativeScale3D(Profile->Scale);
+    if(auto* Camera=C->FindComponentByClass<UCameraComponent>()) Camera->AddLocalOffset(Profile->OwnerCameraOffset);
     Mesh->VisibilityBasedAnimTickOption=EVisibilityBasedAnimTickOption::AlwaysTickPoseAndRefreshBones;
     Mesh->AddTickPrerequisiteComponent(this);
     TArray<USceneComponent*> Children;Mesh->GetChildrenComponents(true,Children);
@@ -52,15 +54,17 @@ void URVCharacterPresentationComponent::RefreshVisualState()
     else if(PS && PS->Health && PS->Health->ActiveTreatment.IsValid()) VisualState=ERVCharacterVisualState::Treatment;
     else VisualState=ERVCharacterVisualState::Locomotion;
     // Discrete visual offsets only. Native mesh smoothing carries normal walking.
-    const int32 DesiredPlacement=VisualState==ERVCharacterVisualState::Bed?1:(VisualState==ERVCharacterVisualState::Downed && !C->SeatedVehicle?2:0);
+    const int32 DesiredPlacement=VisualState==ERVCharacterVisualState::Bed?1:(VisualState==ERVCharacterVisualState::Downed && !C->SeatedVehicle?2:(C->SeatedVehicle?3:0));
     if(DesiredPlacement!=Placement)
     {
         Placement=DesiredPlacement;
         FVector Offset=Profile->StandingOffset-FVector(0,0,C->GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight());
         if(Placement==1) Offset=Profile->BedOffset;
         else if(Placement==2) Offset=Profile->DownedOffset-FVector(0,0,C->GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight());
-        Mesh->SetRelativeLocationAndRotation(Offset,Profile->MeshRotation);
-        C->CacheInitialMeshOffset(Offset,Profile->MeshRotation);
+        else if(Placement==3) Offset+=Profile->SeatedOffset;
+        const FRotator Rotation=Placement==1?Profile->BedMeshRotation:Profile->MeshRotation;
+        Mesh->SetRelativeLocationAndRotation(Offset,Rotation);
+        C->CacheInitialMeshOffset(Offset,Rotation);
     }
     const bool HideHead=C->IsLocallyControlled();
     if(HideHead!=bHeadHidden && !Profile->OwnerHiddenHead.IsNone())
