@@ -279,3 +279,18 @@ stress run passes. Prototype first-person clearance and normalized aim-offset in
 were corrected after inspecting rendered failures. See GATE_9_VALIDATION.md for
 actual receipts and retained failures. Final emulation/regression validation and
 acceptance remain pending. Gate 10 has not begun.
+
+Gate 9 final closure — ACCEPTED (2026-10-08): real semiautomatic handgun and GUID-backed
+full/partial/empty magazines; native authoritative traces feed six-region medical
+wounds/downed/treatment/revive; one native-perception/BT/NavMesh infected sees,
+hears, investigates, chases, attacks, loses targets and dies. Native recoil/aim,
+Epic pistol animation and rendered first/remote presentation are verified.
+Separate-process host/client and100ms/2% combat/AI/reconnect/moving-passenger tests,
+100-shot conservation stress and selected prior-gate regressions pass. Repaired
+navigation configuration/reach bounds, reversed grip, normalized aim input,
+first-person clearance, owner-hidden head hit queries and cosmetic shake settings.
+Handled navigation diagnostic ensure and fixture timing/reflection/approach/cleanup
+failures were retained, understood and corrected; no world-leak suppression.
+Fresh saved audit38/38, final build, clean editor shutdown, all108 vendor hashes and
+all earlier content/maps preserved. Checkpoints fbbe1bf and ad40505 precede final
+acceptance documentation. Details/limitations in GATE_9_VALIDATION.md. No Gate10.

@@ -1,6 +1,6 @@
 # Combat foundation — Gate 9
 
-Status: implementation and validation in progress; consult GATE_9_VALIDATION.md.
+Status: ACCEPTED within Gate9 prototype scope; consult GATE_9_VALIDATION.md.
 
 URVCombatComponent is an opt-in replicated Actor Component on the survivor. The
 Gate9 survivor Blueprint enables it; accepted earlier test-map classes retain their
@@ -48,7 +48,7 @@ The project-authored primitive handgun mesh, generated sound and bounded transie
 muzzle/impact effects are replaceable prototype assets. Unreliable cosmetic multicast
 loss cannot replay damage or ammunition consumption. Animations use the free Epic
 assets already installed with Unreal; no paid character/weapon assets are acquired.
-Presentation and multiplayer acceptance remain subject to recorded tests.
+Presentation and multiplayer validation pass within the recorded Gate9 scope.
 
 ## Final presentation configuration
 

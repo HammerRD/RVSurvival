@@ -148,3 +148,10 @@ invalid ownership/revision rejection, downed/treatment/revive, pickup contention
 exact final inventory convergence pass in separate processes with 100 ms outgoing
 latency and 2% loss. See GATE_9_VALIDATION.md for actual scope and recovery failures.
 No competitive lag compensation or new networking protocol is implemented.
+
+Gate9 query collision is opt-in: the full skeletal body and optional head sphere
+block Visibility for authoritative hit detection; movement remains capsule-based.
+Other characters can therefore physically occlude interaction/resource traces.
+Regression fixtures must use a clear approach instead of lining players up between
+an eye origin and panel. Both roles' clear native-E/healthy/downed controls pass;
+no line-of-sight or medical authority validation was relaxed.

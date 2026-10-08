@@ -40,3 +40,8 @@ real magazines, native body-region medical damage and one native-AI infected are
 implemented and under final regression validation. Actual acceptance belongs in
 GATE_9_VALIDATION.md; historical "Gate 9 not started" notes above describe earlier
 checkpoints. Gate 10 is not started or authorized by this pass.
+
+Gate 9 final closure (2026-10-08): ACCEPTED within the documented prototype scope.
+See GATE_9_VALIDATION.md for actual combat/infected/medical/network/stress/RV
+regressions, saved-state/build evidence and limitations. Next is manual Gate9 review
+and explicit authorization for later work; Gate10 has not begun.

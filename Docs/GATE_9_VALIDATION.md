@@ -1,6 +1,8 @@
 # Gate 9 — basic combat and infected foundation
 
-Status: IN PROGRESS. Gate 8.5 baseline: 3256c27. Gate 10 is excluded.
+Status: ACCEPTED (2026-10-08). Gate 8.5 baseline: 3256c27. Gate 10 is excluded.
+
+The final closure below supersedes chronological in-progress/failure notes. Historical failures are deliberately retained; they are not current acceptance failures.
 
 ## Framework review
 
@@ -278,3 +280,53 @@ not board moving RVs, predict vehicle paths, or dynamically rebuild regional nav
 No horde/director/world loot/human AI/Gate10 work. Refrigerator collision stays in
 its accepted deferred backlog. The previous Gate8 resource qualification was already
 resolved in Gate8.5; these clear-approach guards are additional regression evidence.
+
+
+## Final acceptance and recovery state — 2026-10-08
+
+Gate 9 is **ACCEPTED** within the prototype scope and limitations above.
+
+- Fresh editor `saved-audit.json`: 38/38 saved-state checks; all 15 project-side
+  combat/character assets load, the 103-actor map saves, metadata/visuals/old RV
+  functionality remain configured. The development-only incompatible-magazine
+  definition is a validation fixture, not a second production caliber.
+- `final-build.log`: Development Editor / Win64 succeeds, native UBA local, Visual
+  Studio14.44 / WindowsSDK10.0.22621.0, UE5.8.3 CL58210709. No C++ build failure.
+- `final-clean-editor-shutdown.log`: fresh startup/audit/save/GC/quit completes
+  normally. Corrected navigation sequence passes twice (nine meaningful checks
+  each) with clean PIE stop/quit and no repeated handled ensure, fatal error or
+  world-memory-leak error. World leak detection remains enabled.
+- `final-evidence.json`: every selected current receipt passes, all ten prior map
+  packages and all accepted prior content remain byte-preserved against3256c27.
+  `vendor-final.json`: all108 purchased RV files match0b6eff6. No vendor modifications.
+- `persisted-editor-preferences.json`: closed-editor PIE settings restored to one
+  player, standalone, one process; test child launch command cleared and emulation
+  disabled. Backups remain in Saved/Gate9Validation. Unreal is closed.
+- Gate9 working changes are committed. Four pre-existing unrelated files remain
+  excluded: Config/DefaultEngine.ini, .vsconfig, Automation_RVSurvival.slnx and
+  RVSurvival.slnx. No claim of a completely clean project working tree.
+
+Local recovery history:
+
+| Checkpoint | Meaning |
+|---|---|
+| 20ef89d | Framework review / accepted baseline |
+| 8ce815a | Explicit WIP compiled foundation before content validation |
+| de22f27 | Tested handgun/magazine/infected medical loop |
+| ab0221e | Native damage routing / holster / authority recovery |
+| 22cd368 | Explicit WIP saved content before normalized-aim repair |
+| fbbe1bf | Tested complete combat, native recoil and moving RV multiplayer |
+| ad40505 | Infected navigation/emulated attacks, saved content and final build |
+| Final closure commit | Documentation acceptance and changed-file manifest; hash in local Git/final report |
+
+Exact source/content/doc/tool paths are listed in Docs/Gate9Results/changed-files.txt.
+New classes: URVCombatComponent, URVCombatContentLibrary (editor/development helpers),
+URVBodyRegionHitComponent, ARVInfected, ARVInfectedController, URVBTTask_Infected and
+URVInfectedProfile. Existing inventory/world item, survivor/medical, humanoid
+AnimInstance/profile/editor content authoring, controller wake input, prototype HUD
+and module dependencies were extended in place. No CharacterMovement, vehicle
+physics, passenger-frame or vendor source code/assets were replaced.
+
+Recommended next task: manual Gate9 playtest in Gate9CombatInfectedTest using
+4/LMB/RMB/R/U and actual item/container controls; review prototype handling and
+presentation before authorizing Gate10. Gate10 has not begun.

@@ -1,6 +1,6 @@
 # Infected foundation — Gate 9
 
-Status: implementation and validation in progress; see GATE_9_VALIDATION.md.
+Status: ACCEPTED within Gate9 prototype scope; see GATE_9_VALIDATION.md.
 
 ARVInfected is a server-driven Character with native CharacterMovement replication.
 URVInfectedProfile is a replaceable Primary Data Asset for humanoid mesh/material,
