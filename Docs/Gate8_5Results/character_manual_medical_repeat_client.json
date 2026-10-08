@@ -1,0 +1,25 @@
+{
+  "pid": 3728,
+  "role": "client",
+  "kind": "read-only sampler; normal OS F9 and UMG mouse controls",
+  "last_sample": {
+    "time": 1791465390.908719,
+    "patient_active": true,
+    "bleeding": 0.0,
+    "feedback": "",
+    "widgets": [
+      "/Script/RVSurvival.Default__RVMedicalWidget"
+    ],
+    "texts": [],
+    "supplies": [
+      [
+        "PressureDressing",
+        1
+      ],
+      [
+        "FirstAidKit",
+        1
+      ]
+    ]
+  }
+}

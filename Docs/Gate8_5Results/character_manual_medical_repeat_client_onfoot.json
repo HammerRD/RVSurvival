@@ -1,0 +1,58 @@
+[
+  {
+    "name": "idle",
+    "velocity": "<Struct 'Vector' (0x000001F5A9C53D08) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+    "pose": 0,
+    "animation_speed": 0.0,
+    "mode": "<MovementMode.MOVE_WALKING: 1>"
+  },
+  {
+    "name": "forward",
+    "velocity": "<Struct 'Vector' (0x000001F5A9C53D08) {x: 478.000000, y: 0.000000, z: 0.000000}>",
+    "pose": 0,
+    "animation_speed": 478.0,
+    "mode": "<MovementMode.MOVE_WALKING: 1>"
+  },
+  {
+    "name": "backward",
+    "velocity": "<Struct 'Vector' (0x000001F5A9C53D08) {x: -444.000000, y: 0.000000, z: 0.000000}>",
+    "pose": 0,
+    "animation_speed": 444.0,
+    "mode": "<MovementMode.MOVE_WALKING: 1>"
+  },
+  {
+    "name": "left_strafe",
+    "velocity": "<Struct 'Vector' (0x000001F5A9C53D08) {x: 0.000000, y: -478.000000, z: 0.000000}>",
+    "pose": 0,
+    "animation_speed": 478.0,
+    "mode": "<MovementMode.MOVE_WALKING: 1>"
+  },
+  {
+    "name": "right_strafe",
+    "velocity": "<Struct 'Vector' (0x000001F5A9C53D08) {x: 0.000000, y: 478.000000, z: 0.000000}>",
+    "pose": 0,
+    "animation_speed": 478.0,
+    "mode": "<MovementMode.MOVE_WALKING: 1>"
+  },
+  {
+    "name": "jump",
+    "velocity": "<Struct 'Vector' (0x000001F5A9C53D08) {x: 0.000000, y: 0.000000, z: 158.666635}>",
+    "pose": 8,
+    "animation_speed": 0.0,
+    "mode": "<MovementMode.MOVE_FALLING: 3>"
+  },
+  {
+    "name": "fall",
+    "velocity": "<Struct 'Vector' (0x000001F5A9C53D08) {x: 0.000000, y: 0.000000, z: -282.333365}>",
+    "pose": 7,
+    "animation_speed": 0.0,
+    "mode": "<MovementMode.MOVE_FALLING: 3>"
+  },
+  {
+    "name": "land",
+    "velocity": "<Struct 'Vector' (0x000001F5A9C53D08) {x: 0.000000, y: 0.000000, z: 0.000000}>",
+    "pose": 0,
+    "animation_speed": 0.0,
+    "mode": "<MovementMode.MOVE_WALKING: 1>"
+  }
+]

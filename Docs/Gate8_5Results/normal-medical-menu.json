@@ -1,0 +1,18 @@
+{
+  "normal_controls": "OS F9, actual UMG mouse clicks: nearby, dressing, next supply, revive, self, next supply, bandage, close",
+  "observed": "Downed torso stabilized; pressure dressing 2 to 1; first aid kit 2 to 1 and patient conscious/standing; self left-arm bleeding stabilized, bandage removed. Head never obstructed view. No gameplay RPC direct call in this UI sequence.",
+  "sample_count": 251,
+  "patient_active_final": true,
+  "final_supplies": [
+    [
+      "PressureDressing",
+      1
+    ],
+    [
+      "FirstAidKit",
+      1
+    ]
+  ],
+  "completed_feedback_seen": true,
+  "last_feedback": "Treatment completed"
+}

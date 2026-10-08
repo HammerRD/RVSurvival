@@ -12,6 +12,7 @@ class RVSURVIVAL_API URVCharacterContentLibrary : public UBlueprintFunctionLibra
 {
     GENERATED_BODY()
 public:
+    UFUNCTION(BlueprintPure,meta=(DevelopmentOnly)) static TMap<FName,FTransform> GetPoseBoneTransforms(UAnimSequence* Pose,USkeletalMesh* Mesh);
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly,WorldContext="Context")) static AActor* SpawnObservationCamera(UObject* Context,FVector Position,FRotator Rotation);
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static bool AlignPoseBones(UAnimSequence* Pose,USkeletalMesh* Mesh,const TMap<FName,FVector>& Directions);
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly,WorldContext="Context")) static AActor* SpawnPoseFixture(UObject* Context,FVector Position);

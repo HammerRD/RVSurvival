@@ -51,6 +51,23 @@ AActor* URVCharacterContentLibrary::SpawnPoseFixture(UObject* Context,FVector Po
 #include "Misc/PackageName.h"
 #include "UObject/UnrealType.h"
 #endif
+TMap<FName,FTransform> URVCharacterContentLibrary::GetPoseBoneTransforms(UAnimSequence* Pose,USkeletalMesh* Mesh)
+{
+    TMap<FName,FTransform> Result;
+#if WITH_EDITOR
+    if(!Pose || !Mesh || Pose->GetSkeleton()!=Mesh->GetSkeleton()) return Result;
+    const auto& Ref=Mesh->GetRefSkeleton();TArray<FTransform> Global;Global.SetNum(Ref.GetNum());
+    for(int32 Bone=0;Bone<Ref.GetNum();++Bone)
+    {
+        const FName Name=Ref.GetBoneName(Bone);
+        FTransform Local=Ref.GetRefBonePose()[Bone];
+        if(Pose->GetDataModel()->IsValidBoneTrackName(Name)) Local=Pose->GetDataModel()->GetBoneTrackTransform(Name,FFrameNumber(0));
+        const int32 Parent=Ref.GetParentIndex(Bone);
+        Global[Bone]=Parent==INDEX_NONE?Local:Local*Global[Parent];Result.Add(Name,Global[Bone]);
+    }
+#endif
+    return Result;
+}
 bool URVCharacterContentLibrary::AlignPoseBones(UAnimSequence* Pose,USkeletalMesh* Mesh,const TMap<FName,FVector>& Directions)
 {
 #if WITH_EDITOR

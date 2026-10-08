@@ -18,6 +18,7 @@ ARVInteriorTestCharacter::ARVInteriorTestCharacter(const FObjectInitializer& Ini
     PrototypeHead->SetRelativeLocation(FVector(0,0,64)); PrototypeHead->SetRelativeScale3D(FVector(.35));
     for (auto* Part : {PrototypeTorso.Get(), PrototypeHead.Get()})
     {
+        Part->ComponentTags.Add(TEXT("RVPrototypeCharacterVisual"));
         Part->SetCollisionEnabled(ECollisionEnabled::NoCollision);
         Part->SetOwnerNoSee(true);
     }

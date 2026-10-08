@@ -1,0 +1,71 @@
+{
+  "pid": 20880,
+  "role": "server",
+  "kind": "read-only sampler; normal OS F9 and UMG mouse controls",
+  "last_sample": {
+    "time": 1791465390.720272,
+    "patient_active": true,
+    "bleeding": 0.0,
+    "feedback": "Treatment completed",
+    "widgets": [
+      "/Script/RVSurvival.Default__RVMedicalWidget",
+      "/Engine/Transient.UnrealEdEngine_0:RVGameInstance_0.RVMedicalWidget_0"
+    ],
+    "texts": [
+      {
+        "path": "/Engine/Transient.UnrealEdEngine_0:RVGameInstance_0.RVMedicalWidget_0.WidgetTree.TextBlock_10",
+        "text": "Close \u2014 resume walking"
+      },
+      {
+        "path": "/Engine/Transient.UnrealEdEngine_0:RVGameInstance_0.RVMedicalWidget_0.WidgetTree.TextBlock_9",
+        "text": "Cancel treatment (retain supply)"
+      },
+      {
+        "path": "/Engine/Transient.UnrealEdEngine_0:RVGameInstance_0.RVMedicalWidget_0.WidgetTree.TextBlock_8",
+        "text": "Begin treatment / revive"
+      },
+      {
+        "path": "/Engine/Transient.UnrealEdEngine_0:RVGameInstance_0.RVMedicalWidget_0.WidgetTree.TextBlock_7",
+        "text": "Next medical supply"
+      },
+      {
+        "path": "/Engine/Transient.UnrealEdEngine_0:RVGameInstance_0.RVMedicalWidget_0.WidgetTree.TextBlock_6",
+        "text": "Next injury"
+      },
+      {
+        "path": "/Engine/Transient.UnrealEdEngine_0:RVGameInstance_0.RVMedicalWidget_0.WidgetTree.TextBlock_5",
+        "text": "Inspect nearby teammate"
+      },
+      {
+        "path": "/Engine/Transient.UnrealEdEngine_0:RVGameInstance_0.RVMedicalWidget_0.WidgetTree.TextBlock_4",
+        "text": "Inspect self"
+      },
+      {
+        "path": "/Engine/Transient.UnrealEdEngine_0:RVGameInstance_0.RVMedicalWidget_0.WidgetTree.TextBlock_3",
+        "text": "Treatment completed"
+      },
+      {
+        "path": "/Engine/Transient.UnrealEdEngine_0:RVGameInstance_0.RVMedicalWidget_0.WidgetTree.TextBlock_2",
+        "text": "Supply: PressureDressing \u00d7 1"
+      },
+      {
+        "path": "/Engine/Transient.UnrealEdEngine_0:RVGameInstance_0.RVMedicalWidget_0.WidgetTree.TextBlock_1",
+        "text": "Conscious | Pain: low\nLeft arm \u2014 Wound | minor\nNo active bleeding | Stabilized; recovery needed | Contamination risk"
+      },
+      {
+        "path": "/Engine/Transient.UnrealEdEngine_0:RVGameInstance_0.RVMedicalWidget_0.WidgetTree.TextBlock_0",
+        "text": "MEDICAL | ASSESS / STABILIZE / RECOVER"
+      }
+    ],
+    "supplies": [
+      [
+        "PressureDressing",
+        1
+      ],
+      [
+        "FirstAidKit",
+        1
+      ]
+    ]
+  }
+}

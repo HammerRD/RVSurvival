@@ -33,9 +33,10 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadOnly) FRotator MeshRotation=FRotator(0,-90,0);
     UPROPERTY(EditAnywhere, BlueprintReadOnly) FVector StandingOffset=FVector::ZeroVector;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) FVector SeatedOffset=FVector(0,0,-25);
+    UPROPERTY(EditAnywhere, BlueprintReadOnly) FVector InteriorSeatedOffset=FVector::ZeroVector;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) FRotator BedMeshRotation=FRotator(0,-90,0);
     UPROPERTY(EditAnywhere, BlueprintReadOnly) FVector BedOffset=FVector(85,0,-15);
-    UPROPERTY(EditAnywhere, BlueprintReadOnly) FVector DownedOffset=FVector(85,0,4);
+    UPROPERTY(EditAnywhere, BlueprintReadOnly) FVector DownedOffset=FVector(85,0,22);
     UPROPERTY(EditAnywhere, BlueprintReadOnly) FName OwnerHiddenHead;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) FVector OwnerCameraOffset=FVector(20,0,0);
     UPROPERTY(EditAnywhere, BlueprintReadOnly) TArray<FRVBodyRegionBones> BodyRegions;

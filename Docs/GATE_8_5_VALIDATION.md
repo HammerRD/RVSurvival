@@ -49,3 +49,9 @@ Actual remote-player screenshots exposed high seat presentation and an incorrect
 Native animation-data authoring aligns limbs from the selected skeleton's local tracks rather than assuming identical left/right bone axes. Refreshed compressed data through public engine APIs before saving. An attempted protected compression-clear API failed compilation and was removed; public API repeat build succeeded. No engine code changes or leak-detection suppression.
 
 Moving dinette screenshots were inconclusive because the transient observation camera was left in world space while the RV advanced. Fixed the development-only camera fixture to follow its context actor; this is observation tooling, not character attachment. Dinette visual recapture, medical/downed presentation, on-foot visuals, highway passenger presentation and final regressions remain pending. Gate 8.5 is not accepted yet.
+
+## Saved pose and normal medical-menu checkpoint
+
+Final cab mesh offset -25 cm Z; dinette offset 0; bed yaw +90, offset (-85,0,0); downed offset (85,0,15). Native animation-data limb alignment removes tilted idle legs penetrating the mattress/floor. Owner camera/authoritative eyes share the same configurable 20 cm forward offset. Only tagged fallback prototype primitives are hidden; future clothing is not indiscriminately hidden.
+
+Final reversed-role separate-process pose run at 100 ms/2% loss passed seat/dinette/bed control paths and rendered captures. Native foot heights correspond to lower cab floor and higher dinette floor. Normal OS F9 + UMG clicks successfully dressed/revived nearby downed teammate and bandaged self; each supply consumed once. On-foot remote captures show idle, directional locomotion, jump and falling, and owner downward view shows body without face obstruction. Workstation/broad smoke and closure remain pending.

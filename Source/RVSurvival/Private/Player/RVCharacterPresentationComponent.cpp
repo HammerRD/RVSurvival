@@ -28,11 +28,12 @@ void URVCharacterPresentationComponent::BeginPlay()
     Mesh->VisibilityBasedAnimTickOption=EVisibilityBasedAnimTickOption::AlwaysTickPoseAndRefreshBones;
     Mesh->AddTickPrerequisiteComponent(this);
     TArray<USceneComponent*> Children;Mesh->GetChildrenComponents(true,Children);
-    for(auto* Child:Children) if(auto* Primitive=Cast<UPrimitiveComponent>(Child)) Primitive->SetHiddenInGame(true);
+    for(auto* Child:Children) if(auto* Primitive=Cast<UPrimitiveComponent>(Child);Primitive && Primitive->ComponentHasTag(TEXT("RVPrototypeCharacterVisual"))) Primitive->SetHiddenInGame(true);
     for(const auto& Spec:Profile->EquipmentAnchors)
     {
         if(Spec.Id.IsNone() || !Mesh->DoesSocketExist(Spec.Bone)) continue;
-        auto* Anchor=NewObject<USceneComponent>(C);
+        auto* Anchor=NewObject<USceneComponent>(C,FName(*FString::Printf(TEXT("RVEquipment_%s"),*Spec.Id.ToString())));
+        Anchor->SetNetAddressable();
         Anchor->SetupAttachment(Mesh,Spec.Bone);Anchor->SetRelativeTransform(Spec.Offset);Anchor->RegisterComponent();Anchors.Add(Spec.Id,Anchor);
     }
     bInitialized=true;RefreshVisualState();
@@ -54,7 +55,7 @@ void URVCharacterPresentationComponent::RefreshVisualState()
     else if(PS && PS->Health && PS->Health->ActiveTreatment.IsValid()) VisualState=ERVCharacterVisualState::Treatment;
     else VisualState=ERVCharacterVisualState::Locomotion;
     // Discrete visual offsets only. Native mesh smoothing carries normal walking.
-    const int32 DesiredPlacement=VisualState==ERVCharacterVisualState::Bed?1:(VisualState==ERVCharacterVisualState::Downed && !C->SeatedVehicle?2:(C->SeatedVehicle?3:0));
+    const int32 DesiredPlacement=VisualState==ERVCharacterVisualState::Bed?1:(VisualState==ERVCharacterVisualState::Downed && !C->SeatedVehicle?2:(C->SeatedVehicle?(Seat && Seat->bInteriorOnly?4:3):0));
     if(DesiredPlacement!=Placement)
     {
         Placement=DesiredPlacement;
@@ -62,6 +63,7 @@ void URVCharacterPresentationComponent::RefreshVisualState()
         if(Placement==1) Offset=Profile->BedOffset;
         else if(Placement==2) Offset=Profile->DownedOffset-FVector(0,0,C->GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight());
         else if(Placement==3) Offset+=Profile->SeatedOffset;
+        else if(Placement==4) Offset+=Profile->InteriorSeatedOffset;
         const FRotator Rotation=Placement==1?Profile->BedMeshRotation:Profile->MeshRotation;
         Mesh->SetRelativeLocationAndRotation(Offset,Rotation);
         C->CacheInitialMeshOffset(Offset,Rotation);

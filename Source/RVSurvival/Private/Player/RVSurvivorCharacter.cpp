@@ -24,6 +24,7 @@
 #include "Survival/RVRestPoseComponent.h"
 #include "Vehicles/RVSeatPoseComponent.h"
 #include "Player/RVCharacterPresentationComponent.h"
+#include "Player/RVCharacterVisualProfile.h"
 void ARVSurvivorCharacter::MulticastRecoveryPlacement_Implementation(FVector Position, FRotator Rotation)
 {
     DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
@@ -150,6 +151,8 @@ void ARVSurvivorCharacter::GetActorEyesViewPoint(FVector& Location, FRotator& Ro
 {
     // Same capsule-relative eye origin on authority and client; no client-supplied trace.
     Location = GetActorLocation() + FVector(0, 0, BaseEyeHeight);
+    if(CharacterPresentation && CharacterPresentation->HasConfiguredVisuals())
+        Location+=GetActorQuat().RotateVector(CharacterPresentation->Profile->OwnerCameraOffset);
     if (RestPose && RestPose->RestPoint) Location=GetActorTransform().TransformPosition(RestPose->RestPoint->LyingCameraOffset);
     Rotation = GetViewRotation();
 }
