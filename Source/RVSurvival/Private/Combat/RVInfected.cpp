@@ -11,16 +11,21 @@
 #include "Engine/DamageEvents.h"
 #include "Net/UnrealNetwork.h"
 #include "TimerManager.h"
+#include "Kismet/GameplayStatics.h"
 #include "BrainComponent.h"
 ARVInfected::ARVInfected()
 {bReplicates=true;AIControllerClass=ARVInfectedController::StaticClass();AutoPossessAI=EAutoPossessAI::PlacedInWorldOrSpawned;
  bUseControllerRotationYaw=false;GetCharacterMovement()->bOrientRotationToMovement=true;
  GetMesh()->SetRelativeLocation(FVector(0,0,-88));GetMesh()->SetRelativeRotation(FRotator(0,-90,0));}
 const URVInfectedProfile* ARVInfected::Tuning() const{return Profile?Profile.Get():GetDefault<URVInfectedProfile>();}
+void ARVInfected::ConfigureVisual()
+{const auto* P=Tuning();if(P->Body)GetMesh()->SetSkeletalMesh(P->Body);if(P->AnimationClass)GetMesh()->SetAnimInstanceClass(P->AnimationClass);
+ if(P->BodyMaterial)for(int32 Index=0;Index<GetMesh()->GetNumMaterials();++Index)GetMesh()->SetMaterial(Index,P->BodyMaterial);}
+void ARVInfected::OnConstruction(const FTransform& Transform){Super::OnConstruction(Transform);ConfigureVisual();}
 void ARVInfected::BeginPlay()
 {Super::BeginPlay();const auto* P=Tuning();if(HasAuthority())Vitality=P->Vitality;
  GetCharacterMovement()->MaxWalkSpeed=P->ChaseSpeed;
- if(P->Body)GetMesh()->SetSkeletalMesh(P->Body);if(P->AnimationClass)GetMesh()->SetAnimInstanceClass(P->AnimationClass);
+ ConfigureVisual();
  GetMesh()->VisibilityBasedAnimTickOption=EVisibilityBasedAnimTickOption::AlwaysTickPoseAndRefreshBones;
  GetMesh()->SetCollisionEnabled(ECollisionEnabled::QueryOnly);GetMesh()->SetCollisionResponseToAllChannels(ECR_Ignore);
  GetMesh()->SetCollisionResponseToChannel(ECC_Visibility,ECR_Block);GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Visibility,ECR_Ignore);}
@@ -58,7 +63,7 @@ void ARVInfected::CompleteAttack()
     FHitResult Hit;FCollisionQueryParams Params(SCENE_QUERY_STAT(RVInfectedAttack),false,this);
     const FVector Start=GetActorLocation()+FVector(0,0,35),End=V->GetActorLocation()+FVector(0,0,35);
     if(GetWorld()->LineTraceSingleByChannel(Hit,Start,End,ECC_Visibility,Params) && Hit.GetActor()!=V)return;
-    PS->Health->ApplyWoundAuthority(ERVBodyRegion::Torso,P->InjurySeverity,P->AttackDamage,P->Contamination);
+    UGameplayStatics::ApplyPointDamage(V,P->AttackDamage,(End-Start).GetSafeNormal(),Hit,Controller,this,nullptr);
     AttackVictim.Reset();
 }
 void ARVInfected::OnRep_State()

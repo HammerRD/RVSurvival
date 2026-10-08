@@ -5,6 +5,7 @@ out=Path('D:/GitHub/RVSurvival/RVSurvival/Docs/Gate9Results');results=[];events=
 w=next(w for w in unreal.ObjectIterator(unreal.World) if w.get_name()=='Gate9CombatInfectedTest' and unreal.GameplayStatics.get_player_controller(w,0) and unreal.GameplayStatics.get_player_controller(w,0).get_controlled_pawn())
 pc=unreal.GameplayStatics.get_player_controller(w,0);p=pc.get_controlled_pawn();inv=p.get_component_by_class(unreal.RVInventoryComponent);combat=p.get_component_by_class(unreal.RVCombatComponent);ps=p.get_editor_property('PlayerState');health=ps.get_editor_property('Health')
 enemy=unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVInfected)[0]
+enemy.get_controller().get_editor_property('BrainComponent').stop_logic('initial placement fixture');enemy.get_controller().stop_movement()
 p.set_actor_location(unreal.Vector(0,-2500,90),False,False);enemy.set_actor_location(unreal.Vector(900,-2500,90),False,False);enemy.set_actor_rotation(unreal.Rotator(yaw=180),False)
 def check(name,ok,detail=''):
  row={'case':name,'pass':bool(ok),'detail':str(detail)};results.append(row);unreal.log('GATE9_AI '+json.dumps(row))
@@ -15,6 +16,7 @@ def add(path):
  i=unreal.RVItemInstance();i.set_editor_property('Id',unreal.GuidLibrary.new_guid());i.set_editor_property('Definition',unreal.load_asset(path));assert not inv.add_authority(i)
 add('/Game/Combat/Items/DA_9mmHandgun');add('/Game/Combat/Items/DA_9mmMagazine')
 initial=enemy.get_actor_location();initial_vitality=enemy.vitality
+at(.6,lambda:enemy.get_controller().get_editor_property('BrainComponent').restart_logic())
 at(1,lambda:check('infected has native AIController',isinstance(enemy.get_controller(),unreal.RVInfectedController)))
 at(1.2,lambda:check('native sight acquires/chases',enemy.state in [unreal.RVInfectedState.CHASE,unreal.RVInfectedState.ATTACK],enemy.state))
 at(2,lambda:check('native NavMesh path changes position',unreal.Vector.distance(enemy.get_actor_location(),initial)>100,enemy.get_actor_location()))

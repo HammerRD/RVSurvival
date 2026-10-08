@@ -24,6 +24,7 @@ public:
     virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
     virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
     virtual void GetActorEyesViewPoint(FVector& OutLocation, FRotator& OutRotation) const override;
+    virtual float TakeDamage(float Amount,const FDamageEvent& Event,AController* EventInstigator,AActor* DamageCauser) override;
     URVInteractionComponent* GetInteraction() const { return Interaction; }
     void SetVehicleSeat(ARVVehicleBase* Vehicle);
     UFUNCTION(NetMulticast, Reliable) void MulticastRecoveryPlacement(FVector Position, FRotator Rotation);

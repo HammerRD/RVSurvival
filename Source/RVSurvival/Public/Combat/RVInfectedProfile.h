@@ -8,6 +8,7 @@ class RVSURVIVAL_API URVInfectedProfile : public UPrimaryDataAsset
     GENERATED_BODY()
 public:
     UPROPERTY(EditAnywhere,BlueprintReadOnly) TObjectPtr<class USkeletalMesh> Body;
+    UPROPERTY(EditAnywhere,BlueprintReadOnly) TObjectPtr<class UMaterialInterface> BodyMaterial;
     UPROPERTY(EditAnywhere,BlueprintReadOnly) TSubclassOf<class UAnimInstance> AnimationClass;
     UPROPERTY(EditAnywhere,BlueprintReadOnly) TObjectPtr<class URVCharacterVisualProfile> BodyMapping;
     UPROPERTY(EditAnywhere,BlueprintReadOnly) float Vitality=65;

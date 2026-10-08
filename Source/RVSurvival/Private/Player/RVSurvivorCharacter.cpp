@@ -1,5 +1,9 @@
 #include "Player/RVSurvivorCharacter.h"
 #include "Combat/RVCombatComponent.h"
+#include "Combat/RVBodyRegionHitComponent.h"
+#include "Combat/RVInfected.h"
+#include "Combat/RVInfectedProfile.h"
+#include "Engine/DamageEvents.h"
 #include "Player/RVInputMappings.h"
 #include "Camera/CameraComponent.h"
 #include "Interaction/RVInteractionComponent.h"
@@ -55,6 +59,26 @@ static bool CanMoveWhileAwake(const ARVSurvivorCharacter* Character)
 {
     const auto* PS=Character->GetPlayerState<ARVPlayerState>();
     return !PS || (PS->Needs->State.RestMode==ERVRestMode::Awake && PS->Health->CanAct());
+}
+float ARVSurvivorCharacter::TakeDamage(float Amount,const FDamageEvent& Event,AController* EventInstigator,AActor* DamageCauser)
+{
+    if(!HasAuthority() || !FMath::IsFinite(Amount) || Amount<=0)return 0;
+    auto* PS=GetPlayerState<ARVPlayerState>();if(!PS && SeatedVehicle)PS=SeatedVehicle->GetPlayerState<ARVPlayerState>();
+    if(!PS)return 0;ERVBodyRegion Region=ERVBodyRegion::Torso;
+    if(Event.IsOfType(FPointDamageEvent::ClassID))
+    {const auto& Hit=static_cast<const FPointDamageEvent&>(Event).HitInfo;
+     if(const auto* Q=Cast<URVBodyRegionHitComponent>(Hit.GetComponent()))Region=Q->Region;
+     else if(CharacterPresentation)CharacterPresentation->ResolveBodyRegion(Hit.BoneName,Region);}
+    float Severity=2,Contamination=.2f,Applied=Amount;
+    if(const auto* Infected=Cast<ARVInfected>(DamageCauser))
+    {Severity=Infected->Tuning()->InjurySeverity;Contamination=Infected->Tuning()->Contamination;}
+    else if(DamageCauser)if(const auto* Source=DamageCauser->FindComponentByClass<URVCombatComponent>())
+    {FRVItemInstance W;if(Source->GetWeapon(W))
+     {const auto& M=W.Definition->Combat;Severity=M.WoundSeverity;
+      const bool Limb=Region==ERVBodyRegion::LeftArm || Region==ERVBodyRegion::RightArm || Region==ERVBodyRegion::LeftLeg || Region==ERVBodyRegion::RightLeg;
+      Applied*=Region==ERVBodyRegion::Head?M.HeadDamageMultiplier:Limb?M.LimbDamageMultiplier:1.f;}}
+    if(!PS->Health->ApplyWoundAuthority(Region,Severity,Applied,Contamination))return 0;
+    return Super::TakeDamage(Applied,Event,EventInstigator,DamageCauser);
 }
 ARVSurvivorCharacter::ARVSurvivorCharacter(const FObjectInitializer& Init)
     : Super(Init.SetDefaultSubobjectClass<URVCharacterMovementComponent>(ACharacter::CharacterMovementComponentName))

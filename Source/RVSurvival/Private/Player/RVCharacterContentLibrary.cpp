@@ -45,6 +45,7 @@ AActor* URVCharacterContentLibrary::SpawnPoseFixture(UObject* Context,FVector Po
 #include "K2Node_VariableGet.h"
 #include "AnimGraphNode_BlendListByBool.h"
 #include "AnimGraphNode_Slot.h"
+#include "AnimGraphNode_RotationOffsetBlendSpace.h"
 #include "Kismet2/BlueprintEditorUtils.h"
 #include "Kismet2/KismetEditorUtilities.h"
 #include "EdGraph/EdGraph.h"
@@ -161,7 +162,7 @@ bool URVCharacterContentLibrary::PopulateLocomotion(UBlendSpace* BlendSpace,cons
     return false;
 #endif
 }
-bool URVCharacterContentLibrary::BuildAnimationGraph(UAnimBlueprint* Blueprint,UBlendSpace* Locomotion,const TArray<UAnimSequence*>& Poses,UBlendSpace* ArmedLocomotion)
+bool URVCharacterContentLibrary::BuildAnimationGraph(UAnimBlueprint* Blueprint,UBlendSpace* Locomotion,const TArray<UAnimSequence*>& Poses,UBlendSpace* ArmedLocomotion,UBlendSpace* WeaponAimOffset)
 {
 #if WITH_EDITOR
     if(!Blueprint || !Locomotion || Poses.Num()!=10 || !Blueprint->ParentClass->IsChildOf(URVHumanoidAnimInstance::StaticClass())) return false;
@@ -186,7 +187,12 @@ bool URVCharacterContentLibrary::BuildAnimationGraph(UAnimBlueprint* Blueprint,U
         FGraphNodeCreator<UAnimGraphNode_BlendSpacePlayer> MakeArmed(*Graph);auto* Armed=MakeArmed.CreateNode();MakeArmed.Finalize();Armed->SetAnimationAsset(ArmedLocomotion);Armed->ReconstructNode();Armed->NodePosX=-600;Armed->NodePosY=-300;
         Link(Variable(TEXT("GroundSpeed"),-450),TEXT("GroundSpeed"),Armed,TEXT("X"));Link(Variable(TEXT("Direction"),-350),TEXT("Direction"),Armed,TEXT("Y"));
         FGraphNodeCreator<UAnimGraphNode_BlendListByBool> MakeReady(*Graph);auto* Ready=MakeReady.CreateNode();MakeReady.Finalize();Ready->ReconstructNode();
-        Link(Walk,TEXT("Pose"),Ready,TEXT("BlendPose_1"));Link(Armed,TEXT("Pose"),Ready,TEXT("BlendPose_0"));Link(Variable(TEXT("bWeaponReady"),-550),TEXT("bWeaponReady"),Ready,TEXT("bActiveValue"));
+        Link(Walk,TEXT("Pose"),Ready,TEXT("BlendPose_1"));
+        if(WeaponAimOffset)
+        {FGraphNodeCreator<UAnimGraphNode_RotationOffsetBlendSpace> MakeAim(*Graph);auto* Aim=MakeAim.CreateNode();MakeAim.Finalize();Aim->SetAnimationAsset(WeaponAimOffset);Aim->ReconstructNode();
+         Link(Armed,TEXT("Pose"),Aim,TEXT("BasePose"));Link(Variable(TEXT("AimPitch"),-650),TEXT("AimPitch"),Aim,TEXT("Y"));Link(Aim,TEXT("Pose"),Ready,TEXT("BlendPose_0"));}
+        else Link(Armed,TEXT("Pose"),Ready,TEXT("BlendPose_0"));
+        Link(Variable(TEXT("bWeaponReady"),-550),TEXT("bWeaponReady"),Ready,TEXT("bActiveValue"));
         Link(Ready,TEXT("Pose"),Modes,TEXT("BlendPose_0"));
     }
     else Link(Walk,TEXT("Pose"),Modes,TEXT("BlendPose_0"));

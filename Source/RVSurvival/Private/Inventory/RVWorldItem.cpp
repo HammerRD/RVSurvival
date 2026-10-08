@@ -41,7 +41,9 @@ bool ARVWorldItem::IsNetRelevantFor(const AActor* RealViewer, const AActor* View
     return Super::IsNetRelevantFor(RealViewer,ViewTarget,SrcLocation);
 }
 void ARVWorldItem::OnRep_Item()
-{ if(Item.Definition && !Item.Definition->WorldMesh.IsNull()) {Mesh->SetStaticMesh(Item.Definition->WorldMesh.LoadSynchronous());Mesh->SetRelativeScale3D(Item.Definition->WorldVisualScale);} }
+{ if(Item.Definition && !Item.Definition->WorldMesh.IsNull()) {Mesh->SetStaticMesh(Item.Definition->WorldMesh.LoadSynchronous());
+    // Preserve authored pickup scale overrides in accepted maps. Gate 9 sizing is opt-in.
+    if(Item.Definition->Combat.bFirearm || Item.Definition->Combat.bMagazine)Mesh->SetRelativeScale3D(Item.Definition->WorldVisualScale);} }
 void ARVWorldItem::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 { Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(ARVWorldItem,Item); }
 bool ARVWorldItem::CanInteract_Implementation(APawn* Pawn) const

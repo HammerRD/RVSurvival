@@ -76,3 +76,43 @@ outside the 130.5 cm attack-entry bound. StopOnOverlap is now false with a small
 native acceptance radius; attack completion still independently checks 145 cm
 and Visibility obstruction. Actual bites create accepted medical injury records,
 not a second player HP system. Single infected death and no post-death attacks pass.
+
+## Presentation and authority refinement (2026-10-08)
+
+Development Editor/Win64 rebuild succeeded using the native Unreal Build Accelerator
+local executor (`owned-debug-build.log`). The optional development invalid-intent
+probes use owned, weak next-tick RPC requests; they are disabled in Shipping/Test.
+The initial conditional-compilation unreachable-return error was corrected.
+
+`foundation-input.json` now records 18/18 checks. Holstering preserves the real
+loaded magazine; re-equipping retains rounds. Remappable U explicitly unloads it
+before transfer/drop. R remains available to the accepted bed stand-up action;
+reload does not produce a spurious wake request for an awake character. Weapon
+readiness is suppressed during seating, rest, ladder and medical treatment.
+
+Player and infected attacks use Unreal PointDamage events. Survivor damage feeds
+existing injury records and GAS vitality. The new presentation profile can supply
+an absolute-scale head query independently of owner head hiding; multiplayer
+head/body hit validation remains pending. Existing map pickup visual-scale overrides
+remain intact: the new WorldVisualScale application is limited to combat items.
+
+The isolated updated `ai-medical-loop.json` passes 8/8 after native damage routing:
+sight, NavMesh chase, contaminated bleeding wound, actual firearm trace kill,
+single death and no further attacks. A combined fixture failed after preceding
+combat activity changed AI goals; its receipt is retained. The isolated fixture
+pauses native brain/path following only during placement, then resumes native
+perception and behavior. These are targeted functional results, not final stress
+or multiplayer acceptance.
+
+Visual inspection found the original handgun grip facing backward. A project-side
+180-degree grip correction and Epic pistol aim-offset asset have been saved.
+Reinspection of the corrected rendered pose is pending; earlier screenshots are
+failure evidence, not signoff. Separate-process baseline validation is underway.
+
+Separate-process baseline first run: native firing/reload/ownership rejection,
+infected head and client torso deaths, logical player wounds/downing and downed
+fire rejection pass on both peers. Treatment stabilization/revive failed because
+fixture dressings were requested every five seconds, shorter than the accepted
+8-second action duration. The test now waits ten seconds between dressings and
+14 seconds for the 12-second revive. Original server/client receipts are retained
+as `process-baseline-treatment-timing-*.json`. No medical rules were weakened.

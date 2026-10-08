@@ -12,6 +12,8 @@ struct FRVBodyRegionBones
     UPROPERTY(EditAnywhere, BlueprintReadOnly) ERVBodyRegion Region=ERVBodyRegion::Torso;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) FName AnchorBone;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) TArray<FName> Roots;
+    // Zero uses PhysicsAsset only. Render-hidden bones may need an absolute-scale query.
+    UPROPERTY(EditAnywhere,BlueprintReadOnly,meta=(ClampMin="0")) float QueryRadiusCm=0;
 };
 USTRUCT(BlueprintType)
 struct FRVEquipmentAnchor

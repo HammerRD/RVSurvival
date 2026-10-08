@@ -273,7 +273,7 @@ void ARVPlayerController::SetupInputComponent()
     { ResourceInputLocalPlayer=Local; Subsystem->RemoveMappingContext(ResourceMapping); Subsystem->AddMappingContext(ResourceMapping,2); }
 }
 void ARVPlayerController::WakeKey()
-{ if (auto* PS=GetPlayerState<ARVPlayerState>()) PS->Needs->RequestRestMode(ERVRestMode::Awake); }
+{ if (auto* PS=GetPlayerState<ARVPlayerState>();PS && PS->Needs->State.RestMode!=ERVRestMode::Awake) PS->Needs->RequestRestMode(ERVRestMode::Awake); }
 void ARVPlayerController::SleepKey()
 { if (auto* PS=GetPlayerState<ARVPlayerState>()) PS->Needs->RequestRestMode(PS->Needs->State.RestMode==ERVRestMode::Sleeping?ERVRestMode::Resting:ERVRestMode::Sleeping); }
 void ARVPlayerController::ToggleResource(FName Control)

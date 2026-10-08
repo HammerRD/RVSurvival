@@ -11,6 +11,7 @@ class RVSURVIVAL_API ARVInfected : public ACharacter
     GENERATED_BODY()
 public:
     ARVInfected();
+    virtual void OnConstruction(const FTransform& Transform) override;
     virtual void BeginPlay() override;
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out) const override;
@@ -25,6 +26,7 @@ public:
     UFUNCTION() void OnRep_State();
     const URVInfectedProfile* Tuning() const;
 private:
+    void ConfigureVisual();
     void CompleteAttack();
     TWeakObjectPtr<AActor> AttackVictim;
     FTimerHandle AttackTimer;

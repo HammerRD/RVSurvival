@@ -28,8 +28,9 @@ at(4.1,lambda:key('LeftMouseButton',True));at(5.1,lambda:key('LeftMouseButton',F
 tap(5.6,'R');at(8.0,lambda:check('partial reload conserves total ammunition',rounds()==15 and sum(m.magazine_rounds for m in magazines())==43))
 at(8.2,lambda:key('RightMouseButton',True));at(8.6,lambda:check('normal RMB applies aim',combat.get_editor_property('bAiming')))
 at(8.8,lambda:key('RightMouseButton',False));at(9.1,lambda:check('aim release restores',not combat.get_editor_property('bAiming')))
-tap(9.3,'Four');at(9.8,lambda:check('holster releases magazine without losing rounds',not unreal.GuidLibrary.is_valid_guid(combat.equipped_weapon) and sum(m.magazine_rounds for m in magazines())==43))
-at(10.0,lambda:check('all GUIDs remain unique',len({unreal.GuidLibrary.conv_guid_to_string(i.id) for i in items()})==len(items())))
+tap(9.3,'Four');at(9.8,lambda:check('holster preserves loaded magazine and rounds',not unreal.GuidLibrary.is_valid_guid(combat.equipped_weapon) and sum(m.magazine_rounds for m in magazines())==43 and any(unreal.GuidLibrary.is_valid_guid(m.loaded_in_weapon) for m in magazines())))
+tap(10,'Four');at(10.4,lambda:check('reequip retains loaded magazine',rounds()==15));tap(10.6,'U');at(11.0,lambda:check('normal U unload preserves every round',rounds()==0 and sum(m.magazine_rounds for m in magazines())==43))
+at(11.2,lambda:check('all GUIDs remain unique',len({unreal.GuidLibrary.conv_guid_to_string(i.id) for i in items()})==len(items())))
 def finish():
  global w,pc,p,inv,combat
  unreal.unregister_slate_post_tick_callback(handle)
@@ -40,7 +41,7 @@ def tick(dt):
  try:
   while index<len(events) and time.time()-started>=events[index][0]:
    events[index][1]();index+=1
-  if time.time()-started>11:finish()
+  if time.time()-started>12:finish()
  except Exception:
   check('runner error',False,traceback.format_exc());finish()
 handle=unreal.register_slate_post_tick_callback(tick)

@@ -1,7 +1,7 @@
 import unreal,json
 from pathlib import Path
 root=Path('D:/GitHub/RVSurvival/RVSurvival');base='/Game/Characters/Mannequins/Anims/Pistol'
-packages=[base+'/'+n for n in ['MF_Pistol_Idle_ADS','MM_Pistol_Fire_Montage','MM_Pistol_Reload']]
+packages=[base+'/Aim/AO_Pistol']+[base+'/'+n for n in ['MF_Pistol_Idle_ADS','MM_Pistol_Fire_Montage','MM_Pistol_Reload']]
 for gait in ['Walk','Jog']:
  for direction in ['Fwd','Bwd','Left','Right','Fwd_Left','Fwd_Right','Bwd_Left','Bwd_Right']:
   packages.append(base+'/'+gait+'/MF_Pistol_'+gait+'_'+direction)

@@ -33,10 +33,13 @@ public:
     float GetLookScale() const {return bEnabled && bAiming?AimSensitivityScale:1.f;}
     UFUNCTION(BlueprintPure) int32 GetLoadedRounds() const;
     UFUNCTION(BlueprintPure) bool GetWeapon(FRVItemInstance& Item) const;
+    UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) bool DebugRequestFire(FGuid Weapon,int32 Revision,int32 RequestSequence);
+    UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) bool DebugRequestReload(FGuid Magazine,int32 Revision);
     UFUNCTION(Server,Reliable) void ServerEquip(FGuid Id);
     UFUNCTION(Server,Reliable) void ServerAim(bool Value);
     UFUNCTION(Server,Reliable) void ServerFire(FGuid Weapon,int32 Revision,uint32 RequestSequence);
     UFUNCTION(Server,Reliable) void ServerReload(FGuid Magazine,int32 WeaponRevision);
+    UFUNCTION(Server,Reliable) void ServerUnload();
     UFUNCTION(NetMulticast,Unreliable) void MulticastShot(FVector_NetQuantize Start,FVector_NetQuantize End);
 private:
     URVInventoryComponent* Inventory() const;
@@ -44,6 +47,7 @@ private:
     void EquipInput();
     void FireInput();
     void ReloadInput();
+    void UnloadInput();
     void AimStart();
     void AimStop();
     void FinishReload();
@@ -61,10 +65,12 @@ private:
     double PresentedReloadEnd=0;
     UPROPERTY(Transient) TObjectPtr<UStaticMeshComponent> WeaponVisual;
     UPROPERTY(Transient) TObjectPtr<URVItemDefinition> VisualDefinition;
+    UPROPERTY(Transient) TArray<TObjectPtr<class URVBodyRegionHitComponent>> HitQueries;
     UPROPERTY(Transient) TObjectPtr<UInputMappingContext> Mapping;
     UPROPERTY(Transient) TObjectPtr<UInputAction> EquipAction;
     UPROPERTY(Transient) TObjectPtr<UInputAction> FireAction;
     UPROPERTY(Transient) TObjectPtr<UInputAction> AimAction;
     UPROPERTY(Transient) TObjectPtr<UInputAction> ReloadAction;
+    UPROPERTY(Transient) TObjectPtr<UInputAction> UnloadAction;
     TWeakObjectPtr<ULocalPlayer> InputLocalPlayer;
 };
