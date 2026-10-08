@@ -1,0 +1,91 @@
+{
+  "kind": "state-change summary; complete raw sampler retained under Saved/Gate8Validation",
+  "samples_observed": 239,
+  "states": [
+    {
+      "time": 1791437009.948153,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": []
+    },
+    {
+      "time": 1791437051.3149312,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": []
+    },
+    {
+      "time": 1791437059.4735065,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment completed",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": []
+    },
+    {
+      "time": 1791437077.2904499,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": []
+    },
+    {
+      "time": 1791437089.506452,
+      "patient_active": true,
+      "bleeding": 0.0,
+      "feedback": "Treatment completed",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          1
+        ]
+      ],
+      "texts": []
+    }
+  ]
+}

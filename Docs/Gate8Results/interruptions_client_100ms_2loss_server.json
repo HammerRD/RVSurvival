@@ -1,0 +1,16 @@
+{
+  "pid": 26276,
+  "role": "server",
+  "results": [
+    {
+      "case": "out_of_range_rejected",
+      "pass": true,
+      "detail": "Patient out of reach"
+    },
+    {
+      "case": "harness_exception",
+      "pass": false,
+      "detail": "AttributeError(\"type object 'GameplayStatics' has no attribute 'begin_deferred_actor_spawn_from_class'\")"
+    }
+  ]
+}

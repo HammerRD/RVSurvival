@@ -82,11 +82,12 @@ def transferred():
  if not isdriver:
   item=next(i for i in storage.get_items() if str(i.definition.get_editor_property('DisplayName'))=='AdvancedKit');inv.request_transfer(item.id,1,False)
 def returned():
- check('station_supply_returned_state',kit().quantity==2 and abs(kit().condition-.81)<.0001)
+ items=[i for i in inv.get_items() if str(i.definition.get_editor_property('DisplayName'))=='AdvancedKit']
+ check('station_supply_returned_state',sum(i.quantity for i in items)==2 and all(abs(i.condition-.81)<.0001 for i in items),[(i.quantity,i.condition,unreal.GuidLibrary.conv_guid_to_string(i.id)) for i in items])
  begin()
 def treated():
  check('advanced_parked_completed',injury().bleeding_per_minute==0,health.get_editor_property('Feedback'))
- check('advanced_consumed_once',kit().quantity==1)
+ check('advanced_consumed_once',sum(i.quantity for i in inv.get_items() if str(i.definition.get_editor_property('DisplayName'))=='AdvancedKit')==1)
 def finish():
  for k in list(pulses):unreal.RVInteriorMotorhome.dispatch_development_key(pc,k,False)
  unreal.unregister_slate_post_tick_callback(handle)

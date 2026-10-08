@@ -193,7 +193,7 @@ bool URVHealthComponent::ValidateTreatment(FString& Error) const
     { Error=TEXT("Medical supply configuration invalid" ); return false; }
     const auto* PC=Cast<ARVPlayerController>(PS->GetOwner());
     if(M.bRequiresStation && (!PC || !PC->MedicalStation || !PC->MedicalStation->IsReachable(Healer) || !PC->MedicalStation->CanInteract_Implementation(Healer)))
-    { Error=TEXT("Use a reachable powered medical station"); return false; }
+    { Error=TEXT("Use a reachable medical station"); return false; }
     if(M.bRequiresParked)
     {
         const AActor* Vehicle=PC && PC->MedicalStation?PC->MedicalStation->GetAttachParentActor():nullptr;

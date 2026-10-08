@@ -1,0 +1,31 @@
+{
+  "pid": 4508,
+  "role": "client",
+  "results": [
+    {
+      "case": "out_of_range_rejected",
+      "pass": true,
+      "detail": "Patient out of reach"
+    },
+    {
+      "case": "line_of_sight_rejected",
+      "pass": true,
+      "detail": "Treatment started \u2014 cancel to stop"
+    },
+    {
+      "case": "patient_movement_cancels_hold",
+      "pass": false,
+      "detail": "Treatment started \u2014 cancel to stop"
+    },
+    {
+      "case": "stabilization_after_cancellation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "revive_cancel_no_restore_or_consume",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

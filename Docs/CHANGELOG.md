@@ -233,3 +233,6 @@ Gate 8 in-progress checkpoint: saved medical test map/profile derivatives and li
 - Recorded normal medical-panel cancellation/retry, separate-process moving treatment in both roles, isolated passenger correction measurements, medical boundary/medication-expiry tests, repeated timed transactions and both disconnect directions.
 - Improved test-runner cleanup and invalid-PIE sampler handling. Failed harness runs remain documented; leak detection is unchanged.
 - Gate 8 remains in progress. Gate 9 has not started.
+
+## Gate 8 medical interaction validation checkpoint
+Normal-client F9 and visible teammate treatment/revive controls passed under 100 ms latency and 2% loss. Parked advanced treatment, moving linked medical storage, interrupted/cancelled treatments and normal seat/bed medical-state preservation passed. Actual client-window observation corroborated replicated symptoms and retained injuries. Preserved failed Python probes and incorrect stack assumptions are explicitly excluded from acceptance evidence. All 108 vendor files match accepted baseline. Development Editor/Win64 build succeeded in 25.15 s. Final representative prior-gate regressions and saved-content audit remain pending.

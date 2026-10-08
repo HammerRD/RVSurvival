@@ -1,0 +1,1411 @@
+{
+  "kind": "state-change summary; complete raw sampler retained under Saved/Gate8Validation",
+  "samples_observed": 239,
+  "states": [
+    {
+      "time": 1791437009.9374936,
+      "patient_active": true,
+      "bleeding": null,
+      "feedback": "",
+      "supplies": [],
+      "texts": []
+    },
+    {
+      "time": 1791437010.4527729,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": []
+    },
+    {
+      "time": 1791437040.3013177,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "Conscious | Pain: low\nNo recorded injuries",
+        "Supply: PressureDressing \u00d7 2",
+        "",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437046.3902206,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nACTIVE BLEEDING | Untreated | Contamination risk",
+        "Supply: PressureDressing \u00d7 2",
+        "",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437051.4899871,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nACTIVE BLEEDING | Untreated | Contamination risk",
+        "Supply: PressureDressing \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 7.8 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437052.0068593,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nACTIVE BLEEDING | Untreated | Contamination risk",
+        "Supply: PressureDressing \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 7.3 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437052.5061433,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nACTIVE BLEEDING | Untreated | Contamination risk",
+        "Supply: PressureDressing \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 6.8 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437053.0075326,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nACTIVE BLEEDING | Untreated | Contamination risk",
+        "Supply: PressureDressing \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 6.3 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437053.5223734,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nACTIVE BLEEDING | Untreated | Contamination risk",
+        "Supply: PressureDressing \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 5.8 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437054.0230017,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nACTIVE BLEEDING | Untreated | Contamination risk",
+        "Supply: PressureDressing \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 5.3 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437054.5398383,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nACTIVE BLEEDING | Untreated | Contamination risk",
+        "Supply: PressureDressing \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 4.7 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437055.056956,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nACTIVE BLEEDING | Untreated | Contamination risk",
+        "Supply: PressureDressing \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 4.2 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437055.556412,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nACTIVE BLEEDING | Untreated | Contamination risk",
+        "Supply: PressureDressing \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 3.7 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437056.0733225,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nACTIVE BLEEDING | Untreated | Contamination risk",
+        "Supply: PressureDressing \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 3.2 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437056.5898802,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nACTIVE BLEEDING | Untreated | Contamination risk",
+        "Supply: PressureDressing \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 2.7 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437057.0898926,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nACTIVE BLEEDING | Untreated | Contamination risk",
+        "Supply: PressureDressing \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 2.2 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437057.5899706,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nACTIVE BLEEDING | Untreated | Contamination risk",
+        "Supply: PressureDressing \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 1.7 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437058.1072662,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nACTIVE BLEEDING | Untreated | Contamination risk",
+        "Supply: PressureDressing \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 1.2 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437058.6073554,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nACTIVE BLEEDING | Untreated | Contamination risk",
+        "Supply: PressureDressing \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 0.7 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437059.1235032,
+      "patient_active": false,
+      "bleeding": 3.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          2
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nACTIVE BLEEDING | Untreated | Contamination risk",
+        "Supply: PressureDressing \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 0.2 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437059.6232708,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment completed",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: PressureDressing \u00d7 1",
+        "Treatment completed",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437072.3789968,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment completed",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment completed",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437077.4460342,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 11.7 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437077.9461064,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 11.2 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437078.4461045,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 10.7 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437078.9461172,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 10.2 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437079.4623222,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 9.7 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437079.9793766,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 9.2 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437080.4950807,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 8.7 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437081.0128622,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 8.2 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437081.5122979,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 7.7 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437082.012351,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 7.2 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437082.529621,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 6.7 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437083.0293777,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 6.2 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437083.5455217,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 5.6 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437084.0466514,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 5.1 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437084.562823,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 4.6 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437085.0790765,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 4.1 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437085.5792353,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 3.6 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437086.094921,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 3.1 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437086.5960364,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 2.6 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437087.112856,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 2.1 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437087.6127143,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 1.6 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437088.1126554,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 1.1 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437088.612331,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 0.6 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437089.1291342,
+      "patient_active": false,
+      "bleeding": 0.0,
+      "feedback": "Treatment started \u2014 cancel to stop",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          2
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "DOWNED \u2014 urgent stabilization | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 2",
+        "Treatment started \u2014 cancel to stop\nTreatment: 0.1 s remaining",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437089.646046,
+      "patient_active": true,
+      "bleeding": 0.0,
+      "feedback": "Treatment completed",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          1
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "Conscious | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: FirstAidKit \u00d7 1",
+        "Treatment completed",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437107.0290363,
+      "patient_active": true,
+      "bleeding": 0.0,
+      "feedback": "Treatment completed",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          1
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "Conscious | Pain: noticeable\nTorso \u2014 Wound | moderate\nNo active bleeding | Stabilized; recovery needed | Contamination risk",
+        "Supply: PressureDressing \u00d7 1",
+        "Treatment completed",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437112.630221,
+      "patient_active": true,
+      "bleeding": 0.0,
+      "feedback": "Treatment completed",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          1
+        ]
+      ],
+      "texts": [
+        "MEDICAL | ASSESS / STABILIZE / RECOVER",
+        "Conscious | Pain: noticeable\nLeft leg \u2014 Fracture | moderate\nNo active bleeding | Untreated | Low contamination risk",
+        "Supply: PressureDressing \u00d7 1",
+        "Treatment completed",
+        "Inspect self",
+        "Inspect nearby teammate",
+        "Next injury",
+        "Next medical supply",
+        "Begin treatment / revive",
+        "Cancel treatment (retain supply)",
+        "Close \u2014 resume walking"
+      ]
+    },
+    {
+      "time": 1791437127.8811693,
+      "patient_active": true,
+      "bleeding": 0.0,
+      "feedback": "Treatment completed",
+      "supplies": [
+        [
+          "PressureDressing",
+          1
+        ],
+        [
+          "FirstAidKit",
+          1
+        ]
+      ],
+      "texts": []
+    }
+  ]
+}

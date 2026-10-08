@@ -64,3 +64,23 @@ Normal medical-panel controls passed self-treatment, cancellation, retry, splint
 Both disconnect directions passed: patient disconnect releases the healer's hold without consuming a supply; healer disconnect causes no late completion and leaves the patient downed. Both servers remained operational and completed managed shutdown.
 
 Boundary and repeated-transaction tests passed as recorded above. These remain targeted diagnostics, not a substitute for remaining station and representative regression validation. Gate 8 remains IN PROGRESS / NOT ACCEPTED.
+
+## Station, interruption and integration follow-up
+
+The separate-process client opened the medical station with normal E input. Linked medical storage accepted and returned supplies; condition remained 0.81 and quantities were conserved across separate runtime IDs. The first return assertion incorrectly assumed split stacks would merge. Its failed receipt is retained; the corrected aggregate-quantity repeat passed on server and client. Parked advanced treatment consumed exactly one kit and controlled severe bleeding. RequiredPowerLoad is currently None: the station does not require electrical power in this test map.
+
+Corrected interruption diagnostics passed on both processes at 100 ms / 2% loss: out-of-range rejection, genuine obstructed visibility with inactive hold and `Patient obstructed` feedback, patient movement cancellation, subsequent stabilization and cancelled revive without restoration or supply consumption. The earlier obstacle-creation failure invalidated its later nominal results; those receipts are preserved without acceptance credit.
+
+Normal E/3/Z/R controls preserved injury identities through passenger seat, rear standing, bed entry, sleep and wake. Downed native walking was restricted, dropping retained the item and sleep entry was rejected. The bed approach uses an explicitly labeled initial placement fixture; this is not a new complete physical entry-path audit.
+
+Moving medication consumed one dose and applied native GAS relief. A diagnostic display probe failed because MedicalWidget is protected; another filtered UObject probe did not observe the panel. Those failed display checks are retained and are not UI acceptance evidence. A later native Windows inspection of the separate client window visibly confirmed the medical panel, severe left-arm wound, active bleeding/contamination warnings, AdvancedKit ×2 and linked Medical storage after normal E station interaction. The subsequent widget-library probe is unavailable in this build and was removed rather than changing production UI solely for introspection.
+
+Vendor audit against accepted checkpoint 0b6eff6: all 108 files unchanged. See vendor-final.json. Final representative regressions, saved-content reload audit, final build and documentation closure are still pending.
+
+## Actual client medical controls under emulation
+
+Using the separate client's native Windows viewport under 100 ms latency / 2% loss, actual F9 opened the medical panel. Visible `Inspect nearby teammate` selected the downed host and showed its moderate torso wound/active bleeding. Visible Begin started the eight-second pressure treatment; completion showed no active bleeding, retained stabilized wound and dressing quantity 2 → 1. Next medical supply selected FirstAidKit; visible Begin started the twelve-second revive. Completion showed Conscious and kit quantity 2 → 1. Next injury visibly displayed the retained, untreated moderate left-leg fracture. Close removed the panel and returned to the normal view. Only initial injury/item/approach fixtures were automated; gameplay used OS keyboard and mouse controls. Read-only server/client samples corroborate the transactions.
+
+The earlier synthetic F9 display checks were inconclusive harness observations; this actual control path resolves the player-facing F9 concern. The normal E station visual observation remains separate evidence.
+
+A targeted read of every power/electricity reference in the Gate 8 request found no mandatory station-power requirement. Electrical gameplay is required to remain intact as a regression. This map intentionally configures basic medical assessment/linked storage with no power load; future powered equipment can use the inherited station requirement. Advanced kits require a reachable station and parked RV. Moving storage succeeded at approximately 1471 cm/s; advanced treatment was rejected with `Park the RV for this treatment`, with its supply retained.

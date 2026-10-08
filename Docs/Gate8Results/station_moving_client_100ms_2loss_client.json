@@ -1,0 +1,33 @@
+{
+  "pid": 41464,
+  "role": "client",
+  "config": {
+    "name": "station_moving_client_100ms_2loss",
+    "driver": "host",
+    "network": true
+  },
+  "kind": "normal E station entry; owned inventory/treatment requests",
+  "results": [
+    {
+      "case": "advanced_without_station_rejected",
+      "pass": true,
+      "detail": "Use a reachable powered medical station"
+    },
+    {
+      "case": "normal_E_station_registered",
+      "pass": true,
+      "detail": "Use a reachable powered medical station"
+    },
+    {
+      "case": "linked_storage_opened",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "harness_exception",
+      "pass": false,
+      "detail": "AttributeError(\"module 'unreal' has no attribute 'WidgetBlueprintLibrary'\")"
+    }
+  ],
+  "power_requirement": "None"
+}

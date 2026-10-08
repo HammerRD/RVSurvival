@@ -1,0 +1,52 @@
+{
+  "pid": 22440,
+  "role": "server",
+  "results": [
+    {
+      "case": "injury_present_seated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "injury_survives_rear_transition",
+      "pass": true,
+      "detail": "[129.98867965768855, 0.00033033326573798233, 177.18926943719782]"
+    },
+    {
+      "case": "injury_survives_normal_E_bed",
+      "pass": true,
+      "detail": "[-245.00000000000003, 48.0, 194.99999999999997]"
+    },
+    {
+      "case": "medical_survives_normal_Z_sleep",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "medical_survives_normal_R_wake",
+      "pass": true,
+      "detail": "[-114.9738641789426, -0.000762656385487242, 191.4892694371978]"
+    },
+    {
+      "case": "downed_native_walk_restricted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "downed_drop_retains_item",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "downed_sleep_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "injury_retained_downed",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "fixture": "authority positions at bed approach; all seat/bed controls normal input"
+}

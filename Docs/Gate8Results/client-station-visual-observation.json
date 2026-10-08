@@ -1,0 +1,15 @@
+{
+  "kind": "native Windows client-window visual observation",
+  "process_receipt": "station_moving_client_100ms_2loss_client.json",
+  "normal_input": "E at medical station",
+  "observed": [
+    "MEDICAL ASSESS / STABILIZE / RECOVER panel visible",
+    "Conscious; Pain noticeable",
+    "Left arm Wound severe",
+    "ACTIVE BLEEDING; Untreated; Contamination risk",
+    "AdvancedKit quantity 2",
+    "Linked Medical storage visible",
+    "Qualitative SEVERE BLEEDING HUD warning"
+  ],
+  "limitations": "Diagnostic widget introspection failed and halted that runner. This visual observation does not validate its later transfer or driving phases."
+}

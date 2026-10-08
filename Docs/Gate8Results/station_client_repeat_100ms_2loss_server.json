@@ -1,0 +1,38 @@
+{
+  "pid": 45036,
+  "role": "server",
+  "config": {
+    "name": "station_client_repeat_100ms_2loss",
+    "driver": "host",
+    "network": true
+  },
+  "kind": "normal E station entry; owned inventory/treatment requests",
+  "results": [
+    {
+      "case": "advanced_without_station_rejected",
+      "pass": true,
+      "detail": "Use a reachable powered medical station"
+    },
+    {
+      "case": "linked_medical_storage_transfer",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "station_supply_returned_state",
+      "pass": true,
+      "detail": "[(1, 0.8100000023841858, 'C43F3DAF49ACA4A8F194888BE426A222'), (1, 0.8100000023841858, '947A359A4412FB0BE91CC380AB3837D1')]"
+    },
+    {
+      "case": "advanced_parked_completed",
+      "pass": true,
+      "detail": "Treatment completed"
+    },
+    {
+      "case": "advanced_consumed_once",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "power_requirement": "None"
+}
