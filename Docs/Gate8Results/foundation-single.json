@@ -1,0 +1,110 @@
+{
+  "kind": "component diagnostic; no manual-control acceptance",
+  "results": [
+    {
+      "case": "persistent_ASC_present",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "initial_active",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "initial_blood",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "wound_debug",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "identified_wound",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moderate_bleed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "blood_loss",
+      "pass": true,
+      "detail": "(100.0, 90.99984741210938)"
+    },
+    {
+      "case": "existing_inventory_admission",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bandage_completed",
+      "pass": true,
+      "detail": "Treatment completed"
+    },
+    {
+      "case": "consumed_once",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "injury_retained",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stale_revision_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fracture_apply",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "leg_consequence",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "pain_present",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "burn_apply",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "concussion_apply",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "vitals_clamp",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "downed_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "debug_clear",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "reset_active",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

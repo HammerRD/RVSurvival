@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
 #include "GameplayTagContainer.h"
+#include "Medical/RVMedicalProfile.h"
 #include "RVItemDefinition.generated.h"
 
 USTRUCT(BlueprintType)
@@ -33,6 +34,7 @@ class RVSURVIVAL_API URVItemDefinition : public UPrimaryDataAsset
 {
     GENERATED_BODY()
 public:
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FRVMedicalSupplyMetadata Medical;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FRVConsumableMetadata Consumable;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FRVFuelContainerMetadata Fuel;
     UFUNCTION(BlueprintPure, Category="RV|Items") static FGameplayTag FindRegisteredTag(FName Name);
