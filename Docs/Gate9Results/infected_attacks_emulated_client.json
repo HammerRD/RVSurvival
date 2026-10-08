@@ -1,0 +1,35 @@
+{
+  "pid": 55440,
+  "results": [
+    {
+      "case": "host native infected bite medical state converges",
+      "pass": true,
+      "detail": "(2, 1)"
+    },
+    {
+      "case": "client native infected bite medical state converges",
+      "pass": true,
+      "detail": "(2, 1)"
+    },
+    {
+      "case": "host repeated cooldown cycles bounded to one wound per completion",
+      "pass": true,
+      "detail": "(2, 2)"
+    },
+    {
+      "case": "client repeated cooldown cycles bounded to one wound per completion",
+      "pass": true,
+      "detail": "(2, 2)"
+    },
+    {
+      "case": "both infected deaths replicate once",
+      "pass": true,
+      "detail": "[('<RVInfectedState.DEAD: 5>', 0.0), ('<RVInfectedState.DEAD: 5>', 0.0)]"
+    },
+    {
+      "case": "client remains equipped before disconnect",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

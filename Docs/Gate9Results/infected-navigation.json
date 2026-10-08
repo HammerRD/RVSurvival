@@ -1,0 +1,941 @@
+{
+  "results": [
+    {
+      "case": "cover blocks native sight",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "blocked shot noise produces investigation",
+      "pass": true,
+      "detail": "<RVInfectedState.INVESTIGATE: 2>"
+    },
+    {
+      "case": "native AI follows cover detour",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000001478338F940) {x: 1146.860950, y: 2790.756684, z: 90.000000}>"
+    },
+    {
+      "case": "actual leg shot reduces native chase speed",
+      "pass": true,
+      "detail": "(45.5, 160.0)"
+    },
+    {
+      "case": "native sight reacquires after fixture",
+      "pass": true,
+      "detail": "<RVInfectedState.CHASE: 3>"
+    },
+    {
+      "case": "lost sight investigates last known position",
+      "pass": true,
+      "detail": "<RVInfectedState.INVESTIGATE: 2>"
+    },
+    {
+      "case": "investigation expires into idle or wander",
+      "pass": true,
+      "detail": "<RVInfectedState.IDLE: 0>"
+    },
+    {
+      "case": "infected pursues along parked RV exterior using native navigation",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x00000147833C0600) {x: -144.612322, y: 350.010072, z: 90.149994}>"
+    },
+    {
+      "case": "RV exterior firearm action remains usable",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "samples": [
+    {
+      "time": 0.00642848014831543,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        2100.0,
+        2500.0,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 0.3070056438446045,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        2100.0,
+        2500.0,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 0.6147856712341309,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        2100.0,
+        2500.0,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 0.9150679111480713,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        2100.0,
+        2500.0,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 1.2228200435638428,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        2100.0,
+        2500.0,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 1.5312628746032715,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        2100.0,
+        2500.0,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 1.840749979019165,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        2100.0,
+        2500.0,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 2.147892713546753,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        2100.0,
+        2500.0,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 2.455106258392334,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        2100.0,
+        2500.0,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 2.7555041313171387,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        2100.0,
+        2500.0,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 3.0629167556762695,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        2100.0,
+        2500.0,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 3.363351345062256,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        2100.0,
+        2500.0,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 3.663472890853882,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        2084.2080562689926,
+        2518.501631492969,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 3.963533878326416,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        2021.8769421526586,
+        2591.527936776864,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 4.263831377029419,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        1959.5517070841365,
+        2664.547354246446,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 4.57245397567749,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        1895.4956422882601,
+        2739.5945888320216,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 4.880386829376221,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        1831.439556634086,
+        2814.641847854901,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 5.181442737579346,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        1769.0732505881297,
+        2887.7093835360433,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 5.488337993621826,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        1705.0095403233017,
+        2962.765575451483,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 5.788788080215454,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        1642.684597077557,
+        3035.7846510253735,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 6.097421169281006,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        1578.6229647989537,
+        3110.8384083997516,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 6.397880554199219,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        1500.1708426127884,
+        3153.9115856555627,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 6.698757886886597,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        1417.86796000115,
+        3109.9529746190915,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 6.999194383621216,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        1355.718289935228,
+        3036.7521221697157,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 7.306696176528931,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        1291.8393337245384,
+        2961.5144894801288,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 7.606866121292114,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        1229.7056317676618,
+        2888.3324445190797,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 7.907351493835449,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        1167.572115617538,
+        2815.1506184041245,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 8.214570999145508,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        1103.712690042667,
+        2739.935989202557,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 8.515174388885498,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        0.0,
+        -6500.0,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 8.815371751785278,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        0.0,
+        -6500.0,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 9.123420715332031,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        0.0,
+        -6500.0,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 9.42393183708191,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        0.0,
+        -6500.0,
+        90.0
+      ],
+      "speed": 320.0
+    },
+    {
+      "time": 9.73158597946167,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        0.0,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 10.032439470291138,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        0.0,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 10.333512544631958,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        0.8533469663832965,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 10.634610176086426,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        46.406597654947234,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 10.936137914657593,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        94.40698047547559,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 11.242358207702637,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        143.77819577032378,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 11.542674779891968,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        191.7792349375047,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 11.842708349227905,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        239.78561906573387,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 12.143187522888184,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        287.78929767095815,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 12.443679571151733,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        335.7896805337538,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 12.751327991485596,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        385.1461127877294,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 13.058822631835938,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        434.47996820161313,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 13.368271350860596,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        483.81369540539396,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 13.67734980583191,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        533.1474231881078,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 13.985080480575562,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        582.4811504342422,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 14.28562331199646,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 14.59330439567566,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 14.901531457901001,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 15.202001333236694,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 15.502399206161499,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 15.810417413711548,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 16.11786699295044,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 16.426625728607178,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 16.736558437347412,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 17.043359994888306,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 17.351440906524658,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 17.660053491592407,
+      "state": "<RVInfectedState.INVESTIGATE: 2>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 17.96782946586609,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 18.268826961517334,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 18.577094078063965,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 18.877284049987793,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 19.184857845306396,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 19.493343830108643,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 19.793482065200806,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        603.8247497916494,
+        -6500.0,
+        90.0
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 20.101677656173706,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        -697.7371987408479,
+        350.2844621562881,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 20.40204954147339,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        -697.7371987408479,
+        350.2844621562881,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 20.710049629211426,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        -697.7371987408479,
+        350.2844621562881,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 21.01084852218628,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        -697.7371987408479,
+        350.2844621562881,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 21.318358898162842,
+      "state": "<RVInfectedState.IDLE: 0>",
+      "position": [
+        -697.7371987408479,
+        350.2844621562881,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 21.618603706359863,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        -685.974872232619,
+        350.2786271886123,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 21.92643642425537,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        -636.6402710074703,
+        350.2541536456231,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 22.227299451828003,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        -588.6398938982713,
+        350.2303419746348,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 22.53505277633667,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        -539.3061729972993,
+        350.20586886834917,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 22.83578395843506,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        -491.3042914402816,
+        350.1820564510466,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 23.143351793289185,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        -441.9705703774826,
+        350.1575833446818,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 23.45221257209778,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        -392.63524842730436,
+        350.13310944416077,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 23.7600154876709,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        -343.3015266797832,
+        350.10863633745583,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 24.06039333343506,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        -295.2801730221326,
+        350.08481426057756,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 24.360450744628906,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        -247.27979575088483,
+        350.0610025895091,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 24.668900966644287,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        -197.9460746299345,
+        350.03652948311554,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 24.97756052017212,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        -148.61235362644234,
+        350.0120563767801,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 25.277783155441284,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        -100.61197653833368,
+        349.9882447058025,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 25.585278034210205,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        -51.27825567127495,
+        349.96377159953454,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 25.89374279975891,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        -1.9445348551874595,
+        349.9392984932915,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 26.19377040863037,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        46.05584208500635,
+        349.9154868223875,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 26.502697229385376,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        95.40473144594304,
+        349.8910061914456,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    },
+    {
+      "time": 26.802745580673218,
+      "state": "<RVInfectedState.CHASE: 3>",
+      "position": [
+        143.405349598383,
+        349.8671944008836,
+        90.14999399707126
+      ],
+      "speed": 160.0
+    }
+  ]
+}

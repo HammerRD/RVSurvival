@@ -1,0 +1,211 @@
+{
+  "results": [
+    {
+      "case": "saved map and actor count",
+      "pass": true,
+      "detail": "103"
+    },
+    {
+      "case": "Gate9 game mode",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "Gate9 combat opt-in",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved first-person camera clearance",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "six logical regions",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "seven replaceable equipment anchors",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "typed caliber compatibility",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "15-round real magazine",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native recoil tuning",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved firearm WorldMesh",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved firearm ShotSound",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved firearm FireMontage",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved firearm ReloadMontage",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "two placed world firearms",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "eight placed GUID-backed magazines",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "full partial empty map specimens",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "three placed configurable infected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved native NavMesh and bounds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "54 purchased visual parts preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "seven exterior compartments preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "physical side entry preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "one reusable bed preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved asset loads /Game/Combat/AM_PrototypeFire.AM_PrototypeFire",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved asset loads /Game/Combat/AM_PrototypeReload.AM_PrototypeReload",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved asset loads /Game/Combat/Audio/Prototype9mm.Prototype9mm",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved asset loads /Game/Combat/BP_Gate9GameMode.BP_Gate9GameMode",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved asset loads /Game/Combat/DA_PrototypeInfected.DA_PrototypeInfected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved asset loads /Game/Combat/Items/DA_9mmHandgun.DA_9mmHandgun",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved asset loads /Game/Combat/Items/DA_9mmMagazine.DA_9mmMagazine",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved asset loads /Game/Combat/M_PrototypeInfected.M_PrototypeInfected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved asset loads /Game/Combat/M_PrototypeShot.M_PrototypeShot",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved asset loads /Game/Combat/SM_SM_Prototype9mm.SM_SM_Prototype9mm",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved asset loads /Game/Combat/Tests/DA_IncompatibleMagazine.DA_IncompatibleMagazine",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved asset loads /Game/Characters/RV/Gate9/ABP_Gate9Humanoid.ABP_Gate9Humanoid",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved asset loads /Game/Characters/RV/Gate9/BP_Gate9Survivor.BP_Gate9Survivor",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved asset loads /Game/Characters/RV/Gate9/BS_PistolLocomotion.BS_PistolLocomotion",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "saved asset loads /Game/Characters/RV/Gate9/DA_CombatPresentation.DA_CombatPresentation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "explicit final map save",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "assets": [
+    "/Game/Combat/AM_PrototypeFire.AM_PrototypeFire",
+    "/Game/Combat/AM_PrototypeReload.AM_PrototypeReload",
+    "/Game/Combat/Audio/Prototype9mm.Prototype9mm",
+    "/Game/Combat/BP_Gate9GameMode.BP_Gate9GameMode",
+    "/Game/Combat/DA_PrototypeInfected.DA_PrototypeInfected",
+    "/Game/Combat/Items/DA_9mmHandgun.DA_9mmHandgun",
+    "/Game/Combat/Items/DA_9mmMagazine.DA_9mmMagazine",
+    "/Game/Combat/M_PrototypeInfected.M_PrototypeInfected",
+    "/Game/Combat/M_PrototypeShot.M_PrototypeShot",
+    "/Game/Combat/SM_SM_Prototype9mm.SM_SM_Prototype9mm",
+    "/Game/Combat/Tests/DA_IncompatibleMagazine.DA_IncompatibleMagazine",
+    "/Game/Characters/RV/Gate9/ABP_Gate9Humanoid.ABP_Gate9Humanoid",
+    "/Game/Characters/RV/Gate9/BP_Gate9Survivor.BP_Gate9Survivor",
+    "/Game/Characters/RV/Gate9/BS_PistolLocomotion.BS_PistolLocomotion",
+    "/Game/Characters/RV/Gate9/DA_CombatPresentation.DA_CombatPresentation"
+  ]
+}

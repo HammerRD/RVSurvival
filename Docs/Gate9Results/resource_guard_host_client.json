@@ -1,0 +1,27 @@
+{
+  "pid": 46848,
+  "role": "client",
+  "results": [
+    {
+      "case": "diagnostic_station",
+      "pass": true,
+      "detail": "{'eye': \"<Struct 'Vector' (0x000001EEAEB76040) {x: 21.508708, y: -0.043991, z: 263.709818}>\", 'target': \"<Struct 'Vector' (0x000001EEAEB76130) {x: 225.520000, y: 13.940000, z: 144.370000}>\", 'hit': \"<Struct 'HitResult' (0x000001EF75E0C940) {}>\"}"
+    },
+    {
+      "case": "diagnostic_resource",
+      "pass": true,
+      "detail": "{'eye': \"<Struct 'Vector' (0x000001EEAEB76040) {x: 21.508708, y: -0.043991, z: 263.709818}>\", 'target': \"<Struct 'Vector' (0x000001EEAEB76130) {x: 225.520000, y: -14.060000, z: 144.370000}>\", 'hit': \"<Struct 'HitResult' (0x000001EF75E08340) {}>\"}"
+    },
+    {
+      "case": "healthy_owned_resource_request_changes_load",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "downed_owned_resource_request_rejected",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "evidence_kind": "accepted Gate6 approach fixture; normal E; owned resource request API with healthy positive control and downed repeat"
+}

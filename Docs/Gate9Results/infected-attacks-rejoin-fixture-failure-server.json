@@ -1,0 +1,45 @@
+{
+  "pid": 19636,
+  "results": [
+    {
+      "case": "host native infected bite medical state converges",
+      "pass": true,
+      "detail": "(2, 2)"
+    },
+    {
+      "case": "client native infected bite medical state converges",
+      "pass": true,
+      "detail": "(2, 2)"
+    },
+    {
+      "case": "host repeated cooldown cycles bounded to one wound per completion",
+      "pass": true,
+      "detail": "(3, 2)"
+    },
+    {
+      "case": "client repeated cooldown cycles bounded to one wound per completion",
+      "pass": true,
+      "detail": "(3, 2)"
+    },
+    {
+      "case": "both infected deaths replicate once",
+      "pass": true,
+      "detail": "[('<RVInfectedState.DEAD: 5>', 0.0), ('<RVInfectedState.DEAD: 5>', 0.0)]"
+    },
+    {
+      "case": "equipped client disconnect removes survivor",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native reconnect admits one fresh nonpersistent inventory",
+      "pass": false,
+      "detail": "1"
+    },
+    {
+      "case": "runner error",
+      "pass": false,
+      "detail": "Traceback (most recent call last):\n  File \"D:/GitHub/RVSurvival/RVSurvival/Saved/Gate9Validation/process_infected_attacks.py\", line 72, in tick\n    f=events[index][1];index+=1;f()\n                                ^^^\n  File \"D:/GitHub/RVSurvival/RVSurvival/Saved/Gate9Validation/process_infected_attacks.py\", line 60, in rejoined\n    check('reconnect does not duplicate host magazines',len(inv(p).get_items())==2 and sum(i.magazine_rounds for i in inv(p).get_items() if i.b_magazine_initialized)==12)\n                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:/GitHub/RVSurvival/RVSurvival/Saved/Gate9Validation/process_infected_attacks.py\", line 60, in <genexpr>\n    check('reconnect does not duplicate host magazines',len(inv(p).get_items())==2 and sum(i.magazine_rounds for i in inv(p).get_items() if i.b_magazine_initialized)==12)\n                                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'RVItemInstance' object has no attribute 'b_magazine_initialized'\n"
+    }
+  ]
+}

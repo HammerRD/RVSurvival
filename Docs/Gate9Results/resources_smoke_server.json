@@ -1,0 +1,3277 @@
+{
+  "pid": 43744,
+  "authority": true,
+  "config": {
+    "name": "resources_smoke",
+    "network": false,
+    "driver": "host",
+    "runner": "process_resources.py"
+  },
+  "results": [
+    {
+      "case": "one_winner_pickup_contention",
+      "pass": true,
+      "detail": "[(\"<Struct 'Guid' (0x00000291BFC9E78C) {}>\", 20.0)]"
+    },
+    {
+      "case": "full_can_state_replicated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "own_fill_open",
+      "pass": true,
+      "detail": "Panel ready"
+    },
+    {
+      "case": "concurrent_refuel_conservation",
+      "pass": true,
+      "detail": "{'total': 205.0, 'tank': 200.0, 'can': 5.0}"
+    },
+    {
+      "case": "partial_tank_can_remaining",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "owner_or_ownership_feedback",
+      "pass": true,
+      "detail": "Stale fuel can request"
+    },
+    {
+      "case": "second_transfer_conserves_remaining",
+      "pass": true,
+      "detail": "{'total': 5.0, 'tank': 5.0, 'can': 0.0}"
+    },
+    {
+      "case": "empty_can_after_transfer",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "dropped_can_replicates_once",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "drop_guid_amount_condition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "repick_contention_single_identity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shared_exterior_open",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shared_partial_fuel_container",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "one_container_winner_no_fuel_duplicate",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "both_can_open_control_panel",
+      "pass": false,
+      "detail": "Transferred 5.000 L"
+    },
+    {
+      "case": "generator_state_converged",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "lights_and_sources_converged",
+      "pass": true,
+      "detail": "Generator"
+    },
+    {
+      "case": "stale_control_rejected",
+      "pass": false,
+      "detail": "Panel out of reach or blocked"
+    },
+    {
+      "case": "native_host_panel_H_switch",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "native_client_panel_H_switch",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "out_of_range_does_not_stop_generator",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "out_of_range_feedback",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "remote_generator_stop_converged",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fuel_battery_bounds",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "solar_authoritative_input",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "independent_process",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "panel_no_ownership_lock",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "invalid_request_burst_no_mutation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "generator_before_disconnect",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "disconnect_preserves_shared_power_and_storage",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host_control_after_disconnect",
+      "pass": false,
+      "detail": "Panel out of reach or blocked"
+    }
+  ],
+  "samples": [
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AA16180) {x: 358.521866, y: -995.134083, z: 76.933652}>",
+      "own_resource_feedback": "",
+      "t": 0.0031747817993164062,
+      "fuel": 185.0,
+      "house": 1000.0,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": []
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913A964740) {x: 358.488240, y: -995.134146, z: 70.083735}>",
+      "own_resource_feedback": "",
+      "t": 0.25873851776123047,
+      "fuel": 185.0,
+      "house": 999.9839787906346,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": []
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AA16180) {x: 358.488240, y: -995.134146, z: 70.083735}>",
+      "own_resource_feedback": "",
+      "t": 0.5261397361755371,
+      "fuel": 185.0,
+      "house": 999.9548113596936,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": []
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913A964740) {x: 358.488240, y: -995.134146, z: 70.083735}>",
+      "own_resource_feedback": "",
+      "t": 0.7927772998809814,
+      "fuel": 185.0,
+      "house": 999.940226824861,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": []
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913A964740) {x: 358.488240, y: -995.134146, z: 70.083735}>",
+      "own_resource_feedback": "",
+      "t": 1.059342384338379,
+      "fuel": 185.0,
+      "house": 999.9256434506736,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": []
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913A964740) {x: 358.488240, y: -995.134146, z: 70.083735}>",
+      "own_resource_feedback": "",
+      "t": 1.3100998401641846,
+      "fuel": 185.0,
+      "house": 999.911060070619,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": []
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AA16180) {x: 358.488240, y: -995.134146, z: 70.083735}>",
+      "own_resource_feedback": "",
+      "t": 1.5759649276733398,
+      "fuel": 185.0,
+      "house": 999.8964767081663,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": []
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913A964740) {x: 358.488240, y: -995.134146, z: 70.083735}>",
+      "own_resource_feedback": "",
+      "t": 1.8424229621887207,
+      "fuel": 185.0,
+      "house": 999.8818933398463,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 20.0,
+          "revision": 0,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AA16180) {x: 358.488240, y: -995.134146, z: 70.083735}>",
+      "own_resource_feedback": "",
+      "t": 2.0932579040527344,
+      "fuel": 185.0,
+      "house": 999.8673097322695,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 20.0,
+          "revision": 0,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913A964740) {x: 358.488240, y: -995.134146, z: 70.083735}>",
+      "own_resource_feedback": "",
+      "t": 2.3596389293670654,
+      "fuel": 185.0,
+      "house": 999.8527261831488,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 20.0,
+          "revision": 0,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AA16180) {x: 358.488240, y: -995.134146, z: 70.083735}>",
+      "own_resource_feedback": "",
+      "t": 2.627858877182007,
+      "fuel": 185.0,
+      "house": 999.8381407147584,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 20.0,
+          "revision": 0,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913A964740) {x: 358.488240, y: -995.134146, z: 70.083735}>",
+      "own_resource_feedback": "",
+      "t": 2.892648458480835,
+      "fuel": 185.0,
+      "house": 999.8235569031289,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 20.0,
+          "revision": 0,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913A964740) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "",
+      "t": 3.1599836349487305,
+      "fuel": 185.0,
+      "house": 999.8089735230742,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 20.0,
+          "revision": 0,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AA16180) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "",
+      "t": 3.4094839096069336,
+      "fuel": 185.0,
+      "house": 999.7943901547542,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 20.0,
+          "revision": 0,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913A964740) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "",
+      "t": 3.675873279571533,
+      "fuel": 185.0,
+      "house": 999.7798063954959,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 20.0,
+          "revision": 0,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913A964740) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "",
+      "t": 3.943209171295166,
+      "fuel": 185.0,
+      "house": 999.7652215922873,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 20.0,
+          "revision": 0,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AA16180) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "",
+      "t": 4.2098612785339355,
+      "fuel": 185.0,
+      "house": 999.750637728069,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 20.0,
+          "revision": 0,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913A964740) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Panel ready",
+      "t": 4.4771082401275635,
+      "fuel": 185.0,
+      "house": 999.7360537997447,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 20.0,
+          "revision": 0,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AA16180) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Panel ready",
+      "t": 4.726885795593262,
+      "fuel": 185.0,
+      "house": 999.7214656830145,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 20.0,
+          "revision": 0,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913A964740) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Panel ready",
+      "t": 4.993806600570679,
+      "fuel": 185.0,
+      "house": 999.7068765631877,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 20.0,
+          "revision": 0,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AA16180) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Panel ready",
+      "t": 5.2594897747039795,
+      "fuel": 185.0,
+      "house": 999.6922911880228,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 20.0,
+          "revision": 0,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913A964740) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Panel ready",
+      "t": 5.527168273925781,
+      "fuel": 185.0,
+      "house": 999.6631175155442,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 20.0,
+          "revision": 0,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AA16180) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Panel ready",
+      "t": 5.793983221054077,
+      "fuel": 185.0,
+      "house": 999.6485341530915,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 20.0,
+          "revision": 0,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913A964740) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Transferred 15.000 L",
+      "t": 6.0600666999816895,
+      "fuel": 200.0,
+      "house": 999.633943971495,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 5.0,
+          "revision": 1,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAA0D80) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Transferred 15.000 L",
+      "t": 6.32677149772644,
+      "fuel": 200.0,
+      "house": 999.619360608825,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 5.0,
+          "revision": 1,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAA3D50) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Transferred 15.000 L",
+      "t": 6.593705892562866,
+      "fuel": 200.0,
+      "house": 999.6047772463724,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 5.0,
+          "revision": 1,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAA3DA0) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Transferred 15.000 L",
+      "t": 6.859501838684082,
+      "fuel": 200.0,
+      "house": 999.5901938839197,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 5.0,
+          "revision": 1,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAA3DF0) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Stale fuel can request",
+      "t": 7.1095592975616455,
+      "fuel": 200.0,
+      "house": 999.5756042388581,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 5.0,
+          "revision": 1,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAA3E40) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Stale fuel can request",
+      "t": 7.360538721084595,
+      "fuel": 200.0,
+      "house": 999.5610192022599,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 5.0,
+          "revision": 1,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAA3E90) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Stale fuel can request",
+      "t": 7.627439737319946,
+      "fuel": 200.0,
+      "house": 999.5464358398073,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 5.0,
+          "revision": 1,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAA3EE0) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Stale fuel can request",
+      "t": 7.876814842224121,
+      "fuel": 200.0,
+      "house": 999.5318455356486,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 5.0,
+          "revision": 1,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAA3F80) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Stale fuel can request",
+      "t": 8.143650770187378,
+      "fuel": 0.0,
+      "house": 999.5172621088725,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 5.0,
+          "revision": 1,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAA3FD0) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Stale fuel can request",
+      "t": 8.394294738769531,
+      "fuel": 0.0,
+      "house": 999.5026787464199,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 5.0,
+          "revision": 1,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC060) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Stale fuel can request",
+      "t": 8.660890579223633,
+      "fuel": 0.0,
+      "house": 999.4880930331227,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 5.0,
+          "revision": 1,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC0B0) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Stale fuel can request",
+      "t": 8.927464246749878,
+      "fuel": 0.0,
+      "house": 999.4735096706701,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 5.0,
+          "revision": 1,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC100) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 9.176868438720703,
+      "fuel": 5.0,
+      "house": 999.4589261039473,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC150) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 9.428529024124146,
+      "fuel": 5.0,
+      "house": 999.4443427414947,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC1A0) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 9.69318675994873,
+      "fuel": 5.0,
+      "house": 999.4297591747719,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC1F0) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 9.943336725234985,
+      "fuel": 5.0,
+      "house": 999.4151758123193,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC240) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 10.194891691207886,
+      "fuel": 5.0,
+      "house": 999.4005924498666,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": []
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC290) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 10.460957288742065,
+      "fuel": 5.0,
+      "house": 999.3860090871966,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": []
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC2E0) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 10.727158546447754,
+      "fuel": 5.0,
+      "house": 999.371425724744,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": []
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC330) {x: -155.109967, y: -277.000204, z: 72.598390}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 10.977766275405884,
+      "fuel": 5.0,
+      "house": 999.3568421756232,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": []
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC380) {x: -224.408062, y: -392.680976, z: 72.939618}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 11.229188442230225,
+      "fuel": 5.0,
+      "house": 999.3422588131706,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": []
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC4C0) {x: -224.408062, y: -392.680976, z: 72.939618}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 11.494045972824097,
+      "fuel": 5.0,
+      "house": 999.3276752464478,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": []
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC420) {x: -224.408062, y: -392.680976, z: 72.939618}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 11.74330449104309,
+      "fuel": 5.0,
+      "house": 999.3130918839952,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": []
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC510) {x: -224.408062, y: -392.680976, z: 72.939618}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 11.993907690048218,
+      "fuel": 5.0,
+      "house": 999.2985085213252,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": []
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC5B0) {x: -224.408062, y: -392.680976, z: 72.939618}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 12.26118516921997,
+      "fuel": 5.0,
+      "house": 999.2839251588725,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": []
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC060) {x: -224.408062, y: -392.680976, z: 72.939618}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 12.526958227157593,
+      "fuel": 5.0,
+      "house": 999.2547584163651,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC3D0) {x: -224.408062, y: -392.680976, z: 72.939618}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 12.777546644210815,
+      "fuel": 5.0,
+      "house": 999.2401750539125,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC560) {x: -224.408062, y: -392.680976, z: 72.939618}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 13.042977333068848,
+      "fuel": 5.0,
+      "house": 999.2255916914598,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC600) {x: -224.408062, y: -392.680976, z: 72.939618}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 13.294674634933472,
+      "fuel": 5.0,
+      "house": 999.2110083290072,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC740) {x: -20.761205, y: -270.000210, z: 71.938821}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 13.56176471710205,
+      "fuel": 5.0,
+      "house": 999.1964249606872,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC790) {x: -20.761205, y: -270.000210, z: 71.938821}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 13.827518701553345,
+      "fuel": 5.0,
+      "house": 999.1818415980172,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC650) {x: -20.761205, y: -270.000210, z: 71.938821}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 14.093697309494019,
+      "fuel": 5.0,
+      "house": 999.1672582355645,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC7E0) {x: -20.761205, y: -270.000210, z: 71.938821}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 14.359843492507935,
+      "fuel": 5.0,
+      "house": 999.1526747214305,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC880) {x: -20.761205, y: -270.000210, z: 71.938821}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 14.611096382141113,
+      "fuel": 5.0,
+      "house": 999.1380913531104,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC470) {x: -20.761205, y: -270.000210, z: 71.938821}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 14.877623319625854,
+      "fuel": 5.0,
+      "house": 999.1235079906578,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC6A0) {x: -20.761205, y: -270.000210, z: 71.938821}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 15.144259929656982,
+      "fuel": 5.0,
+      "house": 999.1089246282052,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC830) {x: -20.761205, y: -270.000210, z: 71.938821}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 15.395076751708984,
+      "fuel": 5.0,
+      "house": 999.0943412655351,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC8D0) {x: -20.761205, y: -270.000210, z: 71.938821}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 15.66082763671875,
+      "fuel": 5.0,
+      "house": 999.0797579030825,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC920) {x: -20.761205, y: -270.000210, z: 71.938821}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 15.927403450012207,
+      "fuel": 5.0,
+      "house": 999.0651745406299,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC970) {x: -20.761205, y: -270.000210, z: 71.938821}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 16.19477105140686,
+      "fuel": 5.0,
+      "house": 999.0505911781772,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC9C0) {x: -20.761205, y: -270.000210, z: 71.938821}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 16.459468841552734,
+      "fuel": 5.0,
+      "house": 999.0360078155072,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAACA10) {x: -20.761205, y: -270.000210, z: 71.938821}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 16.71006965637207,
+      "fuel": 5.0,
+      "house": 999.0214244530546,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAACA60) {x: -20.761205, y: -270.000210, z: 71.938821}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 16.977197885513306,
+      "fuel": 5.0,
+      "house": 999.0068407931064,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC6F0) {x: -20.761205, y: -270.000210, z: 71.938821}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 17.22728419303894,
+      "fuel": 5.0,
+      "house": 998.9922574306538,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAACAB0) {x: -20.761205, y: -270.000210, z: 71.938821}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 17.493302822113037,
+      "fuel": 5.0,
+      "house": 998.9776740682012,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAACB00) {x: -20.761205, y: -270.000210, z: 71.938821}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 17.744011163711548,
+      "fuel": 5.0,
+      "house": 998.9630906996639,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAACB50) {x: -20.761205, y: -270.000210, z: 71.938821}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 17.994690656661987,
+      "fuel": 5.0,
+      "house": 998.9485073313439,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.0,
+      "source": "Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAACBF0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 18.248552560806274,
+      "fuel": 100.0,
+      "house": 999.9958333250136,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAACCE0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 18.51050853729248,
+      "fuel": 100.0,
+      "house": 999.9916666150093,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAACBA0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 18.760907411575317,
+      "fuel": 100.0,
+      "house": 999.9874999283503,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAACD30) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 19.027580976486206,
+      "fuel": 100.0,
+      "house": 999.979166545036,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAACDD0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 19.279525756835938,
+      "fuel": 100.0,
+      "house": 999.9749998683732,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAACC40) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 19.543580770492554,
+      "fuel": 100.0,
+      "house": 999.9708330867193,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAC6F0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 19.794944763183594,
+      "fuel": 100.0,
+      "house": 999.966665376723,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAACD80) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 20.06087851524353,
+      "fuel": 100.0,
+      "house": 999.9624974800275,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAACE20) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Transferred 5.000 L",
+      "t": 20.32716417312622,
+      "fuel": 100.0,
+      "house": 999.9583308050411,
+      "generator": false,
+      "revision": 0,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAACEC0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 20.594350337982178,
+      "fuel": 99.99991666650027,
+      "house": 1000.0138864715275,
+      "generator": true,
+      "revision": 1,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAACF10) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 20.86002206802368,
+      "fuel": 99.99983333296576,
+      "house": 1000.0694421611935,
+      "generator": true,
+      "revision": 1,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAACF60) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 21.126424551010132,
+      "fuel": 99.99974999713277,
+      "house": 1000.1249993831956,
+      "generator": true,
+      "revision": 1,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAACFB0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 21.377193927764893,
+      "fuel": 99.99966666363304,
+      "house": 1000.180555049682,
+      "generator": true,
+      "revision": 1,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD000) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 21.627865076065063,
+      "fuel": 99.99958328103274,
+      "house": 1000.2361434498803,
+      "generator": true,
+      "revision": 1,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD050) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 21.89436435699463,
+      "fuel": 99.99949994029974,
+      "house": 1000.291703938548,
+      "generator": true,
+      "revision": 1,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD0A0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 22.160765647888184,
+      "fuel": 99.99941660680001,
+      "house": 1000.3472596050344,
+      "generator": true,
+      "revision": 2,
+      "lights": true,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD0F0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 22.411115407943726,
+      "fuel": 99.99933320389937,
+      "house": 1000.4028615387986,
+      "generator": true,
+      "revision": 2,
+      "lights": true,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD140) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 22.677502870559692,
+      "fuel": 99.99924986513332,
+      "house": 1000.4584207161641,
+      "generator": true,
+      "revision": 2,
+      "lights": true,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD190) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 22.927748918533325,
+      "fuel": 99.99916653156654,
+      "house": 1000.513976427354,
+      "generator": true,
+      "revision": 2,
+      "lights": true,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD1E0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 23.19476890563965,
+      "fuel": 99.99908319803329,
+      "house": 1000.5695321161921,
+      "generator": true,
+      "revision": 2,
+      "lights": true,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD230) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 23.461021184921265,
+      "fuel": 99.99899986049907,
+      "house": 1000.6250904723381,
+      "generator": true,
+      "revision": 2,
+      "lights": true,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD280) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 23.727822303771973,
+      "fuel": 99.99891652699934,
+      "house": 1000.6806461388245,
+      "generator": true,
+      "revision": 2,
+      "lights": true,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD2D0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 23.99452257156372,
+      "fuel": 99.9988331934996,
+      "house": 1000.7362018053109,
+      "generator": true,
+      "revision": 2,
+      "lights": true,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD320) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 24.260725736618042,
+      "fuel": 99.998749859266,
+      "house": 1000.7917579610521,
+      "generator": true,
+      "revision": 2,
+      "lights": true,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD3C0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 24.511001348495483,
+      "fuel": 99.99866652409982,
+      "house": 1000.8473147385029,
+      "generator": true,
+      "revision": 2,
+      "lights": true,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD410) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 24.761709928512573,
+      "fuel": 99.99858318976686,
+      "house": 1000.9028709604714,
+      "generator": true,
+      "revision": 2,
+      "lights": true,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD460) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 25.02751135826111,
+      "fuel": 99.99841652276616,
+      "house": 1001.0139822942721,
+      "generator": true,
+      "revision": 2,
+      "lights": true,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD4B0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 25.27793002128601,
+      "fuel": 99.99833318926643,
+      "house": 1001.0695379607585,
+      "generator": true,
+      "revision": 2,
+      "lights": true,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD500) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 25.543925046920776,
+      "fuel": 99.99824985569965,
+      "house": 1001.1250936719483,
+      "generator": true,
+      "revision": 2,
+      "lights": true,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD550) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 25.794591426849365,
+      "fuel": 99.99816652219992,
+      "house": 1001.1806493384347,
+      "generator": true,
+      "revision": 2,
+      "lights": true,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD370) {x: 1999.813549, y: -0.000346, z: 62.017586}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 26.06107234954834,
+      "fuel": 99.99808318866667,
+      "house": 1001.2362050272728,
+      "generator": true,
+      "revision": 2,
+      "lights": true,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD5F0) {x: 1999.813549, y: -0.000346, z: 62.017586}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 26.32788062095642,
+      "fuel": 99.99799985516694,
+      "house": 1001.2917606937592,
+      "generator": true,
+      "revision": 3,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD640) {x: 1999.813549, y: -0.000346, z: 62.017586}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 26.59437322616577,
+      "fuel": 99.99791651626678,
+      "house": 1001.3473199605318,
+      "generator": true,
+      "revision": 3,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD690) {x: 1999.813549, y: -0.000346, z: 62.017586}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 26.84464383125305,
+      "fuel": 99.99783318276582,
+      "house": 1001.402875627846,
+      "generator": true,
+      "revision": 3,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD6E0) {x: 1999.813549, y: -0.000346, z: 62.017586}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 27.111083507537842,
+      "fuel": 99.99774984926609,
+      "house": 1001.4584312943324,
+      "generator": true,
+      "revision": 3,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD730) {x: 1999.813549, y: -0.000346, z: 62.017586}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 27.361620903015137,
+      "fuel": 99.99766650503256,
+      "house": 1001.5139941166875,
+      "generator": true,
+      "revision": 4,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD780) {x: 1999.813549, y: -0.000346, z: 62.017586}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 27.62796664237976,
+      "fuel": 99.99758317153282,
+      "house": 1001.5695497831739,
+      "generator": true,
+      "revision": 4,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD7D0) {x: 1999.813549, y: -0.000346, z: 62.017586}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 27.894712209701538,
+      "fuel": 99.9974998380331,
+      "house": 1001.6251054496603,
+      "generator": true,
+      "revision": 4,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD820) {x: 1999.813549, y: -0.000346, z: 62.017586}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 28.144442796707153,
+      "fuel": 99.9974998380331,
+      "house": 1001.6209387746738,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD870) {x: 1999.813549, y: -0.000346, z: 62.017586}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 28.411186695098877,
+      "fuel": 99.9974998380331,
+      "house": 1001.6167720996874,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD8C0) {x: 1999.813549, y: -0.000346, z: 62.017586}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 28.677810192108154,
+      "fuel": 99.9974998380331,
+      "house": 1001.6126054246388,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD910) {x: 1999.813549, y: -0.000346, z: 62.017586}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 28.944514274597168,
+      "fuel": 99.9974998380331,
+      "house": 1001.6084387063148,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD960) {x: 1999.813549, y: -0.000346, z: 62.017586}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 29.194620370864868,
+      "fuel": 99.9974998380331,
+      "house": 1001.604272029652,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD9B0) {x: 1999.813549, y: -0.000346, z: 62.017586}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 29.461079835891724,
+      "fuel": 99.9974998380331,
+      "house": 1001.6001053146807,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADAA0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 29.711637020111084,
+      "fuel": 99.9974998380331,
+      "house": 1001.5959386396321,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADB40) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 29.961291551589966,
+      "fuel": 99.9974998380331,
+      "house": 1001.591771961355,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADA00) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 30.2269127368927,
+      "fuel": 99.9974998380331,
+      "house": 1001.5876052830157,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAD5A0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 30.477234601974487,
+      "fuel": 99.9974998380331,
+      "house": 1001.5834386063528,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADBE0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 30.728743314743042,
+      "fuel": 99.9974998380331,
+      "house": 1001.5792719229845,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADC80) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 30.97847318649292,
+      "fuel": 99.9974998380331,
+      "house": 1001.5751052463216,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADA50) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 31.245353937149048,
+      "fuel": 99.9974998380331,
+      "house": 1001.5709385713352,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADAF0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 31.511233806610107,
+      "fuel": 99.9974998380331,
+      "house": 1001.5667718946723,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADC30) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 31.777560234069824,
+      "fuel": 99.9974998380331,
+      "house": 1001.558438542961,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADCD0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 32.04427981376648,
+      "fuel": 99.9974998380331,
+      "house": 1001.5542718679745,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADD20) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 32.310914516448975,
+      "fuel": 99.9974998380331,
+      "house": 1001.5501051929881,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADD70) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 32.561436891555786,
+      "fuel": 99.9974998380331,
+      "house": 1001.5459384096578,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADDC0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 32.82805943489075,
+      "fuel": 99.9974998380331,
+      "house": 1001.5417717346713,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADE10) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 33.094340085983276,
+      "fuel": 99.9974998380331,
+      "house": 1001.5376050596849,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADE60) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 33.34566354751587,
+      "fuel": 99.9974998380331,
+      "house": 1001.5334383846363,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADEB0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 33.611088514328,
+      "fuel": 99.9974998380331,
+      "house": 1001.5292716529633,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADF00) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 33.877705335617065,
+      "fuel": 99.9974998380331,
+      "house": 1001.5251049779769,
+      "generator": false,
+      "revision": 5,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Solar + Battery",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADF50) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 34.127864599227905,
+      "fuel": 99.99741650286691,
+      "house": 1001.5806617554276,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADFA0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 34.39506697654724,
+      "fuel": 99.99733316936718,
+      "house": 1001.636217421914,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAADFF0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 34.6606764793396,
+      "fuel": 99.99724983586621,
+      "house": 1001.6917730892283,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE040) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 34.91081404685974,
+      "fuel": 99.99716649833324,
+      "house": 1001.7473314445465,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE090) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 35.17739772796631,
+      "fuel": 99.99708316476647,
+      "house": 1001.8028871557364,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE0E0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 35.42878794670105,
+      "fuel": 99.99699981883296,
+      "house": 1001.8584511114076,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE130) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 35.695581674575806,
+      "fuel": 99.99691648533323,
+      "house": 1001.914006777894,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE180) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 35.960872173309326,
+      "fuel": 99.99683313353363,
+      "house": 1001.9695746442922,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE1D0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 36.22474241256714,
+      "fuel": 99.9967498000339,
+      "house": 1002.0251303107785,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE220) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 36.48092484474182,
+      "fuel": 99.99666517653318,
+      "house": 1002.0815459779151,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE270) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 36.73099946975708,
+      "fuel": 99.99658184303345,
+      "house": 1002.1371016444015,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE2C0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 36.98110365867615,
+      "fuel": 99.99649850953372,
+      "house": 1002.1926573108879,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE310) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 37.24771165847778,
+      "fuel": 99.99641517580054,
+      "house": 1002.2482131330087,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE360) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 37.49809145927429,
+      "fuel": 99.99633183739957,
+      "house": 1002.3037720669886,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE3B0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 37.764080286026,
+      "fuel": 99.99624850333359,
+      "house": 1002.3593281109711,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE400) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 38.01429581642151,
+      "fuel": 99.99616516983386,
+      "house": 1002.4148837774575,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE450) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 38.264673709869385,
+      "fuel": 99.99608183633289,
+      "house": 1002.4704394447717,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE4A0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 38.531139612197876,
+      "fuel": 99.99591514599946,
+      "house": 1002.581566333729,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE4F0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 38.79750633239746,
+      "fuel": 99.99583181249973,
+      "house": 1002.6371220002154,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE540) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 39.064857482910156,
+      "fuel": 99.995748479,
+      "house": 1002.6926776667018,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE590) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 39.31454920768738,
+      "fuel": 99.9956651237334,
+      "house": 1002.7482478444357,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE5E0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 39.5659282207489,
+      "fuel": 99.99558179023367,
+      "house": 1002.8038035109221,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE630) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 39.83080744743347,
+      "fuel": 99.99549845673394,
+      "house": 1002.8593591774085,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE680) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 40.08186650276184,
+      "fuel": 99.99541512316716,
+      "house": 1002.9149148885983,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE6D0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 40.34771132469177,
+      "fuel": 99.9953317896662,
+      "house": 1002.9704705559126,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE720) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 40.59819006919861,
+      "fuel": 99.99524845616646,
+      "house": 1003.026026222399,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE770) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 40.86451458930969,
+      "fuel": 99.99516512250034,
+      "house": 1003.0815819998163,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE7C0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 41.13132953643799,
+      "fuel": 99.99508178900061,
+      "house": 1003.1371376663027,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE810) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 41.39769434928894,
+      "fuel": 99.99499845549964,
+      "house": 1003.192693333617,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    },
+    {
+      "own_position": "<Struct 'Vector' (0x000002913AAAE8B0) {x: 19.962395, y: -0.000070, z: 177.339323}>",
+      "own_resource_feedback": "Panel out of reach or blocked",
+      "t": 41.51398515701294,
+      "fuel": 99.99499845549964,
+      "house": 1003.192693333617,
+      "generator": true,
+      "revision": 6,
+      "lights": false,
+      "solar": 0.5,
+      "source": "Generator",
+      "can": [
+        {
+          "id": "F6C82D3C459B7BC3032509B579E9CB3B",
+          "litres": 0.0,
+          "revision": 2,
+          "condition": 0.7300000190734863
+        }
+      ]
+    }
+  ]
+}

@@ -49,3 +49,13 @@ muzzle/impact effects are replaceable prototype assets. Unreliable cosmetic mult
 loss cannot replay damage or ammunition consumption. Animations use the free Epic
 assets already installed with Unreal; no paid character/weapon assets are acquired.
 Presentation and multiplayer acceptance remain subject to recorded tests.
+
+## Final presentation configuration
+
+Epic pistol AimOffset uses normalized pitch (degrees/90) to match its -1..1 axis.
+Gate9's replaceable profile has camera offset (0,0,4) cm and grip (-8,0,8) cm/yaw180;
+prior profiles are preserved. Recoil reuses EngineCameras DefaultCameraShakeBase and
+WaveOscillatorCameraShakePattern, with tunable .7 degree pitch, random .12 degree
+yaw and .18 second recovery. It never changes authoritative ControlRotation.
+Development trace overlays default off. The accepted prototype HUD shows weapon,
+loaded rounds/reload/feedback and per-magazine loaded/spare/round state in inventory.

@@ -1,0 +1,37 @@
+{
+  "pid": 33660,
+  "role": "server",
+  "results": [
+    {
+      "case": "diagnostic_station",
+      "pass": true,
+      "detail": "{'eye': \"<Struct 'Vector' (0x00000249BD206720) {x: 111.247694, y: 0.720690, z: 263.872350}>\", 'target': \"<Struct 'Vector' (0x00000249BD2A1AA0) {x: 225.283540, y: 15.010772, z: 144.671540}>\", 'hit': \"<Struct 'HitResult' (0x0000024A0F3DBE00) {}>\"}"
+    },
+    {
+      "case": "diagnostic_resource",
+      "pass": true,
+      "detail": "{'eye': \"<Struct 'Vector' (0x00000249BD206720) {x: 111.247694, y: 0.720690, z: 263.872350}>\", 'target': \"<Struct 'Vector' (0x00000249BD2A1AA0) {x: 225.384940, y: -12.988983, z: 144.730057}>\", 'hit': \"<Struct 'HitResult' (0x0000024A0F3D6040) {}>\"}"
+    },
+    {
+      "case": "normal_E_resource_panel_registered",
+      "pass": true,
+      "detail": "{'feedback': 'RV control panel ready', 'position': \"<Struct 'Vector' (0x00000249BD206720) {x: 111.247694, y: 0.720690, z: 195.872350}>\", 'panel': \"<Struct 'Vector' (0x00000249BD206720) {x: 225.384940, y: -12.988983, z: 144.730057}>\"}"
+    },
+    {
+      "case": "healthy_owned_resource_request_changes_load",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "downed_owned_resource_request_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "downed_resource_owner_feedback",
+      "pass": true,
+      "detail": "Panel out of reach or blocked"
+    }
+  ],
+  "evidence_kind": "accepted Gate6 approach fixture; normal E; owned resource request API with healthy positive control and downed repeat"
+}

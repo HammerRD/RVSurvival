@@ -29,3 +29,13 @@ it never suppresses navigation locks or world-leak checks. Prior accepted maps a
 preserved. Prototype attacks use controlled presentation rather than final claw/bite
 animation assets. Full hearing/obstruction/aggro stress and multiplayer results must
 be verified before acceptance.
+
+## Verified navigation and medical behavior
+
+Actual calf shots reduce native movement from 320 to160 cm/s and apply the .65
+limb damage multiplier. Native hearing investigates a gunshot behind solid cover;
+path following detours around it, sight is reacquired/lost, and the six-second
+investigation expires into idle/wandering. Reachable parked-RV exterior pursuit
+passes. Separate-process 100ms/2% tests confirm both host/client bites produce
+contaminated bleeding wounds, cooldown cycles do not multi-hit, and death replicates
+once. This gate does not implement moving-vehicle navigation/boarding or a horde.

@@ -204,3 +204,77 @@ checks pass in the 17-check single-player receipt.
 Remaining before acceptance: targeted infected limb / obstacle / loss behavior,
 representative storage-survival-resource regressions, final saved-state/build /
 vendor audit, editor preference restoration, and documentation closure.
+
+## Final runtime validation closure (supersedes earlier pending notes)
+
+All runtime acceptance areas now pass. Final saved-content/build/checkpoint closure
+is being completed. Receipts contain individual setup, diagnostic and gameplay
+checks; their counts must not be advertised as a single large gameplay assertion count.
+
+| Area | Actual evidence |
+|---|---|
+| Complete firearm loop | Normal OS 4/R/LMB/RMB visual session; native input foundation; 17 pickup/storage/recoil checks; real gun and magazine drop/repick, condition/GUID/revision continuity, partial/empty magazines, holster/re-equip/unload. |
+| Magazine guards and controls | `magazine-contract.json`: wrong-caliber owned reload, duplicate GUID, non-stackable combat records, negative/over-capacity rounds, conserved inventory; native F10 opens real UMG Controls rows for all five combat actions and close handler restores look/movement. |
+| Host/client medical damage | `combat_regions` and `combat_emulated`: both roles hit all six logical regions with actual server traces; contaminated/bleeding wounds, downing, downed-fire rejection, sequential dressings and revive retaining injuries. Exact magazine snapshot convergence in distinct processes. |
+| Infected end-to-end | Native sight/chase/bite/death and gunshot-hearing/windup cancellation receipts. `infected-navigation.json`: cover blocks sight, hearing investigation takes a native detour, actual calf hit changes vitality 65→45.5 and speed 320→160 cm/s, sight reacquisition/loss and investigation expiry, pursuit along parked RV exterior and usable firing nearby. |
+| Infected multiplayer | `infected_attacks_emulated`: both players receive replicated contaminated bleeding bites; repeated cooldown cycles remain bounded by one injury per completion; both deaths replicate once. Equipped client disconnect removes its survivor; native rejoin gives one fresh empty inventory and retains exactly the host's gun/magazine/12 rounds. |
+| Contention/disconnect | Concurrent held-E world magazine claims have one winner. Moving a spare during native R reload aborts without loss. Shared magazine contention has one owner. Pending-reload disconnect preserves shared GUID/round state. |
+| Stress | 100 real semiautomatic input presses, seven reloads, 120→20 total rounds, all nine GUIDs/conditions preserved, one reserved magazine and clean final unload. No impossible quantities or replayed shots. |
+| Moving RV | Both host-driver/client-armed-passenger and client-driver/host-armed-passenger pass. Standing passenger uses 4/R/LMB, walks front/rear/sideways at low/road/~60mph fixture speeds, turns and brakes; twenty stopped V round trips per role pass. Recorded correction count/max are zero. |
+| Accepted RV paths | `rv_controls_host`: native physical side door entry/exit, cab↔living, both dinette seats, bed lying/Z/R/E, ladder/roof/return and replicated door. Rendered moving passenger inspected. |
+| Inventory/survival | `storage_survival_client`: native E/T/Tab/I/G moving pantry transfers during turns, shared exterior contention, drop/repick identity/condition, weight/volume rejection, hour drain and one-time consumption. 20 server/12 client checks pass. |
+| Fuel/electrical/medical authority | Resource smoke preserves fuel quantity/condition/drop/repick/shared storage/source bounds. Corrected `resource_guard_host/client` each tests the normal E panel approach, healthy owned change and matched downed rejection under native 100ms/2% emulation; both roles pass. |
+
+Network profiles use outgoing 100 ms latency and 2% packet loss per endpoint
+(approximately 200 ms added round trip), rather than claiming a measured real
+internet latency. Unreliable cosmetic loss does not mutate gameplay. Representative
+combat/medical/AI/reconnect and moving passenger tests use this profile. Pure grip/
+pose adjustments did not trigger repeated full expensive matrices.
+
+### Failures investigated during final validation
+
+- The old two-player resource fixture lined players up toward the cab panel. With
+  skeletal Visibility hit queries enabled, the farther player's approach can be
+  occluded by the nearer humanoid. One E attempt instead completed the inherited
+  test counter. The nearer client healthy control succeeded. Testing each role
+  from the foremost clear approach restores real E and control validation. No
+  resource access, medical rejection, or collision rule was relaxed. Failed full
+  resource receipts and obstructed guard receipts remain for audit.
+- A synchronous reflective NavigationSystem Python diagnostic raised a handled
+  ensure on a class-default-object GetWorld check. CrashContext reports **Ensure**,
+  not a fatal world-leak crash. The editor continued and shut down cleanly. Remove
+  that diagnostic; prove the cover detour through native AI path following instead.
+  Start the test clock after fixture setup: expensive setup previously compressed
+  equip/reload events into one frame and invalidated later shot evidence. The
+  corrected sequence passes; repeat teardown verification follows below.
+- New fixture attempts hit EditDefaultsOnly restrictions on transient objects and
+  fresh struct wrappers. Use a separately saved development Data Asset and its
+  owned metadata proxy. Python's boolean/out-parameter rejection returns None;
+  verify CanAccept error plus None plus unchanged inventory, rather than bool(error).
+  Non-reflected control row fields are not Python properties; inspect actual live
+  TextBlock labels. These were harness errors, not repaired gameplay by weakened checks.
+- Reconnect cleanup initially accessed module globals after runner release. Cache
+  only engine functions/scalars for the short rejoin callback and reacquire the
+  new controller. Return immediately after release so the old tick cannot access
+  cleared globals. Corrected native disconnect/rejoin passes with no retained world.
+
+### Risk-based regression and limitations
+
+One representative final regression pass covers native movement/interaction,
+seats/possession, moving reference frame, bed/rest, ladder/roof/physical entry,
+workstations/storage, capacity/consumption, fuel/power and medical/downed/revive.
+Historical complete Gate1–8.5 suites, long resource simulation, every repair recipe,
+rollover orientation matrix and every old visual pose were intentionally not
+repeated: no vehicle physics, CharacterMovement, reference-frame, recovery, repair
+or persistence code was changed. Their accepted maps/content remain byte-preserved.
+
+Prototype limitations: one hitscan semi-auto 9mm, no separate chamber or loose-round
+repacking, no final weapon/medical/attack animation polish, no lag compensation,
+nominal magazine mass does not decrease per cartridge, no full persistence/offline
+state. Reload chooses a compatible spare automatically; U unload is required before
+moving a loaded gun/magazine. Firing while seated/resting/climbing/treating/downed is
+rejected. The parked-RV navigation test covers reachable exterior paths; infected do
+not board moving RVs, predict vehicle paths, or dynamically rebuild regional navigation.
+No horde/director/world loot/human AI/Gate10 work. Refrigerator collision stays in
+its accepted deferred backlog. The previous Gate8 resource qualification was already
+resolved in Gate8.5; these clear-approach guards are additional regression evidence.

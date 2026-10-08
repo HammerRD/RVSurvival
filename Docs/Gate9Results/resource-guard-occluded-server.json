@@ -1,0 +1,32 @@
+{
+  "pid": 27784,
+  "role": "server",
+  "results": [
+    {
+      "case": "diagnostic_station",
+      "pass": true,
+      "detail": "{'eye': \"<Struct 'Vector' (0x00000221BAA94FB0) {x: 21.667177, y: 0.129457, z: 264.029398}>\", 'target': \"<Struct 'Vector' (0x00000221BAB31870) {x: 225.832042, y: 14.212254, z: 145.282620}>\", 'hit': \"<Struct 'HitResult' (0x000002223D4D44C0) {}>\"}"
+    },
+    {
+      "case": "diagnostic_resource",
+      "pass": true,
+      "detail": "{'eye': \"<Struct 'Vector' (0x00000221BAA94FB0) {x: 21.667177, y: 0.129457, z: 264.029398}>\", 'target': \"<Struct 'Vector' (0x00000221BAB31870) {x: 225.843227, y: -13.787744, z: 145.282028}>\", 'hit': \"<Struct 'HitResult' (0x000002223D4D6900) {}>\"}"
+    },
+    {
+      "case": "normal_E_resource_panel_registered",
+      "pass": false,
+      "detail": "{'feedback': '', 'position': \"<Struct 'Vector' (0x00000221BAA952D0) {x: 21.667177, y: 0.129457, z: 196.029398}>\", 'panel': \"<Struct 'Vector' (0x00000221BAA952D0) {x: 225.843227, y: -13.787744, z: 145.282028}>\"}"
+    },
+    {
+      "case": "healthy_owned_resource_request_changes_load",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "downed_owned_resource_request_rejected",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "evidence_kind": "accepted Gate6 approach fixture; normal E; owned resource request API with healthy positive control and downed repeat"
+}

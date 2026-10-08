@@ -1,0 +1,153 @@
+{
+  "checked_at": "2026-10-08T16:22:26.185916",
+  "receipts": [
+    {
+      "file": "foundation-input.json",
+      "recorded_checks": 18,
+      "failed": []
+    },
+    {
+      "file": "ai-medical-loop.json",
+      "recorded_checks": 8,
+      "failed": []
+    },
+    {
+      "file": "infected-hearing-cancel.json",
+      "recorded_checks": 5,
+      "failed": []
+    },
+    {
+      "file": "combat-stress.json",
+      "recorded_checks": 6,
+      "failed": []
+    },
+    {
+      "file": "combat-pickup-storage.json",
+      "recorded_checks": 17,
+      "failed": []
+    },
+    {
+      "file": "magazine-contract.json",
+      "recorded_checks": 9,
+      "failed": []
+    },
+    {
+      "file": "infected-navigation.json",
+      "recorded_checks": 9,
+      "failed": []
+    },
+    {
+      "file": "saved-audit.json",
+      "recorded_checks": 38,
+      "failed": []
+    },
+    {
+      "file": "combat_regions_server.json",
+      "recorded_checks": 50,
+      "failed": []
+    },
+    {
+      "file": "combat_regions_client.json",
+      "recorded_checks": 28,
+      "failed": []
+    },
+    {
+      "file": "combat_emulated_server.json",
+      "recorded_checks": 50,
+      "failed": []
+    },
+    {
+      "file": "combat_emulated_client.json",
+      "recorded_checks": 28,
+      "failed": []
+    },
+    {
+      "file": "reload_contention_disconnect_server.json",
+      "recorded_checks": 8,
+      "failed": []
+    },
+    {
+      "file": "reload_contention_disconnect_client.json",
+      "recorded_checks": 7,
+      "failed": []
+    },
+    {
+      "file": "infected_attacks_emulated_server.json",
+      "recorded_checks": 8,
+      "failed": []
+    },
+    {
+      "file": "infected_attacks_emulated_client.json",
+      "recorded_checks": 6,
+      "failed": []
+    },
+    {
+      "file": "rv_controls_host_server.json",
+      "recorded_checks": 39,
+      "failed": []
+    },
+    {
+      "file": "rv_controls_host_client.json",
+      "recorded_checks": 35,
+      "failed": []
+    },
+    {
+      "file": "moving_armed_host_emulated_server.json",
+      "recorded_checks": 59,
+      "failed": []
+    },
+    {
+      "file": "moving_armed_host_emulated_client.json",
+      "recorded_checks": 59,
+      "failed": []
+    },
+    {
+      "file": "moving_armed_client_server.json",
+      "recorded_checks": 59,
+      "failed": []
+    },
+    {
+      "file": "moving_armed_client_client.json",
+      "recorded_checks": 59,
+      "failed": []
+    },
+    {
+      "file": "storage_survival_client_server.json",
+      "recorded_checks": 20,
+      "failed": []
+    },
+    {
+      "file": "storage_survival_client_client.json",
+      "recorded_checks": 12,
+      "failed": []
+    },
+    {
+      "file": "resource_guard_host_server.json",
+      "recorded_checks": 6,
+      "failed": []
+    },
+    {
+      "file": "resource_guard_host_client.json",
+      "recorded_checks": 4,
+      "failed": []
+    },
+    {
+      "file": "resource_guard_client_server.json",
+      "recorded_checks": 4,
+      "failed": []
+    },
+    {
+      "file": "resource_guard_client_client.json",
+      "recorded_checks": 6,
+      "failed": []
+    }
+  ],
+  "all_selected_current_receipts_pass": true,
+  "accepted_map_baseline": "3256c27",
+  "accepted_map_files": 10,
+  "changed_accepted_maps": [],
+  "modified_or_deleted_accepted_content": [],
+  "vendor_files": 108,
+  "vendor_changed": [],
+  "editor_preferences_restored": true
+}

@@ -1,0 +1,39 @@
+{
+  "results": [
+    {
+      "case": "compatible magazine loaded",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "wrong caliber rejected without changing loaded rounds",
+      "pass": true,
+      "detail": "Compatible spare magazine required"
+    },
+    {
+      "case": "duplicate GUID admission rejected",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "combat item cannot stack",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "above capacity magazine rejected",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "negative magazine rounds rejected",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "case": "rejected records did not duplicate ammo",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

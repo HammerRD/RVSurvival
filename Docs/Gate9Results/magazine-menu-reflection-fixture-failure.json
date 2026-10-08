@@ -1,0 +1,44 @@
+{
+  "results": [
+    {
+      "case": "compatible magazine loaded",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "wrong caliber rejected without changing loaded rounds",
+      "pass": true,
+      "detail": "Compatible spare magazine required"
+    },
+    {
+      "case": "duplicate GUID admission rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "combat item cannot stack",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "above capacity magazine rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "negative magazine rounds rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "rejected records did not duplicate ammo",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "runner error",
+      "pass": false,
+      "detail": "Traceback (most recent call last):\n  File \"D:/GitHub/RVSurvival/RVSurvival/Tools/Validation/Gate9/magazine_contract.py\", line 43, in tick\n    while index<len(events) and time.time()-started>=events[index][0]:events[index][1]();index+=1\n                                                                      ^^^^^^^^^^^^^^^^^^\n  File \"D:/GitHub/RVSurvival/RVSurvival/Tools/Validation/Gate9/magazine_contract.py\", line 30, in remapping\n    rows=unreal.WidgetBlueprintLibrary.get_all_widgets_of_class(w,unreal.RVControlRowWidget,False)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: module 'unreal' has no attribute 'WidgetBlueprintLibrary'\n"
+    }
+  ]
+}

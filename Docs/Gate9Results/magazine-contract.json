@@ -1,0 +1,49 @@
+{
+  "results": [
+    {
+      "case": "compatible magazine loaded",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "wrong caliber rejected without changing loaded rounds",
+      "pass": true,
+      "detail": "Compatible spare magazine required"
+    },
+    {
+      "case": "duplicate GUID admission rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "combat item cannot stack",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "above capacity magazine rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "negative magazine rounds rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "rejected records did not duplicate ammo",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal F10 menu contains all remappable combat actions",
+      "pass": true,
+      "detail": "['', '  ', 'Accelerate', 'Aim handgun', 'Brake / reverse', 'Close panel', 'Controls menu', 'Controls | select a key to change it | Escape closes', 'Driver seat', 'Engine idle', 'Equip / holster handgun', 'Exit vehicle', 'Fire handgun', 'Fridge', 'Generator', 'Handbrake', 'Interact / stand / ladder dismount', 'Jump', 'Lights', 'Look horizontal', 'Look vertical', 'Medical status / treatment', 'Move to rear living area', 'Next seat (stopped)', 'Nutrition 90 | Hydration 90 | Fatigue 10', 'Orbit camera hold', 'Orbit horizontal', 'Orbit vertical', 'Passenger seat', 'Recover RV (prototype)', 'Reload / stand up', 'Rest / sleep', 'Return to game', 'Stand from bed', 'Station power', 'Steer left', 'Steer right', 'Unload magazine to inventory', 'Walk / climb up', 'Walk back / climb down', 'Walk left', 'Walk right']"
+    },
+    {
+      "case": "closing Controls restores look and move input",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}
