@@ -1,0 +1,37 @@
+{
+  "pid": 8536,
+  "role": "client",
+  "kind": "normal OS client F9/UMG; normal E/3 seat fixtures",
+  "results": [
+    {
+      "case": "driver_medical_state_remains_owned",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "last_sample": {
+    "time": 1791437736.0992758,
+    "driver_pawn_playerstate_null": true,
+    "vehicle_playerstate_patient": true,
+    "patient_active": false,
+    "injuries": 2,
+    "bleeding": 3.0,
+    "distance_cm": 86.8215416882595,
+    "driver_seat_occupied": true,
+    "blood": 14.78940486907959,
+    "supplies": [
+      [
+        "Bottled water",
+        1
+      ],
+      [
+        "PressureDressing",
+        2
+      ],
+      [
+        "FirstAidKit",
+        2
+      ]
+    ]
+  }
+}

@@ -52,6 +52,6 @@ try:
  check('save_clean_packages',unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True,True))
  (B/'saved-audit.json').write_text(json.dumps({'results':rows,'maps':maps},indent=2,default=str))
 except Exception as e:
- rows.append({'case':'saved_audit_exception','pass':False,'detail':repr(e)});(B/'saved-audit.json').write_text(json.dumps({'results':rows,'maps':maps},indent=2,default=str));raise
+ rows.append({'case':'saved_audit_exception','pass':False,'detail':repr(e)});(B/'saved-audit.json').write_text(json.dumps({'results':rows,'maps':maps},indent=2,default=str))
 finally:
  gc.collect();unreal.SystemLibrary.collect_garbage();unreal.SystemLibrary.quit_editor()

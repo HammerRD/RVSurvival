@@ -84,3 +84,11 @@ Using the separate client's native Windows viewport under 100 ms latency / 2% lo
 The earlier synthetic F9 display checks were inconclusive harness observations; this actual control path resolves the player-facing F9 concern. The normal E station visual observation remains separate evidence.
 
 A targeted read of every power/electricity reference in the Gate 8 request found no mandatory station-power requirement. Electrical gameplay is required to remain intact as a regression. This map intentionally configures basic medical assessment/linked storage with no power load; future powered equipment can use the inherited station requirement. Advanced kits require a reachable station and parked RV. Moving storage succeeded at approximately 1471 cm/s; advanced treatment was rejected with `Park the RV for this treatment`, with its supply retained.
+
+## Seated-driver medical edge case
+
+UI review found that native APawn::UnPossessed clears the survivor's PlayerState during driving. Nearby patient selection now obtains the vehicle's replicated PlayerState only when the character is the replicated driver-seat occupant. This does not change possession or seat authority.
+
+Actual client UI selected the downed, stopped host driver. Its first treatment was legitimately rejected by the old center-to-center ray: development diagnostics subsequently identified `DriverChair` as the obstruction, while the eye-to-eye ray hit no component. Treatment now uses each survivor's server-derived GetActorEyesViewPoint for visibility and keeps range, collision, reservation, state and completion checks intact. No vehicle/furniture/wall collision is ignored beyond the two patient/healer actors.
+
+On the corrected 100 ms / 2% separate-process repeat, actual F9 and visible buttons completed pressure treatment and twelve-second revive. The panel showed Conscious, dressing 2 → 1, kit 2 → 1, stabilized wound and retained untreated leg fracture. Closing restored normal view. Server/client telemetry records driver seat occupancy, medical PlayerState ownership and host controller possession; prior failed case is retained. Real obstruction/range diagnostics must be repeated for the changed medical visibility origin before acceptance.

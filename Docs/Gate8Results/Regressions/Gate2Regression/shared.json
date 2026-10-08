@@ -1,0 +1,152 @@
+[
+  {
+    "case": "fresh_seats_empty",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE90FD2900) {x: 1.954248, y: 0.008465, z: 15.895663}>, <Struct 'Vector' (0x000001BE91FBDB40) {x: 2.368183, y: 0.070611, z: 17.538600}>, <Struct 'Vector' (0x000001BE91FBCAB0) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': None, 'PassengerSeat': None}, {'DriverSeat': None, 'PassengerSeat': None}]"
+  },
+  {
+    "case": "host_driver_possession",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE90FD2900) {x: 1.954248, y: 0.008465, z: 15.895663}>, <Struct 'Vector' (0x000001BE91FBCAB0) {x: 2.368183, y: 0.070611, z: 17.538600}>, <Struct 'Vector' (0x000001BE91FBDB40) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': None}, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': None}]"
+  },
+  {
+    "case": "occupied_driver_rejected",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE90FD2900) {x: 1.954248, y: 0.008465, z: 15.895663}>, <Struct 'Vector' (0x000001BE91FBDB40) {x: 2.368183, y: 0.070611, z: 17.538600}>, <Struct 'Vector' (0x000001BE91FBCAB0) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': None}, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': None}]"
+  },
+  {
+    "case": "client_passenger_host_driver",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE90FD2900) {x: 1.954248, y: 0.008465, z: 15.895663}>, <Struct 'Vector' (0x000001BE91FBCAB0) {x: 2.368183, y: 0.070611, z: 17.538600}>, <Struct 'Vector' (0x000001BE91FBDB40) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': 'RVSurvivorCharacter_1'}, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': 'RVSurvivorCharacter_0'}]"
+  },
+  {
+    "case": "moving_exit_rejected",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x000001BE91FBCAB0) {x: 341.563080, y: 0.044097, z: -0.229482}>"
+  },
+  {
+    "case": "host_acceleration_steering",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE91FBDB40) {x: 1352.508619, y: 470.124677, z: 14.864537}>, <Struct 'Vector' (0x000001BE91FBCAB0) {x: 1351.331211, y: 465.931519, z: 14.937565}>, <Struct 'Vector' (0x000001BE91FBDA50) {x: 658.979797, y: 615.567444, z: -0.071395}>, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': 'RVSurvivorCharacter_1'}, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': 'RVSurvivorCharacter_0'}]"
+  },
+  {
+    "case": "host_drive_replicated",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE91FBDA50) {x: 1420.589471, y: 533.735047, z: 14.846010}>, <Struct 'Vector' (0x000001BE91FBCAB0) {x: 1419.174126, y: 529.591437, z: 14.930921}>, <Struct 'Vector' (0x000001BE91FBDB40) {x: 684.815796, y: 639.892334, z: -0.210320}>, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': 'RVSurvivorCharacter_1'}, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': 'RVSurvivorCharacter_0'}]"
+  },
+  {
+    "case": "client_passenger_attached",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE91FBDA50) {x: 1518.355634, y: 698.934348, z: 124.923413}>, <Struct 'Vector' (0x000001BE91FBCAB0) {x: 1520.521079, y: 702.391427, z: 125.166299}>]"
+  },
+  {
+    "case": "host_handbrake_stops",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x000001BE91FBDA50) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "case": "stopped_vehicle_converges",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE91FBDB40) {x: 1881.950746, y: 944.888212, z: 15.702739}>, <Struct 'Vector' (0x000001BE91FBCAB0) {x: 1882.130366, y: 942.951101, z: 15.544912}>, <Struct 'Vector' (0x000001BE91FBDA50) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': 'RVSurvivorCharacter_1'}, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': 'RVSurvivorCharacter_0'}]"
+  },
+  {
+    "case": "client_passenger_exit_frees_seat",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE91FBDB40) {x: 1881.950746, y: 944.888212, z: 15.702739}>, <Struct 'Vector' (0x000001BE91FBCAB0) {x: 1882.130366, y: 942.951101, z: 15.544912}>, <Struct 'Vector' (0x000001BE91FBDA50) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': None}, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': None}]"
+  },
+  {
+    "case": "host_exit_restores_character",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE91FBDB40) {x: 2178.132627, y: 843.024152, z: 90.150000}>, [<Struct 'Vector' (0x000001BE91FBCAB0) {x: 1881.950746, y: 944.888212, z: 15.702739}>, <Struct 'Vector' (0x000001BE91FBDA50) {x: 1882.130366, y: 942.951101, z: 15.544912}>, <Struct 'Vector' (0x000001BE91FBD370) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': None, 'PassengerSeat': None}, {'DriverSeat': None, 'PassengerSeat': None}]]"
+  },
+  {
+    "case": "remote_driver_possession",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE91FBDA50) {x: 1.017305, y: 0.013047, z: 15.927517}>, <Struct 'Vector' (0x000001BE91FBCAB0) {x: 0.276471, y: 0.007645, z: 19.986743}>, <Struct 'Vector' (0x000001BE91FBDAA0) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': None}, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': None}]"
+  },
+  {
+    "case": "host_passenger_client_driver",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE91FBDAA0) {x: 1.017305, y: 0.013047, z: 15.927517}>, <Struct 'Vector' (0x000001BE91FBCAB0) {x: 0.276471, y: 0.007645, z: 19.986743}>, <Struct 'Vector' (0x000001BE91FBD9B0) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': 'RVSurvivorCharacter_0'}, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': 'RVSurvivorCharacter_1'}]"
+  },
+  {
+    "case": "client_acceleration_steering",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE90FD2900) {x: 1404.798141, y: -590.232200, z: 14.854305}>, <Struct 'Vector' (0x000001BE91FBCAB0) {x: 1401.411973, y: -587.993303, z: 15.064672}>, <Struct 'Vector' (0x000001BE91FBD9B0) {x: 862.187500, y: -435.155365, z: -0.017466}>, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': 'RVSurvivorCharacter_0'}, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': 'RVSurvivorCharacter_1'}]"
+  },
+  {
+    "case": "client_drive_replicated",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE90FD2900) {x: 1493.002304, y: -634.749877, z: 14.847011}>, <Struct 'Vector' (0x000001BE91FBD9B0) {x: 1489.444993, y: -632.491174, z: 15.047365}>, <Struct 'Vector' (0x000001BE91FBCAB0) {x: 894.741943, y: -451.586853, z: -0.088640}>, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': 'RVSurvivorCharacter_0'}, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': 'RVSurvivorCharacter_1'}]"
+  },
+  {
+    "case": "host_passenger_attached",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE90FD2900) {x: 1689.646898, y: -672.404546, z: 125.184696}>, <Struct 'Vector' (0x000001BE91FBCAB0) {x: 1584.891875, y: -681.127677, z: 14.842989}>]"
+  },
+  {
+    "case": "client_handbrake_stops",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x000001BE90FD2900) {x: 0.000000, y: 0.000000, z: 0.000000}>"
+  },
+  {
+    "case": "host_passenger_exit",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE90FD2900) {x: 2683.824363, y: -1323.634395, z: 14.504052}>, <Struct 'Vector' (0x000001BE91FBCAB0) {x: 2683.804019, y: -1326.217630, z: 14.763126}>, <Struct 'Vector' (0x000001BE91FBD9B0) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': None}, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': None}]"
+  },
+  {
+    "case": "client_reverse",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE91FBCAB0) {x: 2216.283246, y: -1311.026272, z: 15.021672}>, <Struct 'Vector' (0x000001BE91FBDAA0) {x: 2217.456002, y: -1310.460122, z: 15.156938}>, <Struct 'Vector' (0x000001BE91FBD9B0) {x: 3.626520, y: -1.260712, z: -3.004858}>, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': None}, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': None}]"
+  },
+  {
+    "case": "reverse_and_stop_replicated",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE91FBD9B0) {x: 2216.502166, y: -1311.088536, z: 14.825409}>, <Struct 'Vector' (0x000001BE91FBDAA0) {x: 2217.775565, y: -1310.607355, z: 14.945368}>, <Struct 'Vector' (0x000001BE91FBCAB0) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': None}, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': None}]"
+  },
+  {
+    "case": "client_exit_restores_character",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE91FBD9B0) {x: 2266.726524, y: -1620.244508, z: 90.150000}>, [<Struct 'Vector' (0x000001BE91FBDAA0) {x: 2216.502166, y: -1311.088536, z: 14.825409}>, <Struct 'Vector' (0x000001BE91FBCAB0) {x: 2217.775565, y: -1310.607355, z: 14.945368}>, <Struct 'Vector' (0x000001BE91FBDA50) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': None, 'PassengerSeat': None}, {'DriverSeat': None, 'PassengerSeat': None}]]"
+  },
+  {
+    "case": "blocked_exit_prerequisite_host_reentered_driver",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE91FBCAB0) {x: 2216.502166, y: -1311.088536, z: 14.825409}>, <Struct 'Vector' (0x000001BE91FBDAA0) {x: 2217.775565, y: -1310.607355, z: 14.945368}>, <Struct 'Vector' (0x000001BE91FBD370) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': None}, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': None}]"
+  },
+  {
+    "case": "blocked_exit_prerequisite_six_blockers",
+    "pass": true,
+    "detail": "6"
+  },
+  {
+    "case": "blocked_exit_fixture_covers_all_six_candidate_rays",
+    "pass": true,
+    "detail": "[{'candidate': \"<Struct 'Vector' (0x000001BE7A0817E8) {x: 90.000000, y: -300.000000, z: 0.000000}>\", 'covering': ['Gate2_ExitBlocker_0']}, {'candidate': \"<Struct 'Vector' (0x000001BE91FBE310) {x: -10.000000, y: -300.000000, z: 0.000000}>\", 'covering': ['Gate2_ExitBlocker_1', 'Gate2_ExitBlocker_4']}, {'candidate': \"<Struct 'Vector' (0x000001BE91FBC6A0) {x: 190.000000, y: -300.000000, z: 0.000000}>\", 'covering': ['Gate2_ExitBlocker_2']}, {'candidate': \"<Struct 'Vector' (0x000001BE90FD28B0) {x: -450.000000, y: 0.000000, z: 0.000000}>\", 'covering': ['Gate2_ExitBlocker_3']}, {'candidate': \"<Struct 'Vector' (0x000001BE91FBDB90) {x: 0.000000, y: -350.000000, z: 0.000000}>\", 'covering': ['Gate2_ExitBlocker_1', 'Gate2_ExitBlocker_4']}, {'candidate': \"<Struct 'Vector' (0x000001BE91FBDE10) {x: 0.000000, y: 350.000000, z: 0.000000}>\", 'covering': ['Gate2_ExitBlocker_5']}]"
+  },
+  {
+    "case": "blocked_exit_fixture_still_seated_before_E",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE91FBEF90) {x: 2216.502166, y: -1311.088536, z: 14.825409}>, <Struct 'Vector' (0x000001BE91FBF030) {x: 2217.775565, y: -1310.607355, z: 14.945368}>, <Struct 'Vector' (0x000001BE91FBF080) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': None}, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': None}]"
+  },
+  {
+    "case": "blocked_exit_fixture_collision_blocks_pawn_and_visibility",
+    "pass": true,
+    "detail": "6"
+  },
+  {
+    "case": "blocked_exits_retain_seat",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE91F13080) {x: 2216.502166, y: -1311.088536, z: 14.825409}>, <Struct 'Vector' (0x000001BE90FD28B0) {x: 2217.775565, y: -1310.607355, z: 14.945368}>, <Struct 'Vector' (0x000001BE91FBEBD0) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': 'RVSurvivorCharacter_0', 'PassengerSeat': None}, {'DriverSeat': 'RVSurvivorCharacter_1', 'PassengerSeat': None}]"
+  },
+  {
+    "case": "clear_exit_after_block_removed",
+    "pass": true,
+    "detail": "[<Struct 'Vector' (0x000001BE91F13080) {x: 2216.502166, y: -1311.088536, z: 14.825409}>, <Struct 'Vector' (0x000001BE90FD28B0) {x: 2217.775565, y: -1310.607355, z: 14.945368}>, <Struct 'Vector' (0x000001BE91FBEBD0) {x: 0.000000, y: 0.000000, z: 0.000000}>, {'DriverSeat': None, 'PassengerSeat': None}, {'DriverSeat': None, 'PassengerSeat': None}]"
+  },
+  {
+    "case": "clear_exit_restores_active_walking_collision",
+    "pass": true,
+    "detail": "<Struct 'Vector' (0x000001BE91F13080) {x: 2167.576058, y: -1607.240922, z: 90.150000}>"
+  }
+]

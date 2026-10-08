@@ -13,6 +13,9 @@
 #include "Net/UnrealNetwork.h"
 #include "GameFramework/GameStateBase.h"
 #include "NativeGameplayTags.h"
+#include "HAL/IConsoleManager.h"
+#include "Core/RVLog.h"
+static TAutoConsoleVariable<int32> MedicalDebug(TEXT("rv.Medical.Debug"),0,TEXT("Development medical visibility diagnostics"));
 #include "Player/RVPassengerReferenceFrameComponent.h"
 static AActor* MedicalFrame(const ARVSurvivorCharacter* Character)
 {const auto* Frame=Character?Character->FindComponentByClass<URVPassengerReferenceFrameComponent>():nullptr;return Frame?Frame->ReferenceFrame.Get():nullptr;}
@@ -184,7 +187,18 @@ bool URVHealthComponent::ValidateTreatment(FString& Error) const
     { Error=TEXT("Treatment interrupted by movement — supply retained");return false; }
     if(FVector::Dist(Healer->GetActorLocation(),Character->GetActorLocation())>Tuning()->TreatmentRangeCm) { Error=TEXT("Patient out of reach"); return false; }
     FCollisionQueryParams Params; Params.AddIgnoredActor(Healer); Params.AddIgnoredActor(Character);
-    if(GetWorld()->LineTraceTestByChannel(Healer->GetActorLocation(),Character->GetActorLocation(),ECC_Visibility,Params)) { Error=TEXT("Patient obstructed"); return false; }
+    FVector HealerEye,PatientEye; FRotator EyeRotation;
+    Healer->GetActorEyesViewPoint(HealerEye,EyeRotation);
+    Character->GetActorEyesViewPoint(PatientEye,EyeRotation);
+    FHitResult VisibilityHit;
+    const bool bObstructed=GetWorld()->LineTraceSingleByChannel(VisibilityHit,HealerEye,PatientEye,ECC_Visibility,Params);
+    if(DebugAllowed() && MedicalDebug.GetValueOnGameThread())
+    {
+        FHitResult LegacyHit;
+        GetWorld()->LineTraceSingleByChannel(LegacyHit,Healer->GetActorLocation(),Character->GetActorLocation(),ECC_Visibility,Params);
+        UE_LOG(LogRVNetworking,Log,TEXT("Medical visibility center=%s eye=%s"),*GetNameSafe(LegacyHit.GetComponent()),*GetNameSafe(VisibilityHit.GetComponent()));
+    }
+    if(bObstructed) { Error=TEXT("Patient obstructed"); return false; }
     const auto* Inventory=Healer->FindComponentByClass<URVInventoryComponent>(); if(!Inventory) return false;
     const auto Items=Inventory->GetItems(); const auto* Item=Items.FindByPredicate([&](const auto& I){return I.Id==SupplyId;});
     if(!Item || !Item->Definition || !Item->Definition->Medical.bMedicalSupply || Item->Quantity<1 || Item->Condition<Item->Definition->Medical.MinimumCondition) { Error=TEXT("Medical supply unavailable"); return false; }

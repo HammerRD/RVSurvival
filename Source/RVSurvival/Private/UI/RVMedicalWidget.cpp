@@ -12,6 +12,8 @@
 #include "Survival/RVNeedsComponent.h"
 #include "GameFramework/GameStateBase.h"
 #include "EngineUtils.h"
+#include "Vehicles/RVVehicleBase.h"
+#include "Vehicles/RVVehicleSeatComponent.h"
 void URVMedicalWidget::NativeOnInitialized()
 {
     Super::NativeOnInitialized();
@@ -36,8 +38,17 @@ void URVMedicalWidget::Nearby()
     auto* PC=GetOwningPlayer(); if(!PC->GetPawn()) return;
     float Closest=200; Patient.Reset();
     for(TActorIterator<ARVSurvivorCharacter> It(GetWorld());It;++It)
-        if(auto* PS=It->GetPlayerState<ARVPlayerState>();PS && PS!=PC->GetPlayerState<ARVPlayerState>())
+    {
+        auto* PS=It->GetPlayerState<ARVPlayerState>();
+        // Native vehicle possession clears the unpossessed survivor's PlayerState.
+        // Only the replicated driver occupant may use the vehicle's PlayerState.
+        if(!PS && It->SeatedVehicle)
+            for(const auto* Seat:It->SeatedVehicle->GetSeats())
+                if(Seat && Seat->bDriverSeat && Seat->Occupant==*It)
+                { PS=It->SeatedVehicle->GetPlayerState<ARVPlayerState>(); break; }
+        if(PS && PS!=PC->GetPlayerState<ARVPlayerState>())
         { const float D=FVector::Dist(It->GetActorLocation(),PC->GetPawn()->GetActorLocation());if(D<Closest){Closest=D;Patient=PS;} }
+    }
     InjuryIndex=0;
 }
 void URVMedicalWidget::NextInjury() { ++InjuryIndex; }
