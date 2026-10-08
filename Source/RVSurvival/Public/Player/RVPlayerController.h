@@ -20,6 +20,9 @@ public:
     UFUNCTION(Server, Reliable) void ServerSwitchSeat(FName TargetSeat);
     UFUNCTION(BlueprintCallable, Category="RV|Seats") void RequestLivingArea();
     UFUNCTION(BlueprintCallable, Category="RV|Controls") void ToggleControls();
+    UFUNCTION(BlueprintCallable) void ToggleMedical();
+    UFUNCTION(Client,Reliable) void ClientOpenMedical();
+    UPROPERTY(Replicated, BlueprintReadOnly) TObjectPtr<class ARVMedicalStation> MedicalStation;
     UFUNCTION(Server, Reliable) void ServerLivingArea();
     UPROPERTY(Replicated, BlueprintReadOnly, Category="RV|Seats") FString SeatFeedback;
     UPROPERTY(Replicated, BlueprintReadOnly, Category="RV|Seats") TObjectPtr<ARVVehicleBase> SeatedVehicle;
@@ -51,6 +54,7 @@ private:
     void OrbitYaw(const struct FInputActionValue& Value); void OrbitPitch(const struct FInputActionValue& Value);
     bool bOrbitHeld=false;
     UPROPERTY(Transient) TObjectPtr<class URVControlsWidget> ControlsWidget;
+    UPROPERTY(Transient) TObjectPtr<class URVMedicalWidget> MedicalWidget;
     UPROPERTY(Transient) TObjectPtr<class UInputMappingContext> ResourceMapping;
     UPROPERTY(Transient) TObjectPtr<class UInputMappingContext> DrivingControlsCatalog;
     UPROPERTY(Transient) TArray<TObjectPtr<class UInputAction>> ResourceActions;

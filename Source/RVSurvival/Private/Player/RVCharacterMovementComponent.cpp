@@ -3,10 +3,11 @@
 #include "GameFramework/Character.h"
 #include "Player/RVPlayerState.h"
 #include "Survival/RVNeedsComponent.h"
+#include "Medical/RVHealthComponent.h"
 float URVCharacterMovementComponent::GetMaxSpeed() const
 {
     const auto* PS=CharacterOwner?CharacterOwner->GetPlayerState<ARVPlayerState>():nullptr;
-    return Super::GetMaxSpeed()*(PS && PS->Needs?PS->Needs->GetMovementScale():1.f);
+    return Super::GetMaxSpeed()*(PS && PS->Needs?PS->Needs->GetMovementScale():1.f)*(PS && PS->Health?PS->Health->GetMovementScale():1.f);
 }
 void URVCharacterMovementComponent::OnClientCorrectionReceived(FNetworkPredictionData_Client_Character& Data, float Time, FVector Location, FVector NewVelocity, FMovementBaseInterfaceData* Base, FName Bone, bool bHasBase, bool bRelative, uint8 Mode, FVector Gravity)
 {

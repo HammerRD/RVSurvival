@@ -1,4 +1,5 @@
 #include "Survival/RVNeedsComponent.h"
+#include "Medical/RVHealthComponent.h"
 #include "Survival/RVRestPoint.h"
 #include "Survival/RVRestPoseComponent.h"
 #include "Player/RVPlayerState.h"
@@ -154,6 +155,7 @@ void URVNeedsComponent::RequestRestMode(ERVRestMode Mode)
 void URVNeedsComponent::ServerConsume_Implementation(FGuid Id)
 {
     if(!GetOwner()->HasAuthority()) return;
+    if(const auto* PS=Cast<ARVPlayerState>(GetOwner());PS && !PS->Health->CanAct()) { Feedback=TEXT("Cannot consume while downed");return; }
     ON_SCOPE_EXIT { OnRep_State(); GetOwner()->ForceNetUpdate(); };
     auto* Character=ResolveSurvivor();
     auto* Inventory=Character?Character->FindComponentByClass<URVInventoryComponent>():nullptr;

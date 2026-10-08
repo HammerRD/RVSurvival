@@ -1,0 +1,69 @@
+{
+  "kind": "component transaction diagnostics; no normal-player acceptance",
+  "results": [
+    {
+      "case": "cancel_retains_splint",
+      "pass": true
+    },
+    {
+      "case": "cancel_leaves_fracture_untreated",
+      "pass": true
+    },
+    {
+      "case": "splint_completed",
+      "pass": true
+    },
+    {
+      "case": "splint_consumed_once",
+      "pass": true
+    },
+    {
+      "case": "fracture_retained",
+      "pass": true
+    },
+    {
+      "case": "splinted_speed_scale",
+      "pass": true
+    },
+    {
+      "case": "GAS_analgesia",
+      "pass": true
+    },
+    {
+      "case": "medication_consumed_once",
+      "pass": true
+    },
+    {
+      "case": "medication_does_not_erase_injury",
+      "pass": true
+    },
+    {
+      "case": "burn_dressing_completed",
+      "pass": true
+    },
+    {
+      "case": "burn_dressing_consumed_once",
+      "pass": true
+    },
+    {
+      "case": "antiseptic_reduces_risk",
+      "pass": true
+    },
+    {
+      "case": "antiseptic_consumed_once",
+      "pass": true
+    },
+    {
+      "case": "conditions_preserved",
+      "pass": true
+    },
+    {
+      "case": "GUIDs_preserved",
+      "pass": true
+    },
+    {
+      "case": "invalid_GUID_no_consumption",
+      "pass": true
+    }
+  ]
+}

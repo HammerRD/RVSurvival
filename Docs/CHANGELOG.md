@@ -224,3 +224,5 @@ Rollover closure: both final-source driver-role matrices 47 server /45 client ch
 - Added authoritative injury/treatment component and native timed analgesic effect. Initial focused PIE diagnostic passes 21 checks; no Gate 8 acceptance claimed. Saved ten project-side medical/diagnostic definitions; prior maps and 108 vendor files preserved.
 - Fixed one replication macro compile error and three Python fixture API assumptions; preserved failure evidence. Builds and final diagnostic editor shutdown pass. Normal-control UI, station/downed integrations and multiplayer validation remain unfinished. No Gate 9.
 
+
+Gate 8 in-progress checkpoint: saved medical test map/profile derivatives and linked medical station; remappable F9 UMG assessment/treatment UI; qualitative medical HUD; downed action/mobility policy; passenger-frame-relative treatment interruption; finite configuration/GUID and bleeding-before-revive guards. Normal UI bandage observed; 16 focused treatment transaction cases passed after a preserved Python GUID comparison harness failure. Gate 8 remains NOT ACCEPTED pending multiplayer, full manual controls, stress and regressions. No Gate 9 work.

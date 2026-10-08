@@ -19,6 +19,7 @@ struct FRVInjuryInstance
     GENERATED_BODY()
     UPROPERTY(BlueprintReadOnly, SaveGame) FGuid Id;
     UPROPERTY(BlueprintReadOnly, SaveGame) ERVInjuryKind Kind=ERVInjuryKind::Wound;
+    UPROPERTY(BlueprintReadOnly, SaveGame) FGameplayTag InjuryTag;
     UPROPERTY(BlueprintReadOnly, SaveGame) ERVBodyRegion Region=ERVBodyRegion::Torso;
     UPROPERTY(BlueprintReadOnly, SaveGame) float Severity=1;
     UPROPERTY(BlueprintReadOnly, SaveGame) float BleedingPerMinute=0;

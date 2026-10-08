@@ -1,6 +1,9 @@
 #include "Medical/RVHealthComponent.h"
+#include "Vehicles/RVVehicleBase.h"
 #include "Medical/RVMedicalAttributes.h"
 #include "Medical/RVAnalgesicEffect.h"
+#include "Medical/RVMedicalStation.h"
+#include "Player/RVPlayerController.h"
 #include "Player/RVPlayerState.h"
 #include "Player/RVSurvivorCharacter.h"
 #include "Survival/RVNeedsComponent.h"
@@ -9,6 +12,18 @@
 #include "TimerManager.h"
 #include "Net/UnrealNetwork.h"
 #include "GameFramework/GameStateBase.h"
+#include "NativeGameplayTags.h"
+#include "Player/RVPassengerReferenceFrameComponent.h"
+static AActor* MedicalFrame(const ARVSurvivorCharacter* Character)
+{const auto* Frame=Character?Character->FindComponentByClass<URVPassengerReferenceFrameComponent>():nullptr;return Frame?Frame->ReferenceFrame.Get():nullptr;}
+static FVector MedicalPosition(const ARVSurvivorCharacter* Character)
+{const auto* Frame=MedicalFrame(Character);return Frame?Frame->GetActorTransform().InverseTransformPosition(Character->GetActorLocation()):Character->GetActorLocation();}
+UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_RVWound,"Medical.Injury.Wound");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_RVFracture,"Medical.Injury.Fracture");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_RVBurn,"Medical.Injury.Burn");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_RVConcussion,"Medical.Injury.Concussion");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_RVDowned,"Medical.Status.Downed");
+UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_RVTerminal,"Medical.Status.Terminal");
 
 URVHealthComponent::URVHealthComponent()
 {
@@ -47,6 +62,21 @@ float URVHealthComponent::GetPain() const
     float Pain=0; for(const auto& I:Injuries) Pain+=I.Pain*(1-I.Healing);
     const auto* PS=Cast<ARVPlayerState>(GetOwner());
     return FMath::Clamp(Pain-(PS && PS->MedicalAttributes?PS->MedicalAttributes->GetAnalgesia():0),0.f,100.f);
+}
+FGameplayTagContainer URVHealthComponent::GetStatusTags() const
+{
+    FGameplayTagContainer Tags;
+    for(const auto& I:Injuries) if(I.Healing<1 && I.InjuryTag.IsValid()) Tags.AddTag(I.InjuryTag);
+    if(LifeState==ERVMedicalLifeState::Downed) Tags.AddTag(TAG_RVDowned);
+    if(LifeState==ERVMedicalLifeState::Terminal) Tags.AddTag(TAG_RVTerminal);
+    return Tags;
+}
+bool URVHealthComponent::DebugSetInfectionRisk(FGuid Injury,float Risk)
+{
+    if(!DebugAllowed() || !FMath::IsFinite(Risk)) return false;
+    if(auto* I=Injuries.FindByPredicate([&](const auto& Entry){return Entry.Id==Injury;}))
+    { I->InfectionRisk=FMath::Clamp(Risk,0.f,1.f);++I->Revision;GetOwner()->ForceNetUpdate();return true; }
+    return false;
 }
 void URVHealthComponent::TickComponent(float Delta,ELevelTick Type,FActorComponentTickFunction* Function)
 {
@@ -94,6 +124,7 @@ bool URVHealthComponent::DebugApplyInjury(ERVInjuryKind Kind,ERVBodyRegion Regio
 {
     if(!DebugAllowed() || !FMath::IsFinite(Severity) || uint8(Kind)>uint8(ERVInjuryKind::Concussion) || uint8(Region)>uint8(ERVBodyRegion::RightLeg)) return false;
     FRVInjuryInstance I; I.Id=FGuid::NewGuid(); I.Kind=Kind; I.Region=Region; I.Severity=FMath::Clamp(Severity,1.f,3.f);
+    I.InjuryTag=Kind==ERVInjuryKind::Wound?TAG_RVWound:Kind==ERVInjuryKind::Fracture?TAG_RVFracture:Kind==ERVInjuryKind::Burn?TAG_RVBurn:TAG_RVConcussion;
     I.Pain=I.Severity*10; I.InfectionRisk=(Kind==ERVInjuryKind::Wound || Kind==ERVInjuryKind::Burn)?.4f:0;
     if(Kind==ERVInjuryKind::Wound) I.BleedingPerMinute=I.Severity<1.5f?Tuning()->MinorBleedPerMinute:(I.Severity<2.5f?Tuning()->ModerateBleedPerMinute:Tuning()->SevereBleedPerMinute);
     Injuries.Add(I); GetOwner()->ForceNetUpdate(); return true;
@@ -122,7 +153,7 @@ void URVHealthComponent::RequestCancelTreatment()
 { GetWorld()->GetTimerManager().SetTimerForNextTick(FTimerDelegate::CreateWeakLambda(this,[this]{ServerCancelTreatment();})); }
 void URVHealthComponent::ServerBeginTreatment_Implementation(ARVPlayerState* Patient,FGuid Injury,FGuid Supply,int32 ExpectedRevision)
 {
-    if(!GetOwner()->HasAuthority() || ActiveTreatment.IsValid() || !Patient || !Patient->Health || Patient->Health->ReservedBy.IsValid()) return;
+    if(!GetOwner()->HasAuthority() || !Injury.IsValid() || !Supply.IsValid() || ActiveTreatment.IsValid() || !Patient || !Patient->Health || Patient->Health->ReservedBy.IsValid()) return;
     TreatmentPatient=Patient; ActiveTreatment=Injury; SupplyId=Supply; InjuryRevision=ExpectedRevision;
     FString Error;
     if(!ValidateTreatment(Error)) { CancelTreatment(Error); return; }
@@ -130,6 +161,9 @@ void URVHealthComponent::ServerBeginTreatment_Implementation(ARVPlayerState* Pat
     const auto Items=Character->FindComponentByClass<URVInventoryComponent>()->GetItems();
     const auto* Item=Items.FindByPredicate([&](const auto& I){return I.Id==SupplyId;});
     Patient->Health->ReservedBy=this;
+    HealerFrame=MedicalFrame(Character); HealerStart=MedicalPosition(Character);
+    auto* PatientCharacter=Patient->Needs->ResolveSurvivor();
+    PatientFrame=MedicalFrame(PatientCharacter); PatientStart=MedicalPosition(PatientCharacter);
     const float Duration=FMath::Max(.1f,Item->Definition->Medical.DurationSeconds);
     TreatmentEndTime=GetWorld()->GetGameState()->GetServerWorldTimeSeconds()+Duration;
     GetWorld()->GetTimerManager().SetTimer(TreatmentTimer,this,&URVHealthComponent::CompleteTreatment,Duration,false);
@@ -141,9 +175,13 @@ bool URVHealthComponent::ValidateTreatment(FString& Error) const
     auto* Healer=PS && PS->Needs?PS->Needs->ResolveSurvivor():nullptr;
     auto* Character=Patient && Patient->Needs?Patient->Needs->ResolveSurvivor():nullptr;
     auto* Health=Patient?Patient->Health.Get():nullptr;
-    if(!CanAct() || !Healer || !Character || !Health || Health->LifeState==ERVMedicalLifeState::Terminal || Healer->SeatedVehicle || Character->SeatedVehicle)
+    if(!CanAct() || !Healer || !Character || !Health || Health->LifeState==ERVMedicalLifeState::Terminal || Healer->SeatedVehicle)
     { Error=TEXT("Patient or treatment unavailable"); return false; }
+    if(Character->SeatedVehicle && (Health->LifeState!=ERVMedicalLifeState::Downed || Character->SeatedVehicle->GetVelocity().Size()>30))
+    { Error=TEXT("Stop the vehicle before treating a seated downed patient");return false; }
     if(Health->ReservedBy.IsValid() && Health->ReservedBy.Get()!=this) { Error=TEXT("Patient already being treated"); return false; }
+    if(TreatmentEndTime>0 && (MedicalFrame(Healer)!=HealerFrame.Get() || MedicalFrame(Character)!=PatientFrame.Get() || FVector::Dist(MedicalPosition(Healer),HealerStart)>50 || FVector::Dist(MedicalPosition(Character),PatientStart)>50))
+    { Error=TEXT("Treatment interrupted by movement — supply retained");return false; }
     if(FVector::Dist(Healer->GetActorLocation(),Character->GetActorLocation())>Tuning()->TreatmentRangeCm) { Error=TEXT("Patient out of reach"); return false; }
     FCollisionQueryParams Params; Params.AddIgnoredActor(Healer); Params.AddIgnoredActor(Character);
     if(GetWorld()->LineTraceTestByChannel(Healer->GetActorLocation(),Character->GetActorLocation(),ECC_Visibility,Params)) { Error=TEXT("Patient obstructed"); return false; }
@@ -151,10 +189,23 @@ bool URVHealthComponent::ValidateTreatment(FString& Error) const
     const auto Items=Inventory->GetItems(); const auto* Item=Items.FindByPredicate([&](const auto& I){return I.Id==SupplyId;});
     if(!Item || !Item->Definition || !Item->Definition->Medical.bMedicalSupply || Item->Quantity<1 || Item->Condition<Item->Definition->Medical.MinimumCondition) { Error=TEXT("Medical supply unavailable"); return false; }
     const auto& M=Item->Definition->Medical;
-    // Advanced station/parked treatments remain unavailable until station integration.
-    if(M.bRequiresStation || M.bRequiresParked) { Error=TEXT("Configured treatment requires medical station"); return false; }
+    if(!FMath::IsFinite(M.DurationSeconds) || M.DurationSeconds<=0 || !FMath::IsFinite(M.MinimumCondition) || !FMath::IsFinite(M.MaximumSeverity) || !FMath::IsFinite(M.BleedingReduction) || !FMath::IsFinite(M.MedicationSeconds) || M.MedicationSeconds<=0 || !FMath::IsFinite(M.PainRelief))
+    { Error=TEXT("Medical supply configuration invalid" ); return false; }
+    const auto* PC=Cast<ARVPlayerController>(PS->GetOwner());
+    if(M.bRequiresStation && (!PC || !PC->MedicalStation || !PC->MedicalStation->IsReachable(Healer) || !PC->MedicalStation->CanInteract_Implementation(Healer)))
+    { Error=TEXT("Use a reachable powered medical station"); return false; }
+    if(M.bRequiresParked)
+    {
+        const AActor* Vehicle=PC && PC->MedicalStation?PC->MedicalStation->GetAttachParentActor():nullptr;
+        if(!Vehicle || Vehicle->GetVelocity().Size()>30) { Error=TEXT("Park the RV for this treatment"); return false; }
+    }
     if(M.Treatment==ERVTreatmentKind::Revive)
-    { if(Health==this || Health->LifeState!=ERVMedicalLifeState::Downed) { Error=TEXT("Patient is not revivable"); return false; } return true; }
+    {
+        if(Health==this || Health->LifeState!=ERVMedicalLifeState::Downed) { Error=TEXT("Patient is not revivable"); return false; }
+        if(Health->Injuries.ContainsByPredicate([](const auto& I){return I.BleedingPerMinute>0;}))
+        { Error=TEXT("Control bleeding before reviving");return false; }
+        return true;
+    }
     const auto* I=Health->Injuries.FindByPredicate([&](const auto& Entry){return Entry.Id==ActiveTreatment;});
     if(!I || I->Revision!=InjuryRevision || I->Severity>M.MaximumSeverity || I->Healing>=1) { Error=TEXT("Injury changed or inappropriate supply"); return false; }
     bool Valid=false;
@@ -210,6 +261,6 @@ void URVHealthComponent::CancelTreatment(const FString& Reason)
 {
     GetWorld()->GetTimerManager().ClearTimer(TreatmentTimer);
     if(auto* Patient=TreatmentPatient.Get(); Patient && Patient->Health && Patient->Health->ReservedBy.Get()==this) Patient->Health->ReservedBy.Reset();
-    TreatmentPatient.Reset(); ActiveTreatment.Invalidate(); SupplyId.Invalidate(); TreatmentEndTime=0; Feedback=Reason;
+    TreatmentPatient.Reset(); HealerFrame.Reset();PatientFrame.Reset();ActiveTreatment.Invalidate(); SupplyId.Invalidate(); TreatmentEndTime=0; Feedback=Reason;
     GetOwner()->ForceNetUpdate();
 }

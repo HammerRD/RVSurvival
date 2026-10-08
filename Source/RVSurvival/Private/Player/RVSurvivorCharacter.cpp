@@ -20,6 +20,7 @@
 #include "Inventory/RVInventoryComponent.h"
 #include "Player/RVPlayerState.h"
 #include "Survival/RVNeedsComponent.h"
+#include "Medical/RVHealthComponent.h"
 #include "Survival/RVRestPoseComponent.h"
 #include "Vehicles/RVSeatPoseComponent.h"
 void ARVSurvivorCharacter::MulticastRecoveryPlacement_Implementation(FVector Position, FRotator Rotation)
@@ -50,7 +51,7 @@ void ARVSurvivorCharacter::MulticastRecoveryPlacement_Implementation(FVector Pos
 static bool CanMoveWhileAwake(const ARVSurvivorCharacter* Character)
 {
     const auto* PS=Character->GetPlayerState<ARVPlayerState>();
-    return !PS || PS->Needs->State.RestMode==ERVRestMode::Awake;
+    return !PS || (PS->Needs->State.RestMode==ERVRestMode::Awake && PS->Health->CanAct());
 }
 ARVSurvivorCharacter::ARVSurvivorCharacter(const FObjectInitializer& Init)
     : Super(Init.SetDefaultSubobjectClass<URVCharacterMovementComponent>(ACharacter::CharacterMovementComponentName))

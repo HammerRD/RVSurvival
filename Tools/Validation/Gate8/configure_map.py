@@ -1,0 +1,58 @@
+"""New-map only derivative; preserve accepted maps and original vendor content."""
+import unreal,json,gc
+from pathlib import Path
+B=Path('D:/GitHub/RVSurvival/RVSurvival/Saved/Gate8Validation')
+def configure():
+ exec(compile(Path('D:/GitHub/RVSurvival/RVSurvival/Tools/Validation/Gate8/configure_supplies.py').read_text(),'configure_supplies.py','exec'),{'__name__':'medical_fixture'})
+ levels=unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)
+ target='/Game/Maps/Gate8MedicalTest'
+ if not unreal.EditorAssetLibrary.does_asset_exist(target):
+  assert levels.load_level('/Game/Maps/Gate7MechanicalTest')
+  assert unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True,True)
+  assert unreal.EditorLoadingAndSavingUtils.save_map(unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world(),target)
+ else:
+  current=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world().get_path_name()
+  if 'Gate8MedicalTest' not in current:assert levels.load_level(target)
+ es=unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
+ actors=es.get_all_level_actors()
+ rv=next(a for a in actors if isinstance(a,unreal.RVMechanicalMotorhome))
+ station=next((a for a in actors if isinstance(a,unreal.RVMedicalStation)),None)
+ if not station:
+  definitions=rv.get_editor_property('Stations')
+  medical=next(d for d in definitions if str(d.get_editor_property('Name'))=='Medical')
+  position=medical.get_editor_property('Position')
+  station=es.spawn_actor_from_class(unreal.RVMedicalStation,rv.get_actor_transform().transform_location(position),rv.get_actor_rotation())
+  station.attach_to_component(rv.get_editor_property('Mesh'),'',unreal.AttachmentRule.KEEP_WORLD,unreal.AttachmentRule.KEEP_WORLD,unreal.AttachmentRule.KEEP_WORLD,False)
+  station.set_actor_label('Gate8_MedicalStation')
+  station.set_editor_property('RequiredPowerLoad',medical.get_editor_property('RequiredPowerLoad'))
+  rv.set_editor_property('Stations',[d for d in definitions if str(d.get_editor_property('Name'))!='Medical'])
+ station.attach_to_component(rv.get_editor_property('Mesh'),'',unreal.AttachmentRule.KEEP_WORLD,unreal.AttachmentRule.KEEP_WORLD,unreal.AttachmentRule.KEEP_WORLD,False)
+ station.set_actor_label('Gate8_MedicalStation')
+ rv.set_editor_property('Stations',[d for d in rv.get_editor_property('Stations') if str(d.get_editor_property('Name'))!='Medical'])
+ storage=next(a for a in actors if isinstance(a,unreal.RVStoragePoint) and str(a.get_editor_property('Container').get_editor_property('DisplayName'))=='Medical storage')
+ station.set_editor_property('LinkedStorage',storage.get_editor_property('Container'))
+ tools=unreal.AssetToolsHelpers.get_asset_tools()
+ factory=unreal.DataAssetFactory();factory.set_editor_property('DataAssetClass',unreal.RVMedicalProfile)
+ profile=unreal.load_asset('/Game/Medical/DA_NormalMedical') or tools.create_asset('DA_NormalMedical','/Game/Medical',unreal.RVMedicalProfile,factory)
+ assert unreal.EditorAssetLibrary.save_loaded_asset(profile)
+ ps=unreal.load_asset('/Game/Medical/BP_MedicalPlayerState') or unreal.EditorAssetLibrary.duplicate_asset('/Game/Survival/BP_SurvivalPlayerState','/Game/Medical/BP_MedicalPlayerState')
+ pscls=unreal.EditorAssetLibrary.load_blueprint_class('/Game/Medical/BP_MedicalPlayerState')
+ unreal.get_default_object(pscls).get_editor_property('Health').set_editor_property('Profile',profile)
+ unreal.BlueprintEditorLibrary.compile_blueprint(ps);assert unreal.EditorAssetLibrary.save_loaded_asset(ps)
+ gm=unreal.load_asset('/Game/Medical/BP_Gate8GameMode') or unreal.EditorAssetLibrary.duplicate_asset('/Game/Survival/BP_Gate5GameMode','/Game/Medical/BP_Gate8GameMode')
+ gmcls=unreal.EditorAssetLibrary.load_blueprint_class('/Game/Medical/BP_Gate8GameMode')
+ unreal.get_default_object(gmcls).set_editor_property('PlayerStateClass',pscls)
+ unreal.BlueprintEditorLibrary.compile_blueprint(gm);assert unreal.EditorAssetLibrary.save_loaded_asset(gm)
+ unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world().get_world_settings().set_editor_property('DefaultGameMode',gmcls)
+ for i,name in enumerate(['Bandage','Gauze','PressureDressing','Antiseptic','Splint','BurnDressing','PainMedication','FirstAidKit','AdvancedKit']):
+  label='Gate8_'+name
+  pickup=next((a for a in actors if a.get_actor_label()==label),None) or es.spawn_actor_from_class(unreal.RVWorldItem,unreal.Vector(600+i*100,-850,35))
+  pickup.set_actor_label(label);item=pickup.get_editor_property('Item')
+  item.set_editor_property('Definition',unreal.load_asset('/Game/Medical/DA_'+name));item.set_editor_property('Quantity',3);item.set_editor_property('Condition',.83)
+  pickup.set_editor_property('Item',item)
+ assert unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True,True)
+ assert levels.save_current_level()
+ (B/'saved-map.json').write_text(json.dumps({'map':target,'medical_station':station.get_path_name(),'linked_storage':storage.get_path_name(),'medical_pickups':9,'saved':True},indent=2),encoding='utf-8')
+configure()
+gc.collect()
+unreal.SystemLibrary.quit_editor()

@@ -8,6 +8,8 @@
 #include "Core/RVLog.h"
 #include "HAL/IConsoleManager.h"
 #include "TimerManager.h"
+#include "Player/RVPlayerState.h"
+#include "Medical/RVHealthComponent.h"
 #include "GameFramework/Character.h"
 #include "Components/CapsuleComponent.h"
 static TAutoConsoleVariable<int32> InventoryDebug(TEXT("rv.Inventory.Debug"),0,TEXT("Log authoritative inventory requests"));
@@ -105,6 +107,7 @@ void URVInventoryComponent::ServerCloseContainer_Implementation()
 void URVInventoryComponent::ServerTransfer_Implementation(FGuid Id, int32 Quantity, bool bToContainer)
 {
     if(!GetOwner()->HasAuthority()) return;
+    if(const auto* P=Cast<APawn>(GetOwner())) if(const auto* PS=P->GetPlayerState<ARVPlayerState>();PS && !PS->Health->CanAct()) { Feedback=TEXT("Cannot transfer while downed");return; }
     if(InventoryDebug.GetValueOnGameThread()) UE_LOG(LogRVNetworking,Log,TEXT("Inventory transfer role=%d owner=%s item=%s quantity=%d"),int32(GetOwner()->GetLocalRole()),*GetOwner()->GetName(),*Id.ToString(),Quantity);
     const APawn* Pawn=Cast<APawn>(GetOwner());
     if(!Pawn || !Pawn->GetController() || !IsValid(OpenContainer) || !IsValid(OpenContainer->GetOwner())) return;
@@ -120,6 +123,7 @@ void URVInventoryComponent::ServerTransfer_Implementation(FGuid Id, int32 Quanti
 void URVInventoryComponent::ServerDrop_Implementation(FGuid Id, int32 Quantity)
 {
     if(!GetOwner()->HasAuthority()) return;
+    if(const auto* P=Cast<APawn>(GetOwner())) if(const auto* PS=P->GetPlayerState<ARVPlayerState>();PS && !PS->Health->CanAct()) { Feedback=TEXT("Cannot drop while downed");return; }
     const APawn* Pawn=Cast<APawn>(GetOwner()); if(!Pawn || !Pawn->GetController()) return;
     const int32 Index=Contents.Items.IndexOfByPredicate([&](const auto& I){return I.Id==Id;});
     if(Index==INDEX_NONE || Quantity<=0 || Quantity>Contents.Items[Index].Quantity) return;

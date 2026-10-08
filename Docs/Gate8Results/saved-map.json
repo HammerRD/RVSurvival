@@ -1,0 +1,7 @@
+{
+  "map": "/Game/Maps/Gate8MedicalTest",
+  "medical_station": "/Game/Maps/Gate8MedicalTest.Gate8MedicalTest:PersistentLevel.RVMedicalStation_0",
+  "linked_storage": "/Game/Maps/Gate8MedicalTest.Gate8MedicalTest:PersistentLevel.RVStoragePoint_2",
+  "medical_pickups": 9,
+  "saved": true
+}

@@ -14,6 +14,7 @@ protected:
 private:
     UPROPERTY(Transient) TObjectPtr<class UTextBlock> Values;
     UPROPERTY(Transient) TObjectPtr<class UTextBlock> Status;
+    UPROPERTY(Transient) TObjectPtr<class UTextBlock> MedicalStatus;
     UFUNCTION() void Refresh();
     TWeakObjectPtr<class URVNeedsComponent> BoundNeeds;
 };

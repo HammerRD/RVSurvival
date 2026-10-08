@@ -19,6 +19,7 @@ def configure():
   asset.set_editor_property('CatalogId','Medical_'+name)
   asset.set_editor_property('DisplayName',unreal.Text(name))
   asset.set_editor_property('Category',unreal.RVItemDefinition.find_registered_tag('Item.Category.Medical'))
+  asset.set_editor_property('Tags',unreal.GameplayTagLibrary.make_gameplay_tag_container_from_array([unreal.RVItemDefinition.find_registered_tag('Item.Category.Medical')]))
   asset.set_editor_property('WeightKg',.5 if kind==unreal.RVTreatmentKind.REVIVE else .1)
   asset.set_editor_property('VolumeLitres',1 if kind==unreal.RVTreatmentKind.REVIVE else .2)
   asset.set_editor_property('bStackable',True);asset.set_editor_property('MaxStackSize',10)

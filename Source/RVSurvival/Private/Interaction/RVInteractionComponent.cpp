@@ -4,6 +4,8 @@
 #include "GameFramework/Pawn.h"
 #include "Engine/World.h"
 #include "TimerManager.h"
+#include "Player/RVPlayerState.h"
+#include "Medical/RVHealthComponent.h"
 URVInteractionComponent::URVInteractionComponent()
 {
     SetIsReplicatedByDefault(true);
@@ -25,6 +27,7 @@ AActor* URVInteractionComponent::TraceTarget() const
 bool URVInteractionComponent::IsAllowed(AActor* Target) const
 {
     APawn* Pawn = Cast<APawn>(GetOwner());
+    if(Pawn) if(const auto* PS=Pawn->GetPlayerState<ARVPlayerState>();PS && !PS->Health->CanAct()) return false;
     return IsValid(Target) && Pawn && Pawn->GetController() && Target->Implements<URVInteractable>()
         && IRVInteractable::Execute_CanInteract(Target, Pawn);
 }

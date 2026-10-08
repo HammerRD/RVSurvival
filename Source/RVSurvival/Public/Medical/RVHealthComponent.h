@@ -23,6 +23,8 @@ public:
     UPROPERTY(Replicated, BlueprintReadOnly) double TreatmentEndTime=0;
     UFUNCTION(BlueprintPure) float GetMovementScale() const;
     UFUNCTION(BlueprintPure) float GetPain() const;
+    UFUNCTION(BlueprintPure) FGameplayTagContainer GetStatusTags() const;
+    UFUNCTION(BlueprintCallable, meta=(DevelopmentOnly)) bool DebugSetInfectionRisk(FGuid Injury, float Risk);
     UFUNCTION(BlueprintPure) bool CanAct() const { return LifeState==ERVMedicalLifeState::Active; }
     UFUNCTION(BlueprintCallable, meta=(DevelopmentOnly)) bool DebugApplyInjury(ERVInjuryKind Kind, ERVBodyRegion Region, float Severity);
     UFUNCTION(BlueprintCallable, meta=(DevelopmentOnly)) bool DebugSetVitals(float Blood, float Vitality);
@@ -44,6 +46,10 @@ private:
     FGuid SupplyId;
     int32 InjuryRevision=0;
     FTimerHandle TreatmentTimer;
+    TWeakObjectPtr<AActor> HealerFrame;
+    TWeakObjectPtr<AActor> PatientFrame;
+    FVector HealerStart=FVector::ZeroVector;
+    FVector PatientStart=FVector::ZeroVector;
     float TimeScale=1;
     float DownedSeconds=0;
 };

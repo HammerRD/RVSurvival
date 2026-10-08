@@ -32,6 +32,9 @@ void ARVPlayerController::RVRecover()
 }
 #include "Player/RVInputMappings.h"
 #include "UI/RVControlsWidget.h"
+#include "UI/RVMedicalWidget.h"
+#include "Medical/RVMedicalStation.h"
+#include "Medical/RVHealthComponent.h"
 #include "InputActionValue.h"
 #include "Mechanical/RVServicePoint.h"
 #include "Vehicles/RVResourcePoint.h"
@@ -54,7 +57,7 @@ void ARVPlayerController::RVRecover()
 #include "Player/RVSurvivorCharacter.h"
 void ARVPlayerController::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 { Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME_CONDITION(ARVPlayerController, SeatedVehicle, COND_OwnerOnly); DOREPLIFETIME_CONDITION(ARVPlayerController, SeatFeedback, COND_OwnerOnly);
-DOREPLIFETIME_CONDITION(ARVPlayerController, RecoveryFeedback, COND_OwnerOnly); DOREPLIFETIME_CONDITION(ARVPlayerController, ResourcePoint, COND_OwnerOnly);
+DOREPLIFETIME_CONDITION(ARVPlayerController, MedicalStation, COND_OwnerOnly); DOREPLIFETIME_CONDITION(ARVPlayerController, RecoveryFeedback, COND_OwnerOnly); DOREPLIFETIME_CONDITION(ARVPlayerController, ResourcePoint, COND_OwnerOnly);
 DOREPLIFETIME_CONDITION(ARVPlayerController, ResourceFeedback, COND_OwnerOnly); DOREPLIFETIME_CONDITION(ARVPlayerController,MechanicalPoint,COND_OwnerOnly);DOREPLIFETIME_CONDITION(ARVPlayerController,MechanicalFeedback,COND_OwnerOnly); }
 void ARVPlayerController::RequestSwitchSeat(FName TargetSeat)
 {
@@ -64,6 +67,7 @@ void ARVPlayerController::RequestSwitchSeat(FName TargetSeat)
 }
 void ARVPlayerController::ServerSwitchSeat_Implementation(FName TargetSeat)
 {
+    if(const auto* PS=GetPlayerState<ARVPlayerState>();PS && !PS->Health->CanAct()) { SeatFeedback=TEXT("Cannot switch seats while downed");return; }
     if (!HasAuthority() || !SeatedVehicle) return;
     const double Now = GetWorld()->GetTimeSeconds();
     if (Now - LastSeatSwitchTime < .25) return;
@@ -119,13 +123,14 @@ void ARVPlayerController::RequestLivingArea()
 }
 void ARVPlayerController::ServerLivingArea_Implementation()
 {
+    if(const auto* PS=GetPlayerState<ARVPlayerState>();PS && !PS->Health->CanAct()) { SeatFeedback=TEXT("Teammate assistance required");return; }
     if (!HasAuthority() || GetWorld()->GetTimeSeconds()-LastSeatSwitchTime<.25) return;
     LastSeatSwitchTime=GetWorld()->GetTimeSeconds();
     if (auto* RV=Cast<ARVInteriorMotorhome>(SeatedVehicle)) RV->TryMoveToLivingArea(this);
     ForceNetUpdate();
 }
 void ARVPlayerController::ServerDrive_Implementation(float Throttle, float Steering, bool Handbrake)
-{ if (SeatedVehicle) SeatedVehicle->ReceiveDriveInput(this, Throttle, Steering, Handbrake); }
+{ if (SeatedVehicle) { const auto* PS=GetPlayerState<ARVPlayerState>();const bool Allowed=!PS || PS->Health->CanAct(); SeatedVehicle->ReceiveDriveInput(this,Allowed?Throttle:0,Allowed?Steering:0,Allowed?Handbrake:true); } }
 void ARVPlayerController::ServerExitVehicle_Implementation()
 { if (SeatedVehicle && GetWorld()->GetTimeSeconds() - SeatEntryTime > .75) SeatedVehicle->TryExit(this); }
 void ARVPlayerController::PawnLeavingGame()
@@ -140,6 +145,7 @@ void ARVPlayerController::PawnLeavingGame()
 }
 void ARVPlayerController::EndPlay(const EEndPlayReason::Type Reason)
 {
+    if(MedicalWidget){MedicalWidget->RemoveFromParent();MedicalWidget=nullptr;}
     if(ControlsWidget){ControlsWidget->RemoveFromParent();ControlsWidget=nullptr;}
     RVInputMappings::Unregister(ResourceInputLocalPlayer.Get(),ResourceMapping);
     RVInputMappings::Unregister(ResourceInputLocalPlayer.Get(),DrivingControlsCatalog);
@@ -217,12 +223,12 @@ void ARVPlayerController::SetupInputComponent()
         for(int32 i=0;i<UE_ARRAY_COUNT(Keys);++i)
             RVInputMappings::Map(DrivingControlsCatalog,NewObject<UInputAction>(DrivingControlsCatalog),Keys[i],DrivingNames[i],DrivingLabels[i]);
         ResourceMapping=NewObject<UInputMappingContext>(this);
-        for(FKey Key:{EKeys::H,EKeys::J,EKeys::K,EKeys::L,EKeys::O,EKeys::Escape,EKeys::R,EKeys::Z,EKeys::Three,EKeys::One,EKeys::Two,EKeys::V,EKeys::F10,EKeys::RightMouseButton,EKeys::MouseX,EKeys::MouseY,EKeys::F8})
+        for(FKey Key:{EKeys::H,EKeys::J,EKeys::K,EKeys::L,EKeys::O,EKeys::Escape,EKeys::R,EKeys::Z,EKeys::Three,EKeys::One,EKeys::Two,EKeys::V,EKeys::F10,EKeys::RightMouseButton,EKeys::MouseX,EKeys::MouseY,EKeys::F8,EKeys::F9})
         {
             auto* Action=NewObject<UInputAction>(this); Action->ValueType=EInputActionValueType::Boolean;
             const int32 Index=ResourceActions.Num();
-            const TCHAR* Names[]={TEXT("Lights"),TEXT("Generator"),TEXT("Fridge"),TEXT("StationPower"),TEXT("EngineIdle"),TEXT("ClosePanel"),TEXT("Stand"),TEXT("Sleep"),TEXT("RearInterior"),TEXT("DriverSeat"),TEXT("PassengerSeat"),TEXT("NextSeat"),TEXT("Controls"),TEXT("OrbitHold"),TEXT("OrbitYaw"),TEXT("OrbitPitch"),TEXT("RecoverRV")};
-            const TCHAR* Labels[]={TEXT("Lights"),TEXT("Generator"),TEXT("Fridge"),TEXT("Station power"),TEXT("Engine idle"),TEXT("Close panel"),TEXT("Stand from bed"),TEXT("Rest / sleep"),TEXT("Move to rear living area"),TEXT("Driver seat"),TEXT("Passenger seat"),TEXT("Next seat (stopped)"),TEXT("Controls menu"),TEXT("Orbit camera hold"),TEXT("Orbit horizontal"),TEXT("Orbit vertical"),TEXT("Recover RV (prototype)")};
+            const TCHAR* Names[]={TEXT("Lights"),TEXT("Generator"),TEXT("Fridge"),TEXT("StationPower"),TEXT("EngineIdle"),TEXT("ClosePanel"),TEXT("Stand"),TEXT("Sleep"),TEXT("RearInterior"),TEXT("DriverSeat"),TEXT("PassengerSeat"),TEXT("NextSeat"),TEXT("Controls"),TEXT("OrbitHold"),TEXT("OrbitYaw"),TEXT("OrbitPitch"),TEXT("RecoverRV"),TEXT("Medical")};
+            const TCHAR* Labels[]={TEXT("Lights"),TEXT("Generator"),TEXT("Fridge"),TEXT("Station power"),TEXT("Engine idle"),TEXT("Close panel"),TEXT("Stand from bed"),TEXT("Rest / sleep"),TEXT("Move to rear living area"),TEXT("Driver seat"),TEXT("Passenger seat"),TEXT("Next seat (stopped)"),TEXT("Controls menu"),TEXT("Orbit camera hold"),TEXT("Orbit horizontal"),TEXT("Orbit vertical"),TEXT("Recover RV (prototype)"),TEXT("Medical status / treatment")};
             if(Index==14 || Index==15){Action->ValueType=EInputActionValueType::Axis1D;Action->bConsumeInput=false;}
             RVInputMappings::Map(ResourceMapping,Action,Key,FName(Names[Index]),Labels[Index]);ResourceActions.Add(Action);
         }
@@ -244,6 +250,7 @@ void ARVPlayerController::SetupInputComponent()
     Input->BindAction(ResourceActions[14],ETriggerEvent::Triggered,this,&ThisClass::OrbitYaw);
     Input->BindAction(ResourceActions[15],ETriggerEvent::Triggered,this,&ThisClass::OrbitPitch);
     Input->BindAction(ResourceActions[16],ETriggerEvent::Started,this,&ThisClass::RequestRecoverRV);
+    Input->BindAction(ResourceActions[17],ETriggerEvent::Started,this,&ThisClass::ToggleMedical);
     RVInputMappings::Register(this,ResourceMapping);
     if(!MechanicalMapping)
     {
@@ -281,7 +288,7 @@ void ARVPlayerController::GeneratorKey() { ToggleResource(TEXT("Generator")); }
 void ARVPlayerController::FridgeKey() { ToggleResource(TEXT("Refrigerator")); }
 void ARVPlayerController::StationKey() { ToggleResource(TEXT("PoweredStation")); }
 void ARVPlayerController::IdleKey() { ToggleResource(TEXT("EngineIdle")); }
-void ARVPlayerController::CloseKey() { if(ResourcePoint) RequestCloseResource(); if(MechanicalPoint)RequestService(TEXT("Close"),-1,FGuid(),-1); }
+void ARVPlayerController::CloseKey() { if(MedicalWidget)ToggleMedical();if(ResourcePoint) RequestCloseResource(); if(MechanicalPoint)RequestService(TEXT("Close"),-1,FGuid(),-1); }
 void ARVPlayerController::RequestService(FName Action,int32 Expected,FGuid Item,int32 ItemRevision)
 {
     if(!IsLocalController())return;
@@ -297,3 +304,20 @@ void ARVPlayerController::PatchKey(){if(MechanicalPoint)RequestService(TEXT("Pat
 void ARVPlayerController::RadiatorKey(){if(MechanicalPoint)RequestService(TEXT("ReplaceRadiator"),MechanicalPoint->Revision,FGuid(),-1);}
 void ARVPlayerController::EngineRepairKey(){if(MechanicalPoint)RequestService(TEXT("EngineService"),MechanicalPoint->Revision,FGuid(),-1);}
 void ARVPlayerController::HoodKey(){if(MechanicalPoint)RequestService(TEXT("Hood"),MechanicalPoint->Revision,FGuid(),-1);}
+void ARVPlayerController::ToggleMedical()
+{
+    if(!IsLocalController()) return;
+    if(MedicalWidget)
+    {
+        MedicalWidget->RemoveFromParent(); MedicalWidget=nullptr;
+        SetInputMode(FInputModeGameOnly()); bShowMouseCursor=false; return;
+    }
+    MedicalWidget=CreateWidget<URVMedicalWidget>(this,URVMedicalWidget::StaticClass());
+    MedicalWidget->AddToPlayerScreen(20); MedicalWidget->SetPositionInViewport(FVector2D(20,100));
+    FInputModeGameAndUI Mode; Mode.SetWidgetToFocus(MedicalWidget->TakeWidget()); Mode.SetHideCursorDuringCapture(false);
+    SetInputMode(Mode); bShowMouseCursor=true;
+}
+void ARVPlayerController::ClientOpenMedical_Implementation()
+{
+    if(!MedicalWidget) ToggleMedical();
+}

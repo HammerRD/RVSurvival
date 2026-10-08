@@ -1,0 +1,160 @@
+Log started at 10/08/2026 00:22:44 (2026-10-08T04:22:44Z)
+Resolved project argument D:\GitHub\RVSurvival\RVSurvival\RVSurvival.uproject to D:\GitHub\RVSurvival\RVSurvival\RVSurvival.uproject
+No config file at C:\ProgramData\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\bobgo\AppData\Local\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\bobgo\OneDrive\Documents\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Configuration will be read from:
+  C:\Users\bobgo\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\GitHub\RVSurvival\RVSurvival\Intermediate\Build\XmlConfigCache.bin): C:\Users\bobgo\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\GitHub\RVSurvival\RVSurvival\Intermediate\Build\XmlConfigCache.bin): D:\GitHub\RVSurvival\RVSurvival\Saved\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (D:\GitHub\RVSurvival\RVSurvival\Intermediate\Build\XmlConfigCache.bin): C:\Users\bobgo\AppData\Local\UnrealEngine\Intermediate\Build\UnrealBuildTool.Env.BuildConfiguration.xml
+Setting temp directory to 'C:\Users\bobgo\AppData\Local\Temp\UnrealBuildTool\00f34584'
+    Registering build platform: UnrealBuildTool.AndroidPlatformFactory
+    Registering build platform: UnrealBuildTool.IOSPlatformFactory
+    Registering build platform: UnrealBuildTool.LinuxPlatformFactory
+    Registering build platform: UnrealBuildTool.MacPlatformFactory
+    Registering build platform: UnrealBuildTool.TVOSPlatformFactory
+    Registering build platform: UnrealBuildTool.WindowsPlatformFactory
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (1)
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (2)
+Found Universal CRT version 10.0.10240.0 at C:\Program Files (x86)\Windows Kits\10
+Found Windows 10 SDK version 10.0.22621.0 at C:\Program Files (x86)\Windows Kits\10
+Found Universal CRT version 10.0.22621.0 at C:\Program Files (x86)\Windows Kits\10
+Found Windows 10 SDK version 10.0.26100.0 at C:\Program Files (x86)\Windows Kits\10
+Found Universal CRT version 10.0.26100.0 at C:\Program Files (x86)\Windows Kits\10
+Found Windows 10 SDK version 10.0.28000.0 at C:\Program Files (x86)\Windows Kits\10
+Found Universal CRT version 10.0.28000.0 at C:\Program Files (x86)\Windows Kits\10
+Win64 Installed SDK(s): MinVersion_Sdk=10.0.19041.0, MaxVersion_Sdk=10.9.99999.0, CurrentVersion_Sdk=10.0.22621.0, Version_AutoSdk=10.0.22621.0, CurrentVersion_AutoSdk=
+        Registering build platform: Win64 - buildable: True
+    Registering build platform: UnrealBuildTool.VisionOSPlatformFactory
+Command line: "D:\Epic Games\UE_5.8\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" RVSurvivalEditor Win64 Development -Project=D:\GitHub\RVSurvival\RVSurvival\RVSurvival.uproject -WaitMutex -NoHotReloadFromIDE
+Log file: C:\Users\bobgo\AppData\Local\UnrealBuildTool\Log.txt
+Deleting old log file: C:\Users\bobgo\AppData\Local\UnrealBuildTool\Log-backup-2026.10.05-13.19.37.txt
+Deleting old log file: C:\Users\bobgo\AppData\Local\UnrealBuildTool\Log-backup-2026.10.05-13.19.37.json
+
+Using 'git status' to determine working set for adaptive non-unity build (D:\GitHub\RVSurvival\RVSurvival).
+Skipping D:\Epic Games\UE_5.8\Engine\Intermediate\Build\BuildRules\UE5Rules.dll: File is installed
+Skipping D:\Epic Games\UE_5.8\Engine\Intermediate\Build\BuildRules\UE5ProgramRules.dll: File is installed
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\Interaction\RVInteractionComponent.cpp was not part of source working set and should be
+Invalidating makefile for RVSurvivalEditor (working set of source files changed)
+Compiler: C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\cl.exe
+Linker: C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\link.exe
+Library Manager: C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\link.exe
+Resource Compiler: C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x64\rc.exe
+Resource Converter: C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\cvtres.exe
+Using EngineIncludeOrderVersion.Unreal5_8 for target RVSurvivalEditor.Target.cs
+Building UnrealEditor - RVSurvivalEditor - Win64 - Development
+VerseVMBytecodeGenerator.Generate, generating CPP headers in: 'D:\Epic Games\UE_5.8\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\VerseVMBytecode'
+	Writing out generated header file. Changed:False Path:'D:\Epic Games\UE_5.8\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\VerseVMBytecode\VVMBytecodeOps.gen.h'
+	Writing out generated header file. Changed:False Path:'D:\Epic Games\UE_5.8\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\VerseVMBytecode\VVMBytecodesAndCaptures.gen.h'
+	Writing out generated header file. Changed:False Path:'D:\Epic Games\UE_5.8\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\VerseVMBytecode\VVMMakeCapturesFuncs.gen.h'
+	Writing out generated header file. Changed:False Path:'D:\Epic Games\UE_5.8\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\VerseVMBytecode\VVMCaptureSwitch.gen.h'
+Generated code is up to date.
+Found 5 shared PCH headers (listed in order of preference):
+	UnrealEd
+	Engine
+	Slate
+	CoreUObject
+	Core
+Updating D:\GitHub\RVSurvival\RVSurvival\Intermediate\Build\Win64\x64\UnrealEditor\Development\RVSurvival\Module.RVSurvival.cpp: contents have changed. Saving previous version to D:\GitHub\RVSurvival\RVSurvival\Intermediate\Build\Win64\x64\UnrealEditor\Development\RVSurvival\Module.RVSurvival.cpp.old.
+Updating D:\GitHub\RVSurvival\RVSurvival\Intermediate\Build\Win64\x64\UnrealEditor\Development\RVSurvival\LiveCodingInfo.json: contents have changed. Saving previous version to D:\GitHub\RVSurvival\RVSurvival\Intermediate\Build\Win64\x64\UnrealEditor\Development\RVSurvival\LiveCodingInfo.json.old.
+Updating D:\GitHub\RVSurvival\RVSurvival\Intermediate\Build\Win64\x64\UnrealEditor\Development\RVSurvival\UnrealEditor-RVSurvival.lib.rsp: contents have changed. Saving previous version to D:\GitHub\RVSurvival\RVSurvival\Intermediate\Build\Win64\x64\UnrealEditor\Development\RVSurvival\UnrealEditor-RVSurvival.lib.rsp.old.
+Updating D:\GitHub\RVSurvival\RVSurvival\Intermediate\Build\Win64\x64\UnrealEditor\Development\RVSurvival\UnrealEditor-RVSurvival.dll.rsp: contents have changed. Saving previous version to D:\GitHub\RVSurvival\RVSurvival\Intermediate\Build\Win64\x64\UnrealEditor\Development\RVSurvival\UnrealEditor-RVSurvival.dll.rsp.old.
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\Medical\RVHealthComponent.cpp(1): error: Expected RVHealthComponent.h to be first header included.
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\Survival\RVNeedsComponent.cpp(1): error: Expected RVNeedsComponent.h to be first header included.
+D:\GitHub\RVSurvival\RVSurvival\Source\RVSurvival\Private\Vehicles\RVVehicleBase.cpp(1): error: Expected RVVehicleBase.h to be first header included.
+Deleting outdated item: D:\GitHub\RVSurvival\RVSurvival\Binaries\Win64\UnrealEditor-RVSurvival.pdb
+Deleting outdated item: D:\GitHub\RVSurvival\RVSurvival\Intermediate\Build\Win64\x64\UnrealEditor\Development\RVSurvival\UnrealEditor-RVSurvival.lib
+Building RVSurvivalEditor...
+===== Toolchain Information =====
+Using ISPC compiler (D:\Epic Games\UE_5.8\Engine\Source\ThirdParty\Intel\ISPC\bin\Windows\ispc.exe)
+  Intel(r) Implicit SPMD Program Compiler (Intel(r) ISPC), 1.24.0 (build commit  @ 20250404, LLVM 18.1.2) 
+Using Visual Studio 14.44.35229 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[Adaptive Build] Excluded from RVSurvival unity file: RVInteractionComponent.cpp, RVInventoryComponent.cpp, RVHealthComponent.cpp, RVMedicalStation.cpp, RVCharacterMovementComponent.cpp, RVPlayerController.cpp, RVSurvivorCharacter.cpp, RVNeedsComponent.cpp, RVMedicalWidget.cpp, RVVehicleBase.cpp
+=================================
+Determining max actions to execute in parallel (16 physical cores, 24 logical cores)
+  Executing up to 16 processes, one per physical core
+  Requested 1.5 GB memory per action, 9.22 GB available: limiting max parallel actions to 6
+Using XGE executor to run 12 action(s)
+Distributing 12 actions to XGE
+UnrealBuildTool Compile
+
+--------------------Build System Warning---------------------------------------
+License not activated:
+    License is not activated. Please activate the license in the coordinator.
+    This build will run in standalone mode.
+
+-------------------------------------------------------------------------------
+ 
+Build ID: {5B1FF0A3-80C0-4E48-8A57-51FF1654ACD9}
+ 
+--------------------Project: Default-------------------------------------------
+[1/12] Compile [x64] RVCharacterMovementComponent.cpp (0:02.68 at +0:00)
+[2/12] Compile [x64] RVInteractionComponent.cpp (0:03.28 at +0:00)
+[3/12] Compile [x64] RVInventoryComponent.cpp (0:04.28 at +0:00)
+[4/12] Compile [x64] RVHealthComponent.cpp (0:04.54 at +0:00)
+[5/12] Compile [x64] RVNeedsComponent.cpp (0:04.75 at +0:00)
+[6/12] Compile [x64] RVSurvivorCharacter.cpp (0:05.31 at +0:00)
+[7/12] Compile [x64] RVVehicleBase.cpp (0:06.35 at +0:00)
+[8/12] Compile [x64] RVPlayerController.cpp (0:06.54 at +0:00)
+[9/12] Compile [x64] Module.RVSurvival.cpp (0:14.06 at +0:00)
+[10/12] Link [x64] UnrealEditor-RVSurvival.lib (0:00.07 at +0:14)
+   Creating library D:/GitHub/RVSurvival/RVSurvival/Intermediate/Build/Win64/x64/UnrealEditor/Development/RVSurvival/UnrealEditor-RVSurvival.lib and object D:/GitHub/RVSurvival/RVSurvival/Intermediate/Build/Win64/x64/UnrealEditor/Development/RVSurvival/UnrealEditor-RVSurvival.exp
+[11/12] Link [x64] UnrealEditor-RVSurvival.dll (0:00.64 at +0:14)
+[12/12] WriteMetadata RVSurvivalEditor.target (0:00.36 at +0:14)
+---------------------- Done ----------------------
+ 
+    Rebuild All: 1 succeeded, 0 failed, 0 skipped
+ 
+1 build system warning(s):
+   - License not activated
+ 
+Total time in XGE executor: 17.59 seconds
+Output binary: D:\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealEditor.exe
+WriteFileIfChanged() wrote 0 changed files of 1 requested writes.
+
+Timeline:
+[  0.000]  +0.223 Main
+   0.010          [  0.010]  +0.058 Apply XmlConfig
+   0.069          [  0.069]  +0.043 AddTelemetry
+   0.139          [  0.139]  +0.083 RegisterPlatforms
+[  0.245]  +0.019 ParseCommandLine
+[  0.289]  +0.091 LoadMakefile
+   0.309          [  0.019]  +0.017 EngineRulesPlugins
+   0.329          [  0.039]  +0.003 EngineRulesFetchDirs
+   0.339          [  0.049]  +0.006 EngineRulesAssembly
+   0.345          [  0.055]  +0.000 ProgramRulesAssembly
+   0.346          [  0.056]  +0.002 ProjectRulesAssembly
+   0.348          [  0.058]  +0.203 CreateTargetRules
+   0.383             0.093          [  0.035]  +0.000 FindPlugins
+   0.391             0.101          [  0.043]  +0.028 MakefileValid
+[  0.381]  +0.204 <unknown>
+[  0.586]  +0.004 CppDependencyCache
+[  0.598]  +0.777 RVSurvivalEditor Win64 Development
+   0.598          [  0.000]  +0.311 <unknown>
+   0.910          [  0.311]  +0.039 UHTModules
+   1.014          [  0.415]  +0.012 UHTManifest
+   1.027          [  0.428]  +0.008 UHTTimestamps
+   1.035          [  0.436]  +0.336 <unknown>
+   1.371          [  0.773]  +0.000 WaitOnWrites
+[  1.376]  +0.044 SavingMakefile
+   1.377          [  0.000]  +0.000 UHTWait
+   1.391          [  0.015]  +0.002 CppDependencyCache
+   1.394          [  0.017]  +0.061 Preparing ActionGraph
+   1.402             0.025          [  0.008]  +0.003 LinkActions
+   1.406             0.029          [  0.012]  +0.000 GatherPrerequisiteActions
+   1.407             0.030          [  0.013]  +0.000 CppDependencyCacheWait
+   1.407             0.031          [  0.013]  +0.030 GatherOutdatedActions
+   1.440             0.064          [  0.046]  +0.004 LinkActions
+   1.446             0.069          [  0.052]  +0.006 DeleteOutdatedProducedItems
+   1.452             0.075          [  0.058]  +0.002 SaveActionHistory
+   1.455             0.078          [  0.061]  +0.000 CreateDirectoriesForProducedItems
+[  1.472]  +0.108 GarbageCollect
+[  1.580] +17.477 <unknown>
+[ 19.058]  +0.000 Deploying targets
+[ 19.061]  +0.044 Saving caches
+[ 19.106]  +0.001 TelemetryService.FlushEvents
+[ 19.108]
+
+Result: Succeeded
+Total execution time: 19.11 seconds

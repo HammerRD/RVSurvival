@@ -1,4 +1,5 @@
 #include "Vehicles/RVVehicleBase.h"
+#include "Medical/RVHealthComponent.h"
 #include "Player/RVInputMappings.h"
 #include "Vehicles/RVVehicleMovementComponent.h"
 #include "Vehicles/RVVehicleSeatComponent.h"
@@ -53,6 +54,7 @@ void ARVVehicleBase::BeginPlay()
 }
 bool ARVVehicleBase::CanEnter(URVVehicleSeatComponent* Seat, ARVSurvivorCharacter* Character) const
 {
+    if(Character) if(const auto* PS=Character->GetPlayerState<ARVPlayerState>();PS && !PS->Health->CanAct()) return false;
     if(Character) if(const auto* PS=Character->GetPlayerState<ARVPlayerState>(); PS && PS->Needs->State.RestMode!=ERVRestMode::Awake) return false;
     const auto* Frame=Character?Character->FindComponentByClass<URVPassengerReferenceFrameComponent>():nullptr;
     const bool Inside=Frame && Frame->ReferenceFrame==this;
