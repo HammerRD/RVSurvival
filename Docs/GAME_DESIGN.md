@@ -42,3 +42,8 @@ Resumed Gate7 closure: ACCEPTED after fresh mechanical/both-role impaired networ
 
 ## Gate 8 medical prototype
 Medical needs reinforce the RV as the mobile survival base: stabilize injuries using carried/linked supplies, support teammates, and preserve injury consequences after revive. Splints/bandages stabilize; medicine temporarily reduces pain. Advanced station treatment is parked-only; basic treatment supports transit. No combat, full disease/surgery, dependency or permanent-character replacement implementation. See MEDICAL.md for current prototype rules.
+
+
+## Gate 8 closure — 2026-10-08
+
+Gate 8 medical/injury foundation is ACCEPTED. PlayerState-owned GAS attributes and reusable health/treatment components preserve accepted inventory, needs, seats, moving interior, resources, mechanical systems and prototype recovery. Both healer/driver roles, actual client UMG controls, impaired separate-process networking, transaction stress, recovery simulation, prior-gate representatives and saved-content/vendor audits passed within the documented scope. See GATE_8_VALIDATION.md and MEDICAL.md for architecture, failed history and limitations. Gate 9 is not started. Earlier pending/unauthorized statements describe historical checkpoints.

@@ -1,4 +1,4 @@
-# Medical foundation (Gate 8, validation in progress)
+# Medical foundation (Gate 8 accepted)
 
 ## Ownership and engine integration
 
@@ -93,5 +93,5 @@ effects through the ASC and cancel transient treatment reservations/timers rathe
 than serialize weak Actor pointers. Full save/offline simulation, medical
 seamless-travel copying and permanent death are not implemented in this gate.
 
-See `GATE_8_VALIDATION.md` for actual results, failed harness attempts and remaining
-acceptance work. This architecture document does not claim the gate is accepted.
+See `GATE_8_VALIDATION.md` for accepted results, exact test scope, retained failed
+harness attempts and prototype limitations. Gate 9 is not started.

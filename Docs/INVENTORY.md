@@ -99,3 +99,8 @@ Resumed Gate7 closure: ACCEPTED after fresh mechanical/both-role impaired networ
 
 ## Gate 8 medical item capability
 FRVMedicalSupplyMetadata on existing item definitions specifies treatment kind, duration, minimum condition, severity, station/parked requirements, bleed reduction and medication duration/relief. Authoritative GUID-based ConsumeOneAuthority is reused only after successful medical hold validation. No parallel medical inventory or name-string gameplay dispatch. New project-side Medical definitions preserve existing condition/stack/container behavior; short diagnostic definitions are separated under Development/Medical.
+
+
+## Gate 8 closure — 2026-10-08
+
+Gate 8 medical/injury foundation is ACCEPTED. PlayerState-owned GAS attributes and reusable health/treatment components preserve accepted inventory, needs, seats, moving interior, resources, mechanical systems and prototype recovery. Both healer/driver roles, actual client UMG controls, impaired separate-process networking, transaction stress, recovery simulation, prior-gate representatives and saved-content/vendor audits passed within the documented scope. See GATE_8_VALIDATION.md and MEDICAL.md for architecture, failed history and limitations. Gate 9 is not started. Earlier pending/unauthorized statements describe historical checkpoints.

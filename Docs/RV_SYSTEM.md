@@ -122,3 +122,8 @@ Placement policy is deliberately conservative and tunable: 9 offsets within 3 m,
 
 ## Gate 8 medical station (in progress)
 Gate8MedicalTest adds a project-side medical station at the existing medical location, linked to existing Medical storage. Basic treatment is designed for moving interior use; advanced kit requires a reachable configured station and parked vehicle. Seats/rest/workstations and vendor art remain unchanged. Medical state follows PlayerState across survivor/driver possession. See MEDICAL.md and validation for actual coverage.
+
+
+## Gate 8 closure — 2026-10-08
+
+Gate 8 medical/injury foundation is ACCEPTED. PlayerState-owned GAS attributes and reusable health/treatment components preserve accepted inventory, needs, seats, moving interior, resources, mechanical systems and prototype recovery. Both healer/driver roles, actual client UMG controls, impaired separate-process networking, transaction stress, recovery simulation, prior-gate representatives and saved-content/vendor audits passed within the documented scope. See GATE_8_VALIDATION.md and MEDICAL.md for architecture, failed history and limitations. Gate 9 is not started. Earlier pending/unauthorized statements describe historical checkpoints.

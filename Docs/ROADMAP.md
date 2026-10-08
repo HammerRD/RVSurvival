@@ -16,3 +16,8 @@ Current authorized work stops after Gate 7. Compile success is not gate acceptan
 Gate7 resumed closure2026-10-07: ACCEPTED against user-manually-accepted Gate6 physical-entry/roof baseline; fresh mechanical/network/stress/representative regressions, saved reload, UI and final build passed. Optional refrigerator collision remains deferred. Current authorized work stops here; Gate8 is not started.
 
 8. Medical/injury foundation: user-authorized and IN PROGRESS on2026-10-08 after Gate7 acceptance. See GATE_8_VALIDATION.md. Gate9 not started; prior statements that Gate8 was unauthorized describe historical Gate7 closure.
+
+
+## Gate 8 closure — 2026-10-08
+
+Gate 8 medical/injury foundation is ACCEPTED. PlayerState-owned GAS attributes and reusable health/treatment components preserve accepted inventory, needs, seats, moving interior, resources, mechanical systems and prototype recovery. Both healer/driver roles, actual client UMG controls, impaired separate-process networking, transaction stress, recovery simulation, prior-gate representatives and saved-content/vendor audits passed within the documented scope. See GATE_8_VALIDATION.md and MEDICAL.md for architecture, failed history and limitations. Gate 9 is not started. Earlier pending/unauthorized statements describe historical checkpoints.

@@ -112,3 +112,8 @@ Recover RV uses Enhanced Input on the owning ARVPlayerController and a Reliable 
 
 ## Gate 8 medical authority (in progress)
 Owned Health RPCs nominate patient/injury revision and healer inventory GUID; server validates condition/severity/range/LOS, frame-local movement, capacity-independent supply ownership and station requirements. Whole-patient reservation serializes holds; completion revalidates and consumes once through accepted inventory. Cancellation/disconnect must release reservations without late consumption. PlayerState ASC uses native Mixed GAS replication; attributes and injury records replicate to observers. Medication duration belongs to a native GameplayEffect. Both healer roles and both moving driver/passenger roles have targeted separate-process100ms/2percent evidence; see GATE_8_VALIDATION.md for scope and remaining tests.
+
+
+## Gate 8 closure — 2026-10-08
+
+Gate 8 medical/injury foundation is ACCEPTED. PlayerState-owned GAS attributes and reusable health/treatment components preserve accepted inventory, needs, seats, moving interior, resources, mechanical systems and prototype recovery. Both healer/driver roles, actual client UMG controls, impaired separate-process networking, transaction stress, recovery simulation, prior-gate representatives and saved-content/vendor audits passed within the documented scope. See GATE_8_VALIDATION.md and MEDICAL.md for architecture, failed history and limitations. Gate 9 is not started. Earlier pending/unauthorized statements describe historical checkpoints.

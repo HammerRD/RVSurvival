@@ -242,3 +242,12 @@ Fixed nearby-patient selection after native vehicle possession clears the surviv
 
 ## Gate 8 recovery and final regression checkpoint
 Medical-item drop/normal E repick preserved GUID and condition. Native walking measured 210 cm/s with leg fracture and 390 cm/s after splinting. Configurable critical deterioration/nourished vitality recovery prevents inevitable post-revive collapse once bleeding is controlled; accelerated two-hour medical simulation remained Active at Blood ~48/Vitality ~24 with injuries retained. Final affected visibility rejection passed in both processes. Representative entry, Gate 1, Gate 2, inventory, needs and separate-process fuel/electrical/resource regressions passed. Mechanical and saved-content closure remain pending. No Gate 9 work.
+
+### Gate 8 final regression observations (in progress)
+
+Final fuel/electrical regression passed (31 server / 29 client). Mechanical regression passed all gameplay/service/resource checks but one client feedback assertion sampled too early; focused native-input emulated repeat confirmed missing-tool rejection after a two-second observation window. Both receipts remain available. No gameplay rule or accepted system was weakened to pass the observation. Gate 8 closure is pending remaining final audits; Gate 9 not started.
+
+
+### Gate 8 accepted — final closure, 2026-10-08
+
+Completed medical GAS/component/data-asset foundation, injury state, authoritative timed self/teammate treatments, medication, downed/stabilization/revive, station/storage integration and remappable F9 UMG. Fixed unpossessed-driver patient lookup, DriverChair-obstructed medical ray and post-revive deterioration. Final impaired separate-process recovery and roof/door routes passed; saved map reloads and 108 vendor hashes passed; final build and clean shutdown recorded. Original failed timing/display fixtures retained with resolving evidence. Local milestone commits are listed in GATE_8_VALIDATION.md; no Gate 9. Known pre-existing config/solution changes excluded.

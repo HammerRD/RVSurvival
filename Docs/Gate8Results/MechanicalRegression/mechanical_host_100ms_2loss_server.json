@@ -1,0 +1,181 @@
+{
+  "pid": 36976,
+  "role": "server",
+  "config": {
+    "emulation_target": "Everyone",
+    "driver": "host",
+    "name": "mechanical_host_100ms_2loss",
+    "network": true,
+    "entry_probe": false
+  },
+  "results": [
+    {
+      "case": "normal_E_diagnosis_authoritative",
+      "pass": true,
+      "detail": "{'point': \"<Object '/Game/Maps/UEDPIE_0_Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.RVServicePoint_0' (0x000002909583B400) Class 'RVServicePoint'>\", 'radiator': 0.20000000298023224, 'location': \"<Struct 'Vector' (0x00000290459817D0) {x: 553.174722, y: -70.533707, z: 90.149998}>\", 'target': \"<Struct 'Vector' (0x00000290459817D0) {x: 418.591307, y: 3.518103, z: 139.427031}>\", 'prompt': 'Hold E: inspect engine / cooling service'}"
+    },
+    {
+      "case": "hood_open_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "one_authoritative_repair_reservation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "start_does_not_consume",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "cancellation_converges_without_consumption",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "valid_second_repair_rejected_no_consumption",
+      "pass": true,
+      "detail": "Another repair is already in progress"
+    },
+    {
+      "case": "client_patch_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "only_client_patch_consumed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "foreign_guid_cannot_drain_coolant",
+      "pass": true,
+      "detail": "Compatible fluid container not owned"
+    },
+    {
+      "case": "coolant_converges_capacity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "duplicate_requests_conserve_fluid",
+      "pass": true,
+      "detail": "7.0"
+    },
+    {
+      "case": "fluid_guids_state_intact",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host_full_repair_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host_replacement_consumed_only_once",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shutdown_warning_output_replicated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_engine_service_restores_operation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "engine_service_preserves_radiator_fault",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_radiator_replace_restores_cooling",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_E_driver_possession",
+      "pass": true,
+      "detail": "{'feedback': '', 'prompt': ''}"
+    },
+    {
+      "case": "actual_vehicle_moving_under_fault",
+      "pass": true,
+      "detail": "3818.113222908065"
+    },
+    {
+      "case": "moving_coolant_leak_replicates",
+      "pass": true,
+      "detail": "11.879986764788704"
+    },
+    {
+      "case": "fault_causes_temperature_rise_under_actual_drive",
+      "pass": true,
+      "detail": "93.76417250056826"
+    },
+    {
+      "case": "roadside_braking_stops",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "roadside_normal_E_exit",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "roadside_exterior_supplies_access",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "roadside_coolant_guid_state_from_storage",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "roadside_normal_E_diagnosis",
+      "pass": true,
+      "detail": "{'location': \"<Struct 'Vector' (0x0000029045A47D00) {x: 551.077301, y: 10.106430, z: 69.268991}>\", 'prompt': 'Hold E: inspect engine / cooling service'}"
+    },
+    {
+      "case": "roadside_stopped_off_cool_service",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "roadside_timed_patch_complete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "roadside_refill_restores_supply",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "roadside_driver_reentry",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "recoverable_fault_returns_to_travel",
+      "pass": true,
+      "detail": "{'speed': 1947.0265827846754, 'temperature': 78.54565957755855}"
+    }
+  ],
+  "module_sha256": "A233708851E276C8C6618D7B1FC7E23C067C74B0D97B002388C6620FE6DD8F13",
+  "source_checkpoint": "52766f7",
+  "evidence_kind": "PIE with native Enhanced Input events; initial placement/fault fixtures; recovery never called directly",
+  "sample_summary": {
+    "max_correction_cm": 0.0,
+    "count": 631,
+    "max_speed_cm_s": 4139.1218658576745
+  }
+}

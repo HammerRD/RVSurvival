@@ -1,0 +1,151 @@
+{
+  "pid": 31116,
+  "role": "client",
+  "config": {
+    "emulation_target": "Everyone",
+    "driver": "host",
+    "name": "mechanical_host_100ms_2loss",
+    "network": true,
+    "entry_probe": false
+  },
+  "results": [
+    {
+      "case": "normal_E_diagnosis_authoritative",
+      "pass": true,
+      "detail": "{'point': \"<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.RVServicePoint_0' (0x00000273CA8B1900) Class 'RVServicePoint'>\", 'radiator': 0.20000000298023224, 'location': \"<Struct 'Vector' (0x00000274FFDD69F0) {x: 552.103024, y: 79.462439, z: 90.149998}>\", 'target': \"<Struct 'Vector' (0x00000274FFDD69F0) {x: 418.910000, y: 0.480000, z: 138.360000}>\", 'prompt': 'Hold E: inspect engine / cooling service'}"
+    },
+    {
+      "case": "hood_open_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_debug_cannot_author_fault_clear_or_temperature",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_missing_tool_rejected",
+      "pass": false,
+      "detail": "Engine off and cool before servicing | B patch / N replace radiator / M engine service"
+    },
+    {
+      "case": "one_authoritative_repair_reservation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "start_does_not_consume",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "cancellation_converges_without_consumption",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_patch_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "only_client_patch_consumed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "foreign_guid_cannot_drain_coolant",
+      "pass": true,
+      "detail": "Compatible fluid container not owned"
+    },
+    {
+      "case": "coolant_converges_capacity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "duplicate_requests_conserve_fluid",
+      "pass": true,
+      "detail": "7.0"
+    },
+    {
+      "case": "fluid_guids_state_intact",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host_full_repair_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host_replacement_consumed_only_once",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shutdown_warning_output_replicated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_engine_service_restores_operation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "engine_service_preserves_radiator_fault",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_radiator_replace_restores_cooling",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "actual_vehicle_moving_under_fault",
+      "pass": true,
+      "detail": "3838.916228927443"
+    },
+    {
+      "case": "moving_coolant_leak_replicates",
+      "pass": true,
+      "detail": "11.879986764788704"
+    },
+    {
+      "case": "fault_causes_temperature_rise_under_actual_drive",
+      "pass": true,
+      "detail": "93.76417250056826"
+    },
+    {
+      "case": "moving_passenger_frame_and_floor",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x00000274FFDD7B20) {x: -37.932250, y: 0.004476, z: 177.339648}>"
+    },
+    {
+      "case": "moving_passenger_corrections_bounded",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "roadside_braking_stops",
+      "pass": true,
+      "detail": "0.0"
+    },
+    {
+      "case": "recoverable_fault_returns_to_travel",
+      "pass": true,
+      "detail": "{'speed': 1964.6050164703022, 'temperature': 78.54565957755855}"
+    }
+  ],
+  "module_sha256": "A233708851E276C8C6618D7B1FC7E23C067C74B0D97B002388C6620FE6DD8F13",
+  "source_checkpoint": "52766f7",
+  "evidence_kind": "PIE with native Enhanced Input events; initial placement/fault fixtures; recovery never called directly",
+  "sample_summary": {
+    "max_correction_cm": 572.0784301757812,
+    "count": 633,
+    "max_speed_cm_s": 4250.5563578997935
+  }
+}

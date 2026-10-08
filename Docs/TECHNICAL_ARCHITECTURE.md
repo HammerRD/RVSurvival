@@ -92,3 +92,8 @@ URVRecoveryComponent owns overturn confirmation, safe supported placement search
 
 ## Gate 8 medical foundation (in progress, 2026-10-08)
 User authorized Gate8 after Gate7 acceptance. Additive PlayerState-owned GAS ASC/AttributeSet handles replicated Blood/Vitality and timed analgesic effects. URVHealthComponent owns GUID/revision injuries, treatment rules and server reservations; native TimerManager handles holds. Primary Data Assets and existing item metadata configure medical rules. CMC speed eligibility composes the existing native solver/reference frame; no transport replacement. Native UMG and remappable Enhanced Input F9 supply assessment/treatment. See MEDICAL.md and GATE_8_VALIDATION.md; acceptance remains pending. Full persistence/travel copying is deferred.
+
+
+## Gate 8 closure — 2026-10-08
+
+Gate 8 medical/injury foundation is ACCEPTED. PlayerState-owned GAS attributes and reusable health/treatment components preserve accepted inventory, needs, seats, moving interior, resources, mechanical systems and prototype recovery. Both healer/driver roles, actual client UMG controls, impaired separate-process networking, transaction stress, recovery simulation, prior-gate representatives and saved-content/vendor audits passed within the documented scope. See GATE_8_VALIDATION.md and MEDICAL.md for architecture, failed history and limitations. Gate 9 is not started. Earlier pending/unauthorized statements describe historical checkpoints.

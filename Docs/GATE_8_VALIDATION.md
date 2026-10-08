@@ -100,3 +100,30 @@ The final medical review corrected inevitable post-revive deterioration: a stabi
 Focused runtime pass: medical drop removed the inventory record, preserved 0.47 condition in the world and normal E repick restored the same GUID/condition. Native W walking with a leg fracture measured 210 cm/s; after completed splint it measured 390 cm/s and retained the fracture. After controlling a wound and setting partial post-revive vitals, a two-hour-equivalent medical-clock simulation ended Active at Blood 48.03 / Vitality 24.01, with two injuries retained at about 0.10 healing. Needs used its normal clock during this diagnostic; this is not a two-hour whole-game endurance claim. Editor stopped PIE and shut down cleanly. Recovery build succeeded in 22.18 seconds.
 
 Final representative results completed once: physical entry/collision 22 checks, Gate 1 movement/hold/replication 23, Gate 2 seats/driving/replication 30, inventory 24, needs 27. Passed unrelated suites are not repeated for the localized medical UI/visibility/recovery changes. Affected medical visibility rejection was explicitly repeated on both processes and passed. Remaining final resource/mechanical and saved-content audits are recorded below when complete.
+
+## Final regression observation window
+
+The separate-process mechanical regression passed all 32 server checks and 25 of 26 client checks. Its missing-tool feedback assertion sampled 0.4 seconds after native B input and still saw the prior inspection message. No later repair/resource assertion failed. A focused repeat used the same E inspection, hood-open and B input path with 100 ms latency / 2% packet loss, allowing two seconds for owned feedback replication. It passed: `Missing usable mechanic tool kit x1`, with no client tool available. This establishes eventual rejection feedback; it does not claim a sub-400 ms feedback guarantee. Original failed evidence is retained alongside the repeat.
+
+Fuel/electrical representative regression: 31 server / 29 client checks passed in separate processes under the same emulation. All editors exited cleanly. Rollover, final physical roof/door coverage and saved-package reload closure remain pending at this checkpoint.
+
+Final rollover regression on the medical build: 47 server / 45 client checks passed in separate processes with 100 ms latency / 2% loss. Covered left/right/upside-down, uneven terrain, owner client recovery, repeat rejection, held-throttle release, resources/item identity/mechanical/needs preservation, seat possession, resumed driving, standing/interior walking and turn stability, and sleeping-passenger release. Clean shutdown; no fatal/world-leak/Python errors detected in the run logs.
+
+## Known scope and limits at final review
+
+- No full save game, offline progression, seamless-travel medical copy, permanent death, combat damage pipeline, advanced disease/infection, surgery or final treatment animations. Contamination is a configurable prototype risk, not a complete disease simulation.
+- Medical metadata is SaveGame-compatible, but transient treatment reservations must be canceled and timed GAS effects restored explicitly by future persistence code.
+- First aid/revive restores partial Blood/Vitality and retains injuries; stabilized recovery is slow. The accelerated two-hour diagnostic advances medical time only, not the entire survival simulation.
+- Basic treatment and linked storage work in a moving RV; advanced station treatment requires it parked. Gate 6 parked bed and seat-switch restrictions remain.
+- Medical F9 is remappable. Prototype UMG is functional, not final UI art. Native normal input and actual OS mouse/keyboard evidence are distinguished from fixture setup and direct diagnostic transactions.
+- Isolated remote moving passenger measured zero corrections in the sampled treatment/walking window. Earlier fixture/seat-transition aggregate measured nine corrections / maximum 215.48 cm; this is retained and is not characterized as steady-state jitter.
+- GAS logs an optional missing GameplayCueNotifyPaths warning; no cue assets are required by this gate. No reproducible world-leak crash occurred in final runs. Original failed/inconclusive harness receipts remain as history, with resolving repeats identified.
+- Pre-existing unrelated config/solution changes are preserved and excluded from all medical commits. No Gate 9 work is authorized or started.
+
+## Final saved state and coverage boundary
+
+The final saved reload audit passed 42 checks across Gate1Test through Gate8MedicalTest, including normal tuning, purchased 54-part configuration, seven independent exterior compartments, physical entry/roof configuration, bed/seats, front collision, camera, interior storage roles and the new medical station/game mode/supplies. Final physical multiplayer route passed 34 checks on each process. Final source build: `final-recovery-build.log`, Succeeded, 22.18 seconds. Saved audit ended cleanly at 06:05:05 UTC with no fatal, Python or world-leak error. All 108 vendor hashes were verified again afterward. Normal persisted one-player standalone PIE settings restored; editor is closed.
+
+Orbit/remapping regression coverage is a source/configuration audit of the preserved accepted Enhanced Input bindings and camera setup; a new OS orbit/remap exercise was not performed. Actual OS F9/button medical controls were performed. New downed movement/drop/rest restrictions have runtime evidence; resource/service/recovery downed request guards additionally received source review, not a full dedicated downed test matrix. These scope limits are explicit and are not represented as executed cases.
+
+All substantial medical code/content was saved and checkpointed at stable milestones. Final closure excludes the known pre-existing Config/DefaultEngine.ini and solution files. Exact file/asset manifest is Gate8Results/changed-files.json. Current acceptance does not authorize Gate 9.

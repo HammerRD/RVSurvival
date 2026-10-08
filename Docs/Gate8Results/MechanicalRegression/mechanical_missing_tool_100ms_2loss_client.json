@@ -1,0 +1,850 @@
+{
+  "pid": 43740,
+  "role": "client",
+  "config": {
+    "network": true,
+    "driver": "host",
+    "name": "mechanical_missing_tool_100ms_2loss"
+  },
+  "results": [
+    {
+      "case": "normal_E_diagnosis_authoritative",
+      "pass": true,
+      "detail": "{'point': \"<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.RVServicePoint_0' (0x00000225697EDC00) Class 'RVServicePoint'>\", 'radiator': 0.20000000298023224, 'location': \"<Struct 'Vector' (0x0000022515D7C6A0) {x: 552.768117, y: 75.916220, z: 90.149998}>\", 'target': \"<Struct 'Vector' (0x0000022515D7C6A0) {x: 419.100000, y: 0.300000, z: 138.350000}>\", 'prompt': 'Hold E: inspect engine / cooling service'}"
+    },
+    {
+      "case": "hood_open_replicates",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_debug_cannot_author_fault_clear_or_temperature",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client_missing_tool_rejected",
+      "pass": true,
+      "detail": "Missing usable mechanic tool kit x1"
+    }
+  ],
+  "samples": [
+    {
+      "t": -2.9875850677490234,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None",
+      "local": [
+        100.0,
+        -430.0,
+        87.11346814066611
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 0,
+      "max_correction": 0.0,
+      "speed": 0.0,
+      "slate_dt": 0.006293799728155136
+    },
+    {
+      "t": -2.7286527156829834,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None",
+      "local": [
+        96.9,
+        -430.3,
+        71.75000000000001
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 0,
+      "max_correction": 0.0,
+      "speed": 0.0,
+      "slate_dt": 0.0075354985892772675
+    },
+    {
+      "t": -2.476468324661255,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None",
+      "local": [
+        96.9,
+        -430.3,
+        71.75000000000001
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 0,
+      "max_correction": 0.0,
+      "speed": 0.0,
+      "slate_dt": 0.009116899222135544
+    },
+    {
+      "t": -2.215728998184204,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None",
+      "local": [
+        96.9,
+        -430.3,
+        71.75000000000001
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 0,
+      "max_correction": 0.0,
+      "speed": 0.0,
+      "slate_dt": 0.00886639952659607
+    },
+    {
+      "t": -1.9613454341888428,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None",
+      "local": [
+        96.9,
+        -430.3,
+        71.75000000000001
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 0,
+      "max_correction": 0.0,
+      "speed": 0.0,
+      "slate_dt": 0.008375197649002075
+    },
+    {
+      "t": -1.7048182487487793,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None",
+      "local": [
+        96.9,
+        -430.3,
+        71.75000000000001
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 0,
+      "max_correction": 0.0,
+      "speed": 0.0,
+      "slate_dt": 0.008303198963403702
+    },
+    {
+      "t": -1.4502413272857666,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None",
+      "local": [
+        96.9,
+        -430.3,
+        71.75000000000001
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 0,
+      "max_correction": 0.0,
+      "speed": 0.0,
+      "slate_dt": 0.008906301110982895
+    },
+    {
+      "t": -1.1949901580810547,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None",
+      "local": [
+        96.9,
+        -430.3,
+        71.75000000000001
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 0,
+      "max_correction": 0.0,
+      "speed": 0.0,
+      "slate_dt": 0.006858300417661667
+    },
+    {
+      "t": -0.9415478706359863,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None",
+      "local": [
+        96.9,
+        -430.3,
+        71.75000000000001
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 0,
+      "max_correction": 0.0,
+      "speed": 0.0,
+      "slate_dt": 0.009557701647281647
+    },
+    {
+      "t": -0.6875624656677246,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None",
+      "local": [
+        96.9,
+        -430.3,
+        71.75000000000001
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 0,
+      "max_correction": 0.0,
+      "speed": 0.0,
+      "slate_dt": 0.008883800357580185
+    },
+    {
+      "t": -0.43497562408447266,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None",
+      "local": [
+        96.9,
+        -430.3,
+        71.75000000000001
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 0,
+      "max_correction": 0.0,
+      "speed": 0.0,
+      "slate_dt": 0.008538901805877686
+    },
+    {
+      "t": -0.17704486846923828,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None",
+      "local": [
+        96.9,
+        -430.3,
+        71.75000000000001
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 0,
+      "max_correction": 0.0,
+      "speed": 0.0,
+      "slate_dt": 0.007697500288486481
+    },
+    {
+      "t": 0.07352948188781738,
+      "temperature": 20.0,
+      "coolant": 12.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 0,
+      "repair": "None",
+      "local": [
+        96.9,
+        -430.3,
+        71.75000000000001
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 0,
+      "max_correction": 0.0,
+      "speed": 0.0,
+      "slate_dt": 0.016800403594970703
+    },
+    {
+      "t": 0.32415199279785156,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016734398901462555
+    },
+    {
+      "t": 0.5742149353027344,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.01657959818840027
+    },
+    {
+      "t": 0.8245081901550293,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016634400933980942
+    },
+    {
+      "t": 1.0913481712341309,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.01662280037999153
+    },
+    {
+      "t": 1.3581976890563965,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016684401780366898
+    },
+    {
+      "t": 1.6242458820343018,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016254600137472153
+    },
+    {
+      "t": 1.8748228549957275,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.01683199778199196
+    },
+    {
+      "t": 2.1248719692230225,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016737200319767
+    },
+    {
+      "t": 2.3750483989715576,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016425497829914093
+    },
+    {
+      "t": 2.640674114227295,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016580499708652496
+    },
+    {
+      "t": 2.9073755741119385,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016675900667905807
+    },
+    {
+      "t": 3.1575028896331787,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016686201095581055
+    },
+    {
+      "t": 3.4083149433135986,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016633901745080948
+    },
+    {
+      "t": 3.6749725341796875,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.0166018009185791
+    },
+    {
+      "t": 3.9418563842773438,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016667500138282776
+    },
+    {
+      "t": 4.208379030227661,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016529101878404617
+    },
+    {
+      "t": 4.457369804382324,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016729500144720078
+    },
+    {
+      "t": 4.72500205039978,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016717299818992615
+    },
+    {
+      "t": 4.9912004470825195,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016592703759670258
+    },
+    {
+      "t": 5.257386207580566,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016672100871801376
+    },
+    {
+      "t": 5.525015354156494,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016601797193288803
+    },
+    {
+      "t": 5.774835824966431,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.01658099889755249
+    },
+    {
+      "t": 6.041798830032349,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016463402658700943
+    },
+    {
+      "t": 6.3084557056427,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.01644809916615486
+    },
+    {
+      "t": 6.573702096939087,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016657598316669464
+    },
+    {
+      "t": 6.825085163116455,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016643501818180084
+    },
+    {
+      "t": 7.074810743331909,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016651399433612823
+    },
+    {
+      "t": 7.341374158859253,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.01659800112247467
+    },
+    {
+      "t": 7.608446836471558,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016644299030303955
+    },
+    {
+      "t": 7.873734951019287,
+      "temperature": 20.0,
+      "coolant": 9.0,
+      "engine": 1.0,
+      "output": 1.0,
+      "revision": 1,
+      "repair": "None",
+      "local": [
+        549.6681171981966,
+        75.61622031613724,
+        71.79999757544965
+      ],
+      "base": "<Object '/Game/Maps/Gate7MechanicalTest.Gate7MechanicalTest:PersistentLevel.Floor_0.StaticMeshComponent0' (0x00000225187ED200) Class 'StaticMeshComponent'>",
+      "correction_count": 3,
+      "max_correction": 678.93310546875,
+      "speed": 0.0,
+      "slate_dt": 0.016708802431821823
+    }
+  ]
+}

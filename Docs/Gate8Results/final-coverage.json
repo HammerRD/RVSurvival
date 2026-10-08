@@ -1,0 +1,43 @@
+{
+  "status": "ACCEPTED",
+  "final_closure_receipts": [
+    {
+      "receipt": "Docs/Gate8Results/saved-audit.json",
+      "passed_checks": 42
+    },
+    {
+      "receipt": "Docs/Gate8Results/resources_server.json",
+      "passed_checks": 31
+    },
+    {
+      "receipt": "Docs/Gate8Results/resources_client.json",
+      "passed_checks": 29
+    },
+    {
+      "receipt": "Docs/Gate8Results/MechanicalRegression/recovery_host_100ms_2loss_server.json",
+      "passed_checks": 47
+    },
+    {
+      "receipt": "Docs/Gate8Results/MechanicalRegression/recovery_host_100ms_2loss_client.json",
+      "passed_checks": 45
+    },
+    {
+      "receipt": "Docs/Gate8Results/MechanicalRegression/final_physical_host_100ms_2loss_server.json",
+      "passed_checks": 34
+    },
+    {
+      "receipt": "Docs/Gate8Results/MechanicalRegression/final_physical_host_100ms_2loss_client.json",
+      "passed_checks": 34
+    },
+    {
+      "receipt": "Docs/Gate8Results/MechanicalRegression/mechanical_missing_tool_100ms_2loss_server.json",
+      "passed_checks": 2
+    },
+    {
+      "receipt": "Docs/Gate8Results/MechanicalRegression/mechanical_missing_tool_100ms_2loss_client.json",
+      "passed_checks": 4
+    }
+  ],
+  "vendor_files_unchanged": 108,
+  "scope": "Gate 8 only; failed and inconclusive historical receipts remain identified in validation notes"
+}
