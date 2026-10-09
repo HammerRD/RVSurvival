@@ -33,7 +33,7 @@ FButtonStyle KeyButton=FCoreStyle::Get().GetWidgetStyle<FButtonStyle>(TEXT("Butt
 KeyButton.Normal.TintColor=FSlateColor(FLinearColor(.12f,.19f,.19f));KeyButton.Hovered.TintColor=FSlateColor(FLinearColor(.2f,.3f,.3f));KeyButton.Pressed.TintColor=FSlateColor(FLinearColor(.08f,.14f,.14f));Selector->SetButtonStyle(KeyButton);Selector->SetAllowModifierKeys(false);Selector->SetSelectedKey(FInputChord(CurrentKey));Selector->OnKeySelected.AddDynamic(this,&ThisClass::Selected);Row->AddChildToHorizontalBox(Selector);
 if(MappingName==TEXT("LookYaw") || MappingName==TEXT("LookPitch") || MappingName==TEXT("OrbitYaw") || MappingName==TEXT("OrbitPitch"))
 {
- AxisChoices=WidgetTree->ConstructWidget<UComboBoxString>();AxisChoices->AddOption(TEXT("Mouse / stick"));
+ AxisChoices=WidgetTree->ConstructWidget<UComboBoxString>();AxisChoices->OnGenerateWidgetEvent.BindDynamic(this,&ThisClass::AxisEntry);AxisChoices->AddOption(TEXT("Mouse / stick"));
  for(const FKey& Key:LookAxes())AxisChoices->AddOption(Key.GetDisplayName().ToString());
  AxisChoices->SetSelectedOption(TEXT("Mouse / stick"));AxisChoices->SetContentPadding(FMargin(4));
  FComboBoxStyle AxisStyle=FCoreStyle::Get().GetWidgetStyle<FComboBoxStyle>(TEXT("ComboBox"));AxisStyle.ComboButtonStyle.ButtonStyle=KeyButton;AxisChoices->SetWidgetStyle(AxisStyle);
@@ -84,6 +84,8 @@ void URVControlRowWidget::AxisSelected(FString Option,ESelectInfo::Type Selectio
     for(const FKey& Key:LookAxes())if(Key.GetDisplayName().ToString()==Option)
     {Selected(FInputChord(Key));return;}
 }
+UWidget* URVControlRowWidget::AxisEntry(FString Option)
+{return Text(WidgetTree,Option,14);}
 TSharedRef<SWidget> URVDifficultyRowWidget::RebuildWidget(){auto* Box=WidgetTree->ConstructWidget<UVerticalBox>();WidgetTree->RootWidget=Box;Box->AddChildToVerticalBox(Text(WidgetTree,Rule.Label.ToString()));Box->AddChildToVerticalBox(Text(WidgetTree,Rule.Description.ToString(),12));auto* Row=WidgetTree->ConstructWidget<UHorizontalBox>();Box->AddChildToVerticalBox(Row);auto* Slider=WidgetTree->ConstructWidget<USlider>();Slider->SetMinValue(Rule.Minimum);Slider->SetMaxValue(Rule.Maximum);Slider->SetStepSize(.05f);Slider->SetValue(Rule.Multiplier);const auto* PC=Cast<ARVPlayerController>(GetOwningPlayer());Slider->SetIsEnabled(bPersonal || (PC && PC->CanConfigureWorld()));PendingValue=Rule.Multiplier;Slider->OnValueChanged.AddDynamic(this,&ThisClass::Changed);Slider->OnMouseCaptureEnd.AddDynamic(this,&ThisClass::Commit);Slider->OnControllerCaptureEnd.AddDynamic(this,&ThisClass::Commit);Row->AddChildToHorizontalBox(Slider)->SetSize(FSlateChildSize(ESlateSizeRule::Fill));ValueText=Text(WidgetTree,FString::Printf(TEXT("  %.2fx"),Rule.Multiplier));Row->AddChildToHorizontalBox(ValueText);return Super::RebuildWidget();}
 void URVDifficultyRowWidget::Changed(float Value){if(!FMath::IsFinite(Value))return;Value=FMath::Clamp(Value,Rule.Minimum,Rule.Maximum);ValueText->SetText(FText::FromString(FString::Printf(TEXT("  %.2fx"),Value)));PendingValue=Value;}
 void URVDifficultyRowWidget::Commit(){const float Value=PendingValue;if(bPersonal){auto* S=GetMutableDefault<URVPersonalSettings>();S->LookSensitivity=Value;S->ApplyAndSave();return;}if(auto* PC=Cast<ARVPlayerController>(GetOwningPlayer());PC && PC->CanConfigureWorld())if(auto* GS=GetWorld()->GetGameState<ARVGameState>()){PC->RequestDifficulty(NAME_None,Rule.Id,Value,GS->DifficultyRevision);Revision=GS->DifficultyRevision;}}

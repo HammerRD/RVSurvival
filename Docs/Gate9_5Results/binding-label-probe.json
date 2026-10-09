@@ -1,0 +1,7 @@
+{
+  "before": "Left Mouse Button",
+  "immediate": "Q",
+  "settled": "Q",
+  "pass": true,
+  "reset": "Left Mouse Button"
+}

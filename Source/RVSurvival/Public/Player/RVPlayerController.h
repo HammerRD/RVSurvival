@@ -20,6 +20,8 @@ public:
     UFUNCTION(Server, Reliable) void ServerSwitchSeat(FName TargetSeat);
     UFUNCTION(BlueprintCallable, Category="RV|Seats") void RequestLivingArea();
     UFUNCTION(BlueprintCallable, Category="RV|Controls") void ToggleControls();
+    /** Read the local native key profile for Blueprint interaction/help text. */
+    UFUNCTION(BlueprintPure, Category="RV|Controls") FString GetControlBindingLabel(FName MappingName) const;
     UFUNCTION(BlueprintCallable, Category="RV|Difficulty") void RequestDifficulty(FName Preset,FName Rule,float Value,int32 ExpectedRevision);
     UFUNCTION(Server,Reliable) void ServerDifficulty(FName Preset,FName Rule,float Value,int32 ExpectedRevision);
     UFUNCTION(BlueprintPure, Category="RV|Difficulty") bool CanConfigureWorld() const;

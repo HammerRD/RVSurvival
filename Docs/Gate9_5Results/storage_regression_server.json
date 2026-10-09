@@ -1,0 +1,107 @@
+{
+  "pid": 41860,
+  "role": "server",
+  "results": [
+    {
+      "case": "normal_E_initial_seats",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_3_standing",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_front_bench_native_E",
+      "pass": true,
+      "detail": "[105.0000000000002, -82.0, 138.0]"
+    },
+    {
+      "case": "moving_front_bench_stand",
+      "pass": true,
+      "detail": "[99.78788202361463, -0.00030727140642314993, 177.1887937103398]"
+    },
+    {
+      "case": "moving_rear_bench_native_E",
+      "pass": true,
+      "detail": "[-55.00000000000031, -82.0, 138.0]"
+    },
+    {
+      "case": "moving_rear_bench_stand",
+      "pass": true,
+      "detail": "[-94.93556752798195, -0.00030559140912385027, 191.48814249000094]"
+    },
+    {
+      "case": "moving_pantry_native_E",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_turn_transfer_to_pantry_native_T",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_transfer_back_native_Tab_T",
+      "pass": true,
+      "detail": "{'pantry': 0, 'player': 1, 'feedback': '', 'open': \"<Object '/Game/Maps/UEDPIE_0_Gate9_5CombatRefinementTest.Gate9_5CombatRefinementTest:PersistentLevel.RVStoragePoint_0.Container' (0x000001C1F346B180) Class 'RVContainerComponent'>\"}"
+    },
+    {
+      "case": "driver_returned_survivor",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "exterior_normal_E",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "container_contention_no_duplication",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native_G_drop_condition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native_E_repick_identity",
+      "pass": true,
+      "detail": "{'world_id': '7B6478A14093E7CE827159949A9A9635', 'inventory_id': '7B6478A14093E7CE827159949A9A9635', 'condition': 0.6200000047683716}"
+    },
+    {
+      "case": "needs_set_fixture",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "needs_hour_drain",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "weight_capacity_reject",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "volume_capacity_reject",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "owned_consume_once",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "medical_component_and_active",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "samples": []
+}

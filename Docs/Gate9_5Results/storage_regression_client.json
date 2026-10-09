@@ -1,0 +1,82 @@
+{
+  "pid": 4460,
+  "role": "client",
+  "results": [
+    {
+      "case": "normal_E_initial_seats",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal_3_standing",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_front_bench_native_E",
+      "pass": true,
+      "detail": "[105.0, -82.0, 138.0]"
+    },
+    {
+      "case": "moving_front_bench_stand",
+      "pass": true,
+      "detail": "[99.96959037375369, 4.288540297889371e-05, 177.18761731092343]"
+    },
+    {
+      "case": "moving_rear_bench_native_E",
+      "pass": true,
+      "detail": "[-54.99999999999918, -82.0, 138.0]"
+    },
+    {
+      "case": "moving_rear_bench_stand",
+      "pass": true,
+      "detail": "[-94.92527780990302, -0.00027259650972757265, 191.48807428468038]"
+    },
+    {
+      "case": "moving_pantry_native_E",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_turn_transfer_to_pantry_native_T",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "moving_transfer_back_native_Tab_T",
+      "pass": true,
+      "detail": "{'pantry': 0, 'player': 1, 'feedback': '', 'open': \"<Object '/Game/Maps/Gate9_5CombatRefinementTest.Gate9_5CombatRefinementTest:PersistentLevel.RVStoragePoint_0.Container' (0x0000018530BB7A80) Class 'RVContainerComponent'>\"}"
+    },
+    {
+      "case": "driver_returned_survivor",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "exterior_normal_E",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native_G_drop_condition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native_E_repick_identity",
+      "pass": true,
+      "detail": "{'world_id': '7B6478A14093E7CE827159949A9A9635', 'inventory_id': '7B6478A14093E7CE827159949A9A9635', 'condition': 0.6200000047683716}"
+    },
+    {
+      "case": "owned_consume_once",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "medical_component_and_active",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "samples": []
+}

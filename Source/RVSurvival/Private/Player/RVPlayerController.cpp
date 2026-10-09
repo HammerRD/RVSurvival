@@ -1,7 +1,10 @@
 #include "Player/RVPlayerController.h"
+#include "Player/RVInputMappings.h"
 #include "Core/RVGameState.h"
 bool ARVPlayerController::CanConfigureWorld() const
 {return HasAuthority() && IsLocalController() && GetNetMode()!=NM_DedicatedServer;}
+FString ARVPlayerController::GetControlBindingLabel(FName MappingName) const
+{return RVInputMappings::KeyLabel(const_cast<ARVPlayerController*>(this),MappingName,TEXT(""));}
 void ARVPlayerController::RequestDifficulty(FName Preset,FName Rule,float Value,int32 Revision)
 {if(IsLocalController())ServerDifficulty(Preset,Rule,Value,Revision);}
 void ARVPlayerController::ServerDifficulty_Implementation(FName Preset,FName Rule,float Value,int32 Revision)

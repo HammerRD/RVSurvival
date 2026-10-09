@@ -11,6 +11,10 @@ enemies=sorted(unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVInfecte
 def inv(c):return c.get_component_by_class(unreal.RVInventoryComponent)
 def combat(c):return c.get_component_by_class(unreal.RVCombatComponent)
 def check(name,ok,detail=''):results.append({'case':name,'pass':bool(ok),'detail':str(detail)})
+def local_settings():return next(s.get_user_settings() for s in unreal.ObjectIterator(unreal.EnhancedInputLocalPlayerSubsystem) if s.get_user_settings())
+def binding(name):
+ row=local_settings().get_active_key_profile().get_player_mapping_rows()[name]
+ return str(next(iter(row.get_editor_property('Mappings'))).get_editor_property('CurrentKey').get_editor_property('KeyName'))
 def at(t,fn):events.append((t,fn))
 def key(k,on):
  unreal.RVInteriorMotorhome.dispatch_development_key(pc,k,on)
@@ -18,9 +22,16 @@ def key(k,on):
  else:held.discard(k)
 def tap(t,k):at(t,lambda:key(k,True));at(t+.1,lambda:key(k,False))
 def setup():
+ unreal.SystemLibrary.execute_console_command(pc,'t.MaxFPS 60',pc)
  if config.get('network'):
   for k,v in [('PktLagMin',100),('PktLagMax',100),('PktLoss',2)]:unreal.SystemLibrary.execute_console_command(pc,'NetEmulation.'+k+' '+str(v),pc)
  p.character_movement.stop_movement_immediately();p.set_actor_location(unreal.Vector(0,-2500 if authority else -2900,90),False,True);pc.set_control_rotation(unreal.Rotator())
+ if config.get('local_remap') and not authority:
+  args=unreal.MapPlayerKeyArgs();new_key=unreal.Key();new_key.set_editor_property('KeyName','Q')
+  args.set_editor_property('MappingName','Fire');args.set_editor_property('NewKey',new_key);args.set_editor_property('Slot',unreal.PlayerMappableKeySlot.FIRST)
+  settings=local_settings();settings.map_player_key(args);settings.apply_settings()
+  # Runtime isolation only: two PIE processes share this Windows user's save file.
+  # Disk persistence has already been tested through the real menu/restart.
  if authority:
   cp.set_actor_location(unreal.Vector(0,-2900,90),False,True)
   for c in [hp,cp]:
@@ -30,7 +41,8 @@ def setup():
    enemy.get_controller().get_editor_property('BrainComponent').stop_logic('stationary melee fixture');enemy.get_controller().stop_movement();enemy.set_actor_location(unreal.Vector(1500,y-2000,90),False,True)
 at(0,setup);tap(1,'Four');tap(2,'R')
 at(5,lambda:check('both owned .45 magazines load and replicate',all(combat(c).get_loaded_rounds()==7 for c in [hp,cp])))
-tap(6,'LeftMouseButton');at(7,lambda:check('paired fire consumes exactly one each',all(combat(c).shot_sequence==1 and combat(c).get_loaded_rounds()==6 for c in [hp,cp])))
+tap(6,'Q' if config.get('local_remap') and not authority else 'LeftMouseButton');at(7,lambda:check('paired fire consumes exactly one each',all(combat(c).shot_sequence==1 and combat(c).get_loaded_rounds()==6 for c in [hp,cp])))
+if config.get('local_remap'):at(7.2,lambda:check('client remap does not change host binding',binding('Fire')==('LeftMouseButton' if authority else 'Q'),binding('Fire')))
 at(8,lambda:pc.request_difficulty('Harsh','None',1,gs.difficulty_revision) if not authority else None)
 at(9.5,lambda:check('client cannot override authoritative world rules',str(gs.difficulty_preset)=='Standard',str(gs.difficulty_preset)))
 at(10,lambda:pc.request_difficulty('Relaxed','None',1,gs.difficulty_revision) if authority else None)
@@ -43,7 +55,12 @@ def place_melee_targets():
  if authority:
   for enemy,y in zip(enemies[:2],[-2500,-2900]):enemy.set_actor_location(unreal.Vector(120,y,90),False,True)
 at(18.3,place_melee_targets)
-at(18.5,lambda:pc.set_control_rotation(unreal.MathLibrary.find_look_at_rotation(p.get_actor_eyes_view_point()[0],enemies[0 if authority else 1].get_actor_location()+unreal.Vector(0,0,25))))
+def aim_melee_target():
+ enemy=enemies[0 if authority else 1]
+ mapping=enemy.get_editor_property('Profile').get_editor_property('BodyMapping')
+ torso=next(binding.anchor_bone for binding in mapping.body_regions if binding.region==unreal.RVBodyRegion.TORSO)
+ pc.set_control_rotation(unreal.MathLibrary.find_look_at_rotation(p.get_actor_eyes_view_point()[0],enemy.mesh.get_socket_location(torso)))
+at(18.5,aim_melee_target);at(19.3,aim_melee_target)
 at(19,lambda:globals().__setitem__('before_melee',[e.vitality for e in enemies[:2]]));tap(19.5,'B')
 def trace_fixture():
  report={'role':role,'local_player':str(p.get_actor_location()),'eyes':str(p.get_actor_eyes_view_point()),'control':str(pc.get_control_rotation()),'trace':p.get_component_by_class(unreal.RVInteractionComponent).debug_trace_description(),'targets':[{'name':e.get_name(),'location':str(e.get_actor_location())} for e in enemies[:2]],'host_eyes':str(hp.get_actor_eyes_view_point()),'client_eyes':str(cp.get_actor_eyes_view_point())}
@@ -57,7 +74,17 @@ def finish():
  for k in list(held):key(k,False)
  unreal.unregister_slate_post_tick_callback(handle);active=False
  (B/(config['name']+'_'+role+'.json')).write_text(json.dumps({'results':results,'passed':sum(r['pass'] for r in results),'total':len(results),'role':role,'network':config.get('network',False)},indent=2));w=pc=p=other=hp=cp=gs=None;enemies=[]
-at(25,finish);events.sort(key=lambda e:e[0])
+camera=None
+def observe():
+ global camera
+ position=other.get_actor_location()+unreal.Vector(160,-180,45)
+ camera=unreal.RVCharacterContentLibrary.spawn_observation_camera(p,position,unreal.MathLibrary.find_look_at_rotation(position,other.get_actor_location()+unreal.Vector(20,0,35)));pc.set_view_target_with_blend(camera,0)
+def capture(name):
+ folder=Path('D:/GitHub/RVSurvival/RVSurvival/Docs/Gate9_5Results/Visuals');folder.mkdir(exist_ok=True)
+ unreal.SystemLibrary.execute_console_command(pc,'shot showui filename='+str(folder/(config['name']+'_'+role+'_'+name+'.png')).replace('\\','/')+' -nosuffix',pc)
+at(5.2,observe);at(5.6,lambda:capture('remote_handgun'));at(5.9,lambda:pc.set_view_target_with_blend(p,0))
+at(18.1,observe);at(19,lambda:capture('remote_crowbar_ready'));at(19.8,lambda:capture('remote_crowbar_swing'));at(20.2,lambda:pc.set_view_target_with_blend(p,0))
+at(26,finish);events.sort(key=lambda e:e[0])
 def tick(dt):
  global idx
  if not active:return

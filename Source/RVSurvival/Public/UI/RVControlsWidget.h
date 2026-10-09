@@ -20,6 +20,7 @@ protected:
     virtual TSharedRef<SWidget> RebuildWidget() override;
     UFUNCTION() void Selected(FInputChord Chord);
     UFUNCTION() void AxisSelected(FString Option,ESelectInfo::Type SelectionType);
+    UFUNCTION() class UWidget* AxisEntry(FString Option);
 };
 UCLASS()
 class RVSURVIVAL_API URVDifficultyRowWidget : public UUserWidget
