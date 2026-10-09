@@ -54,6 +54,20 @@ def restore():pc.set_view_target_with_blend(pc.get_controlled_pawn(),0)
 def check_variant(number):
  a=other.mesh.get_anim_instance().get_current_active_montage();check('remote_variant_'+str(number),a is not None and a.get_name()=='AM_Crowbar'+['Diagonal','Horizontal','Downward'][number],str(a.get_name()) if a else 'no montage')
 def camera_check():check('switch_restores_camera',abs(p.get_component_by_class(unreal.CameraComponent).field_of_view-90)<.1)
+def health(c):return c.get_editor_property('PlayerState').get_editor_property('Health')
+def prepare_medical():
+ if authority:
+  hp.set_actor_location(unreal.Vector(0,-3500,90),False,True);cp.set_actor_location(unreal.Vector(125,-3500,90),False,True)
+  for e in enemies:e.set_actor_location(unreal.Vector(8000,4000,90),False,True)
+def face_teammate():
+ profile=other.get_component_by_class(unreal.RVCharacterPresentationComponent).get_editor_property('Profile');bone=next(b.anchor_bone for b in profile.body_regions if b.region==unreal.RVBodyRegion.TORSO)
+ pc.set_control_rotation(unreal.MathLibrary.find_look_at_rotation(p.get_actor_eyes_view_point()[0],other.mesh.get_socket_location(bone)))
+def medical_check(c,label):
+ # A melee sweep can hit the guarding arm before a torso aim point. Validate
+ # the actual configured skeletal region, rather than requiring a torso hit.
+ mapping=c.get_component_by_class(unreal.RVCharacterPresentationComponent).get_editor_property('Profile')
+ allowed={b.region for b in mapping.body_regions} if label.startswith('melee') else {unreal.RVBodyRegion.TORSO}
+ check(label,any(i.region in allowed and i.severity>0 for i in health(c).injuries),str(health(c).injuries))
 def finish():
  global active
  active=False
@@ -67,7 +81,9 @@ for i in range(3):
 at(16,melee_end);at(16.2,lambda:tap('MouseScrollDown'));at(17,check_ammo)
 for i in range(12):at(18+i*.15,lambda:tap('MouseScrollUp'))
 at(21,check_ammo);at(21.1,lambda:check('one_equipment_visual',len([v for v in unreal.ObjectIterator(unreal.StaticMeshComponent) if v.get_owner()==p and v.get_name()=='EquippedFirearmVisual' and v.is_visible()])==1))
-at(22,lambda:tap('Four'));at(22.5,lambda:tap('LeftMouseButton'));at(23.5,lambda:check('both_primary_unarmed_shove',all(combat(c).melee_sequence==4 for c in [hp,cp])));at(24,finish);events.sort(key=lambda x:x[0])
+at(22,lambda:tap('Four'));at(22.5,lambda:tap('LeftMouseButton'));at(23.5,lambda:check('both_primary_unarmed_shove',all(combat(c).melee_sequence==4 for c in [hp,cp])))
+at(24,prepare_medical);at(25,face_teammate);at(25.1,lambda:tap('Four') if authority else None);at(25.2,lambda:tap('Five') if not authority else None)
+at(26,face_teammate);at(26.3,lambda:tap('LeftMouseButton') if authority else None);at(27.5,lambda:medical_check(cp,'firearm_creates_teammate_torso_injury'));at(28,face_teammate);at(28.2,lambda:tap('LeftMouseButton') if not authority else None);at(29.5,lambda:medical_check(hp,'melee_creates_teammate_torso_injury'));at(30,finish);events.sort(key=lambda x:x[0])
 def tick(dt):
  if not active:return
  try:

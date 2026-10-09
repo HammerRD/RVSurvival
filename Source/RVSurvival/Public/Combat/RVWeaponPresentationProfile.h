@@ -17,6 +17,8 @@ public:
     UPROPERTY(EditDefaultsOnly,BlueprintReadOnly) bool bOwnerReadyIK=true;
     UPROPERTY(EditDefaultsOnly,BlueprintReadOnly) float UpperBodyPitchScale=1;
     UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,meta=(ClampMin="0",ClampMax="1")) float OwnerTorsoPitchScale=.25f;
+    /** Keep the high-angle handgun stance within natural elbow reach. */
+    UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,meta=(ClampMin="0",ClampMax="15")) float HighPitchReachRetractionCm=8;
     // Character-local reference; animation evaluates targets in mesh component space.
     UPROPERTY(EditDefaultsOnly,BlueprintReadOnly) FTransform ReadyHand=FTransform(FRotator(0,180,0),FVector(45,8,65));
     UPROPERTY(EditDefaultsOnly,BlueprintReadOnly) FVector AimPivot=FVector(0,0,60);

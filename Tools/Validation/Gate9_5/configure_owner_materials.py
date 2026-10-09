@@ -17,7 +17,7 @@ def create_owner_materials(mesh,folder):
     one=expression(material,unreal.MaterialExpressionConstant);one.set_editor_property('R',1)
     zero=expression(material,unreal.MaterialExpressionConstant);zero.set_editor_property('R',0)
     conditions=[]
-    for axis,name,value,greater in [(2,'OwnerNeckMinZ',140,True),(0,'OwnerHeadRadiusX',15,False),(1,'OwnerHeadRadiusY',20,False)]:
+    for axis,name,value,greater in [(2,'OwnerNeckMinZ',135,True),(0,'OwnerHeadRadiusX',25,False),(1,'OwnerHeadRadiusY',35,False)]:
      mask=expression(material,unreal.MaterialExpressionComponentMask);mask.set_editor_property('R',axis==0);mask.set_editor_property('G',axis==1);mask.set_editor_property('B',axis==2);connect(position,mask)
      coordinate=mask
      if not greater:coordinate=expression(material,unreal.MaterialExpressionAbs);connect(mask,coordinate)
@@ -28,6 +28,9 @@ def create_owner_materials(mesh,folder):
     total=expression(material,unreal.MaterialExpressionMultiply);connect(product,total,'A');connect(conditions[2],total,'B')
     visible=expression(material,unreal.MaterialExpressionOneMinus);connect(total,visible);assert edit.connect_material_property(visible,'',unreal.MaterialProperty.MP_OPACITY_MASK)
    expressions=edit.get_material_expressions(material)
+   defaults={'OwnerNeckMinZ':135,'OwnerHeadRadiusX':25,'OwnerHeadRadiusY':35}
+   for parameter in expressions:
+    if isinstance(parameter,unreal.MaterialExpressionScalarParameter) and str(parameter.get_editor_property('ParameterName')) in defaults:parameter.set_editor_property('DefaultValue',defaults[str(parameter.get_editor_property('ParameterName'))])
    position=next(e for e in expressions if isinstance(e,unreal.MaterialExpressionPreSkinnedPosition))
    interpolator=next((e for e in expressions if isinstance(e,unreal.MaterialExpressionVertexInterpolator)),None) or expression(material,unreal.MaterialExpressionVertexInterpolator)
    connect(position,interpolator)

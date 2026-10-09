@@ -22,5 +22,6 @@ public:
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static bool BuildAnimationGraph(UAnimBlueprint* Blueprint,UBlendSpace* Locomotion,const TArray<UAnimSequence*>& Poses,UBlendSpace* ArmedLocomotion=nullptr,UBlendSpace* WeaponAimOffset=nullptr,UAnimSequence* OneHandReady=nullptr);
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static UAnimSequence* CreateOneHandedAttack(const FString& Path,USkeletalMesh* Mesh,UAnimSequence* Ready,int32 Variant);
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static bool AddWeaponGripIK(UAnimBlueprint* Blueprint,FName PrimaryBone,FName SupportBone);
-    UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static bool BuildOwnerCopyPoseGraph(UAnimBlueprint* Blueprint,FName HiddenNeckBone);
+    UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static bool BuildOwnerCopyPoseGraph(UAnimBlueprint* Blueprint);
+    UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static bool AddWeaponTwistCorrection(UAnimBlueprint* Blueprint,FName PrimaryBone,const TArray<FName>& TwistBones);
 };

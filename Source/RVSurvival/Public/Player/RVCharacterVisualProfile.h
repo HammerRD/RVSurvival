@@ -34,6 +34,7 @@ public:
     /** Optional owner-only CopyPose derivative; remote/gameplay bones stay untouched. */
     UPROPERTY(EditAnywhere, BlueprintReadOnly) TSubclassOf<UAnimInstance> FirstPersonAnimationClass;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) TArray<TObjectPtr<class UMaterialInterface>> FirstPersonMaterials;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly) TArray<FName> PrimaryForearmTwistBones;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) FVector Scale=FVector::OneVector;
     UPROPERTY(EditAnywhere, BlueprintReadOnly) FRotator MeshRotation=FRotator(0,-90,0);
     UPROPERTY(EditAnywhere, BlueprintReadOnly) FVector StandingOffset=FVector::ZeroVector;

@@ -345,12 +345,14 @@ bool URVCombatComponent::GetOwnerGripTargets(FTransform& Primary,FVector& Suppor
     const float Pitch=FMath::Clamp(FRotator::NormalizeAxis(C->GetBaseAimRotation().Pitch),-70.f,70.f)*Family->UpperBodyPitchScale;
     const FQuat PitchRotation=FRotator(Pitch,0,0).Quaternion();
     FTransform Ready=Family->ReadyHand;
+    const float Retraction=FMath::Clamp(Family->HighPitchReachRetractionCm,0.f,15.f)*FMath::Clamp(FMath::Abs(Pitch)/60.f,0.f,1.f);
+    Ready.AddToTranslation(FVector(-Retraction,0,0));
     Ready.SetLocation(Family->AimPivot+PitchRotation.RotateVector(Ready.GetLocation()-Family->AimPivot));
     Ready.SetRotation(PitchRotation*Ready.GetRotation());
     Ready=Ready*C->GetActorTransform();
     if(A.bSightADS && AimBlend>0)
     {
-        const FTransform Sight(Camera->GetComponentQuat(),Camera->GetComponentLocation()+Camera->GetForwardVector()*A.SightEyeReliefCm);
+        const FTransform Sight(Camera->GetComponentQuat(),Camera->GetComponentLocation()+Camera->GetForwardVector()*FMath::Max(20.f,A.SightEyeReliefCm-Retraction));
         const FTransform ADS=Grip.Inverse()*A.SightTransform.Inverse()*Sight;
         Primary.Blend(Ready,ADS,AimBlend);
     }

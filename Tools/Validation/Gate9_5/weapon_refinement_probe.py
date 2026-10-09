@@ -16,6 +16,16 @@ def capture(name):unreal.SystemLibrary.execute_console_command(pc,'shot showui f
 def pitch(value,name):
  global stage
  stage=name;pc.set_control_rotation(unreal.Rotator(pitch=value))
+def bone_probe():
+ report={};source=p.get_editor_property('Mesh')
+ for mesh in [v for v in p.get_components_by_class(unreal.SkeletalMeshComponent)]:
+  bones={}
+  for name in mesh.get_all_socket_names():
+   if any(part in str(name) for part in ['upperarm','lowerarm','clavicle','hand_r']):
+    transform=mesh.get_socket_transform(name,unreal.RelativeTransformSpace.RTS_COMPONENT);point=transform.translation
+    bones[str(name)]={'parent':str(mesh.get_parent_bone(name)),'location':[point.x,point.y,point.z]}
+  report[mesh.get_name()]={'bones':bones,'postprocess':str(mesh.get_editor_property('SkeletalMeshAsset').get_editor_property('PostProcessAnimBlueprint'))}
+ (out/'weapon-runtime-bones.json').write_text(json.dumps(report,indent=2))
 def ammo_snapshot():
  global loaded_id,shot
  loaded_id=[i.id for i in inv.get_items() if unreal.GuidLibrary.is_valid_guid(i.loaded_in_weapon)];shot=combat.shot_sequence
@@ -35,6 +45,7 @@ at(11,lambda:hold('RightMouseButton',True))
 for index,value in enumerate([-60,-30,0,30,60]):
  t=11.2+index*1.3;at(t,lambda v=value:pitch(v,'ads_'+str(v)));at(t+.8,lambda v=value:capture('handgun_ads_'+str(v)))
 at(18,lambda:hold('RightMouseButton',False));at(18.2,lambda:pitch(0,'ready_return'));at(19,capture if False else lambda:capture('handgun_ready_return'))
+at(17.8,bone_probe)
 at(19.5,lambda:press('MouseScrollUp'));at(20.3,lambda:check('wheel_next_melee',any(unreal.GuidLibrary.equal_equal_guid_guid(i.id,combat.equipped_weapon) and i.definition.get_editor_property('Combat').get_editor_property('bMelee') for i in inv.get_items())))
 at(20.4,lambda:capture('crowbar_ready'))
 for i in range(3):
