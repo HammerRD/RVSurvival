@@ -12,18 +12,18 @@
     },
     {
       "case": "pickup trace prompt visible",
-      "pass": false,
-      "detail": " pawn=<Struct 'Vector' (0x000001DD9AE46AE0) {x: 8000.000000, y: 0.000000, z: 90.149999}> pickup=<Struct 'Vector' (0x000001DD9AE46AE0) {x: 8150.000000, y: 0.000000, z: 120.000000}>"
+      "pass": true,
+      "detail": "E: pick up .45 ACP magazine (1) pawn=<Struct 'Vector' (0x000002AF3FA06D60) {x: 8000.000000, y: 0.000000, z: 90.150000}> pickup=<Struct 'Vector' (0x000002AF3FA06D60) {x: 8150.000000, y: 0.000000, z: 120.000000}>"
     },
     {
       "case": "80ms tap picks up once",
-      "pass": false,
-      "detail": "1 "
+      "pass": true,
+      "detail": "2 "
     },
     {
       "case": "unarmed proximity hits with low damage",
-      "pass": false,
-      "detail": "65.0"
+      "pass": true,
+      "detail": "63.04999923706055"
     },
     {
       "case": "effort increases existing fatigue",
@@ -48,7 +48,7 @@
     {
       "case": "armed melee damages infected",
       "pass": true,
-      "detail": "41.0"
+      "detail": "47.45000076293945"
     },
     {
       "case": "distant target not hit",
@@ -79,8 +79,28 @@
       "case": "Standard restores all multipliers",
       "pass": true,
       "detail": ""
+    },
+    {
+      "case": "timed counter prompt visible",
+      "pass": true,
+      "detail": "Hold E to increment shared counter pawn=<Struct 'Vector' (0x000002AF3FA91DC0) {x: 8000.000000, y: 0.000000, z: 90.150000}> target=<Struct 'Vector' (0x000002AF3FA91DC0) {x: 8150.000000, y: 0.000000, z: 120.000000}> rotation=<Struct 'Rotator' (0x000002AF3FA91DC0) {pitch: -14.269681, yaw: 0.000000, roll: 0.000000}> mode=<MovementMode.MOVE_WALKING: 1>"
+    },
+    {
+      "case": "timed counter tap does not complete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "timed counter hold completes once",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "continued hold does not repeat",
+      "pass": true,
+      "detail": ""
     }
   ],
-  "passed": 13,
-  "total": 16
+  "passed": 20,
+  "total": 20
 }

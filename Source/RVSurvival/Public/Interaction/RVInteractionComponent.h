@@ -14,6 +14,7 @@ public:
     void EndInteraction();
     bool HasActiveInteraction() const { return ActiveTarget.IsValid(); }
     UFUNCTION(BlueprintPure, Category="RV|Interaction") FText GetPrompt() const;
+    UFUNCTION(BlueprintPure, Category="RV|Interaction", meta=(DevelopmentOnly)) FString DebugTraceDescription() const;
     virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 protected:
     virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;

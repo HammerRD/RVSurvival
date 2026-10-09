@@ -38,10 +38,11 @@ void ARVPrototypeHUD::DrawHUD()
     if(APawn* P=PlayerOwner->GetPawn())if(auto* Combat=P->FindComponentByClass<URVCombatComponent>();Combat && Combat->bEnabled)
     {
         FRVItemInstance W;const bool Equipped=Combat->GetWeapon(W);
-        const FString Status=Equipped?FString::Printf(TEXT("%s | %d rounds%s"),*W.Definition->DisplayName.ToString(),Combat->GetLoadedRounds(),Combat->ReloadEnds>0?TEXT(" | reloading"):TEXT("")):TEXT("Handgun holstered");
+        const FString Status=Equipped?(W.Definition->Combat.bMelee?W.Definition->DisplayName.ToString()+TEXT(" | melee ready"):FString::Printf(TEXT("%s | %d rounds%s"),*W.Definition->DisplayName.ToString(),Combat->GetLoadedRounds(),Combat->ReloadEnds>0?TEXT(" | reloading"):TEXT(""))):TEXT("Weapon holstered | defensive shove available");
         DrawText(Status,FLinearColor::White,20,Canvas->ClipY-240,nullptr,.85f);
         DrawText(RVInputMappings::KeyLabel(PlayerOwner,TEXT("EquipWeapon"),TEXT("4"))+TEXT(" equip/holster | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Fire"),TEXT("LMB"))+TEXT(" fire | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Aim"),TEXT("RMB"))+TEXT(" aim | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Reload"),TEXT("R"))+TEXT(" swap magazine"),FLinearColor::White,20,Canvas->ClipY-218,nullptr,.7f);
         DrawText(RVInputMappings::KeyLabel(PlayerOwner,TEXT("UnloadMagazine"),TEXT("U"))+TEXT(" unload magazine | ")+Combat->Feedback,FLinearColor::Yellow,20,Canvas->ClipY-198,nullptr,.8f);
+        DrawText(RVInputMappings::KeyLabel(PlayerOwner,TEXT("EquipMelee"),TEXT("5"))+TEXT(" melee tool | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Melee"),TEXT("B"))+TEXT(" attack / defensive shove"),FLinearColor::White,20,Canvas->ClipY-178,nullptr,.7f);
     }
     if(auto* PC=Cast<ARVPlayerController>(PlayerOwner))
     {
@@ -156,7 +157,8 @@ void ARVPrototypeHUD::DrawHUD()
         { DrawText(Text,Color,X*UIScale,Y*UIScale,nullptr,UIScale); };
         DrawRect(FLinearColor(0,0,0,.8f),15*UIScale,85*UIScale,720*UIScale,420*UIScale);
         const auto* ServicePC=Cast<ARVPlayerController>(PlayerOwner);
-        InventoryText(ServicePC && ServicePC->MechanicalPoint ? TEXT("Inventory | Tab: panel  Up/Down: item  T: transfer  G: drop  C: consume  F: coolant  I: toggle") : TEXT("Inventory | Tab: panel  Up/Down: item  T: transfer  G: drop  C: consume  F: refuel  I: toggle"),FLinearColor::White,25,95);
+        auto Key=[&](FName Name,const TCHAR* Default){return RVInputMappings::KeyLabel(PlayerOwner,Name,Default);};
+        InventoryText(TEXT("Inventory | ")+Key(TEXT("InventoryPanel"),TEXT("Tab"))+TEXT(" panel | ")+Key(TEXT("InventoryPrevious"),TEXT("Up"))+TEXT("/")+Key(TEXT("InventoryNext"),TEXT("Down"))+TEXT(" item | ")+Key(TEXT("Transfer"),TEXT("T"))+TEXT(" transfer | ")+Key(TEXT("Drop"),TEXT("G"))+TEXT(" drop | ")+Key(TEXT("Consume"),TEXT("C"))+TEXT(" consume | ")+Key(TEXT("RefuelItem"),TEXT("F"))+(ServicePC && ServicePC->MechanicalPoint?TEXT(" coolant"):TEXT(" refuel"))+TEXT(" | ")+Key(TEXT("Inventory"),TEXT("I"))+TEXT(" toggle"),FLinearColor::White,25,95);
         InventoryText(Inventory->Feedback,FLinearColor::Yellow,25,120);
         auto Panel=[&](URVInventoryComponent* C,float X,bool Active)
         {

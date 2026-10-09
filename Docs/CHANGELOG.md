@@ -294,3 +294,7 @@ failures were retained, understood and corrected; no world-leak suppression.
 Fresh saved audit38/38, final build, clean editor shutdown, all108 vendor hashes and
 all earlier content/maps preserved. Checkpoints fbbe1bf and ad40505 precede final
 acceptance documentation. Details/limitations in GATE_9_VALIDATION.md. No Gate10.
+
+## 2026-10-09 — Gate 9.5 resumed focused input milestone (in progress)
+
+Preserved WIP recovery26762ed and free M1911/crowbar checkpoints. Fresh saved-content and108-file RV vendor verification passed. Resume/current-binding HUD builds succeeded. Normal weapon input previously passed18 checks; focused tap pickup, short-range unarmed/crowbar melee, geometry/cooldown/fatigue, centralized difficulty and retained timed-interaction controls now pass20 meaningful checks. Failed aim/range/occluded-ray fixtures were retained and corrected using native development trace diagnostics. Battery pickups retain an explicit0.5-second hold. Added a timed counter to Gate9_5CombatRefinementTest and dynamic inventory/melee help. Visual ADS/grip, settings persistence, multiplayer and final acceptance remain pending; Gate10 has not started.

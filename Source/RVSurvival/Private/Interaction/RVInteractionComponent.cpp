@@ -33,6 +33,20 @@ bool URVInteractionComponent::IsAllowed(AActor* Target) const
     return IsValid(Target) && Pawn && Pawn->GetController() && Target->Implements<URVInteractable>()
         && IRVInteractable::Execute_CanInteract(Target, Pawn);
 }
+FString URVInteractionComponent::DebugTraceDescription() const
+{
+#if !(UE_BUILD_SHIPPING || UE_BUILD_TEST)
+    const APawn* Pawn=Cast<APawn>(GetOwner());
+    if(!Pawn || !GetWorld())return TEXT("No pawn/world");
+    FVector Eye;FRotator View;Pawn->GetActorEyesViewPoint(Eye,View);
+    FHitResult Hit;FCollisionQueryParams Params(SCENE_QUERY_STAT(RVInteractionDebug),false,Pawn);
+    GetWorld()->LineTraceSingleByChannel(Hit,Eye,Eye+View.Vector()*Range,ECC_Visibility,Params);
+    return FString::Printf(TEXT("blocking=%d actor=%s component=%s eye=%s impact=%s distance=%.2f"),
+        Hit.bBlockingHit,*GetNameSafe(Hit.GetActor()),*GetNameSafe(Hit.GetComponent()),*Eye.ToString(),*Hit.ImpactPoint.ToString(),Hit.Distance);
+#else
+    return FString();
+#endif
+}
 void URVInteractionComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
     Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
