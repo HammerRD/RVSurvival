@@ -20,6 +20,9 @@ public:
     UFUNCTION(Server, Reliable) void ServerSwitchSeat(FName TargetSeat);
     UFUNCTION(BlueprintCallable, Category="RV|Seats") void RequestLivingArea();
     UFUNCTION(BlueprintCallable, Category="RV|Controls") void ToggleControls();
+    UFUNCTION(BlueprintCallable, Category="RV|Difficulty") void RequestDifficulty(FName Preset,FName Rule,float Value,int32 ExpectedRevision);
+    UFUNCTION(Server,Reliable) void ServerDifficulty(FName Preset,FName Rule,float Value,int32 ExpectedRevision);
+    UFUNCTION(BlueprintPure, Category="RV|Difficulty") bool CanConfigureWorld() const;
     UFUNCTION(BlueprintCallable) void ToggleMedical();
     UFUNCTION(Client,Reliable) void ClientOpenMedical();
     UPROPERTY(Replicated, BlueprintReadOnly) TObjectPtr<class ARVMedicalStation> MedicalStation;
@@ -57,6 +60,7 @@ private:
     UPROPERTY(Transient) TObjectPtr<class URVMedicalWidget> MedicalWidget;
     UPROPERTY(Transient) TObjectPtr<class UInputMappingContext> ResourceMapping;
     UPROPERTY(Transient) TObjectPtr<class UInputMappingContext> DrivingControlsCatalog;
+    UPROPERTY(Transient) TObjectPtr<class UInputMappingContext> InventoryControlsCatalog;
     UPROPERTY(Transient) TArray<TObjectPtr<class UInputAction>> ResourceActions;
     UPROPERTY(Transient) TObjectPtr<class UInputMappingContext> MechanicalMapping;
     UPROPERTY(Transient) TArray<TObjectPtr<class UInputAction>> MechanicalActions;

@@ -1,4 +1,6 @@
 #include "Medical/RVHealthComponent.h"
+#include "Core/RVGameState.h"
+
 #include "Vehicles/RVVehicleBase.h"
 #include "Medical/RVMedicalAttributes.h"
 #include "Medical/RVAnalgesicEffect.h"
@@ -57,7 +59,7 @@ float URVHealthComponent::GetMovementScale() const
     float Scale=1;
     for(const auto& I:Injuries)
         if(I.Kind==ERVInjuryKind::Fracture && (I.Region==ERVBodyRegion::LeftLeg || I.Region==ERVBodyRegion::RightLeg) && I.Healing<1)
-            Scale=FMath::Min(Scale,I.bStabilized?Tuning()->SplintedLegSpeedScale:Tuning()->UntreatedLegSpeedScale);
+            Scale=FMath::Min(Scale,1.f-(1.f-(I.bStabilized?Tuning()->SplintedLegSpeedScale:Tuning()->UntreatedLegSpeedScale))*ARVGameState::Multiplier(this,TEXT("Fracture")));
     return FMath::Clamp(Scale,0.f,1.f);
 }
 float URVHealthComponent::GetPain() const
@@ -90,14 +92,14 @@ void URVHealthComponent::TickComponent(float Delta,ELevelTick Type,FActorCompone
     float Bleed=0;
     for(auto& I:Injuries)
     {
-        I.AgeSeconds+=Seconds; Bleed+=I.BleedingPerMinute;
+        I.AgeSeconds+=Seconds; Bleed+=I.BleedingPerMinute*ARVGameState::Multiplier(this,TEXT("Bleeding"));
         const bool Recoverable=I.Kind==ERVInjuryKind::Concussion || I.bTreated;
         const bool Nourished=PS->Needs->State.Nutrition>20 && PS->Needs->State.Hydration>20;
         if(Recoverable && I.BleedingPerMinute<=0 && I.InfectionRisk<.5f && Nourished)
-            I.Healing=FMath::Clamp(I.Healing+Seconds/3600*Tuning()->HealingPerHour,0.f,1.f);
+            I.Healing=FMath::Clamp(I.Healing+Seconds/3600*Tuning()->HealingPerHour*ARVGameState::Multiplier(this,TEXT("Recovery")),0.f,1.f);
     }
     float Blood=PS->MedicalAttributes->GetBlood()-Bleed*Seconds/60;
-    if(Bleed<=0 && LifeState==ERVMedicalLifeState::Active) Blood+=Tuning()->BloodRecoveryPerMinute*Seconds/60;
+    if(Bleed<=0 && LifeState==ERVMedicalLifeState::Active) Blood+=Tuning()->BloodRecoveryPerMinute*Seconds/60*ARVGameState::Multiplier(this,TEXT("Recovery"));
     PS->MedicalAbilitySystem->SetNumericAttributeBase(URVMedicalAttributes::GetBloodAttribute(),FMath::Clamp(Blood,0.f,100.f));
     // Stabilized, revived patients must be able to recover, rather than inevitably
     // deteriorating again before their deliberately slow blood recovery completes.
@@ -106,7 +108,7 @@ void URVHealthComponent::TickComponent(float Delta,ELevelTick Type,FActorCompone
         Vitality-=FMath::Max(0.f,Tuning()->CriticalVitalityLossPerMinute)*Seconds/60;
     else if(Blood>=Tuning()->CriticalBlood && Bleed<=0 && LifeState==ERVMedicalLifeState::Active
             && PS->Needs->State.Nutrition>20 && PS->Needs->State.Hydration>20)
-        Vitality+=FMath::Max(0.f,Tuning()->VitalityRecoveryPerMinute)*Seconds/60;
+        Vitality+=FMath::Max(0.f,Tuning()->VitalityRecoveryPerMinute)*Seconds/60*ARVGameState::Multiplier(this,TEXT("Recovery"));
     PS->MedicalAbilitySystem->SetNumericAttributeBase(URVMedicalAttributes::GetVitalityAttribute(),FMath::Clamp(Vitality,0.f,100.f));
     UpdateLifeState(Seconds);
     if(ActiveTreatment.IsValid()) { FString Error; if(!ValidateTreatment(Error)) CancelTreatment(Error); }
@@ -150,7 +152,7 @@ bool URVHealthComponent::ApplyWoundAuthority(ERVBodyRegion Region,float Severity
     I.Pain=I.Severity*10;I.InfectionRisk=FMath::Clamp(Contamination,0.f,1.f);
     const auto* P=Tuning();I.BleedingPerMinute=I.Severity<1.5f?P->MinorBleedPerMinute:I.Severity<2.5f?P->ModerateBleedPerMinute:P->SevereBleedPerMinute;
     PS->MedicalAbilitySystem->SetNumericAttributeBase(URVMedicalAttributes::GetVitalityAttribute(),
-        FMath::Clamp(PS->MedicalAttributes->GetVitality()-Damage,0.f,100.f));
+        FMath::Clamp(PS->MedicalAttributes->GetVitality()-Damage*ARVGameState::Multiplier(this,TEXT("DamageTaken")),0.f,100.f));
     UpdateLifeState(0);GetOwner()->ForceNetUpdate();return true;
 }
 bool URVHealthComponent::DebugSetVitals(float Blood,float Vitality)

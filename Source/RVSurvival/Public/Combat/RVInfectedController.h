@@ -25,6 +25,7 @@ private:
     FVector Home=FVector::ZeroVector;
     double InvestigateUntil=0;
     double NextWander=0;
+    float PerceptionMultiplier=1;
 };
 UCLASS()
 class RVSURVIVAL_API URVBTTask_Infected : public UBTTaskNode

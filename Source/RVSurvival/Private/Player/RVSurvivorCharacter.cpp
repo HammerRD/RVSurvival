@@ -1,4 +1,6 @@
 #include "Player/RVSurvivorCharacter.h"
+#include "Core/RVDifficultyProfile.h"
+
 #include "Combat/RVCombatComponent.h"
 #include "Combat/RVBodyRegionHitComponent.h"
 #include "Combat/RVInfected.h"
@@ -73,7 +75,8 @@ float ARVSurvivorCharacter::TakeDamage(float Amount,const FDamageEvent& Event,AC
     if(const auto* Infected=Cast<ARVInfected>(DamageCauser))
     {Severity=Infected->Tuning()->InjurySeverity;Contamination=Infected->Tuning()->Contamination;}
     else if(DamageCauser)if(const auto* Source=DamageCauser->FindComponentByClass<URVCombatComponent>())
-    {FRVItemInstance W;if(Source->GetWeapon(W))
+    {FRVItemInstance W;if(Source->IsApplyingMeleeDamage())Severity=1;
+     if(Source->GetWeapon(W) && (!Source->IsApplyingMeleeDamage() || W.Definition->Combat.bMelee))
      {const auto& M=W.Definition->Combat;Severity=M.WoundSeverity;
       const bool Limb=Region==ERVBodyRegion::LeftArm || Region==ERVBodyRegion::RightArm || Region==ERVBodyRegion::LeftLeg || Region==ERVBodyRegion::RightLeg;
       Applied*=Region==ERVBodyRegion::Head?M.HeadDamageMultiplier:Limb?M.LimbDamageMultiplier:1.f;}}
@@ -161,8 +164,8 @@ void ARVSurvivorCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 }
 void ARVSurvivorCharacter::MoveForward(const FInputActionValue& V) { if(SeatedVehicle)return; if(auto* Climb=FindComponentByClass<URVLadderClimbComponent>();Climb && Climb->Ladder) { Climb->ClimbInput(V.Get<float>()); return; } if(CanMoveWhileAwake(this)) AddMovementInput(FRotationMatrix(FRotator(0, GetControlRotation().Yaw, 0)).GetUnitAxis(EAxis::X), V.Get<float>()); }
 void ARVSurvivorCharacter::MoveRight(const FInputActionValue& V) { if(SeatedVehicle)return; if(auto* Climb=FindComponentByClass<URVLadderClimbComponent>();Climb && Climb->Ladder) return; if(CanMoveWhileAwake(this)) AddMovementInput(FRotationMatrix(FRotator(0, GetControlRotation().Yaw, 0)).GetUnitAxis(EAxis::Y), V.Get<float>()); }
-void ARVSurvivorCharacter::LookYaw(const FInputActionValue& V) { AddControllerYawInput(V.Get<float>()*(Combat?Combat->GetLookScale():1.f)); }
-void ARVSurvivorCharacter::LookPitch(const FInputActionValue& V) { AddControllerPitchInput(V.Get<float>()*(Combat?Combat->GetLookScale():1.f)); }
+void ARVSurvivorCharacter::LookYaw(const FInputActionValue& V) { AddControllerYawInput(V.Get<float>()*GetDefault<URVPersonalSettings>()->LookSensitivity*(Combat?Combat->GetLookScale():1.f)); }
+void ARVSurvivorCharacter::LookPitch(const FInputActionValue& V) { const auto* S=GetDefault<URVPersonalSettings>();AddControllerPitchInput(V.Get<float>()*S->LookSensitivity*(S->bInvertLook?-1.f:1.f)*(Combat?Combat->GetLookScale():1.f)); }
 void ARVSurvivorCharacter::StartJump() { if (!SeatedVehicle && CanMoveWhileAwake(this)) Jump(); }
 void ARVSurvivorCharacter::StopJump() { StopJumping(); }
 void ARVSurvivorCharacter::StartInteract()

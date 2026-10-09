@@ -1,4 +1,6 @@
 #include "Resources/RVElectricalComponent.h"
+#include "Core/RVGameState.h"
+
 #include "Vehicles/RVSystemsMotorhome.h"
 #include "Net/UnrealNetwork.h"
 URVElectricalComponent::URVElectricalComponent()
@@ -77,7 +79,7 @@ void URVElectricalComponent::AdvanceAuthority(double Seconds,bool EngineOperatin
     if(bEngineRunning)
     {
         const double Wanted=(Tuning.IdleLitresPerHour+Tuning.ThrottleLitresPerHour*FMath::Clamp(FMath::Abs(Throttle),0.,1.)+
-            Tuning.RoadLitresPerHour*FMath::Clamp(FMath::Abs(Speed)/2682.24,0.,2.))*Hours;
+            Tuning.RoadLitresPerHour*FMath::Clamp(FMath::Abs(Speed)/2682.24,0.,2.))*Hours*ARVGameState::Multiplier(this,TEXT("Fuel"));
         EngineFraction=Wanted>0?V->PropulsionFuel->BurnAuthority(Wanted)/Wanted:1;
         bEngineRunning=V->PropulsionFuel->Litres>0;
     }
@@ -86,7 +88,7 @@ void URVElectricalComponent::AdvanceAuthority(double Seconds,bool EngineOperatin
     {
         auto* Fuel=Tuning.bSharedGeneratorFuel?V->PropulsionFuel.Get():V->GeneratorFuel.Get();
         const double Usable=FMath::Max(0.,Fuel->Litres-(Tuning.bSharedGeneratorFuel?Tuning.GeneratorReserveLitres:0));
-        const double Wanted=Tuning.GeneratorLitresPerHour*Hours;
+        const double Wanted=Tuning.GeneratorLitresPerHour*Hours*ARVGameState::Multiplier(this,TEXT("GeneratorFuel"));
         if(Wanted>0) GeneratorFraction=Fuel->BurnAuthority(FMath::Min(Wanted,Usable))/Wanted;
         if(GeneratorFraction<1-1e-9 || Usable<=0) { bGeneratorRunning=false; ++ControlRevision; }
     }

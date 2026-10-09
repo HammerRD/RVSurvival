@@ -1,0 +1,32 @@
+[
+  {
+    "mesh": "NonRigged_M1911",
+    "slot": 0,
+    "label": "Grip_002 Grip_002",
+    "material": "Grip"
+  },
+  {
+    "mesh": "NonRigged_M1911",
+    "slot": 1,
+    "label": "Slide_001 Slide_001",
+    "material": "Slide"
+  },
+  {
+    "mesh": "NonRigged_M1911",
+    "slot": 2,
+    "label": "Frame_002 Frame_002",
+    "material": "Frame"
+  },
+  {
+    "mesh": "NonRigged_M1911",
+    "slot": 3,
+    "label": "Barrel_002 Barrel_002",
+    "material": "Barrel"
+  },
+  {
+    "mesh": "NonRigged_M1911_Magazine",
+    "slot": 0,
+    "label": "Mag_001 Mag_001",
+    "material": "Mag"
+  }
+]

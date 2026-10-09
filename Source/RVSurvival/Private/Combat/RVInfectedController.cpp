@@ -1,4 +1,5 @@
 #include "Combat/RVInfectedController.h"
+#include "Core/RVGameState.h"
 #include "Combat/RVInfected.h"
 #include "Combat/RVInfectedProfile.h"
 #include "Player/RVSurvivorCharacter.h"
@@ -46,6 +47,11 @@ void ARVInfectedController::PerceptionChanged(AActor* Actor,FAIStimulus Stimulus
 void ARVInfectedController::UpdateBehavior()
 {
     auto* I=Cast<ARVInfected>(GetPawn());if(!I || I->State==ERVInfectedState::Dead)return;const auto* P=I->Tuning();
+    if(GetWorld()->GetTimeSeconds()<I->StaggerUntil){StopMovement();return;}
+    const float Scale=ARVGameState::Multiplier(this,TEXT("InfectedPerception"));
+    if(!FMath::IsNearlyEqual(Scale,PerceptionMultiplier))
+    {PerceptionMultiplier=Scale;Sight->SightRadius=P->SightRadius*Scale;Sight->LoseSightRadius=Sight->SightRadius+200;Hearing->HearingRange=P->HearingRadius*Scale;
+     Senses->ConfigureSense(*Sight);Senses->ConfigureSense(*Hearing);Senses->RequestStimuliListenerUpdate();}
     auto* V=Cast<ARVSurvivorCharacter>(VisibleTarget.Get());
     if(V){const auto* PS=V->GetPlayerState<ARVPlayerState>();if(!PS || !PS->Health->CanAct()){VisibleTarget.Reset();V=nullptr;}}
     if(V)

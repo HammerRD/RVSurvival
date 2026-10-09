@@ -6,6 +6,8 @@
 #include "TimerManager.h"
 #include "Player/RVPlayerState.h"
 #include "Medical/RVHealthComponent.h"
+#include "Player/RVInputMappings.h"
+#include "GameFramework/PlayerController.h"
 URVInteractionComponent::URVInteractionComponent()
 {
     SetIsReplicatedByDefault(true);
@@ -42,7 +44,12 @@ void URVInteractionComponent::TickComponent(float DeltaTime, ELevelTick TickType
 FText URVInteractionComponent::GetPrompt() const
 {
     AActor* Target = FocusedTarget.Get();
-    return IsAllowed(Target) ? IRVInteractable::Execute_GetInteractionText(Target, Cast<APawn>(GetOwner())) : FText::GetEmpty();
+    if(!IsAllowed(Target))return FText::GetEmpty();
+    auto* Pawn=Cast<APawn>(GetOwner());FString Prompt=IRVInteractable::Execute_GetInteractionText(Target,Pawn).ToString();
+    const FString Key=RVInputMappings::KeyLabel(Pawn?Cast<APlayerController>(Pawn->GetController()):nullptr,TEXT("Interact"),TEXT("E"));
+    Prompt.ReplaceInline(TEXT("Hold E:"),*(TEXT("Hold ")+Key+TEXT(":")),ESearchCase::CaseSensitive);
+    Prompt.ReplaceInline(TEXT("E:"),*(Key+TEXT(":")),ESearchCase::CaseSensitive);
+    return FText::FromString(Prompt);
 }
 void URVInteractionComponent::BeginInteraction()
 {

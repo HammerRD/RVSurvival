@@ -1,0 +1,7 @@
+{
+  "mesh": "/Game/ThirdParty/RED2000/Crowbar/SM_Crowbar.SM_Crowbar",
+  "bounds": "<Struct 'BoxSphereBounds' (0x0000029F4FDFDE00) {origin: {x: -1.434712, y: -0.000001, z: 22.561089}, box_extent: {x: 6.765112, y: 1.099347, z: 20.542137}, sphere_radius: 21.653916}>",
+  "source": "RED2000 Crowbar",
+  "license": "CC BY 4.0",
+  "url": "https://www.fab.com/listings/c14f8a59-9dee-43f3-9d19-1d96e6bec86d"
+}

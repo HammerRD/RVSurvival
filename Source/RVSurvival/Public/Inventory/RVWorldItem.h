@@ -13,7 +13,8 @@ class RVSURVIVAL_API ARVInventoryInteractable : public AActor, public IRVInterac
 public:
     ARVInventoryInteractable();
     virtual bool CanInteract_Implementation(APawn* Pawn) const override;
-    virtual float GetInteractionDuration_Implementation(APawn*) const override { return .5f; }
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="RV|Interaction", meta=(ClampMin="0",ClampMax="60")) float InteractionSeconds = 0.f;
+    virtual float GetInteractionDuration_Implementation(APawn*) const override { return InteractionSeconds; }
     virtual void StartInteraction_Implementation(APawn*) override {}
     virtual void CancelInteraction_Implementation(APawn*) override {}
 protected:
@@ -31,6 +32,7 @@ public:
     virtual bool IsNetRelevantFor(const AActor* RealViewer, const AActor* ViewTarget, const FVector& SrcLocation) const override;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out) const override;
     virtual bool CanInteract_Implementation(APawn* Pawn) const override;
+    virtual float GetInteractionDuration_Implementation(APawn*) const override;
     virtual FText GetInteractionText_Implementation(APawn* Pawn) const override;
     virtual void CompleteInteraction_Implementation(APawn* Pawn) override;
 private:

@@ -5,6 +5,8 @@
 #include "UObject/ConstructorHelpers.h"
 #include "GameFramework/Pawn.h"
 #include "Net/UnrealNetwork.h"
+#include "Player/RVInputMappings.h"
+#include "GameFramework/PlayerController.h"
 ARVInventoryInteractable::ARVInventoryInteractable()
 {
     bReplicates=true;
@@ -48,12 +50,15 @@ void ARVWorldItem::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 { Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(ARVWorldItem,Item); }
 bool ARVWorldItem::CanInteract_Implementation(APawn* Pawn) const
 { return !bClaimed && Item.Definition && IsValid(Pawn) && Pawn->GetController() && Pawn->FindComponentByClass<URVInventoryComponent>(); }
+float ARVWorldItem::GetInteractionDuration_Implementation(APawn*) const
+{ return Item.Definition ? Item.Definition->PickupSeconds : 0.f; }
 FText ARVWorldItem::GetInteractionText_Implementation(APawn* Pawn) const
 {
     if(!Item.Definition) return FText::GetEmpty();
     const auto* Inventory=Pawn?Pawn->FindComponentByClass<URVInventoryComponent>():nullptr;
     const FString Error=Inventory?Inventory->CanAccept(Item):TEXT("No inventory");
-    return FText::FromString(Error.IsEmpty()?FString::Printf(TEXT("Hold E: pick up %s (%d)"),*Item.Definition->DisplayName.ToString(),Item.Quantity):Error);
+    const FString Key=RVInputMappings::KeyLabel(Pawn?Cast<APlayerController>(Pawn->GetController()):nullptr,TEXT("Interact"),TEXT("E"));
+    return FText::FromString(Error.IsEmpty()?FString::Printf(TEXT("%s%s: pick up %s (%d)"),GetInteractionDuration_Implementation(Pawn)>0?TEXT("Hold "):TEXT(""),*Key,*Item.Definition->DisplayName.ToString(),Item.Quantity):Error);
 }
 void ARVWorldItem::CompleteInteraction_Implementation(APawn* Pawn)
 {
@@ -74,8 +79,9 @@ ARVStoragePoint::ARVStoragePoint()
     Mesh->SetCollisionResponseToAllChannels(ECR_Ignore);
     Mesh->SetCollisionResponseToChannel(ECC_Visibility,ECR_Block);
 }
-FText ARVStoragePoint::GetInteractionText_Implementation(APawn*) const
-{ return FText::FromString(TEXT("Hold E: open ")+Container->DisplayName.ToString()); }
+FText ARVStoragePoint::GetInteractionText_Implementation(APawn* Pawn) const
+{ const FString Key=RVInputMappings::KeyLabel(Pawn?Cast<APlayerController>(Pawn->GetController()):nullptr,TEXT("Interact"),TEXT("E"));
+  return FText::FromString((InteractionSeconds>0?TEXT("Hold "):TEXT(""))+Key+TEXT(": open ")+Container->DisplayName.ToString()); }
 void ARVStoragePoint::CompleteInteraction_Implementation(APawn* Pawn)
 {
     if(!HasAuthority() || !CanInteract_Implementation(Pawn)) return;

@@ -97,6 +97,7 @@ public:
     UFUNCTION(BlueprintCallable, meta=(DevelopmentOnly)) bool DebugSetTimeScale(float Scale);
     UFUNCTION(BlueprintCallable, meta=(DevelopmentOnly)) bool DebugAdvanceTime(float Seconds);
     void CopyPersistentValuesTo(URVNeedsComponent* Destination) const;
+    bool ApplyEffortAuthority(float FatigueCost);
 private:
     UFUNCTION() void OnRep_State();
     void Advance(double Seconds);

@@ -14,7 +14,8 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out) const override;
     virtual bool CanInteract_Implementation(APawn* Pawn) const override;
     virtual FText GetInteractionText_Implementation(APawn* Pawn) const override;
-    virtual float GetInteractionDuration_Implementation(APawn*) const override { return .5f; }
+    UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,meta=(ClampMin="0",ClampMax="60")) float InteractionSeconds=0;
+    virtual float GetInteractionDuration_Implementation(APawn*) const override { return InteractionSeconds; }
     virtual void CompleteInteraction_Implementation(APawn* Pawn) override;
     UPROPERTY(ReplicatedUsing=OnRep_Door,BlueprintReadOnly) bool bOpen=false;
     UPROPERTY(EditAnywhere,ReplicatedUsing=OnRep_Door,BlueprintReadOnly) float OpenAngle=-90;

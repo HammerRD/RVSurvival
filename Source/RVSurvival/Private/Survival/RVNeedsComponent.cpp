@@ -1,4 +1,6 @@
 #include "Survival/RVNeedsComponent.h"
+#include "Core/RVGameState.h"
+
 #include "Medical/RVHealthComponent.h"
 #include "Survival/RVRestPoint.h"
 #include "Survival/RVRestPoseComponent.h"
@@ -96,8 +98,8 @@ void URVNeedsComponent::Advance(double Seconds)
     if(!GetOwner()->HasAuthority() || !FMath::IsFinite(Seconds) || Seconds<=0) return;
     const double Hours=Seconds/3600;
     const double Activity=ActivityMultiplier();
-    const double NutritionRate=FMath::Max(0.f,Tuning.NutritionPerHour)*Activity;
-    const double HydrationRate=FMath::Max(0.f,Tuning.HydrationPerHour)*Activity;
+    const double NutritionRate=FMath::Max(0.f,Tuning.NutritionPerHour)*Activity*ARVGameState::Multiplier(this,TEXT("Hunger"));
+    const double HydrationRate=FMath::Max(0.f,Tuning.HydrationPerHour)*Activity*ARVGameState::Multiplier(this,TEXT("Thirst"));
     // Integrate only the portion of this interval spent below a critical threshold.
     const auto CriticalHours=[Hours](double Before,double Rate,double Threshold)
     { return Before<=Threshold?Hours:(Rate>0?FMath::Max(0.,Hours-(Before-Threshold)/Rate):0.); };
@@ -105,15 +107,18 @@ void URVNeedsComponent::Advance(double Seconds)
         +CriticalHours(State.Hydration,HydrationRate,Tuning.HydrationCritical)*FMath::Max(0.f,Tuning.ThirstReserveLossPerHour);
     State.Nutrition=FMath::Clamp(float(State.Nutrition-NutritionRate*Hours),0.f,Tuning.Maximum);
     State.Hydration=FMath::Clamp(float(State.Hydration-HydrationRate*Hours),0.f,Tuning.Maximum);
-    double FatigueRate=FMath::Max(0.f,Tuning.FatiguePerHour)*Activity;
-    if(State.RestMode==ERVRestMode::Resting) FatigueRate=-FMath::Max(0.f,Tuning.RestRecoveryPerHour);
-    if(State.RestMode==ERVRestMode::Sleeping) FatigueRate=-FMath::Max(0.f,Tuning.SleepRecoveryPerHour);
+    double FatigueRate=FMath::Max(0.f,Tuning.FatiguePerHour)*Activity*ARVGameState::Multiplier(this,TEXT("Fatigue"));
+    if(State.RestMode==ERVRestMode::Resting) FatigueRate=-FMath::Max(0.f,Tuning.RestRecoveryPerHour)*ARVGameState::Multiplier(this,TEXT("Recovery"));
+    if(State.RestMode==ERVRestMode::Sleeping) FatigueRate=-FMath::Max(0.f,Tuning.SleepRecoveryPerHour)*ARVGameState::Multiplier(this,TEXT("Recovery"));
     State.Fatigue=FMath::Clamp(float(State.Fatigue+FatigueRate*Hours),0.f,Tuning.Maximum);
     // Minimal replaceable consequence; no injury model or death in this gate.
     State.SurvivalReserve=FMath::Clamp(float(State.SurvivalReserve-Damage),1.f,Tuning.Maximum);
     State.SimulatedSeconds+=Seconds;
     OnRep_State();
 }
+bool URVNeedsComponent::ApplyEffortAuthority(float Cost)
+{if(!GetOwner()->HasAuthority() || !FMath::IsFinite(Cost) || Cost<0 || Cost>10 || State.RestMode!=ERVRestMode::Awake)return false;
+ State.Fatigue=FMath::Clamp(State.Fatigue+Cost*ARVGameState::Multiplier(this,TEXT("Fatigue")),0.f,Tuning.Maximum);OnRep_State();GetOwner()->ForceNetUpdate();return true;}
 void URVNeedsComponent::TickComponent(float Delta,ELevelTick Type,FActorComponentTickFunction* Function)
 {
     Super::TickComponent(Delta,Type,Function);

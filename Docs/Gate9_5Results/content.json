@@ -1,0 +1,25 @@
+{
+  "map": "/Game/Maps/Gate9_5CombatRefinementTest",
+  "meshes": [
+    {
+      "path": "/Game/ThirdParty/Xeradev/M1911/NonRigged_M1911.NonRigged_M1911",
+      "bounds": "<Struct 'BoxSphereBounds' (0x0000021D23F36840) {origin: {x: -3.953778, y: 0.061003, z: -0.712648}, box_extent: {x: 11.634382, y: 1.619992, z: 7.210931}, sphere_radius: 13.300284}>"
+    },
+    {
+      "path": "/Game/ThirdParty/Xeradev/M1911/NonRigged_M1911_Magazine.NonRigged_M1911_Magazine",
+      "bounds": "<Struct 'BoxSphereBounds' (0x0000021D23F36880) {origin: {x: 0.032930, y: -0.006269, z: 0.569270}, box_extent: {x: 3.095050, y: 0.712241, z: 6.073144}, sphere_radius: 6.291725}>"
+    }
+  ],
+  "saved": true,
+  "assets": [
+    "/Game/Combat/Gate9_5/BP_Gate9_5GameMode.BP_Gate9_5GameMode",
+    "/Game/Combat/Gate9_5/BP_Gate9_5GameState.BP_Gate9_5GameState",
+    "/Game/Combat/Gate9_5/Difficulty/DA_Harsh.DA_Harsh",
+    "/Game/Combat/Gate9_5/Difficulty/DA_Relaxed.DA_Relaxed",
+    "/Game/Combat/Gate9_5/Difficulty/DA_Standard.DA_Standard",
+    "/Game/Combat/Gate9_5/Items/DA_45ACPMagazine.DA_45ACPMagazine",
+    "/Game/Combat/Gate9_5/Items/DA_M1911_45ACP.DA_M1911_45ACP",
+    "/Game/Combat/Gate9_5/Items/DA_PrototypeCrowbar.DA_PrototypeCrowbar",
+    "/Game/Combat/Gate9_5/SM_SM_PrototypeCrowbar.SM_SM_PrototypeCrowbar"
+  ]
+}

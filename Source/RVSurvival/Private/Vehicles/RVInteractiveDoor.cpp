@@ -56,7 +56,7 @@ bool ARVInteractiveDoor::CanInteract_Implementation(APawn* Pawn) const
 FText ARVInteractiveDoor::GetInteractionText_Implementation(APawn* Pawn) const
 {
     const FString Key=RVInputMappings::KeyLabel(Pawn?Cast<APlayerController>(Pawn->GetController()):nullptr,TEXT("Interact"),TEXT("E"));
-    return FText::FromString(DoorLabel.ToString()+(IsSwingClear(!bOpen)?TEXT(" | Hold ")+Key+(bOpen?TEXT(": close"):TEXT(": open")):TEXT(" | Door swing obstructed; move clear")));
+    return FText::FromString(DoorLabel.ToString()+(IsSwingClear(!bOpen)?(InteractionSeconds>0?TEXT(" | Hold "):TEXT(" | "))+Key+(bOpen?TEXT(": close"):TEXT(": open")):TEXT(" | Door swing obstructed; move clear")));
 }
 void ARVInteractiveDoor::CompleteInteraction_Implementation(APawn* Pawn)
 {

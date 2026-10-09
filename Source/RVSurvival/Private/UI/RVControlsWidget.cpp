@@ -7,48 +7,33 @@
 #include "Components/InputKeySelector.h"
 #include "Components/Button.h"
 #include "Components/ScrollBox.h"
+#include "Components/Slider.h"
+#include "Components/CheckBox.h"
 #include "Components/VerticalBoxSlot.h"
+#include "Components/HorizontalBoxSlot.h"
 #include "Player/RVPlayerController.h"
+#include "Player/RVInputMappings.h"
+#include "Core/RVGameState.h"
 #include "Engine/LocalPlayer.h"
+#include "Engine/World.h"
 #include "EnhancedInputSubsystems.h"
 #include "UserSettings/EnhancedInputUserSettings.h"
-TSharedRef<SWidget> URVControlRowWidget::RebuildWidget()
-{
-    auto* Row=WidgetTree->ConstructWidget<UHorizontalBox>();WidgetTree->RootWidget=Row;
-    auto* Text=WidgetTree->ConstructWidget<UTextBlock>();Text->SetText(Label);Row->AddChildToHorizontalBox(Text);
-    auto* Key=WidgetTree->ConstructWidget<UInputKeySelector>();Key->SetAllowGamepadKeys(false);Key->SetAllowModifierKeys(false);
-    Key->SetSelectedKey(FInputChord(CurrentKey));Key->OnKeySelected.AddDynamic(this,&ThisClass::Selected);Row->AddChildToHorizontalBox(Key);
-    return Super::RebuildWidget();
+namespace {
+UEnhancedInputUserSettings* Settings(APlayerController* PC){if(PC && PC->GetLocalPlayer())if(auto* S=PC->GetLocalPlayer()->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())return S->GetUserSettings();return nullptr;}
+UTextBlock* Text(UWidgetTree* Tree,const FString& Value,int32 Size=16){auto* T=Tree->ConstructWidget<UTextBlock>();T->SetText(FText::FromString(Value));T->SetAutoWrapText(true);T->SetColorAndOpacity(FLinearColor(.85f,.9f,.88f));auto F=T->GetFont();F.Size=Size;T->SetFont(F);return T;}
+UButton* Button(UWidgetTree* Tree,const FString& Label){auto* B=Tree->ConstructWidget<UButton>();B->SetBackgroundColor(FLinearColor(.12f,.19f,.19f));B->SetContent(Text(Tree,Label));return B;}
 }
-void URVControlRowWidget::Selected(FInputChord Chord)
-{
-    auto* PC=GetOwningPlayer();if(!PC || !Chord.Key.IsValid() || Chord.Key==EKeys::Escape)return;
-    if(auto* Subsystem=PC->GetLocalPlayer()->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
-        if(auto* Settings=Subsystem->GetUserSettings())
-        {
-            FMapPlayerKeyArgs Args;Args.MappingName=MappingName;Args.NewKey=Chord.Key;Args.Slot=EPlayerMappableKeySlot::First;
-            FGameplayTagContainer Failures;Settings->MapPlayerKey(Args,Failures);
-            if(Failures.IsEmpty()){Settings->ApplySettings();Settings->AsyncSaveSettings();}
-        }
-}
-TSharedRef<SWidget> URVControlsWidget::RebuildWidget()
-{
-    SetIsFocusable(true);
-    auto* Border=WidgetTree->ConstructWidget<UBorder>();Border->SetBrushColor(FLinearColor(.025f,.025f,.025f,.97f));Border->SetPadding(FMargin(24));WidgetTree->RootWidget=Border;
-    auto* Box=WidgetTree->ConstructWidget<UVerticalBox>();Border->SetContent(Box);
-    auto* Title=WidgetTree->ConstructWidget<UTextBlock>();Title->SetText(FText::FromString(TEXT("Controls | select a key to change it | Escape closes")));Title->SetAutoWrapText(true);Box->AddChildToVerticalBox(Title);
-    auto* Scroll=WidgetTree->ConstructWidget<UScrollBox>();Box->AddChildToVerticalBox(Scroll)->SetSize(FSlateChildSize(ESlateSizeRule::Fill));
-    if(auto* PC=GetOwningPlayer())if(auto* Subsystem=PC->GetLocalPlayer()->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
-        if(auto* Settings=Subsystem->GetUserSettings())if(auto* Profile=Settings->GetActiveKeyProfile())
-        {
-            TArray<FName> Names;Profile->GetPlayerMappingRows().GetKeys(Names);Names.Sort(FNameLexicalLess());
-            for(FName Name:Names)for(const auto& Mapping:Profile->GetPlayerMappingRows()[Name].Mappings)
-                if(Mapping.GetSlot()==EPlayerMappableKeySlot::First)
-                {auto* Row=CreateWidget<URVControlRowWidget>(PC);Row->MappingName=Name;Row->Label=Mapping.GetDisplayName();Row->CurrentKey=Mapping.GetCurrentKey();Scroll->AddChild(Row);break;}
-        }
-    auto* Button=WidgetTree->ConstructWidget<UButton>();auto* Text=WidgetTree->ConstructWidget<UTextBlock>();Text->SetText(FText::FromString(TEXT("Return to game")));Button->SetContent(Text);Button->OnClicked.AddDynamic(this,&ThisClass::Close);Box->AddChildToVerticalBox(Button);
-    return Super::RebuildWidget();
-}
+TSharedRef<SWidget> URVControlRowWidget::RebuildWidget(){auto* Box=WidgetTree->ConstructWidget<UVerticalBox>();WidgetTree->RootWidget=Box;auto* Row=WidgetTree->ConstructWidget<UHorizontalBox>();Box->AddChildToVerticalBox(Row);Row->AddChildToHorizontalBox(Text(WidgetTree,Label.ToString()))->SetSize(FSlateChildSize(ESlateSizeRule::Fill));Selector=WidgetTree->ConstructWidget<UInputKeySelector>();Selector->SetAllowGamepadKeys(true);Selector->SetAllowModifierKeys(false);Selector->SetSelectedKey(FInputChord(CurrentKey));Selector->OnKeySelected.AddDynamic(this,&ThisClass::Selected);Row->AddChildToHorizontalBox(Selector);Warning=Text(WidgetTree,TEXT(""),12);Warning->SetColorAndOpacity(FLinearColor(.95f,.7f,.3f));Box->AddChildToVerticalBox(Warning);return Super::RebuildWidget();}
+void URVControlRowWidget::Selected(FInputChord Chord){auto* S=Settings(GetOwningPlayer());if(!S || !Chord.Key.IsValid())return;TArray<FString> Conflicts;if(auto* P=S->GetActiveKeyProfile())for(const auto& Pair:P->GetPlayerMappingRows())if(Pair.Key!=MappingName && Pair.Key!=TEXT("RecoverRV"))for(const auto& M:Pair.Value.Mappings)if(M.GetSlot()==EPlayerMappableKeySlot::First && M.GetCurrentKey()==Chord.Key){Conflicts.Add(M.GetDisplayName().ToString());break;}if(!Conflicts.IsEmpty() && PendingKey!=Chord.Key){PendingKey=Chord.Key;Warning->SetText(FText::FromString(TEXT("Also used by ")+FString::Join(Conflicts,TEXT(", "))+TEXT(". Select this key again to confirm sharing, or choose another.")));Selector->SetSelectedKey(FInputChord(CurrentKey));return;}FMapPlayerKeyArgs Args;Args.MappingName=MappingName;Args.NewKey=Chord.Key;Args.Slot=EPlayerMappableKeySlot::First;FGameplayTagContainer Failures;S->MapPlayerKey(Args,Failures);if(Failures.IsEmpty()){S->ApplySettings();S->AsyncSaveSettings();CurrentKey=Chord.Key;PendingKey=FKey();Warning->SetText(FText::FromString(Conflicts.IsEmpty()?TEXT("Saved"):TEXT("Saved with a shared binding.")));}else {Warning->SetText(FText::FromString(TEXT("Binding could not be saved")));Selector->SetSelectedKey(FInputChord(CurrentKey));}}
+TSharedRef<SWidget> URVDifficultyRowWidget::RebuildWidget(){auto* Box=WidgetTree->ConstructWidget<UVerticalBox>();WidgetTree->RootWidget=Box;Box->AddChildToVerticalBox(Text(WidgetTree,Rule.Label.ToString()));Box->AddChildToVerticalBox(Text(WidgetTree,Rule.Description.ToString(),12));auto* Row=WidgetTree->ConstructWidget<UHorizontalBox>();Box->AddChildToVerticalBox(Row);auto* Slider=WidgetTree->ConstructWidget<USlider>();Slider->SetMinValue(Rule.Minimum);Slider->SetMaxValue(Rule.Maximum);Slider->SetStepSize(.05f);Slider->SetValue(Rule.Multiplier);const auto* PC=Cast<ARVPlayerController>(GetOwningPlayer());Slider->SetIsEnabled(bPersonal || (PC && PC->CanConfigureWorld()));PendingValue=Rule.Multiplier;Slider->OnValueChanged.AddDynamic(this,&ThisClass::Changed);Slider->OnMouseCaptureEnd.AddDynamic(this,&ThisClass::Commit);Slider->OnControllerCaptureEnd.AddDynamic(this,&ThisClass::Commit);Row->AddChildToHorizontalBox(Slider)->SetSize(FSlateChildSize(ESlateSizeRule::Fill));ValueText=Text(WidgetTree,FString::Printf(TEXT("  %.2fx"),Rule.Multiplier));Row->AddChildToHorizontalBox(ValueText);return Super::RebuildWidget();}
+void URVDifficultyRowWidget::Changed(float Value){if(!FMath::IsFinite(Value))return;Value=FMath::Clamp(Value,Rule.Minimum,Rule.Maximum);ValueText->SetText(FText::FromString(FString::Printf(TEXT("  %.2fx"),Value)));PendingValue=Value;}
+void URVDifficultyRowWidget::Commit(){const float Value=PendingValue;if(bPersonal){auto* S=GetMutableDefault<URVPersonalSettings>();S->LookSensitivity=Value;S->ApplyAndSave();return;}if(auto* PC=Cast<ARVPlayerController>(GetOwningPlayer());PC && PC->CanConfigureWorld())if(auto* GS=GetWorld()->GetGameState<ARVGameState>()){PC->RequestDifficulty(NAME_None,Rule.Id,Value,GS->DifficultyRevision);Revision=GS->DifficultyRevision;}}
+TSharedRef<SWidget> URVPresetWidget::RebuildWidget(){auto* B=Button(WidgetTree,Preset.ToString());WidgetTree->RootWidget=B;B->OnClicked.AddDynamic(this,&ThisClass::Select);const auto* PC=Cast<ARVPlayerController>(GetOwningPlayer());B->SetIsEnabled(PC && PC->CanConfigureWorld());return Super::RebuildWidget();}
+void URVPresetWidget::Select(){if(auto* PC=Cast<ARVPlayerController>(GetOwningPlayer()))if(auto* GS=GetWorld()->GetGameState<ARVGameState>())PC->RequestDifficulty(Preset,NAME_None,1,GS->DifficultyRevision);}
+TSharedRef<SWidget> URVControlsWidget::RebuildWidget(){SetIsFocusable(true);auto* Border=WidgetTree->ConstructWidget<UBorder>();Border->SetBrushColor(FLinearColor(.025f,.045f,.055f,.97f));Border->SetPadding(FMargin(24));WidgetTree->RootWidget=Border;auto* Box=WidgetTree->ConstructWidget<UVerticalBox>();Border->SetContent(Box);Box->AddChildToVerticalBox(Text(WidgetTree,TEXT("RVSurvival | Settings"),22));Box->AddChildToVerticalBox(Text(WidgetTree,TEXT("Controls are personal. Shared world rules belong to the host. Escape returns to play."),12));Rows=WidgetTree->ConstructWidget<UScrollBox>();Box->AddChildToVerticalBox(Rows)->SetSize(FSlateChildSize(ESlateSizeRule::Fill));Populate();auto* Return=Button(WidgetTree,TEXT("Return to game"));Return->OnClicked.AddDynamic(this,&ThisClass::Close);Box->AddChildToVerticalBox(Return);return Super::RebuildWidget();}
+void URVControlsWidget::Populate(){if(!Rows)return;Rows->ClearChildren();Rows->AddChild(Text(WidgetTree,TEXT("Controls"),20));auto* PC=GetOwningPlayer();if(auto* S=Settings(PC))if(auto* P=S->GetActiveKeyProfile()){TArray<FName> Names;P->GetPlayerMappingRows().GetKeys(Names);Names.Sort([](FName A,FName B){const auto CA=RVInputMappings::Category(A),CB=RVInputMappings::Category(B);return CA==CB?A.LexicalLess(B):CA.LexicalLess(CB);});FName Group;for(FName N:Names){if(N==TEXT("RecoverRV"))continue;const FName G=RVInputMappings::Category(N);if(G!=Group){Group=G;Rows->AddChild(Text(WidgetTree,Group.ToString(),18));}for(const auto& M:P->GetPlayerMappingRows()[N].Mappings)if(M.GetSlot()==EPlayerMappableKeySlot::First){auto* R=CreateWidget<URVControlRowWidget>(PC);R->MappingName=N;R->Label=M.GetDisplayName();R->CurrentKey=M.GetCurrentKey();Rows->AddChild(R);break;}}}auto* Reset=Button(WidgetTree,TEXT("Restore default controls"));Reset->OnClicked.AddDynamic(this,&ThisClass::ResetBindings);Rows->AddChild(Reset);Rows->AddChild(Text(WidgetTree,TEXT("Personal view"),20));auto* Personal=CreateWidget<URVDifficultyRowWidget>(PC);Personal->bPersonal=true;Personal->Rule.Label=FText::FromString(TEXT("Look sensitivity"));Personal->Rule.Description=FText::FromString(TEXT("Local mouse look multiplier; weapon ADS sensitivity remains separate."));Personal->Rule.Minimum=.1f;Personal->Rule.Maximum=3;Personal->Rule.Multiplier=GetDefault<URVPersonalSettings>()->LookSensitivity;Rows->AddChild(Personal);auto* Invert=WidgetTree->ConstructWidget<UCheckBox>();Invert->SetContent(Text(WidgetTree,TEXT("Invert vertical look")));Invert->SetIsChecked(GetDefault<URVPersonalSettings>()->bInvertLook);Invert->OnCheckStateChanged.AddDynamic(this,&ThisClass::InvertChanged);Rows->AddChild(Invert);if(auto* GS=GetWorld()->GetGameState<ARVGameState>()){ShownRevision=GS->DifficultyRevision;Rows->AddChild(Text(WidgetTree,TEXT("Gameplay / difficulty | ")+GS->DifficultyPreset.ToString(),20));if(const auto* Host=Cast<ARVPlayerController>(PC);!Host || !Host->CanConfigureWorld())Rows->AddChild(Text(WidgetTree,TEXT("Host-controlled rules — read only."),14));auto* Presets=WidgetTree->ConstructWidget<UHorizontalBox>();Rows->AddChild(Presets);for(FName N:{FName(TEXT("Relaxed")),FName(TEXT("Standard")),FName(TEXT("Harsh"))}){auto* B=CreateWidget<URVPresetWidget>(PC);B->Preset=N;Presets->AddChildToHorizontalBox(B);}FName Group;for(const auto& R:GS->DifficultyRules){if(Group!=R.Group){Group=R.Group;Rows->AddChild(Text(WidgetTree,Group.ToString(),18));}auto* Row=CreateWidget<URVDifficultyRowWidget>(PC);Row->Rule=R;Row->Revision=GS->DifficultyRevision;Rows->AddChild(Row);}}}
+void URVControlsWidget::ResetBindings(){if(auto* S=Settings(GetOwningPlayer()))if(auto* P=S->GetActiveKeyProfile()){FGameplayTagContainer Failures;S->ResetKeyProfileIdToDefault(P->GetProfileIdString(),Failures);if(Failures.IsEmpty()){S->ApplySettings();S->AsyncSaveSettings();Populate();}}}
+void URVControlsWidget::InvertChanged(bool Enabled){auto* S=GetMutableDefault<URVPersonalSettings>();S->bInvertLook=Enabled;S->ApplyAndSave();}
+void URVControlsWidget::NativeTick(const FGeometry& G,float Delta){Super::NativeTick(G,Delta);if(auto* GS=GetWorld()->GetGameState<ARVGameState>();GS && GS->DifficultyRevision!=ShownRevision)Populate();}
 void URVControlsWidget::Close(){if(auto* PC=Cast<ARVPlayerController>(GetOwningPlayer()))PC->ToggleControls();}
-FReply URVControlsWidget::NativeOnKeyDown(const FGeometry& Geometry,const FKeyEvent& Event)
-{if(Event.GetKey()==EKeys::Escape){Close();return FReply::Handled();}return Super::NativeOnKeyDown(Geometry,Event);}
+FReply URVControlsWidget::NativeOnKeyDown(const FGeometry& G,const FKeyEvent& E){if(E.GetKey()==RVInputMappings::CurrentKey(GetOwningPlayer(),TEXT("ClosePanel"),EKeys::Escape)){Close();return FReply::Handled();}return Super::NativeOnKeyDown(G,E);}

@@ -1,4 +1,5 @@
 #include "Combat/RVInfected.h"
+#include "Core/RVGameState.h"
 #include "Combat/RVInfectedProfile.h"
 #include "Combat/RVInfectedController.h"
 #include "Player/RVSurvivorCharacter.h"
@@ -41,7 +42,7 @@ float ARVInfected::TakeDamage(float Amount,const FDamageEvent& Event,AController
      {bool Found=false;for(const auto& R:P->BodyMapping->BodyRegions)if(R.Roots.Contains(Current) || R.AnchorBone==Current){Region=R.Region;Found=true;break;}
       if(Found)break;const int32 Index=GetMesh()->GetBoneIndex(Current);if(Index==INDEX_NONE)break;Current=GetMesh()->GetParentBone(Current);}}
     const bool Limb=Region==ERVBodyRegion::LeftArm || Region==ERVBodyRegion::RightArm || Region==ERVBodyRegion::LeftLeg || Region==ERVBodyRegion::RightLeg;
-    const float Applied=Amount*(Region==ERVBodyRegion::Head?P->HeadMultiplier:Limb?P->LimbMultiplier:1.f);
+    const float Applied=Amount*(Region==ERVBodyRegion::Head?P->HeadMultiplier:Limb?P->LimbMultiplier:1.f)/ARVGameState::Multiplier(this,TEXT("InfectedDurability"));
     Vitality=FMath::Max(0.f,Vitality-Applied);
     if(Region==ERVBodyRegion::LeftLeg || Region==ERVBodyRegion::RightLeg){bLegInjured=true;GetCharacterMovement()->MaxWalkSpeed=P->ChaseSpeed*.5f;}
     if(Vitality<=0){State=ERVInfectedState::Dead;++DeathSequence;GetWorld()->GetTimerManager().ClearTimer(AttackTimer);AttackVictim.Reset();
@@ -50,7 +51,7 @@ float ARVInfected::TakeDamage(float Amount,const FDamageEvent& Event,AController
 }
 void ARVInfected::BeginAttack(AActor* Victim)
 {
-    if(!HasAuthority() || State==ERVInfectedState::Dead || GetWorld()->GetTimeSeconds()<NextAttack || GetWorld()->GetTimerManager().IsTimerActive(AttackTimer))return;
+    if(!HasAuthority() || State==ERVInfectedState::Dead || GetWorld()->GetTimeSeconds()<FMath::Max(NextAttack,StaggerUntil) || GetWorld()->GetTimerManager().IsTimerActive(AttackTimer))return;
     const auto* P=Tuning();AttackVictim=Victim;State=ERVInfectedState::Attack;++AttackSequence;
     NextAttack=GetWorld()->GetTimeSeconds()+FMath::Max(P->AttackCooldown,P->AttackWindup+.1f);
     GetWorld()->GetTimerManager().SetTimer(AttackTimer,this,&ThisClass::CompleteAttack,FMath::Max(.1f,P->AttackWindup),false);ForceNetUpdate();
@@ -63,9 +64,13 @@ void ARVInfected::CompleteAttack()
     FHitResult Hit;FCollisionQueryParams Params(SCENE_QUERY_STAT(RVInfectedAttack),false,this);
     const FVector Start=GetActorLocation()+FVector(0,0,35),End=V->GetActorLocation()+FVector(0,0,35);
     if(GetWorld()->LineTraceSingleByChannel(Hit,Start,End,ECC_Visibility,Params) && Hit.GetActor()!=V)return;
-    UGameplayStatics::ApplyPointDamage(V,P->AttackDamage,(End-Start).GetSafeNormal(),Hit,Controller,this,nullptr);
+    UGameplayStatics::ApplyPointDamage(V,P->AttackDamage*ARVGameState::Multiplier(this,TEXT("InfectedDamage")),(End-Start).GetSafeNormal(),Hit,Controller,this,nullptr);
     AttackVictim.Reset();
 }
+void ARVInfected::StaggerAuthority(float Seconds)
+{if(!HasAuthority() || State==ERVInfectedState::Dead)return;
+ StaggerUntil=GetWorld()->GetTimeSeconds()+FMath::Clamp(Seconds,0.f,1.f);GetWorld()->GetTimerManager().ClearTimer(AttackTimer);AttackVictim.Reset();
+ GetCharacterMovement()->StopMovementImmediately();if(auto* AI=Cast<AAIController>(Controller))AI->StopMovement();State=ERVInfectedState::Idle;ForceNetUpdate();}
 void ARVInfected::OnRep_State()
 {if(State==ERVInfectedState::Dead){GetCharacterMovement()->StopMovementImmediately();GetCharacterMovement()->DisableMovement();
  if(Tuning()->BodyMapping){GetMesh()->SetRelativeLocation(Tuning()->BodyMapping->DownedOffset-FVector(0,0,GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight()));}

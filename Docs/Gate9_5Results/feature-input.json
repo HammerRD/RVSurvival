@@ -1,0 +1,86 @@
+{
+  "results": [
+    {
+      "case": "ordinary item configured immediate",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "fixture admission",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "pickup trace prompt visible",
+      "pass": false,
+      "detail": " pawn=<Struct 'Vector' (0x000001DD9AE46AE0) {x: 8000.000000, y: 0.000000, z: 90.149999}> pickup=<Struct 'Vector' (0x000001DD9AE46AE0) {x: 8150.000000, y: 0.000000, z: 120.000000}>"
+    },
+    {
+      "case": "80ms tap picks up once",
+      "pass": false,
+      "detail": "1 "
+    },
+    {
+      "case": "unarmed proximity hits with low damage",
+      "pass": false,
+      "detail": "65.0"
+    },
+    {
+      "case": "effort increases existing fatigue",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "unarmed sequence authoritative",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "cooldown rejects repeated attack",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "normal 5 equips melee owned item",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "armed melee damages infected",
+      "pass": true,
+      "detail": "41.0"
+    },
+    {
+      "case": "distant target not hit",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "wall blocks melee damage",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "Relaxed loads profile",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "custom hunger changes centralized rule",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "nonfinite difficulty rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "Standard restores all multipliers",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "passed": 13,
+  "total": 16
+}

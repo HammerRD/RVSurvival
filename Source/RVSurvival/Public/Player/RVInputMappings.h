@@ -12,4 +12,6 @@ namespace RVInputMappings
     void Register(APlayerController* Controller,UInputMappingContext* Context);
     void Unregister(ULocalPlayer* Local,UInputMappingContext* Context);
     FString KeyLabel(APlayerController* Controller,FName Name,const TCHAR* Fallback);
+    FName Category(FName Name);
+    FKey CurrentKey(APlayerController* Controller,FName Name,FKey Fallback);
 }

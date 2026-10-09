@@ -34,6 +34,7 @@ void ARVPrototypeHUD::DrawHUD()
 {
     Super::DrawHUD();
     if (!Canvas || !PlayerOwner) return;
+    if(PlayerOwner->IsMoveInputIgnored())return;
     if(APawn* P=PlayerOwner->GetPawn())if(auto* Combat=P->FindComponentByClass<URVCombatComponent>();Combat && Combat->bEnabled)
     {
         FRVItemInstance W;const bool Equipped=Combat->GetWeapon(W);
@@ -132,23 +133,23 @@ void ARVPrototypeHUD::DrawHUD()
         if(!Inventory) return;
         if(Inventory->OpenContainer != LastContainer.Get())
         { LastContainer=Inventory->OpenContainer; if(LastContainer.IsValid()) bInventoryVisible=true; SelectedRow=0; }
-        if(PlayerOwner->WasInputKeyJustPressed(EKeys::I))
+        if(PlayerOwner->WasInputKeyJustPressed(RVInputMappings::CurrentKey(PlayerOwner,TEXT("Inventory"),EKeys::I)))
         { bInventoryVisible=!bInventoryVisible; if(!bInventoryVisible) Inventory->RequestCloseContainer(); }
-        if(!bInventoryVisible) { DrawText(TEXT("I: inventory"),FLinearColor::White,20,65); return; }
-        if(PlayerOwner->WasInputKeyJustPressed(EKeys::Tab)) { bSelectContainer=!bSelectContainer; SelectedRow=0; }
-        if(PlayerOwner->WasInputKeyJustPressed(EKeys::Down)) ++SelectedRow;
-        if(PlayerOwner->WasInputKeyJustPressed(EKeys::Up)) --SelectedRow;
+        if(!bInventoryVisible) { DrawText(RVInputMappings::KeyLabel(PlayerOwner,TEXT("Inventory"),TEXT("I"))+TEXT(": inventory"),FLinearColor::White,20,65); return; }
+        if(PlayerOwner->WasInputKeyJustPressed(RVInputMappings::CurrentKey(PlayerOwner,TEXT("InventoryPanel"),EKeys::Tab))) { bSelectContainer=!bSelectContainer; SelectedRow=0; }
+        if(PlayerOwner->WasInputKeyJustPressed(RVInputMappings::CurrentKey(PlayerOwner,TEXT("InventoryNext"),EKeys::Down))) ++SelectedRow;
+        if(PlayerOwner->WasInputKeyJustPressed(RVInputMappings::CurrentKey(PlayerOwner,TEXT("InventoryPrevious"),EKeys::Up))) --SelectedRow;
         auto* Selected=bSelectContainer?Inventory->OpenContainer.Get():Inventory;
         const TArray<FRVItemInstance> Items=Selected?Selected->GetItems():TArray<FRVItemInstance>();
         SelectedRow=FMath::Clamp(SelectedRow,0,FMath::Max(0,Items.Num()-1));
         if(Items.IsValidIndex(SelectedRow))
         {
-            if(PlayerOwner->WasInputKeyJustPressed(EKeys::T)) Inventory->RequestTransfer(Items[SelectedRow].Id,1,!bSelectContainer);
-            if(!bSelectContainer && PlayerOwner->WasInputKeyJustPressed(EKeys::G)) Inventory->RequestDrop(Items[SelectedRow].Id,1);
-            if(!bSelectContainer && PlayerOwner->WasInputKeyJustPressed(EKeys::F))
+            if(PlayerOwner->WasInputKeyJustPressed(RVInputMappings::CurrentKey(PlayerOwner,TEXT("Transfer"),EKeys::T))) Inventory->RequestTransfer(Items[SelectedRow].Id,1,!bSelectContainer);
+            if(!bSelectContainer && PlayerOwner->WasInputKeyJustPressed(RVInputMappings::CurrentKey(PlayerOwner,TEXT("Drop"),EKeys::G))) Inventory->RequestDrop(Items[SelectedRow].Id,1);
+            if(!bSelectContainer && PlayerOwner->WasInputKeyJustPressed(RVInputMappings::CurrentKey(PlayerOwner,TEXT("RefuelItem"),EKeys::F)))
                 if(auto* PC=Cast<ARVPlayerController>(PlayerOwner))
                 {if(PC->MechanicalPoint)PC->RequestService(TEXT("Refill"),PC->MechanicalPoint->Revision,Items[SelectedRow].Id,Items[SelectedRow].FuelRevision);else PC->RequestRefuel(Items[SelectedRow].Id,Items[SelectedRow].FuelRevision);}
-            if(!bSelectContainer && Needs && PlayerOwner->WasInputKeyJustPressed(EKeys::C)) Needs->RequestConsume(Items[SelectedRow].Id);
+            if(!bSelectContainer && Needs && PlayerOwner->WasInputKeyJustPressed(RVInputMappings::CurrentKey(PlayerOwner,TEXT("Consume"),EKeys::C))) Needs->RequestConsume(Items[SelectedRow].Id);
         }
         const float UIScale=FMath::Min(1.f,FMath::Min((Canvas->ClipX-30.f)/720.f,(Canvas->ClipY-100.f)/420.f));
         auto InventoryText=[&](const FString& Text,FLinearColor Color,float X,float Y)

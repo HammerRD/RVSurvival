@@ -34,6 +34,7 @@ struct FRVCombatItemMetadata
 {
     GENERATED_BODY()
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) bool bFirearm=false;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) bool bMelee=false;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) bool bMagazine=false;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FGameplayTag Caliber;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="1")) int32 MagazineCapacity=15;
@@ -51,6 +52,24 @@ struct FRVCombatItemMetadata
     UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,meta=(ClampMin="0")) float HearingRange=5000;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FName HandAnchor=TEXT("Tool");
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FTransform GripOffset;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FTransform FirstPersonOffset;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FTransform ThirdPersonOffset;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FTransform SupportHandTarget;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FTransform HolsterOffset;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FName MuzzleSocket;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FTransform MuzzleTransform=FTransform(FVector(12,0,0));
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FTransform EjectTransform;
+    // Camera-relative weapon transform is solved from this actual sight reference.
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) bool bSightADS=false;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FTransform SightTransform;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,meta=(ClampMin="1",ClampMax="40")) float SightEyeReliefCm=10;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,meta=(ClampMin="1",ClampMax="30")) float AimBlendSpeed=12;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,meta=(ClampMin=".4",ClampMax="1")) float SightFOVScale=.8f;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,meta=(ClampMin="1",ClampMax="200")) float MeleeRangeCm=160;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,meta=(ClampMin="0",ClampMax="20")) float MeleeSweepRadiusCm=10;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,meta=(ClampMin=".3",ClampMax="5")) float MeleeCooldownSeconds=.9f;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,meta=(ClampMin="0",ClampMax="10")) float MeleeFatigueCost=.3f;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) TObjectPtr<class UAnimMontage> MeleeMontage;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) TObjectPtr<class USoundBase> ShotSound;
     UPROPERTY(EditDefaultsOnly,BlueprintReadOnly) TObjectPtr<class UMaterialInterface> ShotEffectMaterial;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) TObjectPtr<class UAnimMontage> FireMontage;
@@ -83,5 +102,7 @@ public:
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) bool bSupportsCondition = false;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) bool bEquippable = false;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) bool bRequiresPhysicalCarry = false;
+    // Zero means a tap. Bulky/committed pickups can explicitly retain a hold.
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="0",ClampMax="60")) float PickupSeconds = 0;
 };
 

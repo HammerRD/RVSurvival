@@ -1,4 +1,6 @@
 #include "Mechanical/RVCoolingComponent.h"
+#include "Core/RVGameState.h"
+
 #include "Vehicles/RVSystemsMotorhome.h"
 #include "Resources/RVElectricalComponent.h"
 #include "ChaosWheeledVehicleMovementComponent.h"
@@ -75,13 +77,13 @@ void URVCoolingComponent::AdvanceAuthority(double Seconds,bool Running,double Lo
         Cooling.CoolantLitres=FMath::Max(0.,Cooling.CoolantLitres-Cooling.LeakLitresPerSecond*Step);
         const double Flow=1+Tuning.AirflowBonus*FMath::Clamp(FMath::Abs(Speed)/2682.24,0.,2.);
         const double Loss=Tuning.PassiveCoolingPerSecond+Tuning.RadiatorCoolingPerSecond*Cooling.CoolingEffectiveness*Flow;
-        const double Heat=Running && !Engine.bShutdown?Tuning.IdleHeatCPerSecond+Tuning.LoadHeatCPerSecond*FMath::Clamp(FMath::Abs(Load),0.,1.):0;
+        const double Heat=Running && !Engine.bShutdown?(Tuning.IdleHeatCPerSecond+Tuning.LoadHeatCPerSecond*FMath::Clamp(FMath::Abs(Load),0.,1.))*ARVGameState::Multiplier(this,TEXT("Thermal")):0;
         // Exact exponential solution of dT/dt=heat-k(T-ambient) is bounded even with accelerated steps.
         const double Decay=FMath::Exp(-Loss*Step);
         const double Next=Loss>1e-9?Tuning.AmbientC+(Cooling.TemperatureC-Tuning.AmbientC)*Decay+Heat/Loss*(1-Decay):Cooling.TemperatureC+Heat*Step;
         Cooling.TemperatureC=FMath::Clamp(Next,Tuning.AmbientC,Tuning.MaximumTemperatureC);
         if(Running && !Engine.bShutdown && Cooling.TemperatureC>=Tuning.OverheatC)
-            Engine.Condition=FMath::Max(0.f,Engine.Condition-float(Step)*Tuning.EngineDamagePerSecond*Tuning.EngineMaximumCondition*float(FMath::Clamp((Cooling.TemperatureC-Tuning.OverheatC)/15.+1.,1.,6.)));
+            Engine.Condition=FMath::Max(0.f,Engine.Condition-float(Step)*Tuning.EngineDamagePerSecond*Tuning.EngineMaximumCondition*ARVGameState::Multiplier(this,TEXT("Mechanical"))*float(FMath::Clamp((Cooling.TemperatureC-Tuning.OverheatC)/15.+1.,1.,6.)));
     }
     DeriveState();OnRep_State();GetOwner()->ForceNetUpdate();
 }

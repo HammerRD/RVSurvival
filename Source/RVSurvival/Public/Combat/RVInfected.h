@@ -23,6 +23,8 @@ public:
     UPROPERTY(Replicated,BlueprintReadOnly) int32 AttackSequence=0;
     UPROPERTY(Replicated,BlueprintReadOnly) int32 DeathSequence=0;
     void BeginAttack(AActor* Victim);
+    void StaggerAuthority(float Seconds);
+    double StaggerUntil=0;
     UFUNCTION() void OnRep_State();
     const URVInfectedProfile* Tuning() const;
 private:

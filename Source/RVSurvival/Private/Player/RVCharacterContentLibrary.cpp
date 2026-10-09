@@ -147,6 +147,33 @@ UAnimSequence* URVCharacterContentLibrary::CreatePrototypePose(const FString& As
     return nullptr;
 #endif
 }
+UAnimSequence* URVCharacterContentLibrary::CreatePrototypeMelee(const FString& Path,USkeletalMesh* Mesh,bool Shove,UAnimSequence* BasePose)
+{
+#if WITH_EDITOR
+    UAnimSequence* Sequence=CreatePrototypePose(Path,Mesh,{},false,BasePose);if(!Sequence)return nullptr;
+    auto& Controller=Sequence->GetController();Controller.OpenBracket(FText::FromString(TEXT("Prototype melee visual swing")),false);
+    for(FName Name:{FName(TEXT("upperarm_r")),FName(TEXT("lowerarm_r")),FName(TEXT("upperarm_l")),FName(TEXT("lowerarm_l")),FName(TEXT("spine_03"))})
+    {
+        if(!Sequence->GetDataModel()->IsValidBoneTrackName(Name))continue;
+        const FTransform Base=Sequence->GetDataModel()->GetBoneTrackTransform(Name,FFrameNumber(0));
+        TArray<FVector> Locations,Scales;TArray<FQuat> Rotations;
+        for(int32 Frame=0;Frame<=30;++Frame)
+        {
+            const float Phase=Frame/30.f,Envelope=FMath::Sin(Phase*PI);
+            const bool Left=Name.ToString().EndsWith(TEXT("_l"));const bool Lower=Name.ToString().StartsWith(TEXT("lower"));
+            FRotator Offset=FRotator::ZeroRotator;
+            if(Name==TEXT("spine_03"))Offset.Yaw=(Shove?8.f:25.f)*Envelope;
+            else if(Shove)Offset=FRotator((Lower?-35.f:65.f)*Envelope,(Left?-10.f:10.f)*Envelope,0);
+            else if(!Left)Offset=FRotator((Lower?-45.f:100.f)*Envelope,45.f*FMath::Sin(Phase*2*PI),-25.f*Envelope);
+            Locations.Add(Base.GetLocation());Scales.Add(Base.GetScale3D());Rotations.Add(Base.GetRotation()*Offset.Quaternion());
+        }
+        Controller.SetBoneTrackKeys(Name,Locations,Rotations,Scales,false);
+    }
+    Controller.NotifyPopulated();Controller.CloseBracket(false);Sequence->PostEditChange();Sequence->MarkPackageDirty();return Sequence;
+#else
+    return nullptr;
+#endif
+}
 bool URVCharacterContentLibrary::PopulateLocomotion(UBlendSpace* BlendSpace,const TArray<UAnimSequence*>& Clips,const TArray<FVector>& Coordinates)
 {
 #if WITH_EDITOR

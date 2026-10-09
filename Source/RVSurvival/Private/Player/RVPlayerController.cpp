@@ -1,4 +1,11 @@
 #include "Player/RVPlayerController.h"
+#include "Core/RVGameState.h"
+bool ARVPlayerController::CanConfigureWorld() const
+{return HasAuthority() && IsLocalController() && GetNetMode()!=NM_DedicatedServer;}
+void ARVPlayerController::RequestDifficulty(FName Preset,FName Rule,float Value,int32 Revision)
+{if(IsLocalController())ServerDifficulty(Preset,Rule,Value,Revision);}
+void ARVPlayerController::ServerDifficulty_Implementation(FName Preset,FName Rule,float Value,int32 Revision)
+{if(CanConfigureWorld())if(auto* GS=GetWorld()->GetGameState<ARVGameState>())GS->SetDifficultyAuthority(Preset,Rule,Value,Revision);}
 #include "Player/RVPlayerState.h"
 #include "Medical/RVHealthComponent.h"
 #include "Vehicles/RVMechanicalMotorhome.h"
@@ -84,6 +91,13 @@ void ARVPlayerController::PlayerTick(float DeltaTime)
     // Retry idempotently after init so cab/rear/rest controls appear in the menu.
     if(ResourceMapping)RVInputMappings::Register(this,ResourceMapping);
     if(DrivingControlsCatalog)RVInputMappings::Register(this,DrivingControlsCatalog);
+    if(!InventoryControlsCatalog)
+    {InventoryControlsCatalog=NewObject<UInputMappingContext>(this);
+     const FKey Keys[]={EKeys::I,EKeys::Tab,EKeys::Down,EKeys::Up,EKeys::T,EKeys::G,EKeys::F,EKeys::C};
+     const TCHAR* Names[]={TEXT("Inventory"),TEXT("InventoryPanel"),TEXT("InventoryNext"),TEXT("InventoryPrevious"),TEXT("Transfer"),TEXT("Drop"),TEXT("RefuelItem"),TEXT("Consume")};
+     const TCHAR* Labels[]={TEXT("Inventory open / close"),TEXT("Switch inventory panel"),TEXT("Next item"),TEXT("Previous item"),TEXT("Transfer selected item"),TEXT("Drop selected item"),TEXT("Refuel / refill selected container"),TEXT("Consume selected item")};
+     for(int32 I=0;I<UE_ARRAY_COUNT(Keys);++I){auto* Action=NewObject<UInputAction>(InventoryControlsCatalog);RVInputMappings::Map(InventoryControlsCatalog,Action,Keys[I],Names[I],Labels[I]);}}
+    RVInputMappings::Register(this,InventoryControlsCatalog);
     // Service-only bindings must not consume remapped gameplay keys elsewhere.
     if (MechanicalMapping && bMechanicalMappingActive!=IsValid(MechanicalPoint))
         if (auto* Local=GetLocalPlayer()) if(auto* Input=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
@@ -152,6 +166,7 @@ void ARVPlayerController::EndPlay(const EEndPlayReason::Type Reason)
     if(ControlsWidget){ControlsWidget->RemoveFromParent();ControlsWidget=nullptr;}
     RVInputMappings::Unregister(ResourceInputLocalPlayer.Get(),ResourceMapping);
     RVInputMappings::Unregister(ResourceInputLocalPlayer.Get(),DrivingControlsCatalog);
+    RVInputMappings::Unregister(ResourceInputLocalPlayer.Get(),InventoryControlsCatalog);
     if(HasAuthority() && IsValid(MechanicalPoint) && MechanicalPoint->RepairPlayer && MechanicalPoint->RepairPlayer==PlayerState)
         MechanicalPoint->CancelAuthority(TEXT("Repair canceled: player left; supplies retained"));
     if(auto* Local=ResourceInputLocalPlayer.Get()) if(auto* Input=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
@@ -232,7 +247,7 @@ void ARVPlayerController::SetupInputComponent()
             auto* Action=NewObject<UInputAction>(this); Action->ValueType=EInputActionValueType::Boolean;
             const int32 Index=ResourceActions.Num();
             const TCHAR* Names[]={TEXT("Lights"),TEXT("Generator"),TEXT("Fridge"),TEXT("StationPower"),TEXT("EngineIdle"),TEXT("ClosePanel"),TEXT("Stand"),TEXT("Sleep"),TEXT("RearInterior"),TEXT("DriverSeat"),TEXT("PassengerSeat"),TEXT("NextSeat"),TEXT("Controls"),TEXT("OrbitHold"),TEXT("OrbitYaw"),TEXT("OrbitPitch"),TEXT("RecoverRV"),TEXT("Medical")};
-            const TCHAR* Labels[]={TEXT("Lights"),TEXT("Generator"),TEXT("Fridge"),TEXT("Station power"),TEXT("Engine idle"),TEXT("Close panel"),TEXT("Stand from bed"),TEXT("Rest / sleep"),TEXT("Move to rear living area"),TEXT("Driver seat"),TEXT("Passenger seat"),TEXT("Next seat (stopped)"),TEXT("Controls menu"),TEXT("Orbit camera hold"),TEXT("Orbit horizontal"),TEXT("Orbit vertical"),TEXT("Recover RV (prototype)"),TEXT("Medical status / treatment")};
+            const TCHAR* Labels[]={TEXT("Lights"),TEXT("Generator"),TEXT("Fridge"),TEXT("Station power"),TEXT("Engine idle"),TEXT("Back / Settings"),TEXT("Stand from bed"),TEXT("Rest / sleep"),TEXT("Move to rear living area"),TEXT("Driver seat"),TEXT("Passenger seat"),TEXT("Next seat (stopped)"),TEXT("Controls menu"),TEXT("Orbit camera hold"),TEXT("Orbit horizontal"),TEXT("Orbit vertical"),TEXT("Recover RV (prototype)"),TEXT("Medical status / treatment")};
             if(Index==14 || Index==15){Action->ValueType=EInputActionValueType::Axis1D;Action->bConsumeInput=false;}
             RVInputMappings::Map(ResourceMapping,Action,Key,FName(Names[Index]),Labels[Index]);ResourceActions.Add(Action);
         }
@@ -292,7 +307,7 @@ void ARVPlayerController::GeneratorKey() { ToggleResource(TEXT("Generator")); }
 void ARVPlayerController::FridgeKey() { ToggleResource(TEXT("Refrigerator")); }
 void ARVPlayerController::StationKey() { ToggleResource(TEXT("PoweredStation")); }
 void ARVPlayerController::IdleKey() { ToggleResource(TEXT("EngineIdle")); }
-void ARVPlayerController::CloseKey() { if(MedicalWidget)ToggleMedical();if(ResourcePoint) RequestCloseResource(); if(MechanicalPoint)RequestService(TEXT("Close"),-1,FGuid(),-1); }
+void ARVPlayerController::CloseKey() { if(MedicalWidget)ToggleMedical(); else if(ResourcePoint) RequestCloseResource(); else if(MechanicalPoint)RequestService(TEXT("Close"),-1,FGuid(),-1); else ToggleControls(); }
 void ARVPlayerController::RequestService(FName Action,int32 Expected,FGuid Item,int32 ItemRevision)
 {
     if(!IsLocalController())return;
