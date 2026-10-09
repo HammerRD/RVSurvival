@@ -12,6 +12,7 @@ public:
     FText Label;
     FKey CurrentKey;
     FKey PendingKey;
+    bool bUpdatingSelector=false;
     UPROPERTY(Transient) TObjectPtr<class UTextBlock> Warning;
     UPROPERTY(Transient) TObjectPtr<class UInputKeySelector> Selector;
 protected:

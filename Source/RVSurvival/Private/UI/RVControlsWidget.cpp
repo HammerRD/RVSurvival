@@ -1,5 +1,6 @@
 #include "UI/RVControlsWidget.h"
 #include "Blueprint/WidgetTree.h"
+#include "Styling/CoreStyle.h"
 #include "Components/Border.h"
 #include "Components/VerticalBox.h"
 #include "Components/HorizontalBox.h"
@@ -23,8 +24,46 @@ UEnhancedInputUserSettings* Settings(APlayerController* PC){if(PC && PC->GetLoca
 UTextBlock* Text(UWidgetTree* Tree,const FString& Value,int32 Size=16){auto* T=Tree->ConstructWidget<UTextBlock>();T->SetText(FText::FromString(Value));T->SetAutoWrapText(true);T->SetColorAndOpacity(FLinearColor(.85f,.9f,.88f));auto F=T->GetFont();F.Size=Size;T->SetFont(F);return T;}
 UButton* Button(UWidgetTree* Tree,const FString& Label){auto* B=Tree->ConstructWidget<UButton>();B->SetBackgroundColor(FLinearColor(.12f,.19f,.19f));B->SetContent(Text(Tree,Label));return B;}
 }
-TSharedRef<SWidget> URVControlRowWidget::RebuildWidget(){auto* Box=WidgetTree->ConstructWidget<UVerticalBox>();WidgetTree->RootWidget=Box;auto* Row=WidgetTree->ConstructWidget<UHorizontalBox>();Box->AddChildToVerticalBox(Row);Row->AddChildToHorizontalBox(Text(WidgetTree,Label.ToString()))->SetSize(FSlateChildSize(ESlateSizeRule::Fill));Selector=WidgetTree->ConstructWidget<UInputKeySelector>();Selector->SetAllowGamepadKeys(true);Selector->SetAllowModifierKeys(false);Selector->SetSelectedKey(FInputChord(CurrentKey));Selector->OnKeySelected.AddDynamic(this,&ThisClass::Selected);Row->AddChildToHorizontalBox(Selector);Warning=Text(WidgetTree,TEXT(""),12);Warning->SetColorAndOpacity(FLinearColor(.95f,.7f,.3f));Box->AddChildToVerticalBox(Warning);return Super::RebuildWidget();}
-void URVControlRowWidget::Selected(FInputChord Chord){auto* S=Settings(GetOwningPlayer());if(!S || !Chord.Key.IsValid())return;TArray<FString> Conflicts;if(auto* P=S->GetActiveKeyProfile())for(const auto& Pair:P->GetPlayerMappingRows())if(Pair.Key!=MappingName && Pair.Key!=TEXT("RecoverRV"))for(const auto& M:Pair.Value.Mappings)if(M.GetSlot()==EPlayerMappableKeySlot::First && M.GetCurrentKey()==Chord.Key){Conflicts.Add(M.GetDisplayName().ToString());break;}if(!Conflicts.IsEmpty() && PendingKey!=Chord.Key){PendingKey=Chord.Key;Warning->SetText(FText::FromString(TEXT("Also used by ")+FString::Join(Conflicts,TEXT(", "))+TEXT(". Select this key again to confirm sharing, or choose another.")));Selector->SetSelectedKey(FInputChord(CurrentKey));return;}FMapPlayerKeyArgs Args;Args.MappingName=MappingName;Args.NewKey=Chord.Key;Args.Slot=EPlayerMappableKeySlot::First;FGameplayTagContainer Failures;S->MapPlayerKey(Args,Failures);if(Failures.IsEmpty()){S->ApplySettings();S->AsyncSaveSettings();CurrentKey=Chord.Key;PendingKey=FKey();Warning->SetText(FText::FromString(Conflicts.IsEmpty()?TEXT("Saved"):TEXT("Saved with a shared binding.")));}else {Warning->SetText(FText::FromString(TEXT("Binding could not be saved")));Selector->SetSelectedKey(FInputChord(CurrentKey));}}
+TSharedRef<SWidget> URVControlRowWidget::RebuildWidget(){auto* Box=WidgetTree->ConstructWidget<UVerticalBox>();WidgetTree->RootWidget=Box;auto* Row=WidgetTree->ConstructWidget<UHorizontalBox>();Box->AddChildToVerticalBox(Row);Row->AddChildToHorizontalBox(Text(WidgetTree,Label.ToString()))->SetSize(FSlateChildSize(ESlateSizeRule::Fill));Selector=WidgetTree->ConstructWidget<UInputKeySelector>();Selector->SetAllowGamepadKeys(true);
+FTextBlockStyle KeyStyle=FCoreStyle::Get().GetWidgetStyle<FTextBlockStyle>(TEXT("NormalText"));
+KeyStyle.SetFont(FCoreStyle::GetDefaultFontStyle(TEXT("Regular"),14));KeyStyle.SetColorAndOpacity(FSlateColor(FLinearColor(.85f,.9f,.88f)));Selector->SetTextStyle(KeyStyle);
+FButtonStyle KeyButton=FCoreStyle::Get().GetWidgetStyle<FButtonStyle>(TEXT("Button"));
+KeyButton.Normal.TintColor=FSlateColor(FLinearColor(.12f,.19f,.19f));KeyButton.Hovered.TintColor=FSlateColor(FLinearColor(.2f,.3f,.3f));KeyButton.Pressed.TintColor=FSlateColor(FLinearColor(.08f,.14f,.14f));Selector->SetButtonStyle(KeyButton);Selector->SetAllowModifierKeys(false);Selector->SetSelectedKey(FInputChord(CurrentKey));Selector->OnKeySelected.AddDynamic(this,&ThisClass::Selected);Row->AddChildToHorizontalBox(Selector);Warning=Text(WidgetTree,TEXT(""),12);Warning->SetColorAndOpacity(FLinearColor(.95f,.7f,.3f));Box->AddChildToVerticalBox(Warning);return Super::RebuildWidget();}
+void URVControlRowWidget::Selected(FInputChord Chord)
+{
+    if(bUpdatingSelector)return;
+    auto* S=Settings(GetOwningPlayer());
+    if(!S || !Chord.Key.IsValid())return;
+    auto RestoreSelector=[this]
+    {
+        // Slate SetSelectedKey also emits OnKeySelected. Preserve the pending
+        // conflict and warning instead of recursively saving the previous key.
+        TGuardValue<bool> Guard(bUpdatingSelector,true);
+        Selector->SetSelectedKey(FInputChord(CurrentKey));
+    };
+    TArray<FString> Conflicts;
+    if(auto* P=S->GetActiveKeyProfile())
+        for(const auto& Pair:P->GetPlayerMappingRows())
+            if(Pair.Key!=MappingName && Pair.Key!=TEXT("RecoverRV"))
+                for(const auto& M:Pair.Value.Mappings)
+                    if(M.GetSlot()==EPlayerMappableKeySlot::First && M.GetCurrentKey()==Chord.Key)
+                    {Conflicts.Add(M.GetDisplayName().ToString());break;}
+    if(!Conflicts.IsEmpty() && PendingKey!=Chord.Key)
+    {
+        PendingKey=Chord.Key;
+        Warning->SetText(FText::FromString(TEXT("Also used by ")+FString::Join(Conflicts,TEXT(", "))+TEXT(". Select this key again to confirm sharing, or choose another.")));
+        RestoreSelector();return;
+    }
+    FMapPlayerKeyArgs Args;Args.MappingName=MappingName;Args.NewKey=Chord.Key;Args.Slot=EPlayerMappableKeySlot::First;
+    FGameplayTagContainer Failures;S->MapPlayerKey(Args,Failures);
+    if(Failures.IsEmpty())
+    {
+        S->ApplySettings();S->AsyncSaveSettings();CurrentKey=Chord.Key;PendingKey=FKey();
+        Warning->SetText(FText::FromString(Conflicts.IsEmpty()?TEXT("Saved"):TEXT("Saved with a shared binding.")));
+    }
+    else
+    {Warning->SetText(FText::FromString(TEXT("Binding could not be saved")));RestoreSelector();}
+}
 TSharedRef<SWidget> URVDifficultyRowWidget::RebuildWidget(){auto* Box=WidgetTree->ConstructWidget<UVerticalBox>();WidgetTree->RootWidget=Box;Box->AddChildToVerticalBox(Text(WidgetTree,Rule.Label.ToString()));Box->AddChildToVerticalBox(Text(WidgetTree,Rule.Description.ToString(),12));auto* Row=WidgetTree->ConstructWidget<UHorizontalBox>();Box->AddChildToVerticalBox(Row);auto* Slider=WidgetTree->ConstructWidget<USlider>();Slider->SetMinValue(Rule.Minimum);Slider->SetMaxValue(Rule.Maximum);Slider->SetStepSize(.05f);Slider->SetValue(Rule.Multiplier);const auto* PC=Cast<ARVPlayerController>(GetOwningPlayer());Slider->SetIsEnabled(bPersonal || (PC && PC->CanConfigureWorld()));PendingValue=Rule.Multiplier;Slider->OnValueChanged.AddDynamic(this,&ThisClass::Changed);Slider->OnMouseCaptureEnd.AddDynamic(this,&ThisClass::Commit);Slider->OnControllerCaptureEnd.AddDynamic(this,&ThisClass::Commit);Row->AddChildToHorizontalBox(Slider)->SetSize(FSlateChildSize(ESlateSizeRule::Fill));ValueText=Text(WidgetTree,FString::Printf(TEXT("  %.2fx"),Rule.Multiplier));Row->AddChildToHorizontalBox(ValueText);return Super::RebuildWidget();}
 void URVDifficultyRowWidget::Changed(float Value){if(!FMath::IsFinite(Value))return;Value=FMath::Clamp(Value,Rule.Minimum,Rule.Maximum);ValueText->SetText(FText::FromString(FString::Printf(TEXT("  %.2fx"),Value)));PendingValue=Value;}
 void URVDifficultyRowWidget::Commit(){const float Value=PendingValue;if(bPersonal){auto* S=GetMutableDefault<URVPersonalSettings>();S->LookSensitivity=Value;S->ApplyAndSave();return;}if(auto* PC=Cast<ARVPlayerController>(GetOwningPlayer());PC && PC->CanConfigureWorld())if(auto* GS=GetWorld()->GetGameState<ARVGameState>()){PC->RequestDifficulty(NAME_None,Rule.Id,Value,GS->DifficultyRevision);Revision=GS->DifficultyRevision;}}
