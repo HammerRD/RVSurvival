@@ -1,0 +1,78 @@
+{
+  "results": [
+    {
+      "case": "owned fixture admitted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "owned fixture admitted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "owned fixture admitted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "owned fixture admitted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "owned fixture admitted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "owned fixture admitted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "both owned .45 magazines load and replicate",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "paired fire consumes exactly one each",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "client cannot override authoritative world rules",
+      "pass": true,
+      "detail": "Standard"
+    },
+    {
+      "case": "host preset converges on both processes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "host Custom multiplier converges",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "owned crowbars equip in both processes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "both melee intents damage once and replicate",
+      "pass": true,
+      "detail": "[(49.400001525878906, 65.0), (41.0, 65.0)]"
+    },
+    {
+      "case": "cooldown prevents double completion",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "passed": 14,
+  "total": 14,
+  "role": "server",
+  "network": false
+}

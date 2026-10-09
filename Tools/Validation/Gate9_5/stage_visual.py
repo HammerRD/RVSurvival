@@ -8,12 +8,16 @@ p.set_actor_location(unreal.Vector(-200,-2500,90),False,True);pc.set_control_rot
 for name in ['DA_M1911_45ACP','DA_45ACPMagazine','DA_45ACPMagazine','DA_PrototypeCrowbar']:
  item=unreal.RVItemInstance();item.set_editor_property('Id',unreal.GuidLibrary.new_guid());item.set_editor_property('Definition',unreal.load_asset('/Game/Combat/Gate9_5/Items/'+name));assert not inv.add_authority(item)
 enemy=unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVInfected)[0];enemy.get_controller().get_editor_property('BrainComponent').stop_logic('stationary visual fixture');enemy.get_controller().stop_movement();enemy.set_actor_location(unreal.Vector(900,-2500,90),False,True);enemy.set_actor_rotation(unreal.Rotator(yaw=180),False)
-seen=set();started=time.time();camera=None
+seen=set();started=time.time();camera=None;last_state_write=0
 (B/'visual-ready.json').write_text(json.dumps({'ready':True,'time':started,'manual_inputs':'4 equip, R reload, mouse fire/aim'}))
 def cmd(c):unreal.SystemLibrary.execute_console_command(pc,c,pc)
+cmd('t.MaxFPS 60')
 def snap(name):cmd('shot showui filename='+str(out/'Visuals'/('manual_'+name+'.png')).replace('\\','/')+' -nosuffix')
+def read_command(path):
+ try:return json.loads(path.read_text())
+ except (OSError,ValueError):return {'name':'none','id':'incomplete-command'}
 def tick(dt):
- global camera
+ global camera,last_state_write
  if unreal.GuidLibrary.is_valid_guid(combat.equipped_weapon) and 'equipped' not in seen:seen.add('equipped');snap('equipped')
  if combat.reload_ends>0 and 'reload' not in seen:seen.add('reload');snap('reload')
  if combat.get_loaded_rounds()==7 and 'ready' not in seen:seen.add('ready');snap('loaded_ready')
@@ -21,7 +25,7 @@ def tick(dt):
  if combat.shot_sequence>0 and 'fire' not in seen:seen.add('fire');snap('fire')
  command=B/'visual-command.json'
  if command.exists() and command.stat().st_mtime>started:
-  data=json.loads(command.read_text());name=data['name']
+  data=read_command(command);name=data['name']
   if data.get('id',name) not in seen:
    seen.add(data.get('id',name))
    if name=='observer':
@@ -29,8 +33,18 @@ def tick(dt):
    elif name=='restore':pc.set_view_target_with_blend(p,0)
    elif name=='aim_hold':unreal.RVInteriorMotorhome.dispatch_development_key(pc,'RightMouseButton',True)
    elif name=='aim_release':unreal.RVInteriorMotorhome.dispatch_development_key(pc,'RightMouseButton',False)
-   elif name=='snapshot':snap('observer_handgun')
- (out/'manual-visual-state.json').write_text(json.dumps({'seen':sorted(seen),'shot_sequence':combat.shot_sequence,'rounds':combat.get_loaded_rounds(),'enemy_state':str(enemy.state),'enemy_vitality':enemy.vitality,'camera':str(pc.get_view_target())},indent=2))
+   elif name=='snapshot':snap(data.get('file','observer_handgun'))
+   elif name=='bindings_dump':
+    report={'pc':pc.get_path_name(),'hud':str(pc.get_hud()),'hud_owner':str(pc.get_hud().get_editor_property('PlayerOwner')),'subsystems':[]}
+    for subsystem in unreal.ObjectIterator(unreal.EnhancedInputLocalPlayerSubsystem):
+     settings=subsystem.get_user_settings()
+     if settings:
+      profile=settings.get_active_key_profile();rows=profile.get_player_mapping_rows()
+      report['subsystems'].append({'outer':str(subsystem.get_outer()),'profile':profile.get_path_name(),'rows':{str(n):str(row) for n,row in rows.items() if str(n) in ['Fire','Melee','Interact','Accelerate']}})
+    (out/'binding-runtime-inspection.json').write_text(json.dumps(report,indent=2))
+ if time.time()-last_state_write>.25:
+  last_state_write=time.time();state_path=out/'manual-visual-state.json'
+  temporary=state_path.with_suffix('.tmp');temporary.write_text(json.dumps({'seen':sorted(seen),'shot_sequence':combat.shot_sequence,'melee_sequence':combat.melee_sequence,'rounds':combat.get_loaded_rounds(),'enemy_state':str(enemy.state),'enemy_vitality':enemy.vitality,'camera':str(pc.get_view_target())},indent=2));temporary.replace(state_path)
  if ((B/'visual-stop.json').exists() and (B/'visual-stop.json').stat().st_mtime>started) or time.time()-started>300:
   unreal.RVInteriorMotorhome.dispatch_development_key(pc,'RightMouseButton',False);unreal.unregister_slate_post_tick_callback(handle)
   (out/'manual-visual-done.json').write_text(json.dumps({'seen':sorted(seen),'time':time.time()}))

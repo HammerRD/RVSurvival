@@ -160,6 +160,18 @@ void URVCombatComponent::UpdateVisual()
     const auto* Climb=C->FindComponentByClass<URVLadderClimbComponent>();
     WeaponVisual->SetVisibility(D && bEnabled && PS && PS->Health->CanAct() && !PS->Health->ActiveTreatment.IsValid()
         && PS->Needs->State.RestMode==ERVRestMode::Awake && (!Climb || !Climb->Ladder) && (!Survivor || !Survivor->SeatedVehicle));
+    // Holstering removes the definition, but must still release the owner's ADS
+    // camera. Do not leave the previous weapon's zoom active without a weapon.
+    if(!D && C->IsLocallyControlled())
+    {
+        AimBlend=0;
+        if(bLocalAimApplied)if(auto* Camera=C->FindComponentByClass<UCameraComponent>())
+        {
+            Camera->SetFieldOfView(FMath::FInterpTo(Camera->FieldOfView,UnaimedFOV,GetWorld()->GetDeltaSeconds(),12.f));
+            if(FMath::IsNearlyEqual(Camera->FieldOfView,UnaimedFOV,.01f))
+            {Camera->SetFieldOfView(UnaimedFOV);bLocalAimApplied=false;}
+        }
+    }
     if(ReloadEnds!=PresentedReloadEnd)
     {PresentedReloadEnd=ReloadEnds;if(D && D->Combat.ReloadMontage)
       {if(ReloadEnds>0){const auto* GS=GetWorld()->GetGameState();const float Remaining=ReloadEnds-(GS?GS->GetServerWorldTimeSeconds():GetWorld()->GetTimeSeconds());

@@ -6,6 +6,7 @@
 #include "Components/HorizontalBox.h"
 #include "Components/TextBlock.h"
 #include "Components/InputKeySelector.h"
+#include "Components/ComboBoxString.h"
 #include "Components/Button.h"
 #include "Components/ScrollBox.h"
 #include "Components/Slider.h"
@@ -23,12 +24,23 @@ namespace {
 UEnhancedInputUserSettings* Settings(APlayerController* PC){if(PC && PC->GetLocalPlayer())if(auto* S=PC->GetLocalPlayer()->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())return S->GetUserSettings();return nullptr;}
 UTextBlock* Text(UWidgetTree* Tree,const FString& Value,int32 Size=16){auto* T=Tree->ConstructWidget<UTextBlock>();T->SetText(FText::FromString(Value));T->SetAutoWrapText(true);T->SetColorAndOpacity(FLinearColor(.85f,.9f,.88f));auto F=T->GetFont();F.Size=Size;T->SetFont(F);return T;}
 UButton* Button(UWidgetTree* Tree,const FString& Label){auto* B=Tree->ConstructWidget<UButton>();B->SetBackgroundColor(FLinearColor(.12f,.19f,.19f));B->SetContent(Text(Tree,Label));return B;}
+TArray<FKey> LookAxes(){return {EKeys::MouseX,EKeys::MouseY,EKeys::Gamepad_RightX,EKeys::Gamepad_RightY,EKeys::Gamepad_LeftX,EKeys::Gamepad_LeftY};}
 }
 TSharedRef<SWidget> URVControlRowWidget::RebuildWidget(){auto* Box=WidgetTree->ConstructWidget<UVerticalBox>();WidgetTree->RootWidget=Box;auto* Row=WidgetTree->ConstructWidget<UHorizontalBox>();Box->AddChildToVerticalBox(Row);Row->AddChildToHorizontalBox(Text(WidgetTree,Label.ToString()))->SetSize(FSlateChildSize(ESlateSizeRule::Fill));Selector=WidgetTree->ConstructWidget<UInputKeySelector>();Selector->SetAllowGamepadKeys(true);
 FTextBlockStyle KeyStyle=FCoreStyle::Get().GetWidgetStyle<FTextBlockStyle>(TEXT("NormalText"));
 KeyStyle.SetFont(FCoreStyle::GetDefaultFontStyle(TEXT("Regular"),14));KeyStyle.SetColorAndOpacity(FSlateColor(FLinearColor(.85f,.9f,.88f)));Selector->SetTextStyle(KeyStyle);
 FButtonStyle KeyButton=FCoreStyle::Get().GetWidgetStyle<FButtonStyle>(TEXT("Button"));
-KeyButton.Normal.TintColor=FSlateColor(FLinearColor(.12f,.19f,.19f));KeyButton.Hovered.TintColor=FSlateColor(FLinearColor(.2f,.3f,.3f));KeyButton.Pressed.TintColor=FSlateColor(FLinearColor(.08f,.14f,.14f));Selector->SetButtonStyle(KeyButton);Selector->SetAllowModifierKeys(false);Selector->SetSelectedKey(FInputChord(CurrentKey));Selector->OnKeySelected.AddDynamic(this,&ThisClass::Selected);Row->AddChildToHorizontalBox(Selector);Warning=Text(WidgetTree,TEXT(""),12);Warning->SetColorAndOpacity(FLinearColor(.95f,.7f,.3f));Box->AddChildToVerticalBox(Warning);return Super::RebuildWidget();}
+KeyButton.Normal.TintColor=FSlateColor(FLinearColor(.12f,.19f,.19f));KeyButton.Hovered.TintColor=FSlateColor(FLinearColor(.2f,.3f,.3f));KeyButton.Pressed.TintColor=FSlateColor(FLinearColor(.08f,.14f,.14f));Selector->SetButtonStyle(KeyButton);Selector->SetAllowModifierKeys(false);Selector->SetSelectedKey(FInputChord(CurrentKey));Selector->OnKeySelected.AddDynamic(this,&ThisClass::Selected);Row->AddChildToHorizontalBox(Selector);
+if(MappingName==TEXT("LookYaw") || MappingName==TEXT("LookPitch") || MappingName==TEXT("OrbitYaw") || MappingName==TEXT("OrbitPitch"))
+{
+ AxisChoices=WidgetTree->ConstructWidget<UComboBoxString>();AxisChoices->AddOption(TEXT("Mouse / stick"));
+ for(const FKey& Key:LookAxes())AxisChoices->AddOption(Key.GetDisplayName().ToString());
+ AxisChoices->SetSelectedOption(TEXT("Mouse / stick"));AxisChoices->SetContentPadding(FMargin(4));
+ FComboBoxStyle AxisStyle=FCoreStyle::Get().GetWidgetStyle<FComboBoxStyle>(TEXT("ComboBox"));AxisStyle.ComboButtonStyle.ButtonStyle=KeyButton;AxisChoices->SetWidgetStyle(AxisStyle);
+ AxisChoices->SetToolTipText(FText::FromString(TEXT("Choose mouse movement or a controller stick for this control.")));
+ AxisChoices->OnSelectionChanged.AddDynamic(this,&ThisClass::AxisSelected);Row->AddChildToHorizontalBox(AxisChoices);
+}
+Warning=Text(WidgetTree,TEXT(""),12);Warning->SetColorAndOpacity(FLinearColor(.95f,.7f,.3f));Box->AddChildToVerticalBox(Warning);return Super::RebuildWidget();}
 void URVControlRowWidget::Selected(FInputChord Chord)
 {
     if(bUpdatingSelector)return;
@@ -40,6 +52,7 @@ void URVControlRowWidget::Selected(FInputChord Chord)
         // conflict and warning instead of recursively saving the previous key.
         TGuardValue<bool> Guard(bUpdatingSelector,true);
         Selector->SetSelectedKey(FInputChord(CurrentKey));
+        if(AxisChoices)AxisChoices->SetSelectedOption(TEXT("Mouse / stick"));
     };
     TArray<FString> Conflicts;
     if(auto* P=S->GetActiveKeyProfile())
@@ -59,10 +72,17 @@ void URVControlRowWidget::Selected(FInputChord Chord)
     if(Failures.IsEmpty())
     {
         S->ApplySettings();S->AsyncSaveSettings();CurrentKey=Chord.Key;PendingKey=FKey();
+        RestoreSelector();
         Warning->SetText(FText::FromString(Conflicts.IsEmpty()?TEXT("Saved"):TEXT("Saved with a shared binding.")));
     }
     else
     {Warning->SetText(FText::FromString(TEXT("Binding could not be saved")));RestoreSelector();}
+}
+void URVControlRowWidget::AxisSelected(FString Option,ESelectInfo::Type SelectionType)
+{
+    if(bUpdatingSelector || Option==TEXT("Mouse / stick"))return;
+    for(const FKey& Key:LookAxes())if(Key.GetDisplayName().ToString()==Option)
+    {Selected(FInputChord(Key));return;}
 }
 TSharedRef<SWidget> URVDifficultyRowWidget::RebuildWidget(){auto* Box=WidgetTree->ConstructWidget<UVerticalBox>();WidgetTree->RootWidget=Box;Box->AddChildToVerticalBox(Text(WidgetTree,Rule.Label.ToString()));Box->AddChildToVerticalBox(Text(WidgetTree,Rule.Description.ToString(),12));auto* Row=WidgetTree->ConstructWidget<UHorizontalBox>();Box->AddChildToVerticalBox(Row);auto* Slider=WidgetTree->ConstructWidget<USlider>();Slider->SetMinValue(Rule.Minimum);Slider->SetMaxValue(Rule.Maximum);Slider->SetStepSize(.05f);Slider->SetValue(Rule.Multiplier);const auto* PC=Cast<ARVPlayerController>(GetOwningPlayer());Slider->SetIsEnabled(bPersonal || (PC && PC->CanConfigureWorld()));PendingValue=Rule.Multiplier;Slider->OnValueChanged.AddDynamic(this,&ThisClass::Changed);Slider->OnMouseCaptureEnd.AddDynamic(this,&ThisClass::Commit);Slider->OnControllerCaptureEnd.AddDynamic(this,&ThisClass::Commit);Row->AddChildToHorizontalBox(Slider)->SetSize(FSlateChildSize(ESlateSizeRule::Fill));ValueText=Text(WidgetTree,FString::Printf(TEXT("  %.2fx"),Rule.Multiplier));Row->AddChildToHorizontalBox(ValueText);return Super::RebuildWidget();}
 void URVDifficultyRowWidget::Changed(float Value){if(!FMath::IsFinite(Value))return;Value=FMath::Clamp(Value,Rule.Minimum,Rule.Maximum);ValueText->SetText(FText::FromString(FString::Printf(TEXT("  %.2fx"),Value)));PendingValue=Value;}
@@ -76,4 +96,5 @@ void URVControlsWidget::InvertChanged(bool Enabled){auto* S=GetMutableDefault<UR
 void URVControlsWidget::NativeTick(const FGeometry& G,float Delta){Super::NativeTick(G,Delta);if(auto* GS=GetWorld()->GetGameState<ARVGameState>();GS && GS->DifficultyRevision!=ShownRevision)Populate();}
 void URVControlsWidget::Close(){if(auto* PC=Cast<ARVPlayerController>(GetOwningPlayer()))PC->ToggleControls();}
 FReply URVControlsWidget::NativeOnKeyDown(const FGeometry& G,const FKeyEvent& E){if(E.GetKey()==RVInputMappings::CurrentKey(GetOwningPlayer(),TEXT("ClosePanel"),EKeys::Escape)){Close();return FReply::Handled();}return Super::NativeOnKeyDown(G,E);}
+
 

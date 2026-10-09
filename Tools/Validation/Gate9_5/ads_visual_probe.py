@@ -1,7 +1,7 @@
 """Settled rendered sight/hand probe using normal Enhanced Input dispatch."""
 from pathlib import Path
 exec(Path('D:/GitHub/RVSurvival/RVSurvival/Tools/Validation/Gate9_5/stage_visual.py').read_text())
-events=[(.5,'Four',True),(.6,'Four',False),(1.5,'R',True),(1.6,'R',False),(5,'RightMouseButton',True),(8,'RightMouseButton',False)]
+events=[(.5,'Four',True),(.6,'Four',False),(1.5,'R',True),(1.6,'R',False),(5,'RightMouseButton',True),(9.5,'Four',True),(9.6,'Four',False),(12,'RightMouseButton',False)]
 done=set()
 def probe(dt):
  elapsed=time.time()-started
@@ -15,7 +15,10 @@ def probe(dt):
    report={bone:str(p.mesh.get_socket_transform(bone)) for bone in bones}
    report['actor']=str(p.get_actor_transform());report['aim_alpha']=p.mesh.get_anim_instance().get_editor_property('WeaponGripIKAlpha')
    (out/(name+'_bones.json')).write_text(json.dumps(report,indent=2))
- if elapsed>11:
+ if elapsed>13 and 'holster_check' not in done:
+  done.add('holster_check');camera=p.get_component_by_class(unreal.CameraComponent)
+  (out/'ads-holster-camera.json').write_text(json.dumps({'fov':camera.field_of_view,'weapon_equipped':unreal.GuidLibrary.is_valid_guid(combat.equipped_weapon),'pass':not unreal.GuidLibrary.is_valid_guid(combat.equipped_weapon) and abs(camera.field_of_view-90)<.05},indent=2))
+ if elapsed>14:
   unreal.unregister_slate_post_tick_callback(probe_handle)
   (B/'visual-stop.json').write_text(json.dumps({'time':time.time()}))
 probe_handle=unreal.register_slate_post_tick_callback(probe)

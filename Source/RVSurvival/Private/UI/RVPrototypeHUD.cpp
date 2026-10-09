@@ -35,9 +35,11 @@ void ARVPrototypeHUD::DrawHUD()
     Super::DrawHUD();
     if (!Canvas || !PlayerOwner) return;
     if(PlayerOwner->IsMoveInputIgnored())return;
+    bool bUsingWeaponSights=false;
     if(APawn* P=PlayerOwner->GetPawn())if(auto* Combat=P->FindComponentByClass<URVCombatComponent>();Combat && Combat->bEnabled)
     {
         FRVItemInstance W;const bool Equipped=Combat->GetWeapon(W);
+        bUsingWeaponSights=Equipped && W.Definition->Combat.bSightADS && Combat->GetPresentationAimBlend()>.9f;
         const FString Status=Equipped?(W.Definition->Combat.bMelee?W.Definition->DisplayName.ToString()+TEXT(" | melee ready"):FString::Printf(TEXT("%s | %d rounds%s"),*W.Definition->DisplayName.ToString(),Combat->GetLoadedRounds(),Combat->ReloadEnds>0?TEXT(" | reloading"):TEXT(""))):TEXT("Weapon holstered | defensive shove available");
         DrawText(Status,FLinearColor::White,20,Canvas->ClipY-240,nullptr,.85f);
         DrawText(RVInputMappings::KeyLabel(PlayerOwner,TEXT("EquipWeapon"),TEXT("4"))+TEXT(" equip/holster | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Fire"),TEXT("LMB"))+TEXT(" fire | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Aim"),TEXT("RMB"))+TEXT(" aim | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Reload"),TEXT("R"))+TEXT(" swap magazine"),FLinearColor::White,20,Canvas->ClipY-218,nullptr,.7f);
@@ -112,7 +114,7 @@ void ARVPrototypeHUD::DrawHUD()
             }
         }
     }
-    DrawText(TEXT("+"), FLinearColor::White, Canvas->ClipX * 0.5f, Canvas->ClipY * 0.5f);
+    if(!bUsingWeaponSights)DrawText(TEXT("+"), FLinearColor::White, Canvas->ClipX * 0.5f, Canvas->ClipY * 0.5f);
     if (const auto* PC = Cast<ARVPlayerController>(PlayerOwner); PC && PC->SeatedVehicle)
     {
         const bool Driver = PlayerOwner->GetPawn() == PC->SeatedVehicle;

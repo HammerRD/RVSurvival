@@ -38,7 +38,7 @@ FString RVInputMappings::KeyLabel(APlayerController* Controller,FName Name,const
             if(auto* Settings=Subsystem->GetUserSettings())if(auto* Profile=Settings->GetActiveKeyProfile())
                 if(const auto* Row=Profile->GetPlayerMappingRows().Find(Name))
                     for(const auto& Mapping:Row->Mappings)if(Mapping.GetSlot()==EPlayerMappableKeySlot::First)
-                        return Mapping.GetCurrentKey().GetDisplayName().ToString();
+                        return FKey(Mapping.GetCurrentKey().GetFName()).GetDisplayName().ToString();
     return Fallback;
 }
 FKey RVInputMappings::CurrentKey(APlayerController* PC,FName Name,FKey Fallback)
@@ -49,7 +49,7 @@ FName RVInputMappings::Category(FName Name)
 {
  const FString N=Name.ToString();
  if(N.Contains(TEXT("Weapon")) || N.Contains(TEXT("Melee")) || Name==TEXT("Aim") || Name==TEXT("Fire") || Name==TEXT("Reload") || Name==TEXT("UnloadMagazine"))return TEXT("Combat");
- if(N.StartsWith(TEXT("Move")) || N.StartsWith(TEXT("Look")) || Name==TEXT("Jump") || Name==TEXT("Interact") || Name==TEXT("Sprint") || Name==TEXT("Crouch"))return TEXT("On foot");
+ if(N.StartsWith(TEXT("Move")) || N.StartsWith(TEXT("Look")) || Name==TEXT("Forward") || Name==TEXT("Backward") || Name==TEXT("Left") || Name==TEXT("Right") || Name==TEXT("Jump") || Name==TEXT("Interact") || Name==TEXT("Sprint") || Name==TEXT("Crouch"))return TEXT("On foot");
  if(Name==TEXT("Medical") || Name==TEXT("Sleep") || Name==TEXT("Stand") || Name==TEXT("Consume"))return TEXT("Medical / survival");
  if(N.StartsWith(TEXT("Inventory")) || Name==TEXT("Transfer") || Name==TEXT("Drop") || Name==TEXT("RefuelItem") || Name==TEXT("Controls") || Name==TEXT("ClosePanel") || Name==TEXT("Pause"))return TEXT("UI / inventory");
  return TEXT("RV");

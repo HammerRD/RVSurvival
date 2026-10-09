@@ -30,3 +30,5 @@ def tick(dt):
   unreal.unregister_slate_post_tick_callback(handle);release_runners();unreal.SystemLibrary.quit_editor()
 handle=unreal.register_slate_post_tick_callback(tick)
 
+
+

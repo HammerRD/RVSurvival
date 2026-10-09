@@ -15,9 +15,11 @@ public:
     bool bUpdatingSelector=false;
     UPROPERTY(Transient) TObjectPtr<class UTextBlock> Warning;
     UPROPERTY(Transient) TObjectPtr<class UInputKeySelector> Selector;
+    UPROPERTY(Transient) TObjectPtr<class UComboBoxString> AxisChoices;
 protected:
     virtual TSharedRef<SWidget> RebuildWidget() override;
     UFUNCTION() void Selected(FInputChord Chord);
+    UFUNCTION() void AxisSelected(FString Option,ESelectInfo::Type SelectionType);
 };
 UCLASS()
 class RVSURVIVAL_API URVDifficultyRowWidget : public UUserWidget
