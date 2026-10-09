@@ -171,7 +171,7 @@ void URVCombatComponent::UpdateVisual()
         FTransform Ready=A.GripOffset*(C->IsLocallyControlled()?A.FirstPersonOffset:A.ThirdPersonOffset)*Anchor->GetComponentTransform();
         if(C->IsLocallyControlled())if(auto* Camera=C->FindComponentByClass<UCameraComponent>())
         {
-            const bool Aim=bAiming && CanUse() && A.bFirearm;
+            const bool Aim=bAiming && CanUse() && A.bFirearm && ReloadEnds<=0;
             if(Aim && !bLocalAimApplied)UnaimedFOV=Camera->FieldOfView;
             AimBlend=FMath::FInterpTo(AimBlend,Aim?1.f:0.f,GetWorld()->GetDeltaSeconds(),A.AimBlendSpeed);
             if(Aim || bLocalAimApplied || AimBlend>.001f)Camera->SetFieldOfView(FMath::Lerp(UnaimedFOV,UnaimedFOV*(A.bSightADS?A.SightFOVScale:AimFOVScale),AimBlend));
@@ -290,3 +290,18 @@ bool URVCombatComponent::DebugRequestReload(FGuid Magazine,int32 Revision)
 
 
 
+
+bool URVCombatComponent::GetOwnerGripTargets(FTransform& Primary,FVector& Support) const
+{
+    const auto* C=Cast<ACharacter>(GetOwner());FRVItemInstance W;
+    if(!C || !C->IsLocallyControlled() || !CanUse() || ReloadEnds>0 || AimBlend<=.001f || !GetWeapon(W) || !W.Definition->Combat.bSightADS)return false;
+    const auto* Camera=C->FindComponentByClass<UCameraComponent>();const auto* Presentation=C->FindComponentByClass<URVCharacterPresentationComponent>();
+    const auto* Anchor=Presentation?Presentation->GetEquipmentAnchor(W.Definition->Combat.HandAnchor):nullptr;
+    if(!Camera || !Anchor)return false;
+    const auto& A=W.Definition->Combat;
+    const FTransform Sight(Camera->GetComponentQuat(),Camera->GetComponentLocation()+Camera->GetForwardVector()*A.SightEyeReliefCm);
+    const FTransform Weapon=A.SightTransform.Inverse()*Sight;
+    Primary=Anchor->GetRelativeTransform().Inverse()*(A.GripOffset*A.FirstPersonOffset).Inverse()*Weapon;
+    Support=Weapon.TransformPosition(A.SupportHandTarget.GetLocation());
+    return true;
+}

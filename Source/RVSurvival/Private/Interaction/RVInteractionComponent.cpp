@@ -62,6 +62,7 @@ FText URVInteractionComponent::GetPrompt() const
     auto* Pawn=Cast<APawn>(GetOwner());FString Prompt=IRVInteractable::Execute_GetInteractionText(Target,Pawn).ToString();
     const FString Key=RVInputMappings::KeyLabel(Pawn?Cast<APlayerController>(Pawn->GetController()):nullptr,TEXT("Interact"),TEXT("E"));
     Prompt.ReplaceInline(TEXT("Hold E:"),*(TEXT("Hold ")+Key+TEXT(":")),ESearchCase::CaseSensitive);
+    Prompt.ReplaceInline(TEXT("Hold E "),*(TEXT("Hold ")+Key+TEXT(" ")),ESearchCase::CaseSensitive);
     Prompt.ReplaceInline(TEXT("E:"),*(Key+TEXT(":")),ESearchCase::CaseSensitive);
     return FText::FromString(Prompt);
 }

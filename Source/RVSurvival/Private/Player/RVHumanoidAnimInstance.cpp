@@ -4,6 +4,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Combat/RVInfected.h"
 #include "Combat/RVCombatComponent.h"
+#include "Components/SkeletalMeshComponent.h"
 void URVHumanoidAnimInstance::NativeUpdateAnimation(float Delta)
 {
     Super::NativeUpdateAnimation(Delta);
@@ -31,5 +32,17 @@ void URVHumanoidAnimInstance::NativeUpdateAnimation(float Delta)
         bWasFalling=Falling;
     }
     else { bWasFalling=false;LandingRemaining=0; }
+    // Native AnimGraph IK changes only rendered hands; targets are derived from
+    // the per-weapon sight/grip data, never from movement or replicated positions.
+    WeaponGripIKAlpha=0;
+    FTransform Primary;FVector Support;
+    if(PoseIndex==0 && Combat && Combat->GetOwnerGripTargets(Primary,Support))
+    {
+        const FTransform MeshWorld=Character->GetMesh()->GetComponentTransform();
+        const FTransform Relative=Primary.GetRelativeTransform(MeshWorld);
+        WeaponRightHandTarget=Relative.GetLocation();WeaponRightHandRotation=Relative.Rotator();
+        WeaponLeftHandTarget=MeshWorld.InverseTransformPosition(Support);
+        WeaponGripIKAlpha=FMath::Clamp(Combat->GetPresentationAimBlend(),0.f,1.f);
+    }
 }
 

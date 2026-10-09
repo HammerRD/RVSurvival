@@ -47,3 +47,11 @@ The first rendered M1911 pass is not accepted visually: hand/grip alignment need
 Actual F10/key-selector interaction exposed an engine callback issue missed by source-only checks: Slate `SInputKeySelector::SetSelectedKey` emits the selection delegate. Restoring the old key after a detected conflict recursively cleared the pending key/warning and saved the old binding. Added a scoped programmatic-update guard and restrained key-button styling. Build passes; UI retest is pending. Existing binding save was backed up under Saved/Gate9_5Validation before remapping.
 
 Epic's supported Two Bone IK / Hand IK Retargeting pattern is being evaluated for keeping the owner hands on the sight-aligned weapon. Native animation nodes will remain cosmetic and will not modify CharacterMovement, reference-frame transforms or hit authority. See https://dev.epicgames.com/documentation/unreal-engine/animation-blueprint-hand-ik-retargeting-in-unreal-engine .
+
+### Native hand IK iteration — not yet visually accepted
+
+Saved a Gate9.5-only humanoid profile and Animation Blueprint derived from the accepted character assets. Native Two Bone IK nodes and a hand rotation node run only for the locally controlled owner's sight ADS; reload, seated, bed, downed and ladder poses disable the cosmetic targets. No character movement, base or authoritative shot transform changes were introduced. Native build and content authoring passed; the editor released references and shut down cleanly.
+
+Settled rendered evidence exposed an incorrect initial grip rotation: the Epic hand bone already faces approximately opposite actor forward, while the M1911 barrel points toward mesh-local -X. Applying another 180-degree grip yaw pointed the ready pistol backward. The asset-specific grip is being corrected independently of the sight reference. The sight line aligns in the settled render, but hand placement remains visibly poor and is not accepted. This is an active presentation iteration, not a completed visual milestone.
+
+Expanded current-binding prompts for the timed test counter, electrical controls, RV driving/exit, ladder and Settings back action. Development Editor build `current_prompt_build.txt` succeeded. Full menu interaction/persistence and paired multiplayer acceptance remain pending.

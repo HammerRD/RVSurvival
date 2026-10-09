@@ -38,6 +38,8 @@ public:
     UPROPERTY(EditAnywhere,BlueprintReadOnly) float AimFOVScale=.8f;
     UPROPERTY(EditAnywhere,BlueprintReadOnly) float AimSensitivityScale=.7f;
     float GetLookScale() const {return bEnabled && bAiming?AimSensitivityScale:1.f;}
+    bool GetOwnerGripTargets(FTransform& Primary,FVector& Support) const;
+    float GetPresentationAimBlend() const {return AimBlend;}
     UFUNCTION(BlueprintPure) int32 GetLoadedRounds() const;
     UFUNCTION(BlueprintPure) bool GetWeapon(FRVItemInstance& Item) const;
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) bool DebugRequestFire(FGuid Weapon,int32 Revision,int32 RequestSequence);

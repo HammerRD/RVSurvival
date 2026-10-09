@@ -20,4 +20,5 @@ public:
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static UAnimSequence* CreatePrototypeMelee(const FString& AssetPath,USkeletalMesh* Mesh,bool Shove,UAnimSequence* BasePose);
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static bool PopulateLocomotion(UBlendSpace* BlendSpace,const TArray<UAnimSequence*>& Clips,const TArray<FVector>& Coordinates);
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static bool BuildAnimationGraph(UAnimBlueprint* Blueprint,UBlendSpace* Locomotion,const TArray<UAnimSequence*>& Poses,UBlendSpace* ArmedLocomotion=nullptr,UBlendSpace* WeaponAimOffset=nullptr);
+    UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static bool AddWeaponGripIK(UAnimBlueprint* Blueprint,FName PrimaryBone,FName SupportBone);
 };

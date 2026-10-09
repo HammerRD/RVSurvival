@@ -1,0 +1,15 @@
+{
+  "blueprint": "/Game/Characters/RV/Gate9_5/ABP_Gate9_5Humanoid.ABP_Gate9_5Humanoid",
+  "profile": "/Game/Characters/RV/Gate9_5/DA_Gate9_5HumanoidProfile.DA_Gate9_5HumanoidProfile",
+  "primary_bone": "hand_r",
+  "support_bone": "hand_l",
+  "owner_only_ads": true,
+  "reload_disables_ik": true,
+  "native_nodes": [
+    "LocalToComponentSpace",
+    "TwoBoneIK x2",
+    "ModifyBone rotation",
+    "ComponentToLocalSpace"
+  ],
+  "saved": true
+}

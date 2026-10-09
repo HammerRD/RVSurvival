@@ -16,6 +16,10 @@ public:
     UPROPERTY(BlueprintReadOnly,Category="Presentation") bool bWeaponReady=false;
     UPROPERTY(BlueprintReadOnly,Category="Presentation") float AimPitch=0;
     UPROPERTY(BlueprintReadOnly,Category="Presentation") float NormalizedAimPitch=0;
+    UPROPERTY(BlueprintReadOnly,Category="Presentation") float WeaponGripIKAlpha=0;
+    UPROPERTY(BlueprintReadOnly,Category="Presentation") FVector WeaponRightHandTarget=FVector::ZeroVector;
+    UPROPERTY(BlueprintReadOnly,Category="Presentation") FVector WeaponLeftHandTarget=FVector::ZeroVector;
+    UPROPERTY(BlueprintReadOnly,Category="Presentation") FRotator WeaponRightHandRotation=FRotator::ZeroRotator;
 private:
     bool bWasFalling=false;
     float LandingRemaining=0;

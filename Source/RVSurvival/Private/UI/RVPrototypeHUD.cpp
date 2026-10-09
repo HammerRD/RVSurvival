@@ -103,7 +103,12 @@ void ARVPrototypeHUD::DrawHUD()
             DrawText(PC->ResourceFeedback,FLinearColor::Yellow,X+10,310,nullptr,.75f);
             if(PC->ResourcePoint && !PC->ResourcePoint->bFuelFill)
             {
-                DrawText(TEXT("H lights | J generator | K fridge | L tools | O idle"),FLinearColor::White,X+10,333,nullptr,.7f);
+                DrawText(FString::Printf(TEXT("%s lights | %s generator | %s fridge | %s tools | %s idle"),
+                    *RVInputMappings::KeyLabel(PlayerOwner,TEXT("Lights"),TEXT("H")),
+                    *RVInputMappings::KeyLabel(PlayerOwner,TEXT("Generator"),TEXT("J")),
+                    *RVInputMappings::KeyLabel(PlayerOwner,TEXT("Fridge"),TEXT("K")),
+                    *RVInputMappings::KeyLabel(PlayerOwner,TEXT("StationPower"),TEXT("L")),
+                    *RVInputMappings::KeyLabel(PlayerOwner,TEXT("EngineIdle"),TEXT("O"))),FLinearColor::White,X+10,333,nullptr,.7f);
             }
         }
     }
@@ -113,8 +118,14 @@ void ARVPrototypeHUD::DrawHUD()
         const bool Driver = PlayerOwner->GetPawn() == PC->SeatedVehicle;
         const auto* Character=Cast<ARVSurvivorCharacter>(PlayerOwner->GetPawn());
         const auto* Seat=Character?Cast<URVVehicleSeatComponent>(Character->GetRootComponent()->GetAttachParent()):nullptr;
-        DrawText(Driver ? TEXT("PROTOTYPE RV | W: accelerate  S: brake/reverse  A/D: steer  Space: handbrake  E: exit when stopped")
-            : Seat && Seat->bInteriorOnly ? TEXT("RV living-area seat | E: stand in aisle") : TEXT("RV passenger | E: exit when stopped"), FLinearColor::White, 20, 35);
+        const FString Exit=RVInputMappings::KeyLabel(PlayerOwner,Driver?TEXT("VehicleExit"):TEXT("Interact"),TEXT("E"));
+        const FString DrivingHelp=FString::Printf(TEXT("PROTOTYPE RV | %s accelerate | %s brake/reverse | %s/%s steer | %s handbrake | %s exit when stopped"),
+            *RVInputMappings::KeyLabel(PlayerOwner,TEXT("Accelerate"),TEXT("W")),
+            *RVInputMappings::KeyLabel(PlayerOwner,TEXT("BrakeReverse"),TEXT("S")),
+            *RVInputMappings::KeyLabel(PlayerOwner,TEXT("SteerLeft"),TEXT("A")),
+            *RVInputMappings::KeyLabel(PlayerOwner,TEXT("SteerRight"),TEXT("D")),
+            *RVInputMappings::KeyLabel(PlayerOwner,TEXT("Handbrake"),TEXT("Space")),*Exit);
+        DrawText(Driver?DrivingHelp:Seat && Seat->bInteriorOnly?TEXT("RV living-area seat | ")+Exit+TEXT(": stand in aisle"):TEXT("RV passenger | ")+Exit+TEXT(": exit when stopped"), FLinearColor::White, 20, 35);
         DrawText(FString::Printf(TEXT("%s driver | %s passenger | %s next seat (stopped) | %s living area | %s Controls"),
             *RVInputMappings::KeyLabel(PlayerOwner,TEXT("DriverSeat"),TEXT("1")),
             *RVInputMappings::KeyLabel(PlayerOwner,TEXT("PassengerSeat"),TEXT("2")),
@@ -127,7 +138,7 @@ void ARVPrototypeHUD::DrawHUD()
     if (const auto* Pawn = Cast<ARVSurvivorCharacter>(PlayerOwner->GetPawn()))
     {
         if(const auto* Climb=Pawn->FindComponentByClass<URVLadderClimbComponent>();Climb && Climb->Ladder)
-        { DrawText(TEXT("Ladder | climb up/down | interact: dismount at ground or supported roof | F10 Controls"),FLinearColor::White,20,35); return; }
+        { DrawText(TEXT("Ladder | climb up/down | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Interact"),TEXT("E"))+TEXT(": dismount at ground or supported roof | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Controls"),TEXT("F10"))+TEXT(" Controls"),FLinearColor::White,20,35); return; }
         DrawText(Pawn->GetInteraction()->GetPrompt().ToString(), FLinearColor::White,
             Canvas->ClipX * 0.5f - 150.f, Canvas->ClipY * 0.5f + 35.f);
         auto* Inventory=Pawn->FindComponentByClass<URVInventoryComponent>();

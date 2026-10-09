@@ -20,10 +20,10 @@ def tick(dt):
  if combat.get_editor_property('bAiming') and 'aim' not in seen:seen.add('aim');snap('aim')
  if combat.shot_sequence>0 and 'fire' not in seen:seen.add('fire');snap('fire')
  command=B/'visual-command.json'
- if command.exists():
+ if command.exists() and command.stat().st_mtime>started:
   data=json.loads(command.read_text());name=data['name']
-  if name not in seen:
-   seen.add(name)
+  if data.get('id',name) not in seen:
+   seen.add(data.get('id',name))
    if name=='observer':
     pos=p.get_actor_location()+unreal.Vector(170,-190,30);camera=unreal.RVCharacterContentLibrary.spawn_observation_camera(p,pos,unreal.MathLibrary.find_look_at_rotation(pos,p.get_actor_location()+unreal.Vector(35,0,25)));pc.set_view_target_with_blend(camera,0)
    elif name=='restore':pc.set_view_target_with_blend(p,0)

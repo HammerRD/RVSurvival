@@ -39,6 +39,10 @@ AActor* URVCharacterContentLibrary::SpawnPoseFixture(UObject* Context,FVector Po
 #include "Animation/AnimData/IAnimationDataModel.h"
 #include "AssetRegistry/AssetRegistryModule.h"
 #include "AnimGraphNode_Root.h"
+#include "AnimGraphNode_TwoBoneIK.h"
+#include "AnimGraphNode_ModifyBone.h"
+#include "AnimGraphNode_LocalToComponentSpace.h"
+#include "AnimGraphNode_ComponentToLocalSpace.h"
 #include "AnimGraphNode_BlendListByInt.h"
 #include "AnimGraphNode_BlendSpacePlayer.h"
 #include "AnimGraphNode_SequencePlayer.h"
@@ -246,3 +250,50 @@ bool URVCharacterContentLibrary::BuildAnimationGraph(UAnimBlueprint* Blueprint,U
 
 
 
+
+bool URVCharacterContentLibrary::AddWeaponGripIK(UAnimBlueprint* Blueprint,FName PrimaryBone,FName SupportBone)
+{
+#if WITH_EDITOR
+    if(!Blueprint || PrimaryBone.IsNone() || SupportBone.IsNone())return false;
+    UEdGraph* Graph=nullptr;for(auto Candidate:Blueprint->FunctionGraphs)if(Candidate->GetFName()==TEXT("AnimGraph"))Graph=Candidate.Get();
+    if(!Graph)return false;
+    UAnimGraphNode_Root* Root=nullptr;
+    for(auto Entry:Graph->Nodes)
+    {auto* Node=Entry.Get();if(Node->NodeComment==TEXT("RVWeaponGripIK"))return true;if(auto* R=Cast<UAnimGraphNode_Root>(Node))Root=R;}
+    auto* Result=Root?Root->FindPin(TEXT("Result")):nullptr;
+    if(!Result || Result->LinkedTo.Num()!=1)return false;
+    UEdGraphPin* Source=Result->LinkedTo[0];Result->BreakAllPinLinks();
+    const auto* Schema=Graph->GetSchema();bool Success=true;
+    auto Link=[&](UEdGraphNode* From,FName Output,UEdGraphNode* To,FName Input)
+    {auto* A=From->FindPin(Output);auto* B=To->FindPin(Input);Success=Success && A && B && Schema->TryCreateConnection(A,B);};
+    auto Variable=[&](FName Name,int32 Y)
+    {FGraphNodeCreator<UK2Node_VariableGet> Make(*Graph);auto* N=Make.CreateNode();N->VariableReference.SetSelfMember(Name);N->NodePosX=400;N->NodePosY=Y;Make.Finalize();return N;};
+    FGraphNodeCreator<UAnimGraphNode_LocalToComponentSpace> MakeSpace(*Graph);auto* Space=MakeSpace.CreateNode();MakeSpace.Finalize();Space->NodePosX=550;
+    auto* Input=Space->FindPin(TEXT("LocalPose"));Success=Success && Input && Schema->TryCreateConnection(Source,Input);
+    auto IK=[&](FName Bone,FName Target,FVector Pole,int32 X)
+    {
+        FGraphNodeCreator<UAnimGraphNode_TwoBoneIK> Make(*Graph);auto* N=Make.CreateNode();N->Node.IKBone.BoneName=Bone;
+        N->Node.EffectorLocationSpace=BCS_ComponentSpace;N->Node.JointTargetLocationSpace=BCS_ComponentSpace;N->Node.JointTargetLocation=Pole;
+        N->Node.bAllowStretching=false;N->Node.bMaintainEffectorRelRot=true;N->Node.Alpha=0;
+        Make.Finalize();N->ReconstructNode();N->NodePosX=X;
+        Link(Variable(Target,300+X/4),Target,N,TEXT("EffectorLocation"));
+        Link(Variable(TEXT("WeaponGripIKAlpha"),500+X/4),TEXT("WeaponGripIKAlpha"),N,TEXT("Alpha"));return N;
+    };
+    auto* Right=IK(PrimaryBone,TEXT("WeaponRightHandTarget"),FVector(-60,-20,110),750);
+    auto* Left=IK(SupportBone,TEXT("WeaponLeftHandTarget"),FVector(60,-20,110),1000);
+    FGraphNodeCreator<UAnimGraphNode_ModifyBone> MakeRotation(*Graph);auto* Rotation=MakeRotation.CreateNode();
+    Rotation->Node.BoneToModify.BoneName=PrimaryBone;Rotation->Node.RotationMode=BMM_Replace;Rotation->Node.RotationSpace=BCS_ComponentSpace;Rotation->Node.Alpha=0;
+    MakeRotation.Finalize();Rotation->ReconstructNode();Rotation->NodePosX=1250;
+    Link(Variable(TEXT("WeaponRightHandRotation"),-250),TEXT("WeaponRightHandRotation"),Rotation,TEXT("Rotation"));
+    Link(Variable(TEXT("WeaponGripIKAlpha"),-100),TEXT("WeaponGripIKAlpha"),Rotation,TEXT("Alpha"));
+    FGraphNodeCreator<UAnimGraphNode_ComponentToLocalSpace> MakeLocal(*Graph);auto* Local=MakeLocal.CreateNode();MakeLocal.Finalize();Local->NodePosX=1500;
+    Link(Space,TEXT("ComponentPose"),Right,TEXT("ComponentPose"));Link(Right,TEXT("Pose"),Left,TEXT("ComponentPose"));
+    Link(Left,TEXT("Pose"),Rotation,TEXT("ComponentPose"));Link(Rotation,TEXT("Pose"),Local,TEXT("ComponentPose"));Link(Local,TEXT("Pose"),Root,TEXT("Result"));
+    Root->NodePosX=1750;
+    if(!Success){UE_LOG(LogTemp,Error,TEXT("Weapon IK graph pin link failed"));return false;}
+    Space->NodeComment=TEXT("RVWeaponGripIK");FBlueprintEditorUtils::MarkBlueprintAsStructurallyModified(Blueprint);
+    FKismetEditorUtilities::CompileBlueprint(Blueprint);Blueprint->MarkPackageDirty();return Blueprint->Status!=BS_Error;
+#else
+    return false;
+#endif
+}
