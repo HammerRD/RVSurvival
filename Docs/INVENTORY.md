@@ -131,3 +131,9 @@ or second combat inventory is introduced.
 Ordinary definitions default PickupSeconds to zero for tap pickup. Timed/committed actions retain configurable durations. The physically carried prototype battery explicitly keeps a 0.5-second hold. Capacity, GUID/condition/quantity, partial magazines, server pickup claims and container transactions remain the accepted inventory implementation.
 
 Free .45 ACP M1911 and crowbar definitions live in /Game/Combat/Gate9_5, using existing inventory/equipment. Per-item grip/sight/muzzle/support/FP/TP data separates art from gameplay. Crowbar remains a tool-category prototype with future utility/durability hooks; this pass adds only light melee. Sources/licenses/credit are in THIRD_PARTY_ASSETS.md.
+
+## Gate 9.5 ordered quick access
+
+Combat metadata adds bQuickAccess and QuickAccessOrder. The authoritative combat component gathers usable owned equippable definitions, sorts by order and stable GUID tie-break, and includes an unarmed entry. It does not hardcode pistol-to-crowbar switching. Mouse Wheel Up is Next; Down is Previous. Reliable owned requests wrap the server list and reuse validated ServerEquip. Unavailable/broken items are skipped. Future equipment can opt in without a second inventory or full hotbar.
+
+Switching cancels ADS/reload presentation and reuses one equipment mesh. Runtime item GUIDs, condition and the magazine physically loaded in a gun remain unchanged. Switching during the brief committed melee hit window is rejected; medical/rest/seat/ladder action restrictions remain. Direct 4/5 equip actions remain available. No final visible holstered equipment is required yet.

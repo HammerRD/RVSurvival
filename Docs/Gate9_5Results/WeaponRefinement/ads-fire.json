@@ -1,0 +1,26 @@
+{
+  "results": [
+    {
+      "case": "primary_fire",
+      "pass": true,
+      "detail": "6"
+    },
+    {
+      "case": "fired_while_aiming",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "native_ads_recoil",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "ads_exit_restores_camera",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "peak_native_recoil_pitch_degrees": 0.6223436545800377,
+  "capture_stall_excluded": true
+}

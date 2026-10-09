@@ -1,0 +1,54 @@
+{
+  "results": [
+    {
+      "case": "primary_fire",
+      "pass": true,
+      "detail": "6"
+    },
+    {
+      "case": "wheel_next_melee",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "primary_three_melee_variants",
+      "pass": true,
+      "detail": "3"
+    },
+    {
+      "case": "cycle_preserves_partial_magazine",
+      "pass": true,
+      "detail": "6"
+    },
+    {
+      "case": "single_equipment_visual",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "rapid_cycle_returns_firearm",
+      "pass": true,
+      "detail": "6"
+    },
+    {
+      "case": "unarmed_primary_shove",
+      "pass": true,
+      "detail": "4"
+    },
+    {
+      "case": "camera_restored",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "rendered_pitch_matrix": [
+    -60,
+    -30,
+    0,
+    30,
+    60
+  ],
+  "settled_support_error_max_cm": 4.556346636343676e-13,
+  "settled_support_error_median_cm": 2.842170943040401e-14,
+  "method": "last 10 active-IK samples per stage; initial equip/blend excluded"
+}

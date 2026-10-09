@@ -4,7 +4,7 @@ from pathlib import Path
 B=Path('D:/GitHub/RVSurvival/RVSurvival/Saved/Gate9_5Validation');session=json.loads((B/'session.json').read_text());config=session['config'];start=session['start']
 w=next(w for w in unreal.ObjectIterator(unreal.World) if w.get_name()=='Gate9_5CombatRefinementTest' and unreal.GameplayStatics.get_player_controller(w,0) and unreal.GameplayStatics.get_player_controller(w,0).get_controlled_pawn())
 pc=unreal.GameplayStatics.get_player_controller(w,0);p=pc.get_controlled_pawn();authority=unreal.GameplayStatics.get_game_mode(w) is not None;role='server' if authority else 'client';other=next(c for c in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVSurvivorCharacter) if c!=p)
-hp=p if authority else other;cp=other if authority else p;enemies=sorted(unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVInfected),key=lambda a:a.get_name());rows=[];events=[];held={};initial=None;ammo_ids=None;before=[];camera=None;active=True
+hp=p if authority else other;cp=other if authority else p;enemies=sorted(unreal.GameplayStatics.get_all_actors_of_class(w,unreal.RVInfected),key=lambda a:a.get_name());rows=[];events=[];held={};initial=None;ammo_ids=None;before=[];camera=None;active=True;observed_montages={}
 def combat(c):return c.get_component_by_class(unreal.RVCombatComponent)
 def inventory(c):return c.get_component_by_class(unreal.RVInventoryComponent)
 def check(name,value,detail=''):rows.append({'case':name,'pass':bool(value),'detail':str(detail)})
@@ -52,7 +52,8 @@ def observe():
  pc.set_view_target_with_blend(camera,0)
 def restore():pc.set_view_target_with_blend(pc.get_controlled_pawn(),0)
 def check_variant(number):
- a=other.mesh.get_anim_instance().get_current_active_montage();check('remote_variant_'+str(number),a is not None and a.get_name()=='AM_Crowbar'+['Diagonal','Horizontal','Downward'][number],str(a.get_name()) if a else 'no montage')
+ name='AM_Crowbar'+['Diagonal','Horizontal','Downward'][number]
+ check('remote_variant_'+str(number),name in observed_montages,observed_montages.get(name,'not observed during attack window'))
 def camera_check():check('switch_restores_camera',abs(p.get_component_by_class(unreal.CameraComponent).field_of_view-90)<.1)
 def health(c):return c.get_editor_property('PlayerState').get_editor_property('Health')
 def prepare_medical():
@@ -77,16 +78,18 @@ at(0,setup);at(1,lambda:tap('Four'));at(1.6,lambda:tap('R'));at(4.5,lambda:tap('
 at(6,lambda:key('RightMouseButton',True));at(6.2,lambda:pc.set_control_rotation(unreal.Rotator(pitch=30)));at(7.5,observe);at(7.8,lambda:snapshot('remote_handgun_ads'));at(8.1,restore)
 at(8.2,lambda:tap('MouseScrollUp'));at(9,lambda:key('RightMouseButton',False));at(9.5,camera_check);at(9.6,position_targets);at(10.5,aim_target);at(10.8,melee_start)
 for i in range(3):
- t=11+i*1.5;at(t,lambda:tap('LeftMouseButton'));at(t+.35,lambda i=i:check_variant(i));at(t+.3,observe);at(t+.45,lambda i=i:snapshot('remote_crowbar_'+str(i)));at(t+.7,restore)
+ t=11+i*1.5;at(t,lambda:tap('LeftMouseButton'));at(t+.3,observe);at(t+.6,lambda i=i:snapshot('remote_crowbar_'+str(i)));at(t+1.25,lambda i=i:check_variant(i));at(t+.9,restore)
 at(16,melee_end);at(16.2,lambda:tap('MouseScrollDown'));at(17,check_ammo)
 for i in range(12):at(18+i*.15,lambda:tap('MouseScrollUp'))
 at(21,check_ammo);at(21.1,lambda:check('one_equipment_visual',len([v for v in unreal.ObjectIterator(unreal.StaticMeshComponent) if v.get_owner()==p and v.get_name()=='EquippedFirearmVisual' and v.is_visible()])==1))
 at(22,lambda:tap('Four'));at(22.5,lambda:tap('LeftMouseButton'));at(23.5,lambda:check('both_primary_unarmed_shove',all(combat(c).melee_sequence==4 for c in [hp,cp])))
 at(24,prepare_medical);at(25,face_teammate);at(25.1,lambda:tap('Four') if authority else None);at(25.2,lambda:tap('Five') if not authority else None)
-at(26,face_teammate);at(26.3,lambda:tap('LeftMouseButton') if authority else None);at(27.5,lambda:medical_check(cp,'firearm_creates_teammate_torso_injury'));at(28,face_teammate);at(28.2,lambda:tap('LeftMouseButton') if not authority else None);at(29.5,lambda:medical_check(hp,'melee_creates_teammate_torso_injury'));at(30,finish);events.sort(key=lambda x:x[0])
+at(26,face_teammate);at(26.3,lambda:tap('LeftMouseButton') if authority else None);at(27.5,lambda:medical_check(cp,'firearm_creates_teammate_torso_injury'));at(28,face_teammate);at(28.2,lambda:tap('LeftMouseButton') if not authority else None);at(29.5,lambda:medical_check(hp,'melee_creates_mapped_teammate_injury'));at(30,finish);events.sort(key=lambda x:x[0])
 def tick(dt):
  if not active:return
  try:
+  montage=other.mesh.get_anim_instance().get_current_active_montage()
+  if montage and montage.get_name().startswith('AM_Crowbar'):observed_montages.setdefault(montage.get_name(),round(time.time()-start,3))
   for k,due in list(held.items()):
    if time.time()>=due:key(k,False);del held[k]
   while events and time.time()-start>=events[0][0]:_,fn=events.pop(0);fn()

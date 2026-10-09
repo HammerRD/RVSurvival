@@ -1,0 +1,36 @@
+{
+  "saved": true,
+  "map": "/Game/Maps/Gate9_5CombatRefinementTest",
+  "assets_loaded": [
+    "/Game/Characters/RV/Gate9_5/Refinement/A_CrowbarDiagonal.A_CrowbarDiagonal",
+    "/Game/Characters/RV/Gate9_5/Refinement/A_CrowbarDownward.A_CrowbarDownward",
+    "/Game/Characters/RV/Gate9_5/Refinement/A_CrowbarHorizontal.A_CrowbarHorizontal",
+    "/Game/Characters/RV/Gate9_5/Refinement/A_OneHandToolReady.A_OneHandToolReady",
+    "/Game/Characters/RV/Gate9_5/Refinement/ABP_OwnerBodyCopy.ABP_OwnerBodyCopy",
+    "/Game/Characters/RV/Gate9_5/Refinement/AM_CrowbarDiagonal.AM_CrowbarDiagonal",
+    "/Game/Characters/RV/Gate9_5/Refinement/AM_CrowbarDownward.AM_CrowbarDownward",
+    "/Game/Characters/RV/Gate9_5/Refinement/AM_CrowbarHorizontal.AM_CrowbarHorizontal",
+    "/Game/Characters/RV/Gate9_5/Refinement/DA_HandgunPresentation.DA_HandgunPresentation",
+    "/Game/Characters/RV/Gate9_5/Refinement/DA_OneHandedMeleePresentation.DA_OneHandedMeleePresentation",
+    "/Game/Characters/RV/Gate9_5/Refinement/OwnerMaterials/M_Owner_M_Mannequin.M_Owner_M_Mannequin",
+    "/Game/Characters/RV/Gate9_5/Refinement/OwnerMaterials/MI_Owner_0.MI_Owner_0",
+    "/Game/Characters/RV/Gate9_5/Refinement/OwnerMaterials/MI_Owner_1.MI_Owner_1"
+  ],
+  "families": [
+    "Handgun",
+    "OneHandedMelee"
+  ],
+  "sight_ads": true,
+  "capacity": 7,
+  "eye_relief_cm": 45.0,
+  "ready_hand": "<Struct 'Transform' (0x00000240932FCD50) {rotation: {x: 0.000000, y: -0.000000, z: 1.000000, w: 0.000000}, translation: {x: 40.000000, y: 3.000000, z: 50.000000}, scale3d: {x: 1.000000, y: 1.000000, z: 1.000000}}>",
+  "high_pitch_retraction_cm": 8.0,
+  "attacks": [
+    "AM_CrowbarDiagonal",
+    "AM_CrowbarHorizontal",
+    "AM_CrowbarDownward"
+  ],
+  "hit_seconds": 0.27000001072883606,
+  "body_regions": 6,
+  "owner_copy_pose": true
+}

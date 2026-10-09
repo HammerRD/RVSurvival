@@ -1,0 +1,15 @@
+{
+  "results": [
+    {
+      "case": "primary_three_melee_variants",
+      "pass": true,
+      "detail": "3"
+    }
+  ],
+  "animations": [
+    "Diagonal",
+    "Horizontal",
+    "Downward"
+  ],
+  "visual_scope": "one-handed grip and three native montages"
+}

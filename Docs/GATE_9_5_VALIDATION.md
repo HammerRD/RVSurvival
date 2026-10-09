@@ -1,6 +1,6 @@
 # Gate 9.5 — Combat, input and difficulty refinement
 
-Status: accepted functional baseline; manual weapon refinement IN PROGRESS. Gate 10 has not started. Accepted Gate 9 baseline: `566ae69`.
+Status: ACCEPTED at prototype quality after manual weapon refinement. Gate 10 has not started. Accepted Gate 9 baseline: `566ae69`.
 
 ## Framework review and recovery baseline
 
@@ -95,7 +95,7 @@ Ordinary pickups default to tap; carried battery remains a .5-second hold. Accep
 * moving_regression_server/client.json: client driver/host standing passenger under100ms/2%loss; low500cm/s, road1800cm/s, highway2700cm/s (about60mph), front/rear/sideways walking, standing, acceleration, turning, braking/resume, firing while riding,20 V-to-passenger/1-to-driver cycles. Passed without floor fall. Server/client reference-frame diagnostics reported0 corrections/max0cm. Speed phases use an explicitly recorded server physics fixture to bound coverage, not a claim of final handling tuning. Animation speed reached200cm/s while walking. Storage run also covered host driving/client interactions.
 * resource_rates_final_server/client.json: healthy client normal-E panel plus owned request changed InteriorLights; downed repeat left circuit/revision unchanged and cleared access. This supplies the formerly missing Gate8 healthy positive control. Native difficulty-effect fixture doubled hunger/thirst/fatigue rates: [80,80,20] -> Standard[79,78,20.6667], 2x[78,76,21.3333] over600 simulated seconds. This fixture checks effects, not UI authority (tested separately).
 * final-saved-audit.json freshly loaded all new assets, saved dirty content/map and verified .45/7round/sightADS and profile data. final_build.txt succeeded Development Editor/Win64 (target up to date after prior successful changed-source builds). final_saved_editor.log and bounded regression logs ended with clean editor exit. Persisted PIE restored standalone/one-player/one-process/emulation-off/no child automation command.
-* vendor-resume.json: all108RV source files SHA256 match0b6eff6. Prior accepted test maps preserved. Refrigerator collision remains deferred and unchanged.
+* vendor-resume.json: all 108RV source files SHA256 match0b6eff6. Prior accepted test maps preserved. Refrigerator collision remains deferred and unchanged.
 
 ### Failures, fixes and testing scope
 
@@ -119,3 +119,43 @@ Pre-existing unrelated Config/DefaultEngine.ini, .vsconfig, Automation_RVSurviva
 Recovery baseline26be374. User reported pitch hand separation, wrong ready/ADS posture and two-hand crowbar presentation. Inspection found ADS-only world-derived targets, a separately repositioned weapon and shared pistol-ready locomotion for melee. The revised weapon remains attached to the primary hand; native IK rotates primary before solving support in primary-bone space. Family profiles distinguish handgun and one-handed melee. Native Enhanced Input retains the saved Fire row identity but labels it Primary Attack; old separate Melee row is deprecated/hidden. Ordered owned-GUID cycling includes unarmed and preserves loaded magazines. Server chooses three one-hand montage variants and resolves one validated strike at the configured hit time; switching during that brief pending hit is rejected.
 
 First pitch render matrix showed effectively zero support target error, but exposed owner torso-camera penetration and open crowbar fingers. Reduced owner torso pitch is family-configurable; hand IK still receives full pitch. Crowbar ready now retains Epic pistol finger grip while returning the other arm to a free unarmed posture. Build API mismatch for TwoBoneIK target was corrected against UE5.8 native headers. Initial identity assertions used Python struct equality instead of native Guid equality and are being corrected. No new acceptance claim until refined visual/control/network checks pass. No Gate10.
+
+
+## Manual weapon refinement closure - 2026-10-09
+
+Gate9.5 remains ACCEPTED at prototype quality after this focused refinement. Gate10 was not begun. This section supersedes the earlier shared tool-ready pose, weapon-repositioning ADS and separate B melee control descriptions.
+
+### Cause and presentation solution
+
+The reported hand drift came from competing cosmetic weapon repositioning/ADS-only IK and support targets evaluated independently of the rotating primary hand. The old shared raised pistol overlay also gave the crowbar an inappropriate two-handed stance. Epic pistol assets were present already; no rifle animation pack or paid animation was needed. The gun now stays attached to its primary-hand anchor. Native AnimGraph right TwoBoneIK/rotation precedes left TwoBoneIK in primary-bone space, so the weapon-defined support target follows the firing hand throughout pitch and ADS.
+
+URVWeaponPresentationProfile separates Handgun and OneHandedMelee configuration; future LongGun/TwoHandedMelee are enum preparation only. Per-item grip/sight/muzzle/holster metadata remains. M1911 uses ReadyHand (40,3,50) cm, owner torso pitch scale0.25, sight eye relief45cm and high-angle reach retraction up to8cm. The actual rear/front sight reference drives arm placement, with smooth existing aim/FOV transitions. Native forearm twist nodes and shorter high-angle reach keep the arm chain from nearly locking straight. The full camera was not retuned around this weapon.
+
+First-person full-body neck/collar geometry intersected the camera at steep pitch. A native CopyPoseFromMesh owner-only follower uses project-side material derivatives masking head/neck/collar vertices; arms remain visible and the full remote/medical body is unchanged. Shader failures from pre-skinned pixel-stage masking were fixed using a native VertexInterpolator. Existing packed M1911 ORM textures had normal-map sampler classification; project-side mask copies/material references corrected this without editing imported source textures.
+
+Crowbar uses a one-handed ready overlay, wrapped finger/thumb pose and three project-side native animation sequences/montages: Diagonal, Horizontal, Downward. Server round-robin selection prevents immediate repeats. All have the same configured damage/cooldown and one authority hit at0.27s. Weak timer cleanup/revalidation prevents late invalid hits. Switching during this brief committed window is safely rejected. No combos, heavy attack or new durability system.
+
+### Controls and equipment
+
+LMB is Primary Attack: equipped firearm fires, melee swings, unarmed shoves. Fire's native saved mapping identity is retained, so existing attack remaps survive. Deprecated separate Melee rows are hidden/ignored rather than overwriting user bindings. Controls shows Primary Attack, Aim, Reload, Unload, Next/Previous and retained direct4/5 actions. Mouse Wheel Up = Next, Down = Previous, wrapping ordered usable owned GUIDs plus unarmed. Orders live on definitions; no pistol/crowbar-name branching. ServerEquip cancels ADS/reload, reuses one visible equipment mesh and preserves the loaded magazine/condition/GUID. UI-only input and cursor guard prevent cycling while menus scroll.
+
+### Actual validation
+
+* Native E/LMB/4/5/R/RMB/wheel input paths in the saved test map passed equip/reload/fire, all three swings, unarmed fallback, rapid12-step cycling, single visible weapon, magazine GUID/6-round preservation and FOV90 restoration.
+* Rendered ready/ADS matrix at -60,-30,0,30,60 degrees was inspected. Both hands remain associated with the handgun; ready is centered nearer the right-hand stance, sights align, and return-to-ready is stable. First-person crowbar grip and three strike renders plus remote handgun/crowbar renders were inspected. These are prototype poses, not a claim of final finger/animation polish. Settled bone-space support metrics accompany the images; numbers were not substituted for visual inspection.
+* Real Windows menu/player inputs opened F10, remapped Primary Attack toQ, swung the crowbar withQ, cycled down to the same loaded M1911 and firedQ (7->6). Scrolling Settings changed the panel scroll without equipment changes. The same row was restored to LMB; other mappings were not reset. Current-binding gameplay prompts displayedQ and then LMB.
+* Focused interaction/melee regression: 80ms tap pickup, timed hold/cancel/no-repeat, low-damage shove, fatigue effort, cooldown, exactly one armed hit, distant miss and wall obstruction passed. No unrelated difficulty/RV stress matrix was repeated.
+* Separate-process normal and 100 ms/2%loss listen-server runs exercised both players' fire/reload, ADS-to-crowbar camera reset, three attacks, remote variants, infected damage, unarmed action, rapid cycling, single equipment visual and partial-magazine identity. Final emulated server/client checks all passed. Firearm torso and melee guarding-arm injuries replicated to both peers.
+* The initial normal medical fixture wrongly demanded a torso injury from a sweep intercepted by the guarding arm. The initial emulated montage fixture sampled one frame before a delayed montage arrived. Corrected tests use the actual configured body-region mapping and continuous montage observation with bounded attack windows. Original failing receipts are preserved; no gameplay authority/range check was relaxed.
+* ADS fire remained authoritative (one round) and native camera recoil was measured without blocking screenshots during the0.18s effect. Early screenshot capture stalled the recoil observation window and produced an editor-view image; that image was rejected as evidence. The final receipt records the measured recoil and recovered FOV.
+* Fresh saved-asset audit loaded family profiles, all 13 refinement assets, three attack montages, six medical mappings and owner-copy materials; saved the map/dirty packages. An initial JSON-only receipt error from Unreal Array serialization was fixed with a Python list conversion. Final Development Editor/Win64 build succeeded. Editor/PIE shutdown was clean, with no World Memory Leak crash or detection suppression.
+
+Risk-based coverage targets character presentation, equipment/input identity, melee geometry, firearm and medical damage. Normal walking/needs/UI smoke remained functional; CharacterMovement/reference-frame, RV mechanical/survival/difficulty gameplay and prior maps were unchanged. Full historical Gate1-9 suites, unrelated separate-process RV/ladder/roof matrices and redundant network runs after individual finger edits were intentionally skipped.
+
+### Saves, scope and limitations
+
+Recovery d2da9db (clearly marked WIP) and stable c4a0858 precede this final closure commit. Authoring scripts saved every meaningful asset milestone; test launchers saved the map and released runner UObjects/callbacks before StopPIE/quit. All 108RV vendor SHA256 hashes match0b6eff6; free source/Epic mannequin paths remain unchanged relative to26be374. No new free asset acquisition or purchase.
+
+Known limitations: prototype finger contact/forearm skinning, small owner collar-cut seams at steep downward views, controlled FK swing/reload presentation rather than final authored motion, no final visible holstered equipment and no physical controller hardware test. These do not detach hands, block the sight view or alter authority. Refrigerator collision remains deferred. Long-gun/two-hand profiles are preparation only. No Gate10.
+
+Evidence/changed path manifest: Gate9_5Results/WeaponRefinement. Raw failed iterations/logs remain under Saved/Gate9_5Validation. Working tree exclusions remain pre-existing Config/DefaultEngine.ini, .vsconfig, Automation_RVSurvival.slnx and RVSurvival.slnx. Recommended next task: manual review of this saved refinement; await explicit authorization before Gate10.

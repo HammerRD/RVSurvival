@@ -1,0 +1,72 @@
+{
+  "role": "server",
+  "network": false,
+  "results": [
+    {
+      "case": "both_primary_fire_one_round",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "switch_restores_camera",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "remote_variant_0",
+      "pass": true,
+      "detail": "AM_CrowbarDiagonal"
+    },
+    {
+      "case": "remote_variant_1",
+      "pass": true,
+      "detail": "AM_CrowbarHorizontal"
+    },
+    {
+      "case": "remote_variant_2",
+      "pass": true,
+      "detail": "AM_CrowbarDownward"
+    },
+    {
+      "case": "both_contextual_three_swings",
+      "pass": true,
+      "detail": "[3, 3]"
+    },
+    {
+      "case": "authoritative_damage_replicates",
+      "pass": true,
+      "detail": "[(0.0, 65.0), (0.0, 65.0)]"
+    },
+    {
+      "case": "both_partial_magazine_identity_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "both_partial_magazine_identity_preserved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "one_equipment_visual",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "both_primary_unarmed_shove",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "firearm_creates_teammate_torso_injury",
+      "pass": true,
+      "detail": "[{id: {}, kind: Wound, injury_tag: {}, region: Torso, severity: 2.000000, bleeding_per_minute: 3.000000, pain: 20.000000, infection_risk: 0.200000, age_seconds: 1.000009, healing: 0.000000, stabilized: False, cleaned: False, treated: False, revision: 0}]"
+    },
+    {
+      "case": "melee_creates_teammate_torso_injury",
+      "pass": false,
+      "detail": "[{id: {}, kind: Wound, injury_tag: {}, region: LeftArm, severity: 2.000000, bleeding_per_minute: 3.000000, pain: 20.000000, infection_risk: 0.200000, age_seconds: 1.000013, healing: 0.000000, stabilized: False, cleaned: False, treated: False, revision: 0}]"
+    }
+  ],
+  "scope": "changed combat/input/animation only"
+}

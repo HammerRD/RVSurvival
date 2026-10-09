@@ -164,3 +164,11 @@ Shared difficulty lives on replicated ARVGameState with a revision guard. Only t
 Bindings, look preferences and UI remain client-local. Native Enhanced Input profiles apply locally with native asynchronous saves. Separate PIE processes on one Windows account share a physical save location; the runtime isolation test changes only the client's in-memory profile and verifies host LeftMouseButton/client Q independently fire, without writing that test change to shared disk. Real menu persistence is tested separately across clean launches.
 
 Melee uses reliable owned requests with sequence, ownership/revision/condition, action-state and cooldown validation. Authority derives the view, sweeps within bounded range and checks line of sight before PointDamage. One swing admits one target once; multicast montage/noise is cosmetic. Damage/stagger/sequence converge under representative 100 ms/2% loss. No lag-compensation/custom replication layer is added. Owner sight IK does not teleport or attach walking characters.
+
+## Gate 9.5 manual weapon refinement authority
+
+Primary Attack is client-local input routing only. Existing owned fire and melee requests retain server validation. Wheel cycling sends only +/-1 through an owned reliable RPC; the server chooses from actual owned ordered item GUIDs and validates equip. Equipment and aiming retain native replication. UI bindings/personal preferences remain local; the Fire identity preserves existing saved attack keys, while deprecated Melee rows are hidden and ignored in conflicts.
+
+The server cycles through three crowbar montage variants without immediate repetition and sends the variant in a reliable multicast. One weak native timer resolves one sweep/visibility-checked hit at 0.27 seconds for the crowbar. Ownership/revision/action state are rechecked at impact; disconnect clears the timer. Cosmetic montage choice does not alter damage. A guarding arm can intercept a torso-directed sweep and correctly receive the mapped arm injury.
+
+Owner sight/hand IK and the native CopyPose follower are presentation only. Capsule movement, CharacterMovement, reference-frame prediction and medical body-region mapping are unchanged. Remote characters use full Epic pistol aim/locomotion plus bone-space support IK and the replicated montage variant.

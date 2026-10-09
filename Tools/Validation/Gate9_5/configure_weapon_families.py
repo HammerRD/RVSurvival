@@ -9,7 +9,10 @@ def run():
   factory=unreal.DataAssetFactory();factory.set_editor_property('DataAssetClass',unreal.RVWeaponPresentationProfile)
   return unreal.load_asset(folder+'/'+name) or tools.create_asset(name,folder,unreal.RVWeaponPresentationProfile,factory)
  idle=unreal.load_asset('/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle');pistolready=unreal.load_asset('/Game/Characters/Mannequins/Anims/Pistol/MF_Pistol_Idle_ADS')
- ready=unreal.RVCharacterContentLibrary.create_prototype_pose(folder+'/A_OneHandToolReady',mesh,{},False,pistolready)
+ # A tool needs a wrapped grip rather than the pistol pose's trigger fingers.
+ curl={f'{finger}_{segment:02}_r':unreal.Rotator(pitch=45 if segment==1 else 65) for finger in ['index','middle','ring','pinky'] for segment in [1,2,3]}
+ curl.update({'thumb_02_r':unreal.Rotator(pitch=35),'thumb_03_r':unreal.Rotator(pitch=35)})
+ ready=unreal.RVCharacterContentLibrary.create_prototype_pose(folder+'/A_OneHandToolReady',mesh,curl,False,pistolready)
  assert unreal.RVCharacterContentLibrary.align_pose_bones(ready,mesh,{'upperarm_r':unreal.Vector(0,.7,-.7),'lowerarm_r':unreal.Vector(0,.7,.7),'upperarm_l':unreal.Vector(0,0,-1),'lowerarm_l':unreal.Vector(0,.15,-1)})
  save(ready);attacks=[]
  for i,name in enumerate(['Diagonal','Horizontal','Downward']):

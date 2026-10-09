@@ -18,8 +18,8 @@ void URVHumanoidAnimInstance::NativeUpdateAnimation(float Delta)
     Direction=GroundSpeed>1?FMath::RadiansToDegrees(FMath::Atan2(FVector::DotProduct(Velocity,Character->GetActorRightVector()),FVector::DotProduct(Velocity,Character->GetActorForwardVector()))):0;
     PoseIndex=Visual?int32(Visual->VisualState):0;
     const auto* Combat=Character->FindComponentByClass<URVCombatComponent>();FRVItemInstance Equipped;
-    // Reuse Epic's raised armed locomotion as the prototype tool-ready pose.
-    // The melee montage remains responsible for the visible swing.
+    // The family selects Epic handgun locomotion or a one-handed tool overlay.
+    // Native melee montages remain responsible for the visible swing.
     bWeaponReady=Combat && Combat->bEnabled && Combat->GetWeapon(Equipped)
         && (Equipped.Definition->Combat.bFirearm || Equipped.Definition->Combat.bMelee) && PoseIndex==0;
     const auto* Family=bWeaponReady?Equipped.Definition->Combat.Presentation.Get():nullptr;
