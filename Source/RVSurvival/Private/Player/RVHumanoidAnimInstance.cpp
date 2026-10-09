@@ -4,6 +4,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Combat/RVInfected.h"
 #include "Combat/RVCombatComponent.h"
+#include "Combat/RVWeaponPresentationProfile.h"
 #include "Components/SkeletalMeshComponent.h"
 void URVHumanoidAnimInstance::NativeUpdateAnimation(float Delta)
 {
@@ -21,8 +22,16 @@ void URVHumanoidAnimInstance::NativeUpdateAnimation(float Delta)
     // The melee montage remains responsible for the visible swing.
     bWeaponReady=Combat && Combat->bEnabled && Combat->GetWeapon(Equipped)
         && (Equipped.Definition->Combat.bFirearm || Equipped.Definition->Combat.bMelee) && PoseIndex==0;
+    const auto* Family=bWeaponReady?Equipped.Definition->Combat.Presentation.Get():nullptr;
+    bOneHandedMelee=Family && Family->Family==ERVWeaponFamily::OneHandedMelee;
+    WeaponLocomotion=Family && Family->LocomotionOverlay?Family->LocomotionOverlay:DefaultWeaponLocomotion;
+    WeaponAim=Family && Family->AimOffset?Family->AimOffset:DefaultWeaponAim;
+    WeaponReadyPose=Family && Family->ReadyPose?Family->ReadyPose:DefaultToolReady;
     AimPitch=FMath::Clamp(FRotator::NormalizeAxis(Character->GetBaseAimRotation().Pitch),-75.f,75.f);
     NormalizedAimPitch=AimPitch/90.f; // Epic AO_Pistol uses normalized -1..1 axes, not degrees.
+    // Arms receive full view pitch through their native IK; do not fold the
+    // owner's full torso into the fixed first-person camera at steep angles.
+    if(Family && Family->Family==ERVWeaponFamily::Handgun && Character->IsLocallyControlled())NormalizedAimPitch*=Family->OwnerTorsoPitchScale;
     if(const auto* Survivor=Cast<ARVSurvivorCharacter>(Character);Survivor && PoseIndex==4 && Survivor->SeatedVehicle) PoseIndex=10;
     if(const auto* Infected=Cast<ARVInfected>(Character))PoseIndex=Infected->State==ERVInfectedState::Dead?4:Infected->State==ERVInfectedState::Attack?6:0;
     ClimbPlayRate=FMath::Clamp(Velocity.Z/100.f,-1.5f,1.5f);
@@ -39,14 +48,17 @@ void URVHumanoidAnimInstance::NativeUpdateAnimation(float Delta)
     // Native AnimGraph IK changes only rendered hands; targets are derived from
     // the per-weapon sight/grip data, never from movement or replicated positions.
     WeaponGripIKAlpha=0;
+    WeaponSupportIKAlpha=0;
     FTransform Primary;FVector Support;
     if(PoseIndex==0 && Combat && Combat->GetOwnerGripTargets(Primary,Support))
     {
         const FTransform MeshWorld=Character->GetMesh()->GetComponentTransform();
-        const FTransform Relative=Primary.GetRelativeTransform(MeshWorld);
-        WeaponRightHandTarget=Relative.GetLocation();WeaponRightHandRotation=Relative.Rotator();
-        WeaponLeftHandTarget=MeshWorld.InverseTransformPosition(Support);
-        WeaponGripIKAlpha=FMath::Clamp(Combat->GetPresentationAimBlend(),0.f,1.f);
+        if(Character->IsLocallyControlled())
+        {const FTransform Relative=Primary.GetRelativeTransform(MeshWorld);
+         WeaponRightHandTarget=Relative.GetLocation();WeaponRightHandRotation=Relative.Rotator();
+         WeaponGripIKAlpha=Family && Family->bOwnerReadyIK?1.f:FMath::Clamp(Combat->GetPresentationAimBlend(),0.f,1.f);}
+        WeaponLeftHandTarget=Support;
+        WeaponSupportIKAlpha=Family && Family->bSupportHand?1.f:0.f;
     }
 }
 

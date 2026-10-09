@@ -1,6 +1,6 @@
 # Gate 9.5 — Combat, input and difficulty refinement
 
-Status: ACCEPTED. Gate 10 has not started. Accepted Gate 9 baseline: `566ae69`.
+Status: accepted functional baseline; manual weapon refinement IN PROGRESS. Gate 10 has not started. Accepted Gate 9 baseline: `566ae69`.
 
 ## Framework review and recovery baseline
 
@@ -112,3 +112,10 @@ Saved map: /Game/Maps/Gate9_5CombatRefinementTest. New project character ABP/pro
 Known limitations: prototype hand/finger/reload artwork, controlled montage rather than final melee animation, one light attack, physical controller hardware untested, session-only world difficulty, no dedicated-server/lobby UI, no final holstered equipment, refrigerator collision deferred. No world scavenging, procedural loot/population, hordes, extra weapon catalog, paid art or Gate10 implementation.
 
 Pre-existing unrelated Config/DefaultEngine.ini, .vsconfig, Automation_RVSurvival.slnx and RVSurvival.slnx remain excluded. Raw editor logs/intermediate captures are preserved locally under Saved/Gate9_5Validation; curated receipts/render evidence are committed. Unreal and child PIE/build processes are closed before stopping. Recommended next task: manual Gate9.5 review using the saved map/settings; start Gate10 only after explicit authorization.
+
+
+## Additional manual weapon refinement - 2026-10-09 (in progress)
+
+Recovery baseline26be374. User reported pitch hand separation, wrong ready/ADS posture and two-hand crowbar presentation. Inspection found ADS-only world-derived targets, a separately repositioned weapon and shared pistol-ready locomotion for melee. The revised weapon remains attached to the primary hand; native IK rotates primary before solving support in primary-bone space. Family profiles distinguish handgun and one-handed melee. Native Enhanced Input retains the saved Fire row identity but labels it Primary Attack; old separate Melee row is deprecated/hidden. Ordered owned-GUID cycling includes unarmed and preserves loaded magazines. Server chooses three one-hand montage variants and resolves one validated strike at the configured hit time; switching during that brief pending hit is rejected.
+
+First pitch render matrix showed effectively zero support target error, but exposed owner torso-camera penetration and open crowbar fingers. Reduced owner torso pitch is family-configurable; hand IK still receives full pitch. Crowbar ready now retains Epic pistol finger grip while returning the other arm to a free unarmed posture. Build API mismatch for TwoBoneIK target was corrected against UE5.8 native headers. Initial identity assertions used Python struct equality instead of native Guid equality and are being corrected. No new acceptance claim until refined visual/control/network checks pass. No Gate10.

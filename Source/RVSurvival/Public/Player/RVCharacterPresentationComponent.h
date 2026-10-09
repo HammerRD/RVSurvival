@@ -28,4 +28,5 @@ private:
     bool bHeadHidden=false;
     int32 Placement=-1;
     UPROPERTY(Transient) TMap<FName,TObjectPtr<USceneComponent>> Anchors;
+    UPROPERTY(Transient) TObjectPtr<class USkeletalMeshComponent> FirstPersonBody;
 };

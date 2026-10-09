@@ -42,9 +42,9 @@ void ARVPrototypeHUD::DrawHUD()
         bUsingWeaponSights=Equipped && W.Definition->Combat.bSightADS && Combat->GetPresentationAimBlend()>.9f;
         const FString Status=Equipped?(W.Definition->Combat.bMelee?W.Definition->DisplayName.ToString()+TEXT(" | melee ready"):FString::Printf(TEXT("%s | %d rounds%s"),*W.Definition->DisplayName.ToString(),Combat->GetLoadedRounds(),Combat->ReloadEnds>0?TEXT(" | reloading"):TEXT(""))):TEXT("Weapon holstered | defensive shove available");
         DrawText(Status,FLinearColor::White,20,Canvas->ClipY-240,nullptr,.85f);
-        DrawText(RVInputMappings::KeyLabel(PlayerOwner,TEXT("EquipWeapon"),TEXT("4"))+TEXT(" equip/holster | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Fire"),TEXT("LMB"))+TEXT(" fire | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Aim"),TEXT("RMB"))+TEXT(" aim | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Reload"),TEXT("R"))+TEXT(" swap magazine"),FLinearColor::White,20,Canvas->ClipY-218,nullptr,.7f);
+        DrawText(RVInputMappings::KeyLabel(PlayerOwner,TEXT("EquipWeapon"),TEXT("4"))+TEXT(" equip/holster | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Fire"),TEXT("LMB"))+TEXT(" primary attack | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Aim"),TEXT("RMB"))+TEXT(" aim | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Reload"),TEXT("R"))+TEXT(" swap magazine"),FLinearColor::White,20,Canvas->ClipY-218,nullptr,.7f);
         DrawText(RVInputMappings::KeyLabel(PlayerOwner,TEXT("UnloadMagazine"),TEXT("U"))+TEXT(" unload magazine | ")+Combat->Feedback,FLinearColor::Yellow,20,Canvas->ClipY-198,nullptr,.8f);
-        DrawText(RVInputMappings::KeyLabel(PlayerOwner,TEXT("EquipMelee"),TEXT("5"))+TEXT(" melee tool | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Melee"),TEXT("B"))+TEXT(" attack / defensive shove"),FLinearColor::White,20,Canvas->ClipY-178,nullptr,.7f);
+        DrawText(RVInputMappings::KeyLabel(PlayerOwner,TEXT("EquipMelee"),TEXT("5"))+TEXT(" melee tool | ")+RVInputMappings::KeyLabel(PlayerOwner,TEXT("Fire"),TEXT("LMB"))+TEXT(" attack / defensive shove"),FLinearColor::White,20,Canvas->ClipY-178,nullptr,.7f);
     }
     if(auto* PC=Cast<ARVPlayerController>(PlayerOwner))
     {

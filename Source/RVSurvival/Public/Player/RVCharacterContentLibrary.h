@@ -19,6 +19,8 @@ public:
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static UAnimSequence* CreatePrototypePose(const FString& AssetPath,USkeletalMesh* Mesh,const TMap<FName,FRotator>& BoneRotations,bool Climbing=false,UAnimSequence* BasePose=nullptr);
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static UAnimSequence* CreatePrototypeMelee(const FString& AssetPath,USkeletalMesh* Mesh,bool Shove,UAnimSequence* BasePose);
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static bool PopulateLocomotion(UBlendSpace* BlendSpace,const TArray<UAnimSequence*>& Clips,const TArray<FVector>& Coordinates);
-    UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static bool BuildAnimationGraph(UAnimBlueprint* Blueprint,UBlendSpace* Locomotion,const TArray<UAnimSequence*>& Poses,UBlendSpace* ArmedLocomotion=nullptr,UBlendSpace* WeaponAimOffset=nullptr);
+    UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static bool BuildAnimationGraph(UAnimBlueprint* Blueprint,UBlendSpace* Locomotion,const TArray<UAnimSequence*>& Poses,UBlendSpace* ArmedLocomotion=nullptr,UBlendSpace* WeaponAimOffset=nullptr,UAnimSequence* OneHandReady=nullptr);
+    UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static UAnimSequence* CreateOneHandedAttack(const FString& Path,USkeletalMesh* Mesh,UAnimSequence* Ready,int32 Variant);
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static bool AddWeaponGripIK(UAnimBlueprint* Blueprint,FName PrimaryBone,FName SupportBone);
+    UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) static bool BuildOwnerCopyPoseGraph(UAnimBlueprint* Blueprint,FName HiddenNeckBone);
 };

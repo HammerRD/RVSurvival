@@ -1,5 +1,6 @@
 #include "Combat/RVCombatComponent.h"
 #include "Combat/RVInfected.h"
+#include "Combat/RVWeaponPresentationProfile.h"
 #include "Combat/RVBodyRegionHitComponent.h"
 #include "Player/RVCharacterVisualProfile.h"
 #include "Player/RVSurvivorCharacter.h"
@@ -41,7 +42,7 @@ static TAutoConsoleVariable<int32> CombatDebugTrace(TEXT("rv.Combat.DebugTrace")
 URVCombatComponent::URVCombatComponent(){SetIsReplicatedByDefault(true);PrimaryComponentTick.bCanEverTick=true;}
 URVInventoryComponent* URVCombatComponent::Inventory() const{return GetOwner()->FindComponentByClass<URVInventoryComponent>();}
 bool URVCombatComponent::GetWeapon(FRVItemInstance& Item) const
-{if(const auto* I=Inventory())for(const auto& W:I->GetItems())if(W.Id==EquippedWeapon){Item=W;return W.Definition && (W.Definition->Combat.bFirearm || W.Definition->Combat.bMelee);}return false;}
+{if(const auto* I=Inventory())for(const auto& W:I->GetItems())if(W.Id==EquippedWeapon){Item=W;return W.Definition && (W.Definition->Combat.bFirearm || W.Definition->Combat.bMelee || W.Definition->Combat.bQuickAccess);}return false;}
 int32 URVCombatComponent::GetLoadedRounds() const
 {if(const auto* I=Inventory())for(const auto& M:I->GetItems())if(EquippedWeapon.IsValid() && M.LoadedInWeapon==EquippedWeapon)return M.MagazineRounds;return 0;}
 bool URVCombatComponent::CanUse() const
@@ -57,8 +58,10 @@ void URVCombatComponent::ServerEquip_Implementation(FGuid Id)
     if(!GetOwner()->HasAuthority())return;
     if(!CanUse()){Feedback=TEXT("Cannot equip in this state");return;}
     if(Id.IsValid())
-    {bool Owned=false;for(const auto& W:Inventory()->GetItems())if(W.Id==Id && W.Definition && (W.Definition->Combat.bFirearm || W.Definition->Combat.bMelee) && W.Definition->bEquippable)Owned=true;
+    {bool Owned=false;for(const auto& W:Inventory()->GetItems())if(W.Id==Id && W.Definition && (W.Definition->Combat.bFirearm || W.Definition->Combat.bMelee || W.Definition->Combat.bQuickAccess) && W.Definition->bEquippable)Owned=true;
      if(!Owned){Feedback=TEXT("Weapon not owned");return;}}
+    if(GetWorld()->GetTimerManager().IsTimerActive(MeleeHitTimer)){Feedback=TEXT("Finish the swing before switching");return;}
+    if(auto* C=Cast<ACharacter>(GetOwner()))C->StopAnimMontage();
     CancelReload(); // Holstering preserves the magazine physically loaded in this owned gun.
     EquippedWeapon=Id;bAiming=false;Feedback.Empty();GetOwner()->ForceNetUpdate();
 }
@@ -152,7 +155,7 @@ void URVCombatComponent::UpdateVisual()
     auto* C=Cast<ACharacter>(GetOwner());if(!C)return;FRVItemInstance W;
     auto* D=GetWeapon(W)?W.Definition.Get():nullptr;
     if(!WeaponVisual){WeaponVisual=NewObject<UStaticMeshComponent>(GetOwner(),TEXT("EquippedFirearmVisual"));WeaponVisual->SetCollisionEnabled(ECollisionEnabled::NoCollision);WeaponVisual->RegisterComponent();}
-    if(D!=VisualDefinition){VisualDefinition=D;WeaponVisual->SetStaticMesh(D?D->WorldMesh.LoadSynchronous():nullptr);
+    if(D!=VisualDefinition){C->StopAnimMontage();VisualDefinition=D;WeaponVisual->SetStaticMesh(D?D->WorldMesh.LoadSynchronous():nullptr);
         if(D)if(auto* P=C->FindComponentByClass<URVCharacterPresentationComponent>())if(auto* A=P->GetEquipmentAnchor(D->Combat.HandAnchor))
         {WeaponVisual->AttachToComponent(A,FAttachmentTransformRules::SnapToTargetNotIncludingScale);WeaponVisual->SetRelativeTransform(D->Combat.GripOffset);}}
     const auto* PS=C->GetPlayerState<ARVPlayerState>();
@@ -180,7 +183,9 @@ void URVCombatComponent::UpdateVisual()
     if(D)if(auto* P=C->FindComponentByClass<URVCharacterPresentationComponent>())if(auto* Anchor=P->GetEquipmentAnchor(D->Combat.HandAnchor))
     {
         const auto& A=D->Combat;
-        FTransform Ready=A.GripOffset*(C->IsLocallyControlled()?A.FirstPersonOffset:A.ThirdPersonOffset)*Anchor->GetComponentTransform();
+        const auto* Family=A.Presentation.Get();
+        const FTransform FamilyOffset=Family?(C->IsLocallyControlled()?Family->FirstPersonOffset:Family->ThirdPersonOffset):FTransform::Identity;
+        WeaponVisual->SetRelativeTransform(A.GripOffset*(C->IsLocallyControlled()?A.FirstPersonOffset:A.ThirdPersonOffset)*FamilyOffset);
         if(C->IsLocallyControlled())if(auto* Camera=C->FindComponentByClass<UCameraComponent>())
         {
             const bool Aim=bAiming && CanUse() && A.bFirearm && ReloadEnds<=0;
@@ -188,11 +193,8 @@ void URVCombatComponent::UpdateVisual()
             AimBlend=FMath::FInterpTo(AimBlend,Aim?1.f:0.f,GetWorld()->GetDeltaSeconds(),A.AimBlendSpeed);
             if(Aim || bLocalAimApplied || AimBlend>.001f)Camera->SetFieldOfView(FMath::Lerp(UnaimedFOV,UnaimedFOV*(A.bSightADS?A.SightFOVScale:AimFOVScale),AimBlend));
             bLocalAimApplied=Aim || AimBlend>.001f;
-            if(A.bSightADS && AimBlend>0)
-            {const FTransform Sight(Camera->GetComponentQuat(),Camera->GetComponentLocation()+Camera->GetForwardVector()*A.SightEyeReliefCm);
-             const FTransform Aligned=A.SightTransform.Inverse()*Sight;FTransform Mixed;Mixed.Blend(Ready,Aligned,AimBlend);Ready=Mixed;}
         }
-        WeaponVisual->SetWorldTransform(Ready);
+
     }
 }
 void URVCombatComponent::TickComponent(float Delta,ELevelTick Type,FActorComponentTickFunction* Function)
@@ -217,10 +219,10 @@ void URVCombatComponent::BindInput(UEnhancedInputComponent* Input)
     auto* P=Cast<APawn>(GetOwner());auto* PC=P?Cast<APlayerController>(P->GetController()):nullptr;if(!PC)return;
     if(!Mapping){Mapping=NewObject<UInputMappingContext>(this);
         auto Make=[&](TObjectPtr<UInputAction>& A,FKey Key,FName Name,const TCHAR* Label){A=NewObject<UInputAction>(this);RVInputMappings::Map(Mapping,A,Key,Name,Label);};
-        Make(EquipAction,EKeys::Four,TEXT("EquipWeapon"),TEXT("Equip / holster handgun"));Make(FireAction,EKeys::LeftMouseButton,TEXT("Fire"),TEXT("Fire handgun"));
+        Make(EquipAction,EKeys::Four,TEXT("EquipWeapon"),TEXT("Equip / holster handgun"));Make(FireAction,EKeys::LeftMouseButton,TEXT("Fire"),TEXT("Primary Attack"));
         Make(AimAction,EKeys::RightMouseButton,TEXT("Aim"),TEXT("Aim handgun"));Make(ReloadAction,EKeys::R,TEXT("Reload"),TEXT("Reload / stand up"));
         Make(UnloadAction,EKeys::U,TEXT("UnloadMagazine"),TEXT("Unload magazine to inventory"));
-        Make(MeleeAction,EKeys::B,TEXT("Melee"),TEXT("Melee attack / unarmed shove"));Make(EquipMeleeAction,EKeys::Five,TEXT("EquipMelee"),TEXT("Equip / holster melee tool"));
+        Make(NextWeaponAction,EKeys::MouseScrollUp,TEXT("NextWeapon"),TEXT("Next weapon / equipment"));Make(PreviousWeaponAction,EKeys::MouseScrollDown,TEXT("PreviousWeapon"),TEXT("Previous weapon / equipment"));Make(EquipMeleeAction,EKeys::Five,TEXT("EquipMelee"),TEXT("Equip / holster melee tool"));
         // Shared defaults must still reach the accepted bed-wake/vehicle-orbit context.
         AimAction->bConsumeInput=false;ReloadAction->bConsumeInput=false;}
     if(auto* Local=PC->GetLocalPlayer())if(auto* S=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
@@ -229,7 +231,7 @@ void URVCombatComponent::BindInput(UEnhancedInputComponent* Input)
     Input->BindAction(AimAction,ETriggerEvent::Started,this,&ThisClass::AimStart);Input->BindAction(AimAction,ETriggerEvent::Completed,this,&ThisClass::AimStop);Input->BindAction(AimAction,ETriggerEvent::Canceled,this,&ThisClass::AimStop);
     Input->BindAction(ReloadAction,ETriggerEvent::Started,this,&ThisClass::ReloadInput);
     Input->BindAction(UnloadAction,ETriggerEvent::Started,this,&ThisClass::UnloadInput);
-    Input->BindAction(MeleeAction,ETriggerEvent::Started,this,&ThisClass::MeleeInput);Input->BindAction(EquipMeleeAction,ETriggerEvent::Started,this,&ThisClass::EquipMeleeInput);
+    Input->BindAction(NextWeaponAction,ETriggerEvent::Started,this,&ThisClass::NextWeaponInput);Input->BindAction(PreviousWeaponAction,ETriggerEvent::Started,this,&ThisClass::PreviousWeaponInput);Input->BindAction(EquipMeleeAction,ETriggerEvent::Started,this,&ThisClass::EquipMeleeInput);
 }
 void URVCombatComponent::RemoveInput()
 {if(bLocalAimApplied){if(auto* Camera=GetOwner()->FindComponentByClass<UCameraComponent>())Camera->SetFieldOfView(UnaimedFOV);bLocalAimApplied=false;}
@@ -256,6 +258,25 @@ void URVCombatComponent::ServerMelee_Implementation(FGuid Id,int32 Revision,uint
     if(!FMath::IsFinite(Range) || Range<=0 || Range>200 || !FMath::IsFinite(Radius) || Radius<0 || Radius>20 || !FMath::IsFinite(Cooldown) || Cooldown<.3f || !FMath::IsFinite(Damage) || Damage<0 || Damage>100)return;
     auto* Pawn=Cast<APawn>(GetOwner());auto* PS=Pawn?Pawn->GetPlayerState<ARVPlayerState>():nullptr;if(!PS || !PS->Needs->ApplyEffortAuthority(Cost))return;
     LastMeleeRequest=Request;NextMeleeTime=GetWorld()->GetTimeSeconds()+Cooldown;++MeleeSequence;
+    int32 Variant=0;
+    if(M && M->Presentation && M->Presentation->LightAttacks.Num()>1)
+        Variant=(LastMeleeVariant+1)%M->Presentation->LightAttacks.Num();
+    LastMeleeVariant=Variant;
+    const float Delay=M && M->Presentation?FMath::Clamp(M->Presentation->LightAttackHitSeconds,.01f,.5f):.12f;
+    GetWorld()->GetTimerManager().SetTimer(MeleeHitTimer,FTimerDelegate::CreateWeakLambda(this,[this,Id,Revision]{ResolveMeleeHit(Id,Revision);}),Delay,false);
+    FVector Eye;FRotator Rotation;Pawn->GetActorEyesViewPoint(Eye,Rotation);
+    UAISense_Hearing::ReportNoiseEvent(GetWorld(),Eye,.4f,Pawn,Armed?900:500,TEXT("Melee"));
+    MulticastMelee(Armed,Variant);Feedback=Armed?TEXT("Melee swing"):TEXT("Defensive shove");GetOwner()->ForceNetUpdate();
+}
+void URVCombatComponent::ResolveMeleeHit(FGuid Id,int32 Revision)
+{
+    if(!GetOwner()->HasAuthority() || !CanUse())return;
+    FRVItemInstance W;const bool Armed=Id.IsValid();
+    if(Armed && (Id!=EquippedWeapon || !GetWeapon(W) || !W.Definition->Combat.bMelee || W.CombatRevision!=Revision))return;
+    if(!Armed && EquippedWeapon.IsValid())return;
+    auto* Pawn=Cast<APawn>(GetOwner());auto* PS=Pawn?Pawn->GetPlayerState<ARVPlayerState>():nullptr;if(!PS)return;
+    const auto* M=Armed?&W.Definition->Combat:nullptr;
+    const float Range=M?M->MeleeRangeCm:ShoveRangeCm,Radius=M?M->MeleeSweepRadiusCm:8.f,Damage=M?M->Damage:ShoveDamage;
     FVector Eye;FRotator Rotation;Pawn->GetActorEyesViewPoint(Eye,Rotation);const FVector End=Eye+Rotation.Vector()*Range;
     FHitResult Hit;FCollisionQueryParams Params(SCENE_QUERY_STAT(RVMelee),true,Pawn);
     if(GetWorld()->SweepSingleByChannel(Hit,Eye,End,FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(Radius),Params) && Hit.GetActor())
@@ -266,12 +287,17 @@ void URVCombatComponent::ServerMelee_Implementation(FGuid Id,int32 Revision,uint
         {bApplyingMelee=true;if(bFriendlyFire || !Cast<ARVSurvivorCharacter>(Hit.GetActor()))UGameplayStatics::ApplyPointDamage(Hit.GetActor(),Damage*(PS->Needs->State.Fatigue>=PS->Needs->Tuning.FatigueCritical?.65f:1.f),Rotation.Vector(),Hit,Pawn->GetController(),Pawn,nullptr);bApplyingMelee=false;
          if(auto* Infected=Cast<ARVInfected>(Hit.GetActor()))Infected->StaggerAuthority(Armed?.35f:.7f);}
     }
-    UAISense_Hearing::ReportNoiseEvent(GetWorld(),Eye,.4f,Pawn,Armed?900:500,TEXT("Melee"));MulticastMelee(Armed);Feedback=Armed?TEXT("Melee swing"):TEXT("Defensive shove");GetOwner()->ForceNetUpdate();
 }
-void URVCombatComponent::MulticastMelee_Implementation(bool Armed)
-{auto* C=Cast<ACharacter>(GetOwner());if(!C)return;FRVItemInstance W;UAnimMontage* Montage=Armed && GetWeapon(W)?W.Definition->Combat.MeleeMontage.Get():ShoveMontage.Get();if(Montage)C->PlayAnimMontage(Montage);}
+void URVCombatComponent::MulticastMelee_Implementation(bool Armed,int32 Variant)
+{
+    auto* C=Cast<ACharacter>(GetOwner());if(!C)return;
+    FRVItemInstance W;UAnimMontage* Montage=ShoveMontage;
+    if(Armed && GetWeapon(W))
+    {const auto* P=W.Definition->Combat.Presentation.Get();Montage=P && P->LightAttacks.IsValidIndex(Variant)?P->LightAttacks[Variant].Get():W.Definition->Combat.MeleeMontage.Get();}
+    if(Montage)C->PlayAnimMontage(Montage);
+}
 void URVCombatComponent::FireInput()
-{FRVItemInstance W;if(!GetWeapon(W))return;const uint32 Request=++LocalRequest;GetWorld()->GetTimerManager().SetTimerForNextTick(FTimerDelegate::CreateWeakLambda(this,[this,W,Request]{ServerFire(W.Id,W.CombatRevision,Request);}));}
+{FRVItemInstance W;if(!GetWeapon(W) || !W.Definition->Combat.bFirearm){MeleeInput();return;}const uint32 Request=++LocalRequest;GetWorld()->GetTimerManager().SetTimerForNextTick(FTimerDelegate::CreateWeakLambda(this,[this,W,Request]{ServerFire(W.Id,W.CombatRevision,Request);}));}
 void URVCombatComponent::ReloadInput()
 {FRVItemInstance W;if(!CanUse() || !GetWeapon(W))return;FGuid Best;int32 Rounds=-1;for(const auto& M:Inventory()->GetItems())if(M.Definition && M.Definition->Combat.bMagazine
  && !M.LoadedInWeapon.IsValid() && M.Definition->Combat.Caliber==W.Definition->Combat.Caliber && M.MagazineRounds>Rounds){Best=M.Id;Rounds=M.MagazineRounds;}
@@ -280,7 +306,7 @@ void URVCombatComponent::AimStart(){GetWorld()->GetTimerManager().SetTimerForNex
 void URVCombatComponent::UnloadInput(){GetWorld()->GetTimerManager().SetTimerForNextTick(FTimerDelegate::CreateWeakLambda(this,[this]{ServerUnload();}));}
 void URVCombatComponent::AimStop(){GetWorld()->GetTimerManager().SetTimerForNextTick(FTimerDelegate::CreateWeakLambda(this,[this]{ServerAim(false);}));}
 void URVCombatComponent::EndPlay(const EEndPlayReason::Type Reason)
-{RemoveInput();CancelReload();if(GetOwner()->HasAuthority() && Inventory())Inventory()->ReleaseMagazineAuthority(EquippedWeapon);Super::EndPlay(Reason);}
+{RemoveInput();CancelReload();GetWorld()->GetTimerManager().ClearTimer(MeleeHitTimer);if(GetOwner()->HasAuthority() && Inventory())Inventory()->ReleaseMagazineAuthority(EquippedWeapon);Super::EndPlay(Reason);}
 bool URVCombatComponent::DebugRequestFire(FGuid Weapon,int32 Revision,int32 Request)
 {
 #if !UE_BUILD_SHIPPING && !UE_BUILD_TEST
@@ -306,14 +332,47 @@ bool URVCombatComponent::DebugRequestReload(FGuid Magazine,int32 Revision)
 bool URVCombatComponent::GetOwnerGripTargets(FTransform& Primary,FVector& Support) const
 {
     const auto* C=Cast<ACharacter>(GetOwner());FRVItemInstance W;
-    if(!C || !C->IsLocallyControlled() || !CanUse() || ReloadEnds>0 || AimBlend<=.001f || !GetWeapon(W) || !W.Definition->Combat.bSightADS)return false;
-    const auto* Camera=C->FindComponentByClass<UCameraComponent>();const auto* Presentation=C->FindComponentByClass<URVCharacterPresentationComponent>();
-    const auto* Anchor=Presentation?Presentation->GetEquipmentAnchor(W.Definition->Combat.HandAnchor):nullptr;
-    if(!Camera || !Anchor)return false;
-    const auto& A=W.Definition->Combat;
-    const FTransform Sight(Camera->GetComponentQuat(),Camera->GetComponentLocation()+Camera->GetForwardVector()*A.SightEyeReliefCm);
-    const FTransform Weapon=A.SightTransform.Inverse()*Sight;
-    Primary=Anchor->GetRelativeTransform().Inverse()*(A.GripOffset*A.FirstPersonOffset).Inverse()*Weapon;
-    Support=Weapon.TransformPosition(A.SupportHandTarget.GetLocation());
+    if(!C || !CanUse() || ReloadEnds>0 || !GetWeapon(W))return false;
+    const auto& A=W.Definition->Combat;const auto* Family=A.Presentation.Get();
+    if(!Family || Family->Family!=ERVWeaponFamily::Handgun)return false;
+    const auto* Visual=C->FindComponentByClass<URVCharacterPresentationComponent>();
+    const auto* Anchor=Visual?Visual->GetEquipmentAnchor(A.HandAnchor):nullptr;if(!Anchor)return false;
+    // Left effector is in the primary bone's space, evaluated after the right arm.
+    const FTransform Grip=A.GripOffset*(C->IsLocallyControlled()?A.FirstPersonOffset:A.ThirdPersonOffset)*(C->IsLocallyControlled()?Family->FirstPersonOffset:Family->ThirdPersonOffset)*Anchor->GetRelativeTransform();
+    Support=Grip.TransformPosition(A.SupportHandTarget.GetLocation());
+    if(!C->IsLocallyControlled())return true;
+    const auto* Camera=C->FindComponentByClass<UCameraComponent>();if(!Camera)return false;
+    const float Pitch=FMath::Clamp(FRotator::NormalizeAxis(C->GetBaseAimRotation().Pitch),-70.f,70.f)*Family->UpperBodyPitchScale;
+    const FQuat PitchRotation=FRotator(Pitch,0,0).Quaternion();
+    FTransform Ready=Family->ReadyHand;
+    Ready.SetLocation(Family->AimPivot+PitchRotation.RotateVector(Ready.GetLocation()-Family->AimPivot));
+    Ready.SetRotation(PitchRotation*Ready.GetRotation());
+    Ready=Ready*C->GetActorTransform();
+    if(A.bSightADS && AimBlend>0)
+    {
+        const FTransform Sight(Camera->GetComponentQuat(),Camera->GetComponentLocation()+Camera->GetForwardVector()*A.SightEyeReliefCm);
+        const FTransform ADS=Grip.Inverse()*A.SightTransform.Inverse()*Sight;
+        Primary.Blend(Ready,ADS,AimBlend);
+    }
+    else Primary=Ready;
     return true;
 }
+TArray<FGuid> URVCombatComponent::GetQuickAccessItems() const
+{
+    TArray<FRVItemInstance> Items;
+    if(const auto* I=Inventory())for(const auto& W:I->GetItems())
+        if(W.Definition && W.Definition->bEquippable && W.Condition>0 && (W.Definition->Combat.bFirearm || W.Definition->Combat.bMelee || W.Definition->Combat.bQuickAccess))Items.Add(W);
+    Items.Sort([](const auto& A,const auto& B){const int32 X=A.Definition->Combat.QuickAccessOrder,Y=B.Definition->Combat.QuickAccessOrder;return X==Y?A.Id.ToString()<B.Id.ToString():X<Y;});
+    TArray<FGuid> Result;Result.Add(FGuid());for(const auto& W:Items)Result.Add(W.Id);return Result;
+}
+void URVCombatComponent::ServerCycleEquipment_Implementation(int32 Direction)
+{
+    if(!GetOwner()->HasAuthority() || !CanUse() || (Direction!=1 && Direction!=-1))return;
+    const auto Items=GetQuickAccessItems();if(Items.Num()<2)return;
+    int32 Index=Items.IndexOfByKey(EquippedWeapon);if(Index==INDEX_NONE)Index=0;
+    ServerEquip(Items[(Index+Direction+Items.Num())%Items.Num()]);
+}
+void URVCombatComponent::NextWeaponInput()
+{const auto* P=Cast<APawn>(GetOwner());const auto* PC=P?Cast<APlayerController>(P->GetController()):nullptr;if(PC && !PC->bShowMouseCursor)ServerCycleEquipment(1);}
+void URVCombatComponent::PreviousWeaponInput()
+{const auto* P=Cast<APawn>(GetOwner());const auto* PC=P?Cast<APlayerController>(P->GetController()):nullptr;if(PC && !PC->bShowMouseCursor)ServerCycleEquipment(-1);}

@@ -45,12 +45,14 @@ public:
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) bool DebugRequestFire(FGuid Weapon,int32 Revision,int32 RequestSequence);
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly)) bool DebugRequestReload(FGuid Magazine,int32 Revision);
     UFUNCTION(Server,Reliable) void ServerEquip(FGuid Id);
+    UFUNCTION(Server,Reliable) void ServerCycleEquipment(int32 Direction);
+    UFUNCTION(BlueprintPure) TArray<FGuid> GetQuickAccessItems() const;
     UFUNCTION(Server,Reliable) void ServerAim(bool Value);
     UFUNCTION(Server,Reliable) void ServerFire(FGuid Weapon,int32 Revision,uint32 RequestSequence);
     UFUNCTION(Server,Reliable) void ServerReload(FGuid Magazine,int32 WeaponRevision);
     UFUNCTION(Server,Reliable) void ServerUnload();
     UFUNCTION(Server,Reliable) void ServerMelee(FGuid Weapon,int32 Revision,uint32 RequestSequence);
-    UFUNCTION(NetMulticast,Unreliable) void MulticastMelee(bool Armed);
+    UFUNCTION(NetMulticast,Reliable) void MulticastMelee(bool Armed,int32 Variant);
     UFUNCTION(NetMulticast,Unreliable) void MulticastShot(FVector_NetQuantize Start,FVector_NetQuantize End);
 private:
     URVInventoryComponent* Inventory() const;
@@ -58,6 +60,9 @@ private:
     void EquipInput();
     void EquipMeleeInput();
     void MeleeInput();
+    void NextWeaponInput();
+    void PreviousWeaponInput();
+    void ResolveMeleeHit(FGuid Id,int32 Revision);
     void FireInput();
     void ReloadInput();
     void UnloadInput();
@@ -73,6 +78,8 @@ private:
     double NextMeleeTime=0;
     uint32 LastMeleeRequest=0;
     uint32 LocalMeleeRequest=0;
+    int32 LastMeleeVariant=INDEX_NONE;
+    FTimerHandle MeleeHitTimer;
     bool bApplyingMelee=false;
     float AimBlend=0;
     uint32 LastRequest=0;
@@ -92,5 +99,7 @@ private:
     UPROPERTY(Transient) TObjectPtr<UInputAction> UnloadAction;
     UPROPERTY(Transient) TObjectPtr<UInputAction> MeleeAction;
     UPROPERTY(Transient) TObjectPtr<UInputAction> EquipMeleeAction;
+    UPROPERTY(Transient) TObjectPtr<UInputAction> NextWeaponAction;
+    UPROPERTY(Transient) TObjectPtr<UInputAction> PreviousWeaponAction;
     TWeakObjectPtr<ULocalPlayer> InputLocalPlayer;
 };

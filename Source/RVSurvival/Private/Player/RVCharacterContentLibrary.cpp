@@ -48,6 +48,8 @@ AActor* URVCharacterContentLibrary::SpawnPoseFixture(UObject* Context,FVector Po
 #include "AnimGraphNode_SequencePlayer.h"
 #include "K2Node_VariableGet.h"
 #include "AnimGraphNode_BlendListByBool.h"
+#include "AnimGraphNode_LayeredBoneBlend.h"
+#include "AnimGraphNode_CopyPoseFromMesh.h"
 #include "AnimGraphNode_Slot.h"
 #include "AnimGraphNode_RotationOffsetBlendSpace.h"
 #include "Kismet2/BlueprintEditorUtils.h"
@@ -193,7 +195,7 @@ bool URVCharacterContentLibrary::PopulateLocomotion(UBlendSpace* BlendSpace,cons
     return false;
 #endif
 }
-bool URVCharacterContentLibrary::BuildAnimationGraph(UAnimBlueprint* Blueprint,UBlendSpace* Locomotion,const TArray<UAnimSequence*>& Poses,UBlendSpace* ArmedLocomotion,UBlendSpace* WeaponAimOffset)
+bool URVCharacterContentLibrary::BuildAnimationGraph(UAnimBlueprint* Blueprint,UBlendSpace* Locomotion,const TArray<UAnimSequence*>& Poses,UBlendSpace* ArmedLocomotion,UBlendSpace* WeaponAimOffset,UAnimSequence* OneHandReady)
 {
 #if WITH_EDITOR
     if(!Blueprint || !Locomotion || Poses.Num()!=10 || !Blueprint->ParentClass->IsChildOf(URVHumanoidAnimInstance::StaticClass())) return false;
@@ -216,15 +218,34 @@ bool URVCharacterContentLibrary::BuildAnimationGraph(UAnimBlueprint* Blueprint,U
     if(ArmedLocomotion)
     {
         FGraphNodeCreator<UAnimGraphNode_BlendSpacePlayer> MakeArmed(*Graph);auto* Armed=MakeArmed.CreateNode();MakeArmed.Finalize();Armed->SetAnimationAsset(ArmedLocomotion);Armed->ReconstructNode();Armed->NodePosX=-600;Armed->NodePosY=-300;
+        if(OneHandReady)
+        {for(auto& P:Armed->ShowPinForProperties)if(P.PropertyName==TEXT("BlendSpace"))P.bShowPin=true;
+         Armed->ReconstructNode();Link(Variable(TEXT("WeaponLocomotion"),-1000),TEXT("WeaponLocomotion"),Armed,TEXT("BlendSpace"));}
         Link(Variable(TEXT("GroundSpeed"),-450),TEXT("GroundSpeed"),Armed,TEXT("X"));Link(Variable(TEXT("Direction"),-350),TEXT("Direction"),Armed,TEXT("Y"));
         FGraphNodeCreator<UAnimGraphNode_BlendListByBool> MakeReady(*Graph);auto* Ready=MakeReady.CreateNode();MakeReady.Finalize();Ready->ReconstructNode();
         Link(Walk,TEXT("Pose"),Ready,TEXT("BlendPose_1"));
         if(WeaponAimOffset)
         {FGraphNodeCreator<UAnimGraphNode_RotationOffsetBlendSpace> MakeAim(*Graph);auto* Aim=MakeAim.CreateNode();MakeAim.Finalize();Aim->SetAnimationAsset(WeaponAimOffset);Aim->ReconstructNode();
+         if(OneHandReady){for(auto& P:Aim->ShowPinForProperties)if(P.PropertyName==TEXT("BlendSpace"))P.bShowPin=true;
+          Aim->ReconstructNode();Link(Variable(TEXT("WeaponAim"),-1100),TEXT("WeaponAim"),Aim,TEXT("BlendSpace"));}
          Link(Armed,TEXT("Pose"),Aim,TEXT("BasePose"));Link(Variable(TEXT("NormalizedAimPitch"),-650),TEXT("NormalizedAimPitch"),Aim,TEXT("Y"));Link(Aim,TEXT("Pose"),Ready,TEXT("BlendPose_0"));}
         else Link(Armed,TEXT("Pose"),Ready,TEXT("BlendPose_0"));
         Link(Variable(TEXT("bWeaponReady"),-550),TEXT("bWeaponReady"),Ready,TEXT("bActiveValue"));
-        Link(Ready,TEXT("Pose"),Modes,TEXT("BlendPose_0"));
+        if(OneHandReady)
+        {
+            FGraphNodeCreator<UAnimGraphNode_SequencePlayer> MakeTool(*Graph);auto* Tool=MakeTool.CreateNode();MakeTool.Finalize();Tool->SetAnimationAsset(OneHandReady);Tool->ReconstructNode();
+            for(auto& P:Tool->ShowPinForProperties)if(P.PropertyName==TEXT("Sequence"))P.bShowPin=true;
+            Tool->ReconstructNode();Link(Variable(TEXT("WeaponReadyPose"),-1200),TEXT("WeaponReadyPose"),Tool,TEXT("Sequence"));
+            FGraphNodeCreator<UAnimGraphNode_LayeredBoneBlend> MakeOverlay(*Graph);auto* Overlay=MakeOverlay.CreateNode();Overlay->Node.AddPose();
+            Overlay->Node.LayerSetup[0].BranchFilters.Add(FBranchFilter(TEXT("spine_01"),3));Overlay->Node.bMeshSpaceRotationBlend=true;
+            MakeOverlay.Finalize();Overlay->ReconstructNode();
+            Link(Walk,TEXT("Pose"),Overlay,TEXT("BasePose"));Link(Tool,TEXT("Pose"),Overlay,TEXT("BlendPoses_0"));
+            FGraphNodeCreator<UAnimGraphNode_BlendListByBool> MakeFamily(*Graph);auto* Family=MakeFamily.CreateNode();MakeFamily.Finalize();Family->ReconstructNode();
+            Link(Overlay,TEXT("Pose"),Family,TEXT("BlendPose_0"));Link(Ready,TEXT("Pose"),Family,TEXT("BlendPose_1"));
+            Link(Variable(TEXT("bOneHandedMelee"),-800),TEXT("bOneHandedMelee"),Family,TEXT("bActiveValue"));
+            Link(Family,TEXT("Pose"),Modes,TEXT("BlendPose_0"));
+        }
+        else Link(Ready,TEXT("Pose"),Modes,TEXT("BlendPose_0"));
     }
     else Link(Walk,TEXT("Pose"),Modes,TEXT("BlendPose_0"));
     for(int32 Index=0;Index<Poses.Num();++Index)
@@ -280,19 +301,76 @@ bool URVCharacterContentLibrary::AddWeaponGripIK(UAnimBlueprint* Blueprint,FName
         Link(Variable(TEXT("WeaponGripIKAlpha"),500+X/4),TEXT("WeaponGripIKAlpha"),N,TEXT("Alpha"));return N;
     };
     auto* Right=IK(PrimaryBone,TEXT("WeaponRightHandTarget"),FVector(-60,-20,110),750);
-    auto* Left=IK(SupportBone,TEXT("WeaponLeftHandTarget"),FVector(60,-20,110),1000);
+    auto* Left=IK(SupportBone,TEXT("WeaponLeftHandTarget"),FVector(60,-20,110),1250);
+    Left->Node.EffectorLocationSpace=BCS_BoneSpace;Left->Node.EffectorTarget.BoneReference.BoneName=PrimaryBone;
+    if(auto* Alpha=Left->FindPin(TEXT("Alpha")))Alpha->BreakAllPinLinks();
+    Link(Variable(TEXT("WeaponSupportIKAlpha"),800),TEXT("WeaponSupportIKAlpha"),Left,TEXT("Alpha"));
     FGraphNodeCreator<UAnimGraphNode_ModifyBone> MakeRotation(*Graph);auto* Rotation=MakeRotation.CreateNode();
     Rotation->Node.BoneToModify.BoneName=PrimaryBone;Rotation->Node.RotationMode=BMM_Replace;Rotation->Node.RotationSpace=BCS_ComponentSpace;Rotation->Node.Alpha=0;
     MakeRotation.Finalize();Rotation->ReconstructNode();Rotation->NodePosX=1250;
     Link(Variable(TEXT("WeaponRightHandRotation"),-250),TEXT("WeaponRightHandRotation"),Rotation,TEXT("Rotation"));
     Link(Variable(TEXT("WeaponGripIKAlpha"),-100),TEXT("WeaponGripIKAlpha"),Rotation,TEXT("Alpha"));
     FGraphNodeCreator<UAnimGraphNode_ComponentToLocalSpace> MakeLocal(*Graph);auto* Local=MakeLocal.CreateNode();MakeLocal.Finalize();Local->NodePosX=1500;
-    Link(Space,TEXT("ComponentPose"),Right,TEXT("ComponentPose"));Link(Right,TEXT("Pose"),Left,TEXT("ComponentPose"));
-    Link(Left,TEXT("Pose"),Rotation,TEXT("ComponentPose"));Link(Rotation,TEXT("Pose"),Local,TEXT("ComponentPose"));Link(Local,TEXT("Pose"),Root,TEXT("Result"));
+    Link(Space,TEXT("ComponentPose"),Right,TEXT("ComponentPose"));Link(Right,TEXT("Pose"),Rotation,TEXT("ComponentPose"));
+    Link(Rotation,TEXT("Pose"),Left,TEXT("ComponentPose"));Link(Left,TEXT("Pose"),Local,TEXT("ComponentPose"));Link(Local,TEXT("Pose"),Root,TEXT("Result"));
     Root->NodePosX=1750;
     if(!Success){UE_LOG(LogTemp,Error,TEXT("Weapon IK graph pin link failed"));return false;}
     Space->NodeComment=TEXT("RVWeaponGripIK");FBlueprintEditorUtils::MarkBlueprintAsStructurallyModified(Blueprint);
     FKismetEditorUtilities::CompileBlueprint(Blueprint);Blueprint->MarkPackageDirty();return Blueprint->Status!=BS_Error;
+#else
+    return false;
+#endif
+}
+UAnimSequence* URVCharacterContentLibrary::CreateOneHandedAttack(const FString& Path,USkeletalMesh* Mesh,UAnimSequence* Ready,int32 Variant)
+{
+#if WITH_EDITOR
+    if(Variant<0 || Variant>2)return nullptr;
+    UAnimSequence* Sequence=CreatePrototypePose(Path,Mesh,{},false,Ready);if(!Sequence)return nullptr;
+    auto& Controller=Sequence->GetController();Controller.OpenBracket(FText::FromString(TEXT("One-handed prototype attack")),false);
+    for(FName Bone:{FName(TEXT("upperarm_r")),FName(TEXT("lowerarm_r")),FName(TEXT("spine_03"))})
+    {
+        if(!Sequence->GetDataModel()->IsValidBoneTrackName(Bone))continue;
+        const FTransform Base=Sequence->GetDataModel()->GetBoneTrackTransform(Bone,FFrameNumber(0));
+        TArray<FVector> Positions,Scales;TArray<FQuat> Rotations;
+        for(int32 Frame=0;Frame<=30;++Frame)
+        {
+            const float T=Frame/30.f;
+            // Windup, strike(.18seconds), return. Left arm retains its free ready pose.
+            const float Wind=FMath::Clamp(T/.12f,0.f,1.f),Return=FMath::Clamp((T-.3f)/.7f,0.f,1.f);
+            const float Swing=T<.12f?-Wind:T<.3f?FMath::Lerp(-1.f,1.f,(T-.12f)/.18f):1.f-Return;
+            FRotator Offset;
+            if(Bone==TEXT("spine_03"))Offset=FRotator(0,Swing*12,0);
+            else if(Bone==TEXT("lowerarm_r"))Offset=FRotator(Swing*25,0,0);
+            else Offset=Variant==0?FRotator(Swing*60,Swing*40,Swing*20):Variant==1?FRotator(0,Swing*70,0):FRotator(Swing*90,0,Swing*10);
+            Positions.Add(Base.GetLocation());Scales.Add(Base.GetScale3D());Rotations.Add(Base.GetRotation()*Offset.Quaternion());
+        }
+        Controller.SetBoneTrackKeys(Bone,Positions,Rotations,Scales,false);
+    }
+    Controller.NotifyPopulated();Controller.CloseBracket(false);Sequence->PostEditChange();Sequence->MarkPackageDirty();return Sequence;
+#else
+    return nullptr;
+#endif
+}
+bool URVCharacterContentLibrary::BuildOwnerCopyPoseGraph(UAnimBlueprint* Blueprint,FName HiddenNeckBone)
+{
+#if WITH_EDITOR
+    if(!Blueprint || HiddenNeckBone.IsNone())return false;
+    UEdGraph* Graph=nullptr;for(auto Candidate:Blueprint->FunctionGraphs)if(Candidate->GetFName()==TEXT("AnimGraph"))Graph=Candidate.Get();
+    if(!Graph)return false;
+    UAnimGraphNode_Root* Root=nullptr;const auto Old=Graph->Nodes;
+    for(auto Entry:Old)if(auto* Node=Cast<UAnimGraphNode_Root>(Entry.Get()))Root=Node;else Graph->RemoveNode(Entry.Get());
+    if(!Root)return false;const auto* Schema=Graph->GetSchema();bool OK=true;
+    auto Link=[&](UEdGraphNode* A,FName Out,UEdGraphNode* B,FName In){auto* X=A->FindPin(Out);auto* Y=B->FindPin(In);OK=OK && X && Y && Schema->TryCreateConnection(X,Y);};
+    FGraphNodeCreator<UAnimGraphNode_CopyPoseFromMesh> MakeCopy(*Graph);auto* Copy=MakeCopy.CreateNode();Copy->Node.bUseAttachedParent=true;MakeCopy.Finalize();
+    FGraphNodeCreator<UAnimGraphNode_LocalToComponentSpace> MakeSpace(*Graph);auto* Space=MakeSpace.CreateNode();MakeSpace.Finalize();
+    FGraphNodeCreator<UAnimGraphNode_ModifyBone> MakeHide(*Graph);auto* Hide=MakeHide.CreateNode();Hide->Node.BoneToModify.BoneName=HiddenNeckBone;
+    Hide->Node.ScaleMode=BMM_Replace;Hide->Node.ScaleSpace=BCS_BoneSpace;Hide->Node.Scale=FVector::ZeroVector;MakeHide.Finalize();Hide->ReconstructNode();
+    FGraphNodeCreator<UAnimGraphNode_ComponentToLocalSpace> MakeLocal(*Graph);auto* Local=MakeLocal.CreateNode();MakeLocal.Finalize();
+    // Head/neck are masked in pre-skinned vertex space in the owner material.
+    // Scaling mixed neck weights to zero creates stretched seam triangles.
+    Graph->RemoveNode(Space);Graph->RemoveNode(Hide);Graph->RemoveNode(Local);
+    Link(Copy,TEXT("Pose"),Root,TEXT("Result"));
+    if(!OK)return false;FBlueprintEditorUtils::MarkBlueprintAsStructurallyModified(Blueprint);FKismetEditorUtilities::CompileBlueprint(Blueprint);Blueprint->MarkPackageDirty();return Blueprint->Status!=BS_Error;
 #else
     return false;
 #endif

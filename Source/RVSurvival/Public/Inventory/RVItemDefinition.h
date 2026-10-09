@@ -36,6 +36,9 @@ struct FRVCombatItemMetadata
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) bool bFirearm=false;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) bool bMelee=false;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) bool bMagazine=false;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) TObjectPtr<class URVWeaponPresentationProfile> Presentation;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) bool bQuickAccess=false;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) int32 QuickAccessOrder=100;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FGameplayTag Caliber;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="1")) int32 MagazineCapacity=15;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ClampMin="0")) int32 InitialRounds=15;
@@ -62,7 +65,7 @@ struct FRVCombatItemMetadata
     // Camera-relative weapon transform is solved from this actual sight reference.
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) bool bSightADS=false;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly) FTransform SightTransform;
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,meta=(ClampMin="1",ClampMax="40")) float SightEyeReliefCm=10;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,meta=(ClampMin="1",ClampMax="80")) float SightEyeReliefCm=10;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,meta=(ClampMin="1",ClampMax="30")) float AimBlendSpeed=12;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,meta=(ClampMin=".4",ClampMax="1")) float SightFOVScale=.8f;
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,meta=(ClampMin="1",ClampMax="200")) float MeleeRangeCm=160;

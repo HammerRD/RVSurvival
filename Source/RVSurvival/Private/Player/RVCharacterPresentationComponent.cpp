@@ -68,7 +68,19 @@ void URVCharacterPresentationComponent::RefreshVisualState()
         Mesh->SetRelativeLocationAndRotation(Offset,Rotation);
         C->CacheInitialMeshOffset(Offset,Rotation);
     }
-    const bool HideHead=C->IsLocallyControlled();
+    if(Profile->FirstPersonAnimationClass && C->IsLocallyControlled() && !FirstPersonBody)
+    {
+        FirstPersonBody=NewObject<USkeletalMeshComponent>(C,TEXT("RVOwnerBodyPresentation"));
+        FirstPersonBody->SetupAttachment(Mesh);FirstPersonBody->SetSkeletalMesh(Profile->Body);
+        FirstPersonBody->SetCollisionEnabled(ECollisionEnabled::NoCollision);FirstPersonBody->SetOnlyOwnerSee(true);
+        FirstPersonBody->SetCastShadow(false);FirstPersonBody->SetAnimInstanceClass(Profile->FirstPersonAnimationClass);
+        for(int32 Index=0;Index<Profile->FirstPersonMaterials.Num();++Index)if(Profile->FirstPersonMaterials[Index])FirstPersonBody->SetMaterial(Index,Profile->FirstPersonMaterials[Index]);
+        FirstPersonBody->RegisterComponent();FirstPersonBody->AddTickPrerequisiteComponent(Mesh);
+        FirstPersonBody->VisibilityBasedAnimTickOption=EVisibilityBasedAnimTickOption::AlwaysTickPoseAndRefreshBones;
+    }
+    if(FirstPersonBody)
+    {const bool OwnerView=C->IsLocallyControlled();FirstPersonBody->SetHiddenInGame(!OwnerView);Mesh->SetOwnerNoSee(OwnerView);}
+    const bool HideHead=C->IsLocallyControlled() && !FirstPersonBody;
     if(HideHead!=bHeadHidden && !Profile->OwnerHiddenHead.IsNone())
     {
         bHeadHidden=HideHead;
