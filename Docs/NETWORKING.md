@@ -155,3 +155,12 @@ Other characters can therefore physically occlude interaction/resource traces.
 Regression fixtures must use a clear approach instead of lining players up between
 an eye origin and panel. Both roles' clear native-E/healthy/downed controls pass;
 no line-of-sight or medical authority validation was relaxed.
+
+
+## Gate 9.5 shared rules and melee
+
+Shared difficulty lives on replicated ARVGameState with a revision guard. Only the local authoritative listen-host controller may change it; client requests cannot overwrite server rules. Joining clients receive the same rules. Dedicated-server administration/session persistence remains future work.
+
+Bindings, look preferences and UI remain client-local. Native Enhanced Input profiles apply locally with native asynchronous saves. Separate PIE processes on one Windows account share a physical save location; the runtime isolation test changes only the client's in-memory profile and verifies host LeftMouseButton/client Q independently fire, without writing that test change to shared disk. Real menu persistence is tested separately across clean launches.
+
+Melee uses reliable owned requests with sequence, ownership/revision/condition, action-state and cooldown validation. Authority derives the view, sweeps within bounded range and checks line of sight before PointDamage. One swing admits one target once; multicast montage/noise is cosmetic. Damage/stagger/sequence converge under representative 100 ms/2% loss. No lag-compensation/custom replication layer is added. Owner sight IK does not teleport or attach walking characters.

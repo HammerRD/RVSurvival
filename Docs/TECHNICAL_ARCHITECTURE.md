@@ -128,3 +128,14 @@ EngineCameras (Epic, already enabled by default) supplies native wave shake life
 vertical/horizontal variation and blended recovery; only scalar weapon tuning is
 configured in its initializer. No custom recoil scheduler or animation engine.
 See COMBAT.md, INFECTED.md and GATE_9_VALIDATION.md. Scope remains Gate 9; no Gate 10.
+
+
+## Gate 9.5 refinement architecture
+
+Enhanced Input User Settings remains the only binding store. Native UMG key selectors and look/orbit mouse-stick dropdowns call MapPlayerKey, ApplySettings and AsyncSaveSettings; native key profiles supply current prompt labels. Personal sensitivity/inversion uses local GameUserSettings config. No second input framework or UI networking protocol is introduced.
+
+URVDifficultyProfile Primary Data Assets describe bounded rules and presets. ARVGameState replicates authoritative rules, preset and revision through Unreal replication. Owned controller requests permit only the listen host to mutate shared rules. Existing needs, GAS-backed medical, infected perception/damage, fuel and mechanical components query centralized multipliers. Loot/population remain future configuration, without world generation.
+
+Existing combat item metadata configures grip, first/third-person offsets, support target, actual sight/eye relief/FOV blend, muzzle/eject and future holster references. M1911 is a separate .45 ACP/seven-round definition; accepted 9mm remains. Sight ADS moves the cosmetic weapon using the native camera with owner-only native AnimGraph Two Bone IK. Authority hits still use server-derived eye/control view; CharacterMovement/reference-frame transforms are untouched.
+
+Melee reuses owned inventory GUIDs, replicated combat component, native sphere/obstruction traces, PointDamage/body regions, hearing, montages and needs effort. One completion per validated request/cooldown and one target per sweep prevent duplicate hits. Epic raised armed locomotion is the prototype tool-ready pose. No full durability, combos, separate stamina pool or custom animation engine is added.

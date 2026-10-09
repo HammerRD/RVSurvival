@@ -1,0 +1,32 @@
+{
+  "pid": 13516,
+  "role": "server",
+  "results": [
+    {
+      "case": "difficulty_actual_needs_rates_double",
+      "pass": true,
+      "detail": "{'initial': [80.0, 80.0, 20.0], 'standard': [79.0, 78.0, 20.66666603088379], 'custom': [78.0, 76.0, 21.33333396911621]}"
+    },
+    {
+      "case": "diagnostic_station",
+      "pass": true,
+      "detail": "{'eye': \"<Struct 'Vector' (0x00000218C7A07670) {x: 21.819933, y: 0.876526, z: 264.004113}>\", 'target': \"<Struct 'Vector' (0x00000218C7A9A720) {x: 225.966505, y: 15.814622, z: 145.406570}>\", 'hit': \"<Struct 'HitResult' (0x000002195D013480) {}>\"}"
+    },
+    {
+      "case": "diagnostic_resource",
+      "pass": true,
+      "detail": "{'eye': \"<Struct 'Vector' (0x00000218C7A07670) {x: 21.819933, y: 0.876526, z: 264.004113}>\", 'target': \"<Struct 'Vector' (0x00000218C7A9A720) {x: 226.119454, y: -12.184830, z: 145.491805}>\", 'hit': \"<Struct 'HitResult' (0x000002195D011680) {}>\"}"
+    },
+    {
+      "case": "healthy_owned_resource_request_changes_load",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "downed_owned_resource_request_rejected",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "evidence_kind": "accepted Gate6 approach fixture; normal E; owned resource request API with healthy positive control and downed repeat"
+}

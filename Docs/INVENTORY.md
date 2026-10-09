@@ -124,3 +124,10 @@ magazine weight includes ammunition rather than changing per round. Future persi
 must serialize the usual item identity/definition key/condition and the typed magazine
 fields, then validate both ends of loaded GUID relationships. No save implementation
 or second combat inventory is introduced.
+
+
+## Gate 9.5 pickup and equipment refinement
+
+Ordinary definitions default PickupSeconds to zero for tap pickup. Timed/committed actions retain configurable durations. The physically carried prototype battery explicitly keeps a 0.5-second hold. Capacity, GUID/condition/quantity, partial magazines, server pickup claims and container transactions remain the accepted inventory implementation.
+
+Free .45 ACP M1911 and crowbar definitions live in /Game/Combat/Gate9_5, using existing inventory/equipment. Per-item grip/sight/muzzle/support/FP/TP data separates art from gameplay. Crowbar remains a tool-category prototype with future utility/durability hooks; this pass adds only light melee. Sources/licenses/credit are in THIRD_PARTY_ASSETS.md.

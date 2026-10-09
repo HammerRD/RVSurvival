@@ -63,3 +63,10 @@ rarity tiers, universal reserve-ammo pool, damage-number UI or horde/director ex
 The RV remains the survival base; weapon management integrates with accepted storage,
 medical treatment and moving interior. Final art/animations, chamber manipulation,
 advanced ballistics and future encounter populations remain later work.
+
+
+## Gate 9.5 player-facing refinement
+
+Ordinary loot uses tap interaction; treatment, revive, repair and committed actions remain timed. Grounded defensive shove and one crowbar complement firearms. Melee effort uses fatigue rather than a new arcade stamina meter. Free M1911 is .45 ACP/seven rounds, independent of retained 9mm.
+
+Relaxed, Standard, Harsh and Custom expose tunable survival/consequence/combat/RV multipliers. Personal controls/view preferences are local; world rules belong to the host. Loot/population fields are preparation only, without generation. Final balance is not established. RV remains the central survival base; Gate10 is outside this refinement.

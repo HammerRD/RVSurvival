@@ -45,3 +45,10 @@ Gate 9 final closure (2026-10-08): ACCEPTED within the documented prototype scop
 See GATE_9_VALIDATION.md for actual combat/infected/medical/network/stress/RV
 regressions, saved-state/build evidence and limitations. Next is manual Gate9 review
 and explicit authorization for later work; Gate10 has not begun.
+
+
+## Gate 9.5 authorized refinement
+
+Gate9.5 is the authorized combat/input/difficulty/free-asset refinement before Gate10, tracked in GATE_9_5_VALIDATION.md. World/scavenging, director, population and region systems are not implemented. Acceptance requires rendered controls/combat, separate-process authority, emulation and selected regressions.
+
+Gate9.5 closure: ACCEPTED at prototype quality; see GATE_9_5_VALIDATION.md. Gate10 has not started.
