@@ -1,26 +1,26 @@
 {
   "result": "stalled below 30 cm/s for 20 s while throttling; not accepted",
   "evidence": "physical W walk to driver entry, E enter, W/A/D/S/SpaceBar driving, E exit/re-entry at garage; no character/vehicle transform or velocity fixture",
-  "distance_km": 1.8271,
+  "distance_km": 1.222,
   "events": [
     {
       "event": "exterior path",
       "plan": [
         [
-          124.38399999998552,
-          370.2738733159529
+          124.38399999998434,
+          370.63051233786996
         ],
         [
-          709.09932291532,
-          370.2738733159529
+          708.046102239716,
+          370.63051233786996
         ],
         [
-          709.09932291532,
-          -313.10472954282704
+          708.046102239716,
+          -313.0799041969995
         ],
         [
-          252.99999999999255,
-          -313.10472954282704
+          253.0000000000064,
+          -313.0799041969995
         ]
       ]
     },
@@ -28,47 +28,47 @@
       "event": "E pressed",
       "stage": "initial",
       "pawn": [
-        -159733,
-        1310,
+        -159723,
+        1294,
         90
       ],
       "prompt": "Hold E: Enter Driver",
-      "trace": "blocking=1 actor=RVVehicleEntryPoint_0 component=EntryTrace eye=X=-159733.251 Y=1309.903 Z=158.118 impact=X=-159739.952 Y=1432.758 Z=131.736 distance=125.83"
+      "trace": "blocking=1 actor=RVVehicleEntryPoint_0 component=EntryTrace eye=X=-159722.838 Y=1293.830 Z=158.146 impact=X=-159740.170 Y=1433.042 Z=131.129 distance=142.86"
     },
     {
-      "t": 7.99,
+      "t": 7.93,
       "event": "entered driver seat",
       "rv": [
-        -159993,
+        -159995,
         1599,
-        17
+        19
       ]
     },
     {
-      "t": 93.12,
+      "t": 94.0,
       "event": "garage stop",
       "rv": [
-        -60367,
-        -11095,
+        -60230,
+        -10999,
         37
       ],
       "ground": {
         "z": 19.0,
         "actor": "StaticMeshActor_UAID_64497D559D93AD0903_1895127828"
       },
-      "temperature_c": 52.11955587370729
+      "temperature_c": 51.994165956350294
     },
     {
-      "t": 97.35,
+      "t": 98.22,
       "event": "garage exit",
       "rv": [
-        -60365,
-        -11094,
+        -60228,
+        -10997,
         37
       ],
       "character": [
-        -59981,
-        -11175,
+        -59841,
+        -11062,
         109
       ],
       "character_ground": {
@@ -80,8 +80,8 @@
       "event": "re-entry path",
       "plan": [
         [
-          253.00000000000225,
-          -663.4174214293578
+          253.00000000000173,
+          -669.4795296904754
         ]
       ]
     },
@@ -89,36 +89,36 @@
       "event": "E pressed",
       "stage": "garage re-entry",
       "pawn": [
-        -59887,
-        -11298,
+        -59766,
+        -11150,
         109
       ],
       "prompt": "Hold E: Enter Driver",
-      "trace": "blocking=1 actor=RVVehicleEntryPoint_0 component=EntryTrace eye=X=-59886.741 Y=-11297.929 Z=177.150 impact=X=-60063.556 Y=-11070.585 Z=149.329 distance=289.35"
+      "trace": "blocking=1 actor=RVVehicleEntryPoint_0 component=EntryTrace eye=X=-59766.415 Y=-11149.576 Z=177.150 impact=X=-59927.247 Y=-10960.723 Z=149.522 distance=249.59"
     },
     {
-      "t": 100.77,
+      "t": 101.75,
       "event": "garage re-entry",
       "rv": [
-        -60365,
-        -11094,
+        -60228,
+        -10997,
         37
       ]
     },
     {
-      "t": 194.01,
+      "t": 133.4,
       "event": "stall",
       "rv": [
-        -72694,
-        9104,
-        -682
+        -59937,
+        -13069,
+        18
       ],
       "ground": {
-        "z": -699.6,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
+        "z": 0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
       },
-      "temperature_c": 73.7459293491103,
-      "route_index": 45
+      "temperature_c": 69.61785187189697,
+      "route_index": 32
     }
   ],
   "walk_log": [
@@ -127,18 +127,18 @@
       "t": 1.32,
       "step": 0,
       "pawn": [
-        -159899,
-        1599,
-        195
+        -159900,
+        1600,
+        196
       ],
       "entry": [
-        -159741,
+        -159742,
         1445,
         129
       ],
-      "distance": 371,
+      "distance": 372,
       "prompt": "",
-      "trace": "blocking=0 actor=None component=None eye=X=-159898.830 Y=1599.314 Z=262.815 impact=X=0.000 Y=0.000 Z=0.000 distance=0.00"
+      "trace": "blocking=0 actor=None component=None eye=X=-159900.076 Y=1599.607 Z=263.896 impact=X=0.000 Y=0.000 Z=0.000 distance=0.00"
     },
     {
       "stage": "initial",
@@ -146,155 +146,155 @@
       "step": 0,
       "pawn": [
         -159904,
-        1782,
-        112
+        1784,
+        113
       ],
       "entry": [
-        -159741,
+        -159742,
         1445,
         129
       ],
-      "distance": 190,
+      "distance": 189,
       "prompt": "",
-      "trace": "blocking=0 actor=None component=None eye=X=-159903.562 Y=1782.362 Z=180.133 impact=X=0.000 Y=0.000 Z=0.000 distance=0.00"
+      "trace": "blocking=0 actor=None component=None eye=X=-159904.356 Y=1784.209 Z=180.727 impact=X=0.000 Y=0.000 Z=0.000 distance=0.00"
     },
     {
       "stage": "initial",
       "t": 3.35,
       "step": 1,
       "pawn": [
-        -159534,
-        1977,
+        -159535,
+        1978,
         90
       ],
       "entry": [
-        -159741,
+        -159742,
         1445,
         129
       ],
-      "distance": 249,
+      "distance": 247,
       "prompt": "",
-      "trace": "blocking=0 actor=None component=None eye=X=-159534.378 Y=1976.596 Z=158.118 impact=X=0.000 Y=0.000 Z=0.000 distance=0.00"
+      "trace": "blocking=0 actor=None component=None eye=X=-159535.096 Y=1977.867 Z=158.146 impact=X=0.000 Y=0.000 Z=0.000 distance=0.00"
     },
     {
       "stage": "initial",
-      "t": 4.36,
+      "t": 4.35,
       "step": 2,
       "pawn": [
-        -159278,
-        1628,
+        -159279,
+        1638,
         90
       ],
       "entry": [
-        -159741,
+        -159742,
         1445,
         129
       ],
-      "distance": 340,
+      "distance": 349,
       "prompt": "",
-      "trace": "blocking=0 actor=None component=None eye=X=-159277.687 Y=1628.100 Z=158.118 impact=X=0.000 Y=0.000 Z=0.000 distance=0.00"
+      "trace": "blocking=0 actor=None component=None eye=X=-159279.258 Y=1637.701 Z=158.146 impact=X=0.000 Y=0.000 Z=0.000 distance=0.00"
     },
     {
       "stage": "initial",
-      "t": 5.37,
+      "t": 5.35,
       "step": 3,
       "pawn": [
-        -159528,
-        1280,
+        -159519,
+        1279,
         90
       ],
       "entry": [
-        -159741,
+        -159742,
         1445,
         129
       ],
-      "distance": 213,
+      "distance": 222,
       "prompt": "",
-      "trace": "blocking=0 actor=None component=None eye=X=-159527.613 Y=1279.623 Z=158.118 impact=X=0.000 Y=0.000 Z=0.000 distance=0.00"
+      "trace": "blocking=0 actor=None component=None eye=X=-159519.492 Y=1279.299 Z=158.146 impact=X=0.000 Y=0.000 Z=0.000 distance=0.00"
     },
     {
       "stage": "garage re-entry",
-      "t": 97.36,
+      "t": 98.22,
       "step": 0,
       "pawn": [
-        -59981,
-        -11175,
+        -59841,
+        -11062,
         109
       ],
       "entry": [
-        -60071,
-        -11061,
+        -59935,
+        -10952,
         148
       ],
-      "distance": 363,
+      "distance": 369,
       "prompt": "",
-      "trace": "blocking=0 actor=None component=None eye=X=-59981.452 Y=-11175.214 Z=177.150 impact=X=0.000 Y=0.000 Z=0.000 distance=0.00"
+      "trace": "blocking=0 actor=None component=None eye=X=-59840.567 Y=-11061.602 Z=177.150 impact=X=0.000 Y=0.000 Z=0.000 distance=0.00"
     },
     {
       "stage": "garage re-entry",
-      "t": 98.36,
+      "t": 99.23,
       "step": 1,
       "pawn": [
-        -59814,
-        -11391,
+        -59652,
+        -11284,
         109
       ],
       "entry": [
-        -60071,
-        -11061,
+        -59935,
+        -10952,
         148
       ],
-      "distance": 418,
+      "distance": 436,
       "prompt": "",
-      "trace": "blocking=0 actor=None component=None eye=X=-59814.223 Y=-11391.162 Z=177.150 impact=X=0.000 Y=0.000 Z=0.000 distance=0.00"
+      "trace": "blocking=0 actor=None component=None eye=X=-59652.066 Y=-11283.837 Z=177.150 impact=X=0.000 Y=0.000 Z=0.000 distance=0.00"
     }
   ],
   "extremes": {
-    "max_abs_roll": 11.142865030870313,
-    "max_abs_pitch": 14.960780949710973,
-    "max_temperature_c": 73.57464605860778,
+    "max_abs_roll": 11.304585227005601,
+    "max_abs_pitch": 6.436961123097783,
+    "max_temperature_c": 69.2525253115483,
     "min_speed_while_driving": null
   },
   "closest_approach_m": {
-    "Pine Creek Fuel": 47.1,
-    "Erie Road Service": 12.4,
-    "Erie garage parking": 0.4,
-    "Hawthorne Farm": 744.1,
-    "Maple Run Campground": 1407.8,
-    "Rowland Crossroads": 1977.1
+    "Pine Creek Fuel": 47.0,
+    "Erie Road Service": 12.9,
+    "Erie garage parking": 1.1,
+    "Hawthorne Farm": 752.8,
+    "Maple Run Campground": 1420.4,
+    "Rowland Crossroads": 1988.5
   },
   "route_points": [
     [
-      -156327.11125127866,
-      1421.3453467856712
+      -156328.81574587605,
+      1421.7231644924498
     ],
     [
-      -152661.22234486885,
-      1243.6771784374623
+      -152662.71377764156,
+      1244.0077689308937
     ],
     [
-      -148995.333438459,
-      1066.0090100892535
+      -148996.61180940704,
+      1066.2923733693374
     ],
     [
-      -145329.44453204918,
-      888.3408417410444
+      -145330.50984117255,
+      888.5769778077812
     ],
     [
-      -141663.55562563933,
-      710.6726733928356
+      -141664.40787293803,
+      710.8615822462249
     ],
     [
-      -137997.6667192295,
-      533.0045050446267
+      -137998.30590470353,
+      533.1461866846687
     ],
     [
-      -134331.77781281967,
-      355.3363366964177
+      -134332.203936469,
+      355.4307911231124
     ],
     [
-      -130665.88890640983,
-      177.66816834820884
+      -130666.1019682345,
+      177.7153955615563
     ],
     [
       -127000.0,
@@ -739,3207 +739,2127 @@
   ],
   "samples": [
     {
-      "t": 8.0,
+      "t": 7.94,
       "position": [
-        -159993.0,
-        1599.0,
-        16.7
+        -159994.9,
+        1599.4,
+        18.5
       ],
       "speed_cm_s": 0.0,
       "route_index": 0,
-      "heading_error": -2.93,
-      "roll": 0.03,
-      "pitch": 0.53,
-      "temperature_c": 20.372063256823008,
+      "heading_error": -2.94,
+      "roll": -0.07,
+      "pitch": 0.1,
+      "temperature_c": 20.37206313947657,
       "ground": {
         "z": 0.0,
         "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_0_4_0"
       }
     },
     {
-      "t": 9.01,
+      "t": 8.94,
       "position": [
-        -159810.7,
-        1588.2,
-        17.7
+        -159826.2,
+        1589.3,
+        17.6
       ],
-      "speed_cm_s": 401.1,
+      "speed_cm_s": 385.1,
       "route_index": 0,
-      "heading_error": -0.32,
-      "roll": -0.04,
-      "pitch": 0.39,
-      "temperature_c": 21.61391654503423,
+      "heading_error": -0.35,
+      "roll": -0.01,
+      "pitch": 0.42,
+      "temperature_c": 21.61385476267206,
       "ground": {
         "z": -0.0,
         "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_0_4_0"
       }
     },
     {
-      "t": 10.02,
+      "t": 9.94,
       "position": [
-        -159138.7,
-        1559.8,
+        -159189.0,
+        1562.6,
         17.7
       ],
-      "speed_cm_s": 947.4,
+      "speed_cm_s": 915.3,
       "route_index": 0,
-      "heading_error": -0.4,
+      "heading_error": -0.43,
       "roll": 0.0,
       "pitch": 0.45,
-      "temperature_c": 23.138309611972517,
+      "temperature_c": 22.83565958695711,
       "ground": {
         "z": -0.0,
         "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_0_4_0"
       }
     },
     {
-      "t": 11.02,
+      "t": 10.96,
       "position": [
-        -157891.0,
-        1507.1,
+        -157946.2,
+        1510.7,
         17.8
       ],
-      "speed_cm_s": 1530.3,
+      "speed_cm_s": 1510.8,
       "route_index": 0,
-      "heading_error": -0.72,
-      "roll": 0.0,
-      "pitch": 0.43,
-      "temperature_c": 24.33249932815877,
+      "heading_error": -0.75,
+      "roll": -0.0,
+      "pitch": 0.44,
+      "temperature_c": 24.035666532553766,
       "ground": {
         "z": 0.0,
         "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_0_4_0"
       }
     },
     {
-      "t": 12.02,
+      "t": 11.96,
       "position": [
-        -156149.9,
-        1428.4,
+        -156216.2,
+        1427.9,
         17.9
       ],
       "speed_cm_s": 1813.9,
       "route_index": 1,
-      "heading_error": 0.35,
-      "roll": 0.07,
+      "heading_error": 1.52,
+      "roll": 0.09,
       "pitch": 0.34,
-      "temperature_c": 25.00367154111032,
+      "temperature_c": 24.96076118514487,
       "ground": {
         "z": -0.0,
         "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_0_4_0"
       }
     },
     {
-      "t": 13.04,
+      "t": 12.96,
       "position": [
-        -154320.2,
-        1312.2,
+        -154415.2,
+        1334.9,
         17.9
       ],
-      "speed_cm_s": 1799.4,
+      "speed_cm_s": 1798.5,
       "route_index": 1,
-      "heading_error": 0.95,
-      "roll": -0.13,
+      "heading_error": -2.08,
+      "roll": -0.06,
       "pitch": 0.32,
-      "temperature_c": 25.16954979324156,
+      "temperature_c": 25.872807859725047,
       "ground": {
-        "z": 0.0,
+        "z": -0.0,
         "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_0_4_0"
       }
     },
     {
-      "t": 14.04,
+      "t": 13.98,
       "position": [
-        -152519.2,
-        1237.7,
-        17.9
-      ],
-      "speed_cm_s": 1798.8,
-      "route_index": 2,
-      "heading_error": -1.78,
-      "roll": 0.01,
-      "pitch": 0.32,
-      "temperature_c": 25.332877743292844,
-      "ground": {
-        "z": 0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_0_4_0"
-      }
-    },
-    {
-      "t": 15.06,
-      "position": [
-        -150691.2,
-        1147.3,
+        -152585.8,
+        1242.3,
         17.9
       ],
       "speed_cm_s": 1803.8,
       "route_index": 2,
-      "heading_error": -1.89,
-      "roll": -0.03,
+      "heading_error": -4.59,
+      "roll": -0.16,
       "pitch": 0.34,
-      "temperature_c": 26.23564270936638,
+      "temperature_c": 26.519663004613616,
       "ground": {
-        "z": 0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_1_4_0"
+        "z": -0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_0_4_0"
       }
     },
     {
-      "t": 16.06,
+      "t": 14.98,
       "position": [
-        -148892.4,
-        1019.3,
-        17.8
-      ],
-      "speed_cm_s": 1810.6,
-      "route_index": 3,
-      "heading_error": 5.79,
-      "roll": -0.18,
-      "pitch": 0.35,
-      "temperature_c": 26.381263791085804,
-      "ground": {
-        "z": 0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_1_4_0"
-      }
-    },
-    {
-      "t": 17.07,
-      "position": [
-        -147062.9,
-        1028.2,
+        -150787.5,
+        1154.3,
         17.9
       ],
-      "speed_cm_s": 1804.6,
-      "route_index": 3,
-      "heading_error": -6.17,
-      "roll": 0.39,
+      "speed_cm_s": 1807.8,
+      "route_index": 2,
+      "heading_error": 9.11,
+      "roll": 0.14,
       "pitch": 0.37,
-      "temperature_c": 27.021656926700633,
+      "temperature_c": 26.909042666512043,
       "ground": {
-        "z": 0.0,
+        "z": -0.0,
         "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_1_4_0"
       }
     },
     {
-      "t": 18.09,
+      "t": 15.99,
       "position": [
-        -145266.3,
-        814.3,
+        -148969.1,
+        1094.0,
         18.1
       ],
-      "speed_cm_s": 1727.8,
-      "route_index": 4,
-      "heading_error": 7.56,
-      "roll": -0.46,
-      "pitch": 0.32,
-      "temperature_c": 27.650805148130708,
-      "ground": {
-        "z": -0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_1_4_0"
-      }
-    },
-    {
-      "t": 19.09,
-      "position": [
-        -143478.7,
-        798.9,
-        17.8
-      ],
-      "speed_cm_s": 1798.9,
-      "route_index": 4,
-      "heading_error": -6.63,
-      "roll": 0.26,
-      "pitch": 0.34,
-      "temperature_c": 28.267115306052105,
-      "ground": {
-        "z": 0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_1_4_0"
-      }
-    },
-    {
-      "t": 20.09,
-      "position": [
-        -141700.7,
-        615.4,
-        36.4
-      ],
-      "speed_cm_s": 1750.5,
-      "route_index": 5,
-      "heading_error": 15.92,
-      "roll": 3.56,
-      "pitch": 4.6,
-      "temperature_c": 28.627324514373935,
-      "ground": {
-        "z": -0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_1_4_0"
-      }
-    },
-    {
-      "t": 21.11,
-      "position": [
-        -140020.4,
-        337.9,
-        42.9
-      ],
-      "speed_cm_s": 1687.1,
-      "route_index": 5,
-      "heading_error": -2.39,
-      "roll": -5.46,
-      "pitch": 1.18,
-      "temperature_c": 29.235489021576168,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984301609"
-      }
-    },
-    {
-      "t": 22.13,
-      "position": [
-        -138375.9,
-        533.0,
-        35.3
-      ],
-      "speed_cm_s": 1489.0,
-      "route_index": 6,
-      "heading_error": -15.32,
-      "roll": 0.72,
-      "pitch": 0.11,
-      "temperature_c": 29.583591818684255,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984313610"
-      }
-    },
-    {
-      "t": 23.13,
-      "position": [
-        -136903.3,
-        559.1,
-        41.0
-      ],
-      "speed_cm_s": 1461.4,
-      "route_index": 6,
-      "heading_error": 16.2,
-      "roll": 3.64,
-      "pitch": 5.69,
-      "temperature_c": 30.428127409289537,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984313610"
-      }
-    },
-    {
-      "t": 24.14,
-      "position": [
-        -135567.8,
-        330.0,
-        40.9
-      ],
-      "speed_cm_s": 1337.4,
-      "route_index": 6,
-      "heading_error": -1.88,
-      "roll": -3.93,
-      "pitch": 0.46,
-      "temperature_c": 31.01936206527101,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984313610"
-      }
-    },
-    {
-      "t": 25.14,
-      "position": [
-        -134258.9,
-        458.9,
-        36.2
-      ],
-      "speed_cm_s": 1177.8,
-      "route_index": 7,
-      "heading_error": -13.78,
-      "roll": 1.13,
-      "pitch": 0.25,
-      "temperature_c": 31.334516415448388,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984313610"
-      }
-    },
-    {
-      "t": 26.16,
-      "position": [
-        -132943.7,
-        346.9,
-        35.8
-      ],
-      "speed_cm_s": 1538.5,
-      "route_index": 7,
-      "heading_error": 8.62,
-      "roll": -0.16,
-      "pitch": 0.43,
-      "temperature_c": 32.408377479226395,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984313610"
-      }
-    },
-    {
-      "t": 27.16,
-      "position": [
-        -131221.6,
-        226.1,
-        35.8
-      ],
-      "speed_cm_s": 1809.4,
-      "route_index": 7,
-      "heading_error": -8.8,
-      "roll": 0.03,
-      "pitch": 0.38,
-      "temperature_c": 33.198444812096795,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984313610"
-      }
-    },
-    {
-      "t": 28.16,
-      "position": [
-        -129431.7,
-        60.2,
-        36.1
-      ],
-      "speed_cm_s": 1806.5,
-      "route_index": 8,
-      "heading_error": 8.07,
-      "roll": -0.26,
-      "pitch": 0.32,
-      "temperature_c": 33.725699382846805,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984325611"
-      }
-    },
-    {
-      "t": 29.16,
-      "position": [
-        -127644.4,
-        66.9,
-        36.0
-      ],
-      "speed_cm_s": 1734.1,
-      "route_index": 8,
-      "heading_error": -12.11,
-      "roll": 0.21,
-      "pitch": 0.24,
-      "temperature_c": 33.99689299341615,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984325611"
-      }
-    },
-    {
-      "t": 30.16,
-      "position": [
-        -125929.6,
-        -47.0,
-        35.9
-      ],
-      "speed_cm_s": 1734.5,
-      "route_index": 9,
-      "heading_error": 8.68,
-      "roll": -0.24,
-      "pitch": 0.36,
-      "temperature_c": 34.51476636183791,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984325611"
-      }
-    },
-    {
-      "t": 31.16,
-      "position": [
-        -124138.5,
-        12.4,
-        35.8
-      ],
-      "speed_cm_s": 1802.5,
-      "route_index": 9,
-      "heading_error": -9.91,
-      "roll": 0.07,
-      "pitch": 0.37,
-      "temperature_c": 35.02186779426895,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984325611"
-      }
-    },
-    {
-      "t": 32.18,
-      "position": [
-        -122338.2,
-        -54.8,
-        36.1
-      ],
-      "speed_cm_s": 1682.2,
-      "route_index": 10,
-      "heading_error": 15.59,
-      "roll": 0.13,
-      "pitch": 0.26,
-      "temperature_c": 35.27020221109703,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984325611"
-      }
-    },
-    {
-      "t": 33.18,
-      "position": [
-        -120683.5,
-        -107.2,
-        35.9
-      ],
-      "speed_cm_s": 1794.8,
-      "route_index": 10,
-      "heading_error": -10.44,
-      "roll": -0.53,
-      "pitch": 0.44,
-      "temperature_c": 36.020396988752765,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984325611"
-      }
-    },
-    {
-      "t": 34.18,
-      "position": [
-        -118888.9,
-        44.8,
-        36.1
-      ],
-      "speed_cm_s": 1792.7,
-      "route_index": 11,
-      "heading_error": 10.74,
-      "roll": 0.86,
-      "pitch": 0.33,
-      "temperature_c": 36.50117928630113,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984336612"
-      }
-    },
-    {
-      "t": 35.18,
-      "position": [
-        -117136.7,
-        -110.2,
-        36.0
-      ],
-      "speed_cm_s": 1800.3,
-      "route_index": 11,
-      "heading_error": -5.56,
-      "roll": -0.93,
-      "pitch": 0.4,
-      "temperature_c": 37.22489557605943,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984336612"
-      }
-    },
-    {
-      "t": 36.2,
-      "position": [
-        -115319.9,
-        61.6,
-        36.2
-      ],
-      "speed_cm_s": 1796.2,
-      "route_index": 12,
-      "heading_error": 6.57,
-      "roll": 1.06,
-      "pitch": 0.47,
-      "temperature_c": 37.436918429408784,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984336612"
-      }
-    },
-    {
-      "t": 37.22,
-      "position": [
-        -113587.1,
-        -136.1,
-        36.1
-      ],
-      "speed_cm_s": 1708.6,
-      "route_index": 12,
-      "heading_error": -0.04,
-      "roll": -0.99,
-      "pitch": 0.61,
-      "temperature_c": 37.899220488801944,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984336612"
-      }
-    },
-    {
-      "t": 38.22,
-      "position": [
-        -111808.6,
-        41.6,
-        36.1
-      ],
-      "speed_cm_s": 1794.5,
-      "route_index": 12,
-      "heading_error": -3.52,
-      "roll": 0.79,
-      "pitch": 0.32,
-      "temperature_c": 38.34846986733756,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984336612"
-      }
-    },
-    {
-      "t": 39.22,
-      "position": [
-        -110085.0,
-        -149.8,
-        36.1
-      ],
-      "speed_cm_s": 1586.3,
-      "route_index": 13,
-      "heading_error": 9.94,
-      "roll": -0.6,
-      "pitch": 0.26,
-      "temperature_c": 38.79248941993317,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984336612"
-      }
-    },
-    {
-      "t": 40.22,
-      "position": [
-        -108383.1,
-        -35.0,
-        36.2
-      ],
-      "speed_cm_s": 1745.6,
-      "route_index": 13,
-      "heading_error": -12.66,
-      "roll": 0.07,
-      "pitch": 0.21,
-      "temperature_c": 39.480772496868774,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984348613"
-      }
-    },
-    {
-      "t": 41.23,
-      "position": [
-        -106602.3,
-        22.0,
-        35.7
-      ],
-      "speed_cm_s": 1815.1,
-      "route_index": 14,
-      "heading_error": 12.52,
-      "roll": 0.28,
-      "pitch": 0.38,
-      "temperature_c": 40.157485839995445,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984348613"
-      }
-    },
-    {
-      "t": 42.23,
-      "position": [
-        -104821.2,
-        -35.4,
-        36.0
-      ],
-      "speed_cm_s": 1806.5,
-      "route_index": 14,
-      "heading_error": -11.43,
-      "roll": -0.46,
-      "pitch": 0.34,
-      "temperature_c": 40.32274743178385,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984348613"
-      }
-    },
-    {
-      "t": 43.24,
-      "position": [
-        -103012.7,
-        48.8,
-        36.0
-      ],
-      "speed_cm_s": 1796.7,
-      "route_index": 15,
-      "heading_error": 12.23,
-      "roll": 0.67,
-      "pitch": 0.27,
-      "temperature_c": 40.73328312063627,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984348613"
-      }
-    },
-    {
-      "t": 44.25,
-      "position": [
-        -101250.8,
-        -68.3,
-        35.9
-      ],
-      "speed_cm_s": 1795.7,
-      "route_index": 15,
-      "heading_error": -8.76,
-      "roll": -0.61,
-      "pitch": 0.29,
-      "temperature_c": 41.12543165351952,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984348613"
-      }
-    },
-    {
-      "t": 45.26,
-      "position": [
-        -99430.5,
-        29.1,
-        36.2
-      ],
-      "speed_cm_s": 1801.9,
-      "route_index": 16,
-      "heading_error": 12.52,
-      "roll": 1.01,
-      "pitch": 0.48,
-      "temperature_c": 41.49719003043902,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984360614"
-      }
-    },
-    {
-      "t": 46.26,
-      "position": [
-        -97823.6,
-        -255.9,
-        36.0
-      ],
-      "speed_cm_s": 1515.4,
-      "route_index": 16,
-      "heading_error": 4.6,
-      "roll": -0.85,
-      "pitch": 0.52,
-      "temperature_c": 41.65582682882435,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984360614"
-      }
-    },
-    {
-      "t": 47.28,
-      "position": [
-        -96135.9,
-        -3.2,
-        36.0
-      ],
-      "speed_cm_s": 1795.1,
-      "route_index": 16,
-      "heading_error": -10.17,
-      "roll": 0.49,
-      "pitch": 0.27,
-      "temperature_c": 42.546931979529354,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984360614"
-      }
-    },
-    {
-      "t": 48.3,
-      "position": [
-        -94316.4,
-        13.5,
-        36.0
-      ],
-      "speed_cm_s": 1797.6,
-      "route_index": 17,
-      "heading_error": 7.76,
-      "roll": -0.08,
-      "pitch": 0.31,
-      "temperature_c": 42.922991070961096,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984360614"
-      }
-    },
-    {
-      "t": 49.31,
-      "position": [
-        -92503.1,
-        78.1,
-        36.2
-      ],
-      "speed_cm_s": 1716.7,
-      "route_index": 17,
-      "heading_error": -11.15,
-      "roll": 0.33,
+      "speed_cm_s": 1746.8,
+      "route_index": 3,
+      "heading_error": -12.78,
+      "roll": 0.01,
       "pitch": 0.22,
-      "temperature_c": 43.04236214180374,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984360614"
-      }
-    },
-    {
-      "t": 50.33,
-      "position": [
-        -90736.7,
-        -57.5,
-        36.0
-      ],
-      "speed_cm_s": 1639.5,
-      "route_index": 18,
-      "heading_error": 16.59,
-      "roll": 0.05,
-      "pitch": 0.25,
-      "temperature_c": 43.16231930529059,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984360614"
-      }
-    },
-    {
-      "t": 51.33,
-      "position": [
-        -89135.7,
-        -117.2,
-        35.9
-      ],
-      "speed_cm_s": 1740.2,
-      "route_index": 18,
-      "heading_error": -10.53,
-      "roll": -0.53,
-      "pitch": 0.44,
-      "temperature_c": 43.78986130966821,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984373615"
-      }
-    },
-    {
-      "t": 52.34,
-      "position": [
-        -87322.1,
-        73.6,
-        36.0
-      ],
-      "speed_cm_s": 1813.5,
-      "route_index": 19,
-      "heading_error": 8.86,
-      "roll": 0.91,
-      "pitch": 0.53,
-      "temperature_c": 44.14311530853364,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984373615"
-      }
-    },
-    {
-      "t": 53.35,
-      "position": [
-        -85529.6,
-        -42.9,
-        35.9
-      ],
-      "speed_cm_s": 1798.4,
-      "route_index": 19,
-      "heading_error": -8.89,
-      "roll": -0.82,
-      "pitch": 0.42,
-      "temperature_c": 44.24124004232206,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984373615"
-      }
-    },
-    {
-      "t": 54.35,
-      "position": [
-        -83752.5,
-        81.4,
-        36.0
-      ],
-      "speed_cm_s": 1800.9,
-      "route_index": 20,
-      "heading_error": 9.01,
-      "roll": 0.83,
-      "pitch": 0.45,
-      "temperature_c": 45.08588448839715,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984373615"
-      }
-    },
-    {
-      "t": 55.35,
-      "position": [
-        -82062.7,
-        -152.6,
-        36.1
-      ],
-      "speed_cm_s": 1700.5,
-      "route_index": 20,
-      "heading_error": 0.66,
-      "roll": -1.04,
-      "pitch": 0.59,
-      "temperature_c": 45.428189180417284,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984373615"
-      }
-    },
-    {
-      "t": 56.37,
-      "position": [
-        -80262.8,
-        37.3,
-        36.0
-      ],
-      "speed_cm_s": 1802.0,
-      "route_index": 20,
-      "heading_error": -4.09,
-      "roll": 0.76,
-      "pitch": 0.44,
-      "temperature_c": 45.75599313477781,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984373615"
-      }
-    },
-    {
-      "t": 57.38,
-      "position": [
-        -78518.9,
-        -139.8,
-        36.0
-      ],
-      "speed_cm_s": 1568.5,
-      "route_index": 21,
-      "heading_error": 9.46,
-      "roll": -0.59,
-      "pitch": 0.27,
-      "temperature_c": 45.83383256409827,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984385616"
-      }
-    },
-    {
-      "t": 58.4,
-      "position": [
-        -76788.5,
-        -20.0,
-        36.1
-      ],
-      "speed_cm_s": 1802.1,
-      "route_index": 21,
-      "heading_error": -10.83,
-      "roll": 0.21,
-      "pitch": 0.28,
-      "temperature_c": 46.40800589241164,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984385616"
-      }
-    },
-    {
-      "t": 59.42,
-      "position": [
-        -74977.2,
-        -8.9,
-        36.0
-      ],
-      "speed_cm_s": 1739.1,
-      "route_index": 22,
-      "heading_error": 12.05,
-      "roll": 0.06,
-      "pitch": 0.26,
-      "temperature_c": 46.46939808534364,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984385616"
-      }
-    },
-    {
-      "t": 60.42,
-      "position": [
-        -73202.6,
-        -21.2,
-        36.0
-      ],
-      "speed_cm_s": 1811.2,
-      "route_index": 22,
-      "heading_error": -10.16,
-      "roll": 0.02,
-      "pitch": 0.34,
-      "temperature_c": 47.277096043163915,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984385616"
-      }
-    },
-    {
-      "t": 61.43,
-      "position": [
-        -71394.1,
-        -44.3,
-        36.0
-      ],
-      "speed_cm_s": 1712.8,
-      "route_index": 23,
-      "heading_error": 18.15,
-      "roll": 0.38,
-      "pitch": 0.16,
-      "temperature_c": 47.32633603476877,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984385616"
-      }
-    },
-    {
-      "t": 62.45,
-      "position": [
-        -69806.7,
-        -219.8,
-        36.1
-      ],
-      "speed_cm_s": 1634.7,
-      "route_index": 23,
-      "heading_error": -4.86,
-      "roll": -0.93,
-      "pitch": 0.52,
-      "temperature_c": 47.64382108980938,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
-      }
-    },
-    {
-      "t": 63.45,
-      "position": [
-        -68068.1,
-        63.0,
-        36.1
-      ],
-      "speed_cm_s": 1794.6,
-      "route_index": 24,
-      "heading_error": 0.61,
-      "roll": 0.99,
-      "pitch": 0.42,
-      "temperature_c": 48.18620077626597,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
-      }
-    },
-    {
-      "t": 64.47,
-      "position": [
-        -66240.9,
-        -26.7,
-        35.9
-      ],
-      "speed_cm_s": 1797.2,
-      "route_index": 24,
-      "heading_error": -4.56,
-      "roll": -0.81,
-      "pitch": 0.39,
-      "temperature_c": 48.46778010932683,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
-      }
-    },
-    {
-      "t": 65.47,
-      "position": [
-        -64495.7,
-        112.9,
-        36.2
-      ],
-      "speed_cm_s": 1767.2,
-      "route_index": 24,
-      "heading_error": -6.12,
-      "roll": 1.02,
-      "pitch": 0.56,
-      "temperature_c": 48.99640670125486,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
-      }
-    },
-    {
-      "t": 66.48,
-      "position": [
-        -62807.5,
-        -190.8,
-        36.0
-      ],
-      "speed_cm_s": 1504.9,
-      "route_index": 25,
-      "heading_error": 14.1,
-      "roll": -0.58,
-      "pitch": 0.25,
-      "temperature_c": 49.02291581685211,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
-      }
-    },
-    {
-      "t": 67.48,
-      "position": [
-        -61257.7,
-        -119.6,
-        35.8
-      ],
-      "speed_cm_s": 1729.2,
-      "route_index": 25,
-      "heading_error": -12.28,
-      "roll": -0.4,
-      "pitch": 0.43,
-      "temperature_c": 49.56512586309839,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
-      }
-    },
-    {
-      "t": 68.48,
-      "position": [
-        -59601.9,
-        75.9,
-        36.0
-      ],
-      "speed_cm_s": 1576.9,
-      "route_index": 26,
-      "heading_error": -85.56,
-      "roll": 0.92,
-      "pitch": 0.37,
-      "temperature_c": 49.83450407413176,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984409618"
-      }
-    },
-    {
-      "t": 69.5,
-      "position": [
-        -58296.6,
-        -383.7,
-        36.0
-      ],
-      "speed_cm_s": 1183.3,
-      "route_index": 26,
-      "heading_error": -81.59,
-      "roll": 0.66,
-      "pitch": 0.25,
-      "temperature_c": 49.63006262785001,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984409618"
-      }
-    },
-    {
-      "t": 70.52,
-      "position": [
-        -57645.3,
-        -1153.8,
-        17.2
-      ],
-      "speed_cm_s": 813.0,
-      "route_index": 26,
-      "heading_error": -59.24,
-      "roll": 0.98,
-      "pitch": 0.41,
-      "temperature_c": 49.4306347073691,
+      "temperature_c": 27.78903087160298,
       "ground": {
         "z": -0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_1_4_0"
       }
     },
     {
-      "t": 71.52,
+      "t": 16.99,
       "position": [
-        -57707.8,
-        -1802.5,
+        -147205.2,
+        1045.9,
         17.8
       ],
-      "speed_cm_s": 606.4,
-      "route_index": 26,
-      "heading_error": -29.86,
-      "roll": 0.39,
-      "pitch": 0.32,
-      "temperature_c": 49.30801128937778,
+      "speed_cm_s": 1805.1,
+      "route_index": 3,
+      "heading_error": 9.74,
+      "roll": 0.27,
+      "pitch": 0.37,
+      "temperature_c": 28.40710602005213,
       "ground": {
-        "z": 0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+        "z": -0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_1_4_0"
       }
     },
     {
-      "t": 72.53,
+      "t": 17.99,
       "position": [
-        -58164.6,
-        -2230.9,
-        17.7
+        -145418.8,
+        915.7,
+        17.8
       ],
-      "speed_cm_s": 747.1,
-      "route_index": 26,
-      "heading_error": 4.53,
-      "roll": 0.07,
-      "pitch": 0.32,
-      "temperature_c": 49.4370658477709,
+      "speed_cm_s": 1787.2,
+      "route_index": 4,
+      "heading_error": -12.39,
+      "roll": -0.24,
+      "pitch": 0.28,
+      "temperature_c": 28.7665735262647,
       "ground": {
         "z": 0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_1_4_0"
       }
     },
     {
-      "t": 73.55,
+      "t": 19.01,
       "position": [
-        -58769.3,
-        -2652.4,
+        -143607.0,
+        866.4,
         17.9
       ],
-      "speed_cm_s": 707.3,
-      "route_index": 26,
-      "heading_error": -4.2,
-      "roll": 0.13,
-      "pitch": 0.31,
-      "temperature_c": 49.30732596049478,
+      "speed_cm_s": 1803.2,
+      "route_index": 4,
+      "heading_error": 10.65,
+      "roll": 0.33,
+      "pitch": 0.27,
+      "temperature_c": 29.118406552220872,
       "ground": {
         "z": 0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_1_4_0"
       }
     },
     {
-      "t": 74.55,
+      "t": 20.01,
       "position": [
-        -59352.9,
-        -3047.0,
-        28.7
+        -141816.5,
+        682.6,
+        32.9
       ],
-      "speed_cm_s": 699.9,
-      "route_index": 26,
-      "heading_error": -4.06,
-      "roll": 2.08,
-      "pitch": 4.66,
-      "temperature_c": 49.67833057528361,
+      "speed_cm_s": 1799.5,
+      "route_index": 5,
+      "heading_error": -16.6,
+      "roll": 9.13,
+      "pitch": 0.12,
+      "temperature_c": 29.71258275798049,
       "ground": {
-        "z": 0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+        "z": -0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_1_4_0"
       }
     },
     {
-      "t": 75.55,
+      "t": 21.01,
       "position": [
-        -59867.4,
-        -3507.3,
-        37.4
+        -140202.4,
+        884.2,
+        17.3
       ],
-      "speed_cm_s": 702.2,
-      "route_index": 27,
-      "heading_error": 10.14,
-      "roll": -1.84,
-      "pitch": -1.03,
-      "temperature_c": 49.79500991906638,
+      "speed_cm_s": 1408.3,
+      "route_index": 5,
+      "heading_error": -28.61,
+      "roll": -0.78,
+      "pitch": 0.32,
+      "temperature_c": 29.805727038261566,
+      "ground": {
+        "z": 0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_1_4_0"
+      }
+    },
+    {
+      "t": 22.01,
+      "position": [
+        -138951.6,
+        889.8,
+        18.2
+      ],
+      "speed_cm_s": 1301.9,
+      "route_index": 5,
+      "heading_error": 0.43,
+      "roll": 1.07,
+      "pitch": 0.56,
+      "temperature_c": 30.159626672072516,
+      "ground": {
+        "z": 0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_1_4_0"
+      }
+    },
+    {
+      "t": 23.03,
+      "position": [
+        -137667.1,
+        313.9,
+        47.8
+      ],
+      "speed_cm_s": 1357.8,
+      "route_index": 6,
+      "heading_error": 35.42,
+      "roll": -1.6,
+      "pitch": -0.14,
+      "temperature_c": 30.750298950895818,
       "ground": {
         "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984313610"
       }
     },
     {
-      "t": 76.57,
+      "t": 24.03,
       "position": [
-        -60362.0,
-        -4020.2,
+        -136517.1,
+        -185.3,
+        36.3
+      ],
+      "speed_cm_s": 1120.7,
+      "route_index": 6,
+      "heading_error": 23.65,
+      "roll": -1.16,
+      "pitch": 0.0,
+      "temperature_c": 30.84046024689194,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984313610"
+      }
+    },
+    {
+      "t": 25.05,
+      "position": [
+        -135521.9,
+        -97.5,
+        35.9
+      ],
+      "speed_cm_s": 1071.4,
+      "route_index": 6,
+      "heading_error": -2.26,
+      "roll": -0.64,
+      "pitch": 0.56,
+      "temperature_c": 31.188949332661604,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984313610"
+      }
+    },
+    {
+      "t": 26.05,
+      "position": [
+        -134299.0,
+        378.6,
         36.0
       ],
-      "speed_cm_s": 706.1,
-      "route_index": 27,
-      "heading_error": -3.5,
-      "roll": -0.13,
-      "pitch": 0.36,
-      "temperature_c": 49.662564935661294,
+      "speed_cm_s": 1363.8,
+      "route_index": 7,
+      "heading_error": -14.08,
+      "roll": 0.65,
+      "pitch": 0.24,
+      "temperature_c": 32.01580302677633,
       "ground": {
         "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984313610"
       }
     },
     {
-      "t": 77.57,
+      "t": 27.05,
       "position": [
-        -60824.0,
-        -4548.1,
+        -132848.4,
+        360.0,
         35.8
       ],
-      "speed_cm_s": 703.4,
-      "route_index": 27,
-      "heading_error": -0.5,
-      "roll": -0.16,
+      "speed_cm_s": 1669.9,
+      "route_index": 7,
+      "heading_error": 7.49,
+      "roll": 0.04,
+      "pitch": 0.39,
+      "temperature_c": 32.82720561235139,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984313610"
+      }
+    },
+    {
+      "t": 28.05,
+      "position": [
+        -131072.5,
+        235.8,
+        36.0
+      ],
+      "speed_cm_s": 1796.2,
+      "route_index": 8,
+      "heading_error": -6.72,
+      "roll": 0.09,
+      "pitch": 0.27,
+      "temperature_c": 33.609472329388566,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984313610"
+      }
+    },
+    {
+      "t": 29.05,
+      "position": [
+        -129284.1,
+        63.6,
+        36.0
+      ],
+      "speed_cm_s": 1794.8,
+      "route_index": 8,
+      "heading_error": 6.96,
+      "roll": -0.33,
+      "pitch": 0.3,
+      "temperature_c": 34.37860865994162,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984325611"
+      }
+    },
+    {
+      "t": 30.05,
+      "position": [
+        -127497.4,
+        85.0,
+        36.1
+      ],
+      "speed_cm_s": 1725.4,
+      "route_index": 8,
+      "heading_error": -15.54,
+      "roll": 0.22,
+      "pitch": 0.22,
+      "temperature_c": 34.637591190704626,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984325611"
+      }
+    },
+    {
+      "t": 31.05,
+      "position": [
+        -125745.7,
+        -29.1,
+        35.9
+      ],
+      "speed_cm_s": 1799.8,
+      "route_index": 9,
+      "heading_error": 7.51,
+      "roll": -0.33,
+      "pitch": 0.35,
+      "temperature_c": 35.14363068618187,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984325611"
+      }
+    },
+    {
+      "t": 32.05,
+      "position": [
+        -123959.7,
+        49.8,
+        36.1
+      ],
+      "speed_cm_s": 1716.6,
+      "route_index": 9,
+      "heading_error": -11.45,
+      "roll": 0.2,
+      "pitch": 0.22,
+      "temperature_c": 35.87156765251519,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984325611"
+      }
+    },
+    {
+      "t": 33.05,
+      "position": [
+        -122195.1,
+        -16.8,
+        36.1
+      ],
+      "speed_cm_s": 1720.9,
+      "route_index": 10,
+      "heading_error": 10.15,
+      "roll": -0.14,
+      "pitch": 0.23,
+      "temperature_c": 36.35590043701326,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984325611"
+      }
+    },
+    {
+      "t": 34.05,
+      "position": [
+        -120411.4,
+        7.0,
+        36.0
+      ],
+      "speed_cm_s": 1805.0,
+      "route_index": 10,
+      "heading_error": -9.65,
+      "roll": 0.11,
+      "pitch": 0.38,
+      "temperature_c": 37.07950072332983,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984325611"
+      }
+    },
+    {
+      "t": 35.06,
+      "position": [
+        -118636.9,
+        -64.5,
+        36.1
+      ],
+      "speed_cm_s": 1685.4,
+      "route_index": 11,
+      "heading_error": 18.84,
+      "roll": 0.3,
+      "pitch": 0.22,
+      "temperature_c": 37.54330382514962,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984336612"
+      }
+    },
+    {
+      "t": 36.07,
+      "position": [
+        -117045.4,
+        -210.0,
+        36.0
+      ],
+      "speed_cm_s": 1658.6,
+      "route_index": 11,
+      "heading_error": -6.56,
+      "roll": -0.74,
+      "pitch": 0.47,
+      "temperature_c": 38.25373013220073,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984336612"
+      }
+    },
+    {
+      "t": 37.07,
+      "position": [
+        -115292.0,
+        63.1,
+        36.2
+      ],
+      "speed_cm_s": 1811.3,
+      "route_index": 12,
+      "heading_error": 2.86,
+      "roll": 1.14,
+      "pitch": 0.5,
+      "temperature_c": 38.69765822568803,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984336612"
+      }
+    },
+    {
+      "t": 38.07,
+      "position": [
+        -113496.7,
+        -36.1,
+        36.0
+      ],
+      "speed_cm_s": 1797.1,
+      "route_index": 12,
+      "heading_error": -5.29,
+      "roll": -0.78,
+      "pitch": 0.39,
+      "temperature_c": 39.38158621308789,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984336612"
+      }
+    },
+    {
+      "t": 39.07,
+      "position": [
+        -111705.7,
+        91.9,
+        36.1
+      ],
+      "speed_cm_s": 1786.6,
+      "route_index": 12,
+      "heading_error": -3.48,
+      "roll": 0.98,
+      "pitch": 0.4,
+      "temperature_c": 39.80962840156799,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984336612"
+      }
+    },
+    {
+      "t": 40.09,
+      "position": [
+        -110039.0,
+        -236.4,
+        36.0
+      ],
+      "speed_cm_s": 1482.8,
+      "route_index": 13,
+      "heading_error": 13.74,
+      "roll": -0.63,
+      "pitch": 0.26,
+      "temperature_c": 39.74274959710018,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984336612"
+      }
+    },
+    {
+      "t": 41.09,
+      "position": [
+        -108507.5,
+        -138.2,
+        35.8
+      ],
+      "speed_cm_s": 1722.4,
+      "route_index": 13,
+      "heading_error": -11.65,
+      "roll": -0.36,
+      "pitch": 0.43,
+      "temperature_c": 40.6741976257651,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984348613"
+      }
+    },
+    {
+      "t": 42.11,
+      "position": [
+        -106719.8,
+        102.3,
+        36.2
+      ],
+      "speed_cm_s": 1793.2,
+      "route_index": 14,
+      "heading_error": 6.92,
+      "roll": 0.93,
+      "pitch": 0.36,
+      "temperature_c": 41.079327169487655,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984348613"
+      }
+    },
+    {
+      "t": 43.12,
+      "position": [
+        -104904.9,
+        30.7,
+        36.0
+      ],
+      "speed_cm_s": 1799.9,
+      "route_index": 14,
+      "heading_error": -11.32,
+      "roll": -0.56,
+      "pitch": 0.31,
+      "temperature_c": 41.47540293872149,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984348613"
+      }
+    },
+    {
+      "t": 44.12,
+      "position": [
+        -103135.4,
+        62.3,
+        35.9
+      ],
+      "speed_cm_s": 1781.1,
+      "route_index": 15,
+      "heading_error": 13.71,
+      "roll": 0.69,
       "pitch": 0.32,
-      "temperature_c": 50.02895418861838,
+      "temperature_c": 41.86877273246707,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984348613"
+      }
+    },
+    {
+      "t": 45.12,
+      "position": [
+        -101519.3,
+        -152.3,
+        36.2
+      ],
+      "speed_cm_s": 1669.5,
+      "route_index": 15,
+      "heading_error": -3.33,
+      "roll": -1.11,
+      "pitch": 0.54,
+      "temperature_c": 42.26848780420594,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984348613"
+      }
+    },
+    {
+      "t": 46.12,
+      "position": [
+        -99810.0,
+        82.1,
+        36.1
+      ],
+      "speed_cm_s": 1720.4,
+      "route_index": 16,
+      "heading_error": -0.73,
+      "roll": 0.87,
+      "pitch": 0.58,
+      "temperature_c": 42.65277340518069,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984360614"
+      }
+    },
+    {
+      "t": 47.14,
+      "position": [
+        -98030.6,
+        -65.3,
+        35.9
+      ],
+      "speed_cm_s": 1764.5,
+      "route_index": 16,
+      "heading_error": 3.02,
+      "roll": -0.68,
+      "pitch": 0.55,
+      "temperature_c": 43.02862264267834,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984360614"
+      }
+    },
+    {
+      "t": 48.14,
+      "position": [
+        -96240.2,
+        53.9,
+        36.0
+      ],
+      "speed_cm_s": 1800.8,
+      "route_index": 16,
+      "heading_error": -5.69,
+      "roll": 0.6,
+      "pitch": 0.33,
+      "temperature_c": 43.39676729143893,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984360614"
+      }
+    },
+    {
+      "t": 49.14,
+      "position": [
+        -94507.0,
+        -140.9,
+        36.0
+      ],
+      "speed_cm_s": 1599.1,
+      "route_index": 17,
+      "heading_error": 15.07,
+      "roll": -0.29,
+      "pitch": 0.26,
+      "temperature_c": 43.512970754047664,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984360614"
+      }
+    },
+    {
+      "t": 50.14,
+      "position": [
+        -92874.6,
+        -120.4,
+        35.9
+      ],
+      "speed_cm_s": 1789.9,
+      "route_index": 17,
+      "heading_error": -11.6,
+      "roll": -0.44,
+      "pitch": 0.42,
+      "temperature_c": 44.37915568861906,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984360614"
+      }
+    },
+    {
+      "t": 51.16,
+      "position": [
+        -91061.0,
+        74.3,
+        36.2
+      ],
+      "speed_cm_s": 1794.6,
+      "route_index": 18,
+      "heading_error": 9.36,
+      "roll": 0.97,
+      "pitch": 0.37,
+      "temperature_c": 44.47517597119789,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984360614"
+      }
+    },
+    {
+      "t": 52.16,
+      "position": [
+        -89266.8,
+        -36.5,
+        35.9
+      ],
+      "speed_cm_s": 1804.8,
+      "route_index": 18,
+      "heading_error": -9.23,
+      "roll": -0.73,
+      "pitch": 0.43,
+      "temperature_c": 44.81746816475508,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984373615"
+      }
+    },
+    {
+      "t": 53.16,
+      "position": [
+        -87476.3,
+        62.7,
+        36.1
+      ],
+      "speed_cm_s": 1805.9,
+      "route_index": 19,
+      "heading_error": 11.17,
+      "roll": 1.04,
+      "pitch": 0.55,
+      "temperature_c": 45.152243959823025,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984373615"
+      }
+    },
+    {
+      "t": 54.17,
+      "position": [
+        -85794.8,
+        -152.7,
+        36.3
+      ],
+      "speed_cm_s": 1685.2,
+      "route_index": 19,
+      "heading_error": -2.02,
+      "roll": -1.15,
+      "pitch": 0.58,
+      "temperature_c": 45.49669952209648,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984373615"
+      }
+    },
+    {
+      "t": 55.17,
+      "position": [
+        -84029.0,
+        54.1,
+        36.1
+      ],
+      "speed_cm_s": 1794.2,
+      "route_index": 20,
+      "heading_error": 0.61,
+      "roll": 0.8,
+      "pitch": 0.33,
+      "temperature_c": 46.07237653284692,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984373615"
+      }
+    },
+    {
+      "t": 56.17,
+      "position": [
+        -82249.4,
+        -85.5,
+        35.9
+      ],
+      "speed_cm_s": 1811.0,
+      "route_index": 20,
+      "heading_error": 1.68,
+      "roll": -0.73,
+      "pitch": 0.47,
+      "temperature_c": 46.6390955686888,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984373615"
+      }
+    },
+    {
+      "t": 57.19,
+      "position": [
+        -80428.6,
+        56.1,
+        35.9
+      ],
+      "speed_cm_s": 1799.5,
+      "route_index": 20,
+      "heading_error": -4.19,
+      "roll": 0.68,
+      "pitch": 0.38,
+      "temperature_c": 46.69632189274069,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984373615"
+      }
+    },
+    {
+      "t": 58.19,
+      "position": [
+        -78718.7,
+        -171.1,
+        36.0
+      ],
+      "speed_cm_s": 1562.8,
+      "route_index": 21,
+      "heading_error": 16.32,
+      "roll": -0.32,
+      "pitch": 0.26,
+      "temperature_c": 47.00738887852767,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984385616"
+      }
+    },
+    {
+      "t": 59.21,
+      "position": [
+        -77120.2,
+        -153.1,
+        35.9
+      ],
+      "speed_cm_s": 1739.2,
+      "route_index": 21,
+      "heading_error": -10.47,
+      "roll": -0.47,
+      "pitch": 0.44,
+      "temperature_c": 47.57752537896249,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984385616"
+      }
+    },
+    {
+      "t": 60.23,
+      "position": [
+        -75312.0,
+        73.3,
+        36.0
+      ],
+      "speed_cm_s": 1792.7,
+      "route_index": 22,
+      "heading_error": 8.45,
+      "roll": 0.78,
+      "pitch": 0.36,
+      "temperature_c": 47.86833238680741,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984385616"
+      }
+    },
+    {
+      "t": 61.24,
+      "position": [
+        -73488.8,
+        -37.3,
+        36.0
+      ],
+      "speed_cm_s": 1790.1,
+      "route_index": 22,
+      "heading_error": -9.29,
+      "roll": -0.83,
+      "pitch": 0.37,
+      "temperature_c": 47.90620451669262,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984385616"
+      }
+    },
+    {
+      "t": 62.24,
+      "position": [
+        -71724.2,
+        88.4,
+        36.0
+      ],
+      "speed_cm_s": 1810.8,
+      "route_index": 23,
+      "heading_error": 8.86,
+      "roll": 0.89,
+      "pitch": 0.45,
+      "temperature_c": 48.443675149303836,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984385616"
+      }
+    },
+    {
+      "t": 63.26,
+      "position": [
+        -69917.9,
+        -65.8,
+        35.9
+      ],
+      "speed_cm_s": 1807.6,
+      "route_index": 23,
+      "heading_error": -6.22,
+      "roll": -0.81,
+      "pitch": 0.53,
+      "temperature_c": 48.971801938017165,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
+      }
+    },
+    {
+      "t": 64.26,
+      "position": [
+        -68123.6,
+        47.4,
+        36.1
+      ],
+      "speed_cm_s": 1810.6,
+      "route_index": 24,
+      "heading_error": 9.2,
+      "roll": 1.02,
+      "pitch": 0.56,
+      "temperature_c": 49.24232782460674,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
+      }
+    },
+    {
+      "t": 65.26,
+      "position": [
+        -66498.7,
+        -222.2,
+        35.9
+      ],
+      "speed_cm_s": 1544.6,
+      "route_index": 24,
+      "heading_error": 5.6,
+      "roll": -0.74,
+      "pitch": 0.52,
+      "temperature_c": 49.27254593362547,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
+      }
+    },
+    {
+      "t": 66.26,
+      "position": [
+        -64810.9,
+        -14.8,
+        36.1
+      ],
+      "speed_cm_s": 1805.9,
+      "route_index": 24,
+      "heading_error": -10.14,
+      "roll": 0.39,
+      "pitch": 0.27,
+      "temperature_c": 49.7940697603472,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
+      }
+    },
+    {
+      "t": 67.26,
+      "position": [
+        -63057.7,
+        15.7,
+        36.0
+      ],
+      "speed_cm_s": 1648.3,
+      "route_index": 25,
+      "heading_error": 7.41,
+      "roll": -0.09,
+      "pitch": 0.24,
+      "temperature_c": 49.802111205648345,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
+      }
+    },
+    {
+      "t": 68.26,
+      "position": [
+        -61601.9,
+        45.0,
+        35.9
+      ],
+      "speed_cm_s": 1274.7,
+      "route_index": 25,
+      "heading_error": -3.35,
+      "roll": 0.44,
+      "pitch": 0.27,
+      "temperature_c": 49.59165799276478,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
+      }
+    },
+    {
+      "t": 69.26,
+      "position": [
+        -60523.4,
+        -18.3,
+        35.9
+      ],
+      "speed_cm_s": 903.3,
+      "route_index": 25,
+      "heading_error": -0.42,
+      "roll": -0.54,
+      "pitch": 0.27,
+      "temperature_c": 49.42156354829402,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
+      }
+    },
+    {
+      "t": 70.28,
+      "position": [
+        -59801.9,
+        -25.1,
+        35.9
+      ],
+      "speed_cm_s": 604.9,
+      "route_index": 26,
+      "heading_error": -82.12,
+      "roll": 0.37,
+      "pitch": 0.32,
+      "temperature_c": 49.290409137630924,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984409618"
+      }
+    },
+    {
+      "t": 71.28,
+      "position": [
+        -59323.6,
+        -346.8,
+        35.8
+      ],
+      "speed_cm_s": 569.6,
+      "route_index": 26,
+      "heading_error": -54.32,
+      "roll": 0.3,
+      "pitch": 0.31,
+      "temperature_c": 49.17563108129968,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984409618"
+      }
+    },
+    {
+      "t": 72.28,
+      "position": [
+        -59112.5,
+        -856.1,
+        14.8
+      ],
+      "speed_cm_s": 522.8,
+      "route_index": 26,
+      "heading_error": -26.58,
+      "roll": 0.12,
+      "pitch": 0.98,
+      "temperature_c": 49.31475400871112,
+      "ground": {
+        "z": -0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+      }
+    },
+    {
+      "t": 73.28,
+      "position": [
+        -59250.7,
+        -1436.5,
+        18.2
+      ],
+      "speed_cm_s": 726.4,
+      "route_index": 26,
+      "heading_error": 4.35,
+      "roll": -0.15,
+      "pitch": 0.16,
+      "temperature_c": 49.948132412800874,
+      "ground": {
+        "z": 0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+      }
+    },
+    {
+      "t": 74.28,
+      "position": [
+        -59506.9,
+        -2104.5,
+        31.8
+      ],
+      "speed_cm_s": 721.5,
+      "route_index": 26,
+      "heading_error": -1.32,
+      "roll": 8.44,
+      "pitch": -0.38,
+      "temperature_c": 50.0615270961075,
+      "ground": {
+        "z": -0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+      }
+    },
+    {
+      "t": 75.28,
+      "position": [
+        -59720.5,
+        -2774.6,
+        51.5
+      ],
+      "speed_cm_s": 732.0,
+      "route_index": 26,
+      "heading_error": 0.57,
+      "roll": -5.25,
+      "pitch": 4.32,
+      "temperature_c": 50.423381101111886,
       "ground": {
         "z": 18.0,
         "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
       }
     },
     {
-      "t": 78.57,
+      "t": 76.28,
       "position": [
-        -61275.6,
-        -5087.6,
+        -59981.9,
+        -3410.6,
+        35.7
+      ],
+      "speed_cm_s": 617.3,
+      "route_index": 27,
+      "heading_error": -17.55,
+      "roll": -0.06,
+      "pitch": 0.28,
+      "temperature_c": 50.28520222878595,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
+      }
+    },
+    {
+      "t": 77.28,
+      "position": [
+        -60387.1,
+        -3931.0,
+        35.7
+      ],
+      "speed_cm_s": 717.5,
+      "route_index": 27,
+      "heading_error": 4.83,
+      "roll": 0.02,
+      "pitch": 0.36,
+      "temperature_c": 50.400694817387716,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
+      }
+    },
+    {
+      "t": 78.3,
+      "position": [
+        -60837.7,
+        -4488.6,
+        35.8
+      ],
+      "speed_cm_s": 703.8,
+      "route_index": 27,
+      "heading_error": 2.8,
+      "roll": -0.24,
+      "pitch": 0.32,
+      "temperature_c": 50.50839936026067,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
+      }
+    },
+    {
+      "t": 79.3,
+      "position": [
+        -61283.1,
+        -5031.6,
+        35.8
+      ],
+      "speed_cm_s": 708.7,
+      "route_index": 27,
+      "heading_error": -0.88,
+      "roll": -0.09,
+      "pitch": 0.32,
+      "temperature_c": 50.61520156024825,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
+      }
+    },
+    {
+      "t": 80.31,
+      "position": [
+        -61730.4,
+        -5587.8,
+        35.8
+      ],
+      "speed_cm_s": 699.3,
+      "route_index": 27,
+      "heading_error": -1.33,
+      "roll": -0.0,
+      "pitch": 0.32,
+      "temperature_c": 50.6851156647043,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
+      }
+    },
+    {
+      "t": 81.32,
+      "position": [
+        -62174.9,
+        -6128.6,
         35.8
       ],
       "speed_cm_s": 700.9,
       "route_index": 27,
-      "heading_error": -0.92,
-      "roll": -0.01,
+      "heading_error": -0.9,
+      "roll": -0.14,
       "pitch": 0.32,
-      "temperature_c": 50.14172131192416,
+      "temperature_c": 50.79138809030619,
       "ground": {
         "z": 18.0,
         "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
       }
     },
     {
-      "t": 79.58,
+      "t": 82.32,
       "position": [
-        -61733.2,
-        -5632.9,
+        -62503.6,
+        -6655.8,
         35.8
       ],
-      "speed_cm_s": 700.7,
-      "route_index": 27,
-      "heading_error": -1.48,
-      "roll": -0.0,
-      "pitch": 0.32,
-      "temperature_c": 50.005271704308754,
+      "speed_cm_s": 584.0,
+      "route_index": 28,
+      "heading_error": 20.42,
+      "roll": -0.37,
+      "pitch": 0.33,
+      "temperature_c": 50.655298083994396,
       "ground": {
         "z": 18.0,
         "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
       }
     },
     {
-      "t": 80.59,
+      "t": 83.32,
       "position": [
-        -62191.5,
-        -6166.5,
+        -62510.0,
+        -7293.4,
+        35.8
+      ],
+      "speed_cm_s": 712.5,
+      "route_index": 28,
+      "heading_error": -5.74,
+      "roll": -0.02,
+      "pitch": 0.34,
+      "temperature_c": 50.76489829645442,
+      "ground": {
+        "z": 18.0,
+        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
+      }
+    },
+    {
+      "t": 84.33,
+      "position": [
+        -62520.1,
+        -8020.8,
         35.9
       ],
-      "speed_cm_s": 705.2,
-      "route_index": 27,
-      "heading_error": -1.62,
-      "roll": 0.14,
-      "pitch": 0.31,
-      "temperature_c": 50.11903029174843,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
-      }
-    },
-    {
-      "t": 81.59,
-      "position": [
-        -62543.3,
-        -6678.0,
-        35.8
-      ],
-      "speed_cm_s": 585.3,
+      "speed_cm_s": 701.3,
       "route_index": 28,
-      "heading_error": 24.67,
+      "heading_error": -0.34,
       "roll": -0.37,
-      "pitch": 0.32,
-      "temperature_c": 49.990636613805194,
+      "pitch": 0.28,
+      "temperature_c": 50.86628840493053,
       "ground": {
         "z": 18.0,
         "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
       }
     },
     {
-      "t": 82.59,
+      "t": 85.33,
       "position": [
-        -62566.6,
-        -7303.9,
+        -62508.8,
+        -8728.4,
         36.0
       ],
-      "speed_cm_s": 740.8,
-      "route_index": 28,
-      "heading_error": -4.54,
-      "roll": 0.02,
-      "pitch": 0.27,
-      "temperature_c": 50.35925483388244,
+      "speed_cm_s": 726.3,
+      "route_index": 29,
+      "heading_error": 5.18,
+      "roll": 0.04,
+      "pitch": 0.28,
+      "temperature_c": 50.96824860878836,
       "ground": {
         "z": 18.0,
         "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
       }
     },
     {
-      "t": 83.59,
+      "t": 86.35,
       "position": [
-        -62536.1,
-        -8024.9,
-        35.8
-      ],
-      "speed_cm_s": 707.5,
-      "route_index": 28,
-      "heading_error": -0.16,
-      "roll": 0.23,
-      "pitch": 0.32,
-      "temperature_c": 50.2179016484499,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
-      }
-    },
-    {
-      "t": 84.6,
-      "position": [
-        -62511.9,
-        -8739.4,
+        -62502.0,
+        -9447.0,
         35.9
       ],
-      "speed_cm_s": 703.9,
+      "speed_cm_s": 703.0,
       "route_index": 29,
-      "heading_error": 0.45,
-      "roll": 0.01,
-      "pitch": 0.31,
-      "temperature_c": 50.329012588548665,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
-      }
-    },
-    {
-      "t": 85.62,
-      "position": [
-        -62514.4,
-        -9451.5,
-        35.8
-      ],
-      "speed_cm_s": 700.2,
-      "route_index": 29,
-      "heading_error": 0.8,
-      "roll": -0.0,
+      "heading_error": 1.42,
+      "roll": 0.21,
       "pitch": 0.32,
-      "temperature_c": 50.93664737174032,
+      "temperature_c": 51.319270261531095,
       "ground": {
         "z": 18.0,
         "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
       }
     },
     {
-      "t": 86.62,
+      "t": 87.35,
       "position": [
-        -62517.6,
-        -10152.3,
+        -62502.7,
+        -10151.4,
         35.8
       ],
-      "speed_cm_s": 700.0,
+      "speed_cm_s": 700.3,
       "route_index": 29,
-      "heading_error": 1.45,
-      "roll": 0.0,
-      "pitch": 0.32,
-      "temperature_c": 51.534974747277374,
+      "heading_error": -1.04,
+      "roll": 0.22,
+      "pitch": 0.33,
+      "temperature_c": 51.415530468806764,
       "ground": {
         "z": 18.0,
         "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
       }
     },
     {
-      "t": 87.62,
+      "t": 88.35,
       "position": [
-        -62501.1,
-        -10833.4,
+        -62481.8,
+        -10833.7,
         35.8
       ],
-      "speed_cm_s": 614.3,
+      "speed_cm_s": 615.0,
       "route_index": 30,
-      "heading_error": 82.3,
-      "roll": -0.32,
+      "heading_error": 82.24,
+      "roll": -0.3,
       "pitch": 0.34,
-      "temperature_c": 51.63066963275832,
+      "temperature_c": 51.51299535884707,
       "ground": {
         "z": 18.0,
         "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
       }
     },
     {
-      "t": 88.62,
+      "t": 89.35,
       "position": [
-        -62262.6,
-        -11357.8,
-        29.8
-      ],
-      "speed_cm_s": 568.8,
-      "route_index": 30,
-      "heading_error": 61.31,
-      "roll": -0.73,
-      "pitch": -2.12,
-      "temperature_c": 51.487274601993875,
-      "ground": {
-        "z": 0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
-      }
-    },
-    {
-      "t": 89.64,
-      "position": [
-        -61789.8,
-        -11655.7,
+        -62241.6,
+        -11358.7,
         29.7
       ],
-      "speed_cm_s": 560.3,
+      "speed_cm_s": 569.9,
       "route_index": 30,
-      "heading_error": 38.83,
-      "roll": -3.8,
-      "pitch": 4.49,
-      "temperature_c": 51.59716502659831,
+      "heading_error": 61.33,
+      "roll": -0.78,
+      "pitch": -2.09,
+      "temperature_c": 51.371056070446684,
       "ground": {
         "z": 0.0,
         "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
       }
     },
     {
-      "t": 90.64,
+      "t": 90.37,
       "position": [
-        -61256.4,
-        -11685.2,
-        56.3
+        -61769.9,
+        -11655.7,
+        32.7
       ],
-      "speed_cm_s": 529.2,
+      "speed_cm_s": 548.7,
       "route_index": 30,
-      "heading_error": 16.76,
-      "roll": -0.16,
-      "pitch": -3.58,
-      "temperature_c": 51.70700339480162,
+      "heading_error": 39.32,
+      "roll": -4.7,
+      "pitch": 4.87,
+      "temperature_c": 51.73124471321824,
+      "ground": {
+        "z": -0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+      }
+    },
+    {
+      "t": 91.37,
+      "position": [
+        -61218.1,
+        -11696.3,
+        49.9
+      ],
+      "speed_cm_s": 556.1,
+      "route_index": 30,
+      "heading_error": 17.3,
+      "roll": -0.37,
+      "pitch": -2.12,
+      "temperature_c": 51.58894248942314,
       "ground": {
         "z": 19.0,
         "actor": "StaticMeshActor_UAID_64497D559D93AD0903_1895127828"
       }
     },
     {
-      "t": 91.66,
+      "t": 92.37,
       "position": [
-        -60762.4,
-        -11405.3,
-        37.3
+        -60713.8,
+        -11410.6,
+        38.0
       ],
-      "speed_cm_s": 594.8,
+      "speed_cm_s": 728.4,
       "route_index": 30,
-      "heading_error": -15.28,
+      "heading_error": -10.08,
+      "roll": 0.36,
+      "pitch": 1.36,
+      "temperature_c": 52.188949941645554,
+      "ground": {
+        "z": 19.0,
+        "actor": "StaticMeshActor_UAID_64497D559D93AD0903_1895127828"
+      }
+    },
+    {
+      "t": 93.39,
+      "position": [
+        -60305.8,
+        -11063.7,
+        37.1
+      ],
+      "speed_cm_s": 305.9,
+      "route_index": 30,
+      "heading_error": -28.65,
       "roll": -0.01,
-      "pitch": 0.46,
-      "temperature_c": 52.308264803234295,
+      "pitch": 0.2,
+      "temperature_c": 52.04680606310422,
       "ground": {
         "z": 19.0,
         "actor": "StaticMeshActor_UAID_64497D559D93AD0903_1895127828"
       }
     },
     {
-      "t": 92.66,
+      "t": 101.76,
       "position": [
-        -60413.4,
-        -11131.1,
-        36.9
-      ],
-      "speed_cm_s": 236.6,
-      "route_index": 30,
-      "heading_error": -20.28,
-      "roll": 0.01,
-      "pitch": 0.23,
-      "temperature_c": 52.17048409766154,
-      "ground": {
-        "z": 19.0,
-        "actor": "StaticMeshActor_UAID_64497D559D93AD0903_1895127828"
-      }
-    },
-    {
-      "t": 100.78,
-      "position": [
-        -60365.3,
-        -11093.7,
+        -60227.7,
+        -10997.2,
         36.8
       ],
       "speed_cm_s": 0.0,
       "route_index": 31,
-      "heading_error": -68.6,
-      "roll": -0.0,
-      "pitch": 0.3,
-      "temperature_c": 50.39311581144688,
+      "heading_error": -74.42,
+      "roll": 0.0,
+      "pitch": 0.31,
+      "temperature_c": 50.26920336787818,
       "ground": {
         "z": 19.0,
         "actor": "StaticMeshActor_UAID_64497D559D93AD0903_1895127828"
       }
     },
     {
-      "t": 101.79,
+      "t": 102.77,
       "position": [
-        -60219.4,
-        -11019.1,
+        -60079.5,
+        -10913.6,
         36.7
       ],
-      "speed_cm_s": 366.7,
+      "speed_cm_s": 373.7,
       "route_index": 31,
-      "heading_error": -62.04,
+      "heading_error": -67.83,
       "roll": 0.15,
       "pitch": 0.4,
-      "temperature_c": 51.300401594328704,
+      "temperature_c": 51.16848385984667,
       "ground": {
         "z": 19.0,
         "actor": "StaticMeshActor_UAID_64497D559D93AD0903_1895127828"
       }
     },
     {
-      "t": 102.79,
+      "t": 103.77,
       "position": [
-        -59709.4,
-        -10949.6,
+        -59578.7,
+        -10824.1,
         36.9
       ],
       "speed_cm_s": 553.1,
       "route_index": 31,
-      "heading_error": -39.0,
-      "roll": 0.34,
+      "heading_error": -46.06,
+      "roll": 0.33,
       "pitch": 0.31,
-      "temperature_c": 51.41353607156717,
+      "temperature_c": 51.53475999418522,
       "ground": {
         "z": 19.0,
         "actor": "StaticMeshActor_UAID_64497D559D93AD0903_1895127828"
       }
     },
     {
-      "t": 103.8,
+      "t": 104.79,
       "position": [
-        -59211.8,
-        -11188.9,
-        36.9
-      ],
-      "speed_cm_s": 565.0,
-      "route_index": 31,
-      "heading_error": -8.8,
-      "roll": 0.28,
-      "pitch": 0.37,
-      "temperature_c": 51.77036794295317,
-      "ground": {
-        "z": 19.0,
-        "actor": "StaticMeshActor_UAID_64497D559D93AD0903_1895127828"
-      }
-    },
-    {
-      "t": 104.82,
-      "position": [
-        -58729.6,
-        -11724.0,
+        -59063.0,
+        -11048.3,
         36.8
       ],
-      "speed_cm_s": 716.8,
+      "speed_cm_s": 556.8,
       "route_index": 31,
-      "heading_error": -2.49,
-      "roll": 0.06,
-      "pitch": 0.33,
-      "temperature_c": 51.85903762961057,
+      "heading_error": -17.16,
+      "roll": 0.32,
+      "pitch": 0.36,
+      "temperature_c": 51.644247873516925,
       "ground": {
         "z": 19.0,
         "actor": "StaticMeshActor_UAID_64497D559D93AD0903_1895127828"
       }
     },
     {
-      "t": 105.82,
+      "t": 105.81,
       "position": [
-        -58249.7,
-        -12240.9,
-        25.3
+        -58677.5,
+        -11584.5,
+        36.8
       ],
-      "speed_cm_s": 692.3,
-      "route_index": 32,
-      "heading_error": -123.73,
-      "roll": 6.04,
-      "pitch": 0.48,
-      "temperature_c": 51.948981876017456,
-      "ground": {
-        "z": -0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
-      }
-    },
-    {
-      "t": 106.83,
-      "position": [
-        -57910.2,
-        -12760.6,
-        17.9
-      ],
-      "speed_cm_s": 577.9,
-      "route_index": 32,
-      "heading_error": -117.18,
-      "roll": 0.43,
-      "pitch": 0.31,
-      "temperature_c": 51.798866820949165,
-      "ground": {
-        "z": -0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
-      }
-    },
-    {
-      "t": 107.83,
-      "position": [
-        -57919.3,
-        -13313.1,
-        17.8
-      ],
-      "speed_cm_s": 556.4,
-      "route_index": 32,
-      "heading_error": -93.62,
-      "roll": 0.33,
+      "speed_cm_s": 725.5,
+      "route_index": 31,
+      "heading_error": 4.32,
+      "roll": -0.25,
       "pitch": 0.34,
-      "temperature_c": 51.905777770029324,
+      "temperature_c": 51.99299648437846,
+      "ground": {
+        "z": 19.0,
+        "actor": "StaticMeshActor_UAID_64497D559D93AD0903_1895127828"
+      }
+    },
+    {
+      "t": 106.82,
+      "position": [
+        -58253.8,
+        -12151.3,
+        28.4
+      ],
+      "speed_cm_s": 637.6,
+      "route_index": 32,
+      "heading_error": -114.47,
+      "roll": 5.42,
+      "pitch": -0.37,
+      "temperature_c": 51.79382950852573,
       "ground": {
         "z": 0.0,
         "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
       }
     },
     {
-      "t": 108.84,
+      "t": 107.82,
       "position": [
-        -58242.5,
-        -13751.0,
-        14.2
-      ],
-      "speed_cm_s": 552.8,
-      "route_index": 32,
-      "heading_error": -69.82,
-      "roll": 1.39,
-      "pitch": -0.55,
-      "temperature_c": 52.011283142987864,
-      "ground": {
-        "z": -3.5,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
-      }
-    },
-    {
-      "t": 109.84,
-      "position": [
-        -58760.3,
-        -13921.4,
-        10.1
-      ],
-      "speed_cm_s": 548.5,
-      "route_index": 32,
-      "heading_error": -44.33,
-      "roll": 1.96,
-      "pitch": 0.07,
-      "temperature_c": 52.36447459160223,
-      "ground": {
-        "z": -7.6,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
-      }
-    },
-    {
-      "t": 110.85,
-      "position": [
-        -59288.6,
-        -13759.6,
-        13.8
-      ],
-      "speed_cm_s": 549.5,
-      "route_index": 32,
-      "heading_error": -16.2,
-      "roll": 1.21,
-      "pitch": 0.87,
-      "temperature_c": 52.71269685569669,
-      "ground": {
-        "z": -3.7,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
-      }
-    },
-    {
-      "t": 111.85,
-      "position": [
-        -59739.8,
-        -13283.3,
+        -58060.9,
+        -12702.4,
         17.5
       ],
-      "speed_cm_s": 732.3,
+      "speed_cm_s": 563.9,
       "route_index": 32,
-      "heading_error": 5.35,
-      "roll": 0.03,
-      "pitch": 0.37,
-      "temperature_c": 52.79526520137776,
-      "ground": {
-        "z": 0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
-      }
-    },
-    {
-      "t": 112.87,
-      "position": [
-        -60246.5,
-        -12788.1,
-        28.6
-      ],
-      "speed_cm_s": 620.4,
-      "route_index": 33,
-      "heading_error": 44.16,
-      "roll": 3.41,
-      "pitch": 4.25,
-      "temperature_c": 52.87599185142282,
-      "ground": {
-        "z": 0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
-      }
-    },
-    {
-      "t": 113.87,
-      "position": [
-        -60599.7,
-        -12354.9,
-        47.0
-      ],
-      "speed_cm_s": 543.5,
-      "route_index": 33,
-      "heading_error": 50.38,
-      "roll": -2.81,
-      "pitch": 0.09,
-      "temperature_c": 52.96864598427174,
-      "ground": {
-        "z": 19.0,
-        "actor": "StaticMeshActor_UAID_64497D559D93AD0903_1895127828"
-      }
-    },
-    {
-      "t": 114.89,
-      "position": [
-        -61078.5,
-        -12078.4,
-        37.4
-      ],
-      "speed_cm_s": 552.3,
-      "route_index": 33,
-      "heading_error": 29.46,
-      "roll": -0.46,
-      "pitch": 0.28,
-      "temperature_c": 53.06187698512078,
-      "ground": {
-        "z": 19.0,
-        "actor": "StaticMeshActor_UAID_64497D559D93AD0903_1895127828"
-      }
-    },
-    {
-      "t": 115.91,
-      "position": [
-        -61645.0,
-        -12120.2,
-        30.7
-      ],
-      "speed_cm_s": 681.9,
-      "route_index": 33,
-      "heading_error": 0.23,
-      "roll": -0.43,
-      "pitch": -1.75,
-      "temperature_c": 53.40026348075252,
-      "ground": {
-        "z": 0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
-      }
-    },
-    {
-      "t": 116.92,
-      "position": [
-        -62339.6,
-        -12303.0,
-        18.0
-      ],
-      "speed_cm_s": 718.3,
-      "route_index": 33,
-      "heading_error": 4.28,
-      "roll": 0.1,
-      "pitch": 0.27,
-      "temperature_c": 53.46975490388336,
+      "heading_error": -100.0,
+      "roll": 0.28,
+      "pitch": 0.4,
+      "temperature_c": 51.6485707961837,
       "ground": {
         "z": -0.0,
         "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
       }
     },
     {
-      "t": 117.94,
+      "t": 108.83,
       "position": [
-        -62985.2,
-        -12481.7,
-        18.0
-      ],
-      "speed_cm_s": 595.1,
-      "route_index": 34,
-      "heading_error": -104.54,
-      "roll": 0.32,
-      "pitch": 0.28,
-      "temperature_c": 53.29465555669965,
-      "ground": {
-        "z": 0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
-      }
-    },
-    {
-      "t": 118.94,
-      "position": [
-        -63538.6,
-        -12360.0,
+        -58221.1,
+        -13224.4,
         17.8
       ],
-      "speed_cm_s": 558.3,
-      "route_index": 34,
-      "heading_error": -79.56,
-      "roll": 0.34,
+      "speed_cm_s": 548.4,
+      "route_index": 32,
+      "heading_error": -77.96,
+      "roll": 0.32,
       "pitch": 0.32,
-      "temperature_c": 53.13152814974779,
+      "temperature_c": 51.758033849794394,
       "ground": {
         "z": 0.0,
         "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
       }
     },
     {
-      "t": 119.95,
+      "t": 109.83,
       "position": [
-        -63905.0,
-        -11945.3,
-        17.6
-      ],
-      "speed_cm_s": 549.1,
-      "route_index": 34,
-      "heading_error": -53.74,
-      "roll": 0.71,
-      "pitch": 0.14,
-      "temperature_c": 53.22121383916988,
-      "ground": {
-        "z": 0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
-      }
-    },
-    {
-      "t": 120.95,
-      "position": [
-        -63960.9,
-        -11403.3,
+        -58651.4,
+        -13558.2,
         17.3
       ],
-      "speed_cm_s": 556.8,
-      "route_index": 34,
-      "heading_error": -25.71,
-      "roll": 0.51,
-      "pitch": 0.41,
-      "temperature_c": 53.30914302100068,
+      "speed_cm_s": 550.1,
+      "route_index": 32,
+      "heading_error": -54.66,
+      "roll": 0.93,
+      "pitch": 0.04,
+      "temperature_c": 51.865406345002505,
+      "ground": {
+        "z": 0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+      }
+    },
+    {
+      "t": 110.84,
+      "position": [
+        -59205.8,
+        -13577.6,
+        16.9
+      ],
+      "speed_cm_s": 557.4,
+      "route_index": 32,
+      "heading_error": -29.01,
+      "roll": 0.64,
+      "pitch": 0.46,
+      "temperature_c": 51.97052707615049,
       "ground": {
         "z": -0.0,
         "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
       }
     },
     {
-      "t": 121.95,
+      "t": 111.84,
       "position": [
-        -63680.9,
-        -10879.6,
+        -59682.4,
+        -13280.7,
+        17.6
+      ],
+      "speed_cm_s": 686.7,
+      "route_index": 32,
+      "heading_error": 0.25,
+      "roll": 0.33,
+      "pitch": 0.46,
+      "temperature_c": 52.321860030117485,
+      "ground": {
+        "z": 0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+      }
+    },
+    {
+      "t": 112.84,
+      "position": [
+        -59879.8,
+        -13088.0,
         17.9
       ],
-      "speed_cm_s": 738.4,
-      "route_index": 34,
-      "heading_error": 4.55,
-      "roll": -0.07,
-      "pitch": 0.29,
-      "temperature_c": 53.89181556145545,
+      "speed_cm_s": 63.1,
+      "route_index": 32,
+      "heading_error": 14.85,
+      "roll": -0.38,
+      "pitch": 0.1,
+      "temperature_c": 52.951744233216985,
       "ground": {
         "z": -0.0,
         "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
       }
     },
     {
-      "t": 122.97,
+      "t": 113.86,
       "position": [
-        -63276.7,
-        -10273.0,
-        17.8
+        -59907.1,
+        -13054.7,
+        17.5
       ],
-      "speed_cm_s": 696.5,
-      "route_index": 34,
-      "heading_error": -1.17,
-      "roll": 0.4,
-      "pitch": 0.31,
-      "temperature_c": 53.70509616892877,
+      "speed_cm_s": 2.4,
+      "route_index": 32,
+      "heading_error": 13.94,
+      "roll": -0.02,
+      "pitch": 0.39,
+      "temperature_c": 53.84597691988094,
+      "ground": {
+        "z": 0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+      }
+    },
+    {
+      "t": 114.86,
+      "position": [
+        -59908.7,
+        -13055.5,
+        17.7
+      ],
+      "speed_cm_s": 1.9,
+      "route_index": 32,
+      "heading_error": 14.13,
+      "roll": 0.01,
+      "pitch": 0.35,
+      "temperature_c": 54.735676329393925,
+      "ground": {
+        "z": 0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+      }
+    },
+    {
+      "t": 115.87,
+      "position": [
+        -59910.3,
+        -13056.4,
+        17.7
+      ],
+      "speed_cm_s": 1.9,
+      "route_index": 32,
+      "heading_error": 14.31,
+      "roll": 0.01,
+      "pitch": 0.35,
+      "temperature_c": 55.61609760052126,
       "ground": {
         "z": -0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+      }
+    },
+    {
+      "t": 116.89,
+      "position": [
+        -59911.9,
+        -13057.2,
+        17.7
+      ],
+      "speed_cm_s": 1.9,
+      "route_index": 32,
+      "heading_error": 14.5,
+      "roll": 0.01,
+      "pitch": 0.35,
+      "temperature_c": 56.487318931767724,
+      "ground": {
+        "z": -0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+      }
+    },
+    {
+      "t": 117.91,
+      "position": [
+        -59913.5,
+        -13058.0,
+        17.7
+      ],
+      "speed_cm_s": 1.9,
+      "route_index": 32,
+      "heading_error": 14.68,
+      "roll": 0.01,
+      "pitch": 0.35,
+      "temperature_c": 57.34943655243537,
+      "ground": {
+        "z": -0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+      }
+    },
+    {
+      "t": 118.92,
+      "position": [
+        -59915.1,
+        -13058.9,
+        17.7
+      ],
+      "speed_cm_s": 1.9,
+      "route_index": 32,
+      "heading_error": 14.86,
+      "roll": -0.01,
+      "pitch": 0.32,
+      "temperature_c": 58.202544957829645,
+      "ground": {
+        "z": 0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+      }
+    },
+    {
+      "t": 119.93,
+      "position": [
+        -59916.7,
+        -13059.6,
+        17.7
+      ],
+      "speed_cm_s": 1.8,
+      "route_index": 32,
+      "heading_error": 15.04,
+      "roll": -0.01,
+      "pitch": 0.32,
+      "temperature_c": 59.04673978765235,
+      "ground": {
+        "z": -0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+      }
+    },
+    {
+      "t": 120.94,
+      "position": [
+        -59918.3,
+        -13060.4,
+        17.7
+      ],
+      "speed_cm_s": 1.8,
+      "route_index": 32,
+      "heading_error": 15.22,
+      "roll": -0.01,
+      "pitch": 0.32,
+      "temperature_c": 59.88211365402775,
+      "ground": {
+        "z": 0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+      }
+    },
+    {
+      "t": 121.96,
+      "position": [
+        -59919.9,
+        -13061.2,
+        17.7
+      ],
+      "speed_cm_s": 1.8,
+      "route_index": 32,
+      "heading_error": 15.4,
+      "roll": -0.01,
+      "pitch": 0.32,
+      "temperature_c": 60.70875871819449,
+      "ground": {
+        "z": 0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+      }
+    },
+    {
+      "t": 122.96,
+      "position": [
+        -59921.4,
+        -13061.9,
+        17.6
+      ],
+      "speed_cm_s": 1.8,
+      "route_index": 32,
+      "heading_error": 15.57,
+      "roll": -0.02,
+      "pitch": 0.3,
+      "temperature_c": 61.526766368686964,
+      "ground": {
+        "z": 0.0,
         "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
       }
     },
     {
       "t": 123.97,
       "position": [
-        -62854.9,
-        -9713.7,
-        41.2
+        -59923.0,
+        -13062.7,
+        17.6
       ],
-      "speed_cm_s": 682.4,
-      "route_index": 35,
-      "heading_error": 27.64,
-      "roll": 6.37,
-      "pitch": 1.05,
-      "temperature_c": 54.02053913248415,
+      "speed_cm_s": 1.8,
+      "route_index": 32,
+      "heading_error": 15.75,
+      "roll": -0.02,
+      "pitch": 0.3,
+      "temperature_c": 62.33622704025291,
       "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
+        "z": -0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
       }
     },
     {
       "t": 124.97,
       "position": [
-        -62674.4,
-        -9097.7,
-        36.9
+        -59924.5,
+        -13063.4,
+        17.6
       ],
-      "speed_cm_s": 715.5,
-      "route_index": 35,
-      "heading_error": -4.92,
-      "roll": -0.71,
-      "pitch": 0.07,
-      "temperature_c": 54.089853821496035,
+      "speed_cm_s": 1.8,
+      "route_index": 32,
+      "heading_error": 15.92,
+      "roll": -0.02,
+      "pitch": 0.3,
+      "temperature_c": 63.137247825498235,
       "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
+        "z": -0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
       }
     },
     {
       "t": 125.99,
       "position": [
-        -62623.2,
-        -8380.3,
-        35.7
+        -59926.0,
+        -13064.1,
+        17.6
       ],
-      "speed_cm_s": 707.5,
-      "route_index": 35,
-      "heading_error": 4.58,
-      "roll": -0.07,
-      "pitch": 0.34,
-      "temperature_c": 54.15088793502341,
+      "speed_cm_s": 1.8,
+      "route_index": 32,
+      "heading_error": 16.09,
+      "roll": -0.02,
+      "pitch": 0.3,
+      "temperature_c": 63.92988086517859,
       "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
+        "z": -0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
       }
     },
     {
       "t": 126.99,
       "position": [
-        -62583.2,
-        -7666.1,
-        35.9
+        -59927.5,
+        -13064.8,
+        17.6
       ],
-      "speed_cm_s": 710.1,
-      "route_index": 35,
-      "heading_error": 2.74,
-      "roll": -0.25,
-      "pitch": 0.31,
-      "temperature_c": 54.209631713772566,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
-      }
-    },
-    {
-      "t": 128.01,
-      "position": [
-        -62535.8,
-        -6952.7,
-        35.8
-      ],
-      "speed_cm_s": 699.8,
-      "route_index": 35,
-      "heading_error": -0.95,
-      "roll": 0.04,
-      "pitch": 0.33,
-      "temperature_c": 54.020683664242625,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
-      }
-    },
-    {
-      "t": 129.02,
-      "position": [
-        -62384.8,
-        -6348.5,
-        35.9
-      ],
-      "speed_cm_s": 581.8,
-      "route_index": 36,
-      "heading_error": -13.13,
-      "roll": 0.37,
-      "pitch": 0.31,
-      "temperature_c": 54.04592104516882,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
-      }
-    },
-    {
-      "t": 130.04,
-      "position": [
-        -61924.4,
-        -5822.5,
-        36.0
-      ],
-      "speed_cm_s": 715.3,
-      "route_index": 36,
-      "heading_error": 1.43,
-      "roll": -0.4,
-      "pitch": 0.28,
-      "temperature_c": 54.10662459384202,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
-      }
-    },
-    {
-      "t": 131.04,
-      "position": [
-        -61476.2,
-        -5278.0,
-        35.8
-      ],
-      "speed_cm_s": 698.8,
-      "route_index": 36,
-      "heading_error": 1.05,
-      "roll": -0.13,
-      "pitch": 0.32,
-      "temperature_c": 54.417536016158586,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
-      }
-    },
-    {
-      "t": 132.06,
-      "position": [
-        -61018.8,
-        -4729.0,
-        35.8
-      ],
-      "speed_cm_s": 699.7,
-      "route_index": 36,
-      "heading_error": 0.05,
-      "roll": -0.0,
-      "pitch": 0.32,
-      "temperature_c": 54.22625165066183,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
-      }
-    },
-    {
-      "t": 133.07,
-      "position": [
-        -60564.1,
-        -4181.5,
-        35.8
-      ],
-      "speed_cm_s": 699.7,
-      "route_index": 36,
-      "heading_error": 0.09,
-      "roll": -0.0,
-      "pitch": 0.32,
-      "temperature_c": 54.03761806336107,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
-      }
-    },
-    {
-      "t": 134.09,
-      "position": [
-        -60125.6,
-        -3642.0,
-        35.9
-      ],
-      "speed_cm_s": 617.0,
-      "route_index": 37,
-      "heading_error": 35.35,
-      "roll": -0.29,
-      "pitch": 0.31,
-      "temperature_c": 54.1017035788968,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
-      }
-    },
-    {
-      "t": 135.11,
-      "position": [
-        -59957.0,
-        -3074.6,
-        35.7
-      ],
-      "speed_cm_s": 632.4,
-      "route_index": 37,
-      "heading_error": 3.58,
-      "roll": -0.3,
-      "pitch": 0.44,
-      "temperature_c": 54.1769825615681,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
-      }
-    },
-    {
-      "t": 136.11,
-      "position": [
-        -59973.0,
-        -2371.0,
-        35.8
-      ],
-      "speed_cm_s": 705.7,
-      "route_index": 37,
-      "heading_error": 4.11,
-      "roll": -0.1,
-      "pitch": 0.32,
-      "temperature_c": 53.98796458246393,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
-      }
-    },
-    {
-      "t": 137.11,
-      "position": [
-        -59982.3,
-        -1669.6,
-        35.9
-      ],
-      "speed_cm_s": 701.2,
-      "route_index": 37,
-      "heading_error": 1.3,
-      "roll": -0.03,
-      "pitch": 0.31,
-      "temperature_c": 53.8023517901142,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
-      }
-    },
-    {
-      "t": 138.12,
-      "position": [
-        -59982.8,
-        -957.8,
-        35.8
-      ],
-      "speed_cm_s": 700.0,
-      "route_index": 37,
-      "heading_error": 0.85,
-      "roll": -0.01,
-      "pitch": 0.32,
-      "temperature_c": 54.116009619334505,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
-      }
-    },
-    {
-      "t": 139.12,
-      "position": [
-        -59994.8,
-        -264.3,
-        36.0
-      ],
-      "speed_cm_s": 634.6,
-      "route_index": 38,
-      "heading_error": 82.91,
-      "roll": -0.3,
-      "pitch": 0.22,
-      "temperature_c": 53.929337521197716,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984409618"
-      }
-    },
-    {
-      "t": 140.12,
-      "position": [
-        -60237.7,
-        274.2,
-        35.8
-      ],
-      "speed_cm_s": 581.1,
-      "route_index": 38,
-      "heading_error": 55.82,
-      "roll": -0.36,
-      "pitch": 0.32,
-      "temperature_c": 53.755876125736464,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
-      }
-    },
-    {
-      "t": 141.14,
-      "position": [
-        -60734.7,
-        532.7,
-        34.8
-      ],
-      "speed_cm_s": 549.1,
-      "route_index": 38,
-      "heading_error": 22.04,
-      "roll": -1.48,
-      "pitch": -0.14,
-      "temperature_c": 53.588717942460136,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
-      }
-    },
-    {
-      "t": 142.14,
-      "position": [
-        -61315.4,
-        467.0,
-        36.5
-      ],
-      "speed_cm_s": 683.1,
-      "route_index": 38,
-      "heading_error": -4.81,
-      "roll": -0.41,
-      "pitch": 0.19,
-      "temperature_c": 54.167735997027464,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
-      }
-    },
-    {
-      "t": 143.16,
-      "position": [
-        -62173.8,
-        302.8,
-        37.2
-      ],
-      "speed_cm_s": 1095.5,
-      "route_index": 38,
-      "heading_error": 0.9,
-      "roll": -0.38,
-      "pitch": 0.97,
-      "temperature_c": 54.957326771906025,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
-      }
-    },
-    {
-      "t": 144.19,
-      "position": [
-        -63597.7,
-        79.4,
-        35.8
-      ],
-      "speed_cm_s": 1673.6,
-      "route_index": 39,
-      "heading_error": -9.31,
-      "roll": -0.14,
-      "pitch": 0.43,
-      "temperature_c": 55.674232780301494,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
-      }
-    },
-    {
-      "t": 145.19,
-      "position": [
-        -65375.5,
-        -74.7,
-        36.0
-      ],
-      "speed_cm_s": 1807.3,
-      "route_index": 39,
-      "heading_error": 6.8,
-      "roll": 0.68,
-      "pitch": 0.38,
-      "temperature_c": 55.83488722383912,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
-      }
-    },
-    {
-      "t": 146.21,
-      "position": [
-        -67202.3,
-        -4.1,
-        35.9
-      ],
-      "speed_cm_s": 1809.3,
-      "route_index": 39,
-      "heading_error": -10.74,
-      "roll": -0.48,
-      "pitch": 0.35,
-      "temperature_c": 55.99074174452615,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
-      }
-    },
-    {
-      "t": 147.23,
-      "position": [
-        -69019.1,
-        -60.8,
-        36.0
-      ],
-      "speed_cm_s": 1794.6,
-      "route_index": 40,
-      "heading_error": 9.16,
-      "roll": 0.31,
-      "pitch": 0.26,
-      "temperature_c": 55.896269599080426,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984397617"
-      }
-    },
-    {
-      "t": 148.23,
-      "position": [
-        -70814.5,
-        -41.2,
-        36.0
-      ],
-      "speed_cm_s": 1796.5,
-      "route_index": 40,
-      "heading_error": -11.69,
+      "speed_cm_s": 1.8,
+      "route_index": 32,
+      "heading_error": 16.26,
       "roll": -0.02,
-      "pitch": 0.29,
-      "temperature_c": 56.04912139792667,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984385616"
-      }
-    },
-    {
-      "t": 149.23,
-      "position": [
-        -72597.6,
-        3.1,
-        36.1
-      ],
-      "speed_cm_s": 1708.1,
-      "route_index": 41,
-      "heading_error": 15.31,
-      "roll": 0.3,
-      "pitch": 0.22,
-      "temperature_c": 56.19943500654256,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984385616"
-      }
-    },
-    {
-      "t": 150.23,
-      "position": [
-        -74265.4,
-        95.2,
-        35.9
-      ],
-      "speed_cm_s": 1792.6,
-      "route_index": 41,
-      "heading_error": -10.59,
-      "roll": -0.73,
-      "pitch": 0.48,
-      "temperature_c": 56.60630840555421,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984385616"
-      }
-    },
-    {
-      "t": 151.23,
-      "position": [
-        -76020.7,
-        -79.4,
-        36.1
-      ],
-      "speed_cm_s": 1795.4,
-      "route_index": 42,
-      "heading_error": 8.78,
-      "roll": 0.96,
-      "pitch": 0.41,
-      "temperature_c": 57.002578884018234,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984385616"
-      }
-    },
-    {
-      "t": 152.25,
-      "position": [
-        -77781.8,
-        108.4,
-        36.2
-      ],
-      "speed_cm_s": 1801.8,
-      "route_index": 42,
-      "heading_error": -3.57,
-      "roll": -1.03,
-      "pitch": 0.54,
-      "temperature_c": 57.39459923838739,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984385616"
-      }
-    },
-    {
-      "t": 153.26,
-      "position": [
-        -79602.9,
-        -53.8,
-        36.1
-      ],
-      "speed_cm_s": 1814.4,
-      "route_index": 43,
-      "heading_error": -120.95,
-      "roll": 1.02,
-      "pitch": 0.56,
-      "temperature_c": 57.68088593662197,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984385616"
-      }
-    },
-    {
-      "t": 154.27,
-      "position": [
-        -81186.8,
-        326.3,
-        35.9
-      ],
-      "speed_cm_s": 1451.9,
-      "route_index": 43,
-      "heading_error": -116.8,
-      "roll": 0.58,
-      "pitch": 0.26,
-      "temperature_c": 57.33439211833416,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984373615"
-      }
-    },
-    {
-      "t": 155.28,
-      "position": [
-        -82192.9,
-        1129.5,
-        19.0
-      ],
-      "speed_cm_s": 1106.4,
-      "route_index": 43,
-      "heading_error": -99.57,
-      "roll": 0.4,
-      "pitch": -0.06,
-      "temperature_c": 57.03722360192464,
-      "ground": {
-        "z": 0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 156.3,
-      "position": [
-        -82434.4,
-        1998.2,
-        17.8
-      ],
-      "speed_cm_s": 721.2,
-      "route_index": 43,
-      "heading_error": -75.88,
-      "roll": 0.58,
-      "pitch": 0.28,
-      "temperature_c": 56.79031944643219,
-      "ground": {
-        "z": 0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 157.3,
-      "position": [
-        -82150.8,
-        2533.5,
-        17.9
-      ],
-      "speed_cm_s": 587.5,
-      "route_index": 43,
-      "heading_error": -44.32,
-      "roll": 0.38,
       "pitch": 0.3,
-      "temperature_c": 56.580293513689305,
+      "temperature_c": 64.71427077407687,
       "ground": {
         "z": -0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
       }
     },
     {
-      "t": 158.3,
+      "t": 127.99,
       "position": [
-        -81637.6,
-        2751.7,
-        16.4
+        -59929.0,
+        -13065.5,
+        17.6
       ],
-      "speed_cm_s": 555.9,
-      "route_index": 43,
-      "heading_error": -8.75,
-      "roll": 1.6,
-      "pitch": -0.02,
-      "temperature_c": 56.62752434663174,
-      "ground": {
-        "z": -0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 159.3,
-      "position": [
-        -80815.6,
-        2690.6,
-        17.8
-      ],
-      "speed_cm_s": 1108.3,
-      "route_index": 43,
-      "heading_error": 5.89,
-      "roll": -0.12,
-      "pitch": 0.42,
-      "temperature_c": 57.38166572701683,
-      "ground": {
-        "z": 0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 160.3,
-      "position": [
-        -79434.0,
-        2760.6,
-        15.9
-      ],
-      "speed_cm_s": 1642.7,
-      "route_index": 43,
-      "heading_error": -4.37,
-      "roll": 1.65,
+      "speed_cm_s": 1.7,
+      "route_index": 32,
+      "heading_error": 16.43,
+      "roll": -0.03,
       "pitch": 0.28,
-      "temperature_c": 58.05556320495927,
-      "ground": {
-        "z": -0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 161.32,
-      "position": [
-        -77636.9,
-        2698.9,
-        57.8
-      ],
-      "speed_cm_s": 1764.5,
-      "route_index": 44,
-      "heading_error": 55.44,
-      "roll": 3.56,
-      "pitch": 2.45,
-      "temperature_c": 57.927932845107506,
-      "ground": {
-        "z": 18.0,
-        "actor": "RVRegionRoad_UAID_64497D559D93AC0903_1984687641"
-      }
-    },
-    {
-      "t": 162.33,
-      "position": [
-        -75961.8,
-        2648.9,
-        17.9
-      ],
-      "speed_cm_s": 1492.1,
-      "route_index": 44,
-      "heading_error": 61.74,
-      "roll": -1.06,
-      "pitch": 0.19,
-      "temperature_c": 57.57311107247929,
+      "temperature_c": 65.49042509123579,
       "ground": {
         "z": 0.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
       }
     },
     {
-      "t": 163.35,
+      "t": 128.99,
       "position": [
-        -74724.8,
-        3083.3,
-        -1.4
+        -59930.5,
+        -13066.2,
+        17.6
       ],
-      "speed_cm_s": 1133.4,
-      "route_index": 44,
-      "heading_error": 60.96,
-      "roll": 2.52,
-      "pitch": -1.93,
-      "temperature_c": 57.2675813572422,
+      "speed_cm_s": 1.7,
+      "route_index": 32,
+      "heading_error": 16.59,
+      "roll": -0.03,
+      "pitch": 0.28,
+      "temperature_c": 66.25847236056836,
       "ground": {
-        "z": -18.8,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
+        "z": -0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
       }
     },
     {
-      "t": 164.37,
+      "t": 129.99,
       "position": [
-        -74095.6,
-        3847.8,
-        -90.5
+        -59932.0,
+        -13066.8,
+        17.6
       ],
-      "speed_cm_s": 859.5,
-      "route_index": 44,
-      "heading_error": 48.73,
-      "roll": 1.76,
-      "pitch": -6.47,
-      "temperature_c": 57.00350000593892,
+      "speed_cm_s": 1.7,
+      "route_index": 32,
+      "heading_error": 16.76,
+      "roll": -0.03,
+      "pitch": 0.28,
+      "temperature_c": 67.01956629773338,
       "ground": {
-        "z": -108.8,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
+        "z": -0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
       }
     },
     {
-      "t": 165.38,
+      "t": 131.01,
       "position": [
-        -74127.4,
-        4553.6,
-        -178.5
+        -59933.5,
+        -13067.5,
+        17.6
       ],
-      "speed_cm_s": 648.9,
-      "route_index": 44,
-      "heading_error": 21.66,
-      "roll": -2.86,
-      "pitch": -6.28,
-      "temperature_c": 56.777648972656316,
+      "speed_cm_s": 1.7,
+      "route_index": 32,
+      "heading_error": 16.92,
+      "roll": -0.03,
+      "pitch": 0.28,
+      "temperature_c": 67.77165993301765,
       "ground": {
-        "z": -196.5,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
+        "z": -0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
       }
     },
     {
-      "t": 166.38,
+      "t": 132.03,
       "position": [
-        -74630.5,
-        5111.7,
-        -247.6
+        -59935.0,
+        -13068.2,
+        17.6
       ],
-      "speed_cm_s": 1030.4,
-      "route_index": 44,
-      "heading_error": -8.84,
-      "roll": -5.42,
-      "pitch": -3.84,
-      "temperature_c": 57.29628204078558,
+      "speed_cm_s": 1.7,
+      "route_index": 32,
+      "heading_error": 17.09,
+      "roll": -0.03,
+      "pitch": 0.28,
+      "temperature_c": 68.51590076575972,
       "ground": {
-        "z": -265.6,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
+        "z": 0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
       }
     },
     {
-      "t": 167.38,
+      "t": 133.04,
       "position": [
-        -75274.9,
-        5888.2,
-        -298.8
+        -59936.5,
+        -13068.8,
+        17.6
       ],
-      "speed_cm_s": 908.0,
-      "route_index": 45,
-      "heading_error": -74.38,
-      "roll": -3.83,
-      "pitch": -8.31,
-      "temperature_c": 57.275140038966555,
+      "speed_cm_s": 1.7,
+      "route_index": 32,
+      "heading_error": 17.25,
+      "roll": -0.04,
+      "pitch": 0.26,
+      "temperature_c": 69.2525253115483,
       "ground": {
-        "z": -359.5,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 168.4,
-      "position": [
-        -75457.0,
-        6694.3,
-        -437.1
-      ],
-      "speed_cm_s": 755.9,
-      "route_index": 45,
-      "heading_error": -52.3,
-      "roll": 2.64,
-      "pitch": -5.98,
-      "temperature_c": 57.031549179668474,
-      "ground": {
-        "z": -453.7,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 169.4,
-      "position": [
-        -75175.5,
-        7287.8,
-        -501.1
-      ],
-      "speed_cm_s": 650.4,
-      "route_index": 45,
-      "heading_error": -28.72,
-      "roll": 4.86,
-      "pitch": -4.29,
-      "temperature_c": 56.81012044207542,
-      "ground": {
-        "z": -519.1,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 170.4,
-      "position": [
-        -74562.2,
-        7595.5,
-        -532.8
-      ],
-      "speed_cm_s": 883.5,
-      "route_index": 45,
-      "heading_error": 4.91,
-      "roll": 6.55,
-      "pitch": -0.67,
-      "temperature_c": 57.08858973790033,
-      "ground": {
-        "z": -550.9,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 171.41,
-      "position": [
-        -73610.3,
-        7968.9,
-        -568.9
-      ],
-      "speed_cm_s": 923.8,
-      "route_index": 45,
-      "heading_error": -22.58,
-      "roll": 4.44,
-      "pitch": -3.11,
-      "temperature_c": 57.8132837925037,
-      "ground": {
-        "z": -586.6,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 172.43,
-      "position": [
-        -73106.4,
-        8448.1,
-        -616.7
-      ],
-      "speed_cm_s": 529.0,
-      "route_index": 45,
-      "heading_error": -63.79,
-      "roll": 4.67,
-      "pitch": -3.72,
-      "temperature_c": 57.57793850996118,
-      "ground": {
-        "z": -634.8,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 173.43,
-      "position": [
-        -72735.0,
-        8848.9,
-        -655.6
-      ],
-      "speed_cm_s": 537.9,
-      "route_index": 45,
-      "heading_error": -115.18,
-      "roll": 4.57,
-      "pitch": -3.76,
-      "temperature_c": 58.109826757727525,
-      "ground": {
-        "z": -674.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 174.43,
-      "position": [
-        -72665.7,
-        8960.8,
-        -667.0
-      ],
-      "speed_cm_s": 8.2,
-      "route_index": 45,
-      "heading_error": -119.4,
-      "roll": 4.86,
-      "pitch": -3.03,
-      "temperature_c": 58.9336979220855,
-      "ground": {
-        "z": -684.8,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 175.45,
-      "position": [
-        -72668.4,
-        8967.9,
-        -667.6
-      ],
-      "speed_cm_s": 8.1,
-      "route_index": 45,
-      "heading_error": -118.12,
-      "roll": 4.97,
-      "pitch": -3.0,
-      "temperature_c": 59.76944321034472,
-      "ground": {
-        "z": -685.6,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 176.46,
-      "position": [
-        -72671.2,
-        8975.0,
-        -668.4
-      ],
-      "speed_cm_s": 8.0,
-      "route_index": 45,
-      "heading_error": -116.82,
-      "roll": 5.04,
-      "pitch": -2.9,
-      "temperature_c": 60.59643805242382,
-      "ground": {
-        "z": -686.3,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 177.47,
-      "position": [
-        -72673.7,
-        8982.1,
-        -669.1
-      ],
-      "speed_cm_s": 8.0,
-      "route_index": 45,
-      "heading_error": -115.55,
-      "roll": 5.11,
-      "pitch": -2.8,
-      "temperature_c": 61.41483972282439,
-      "ground": {
-        "z": -687.1,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 178.47,
-      "position": [
-        -72676.1,
-        8989.3,
-        -669.8
-      ],
-      "speed_cm_s": 8.0,
-      "route_index": 45,
-      "heading_error": -114.29,
-      "roll": 5.18,
-      "pitch": -2.7,
-      "temperature_c": 62.22482204552784,
-      "ground": {
-        "z": -687.8,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 179.48,
-      "position": [
-        -72678.4,
-        8996.6,
-        -670.6
-      ],
-      "speed_cm_s": 8.0,
-      "route_index": 45,
-      "heading_error": -113.03,
-      "roll": 5.25,
-      "pitch": -2.6,
-      "temperature_c": 63.02622542787833,
-      "ground": {
-        "z": -688.6,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 180.48,
-      "position": [
-        -72680.5,
-        9003.9,
-        -671.3
-      ],
-      "speed_cm_s": 8.0,
-      "route_index": 45,
-      "heading_error": -111.8,
-      "roll": 5.31,
-      "pitch": -2.5,
-      "temperature_c": 63.8191185597419,
-      "ground": {
-        "z": -689.3,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 181.5,
-      "position": [
-        -72682.5,
-        9011.3,
-        -672.1
-      ],
-      "speed_cm_s": 8.0,
-      "route_index": 45,
-      "heading_error": -110.57,
-      "roll": 5.38,
-      "pitch": -2.39,
-      "temperature_c": 64.60370899541,
-      "ground": {
-        "z": -690.1,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 182.5,
-      "position": [
-        -72684.3,
-        9018.6,
-        -672.8
-      ],
-      "speed_cm_s": 8.0,
-      "route_index": 45,
-      "heading_error": -109.36,
-      "roll": 5.43,
-      "pitch": -2.29,
-      "temperature_c": 65.38012502180804,
-      "ground": {
-        "z": -690.8,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 183.5,
-      "position": [
-        -72686.0,
-        9025.9,
-        -673.6
-      ],
-      "speed_cm_s": 8.0,
-      "route_index": 45,
-      "heading_error": -108.17,
-      "roll": 5.49,
-      "pitch": -2.18,
-      "temperature_c": 66.14841052164,
-      "ground": {
-        "z": -691.6,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 184.52,
-      "position": [
-        -72687.5,
-        9033.5,
-        -674.4
-      ],
-      "speed_cm_s": 8.0,
-      "route_index": 45,
-      "heading_error": -106.97,
-      "roll": 5.54,
-      "pitch": -2.07,
-      "temperature_c": 67.09745576815496,
-      "ground": {
-        "z": -692.4,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 185.52,
-      "position": [
-        -72688.8,
-        9040.9,
-        -675.1
-      ],
-      "speed_cm_s": 8.0,
-      "route_index": 45,
-      "heading_error": -105.81,
-      "roll": 5.6,
-      "pitch": -1.96,
-      "temperature_c": 67.84772066473937,
-      "ground": {
-        "z": -693.1,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 186.52,
-      "position": [
-        -72690.0,
-        9048.3,
-        -675.9
-      ],
-      "speed_cm_s": 8.0,
-      "route_index": 45,
-      "heading_error": -104.65,
-      "roll": 5.64,
-      "pitch": -1.85,
-      "temperature_c": 68.59088748977294,
-      "ground": {
-        "z": -693.9,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 187.52,
-      "position": [
-        -72691.0,
-        9055.8,
-        -676.7
-      ],
-      "speed_cm_s": 8.0,
-      "route_index": 45,
-      "heading_error": -103.5,
-      "roll": 5.69,
-      "pitch": -1.74,
-      "temperature_c": 69.32552539074008,
-      "ground": {
-        "z": -694.7,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 188.52,
-      "position": [
-        -72691.8,
-        9063.3,
-        -677.4
-      ],
-      "speed_cm_s": 8.0,
-      "route_index": 45,
-      "heading_error": -102.37,
-      "roll": 5.74,
-      "pitch": -1.62,
-      "temperature_c": 70.05245713681332,
-      "ground": {
-        "z": -695.4,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 189.53,
-      "position": [
-        -72692.5,
-        9070.9,
-        -678.2
-      ],
-      "speed_cm_s": 8.0,
-      "route_index": 45,
-      "heading_error": -101.22,
-      "roll": 5.78,
-      "pitch": -1.51,
-      "temperature_c": 70.77178758641573,
-      "ground": {
-        "z": -696.2,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 190.53,
-      "position": [
-        -72693.1,
-        9078.4,
-        -679.0
-      ],
-      "speed_cm_s": 8.0,
-      "route_index": 45,
-      "heading_error": -100.11,
-      "roll": 5.82,
-      "pitch": -1.39,
-      "temperature_c": 71.4836632941277,
-      "ground": {
-        "z": -697.0,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 191.55,
-      "position": [
-        -72693.4,
-        9086.0,
-        -679.8
-      ],
-      "speed_cm_s": 8.0,
-      "route_index": 45,
-      "heading_error": -98.98,
-      "roll": 5.86,
-      "pitch": -1.27,
-      "temperature_c": 72.18802726701367,
-      "ground": {
-        "z": -697.8,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 192.57,
-      "position": [
-        -72693.7,
-        9093.7,
-        -680.5
-      ],
-      "speed_cm_s": 8.0,
-      "route_index": 45,
-      "heading_error": -97.86,
-      "roll": 5.89,
-      "pitch": -1.15,
-      "temperature_c": 72.8849854458304,
-      "ground": {
-        "z": -698.5,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
-      }
-    },
-    {
-      "t": 193.57,
-      "position": [
-        -72693.7,
-        9101.2,
-        -681.3
-      ],
-      "speed_cm_s": 8.0,
-      "route_index": 45,
-      "heading_error": -96.78,
-      "roll": 5.92,
-      "pitch": -1.04,
-      "temperature_c": 73.57464605860778,
-      "ground": {
-        "z": -699.3,
-        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_4_0"
+        "z": 0.0,
+        "actor": "LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
       }
     }
   ],

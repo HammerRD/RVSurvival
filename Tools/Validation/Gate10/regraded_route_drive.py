@@ -54,6 +54,18 @@ def approach_entry(t,label):
  if not walk_log or t-walk_log[-1]['t']>1:walk_log.append({'stage':label,'t':round(t,2),'step':walk_step,'pawn':[round(p.x),round(p.y),round(p.z)],'entry':[round(e.x),round(e.y),round(e.z)],'distance':round(d),'prompt':prompt,'trace':str(interaction.debug_trace_description())})
  if walk_step>=len(walk_plan) and 'Enter' in prompt:events.append({'event':'E pressed','stage':label,'pawn':[round(p.x),round(p.y),round(p.z)],'prompt':prompt,'trace':str(interaction.debug_trace_description())});key('E',True);return True
  return False
+def turn_deg(i):
+ if i<=0 or i>=len(route)-1:return 0
+ a=math.atan2(route[i][1]-route[i-1][1],route[i][0]-route[i-1][0]);b=math.atan2(route[i+1][1]-route[i][1],route[i+1][0]-route[i][0])
+ return abs((math.degrees(b-a)+180)%360-180)
+def corner_speed(q):
+ """Route-follower lookahead only: slow early enough for the next sharp vertices (harness driving, not a vehicle rule)."""
+ limit=1800;along=math.hypot(route[route_index][0]-q.x,route[route_index][1]-q.y)
+ for i in range(route_index,min(len(route)-1,route_index+4)):
+  if i>route_index:along+=math.dist(route[i-1],route[i])
+  angle=turn_deg(i);v=450 if angle>90 else 650 if angle>45 else 1000 if angle>20 else 1800
+  limit=min(limit,math.sqrt(v*v+2*350*max(0,along-300)))
+ return limit
 def finish(result):
  global handle
  for k in list(held):key(k,False)
@@ -108,6 +120,7 @@ def tick(dt):
    desired=math.degrees(math.atan2(goal[1]-q.y,goal[0]-q.x));error=(desired-r.yaw+180)%360-180
    target_speed=1800 if abs(error)<12 else 550
    if route_index>0 and math.dist(route[route_index-1],garage_stop)<9000 or math.dist(goal,garage_stop)<9000:target_speed=min(target_speed,700)
+   target_speed=min(target_speed,corner_speed(q))
    braking=(route_index==len(route)-1 or stop_here) and d<max(800,speed*speed/800+200)
    key('D',error>1.5 and not braking);key('A',error< -1.5 and not braking);key('W',speed<target_speed and not braking);key('S',speed>target_speed+100 or (braking and speed>30));key('SpaceBar',braking and speed<150)
    if previous is not None:distance+=q.distance(unreal.Vector(*previous))
