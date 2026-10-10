@@ -1,0 +1,36 @@
+{
+  "saved": true,
+  "native": {
+    "ChangedVertices": 4067,
+    "GradedSites": 1
+  },
+  "driveway_points": [
+    [
+      -60000,
+      0
+    ],
+    [
+      -60000,
+      -3500
+    ],
+    [
+      -62500,
+      -6500
+    ],
+    [
+      -62500,
+      -11000
+    ],
+    [
+      -60000,
+      -11000
+    ]
+  ],
+  "parking_position": [
+    -60000.0,
+    -11300.0,
+    10
+  ],
+  "falloff_m": 90,
+  "visual_driving_and_derived_data": "pending"
+}

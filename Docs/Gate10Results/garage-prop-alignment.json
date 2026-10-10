@@ -1,0 +1,17 @@
+{
+  "saved": true,
+  "moved": [
+    {
+      "label": "Abandoned trail vehicle 1",
+      "delta_z": 1147.708311870525
+    },
+    {
+      "label": "Abandoned vehicle body collision 1",
+      "delta_z": 1147.708311870525
+    },
+    {
+      "label": "Trail vehicle cargo 1",
+      "delta_z": 1147.708311870525
+    }
+  ]
+}

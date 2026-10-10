@@ -231,7 +231,7 @@ TMap<FString,int32> URVWorldContentLibrary::PartitionRegionLandscape(UObject* Co
     return Result;
 }
 
-TMap<FString,int32> URVWorldContentLibrary::GradeRegionSitePads(UObject* Context)
+TMap<FString,int32> URVWorldContentLibrary::GradeRegionSitePads(UObject* Context,bool bExtendGarage)
 {
     TMap<FString,int32> Result;
 #if WITH_EDITOR
@@ -239,15 +239,19 @@ TMap<FString,int32> URVWorldContentLibrary::GradeRegionSitePads(UObject* Context
     if(!World || World->IsGameWorld() || !World->GetPackage()->GetName().EndsWith(TEXT("/WNY_PrototypeRegion")))return Result;
     ALandscape* Landscape=nullptr;
     for(TActorIterator<ALandscape> It(World);It;++It){if(Landscape)return Result;Landscape=*It;}
-    if(!Landscape || Landscape->ActorHasTag(TEXT("WNYGradedSitesV1")))return Result;
+    const FName Marker=bExtendGarage?TEXT("WNYGarageApproachV2"):TEXT("WNYGradedSitesV1");
+    if(!Landscape || Landscape->ActorHasTag(Marker))return Result;
+    if(bExtendGarage && !Landscape->ActorHasTag(TEXT("WNYGradedSitesV1")))return Result;
     auto* Info=Landscape->GetLandscapeInfo();int32 MinX,MinY,MaxX,MaxY;
     if(!Info || !Info->GetLandscapeExtent(MinX,MinY,MaxX,MaxY) || MaxX-MinX>2048 || MaxY-MinY>2048)return Result;
     const auto OriginalHeight=[](double X,double Y)
     {return (1800*FMath::Sin(X/65000)*FMath::Cos(Y/72000)+650*FMath::Sin(Y/25000))*FMath::Clamp((FMath::Abs(Y)-3000)/12000,0.,1.);};
     struct FSite{FVector2D Center,Half;double Height;};
-    const FSite Sites[]={{{-130000,4900},{2500,2900},0},{{-60000,-5500},{3000,4100},0},
+    TArray<FSite> Sites={{{-130000,4900},{2500,2900},0},{{-60000,-5500},{3000,4100},0},
         {{0,46000},{2800,3500},OriginalHeight(0,45000)},{{75000,46000},{2800,3500},OriginalHeight(75000,45000)},
         {{140000,5000},{2500,3900},0}};
+    if(bExtendGarage)Sites={{{-60000,-7000},{4000,6600},0}};
+    const double Falloff=bExtendGarage?9000.:1400.;
     for(TActorIterator<ALandscapeProxy> It(World);It;++It)
     {It->Modify();for(const auto& Component:It->LandscapeComponents)if(Component)Component->Modify();}
     const int32 Width=MaxX-MinX+1;TArray<uint16> Heights;Heights.SetNumUninitialized(Width*(MaxY-MinY+1));
@@ -261,7 +265,7 @@ TMap<FString,int32> URVWorldContentLibrary::GradeRegionSitePads(UObject* Context
         for(const auto& Site:Sites)
         {
             const double Outside=FMath::Max(FMath::Abs(P.X-Site.Center.X)-Site.Half.X,FMath::Abs(P.Y-Site.Center.Y)-Site.Half.Y);
-            const double Alpha=FMath::SmoothStep(0.,1.,FMath::Clamp(1.-FMath::Max(0.,Outside)/1400.,0.,1.));
+            const double Alpha=FMath::SmoothStep(0.,1.,FMath::Clamp(1.-FMath::Max(0.,Outside)/Falloff,0.,1.));
             Height=FMath::Lerp(Height,Site.Height,Alpha);
         }
         const uint16 Value=uint16(FMath::Clamp(FMath::RoundToInt(32768.+Height*128./100.),0,65535));
@@ -269,9 +273,9 @@ TMap<FString,int32> URVWorldContentLibrary::GradeRegionSitePads(UObject* Context
     }
     // Native edit updates height textures, normals, bounds and walkable collision.
     Edit.SetHeightData(MinX,MinY,MaxX,MaxY,Heights.GetData(),Width,true);Edit.Flush();
-    Landscape->Tags.Add(TEXT("WNYGradedSitesV1"));Landscape->MarkPackageDirty();
+    Landscape->Tags.Add(Marker);Landscape->MarkPackageDirty();
     for(TActorIterator<ALandscapeProxy> It(World);It;++It)It->MarkPackageDirty();
-    Result.Add(TEXT("ChangedVertices"),Changed);Result.Add(TEXT("GradedSites"),5);
+    Result.Add(TEXT("ChangedVertices"),Changed);Result.Add(TEXT("GradedSites"),Sites.Num());
 #endif
     return Result;
 }
