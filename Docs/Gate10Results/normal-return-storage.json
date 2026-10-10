@@ -1,18 +1,104 @@
 {
-  "result": "return walking timeout; not accepted",
+  "result": "normal driven-scavenge-return-store controls executed; inspect conservation",
   "evidence": "normal Tab/T/I/W/E controls from actual driven gas visit; no player relocation",
   "samples": [
     {
       "stage": "food transferred with Tab/T",
-      "position": "<Struct 'Vector' (0x000001C19F4D96E0) {x: -130375.355283, y: 6597.635586, z: -300.548936}>",
+      "position": "<Struct 'Vector' (0x00000219847B78A0) {x: -130372.247778, y: 6594.613491, z: 126.149999}>",
       "items": [
         {
-          "id": "FACE847540CC73A90E2F83A859A6D950",
+          "id": "4739F930426F789A4D885CA36B290500",
+          "quantity": 1,
+          "condition": 1.0
+        },
+        {
+          "id": "CCBB4D4F44D6EE3695E47A942C8CB379",
+          "quantity": 1,
+          "condition": 1.0
+        },
+        {
+          "id": "B4BCC55C486A6E7B8E9511AC3F0AD091",
+          "quantity": 1,
+          "condition": 1.0
+        },
+        {
+          "id": "901F5588417216782C5BB29CA80454C9",
+          "quantity": 1,
+          "condition": 1.0
+        },
+        {
+          "id": "E8385C844BC206B4C5A1E19763E2A8A0",
           "quantity": 1,
           "condition": 0.8461890816688538
         }
       ],
       "container": "Pine Creek packaged supplies",
+      "feedback": ""
+    },
+    {
+      "stage": "cargo opened",
+      "position": "<Struct 'Vector' (0x00000219847B71C0) {x: -130350.203146, y: 2518.902370, z: 108.150001}>",
+      "items": [
+        {
+          "id": "4739F930426F789A4D885CA36B290500",
+          "quantity": 1,
+          "condition": 1.0
+        },
+        {
+          "id": "CCBB4D4F44D6EE3695E47A942C8CB379",
+          "quantity": 1,
+          "condition": 1.0
+        },
+        {
+          "id": "B4BCC55C486A6E7B8E9511AC3F0AD091",
+          "quantity": 1,
+          "condition": 1.0
+        },
+        {
+          "id": "901F5588417216782C5BB29CA80454C9",
+          "quantity": 1,
+          "condition": 1.0
+        },
+        {
+          "id": "E8385C844BC206B4C5A1E19763E2A8A0",
+          "quantity": 1,
+          "condition": 0.8461890816688538
+        }
+      ],
+      "container": "01 Tools / repair supplies",
+      "feedback": ""
+    },
+    {
+      "stage": "stored",
+      "position": "<Struct 'Vector' (0x00000219847C9550) {x: -130350.203146, y: 2518.902370, z: 108.150001}>",
+      "items": [
+        {
+          "id": "4739F930426F789A4D885CA36B290500",
+          "quantity": 1,
+          "condition": 1.0
+        },
+        {
+          "id": "CCBB4D4F44D6EE3695E47A942C8CB379",
+          "quantity": 1,
+          "condition": 1.0
+        },
+        {
+          "id": "B4BCC55C486A6E7B8E9511AC3F0AD091",
+          "quantity": 1,
+          "condition": 1.0
+        },
+        {
+          "id": "901F5588417216782C5BB29CA80454C9",
+          "quantity": 1,
+          "condition": 1.0
+        },
+        {
+          "id": "E8385C844BC206B4C5A1E19763E2A8A0",
+          "quantity": 1,
+          "condition": 0.8461890816688538
+        }
+      ],
+      "container": "01 Tools / repair supplies",
       "feedback": ""
     }
   ]

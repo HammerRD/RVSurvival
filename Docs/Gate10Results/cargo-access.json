@@ -1,0 +1,76 @@
+{
+  "player": "<Struct 'Vector' (0x00000219847C9DC0) {x: -130350.203146, y: 2518.902370, z: 108.150001}>",
+  "feedback": "Container out of reach or obstructed",
+  "rows": [
+    {
+      "name": "RVExteriorStoragePoint_0",
+      "label": "01 Tools / repair supplies",
+      "location": "<Struct 'Vector' (0x0000021983769820) {x: -130448.373035, y: 2384.132338, z: 89.070494}>",
+      "local": "<Struct 'Vector' (0x00000219847B7260) {x: 91.486000, y: -130.000000, z: 61.881496}>",
+      "distance": 188.10403780661935,
+      "hit_actor": "RVVehicleEntryPoint_0",
+      "hit_component": "EntryTrace",
+      "contents": []
+    },
+    {
+      "name": "RVExteriorStoragePoint_1",
+      "label": "02 Fluids / spare supplies",
+      "location": "<Struct 'Vector' (0x00000219847B7B70) {x: -130506.392634, y: 2288.344830, z: 83.368112}>",
+      "local": "<Struct 'Vector' (0x00000219847B7A30) {x: -20.648000, y: -130.000000, z: 61.820586}>",
+      "distance": 293.53094201495827,
+      "hit_actor": "RVVehicleEntryPoint_0",
+      "hit_component": "EntryTrace",
+      "contents": []
+    },
+    {
+      "name": "RVExteriorStoragePoint_2",
+      "label": "03 Spare parts",
+      "location": "<Struct 'Vector' (0x00000219847B7210) {x: -130613.851988, y: 2110.906774, z: 78.365421}>",
+      "local": "<Struct 'Vector' (0x00000219847B76C0) {x: -228.078008, y: -130.000000, z: 67.260770}>",
+      "distance": 495.5128073880704,
+      "hit_actor": "RVVehicleEntryPoint_0",
+      "hit_component": "EntryTrace",
+      "contents": []
+    },
+    {
+      "name": "RVExteriorStoragePoint_3",
+      "label": "04 Camping equipment",
+      "location": "<Struct 'Vector' (0x00000219847B7760) {x: -130658.539951, y: 2037.086639, z: 82.427924}>",
+      "local": "<Struct 'Vector' (0x00000219847B78A0) {x: -314.057015, y: -130.000000, z: 75.659609}>",
+      "distance": 579.6566322837817,
+      "hit_actor": "RVVehicleEntryPoint_0",
+      "hit_component": "EntryTrace",
+      "contents": []
+    },
+    {
+      "name": "RVExteriorStoragePoint_4",
+      "label": "05 General cargo",
+      "location": "<Struct 'Vector' (0x00000219847C9370) {x: -130722.116773, y: 2434.000876, z: 93.066749}>",
+      "local": "<Struct 'Vector' (0x00000219847C9AF0) {x: -7.355000, y: 130.000000, z: 70.184045}>",
+      "distance": 390.4239191947278,
+      "hit_actor": "RVVehicleEntryPoint_0",
+      "hit_component": "EntryTrace",
+      "contents": []
+    },
+    {
+      "name": "RVExteriorStoragePoint_5",
+      "label": "06 Bulky gear",
+      "location": "<Struct 'Vector' (0x00000219847C9D20) {x: -130835.107629, y: 2247.457926, z: 82.080784}>",
+      "local": "<Struct 'Vector' (0x00000219847C9B90) {x: -225.726008, y: 130.000000, z: 70.184497}>",
+      "distance": 563.6164135141458,
+      "hit_actor": "RVVehicleEntryPoint_0",
+      "hit_component": "EntryTrace",
+      "contents": []
+    },
+    {
+      "name": "RVExteriorStoragePoint_6",
+      "label": "07 Service / electrical supplies",
+      "location": "<Struct 'Vector' (0x00000219847C9C80) {x: -130884.296550, y: 2166.081573, z: 110.637405}>",
+      "local": "<Struct 'Vector' (0x00000219847C9E10) {x: -319.256492, y: 130.000000, z: 103.489000}>",
+      "distance": 643.4517692442115,
+      "hit_actor": "RVVehicleEntryPoint_0",
+      "hit_component": "EntryTrace",
+      "contents": []
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "result": "starting pickup and firearm input completed; inspect presentation/ammo",
+  "evidence": "E side door/W physical walking/E pickup/4 equip/R reload; no inventory grant or location fixture",
+  "samples": [
+    {
+      "stage": "physical door exit",
+      "position": "<Struct 'Vector' (0x00000219847B7850) {x: -159903.772808, y: 1981.592643, z: 90.148724}>",
+      "items": []
+    },
+    {
+      "stage": "pickup /Game/Items/DA_Food.DA_Food",
+      "position": "<Struct 'Vector' (0x00000219847B7800) {x: -159995.194346, y: 2400.844858, z: 90.148724}>",
+      "items": [
+        {
+          "id": "2553900942AE5BD426D171859280AFBF",
+          "definition": "/Game/Items/DA_Food.DA_Food",
+          "quantity": 1,
+          "rounds": 0
+        }
+      ]
+    },
+    {
+      "stage": "pickup /Game/Items/DA_Water.DA_Water",
+      "position": "<Struct 'Vector' (0x00000219847B63B0) {x: -160074.393650, y: 2415.319975, z: 90.148724}>",
+      "items": [
+        {
+          "id": "2553900942AE5BD426D171859280AFBF",
+          "definition": "/Game/Items/DA_Food.DA_Food",
+          "quantity": 1,
+          "rounds": 0
+        },
+        {
+          "id": "4739F930426F789A4D885CA36B290500",
+          "definition": "/Game/Items/DA_Water.DA_Water",
+          "quantity": 1,
+          "rounds": 0
+        }
+      ]
+    },
+    {
+      "stage": "pickup /Game/Combat/Gate9_5/Items/DA_PrototypeCrowbar.DA_PrototypeCrowbar",
+      "position": "<Struct 'Vector' (0x00000219847B7760) {x: -160175.937545, y: 2419.103442, z: 90.148724}>",
+      "items": [
+        {
+          "id": "2553900942AE5BD426D171859280AFBF",
+          "definition": "/Game/Items/DA_Food.DA_Food",
+          "quantity": 1,
+          "rounds": 0
+        },
+        {
+          "id": "4739F930426F789A4D885CA36B290500",
+          "definition": "/Game/Items/DA_Water.DA_Water",
+          "quantity": 1,
+          "rounds": 0
+        },
+        {
+          "id": "CCBB4D4F44D6EE3695E47A942C8CB379",
+          "definition": "/Game/Combat/Gate9_5/Items/DA_PrototypeCrowbar.DA_PrototypeCrowbar",
+          "quantity": 1,
+          "rounds": 0
+        }
+      ]
+    },
+    {
+      "stage": "pickup /Game/Combat/Gate9_5/Items/DA_45ACPMagazine.DA_45ACPMagazine",
+      "position": "<Struct 'Vector' (0x00000219847B7670) {x: -160276.557715, y: 2419.830588, z: 90.148724}>",
+      "items": [
+        {
+          "id": "2553900942AE5BD426D171859280AFBF",
+          "definition": "/Game/Items/DA_Food.DA_Food",
+          "quantity": 1,
+          "rounds": 0
+        },
+        {
+          "id": "4739F930426F789A4D885CA36B290500",
+          "definition": "/Game/Items/DA_Water.DA_Water",
+          "quantity": 1,
+          "rounds": 0
+        },
+        {
+          "id": "CCBB4D4F44D6EE3695E47A942C8CB379",
+          "definition": "/Game/Combat/Gate9_5/Items/DA_PrototypeCrowbar.DA_PrototypeCrowbar",
+          "quantity": 1,
+          "rounds": 0
+        },
+        {
+          "id": "B4BCC55C486A6E7B8E9511AC3F0AD091",
+          "definition": "/Game/Combat/Gate9_5/Items/DA_45ACPMagazine.DA_45ACPMagazine",
+          "quantity": 1,
+          "rounds": 7
+        }
+      ]
+    },
+    {
+      "stage": "pickup /Game/Combat/Gate9_5/Items/DA_M1911_45ACP.DA_M1911_45ACP",
+      "position": "<Struct 'Vector' (0x00000219847B7B20) {x: -160378.433405, y: 2419.970397, z: 90.148724}>",
+      "items": [
+        {
+          "id": "2553900942AE5BD426D171859280AFBF",
+          "definition": "/Game/Items/DA_Food.DA_Food",
+          "quantity": 1,
+          "rounds": 0
+        },
+        {
+          "id": "4739F930426F789A4D885CA36B290500",
+          "definition": "/Game/Items/DA_Water.DA_Water",
+          "quantity": 1,
+          "rounds": 0
+        },
+        {
+          "id": "CCBB4D4F44D6EE3695E47A942C8CB379",
+          "definition": "/Game/Combat/Gate9_5/Items/DA_PrototypeCrowbar.DA_PrototypeCrowbar",
+          "quantity": 1,
+          "rounds": 0
+        },
+        {
+          "id": "B4BCC55C486A6E7B8E9511AC3F0AD091",
+          "definition": "/Game/Combat/Gate9_5/Items/DA_45ACPMagazine.DA_45ACPMagazine",
+          "quantity": 1,
+          "rounds": 7
+        },
+        {
+          "id": "901F5588417216782C5BB29CA80454C9",
+          "definition": "/Game/Combat/Gate9_5/Items/DA_M1911_45ACP.DA_M1911_45ACP",
+          "quantity": 1,
+          "rounds": 0
+        }
+      ]
+    },
+    {
+      "stage": "all starting pickups",
+      "position": "<Struct 'Vector' (0x00000219847B76C0) {x: -160378.433405, y: 2419.970397, z: 90.148724}>",
+      "items": [
+        {
+          "id": "2553900942AE5BD426D171859280AFBF",
+          "definition": "/Game/Items/DA_Food.DA_Food",
+          "quantity": 1,
+          "rounds": 0
+        },
+        {
+          "id": "4739F930426F789A4D885CA36B290500",
+          "definition": "/Game/Items/DA_Water.DA_Water",
+          "quantity": 1,
+          "rounds": 0
+        },
+        {
+          "id": "CCBB4D4F44D6EE3695E47A942C8CB379",
+          "definition": "/Game/Combat/Gate9_5/Items/DA_PrototypeCrowbar.DA_PrototypeCrowbar",
+          "quantity": 1,
+          "rounds": 0
+        },
+        {
+          "id": "B4BCC55C486A6E7B8E9511AC3F0AD091",
+          "definition": "/Game/Combat/Gate9_5/Items/DA_45ACPMagazine.DA_45ACPMagazine",
+          "quantity": 1,
+          "rounds": 7
+        },
+        {
+          "id": "901F5588417216782C5BB29CA80454C9",
+          "definition": "/Game/Combat/Gate9_5/Items/DA_M1911_45ACP.DA_M1911_45ACP",
+          "quantity": 1,
+          "rounds": 0
+        }
+      ]
+    },
+    {
+      "stage": "prepared",
+      "position": "<Struct 'Vector' (0x00000219847B74E0) {x: -160378.433405, y: 2419.970397, z: 90.148724}>",
+      "items": [
+        {
+          "id": "2553900942AE5BD426D171859280AFBF",
+          "definition": "/Game/Items/DA_Food.DA_Food",
+          "quantity": 1,
+          "rounds": 0
+        },
+        {
+          "id": "4739F930426F789A4D885CA36B290500",
+          "definition": "/Game/Items/DA_Water.DA_Water",
+          "quantity": 1,
+          "rounds": 0
+        },
+        {
+          "id": "CCBB4D4F44D6EE3695E47A942C8CB379",
+          "definition": "/Game/Combat/Gate9_5/Items/DA_PrototypeCrowbar.DA_PrototypeCrowbar",
+          "quantity": 1,
+          "rounds": 0
+        },
+        {
+          "id": "B4BCC55C486A6E7B8E9511AC3F0AD091",
+          "definition": "/Game/Combat/Gate9_5/Items/DA_45ACPMagazine.DA_45ACPMagazine",
+          "quantity": 1,
+          "rounds": 7
+        },
+        {
+          "id": "901F5588417216782C5BB29CA80454C9",
+          "definition": "/Game/Combat/Gate9_5/Items/DA_M1911_45ACP.DA_M1911_45ACP",
+          "quantity": 1,
+          "rounds": 0
+        }
+      ]
+    }
+  ]
+}
