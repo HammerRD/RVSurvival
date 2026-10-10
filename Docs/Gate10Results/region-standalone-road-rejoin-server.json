@@ -1,0 +1,67 @@
+{
+  "session": 1791629460.143678,
+  "error": "",
+  "evidence": "two-process normal E + accepted server inventory transaction; server relocation fixture for cell traversal, not driven-loop proof",
+  "results": [
+    {
+      "case": "saved_region_mobile_base_arrival",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002E31F6064F0) {x: 95.052438, y: -0.008066, z: 177.189984}>"
+    },
+    {
+      "case": "own_survivor_and_inventory",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "protected_driver_medically_active",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "parked_base_retains_ground_while_party_explores",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000002E31F704B50) {x: -159999.866422, y: 1600.274163, z: 18.814014}>"
+    },
+    {
+      "case": "normal_E_driver_before_late_join",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "late_join_restores_two_player_party",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "driving_possession_restores_after_rejoin",
+      "pass": true,
+      "detail": {
+        "pawn": "BP_Gate9_5Survivor_C",
+        "vehicle_speed": 0.0,
+        "vehicle_position": "<Struct 'Vector' (0x000002E31F661C80) {x: -120352.729017, y: 252.859896, z: 35.671296}>",
+        "rotation": "<Struct 'Rotator' (0x000002E31F661C80) {pitch: 0.330785, yaw: 9.726781, roll: 0.001951}>",
+        "medical_state": "<RVMedicalLifeState.ACTIVE: 0>",
+        "can_act": true
+      }
+    },
+    {
+      "case": "rejoin_does_not_replenish_shared_loot",
+      "pass": true,
+      "detail": [
+        {
+          "id": "4D8FCAEB49DCA67832F13A9F1875A7A2",
+          "quantity": 1,
+          "condition": 0.8461890816688538,
+          "definition": "/Game/Items/DA_Food.DA_Food"
+        },
+        {
+          "id": "CEA5E000445FA0C311371A860E4E3194",
+          "quantity": 2,
+          "condition": 0.6978617906570435,
+          "definition": "/Game/Items/DA_Water.DA_Water"
+        }
+      ]
+    }
+  ]
+}

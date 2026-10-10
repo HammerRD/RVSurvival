@@ -1,0 +1,93 @@
+{
+  "session": 1791629232.3807912,
+  "error": "",
+  "evidence": "two-process normal E + accepted server inventory transaction; server relocation fixture for cell traversal, not driven-loop proof",
+  "results": [
+    {
+      "case": "saved_region_mobile_base_arrival",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x0000029200EC4920) {x: 95.009143, y: -0.038781, z: 177.189991}>"
+    },
+    {
+      "case": "own_survivor_and_inventory",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "protected_driver_medically_active",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "parked_base_retains_ground_while_party_explores",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x0000029200584B50) {x: -159998.053661, y: 1599.989068, z: 18.707043}>"
+    },
+    {
+      "case": "normal_E_driver_before_late_join",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "late_join_restores_two_player_party",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "driving_possession_restores_after_rejoin",
+      "pass": false,
+      "detail": {
+        "pawn": "BP_ClassCMechanicalMotorhome_C",
+        "vehicle_speed": 997.1760727502523,
+        "vehicle_position": "<Struct 'Vector' (0x0000029200561C30) {x: -71910.748698, y: -12211.994761, z: -1434.468409}>",
+        "rotation": "<Struct 'Rotator' (0x0000029200561C30) {pitch: 8.694301, yaw: 119.500378, roll: 5.272728}>",
+        "medical_state": "<RVMedicalLifeState.ACTIVE: 0>",
+        "can_act": true,
+        "ground_rays": [
+          {
+            "offset": "<Struct 'Vector' (0x00000290A34E3068) {x: 253.000000, y: -300.000000, z: 0.000000}>",
+            "hit": "(True, False, 0.4154374897480011, 270.03436279296875, <Struct 'Vector' (0x0000029200EC58C0) {x: -71771.848673, y: -11850.849337, z: -1389.006475}>, <Struct 'Vector' (0x0000029200EDD500) {x: -71771.848673, y: -11850.849337, z: -1389.006458}>, <Struct 'Vector' (0x0000029200EED3C0) {x: -0.007667, y: -0.169379, z: 0.985521}>, <Struct 'Vector' (0x0000029200EED640) {x: -0.007667, y: -0.169379, z: 0.985521}>, <Object '/Engine/EngineMaterials/DefaultPhysicalMaterial.DefaultPhysicalMaterial' (0x00000291FAF700C0) Class 'PhysicalMaterial'>, <Object '/Game/Maps/WNY_PrototypeRegion/24JY5DOQEJHY0I5HRMCBUAT7A.WNY_PrototypeRegion:PersistentLevel.LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0' (0x00000291FA90D200) Class 'LandscapeStreamingProxy'>, <Object '/Game/Maps/WNY_PrototypeRegion/24JY5DOQEJHY0I5HRMCBUAT7A.WNY_PrototypeRegion:PersistentLevel.LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0.LandscapeHeightfieldCollisionComponent_117' (0x0000029201836E00) Class 'LandscapeHeightfieldCollisionComponent'>, Name(\"None\"), Name(\"None\"), -1, 0, 4176, <Struct 'Vector' (0x0000029200EED370) {x: -71771.848673, y: -11850.849337, z: -1118.972107}>, <Struct 'Vector' (0x0000029200EED8C0) {x: -71771.848673, y: -11850.849337, z: -1768.972107}>)"
+          },
+          {
+            "offset": "<Struct 'Vector' (0x0000029200584B50) {x: 153.000000, y: -300.000000, z: 0.000000}>",
+            "hit": "(True, False, 0.41434770822525024, 269.3260192871094, <Struct 'Vector' (0x0000029200EDD500) {x: -71723.171597, y: -11936.884453, z: -1403.414366}>, <Struct 'Vector' (0x0000029200EDD050) {x: -71723.171597, y: -11936.884453, z: -1403.414384}>, <Struct 'Vector' (0x0000029200EED3C0) {x: -0.007667, y: -0.169379, z: 0.985521}>, <Struct 'Vector' (0x0000029200EED640) {x: -0.007667, y: -0.169379, z: 0.985521}>, <Object '/Engine/EngineMaterials/DefaultPhysicalMaterial.DefaultPhysicalMaterial' (0x00000291FAF700C0) Class 'PhysicalMaterial'>, <Object '/Game/Maps/WNY_PrototypeRegion/24JY5DOQEJHY0I5HRMCBUAT7A.WNY_PrototypeRegion:PersistentLevel.LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0' (0x00000291FA90D200) Class 'LandscapeStreamingProxy'>, <Object '/Game/Maps/WNY_PrototypeRegion/24JY5DOQEJHY0I5HRMCBUAT7A.WNY_PrototypeRegion:PersistentLevel.LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0.LandscapeHeightfieldCollisionComponent_117' (0x0000029201836E00) Class 'LandscapeHeightfieldCollisionComponent'>, Name(\"None\"), Name(\"None\"), -1, 0, 4176, <Struct 'Vector' (0x0000029200EED370) {x: -71723.171597, y: -11936.884453, z: -1134.088356}>, <Struct 'Vector' (0x0000029200EED8C0) {x: -71723.171597, y: -11936.884453, z: -1784.088356}>)"
+          },
+          {
+            "offset": "<Struct 'Vector' (0x0000029200EDF4E0) {x: 353.000000, y: -300.000000, z: 0.000000}>",
+            "hit": "(True, False, 0.4165271818637848, 270.74267578125, <Struct 'Vector' (0x0000029200EDD050) {x: -71820.525749, y: -11764.814220, z: -1374.598526}>, <Struct 'Vector' (0x0000029200EC58C0) {x: -71820.525749, y: -11764.814220, z: -1374.598532}>, <Struct 'Vector' (0x0000029200EED3C0) {x: -0.007667, y: -0.169379, z: 0.985521}>, <Struct 'Vector' (0x0000029200EED640) {x: -0.007667, y: -0.169379, z: 0.985521}>, <Object '/Engine/EngineMaterials/DefaultPhysicalMaterial.DefaultPhysicalMaterial' (0x00000291FAF700C0) Class 'PhysicalMaterial'>, <Object '/Game/Maps/WNY_PrototypeRegion/24JY5DOQEJHY0I5HRMCBUAT7A.WNY_PrototypeRegion:PersistentLevel.LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0' (0x00000291FA90D200) Class 'LandscapeStreamingProxy'>, <Object '/Game/Maps/WNY_PrototypeRegion/24JY5DOQEJHY0I5HRMCBUAT7A.WNY_PrototypeRegion:PersistentLevel.LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0.LandscapeHeightfieldCollisionComponent_117' (0x0000029201836E00) Class 'LandscapeHeightfieldCollisionComponent'>, Name(\"None\"), Name(\"None\"), -1, 0, 4177, <Struct 'Vector' (0x0000029200EED370) {x: -71820.525749, y: -11764.814220, z: -1103.855858}>, <Struct 'Vector' (0x0000029200EED8C0) {x: -71820.525749, y: -11764.814220, z: -1753.855858}>)"
+          },
+          {
+            "offset": "<Struct 'Vector' (0x00000292005064F0) {x: -450.000000, y: 0.000000, z: 0.000000}>",
+            "hit": "(True, False, 0.40720614790916443, 264.6839904785156, <Struct 'Vector' (0x0000029200EC58C0) {x: -71691.701856, y: -12599.152785, z: -1517.175527}>, <Struct 'Vector' (0x0000029200EDD500) {x: -71691.701856, y: -12599.152785, z: -1517.175530}>, <Struct 'Vector' (0x0000029200EED3C0) {x: -0.009642, y: -0.169376, z: 0.985504}>, <Struct 'Vector' (0x0000029200EED640) {x: -0.009642, y: -0.169376, z: 0.985504}>, <Object '/Engine/EngineMaterials/DefaultPhysicalMaterial.DefaultPhysicalMaterial' (0x00000291FAF700C0) Class 'PhysicalMaterial'>, <Object '/Game/Maps/WNY_PrototypeRegion/24JY5DOQEJHY0I5HRMCBUAT7A.WNY_PrototypeRegion:PersistentLevel.LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0' (0x00000291FA90D200) Class 'LandscapeStreamingProxy'>, <Object '/Game/Maps/WNY_PrototypeRegion/24JY5DOQEJHY0I5HRMCBUAT7A.WNY_PrototypeRegion:PersistentLevel.LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0.LandscapeHeightfieldCollisionComponent_117' (0x0000029201836E00) Class 'LandscapeHeightfieldCollisionComponent'>, Name(\"None\"), Name(\"None\"), -1, 0, 3924, <Struct 'Vector' (0x0000029200EED370) {x: -71691.701856, y: -12599.152785, z: -1252.491530}>, <Struct 'Vector' (0x0000029200EED8C0) {x: -71691.701856, y: -12599.152785, z: -1902.491530}>)"
+          },
+          {
+            "offset": "<Struct 'Vector' (0x0000029200EDE090) {x: 0.000000, y: -350.000000, z: 0.000000}>",
+            "hit": "(True, False, 0.4128226935863495, 268.3347473144531, <Struct 'Vector' (0x0000029200EDD500) {x: -71605.020166, y: -12044.605418, z: -1421.008936}>, <Struct 'Vector' (0x0000029200EDD050) {x: -71605.020166, y: -12044.605418, z: -1421.008928}>, <Struct 'Vector' (0x0000029200EED3C0) {x: -0.007667, y: -0.169379, z: 0.985521}>, <Struct 'Vector' (0x0000029200EED640) {x: -0.007667, y: -0.169379, z: 0.985521}>, <Object '/Engine/EngineMaterials/DefaultPhysicalMaterial.DefaultPhysicalMaterial' (0x00000291FAF700C0) Class 'PhysicalMaterial'>, <Object '/Game/Maps/WNY_PrototypeRegion/24JY5DOQEJHY0I5HRMCBUAT7A.WNY_PrototypeRegion:PersistentLevel.LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0' (0x00000291FA90D200) Class 'LandscapeStreamingProxy'>, <Object '/Game/Maps/WNY_PrototypeRegion/24JY5DOQEJHY0I5HRMCBUAT7A.WNY_PrototypeRegion:PersistentLevel.LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0.LandscapeHeightfieldCollisionComponent_117' (0x0000029201836E00) Class 'LandscapeHeightfieldCollisionComponent'>, Name(\"None\"), Name(\"None\"), -1, 0, 4050, <Struct 'Vector' (0x0000029200EED370) {x: -71605.020166, y: -12044.605418, z: -1152.674185}>, <Struct 'Vector' (0x0000029200EED8C0) {x: -71605.020166, y: -12044.605418, z: -1802.674185}>)"
+          },
+          {
+            "offset": "<Struct 'Vector' (0x0000029200EDCFB0) {x: 0.000000, y: 350.000000, z: 0.000000}>",
+            "hit": "(True, False, 0.4114992022514343, 267.4744873046875, <Struct 'Vector' (0x0000029200EDD050) {x: -72216.477230, y: -12379.384103, z: -1483.737115}>, <Struct 'Vector' (0x0000029200EC58C0) {x: -72216.477230, y: -12379.384103, z: -1483.737110}>, <Struct 'Vector' (0x0000029200EED3C0) {x: -0.009642, y: -0.169376, z: 0.985504}>, <Struct 'Vector' (0x0000029200EED640) {x: -0.009642, y: -0.169376, z: 0.985504}>, <Object '/Engine/EngineMaterials/DefaultPhysicalMaterial.DefaultPhysicalMaterial' (0x00000291FAF700C0) Class 'PhysicalMaterial'>, <Object '/Game/Maps/WNY_PrototypeRegion/24JY5DOQEJHY0I5HRMCBUAT7A.WNY_PrototypeRegion:PersistentLevel.LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0' (0x00000291FA90D200) Class 'LandscapeStreamingProxy'>, <Object '/Game/Maps/WNY_PrototypeRegion/24JY5DOQEJHY0I5HRMCBUAT7A.WNY_PrototypeRegion:PersistentLevel.LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0.LandscapeHeightfieldCollisionComponent_117' (0x0000029201836E00) Class 'LandscapeHeightfieldCollisionComponent'>, Name(\"None\"), Name(\"None\"), -1, 0, 4048, <Struct 'Vector' (0x0000029200EED370) {x: -72216.477230, y: -12379.384103, z: -1216.262633}>, <Struct 'Vector' (0x0000029200EED8C0) {x: -72216.477230, y: -12379.384103, z: -1866.262633}>)"
+          }
+        ]
+      }
+    },
+    {
+      "case": "rejoin_does_not_replenish_shared_loot",
+      "pass": true,
+      "detail": [
+        {
+          "id": "95253CEE4E9EDFFE445A3983958E37B6",
+          "quantity": 1,
+          "condition": 0.8461890816688538,
+          "definition": "/Game/Items/DA_Food.DA_Food"
+        },
+        {
+          "id": "C2A416D543DD3C108990BF9E65AF1294",
+          "quantity": 2,
+          "condition": 0.6978617906570435,
+          "definition": "/Game/Items/DA_Water.DA_Water"
+        }
+      ]
+    }
+  ]
+}

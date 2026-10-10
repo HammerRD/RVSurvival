@@ -1,0 +1,33 @@
+{
+  "session": 1791629460.143678,
+  "error": "",
+  "evidence": "two-process normal E + accepted server inventory transaction; server relocation fixture for cell traversal, not driven-loop proof",
+  "results": [
+    {
+      "case": "saved_region_mobile_base_arrival",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000001E091366DB0) {x: 14.998326, y: 0.000258, z: 177.189984}>"
+    },
+    {
+      "case": "own_survivor_and_inventory",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "late_join_arrives_current_moving_base",
+      "pass": true,
+      "detail": {
+        "relative": "<Struct 'Vector' (0x000001E0910C9780) {x: 94.993560, y: 0.485635, z: 177.396019}>",
+        "vehicle_speed": 1519.884903982508
+      }
+    },
+    {
+      "case": "late_join_can_walk_in_moving_base",
+      "pass": true,
+      "detail": {
+        "relative": "<Struct 'Vector' (0x000001E0910C9910) {x: -92.574244, y: -25.350694, z: 191.570582}>",
+        "movement": "<MovementMode.MOVE_WALKING: 1>"
+      }
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 """Real replicated finite-loot contention/streaming; relocation is explicit fixture."""
-import unreal,time,json,gc,traceback,sys
+import unreal,time,json,gc,traceback,sys,math
 from pathlib import Path
-out=Path('D:/GitHub/RVSurvival/RVSurvival/Saved/Gate10Validation');session=json.loads((out/'process-session.json').read_text());start=session['start'];case=session['config'];handle=None;done=set();rows=[];target_id='';claimed_id='';remaining=[];initial=[];role='';claimed_guid=None;claimed_quantity=0
+out=Path('D:/GitHub/RVSurvival/RVSurvival/Saved/Gate10Validation');session=json.loads((out/'process-session.json').read_text());start=session['start'];case=session['config'];handle=None;done=set();rows=[];target_id='';claimed_id='';remaining=[];initial=[];role='';claimed_guid=None;claimed_quantity=0;held={}
 def world():
  return next(w for w in unreal.ObjectIterator(unreal.World) if w.get_name()=='WNY_PrototypeRegion' and unreal.GameplayStatics.get_player_controller(w,0) and unreal.GameplayStatics.get_game_state(w))
 def pc():return unreal.GameplayStatics.get_player_controller(world(),0)
@@ -10,7 +10,8 @@ def guid(g):return unreal.GuidLibrary.conv_guid_to_string(g)
 def items(c):return [{'id':guid(i.id),'quantity':i.quantity,'condition':i.condition,'definition':i.definition.get_path_name()} for i in c.get_items()]
 def target():return next(a for a in unreal.GameplayStatics.get_all_actors_of_class(world(),unreal.RVScavengeContainer) if 'Pine Creek packaged' in str(a.container.display_name))
 def check(name,ok,detail=''):rows.append({'case':name,'pass':bool(ok),'detail':detail})
-def key(k,on):unreal.RVInteriorMotorhome.dispatch_development_key(pc(),k,on)
+def key(k,on):
+ if held.get(k,False)!=on:unreal.RVInteriorMotorhome.dispatch_development_key(pc(),k,on);held[k]=on
 def all_players():return [p for p in unreal.GameplayStatics.get_all_actors_of_class(world(),unreal.RVSurvivorCharacter) if p.player_state]
 def move_players(x,y):
  for index,p in enumerate(all_players()):p.set_actor_location(unreal.Vector(x+index*160,y,130),False,True);p.character_movement.stop_movement_immediately()
@@ -103,20 +104,37 @@ def stop_drive():
  key('W',False)
  if role=='server':key('SpaceBar',True);key('S',True)
 def exit_driver():
- if role=='server':key('S',False);key('E',True)
+ if role=='server':
+  if pawn().get_velocity().length()>30:
+   done.discard('exit_driver');return
+  key('S',False);key('E',True)
 def exit_check():
  if role=='server':
   key('E',False);v=unreal.GameplayStatics.get_all_actors_of_class(world(),unreal.RVInteriorMotorhome)[0]
-  check('driving_possession_restores_after_rejoin',isinstance(pawn(),unreal.RVSurvivorCharacter),{'pawn':pawn().get_class().get_name(),'vehicle_speed':v.get_velocity().length()});key('SpaceBar',False)
+  health=pc().player_state.get_component_by_class(unreal.RVHealthComponent)
+  detail={'pawn':pawn().get_class().get_name(),'vehicle_speed':v.get_velocity().length(),'vehicle_position':str(v.get_actor_location()),'rotation':str(v.get_actor_rotation()),'medical_state':str(health.life_state),'can_act':health.can_act()}
+  if isinstance(pawn(),unreal.RVInteriorMotorhome):
+   seat=next(s for s in v.get_seats() if s.get_editor_property('bDriverSeat'));preferred=seat.exit_offset
+   ignored=[v,seat.occupant]+list(v.get_attached_actors());detail['ground_rays']=[]
+   for offset in [preferred,preferred+unreal.Vector(-100,0,0),preferred+unreal.Vector(100,0,0),unreal.Vector(-450,0,0),unreal.Vector(0,-350,0),unreal.Vector(0,350,0)]:
+    q=v.get_actor_transform().transform_location(offset)
+    hit=unreal.SystemLibrary.line_trace_single(world(),q+unreal.Vector(0,0,250),q-unreal.Vector(0,0,400),unreal.TraceTypeQuery.TRACE_TYPE_QUERY1,False,ignored,unreal.DrawDebugTrace.NONE,True)
+    detail['ground_rays'].append({'offset':str(offset),'hit':str(hit.to_tuple()) if hit else ''})
+  check('driving_possession_restores_after_rejoin',isinstance(pawn(),unreal.RVSurvivorCharacter),detail);key('SpaceBar',False)
 def final_revisit():
  check('rejoin_does_not_replenish_shared_loot',items(target().container)==remaining,items(target().container))
+def safe_baseline():
+ global remaining
+ if role=='server':
+  remaining=items(target().container)
+  check('protected_driver_medically_active',pc().player_state.get_component_by_class(unreal.RVHealthComponent).can_act())
 def finish(error=''):
  global handle
  # Travel can temporarily remove the region world/controller. Cleanup must still
  # unregister the callback and write the failure receipt in that interval.
  try:
   controller=unreal.GameplayStatics.get_player_controller(current_world(),0)
-  for k in ['E','W','S','SpaceBar']:unreal.RVInteriorMotorhome.dispatch_development_key(controller,k,False)
+  for k in ['E','W','S','A','D','SpaceBar']:unreal.RVInteriorMotorhome.dispatch_development_key(controller,k,False)
  except (StopIteration,RuntimeError):pass
  unreal.unregister_slate_post_tick_callback(handle);handle=None
  (out/(case['name']+'-'+(role or 'unknown')+'.json')).write_text(json.dumps({'session':session['id'],'error':error,'evidence':'two-process normal E + accepted server inventory transaction; server relocation fixture for cell traversal, not driven-loop proof','results':rows},indent=2))
@@ -151,6 +169,13 @@ def tick(dt):
   events=[(0,'arrival',arrival),(.6,'host_profile',host_profile),(1.4,'host_population',host_population),(2,'initial_gas_move',lambda:move_players(-130000,5500) if role=='server' else None),(6,'client_override',client_override),(10,'approach',approach),(12,'difficulty_check',difficulty_check),(13,'aim',aim),(14,'Edown',lambda:key('E',True)),(14.5,'Eup',lambda:key('E',False)),(17,'claim',claim),(21,'conserve',conserve),(23,'away',unload),(38,'far',far),(40,'back',back),(55,'revisit',revisit)]
   if case.get('rejoin',False):events += [(60,'disconnect',disconnect),(65,'pilot_setup',pilot_setup),(66,'release_travel_cache',release_travel_cache),(67,'drive',drive),(70,'reconnect',reconnect),(85,'moving_arrival',moving_arrival),(86,'moving_walk',moving_walk),(87,'stop_client_walk',lambda:key('W',False) if role=='client' else None),(94,'stop_drive',stop_drive),(100,'exit_driver',exit_driver),(101,'exit_check',exit_check),(105,'gas_return',lambda:move_players(-130000,5500) if role=='server' else None),(120,'final_revisit',final_revisit),(123,'finish',finish)]
   else:events.append((58,'finish',finish))
+  if case.get('rejoin_only',False):
+   events=[(0,'arrival',arrival),(2,'safe_baseline',safe_baseline),(10,'disconnect',disconnect),(15,'pilot_setup',pilot_setup),(17,'drive',drive),(20,'reconnect',reconnect),(35,'moving_arrival',moving_arrival),(36,'moving_walk',moving_walk),(37,'stop_client_walk',lambda:key('W',False) if role=='client' else None),(44,'stop_drive',stop_drive),(50,'exit_driver',exit_driver),(64,'exit_check',exit_check),(68,'final_revisit',lambda:final_revisit() if role=='server' else None),(72,'finish',finish)]
+   if role=='server' and 'drive' in done and 'stop_drive' not in done and isinstance(pawn(),unreal.RVInteriorMotorhome):
+    v=pawn();q=v.get_actor_location();speed=v.get_velocity().length();desired=math.degrees(math.atan2(-q.y,6000));error=(desired-v.get_actor_rotation().yaw+180)%360-180
+    key('D',error>2);key('A',error< -2);key('W',speed<1500);key('S',speed>1600)
+   elif role=='server' and 'stop_drive' in done and 'exit_driver' not in done:
+    key('A',False);key('D',False);key('W',False);key('S',pawn().get_velocity().length()>30)
   for at,name,fn in events:
    if t>=at and name not in done:done.add(name);fn();break
  except Exception:finish(traceback.format_exc())

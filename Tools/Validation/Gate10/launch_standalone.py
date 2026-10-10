@@ -2,7 +2,7 @@
 import subprocess,time,json
 from pathlib import Path
 root=Path('D:/GitHub/RVSurvival/RVSurvival');out=root/'Saved/Gate10Validation'
-case={'name':'region-standalone-brake-cleanup','network':True,'difficulty':True,'rejoin':True,'port':17778,'standalone':True,'travel_gc':False}
+case={'name':'region-standalone-road-rejoin','network':True,'difficulty':True,'rejoin':True,'rejoin_only':True,'port':17778,'standalone':True,'travel_gc':False}
 session={'id':time.time(),'start':None,'config':case};(out/'process-session.json').write_text(json.dumps(session))
 exe='D:/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe'
 cmds='wp.Runtime.EnableServerStreaming 1,wp.Runtime.EnableServerStreamingOut 1,wp.Runtime.UseMakingVisibleTransactionRequests 1,wp.Runtime.UseMakingInvisibleTransactionRequests 1,LevelStreaming.DefaultAllowClientUseMakingVisibleTransactionRequests 1,Net PktLag=100,Net PktLoss=2,py '+str(root/'Tools/Validation/Gate10/standalone_startup.py')
