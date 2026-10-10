@@ -313,3 +313,14 @@ Corrected competing ADS/hand targets: weapon stays on the primary hand, support 
 Crowbar now has one-handed ready/grip and three native project-side light-strike montages. Reliable server-selected variants share the same authoritative damage and one revalidated0.27s hit timer. Primary Attack (default LMB) routes gun/melee/unarmed using the existing remappable Fire identity. WheelUp/Down cycles an ordered owned-GUID quick-access list plus unarmed; preserves partial magazines, cancels ADS/reload and leaves one equipment visual. Menus consume wheel normally; deprecated separate melee row is hidden.
 
 Actual menuQ attack remap worked for crowbar and M1911, then LMB was restored without resetting other mappings. Rendered pitch/ADS/one-handed/remote views, focused range/wall/cooldown/tap-hold tests, separate-process host/client and 100 ms/2%loss passed. Fixed fixture-only torso assumption, single-frame montage sampling, capture-stall recoil sampling and saved-audit JSON Array serialization. No engine crash or authority weakening. Final build/saved audit/clean shutdown passed;108 vendor hashes unchanged. Detailed results/limitations in GATE_9_5_VALIDATION.md. Checkpoints d2da9db WIP, c4a0858 stable, final closure follows. Gate9.5 ACCEPTED at prototype quality; Gate10 not started.
+
+### Gate 10 foundation recovery checkpoint (in progress)
+
+Saved a 6.01 km spline road network, bounded native partitioned PCG dressing,
+five authored location shells and ten finite contextual storage points in the
+new WNY map. Added native streaming inspection and a ledger safeguard so failed
+capacity restoration cannot overwrite a complete loot snapshot. Editor build
+passes. PCG scheduling aborts, editor shutdown behavior, actual traversal,
+multiplayer streaming, encounters and visual validation remain unresolved or
+untested; this is not Gate 10 acceptance. Prior accepted maps/vendor files are
+not edited.

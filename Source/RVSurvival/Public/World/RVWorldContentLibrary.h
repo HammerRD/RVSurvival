@@ -13,4 +13,12 @@ public:
     static AActor* CreateRegionLandscape(UObject* Context,int32 Components,float VertexSpacingCm);
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly,WorldContext="Context"))
     static TMap<FString,bool> ValidateLootLifecycle(UObject* Context,class URVLootProfile* Profile);
+    UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly))
+    static class UPCGGraph* CreateBiomeGraph(const FString& AssetPath,const TArray<class UStaticMesh*>& Meshes,float PointsPerSquareMetre,bool Collision);
+    UFUNCTION(BlueprintPure,meta=(DevelopmentOnly,WorldContext="Context"))
+    static TMap<FString,int32> GetDressingStats(UObject* Context);
+    UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly,WorldContext="Context"))
+    static bool ConfigureRegionStreaming(UObject* Context);
+    UFUNCTION(BlueprintPure,meta=(DevelopmentOnly,WorldContext="Context"))
+    static TMap<FString,FString> InspectRegion(UObject* Context);
 };

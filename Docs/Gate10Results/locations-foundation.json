@@ -1,0 +1,114 @@
+{
+  "saved": true,
+  "locations": [
+    "PINE CREEK FUEL",
+    "ERIE ROAD SERVICE",
+    "HAWTHORNE FARM",
+    "MAPLE RUN CAMPGROUND",
+    "ROWLAND CROSSROADS"
+  ],
+  "containers": [
+    {
+      "name": "Pine Creek packaged supplies",
+      "id": "<Struct 'Guid' (0x000001969EB680C0) {}>",
+      "profile": "Kitchen",
+      "position": [
+        -130400,
+        6800,
+        -341.69893538878745
+      ]
+    },
+    {
+      "name": "Pine Creek first aid cabinet",
+      "id": "<Struct 'Guid' (0x000001969EB686F0) {}>",
+      "profile": "Medical",
+      "position": [
+        -129600,
+        6800,
+        -276.69893538878745
+      ]
+    },
+    {
+      "name": "Pine Creek road supplies",
+      "id": "<Struct 'Guid' (0x000001969EB675A0) {}>",
+      "profile": "RoadSupplies",
+      "position": [
+        -129600,
+        6500,
+        -341.69893538878745
+      ]
+    },
+    {
+      "name": "Erie Service tool chest",
+      "id": "<Struct 'Guid' (0x00000196D2D26BB0) {}>",
+      "profile": "Garage",
+      "position": [
+        -60450,
+        -8100,
+        -667.6781072514427
+      ]
+    },
+    {
+      "name": "Erie Service parts shelf",
+      "id": "<Struct 'Guid' (0x00000196D2D26F10) {}>",
+      "profile": "Garage",
+      "position": [
+        -59550,
+        -8100,
+        -667.6781072514427
+      ]
+    },
+    {
+      "name": "Hawthorne kitchen cupboard",
+      "id": "<Struct 'Guid' (0x00000196D2D27B60) {}>",
+      "profile": "Kitchen",
+      "position": [
+        -250,
+        47400,
+        704.174526276537
+      ]
+    },
+    {
+      "name": "Hawthorne medicine cabinet",
+      "id": "<Struct 'Guid' (0x00000196D2D26F50) {}>",
+      "profile": "Medical",
+      "position": [
+        280,
+        47400,
+        779.174526276537
+      ]
+    },
+    {
+      "name": "Maple Run camp office supplies",
+      "id": "<Struct 'Guid' (0x00000196D2D28BC0) {}>",
+      "profile": "Camp",
+      "position": [
+        75000,
+        47200,
+        2011.5902696840872
+      ]
+    },
+    {
+      "name": "Rowland diner pantry",
+      "id": "<Struct 'Guid' (0x00000196D2D2AAA0) {}>",
+      "profile": "Kitchen",
+      "position": [
+        139650,
+        8300,
+        792.4248663046168
+      ]
+    },
+    {
+      "name": "Rowland community supplies",
+      "id": "<Struct 'Guid' (0x00000196D2D2AEC0) {}>",
+      "profile": "RoadSupplies",
+      "position": [
+        140350,
+        8300,
+        792.4248663046168
+      ]
+    }
+  ],
+  "manual_navigation_and_visual_validation": "pending",
+  "asset_refinement": "rural cabin acquisition awaiting Epic sign-in"
+}

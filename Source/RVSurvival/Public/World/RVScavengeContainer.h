@@ -21,4 +21,6 @@ public:
     UPROPERTY(Replicated,BlueprintReadOnly) bool bSearched=false;
 private:
     bool bOwnsIdentity=false;
+    // A failed restore must retain the ledger's complete snapshot and deny transfers.
+    bool bRestoreIncomplete=false;
 };

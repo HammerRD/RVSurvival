@@ -1,0 +1,2845 @@
+{
+  "region": {
+    "Streaming enabled": "true",
+    "Server streaming mode": "2",
+    "Server streaming out mode": "2",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164795803/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164799804/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164787802/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164830809/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164834810/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164857814/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164870816/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164866815/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164820808/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164903822/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164930827/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164957832/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164897821/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164921826/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164966833/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164934828/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164893820/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164971834/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165001839/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164993838/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165036846/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165027844/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165032845/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165005840/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165099857/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165062851/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165139864/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165054850/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165103858/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165126862/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165135863/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165089856/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165068852/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164816807/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164812806/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164803805/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164839811/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164884818/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164853813/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164847812/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164874817/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164889819/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164989837/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164984836/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164938829/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164915825/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164912824/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164948830/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164975835/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164952831/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1164907823/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165018842/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165050849/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165023843/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165045848/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165041847/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165009841/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165121861/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165081854/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165143865/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165117860/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165107859/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165157867/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165071853/Dressing": "Graph=PCG_Deciduous;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165085855/Dressing": "Graph=PCG_Rocks;Generating=0;Partitioned=1",
+    "RVBiomePatch_UAID_64497D559D93AD0903_1165153866/Dressing": "Graph=PCG_Undergrowth;Generating=0;Partitioned=1",
+    "PCGPartitionGridActor_25600_-5_-1/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-5_-1/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-5_-1/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-5_-1/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-5_-1/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-5_-1/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-5_-1/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=43",
+    "PCGPartitionGridActor_25600_-5_-1/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=142",
+    "PCGPartitionGridActor_25600_-5_-1/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=1",
+    "PCGPartitionGridActor_25600_-5_-1/ISM_SM_EuropeanHornbeam_Field_01_1": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=10",
+    "PCGPartitionGridActor_25600_-5_-1/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=1",
+    "PCGPartitionGridActor_25600_-5_-1/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=9",
+    "PCGPartitionGridActor_25600_-5_-1/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=7",
+    "PCGPartitionGridActor_25600_-5_-1/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=8",
+    "PCGPartitionGridActor_25600_-4_-1/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-4_-1/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-4_-1/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-4_-1/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-4_-1/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-4_-1/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-4_-1/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=97",
+    "PCGPartitionGridActor_25600_-4_-1/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=93",
+    "PCGPartitionGridActor_25600_-4_-1/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=8",
+    "PCGPartitionGridActor_25600_-4_-1/ISM_SM_EuropeanHornbeam_Field_01_1": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=3",
+    "PCGPartitionGridActor_25600_-4_-1/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=3",
+    "PCGPartitionGridActor_25600_-4_-1/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=5",
+    "PCGPartitionGridActor_25600_-4_-1/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=8",
+    "PCGPartitionGridActor_25600_-4_-1/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=7",
+    "PCGPartitionGridActor_25600_-4_-1/ISM_SM_ForestRockSlab_01_0": "Mesh=SM_ForestRockSlab_01;Instances=1",
+    "PCGPartitionGridActor_25600_-3_-1/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-3_-1/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-3_-1/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-3_-1/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-3_-1/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-3_-1/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-3_-1/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=141",
+    "PCGPartitionGridActor_25600_-3_-1/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=36",
+    "PCGPartitionGridActor_25600_-3_-1/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=9",
+    "PCGPartitionGridActor_25600_-3_-1/ISM_SM_EuropeanHornbeam_Field_01_1": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=2",
+    "PCGPartitionGridActor_25600_-3_-1/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=10",
+    "PCGPartitionGridActor_25600_-3_-1/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=4",
+    "PCGPartitionGridActor_25600_-3_-1/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=9",
+    "PCGPartitionGridActor_25600_-3_-1/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=2",
+    "PCGPartitionGridActor_25600_-3_-1/ISM_SM_ForestRockSlab_01_0": "Mesh=SM_ForestRockSlab_01;Instances=2",
+    "PCGPartitionGridActor_25600_-2_-1/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-2_-1/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-2_-1/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-2_-1/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-2_-1/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-2_-1/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-2_-1/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=18",
+    "PCGPartitionGridActor_25600_-2_-1/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=140",
+    "PCGPartitionGridActor_25600_-2_-1/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=10",
+    "PCGPartitionGridActor_25600_-2_-1/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=1",
+    "PCGPartitionGridActor_25600_-2_-1/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=9",
+    "PCGPartitionGridActor_25600_-2_-1/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=1",
+    "PCGPartitionGridActor_25600_-2_-1/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=8",
+    "PCGPartitionGridActor_25600_-2_-1/ISM_SM_ForestRockSlab_01_0": "Mesh=SM_ForestRockSlab_01;Instances=1",
+    "PCGPartitionGridActor_25600_-1_-1/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-1_-1/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-1_-1/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-1_-1/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-1_-1/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-1_-1/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-1_-1/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=66",
+    "PCGPartitionGridActor_25600_-1_-1/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=121",
+    "PCGPartitionGridActor_25600_-1_-1/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=1",
+    "PCGPartitionGridActor_25600_-1_-1/ISM_SM_EuropeanHornbeam_Field_01_1": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=6",
+    "PCGPartitionGridActor_25600_-1_-1/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=6",
+    "PCGPartitionGridActor_25600_-1_-1/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=5",
+    "PCGPartitionGridActor_25600_-1_-1/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=3",
+    "PCGPartitionGridActor_25600_-1_-1/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=12",
+    "PCGPartitionGridActor_25600_-1_-1/ISM_SM_ForestRockSlab_01_0": "Mesh=SM_ForestRockSlab_01;Instances=2",
+    "PCGPartitionGridActor_25600_0_-1/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_0_-1/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_0_-1/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_0_-1/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_0_-1/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_0_-1/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_0_-1/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=131",
+    "PCGPartitionGridActor_25600_0_-1/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=74",
+    "PCGPartitionGridActor_25600_0_-1/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=9",
+    "PCGPartitionGridActor_25600_0_-1/ISM_SM_EuropeanHornbeam_Field_01_1": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=6",
+    "PCGPartitionGridActor_25600_0_-1/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=4",
+    "PCGPartitionGridActor_25600_0_-1/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=4",
+    "PCGPartitionGridActor_25600_0_-1/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=4",
+    "PCGPartitionGridActor_25600_0_-1/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=5",
+    "PCGPartitionGridActor_25600_0_-1/ISM_SM_ForestRockSlab_01_0": "Mesh=SM_ForestRockSlab_01;Instances=1",
+    "PCGPartitionGridActor_25600_0_-1/ISM_SM_ForestRockSlab_01_1": "Mesh=SM_ForestRockSlab_01;Instances=1",
+    "PCGPartitionGridActor_25600_1_-1/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_1_-1/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_1_-1/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_1_-1/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_1_-1/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_1_-1/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_1_-1/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=148",
+    "PCGPartitionGridActor_25600_1_-1/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=18",
+    "PCGPartitionGridActor_25600_1_-1/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=7",
+    "PCGPartitionGridActor_25600_1_-1/ISM_SM_EuropeanHornbeam_Field_01_1": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=1",
+    "PCGPartitionGridActor_25600_1_-1/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=7",
+    "PCGPartitionGridActor_25600_1_-1/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=2",
+    "PCGPartitionGridActor_25600_1_-1/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=12",
+    "PCGPartitionGridActor_25600_1_-1/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=1",
+    "PCGPartitionGridActor_25600_2_-1/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_2_-1/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_2_-1/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_2_-1/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_2_-1/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_2_-1/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_2_-1/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=46",
+    "PCGPartitionGridActor_25600_2_-1/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=148",
+    "PCGPartitionGridActor_25600_2_-1/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=10",
+    "PCGPartitionGridActor_25600_2_-1/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=1",
+    "PCGPartitionGridActor_25600_2_-1/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=10",
+    "PCGPartitionGridActor_25600_2_-1/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=2",
+    "PCGPartitionGridActor_25600_2_-1/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=5",
+    "PCGPartitionGridActor_25600_2_-1/ISM_SM_ForestRockSlab_01_0": "Mesh=SM_ForestRockSlab_01;Instances=1",
+    "PCGPartitionGridActor_25600_2_-1/ISM_SM_ForestRockSlab_01_1": "Mesh=SM_ForestRockSlab_01;Instances=1",
+    "PCGPartitionGridActor_25600_3_-1/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_3_-1/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_3_-1/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_3_-1/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_3_-1/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_3_-1/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_3_-1/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=100",
+    "PCGPartitionGridActor_25600_3_-1/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=100",
+    "PCGPartitionGridActor_25600_3_-1/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=4",
+    "PCGPartitionGridActor_25600_3_-1/ISM_SM_EuropeanHornbeam_Field_01_1": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=5",
+    "PCGPartitionGridActor_25600_3_-1/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=5",
+    "PCGPartitionGridActor_25600_3_-1/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=4",
+    "PCGPartitionGridActor_25600_3_-1/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=6",
+    "PCGPartitionGridActor_25600_3_-1/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=7",
+    "PCGPartitionGridActor_25600_4_-1/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_4_-1/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_4_-1/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_4_-1/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_4_-1/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_4_-1/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_4_-1/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=149",
+    "PCGPartitionGridActor_25600_4_-1/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=46",
+    "PCGPartitionGridActor_25600_4_-1/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=5",
+    "PCGPartitionGridActor_25600_4_-1/ISM_SM_EuropeanHornbeam_Field_01_1": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=3",
+    "PCGPartitionGridActor_25600_4_-1/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=10",
+    "PCGPartitionGridActor_25600_4_-1/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=1",
+    "PCGPartitionGridActor_25600_4_-1/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=10",
+    "PCGPartitionGridActor_25600_4_-1/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=5",
+    "PCGPartitionGridActor_25600_4_-1/ISM_SM_ForestRockSlab_01_0": "Mesh=SM_ForestRockSlab_01;Instances=1",
+    "PCGPartitionGridActor_25600_-5_3/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-5_3/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-5_3/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-5_3/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-5_3/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-5_3/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-5_3/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=49",
+    "PCGPartitionGridActor_25600_-5_3/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=151",
+    "PCGPartitionGridActor_25600_-5_3/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=5",
+    "PCGPartitionGridActor_25600_-5_3/ISM_SM_EuropeanHornbeam_Field_01_1": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=8",
+    "PCGPartitionGridActor_25600_-5_3/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=2",
+    "PCGPartitionGridActor_25600_-5_3/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=10",
+    "PCGPartitionGridActor_25600_-5_3/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=2",
+    "PCGPartitionGridActor_25600_-5_3/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=12",
+    "PCGPartitionGridActor_25600_-5_3/ISM_SM_ForestRockSlab_01_0": "Mesh=SM_ForestRockSlab_01;Instances=1",
+    "PCGPartitionGridActor_25600_-5_3/ISM_SM_ForestRockSlab_01_1": "Mesh=SM_ForestRockSlab_01;Instances=2",
+    "PCGPartitionGridActor_25600_-4_3/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-4_3/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-4_3/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-4_3/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-4_3/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-4_3/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-4_3/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=105",
+    "PCGPartitionGridActor_25600_-4_3/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=105",
+    "PCGPartitionGridActor_25600_-4_3/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=6",
+    "PCGPartitionGridActor_25600_-4_3/ISM_SM_EuropeanHornbeam_Field_01_1": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=3",
+    "PCGPartitionGridActor_25600_-4_3/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=8",
+    "PCGPartitionGridActor_25600_-4_3/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=6",
+    "PCGPartitionGridActor_25600_-4_3/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=10",
+    "PCGPartitionGridActor_25600_-4_3/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=7",
+    "PCGPartitionGridActor_25600_-4_3/ISM_SM_ForestRockSlab_01_0": "Mesh=SM_ForestRockSlab_01;Instances=1",
+    "PCGPartitionGridActor_25600_-3_3/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-3_3/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-3_3/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-3_3/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-3_3/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-3_3/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-3_3/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=44",
+    "PCGPartitionGridActor_25600_-3_3/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=151",
+    "PCGPartitionGridActor_25600_-3_3/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=15",
+    "PCGPartitionGridActor_25600_-3_3/ISM_SM_EuropeanHornbeam_Field_01_1": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=1",
+    "PCGPartitionGridActor_25600_-3_3/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=11",
+    "PCGPartitionGridActor_25600_-3_3/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=3",
+    "PCGPartitionGridActor_25600_-3_3/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=4",
+    "PCGPartitionGridActor_25600_-3_3/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=5",
+    "PCGPartitionGridActor_25600_-3_3/ISM_SM_ForestRockSlab_01_0": "Mesh=SM_ForestRockSlab_01;Instances=2",
+    "PCGPartitionGridActor_25600_-3_3/ISM_SM_ForestRockSlab_01_1": "Mesh=SM_ForestRockSlab_01;Instances=1",
+    "PCGPartitionGridActor_25600_-2_3/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-2_3/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-2_3/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-2_3/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-2_3/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-2_3/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-2_3/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=13",
+    "PCGPartitionGridActor_25600_-2_3/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=153",
+    "PCGPartitionGridActor_25600_-2_3/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=7",
+    "PCGPartitionGridActor_25600_-2_3/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=1",
+    "PCGPartitionGridActor_25600_-2_3/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=11",
+    "PCGPartitionGridActor_25600_-2_3/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=2",
+    "PCGPartitionGridActor_25600_-2_3/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=11",
+    "PCGPartitionGridActor_25600_-2_3/ISM_SM_ForestRockSlab_01_0": "Mesh=SM_ForestRockSlab_01;Instances=1",
+    "PCGPartitionGridActor_25600_-1_3/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-1_3/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-1_3/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-1_3/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-1_3/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-1_3/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_-1_3/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=70",
+    "PCGPartitionGridActor_25600_-1_3/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=132",
+    "PCGPartitionGridActor_25600_-1_3/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=4",
+    "PCGPartitionGridActor_25600_-1_3/ISM_SM_EuropeanHornbeam_Field_01_1": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=9",
+    "PCGPartitionGridActor_25600_-1_3/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=6",
+    "PCGPartitionGridActor_25600_-1_3/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=8",
+    "PCGPartitionGridActor_25600_-1_3/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=4",
+    "PCGPartitionGridActor_25600_-1_3/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=8",
+    "PCGPartitionGridActor_25600_-1_3/ISM_SM_ForestRockSlab_01_0": "Mesh=SM_ForestRockSlab_01;Instances=2",
+    "PCGPartitionGridActor_25600_0_3/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_0_3/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_0_3/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_0_3/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_0_3/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_0_3/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_0_3/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=140",
+    "PCGPartitionGridActor_25600_0_3/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=80",
+    "PCGPartitionGridActor_25600_0_3/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=6",
+    "PCGPartitionGridActor_25600_0_3/ISM_SM_EuropeanHornbeam_Field_01_1": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=2",
+    "PCGPartitionGridActor_25600_0_3/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=9",
+    "PCGPartitionGridActor_25600_0_3/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=7",
+    "PCGPartitionGridActor_25600_0_3/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=9",
+    "PCGPartitionGridActor_25600_0_3/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=6",
+    "PCGPartitionGridActor_25600_0_3/ISM_SM_ForestRockSlab_01_0": "Mesh=SM_ForestRockSlab_01;Instances=2",
+    "PCGPartitionGridActor_25600_0_3/ISM_SM_ForestRockSlab_01_1": "Mesh=SM_ForestRockSlab_01;Instances=1",
+    "PCGPartitionGridActor_25600_1_3/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_1_3/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_1_3/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_1_3/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_1_3/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_1_3/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_1_3/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=160",
+    "PCGPartitionGridActor_25600_1_3/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=20",
+    "PCGPartitionGridActor_25600_1_3/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=7",
+    "PCGPartitionGridActor_25600_1_3/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=10",
+    "PCGPartitionGridActor_25600_1_3/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=1",
+    "PCGPartitionGridActor_25600_1_3/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=14",
+    "PCGPartitionGridActor_25600_1_3/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=2",
+    "PCGPartitionGridActor_25600_1_3/ISM_SM_ForestRockSlab_01_0": "Mesh=SM_ForestRockSlab_01;Instances=2",
+    "PCGPartitionGridActor_25600_2_3/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_2_3/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_2_3/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_2_3/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_2_3/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_2_3/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_2_3/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=50",
+    "PCGPartitionGridActor_25600_2_3/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=160",
+    "PCGPartitionGridActor_25600_2_3/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=2",
+    "PCGPartitionGridActor_25600_2_3/ISM_SM_EuropeanHornbeam_Field_01_1": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=10",
+    "PCGPartitionGridActor_25600_2_3/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=1",
+    "PCGPartitionGridActor_25600_2_3/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=13",
+    "PCGPartitionGridActor_25600_2_3/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=4",
+    "PCGPartitionGridActor_25600_2_3/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=8",
+    "PCGPartitionGridActor_25600_2_3/ISM_SM_ForestRockSlab_01_0": "Mesh=SM_ForestRockSlab_01;Instances=1",
+    "PCGPartitionGridActor_25600_3_3/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_3_3/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_3_3/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_3_3/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_3_3/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_3_3/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_3_3/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=103",
+    "PCGPartitionGridActor_25600_3_3/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=110",
+    "PCGPartitionGridActor_25600_3_3/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=9",
+    "PCGPartitionGridActor_25600_3_3/ISM_SM_EuropeanHornbeam_Field_01_1": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=10",
+    "PCGPartitionGridActor_25600_3_3/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=4",
+    "PCGPartitionGridActor_25600_3_3/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=6",
+    "PCGPartitionGridActor_25600_3_3/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=6",
+    "PCGPartitionGridActor_25600_3_3/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=4",
+    "PCGPartitionGridActor_25600_3_3/ISM_SM_ForestRockSlab_01_0": "Mesh=SM_ForestRockSlab_01;Instances=1",
+    "PCGPartitionGridActor_25600_3_3/ISM_SM_ForestRockSlab_01_1": "Mesh=SM_ForestRockSlab_01;Instances=1",
+    "PCGPartitionGridActor_25600_4_3/PCGComponent_0": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_4_3/PCGComponent_1": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_4_3/PCGComponent_2": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_4_3/PCGComponent_3": "Graph=PCG_Deciduous;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_4_3/PCGComponent_4": "Graph=PCG_Undergrowth;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_4_3/PCGComponent_5": "Graph=PCG_Rocks;Generating=0;Partitioned=0",
+    "PCGPartitionGridActor_25600_4_3/ISM_SM_BeechFern_01_0": "Mesh=SM_BeechFern_01;Instances=160",
+    "PCGPartitionGridActor_25600_4_3/ISM_SM_BeechFern_01_1": "Mesh=SM_BeechFern_01;Instances=50",
+    "PCGPartitionGridActor_25600_4_3/ISM_SM_EuropeanHornbeam_Field_01_0": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=9",
+    "PCGPartitionGridActor_25600_4_3/ISM_SM_EuropeanHornbeam_Field_01_1": "Mesh=SM_EuropeanHornbeam_Field_01;Instances=5",
+    "PCGPartitionGridActor_25600_4_3/ISM_SM_EuropeanHornbeam_Forest_01_0": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=11",
+    "PCGPartitionGridActor_25600_4_3/ISM_SM_EuropeanHornbeam_Forest_01_1": "Mesh=SM_EuropeanHornbeam_Forest_01;Instances=4",
+    "PCGPartitionGridActor_25600_4_3/ISM_SM_EuropeanHornbeam_Sapling_01_0": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=8",
+    "PCGPartitionGridActor_25600_4_3/ISM_SM_EuropeanHornbeam_Sapling_01_1": "Mesh=SM_EuropeanHornbeam_Sapling_01;Instances=1",
+    "PCGPartitionGridActor_25600_4_3/ISM_SM_ForestRockSlab_01_0": "Mesh=SM_ForestRockSlab_01;Instances=2"
+  },
+  "actors": [
+    {
+      "label": "WorldDataLayers-1",
+      "class": "WorldDataLayers",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "ExponentialHeightFog",
+      "class": "ExponentialHeightFog",
+      "position": [
+        -5600.0,
+        -50.0,
+        -6850.0
+      ]
+    },
+    {
+      "label": "PCGWorldActor",
+      "class": "PCGWorldActor",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "SM_SkySphere",
+      "class": "StaticMeshActor",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "PINE CREEK FUEL navigation",
+      "class": "NavMeshBoundsVolume",
+      "position": [
+        -130000.0,
+        6500.0,
+        -246.69893538878745
+      ]
+    },
+    {
+      "label": "ERIE ROAD SERVICE navigation",
+      "class": "NavMeshBoundsVolume",
+      "position": [
+        -60000.0,
+        -8500.0,
+        -572.6781072514427
+      ]
+    },
+    {
+      "label": "VolumetricCloud",
+      "class": "VolumetricCloud",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WorldPartitionMiniMap",
+      "class": "WorldPartitionMiniMap",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "SkyLight",
+      "class": "SkyLight",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "SkyAtmosphere",
+      "class": "SkyAtmosphere",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rolling terrain",
+      "class": "Landscape",
+      "position": [
+        -201600.0,
+        -201600.0,
+        0.0
+      ]
+    },
+    {
+      "label": "DirectionalLight",
+      "class": "DirectionalLight",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "ROWLAND CROSSROADS navigation",
+      "class": "NavMeshBoundsVolume",
+      "position": [
+        140000.0,
+        8000.0,
+        887.4248663046168
+      ]
+    },
+    {
+      "label": "WNY Player Start",
+      "class": "PlayerStart",
+      "position": [
+        -160000.0,
+        2350.0,
+        150.0
+      ]
+    },
+    {
+      "label": "PlayerStart",
+      "class": "PlayerStart",
+      "position": [
+        -200.0,
+        0.0,
+        92.00009999999747
+      ]
+    },
+    {
+      "label": "MAPLE RUN CAMPGROUND navigation",
+      "class": "NavMeshBoundsVolume",
+      "position": [
+        75000.0,
+        47000.0,
+        2106.590269684087
+      ]
+    },
+    {
+      "label": "HAWTHORNE FARM navigation",
+      "class": "NavMeshBoundsVolume",
+      "position": [
+        0.0,
+        47000.0,
+        799.174526276537
+      ]
+    },
+    {
+      "label": "WNY undergrowth 03 0",
+      "class": "RVBiomePatch",
+      "position": [
+        -100000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 03 0",
+      "class": "RVBiomePatch",
+      "position": [
+        -100000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 03 0",
+      "class": "RVBiomePatch",
+      "position": [
+        -100000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 04 0",
+      "class": "RVBiomePatch",
+      "position": [
+        -80000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 04 0",
+      "class": "RVBiomePatch",
+      "position": [
+        -80000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 05 0",
+      "class": "RVBiomePatch",
+      "position": [
+        -60000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 05 0",
+      "class": "RVBiomePatch",
+      "position": [
+        -60000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 05 0",
+      "class": "RVBiomePatch",
+      "position": [
+        -60000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 04 0",
+      "class": "RVBiomePatch",
+      "position": [
+        -80000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "Rural loop 0-0",
+      "class": "RVRegionRoad",
+      "position": [
+        -80000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "ERIE ROAD SERVICE front pier-1",
+      "class": "StaticMeshActor",
+      "position": [
+        -60495.0,
+        -9300.0,
+        -572.6781072514427
+      ]
+    },
+    {
+      "label": "ERIE ROAD SERVICE RV parking",
+      "class": "StaticMeshActor",
+      "position": [
+        -60000.0,
+        -11300.0,
+        -1167.000075506776
+      ]
+    },
+    {
+      "label": "Garage approach",
+      "class": "RVRegionRoad",
+      "position": [
+        -60000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "ERIE ROAD SERVICE sill1",
+      "class": "StaticMeshActor",
+      "position": [
+        -59424.0,
+        -9316.0,
+        -617.6781072514427
+      ]
+    },
+    {
+      "label": "Erie Service parts shelf furniture",
+      "class": "StaticMeshActor",
+      "position": [
+        -59550.0,
+        -8100.0,
+        -667.6781072514427
+      ]
+    },
+    {
+      "label": "ERIE ROAD SERVICE porch",
+      "class": "StaticMeshActor",
+      "position": [
+        -60000.0,
+        -9440.0,
+        -732.6781072514427
+      ]
+    },
+    {
+      "label": "ERIE ROAD SERVICE floor",
+      "class": "StaticMeshActor",
+      "position": [
+        -60000.0,
+        -8500.0,
+        -722.6781072514427
+      ]
+    },
+    {
+      "label": "ERIE ROAD SERVICE east wall",
+      "class": "StaticMeshActor",
+      "position": [
+        -59100.0,
+        -8500.0,
+        -572.6781072514427
+      ]
+    },
+    {
+      "label": "ERIE ROAD SERVICE sill-1",
+      "class": "StaticMeshActor",
+      "position": [
+        -60576.0,
+        -9316.0,
+        -617.6781072514427
+      ]
+    },
+    {
+      "label": "Garage service bench",
+      "class": "StaticMeshActor",
+      "position": [
+        -60000.0,
+        -8000.0,
+        -652.6781072514427
+      ]
+    },
+    {
+      "label": "ERIE ROAD SERVICE west wall",
+      "class": "StaticMeshActor",
+      "position": [
+        -60900.0,
+        -8500.0,
+        -572.6781072514427
+      ]
+    },
+    {
+      "label": "ERIE ROAD SERVICE entry step",
+      "class": "StaticMeshActor",
+      "position": [
+        -60000.0,
+        -9590.0,
+        -747.6781072514427
+      ]
+    },
+    {
+      "label": "Erie Service parts shelf",
+      "class": "RVScavengeContainer",
+      "position": [
+        -59550.0,
+        -8136.5,
+        -667.6781072514427
+      ]
+    },
+    {
+      "label": "Erie Service tool chest furniture",
+      "class": "StaticMeshActor",
+      "position": [
+        -60450.0,
+        -8100.0,
+        -667.6781072514427
+      ]
+    },
+    {
+      "label": "ERIE ROAD SERVICE entrance lintel",
+      "class": "StaticMeshActor",
+      "position": [
+        -60000.0,
+        -9300.0,
+        -452.6781072514427
+      ]
+    },
+    {
+      "label": "ERIE ROAD SERVICE glazing-1",
+      "class": "StaticMeshActor",
+      "position": [
+        -60576.0,
+        -9312.0,
+        -552.6781072514427
+      ]
+    },
+    {
+      "label": "Erie Service tool chest",
+      "class": "RVScavengeContainer",
+      "position": [
+        -60450.0,
+        -8136.5,
+        -667.6781072514427
+      ]
+    },
+    {
+      "label": "ERIE ROAD SERVICE foundation",
+      "class": "StaticMeshActor",
+      "position": [
+        -60000.0,
+        -8500.0,
+        -747.6781072514427
+      ]
+    },
+    {
+      "label": "ERIE ROAD SERVICE rear wall",
+      "class": "StaticMeshActor",
+      "position": [
+        -60000.0,
+        -7700.0,
+        -572.6781072514427
+      ]
+    },
+    {
+      "label": "Sign ERIE ROAD SERVICE",
+      "class": "TextRenderActor",
+      "position": [
+        -60000.0,
+        -9322.0,
+        -452.6781072514427
+      ]
+    },
+    {
+      "label": "ERIE ROAD SERVICE front pier1",
+      "class": "StaticMeshActor",
+      "position": [
+        -59505.0,
+        -9300.0,
+        -572.6781072514427
+      ]
+    },
+    {
+      "label": "ERIE ROAD SERVICE roof",
+      "class": "StaticMeshActor",
+      "position": [
+        -60000.0,
+        -8500.0,
+        -407.6781072514427
+      ]
+    },
+    {
+      "label": "ERIE ROAD SERVICE glazing1",
+      "class": "StaticMeshActor",
+      "position": [
+        -59424.0,
+        -9312.0,
+        -552.6781072514427
+      ]
+    },
+    {
+      "label": "WNY rocks 06 0",
+      "class": "RVBiomePatch",
+      "position": [
+        -40000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 07 0",
+      "class": "RVBiomePatch",
+      "position": [
+        -20000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 08 0",
+      "class": "RVBiomePatch",
+      "position": [
+        0.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 06 0",
+      "class": "RVBiomePatch",
+      "position": [
+        -40000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 07 0",
+      "class": "RVBiomePatch",
+      "position": [
+        -20000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 08 0",
+      "class": "RVBiomePatch",
+      "position": [
+        0.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 07 0",
+      "class": "RVBiomePatch",
+      "position": [
+        -20000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 06 0",
+      "class": "RVBiomePatch",
+      "position": [
+        -40000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 08 0",
+      "class": "RVBiomePatch",
+      "position": [
+        0.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 09 0",
+      "class": "RVBiomePatch",
+      "position": [
+        20000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 09 0",
+      "class": "RVBiomePatch",
+      "position": [
+        20000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 10 0",
+      "class": "RVBiomePatch",
+      "position": [
+        40000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 10 0",
+      "class": "RVBiomePatch",
+      "position": [
+        40000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 10 0",
+      "class": "RVBiomePatch",
+      "position": [
+        40000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 09 0",
+      "class": "RVBiomePatch",
+      "position": [
+        20000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 12 0",
+      "class": "RVBiomePatch",
+      "position": [
+        80000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 11 0",
+      "class": "RVBiomePatch",
+      "position": [
+        60000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 13 0",
+      "class": "RVBiomePatch",
+      "position": [
+        100000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 11 0",
+      "class": "RVBiomePatch",
+      "position": [
+        60000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 12 0",
+      "class": "RVBiomePatch",
+      "position": [
+        80000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 13 0",
+      "class": "RVBiomePatch",
+      "position": [
+        100000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 13 0",
+      "class": "RVBiomePatch",
+      "position": [
+        100000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 12 0",
+      "class": "RVBiomePatch",
+      "position": [
+        80000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 11 0",
+      "class": "RVBiomePatch",
+      "position": [
+        60000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 03 1",
+      "class": "RVBiomePatch",
+      "position": [
+        -100000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 03 1",
+      "class": "RVBiomePatch",
+      "position": [
+        -100000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 03 1",
+      "class": "RVBiomePatch",
+      "position": [
+        -100000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "Rural loop 0-5",
+      "class": "RVRegionRoad",
+      "position": [
+        -73333.33333333333,
+        7333.333333333333,
+        -504.45650969019994
+      ]
+    },
+    {
+      "label": "Rural loop 0-10",
+      "class": "RVRegionRoad",
+      "position": [
+        -66666.66666666667,
+        14666.666666666666,
+        -1103.5568107195654
+      ]
+    },
+    {
+      "label": "Rural loop 1-0",
+      "class": "RVRegionRoad",
+      "position": [
+        -60000.0,
+        22000.0,
+        -855.9619528976
+      ]
+    },
+    {
+      "label": "WNY deciduous 04 1",
+      "class": "RVBiomePatch",
+      "position": [
+        -80000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 05 1",
+      "class": "RVBiomePatch",
+      "position": [
+        -60000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 04 1",
+      "class": "RVBiomePatch",
+      "position": [
+        -80000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 04 1",
+      "class": "RVBiomePatch",
+      "position": [
+        -80000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 05 1",
+      "class": "RVBiomePatch",
+      "position": [
+        -60000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 05 1",
+      "class": "RVBiomePatch",
+      "position": [
+        -60000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "Rural loop 1-5",
+      "class": "RVRegionRoad",
+      "position": [
+        -50909.09090909091,
+        25484.848484848484,
+        -625.619162858913
+      ]
+    },
+    {
+      "label": "Rural loop 1-10",
+      "class": "RVRegionRoad",
+      "position": [
+        -41818.18181818182,
+        28969.696969696968,
+        -385.95348556075567
+      ]
+    },
+    {
+      "label": "Rural loop 1-15",
+      "class": "RVRegionRoad",
+      "position": [
+        -32727.272727272728,
+        32454.545454545456,
+        -143.74178110103628
+      ]
+    },
+    {
+      "label": "WNY rocks 08 1",
+      "class": "RVBiomePatch",
+      "position": [
+        0.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 08 1",
+      "class": "RVBiomePatch",
+      "position": [
+        0.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 07 1",
+      "class": "RVBiomePatch",
+      "position": [
+        -20000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 06 1",
+      "class": "RVBiomePatch",
+      "position": [
+        -40000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 06 1",
+      "class": "RVBiomePatch",
+      "position": [
+        -40000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 07 1",
+      "class": "RVBiomePatch",
+      "position": [
+        -20000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 08 1",
+      "class": "RVBiomePatch",
+      "position": [
+        0.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 07 1",
+      "class": "RVBiomePatch",
+      "position": [
+        -20000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 06 1",
+      "class": "RVBiomePatch",
+      "position": [
+        -40000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 09 1",
+      "class": "RVBiomePatch",
+      "position": [
+        20000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 10 1",
+      "class": "RVBiomePatch",
+      "position": [
+        40000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 09 1",
+      "class": "RVBiomePatch",
+      "position": [
+        20000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 10 1",
+      "class": "RVBiomePatch",
+      "position": [
+        40000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 10 1",
+      "class": "RVBiomePatch",
+      "position": [
+        40000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 09 1",
+      "class": "RVBiomePatch",
+      "position": [
+        20000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 12 1",
+      "class": "RVBiomePatch",
+      "position": [
+        80000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 11 1",
+      "class": "RVBiomePatch",
+      "position": [
+        60000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 13 1",
+      "class": "RVBiomePatch",
+      "position": [
+        100000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 12 1",
+      "class": "RVBiomePatch",
+      "position": [
+        80000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 12 1",
+      "class": "RVBiomePatch",
+      "position": [
+        80000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 13 1",
+      "class": "RVBiomePatch",
+      "position": [
+        100000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY deciduous 11 1",
+      "class": "RVBiomePatch",
+      "position": [
+        60000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY rocks 11 1",
+      "class": "RVBiomePatch",
+      "position": [
+        60000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "WNY undergrowth 13 1",
+      "class": "RVBiomePatch",
+      "position": [
+        100000.0,
+        85000.0,
+        0.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-5_-2",
+      "class": "PCGPartitionActor",
+      "position": [
+        -115200.0,
+        -38400.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-5_-1",
+      "class": "PCGPartitionActor",
+      "position": [
+        -115200.0,
+        -12800.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "NY county highway 06",
+      "class": "RVRegionRoad",
+      "position": [
+        -110000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-4_-2",
+      "class": "PCGPartitionActor",
+      "position": [
+        -89600.0,
+        -38400.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-4_-1",
+      "class": "PCGPartitionActor",
+      "position": [
+        -89600.0,
+        -12800.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "NY county highway 08",
+      "class": "RVRegionRoad",
+      "position": [
+        -90000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "NY county highway 07",
+      "class": "RVRegionRoad",
+      "position": [
+        -100000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "NY county highway 09",
+      "class": "RVRegionRoad",
+      "position": [
+        -80000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-3_-2",
+      "class": "PCGPartitionActor",
+      "position": [
+        -64000.0,
+        -38400.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-3_-1",
+      "class": "PCGPartitionActor",
+      "position": [
+        -64000.0,
+        -12800.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "NY county highway 10",
+      "class": "RVRegionRoad",
+      "position": [
+        -70000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "NY county highway 11",
+      "class": "RVRegionRoad",
+      "position": [
+        -60000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-2_-2",
+      "class": "PCGPartitionActor",
+      "position": [
+        -38400.0,
+        -38400.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-2_-1",
+      "class": "PCGPartitionActor",
+      "position": [
+        -38400.0,
+        -12800.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "NY county highway 13",
+      "class": "RVRegionRoad",
+      "position": [
+        -40000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "NY county highway 12",
+      "class": "RVRegionRoad",
+      "position": [
+        -50000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "NY county highway 14",
+      "class": "RVRegionRoad",
+      "position": [
+        -30000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-1_-2",
+      "class": "PCGPartitionActor",
+      "position": [
+        -12800.0,
+        -38400.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-1_-1",
+      "class": "PCGPartitionActor",
+      "position": [
+        -12800.0,
+        -12800.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "NY county highway 15",
+      "class": "RVRegionRoad",
+      "position": [
+        -20000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "NY county highway 16",
+      "class": "RVRegionRoad",
+      "position": [
+        -10000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_0_-2",
+      "class": "PCGPartitionActor",
+      "position": [
+        12800.0,
+        -38400.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_0_-1",
+      "class": "PCGPartitionActor",
+      "position": [
+        12800.0,
+        -12800.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "NY county highway 17",
+      "class": "RVRegionRoad",
+      "position": [
+        0.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "NY county highway 18",
+      "class": "RVRegionRoad",
+      "position": [
+        10000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "NY county highway 19",
+      "class": "RVRegionRoad",
+      "position": [
+        20000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_1_-2",
+      "class": "PCGPartitionActor",
+      "position": [
+        38400.0,
+        -38400.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_1_-1",
+      "class": "PCGPartitionActor",
+      "position": [
+        38400.0,
+        -12800.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "NY county highway 20",
+      "class": "RVRegionRoad",
+      "position": [
+        30000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "NY county highway 22",
+      "class": "RVRegionRoad",
+      "position": [
+        50000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "NY county highway 21",
+      "class": "RVRegionRoad",
+      "position": [
+        40000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_2_-2",
+      "class": "PCGPartitionActor",
+      "position": [
+        64000.0,
+        -38400.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_2_-1",
+      "class": "PCGPartitionActor",
+      "position": [
+        64000.0,
+        -12800.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "NY county highway 23",
+      "class": "RVRegionRoad",
+      "position": [
+        60000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "NY county highway 24",
+      "class": "RVRegionRoad",
+      "position": [
+        70000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_3_-2",
+      "class": "PCGPartitionActor",
+      "position": [
+        89600.0,
+        -38400.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_3_-1",
+      "class": "PCGPartitionActor",
+      "position": [
+        89600.0,
+        -12800.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "NY county highway 25",
+      "class": "RVRegionRoad",
+      "position": [
+        80000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "NY county highway 27",
+      "class": "RVRegionRoad",
+      "position": [
+        100000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "NY county highway 26",
+      "class": "RVRegionRoad",
+      "position": [
+        90000.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_4_-2",
+      "class": "PCGPartitionActor",
+      "position": [
+        115200.0,
+        -38400.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_4_-1",
+      "class": "PCGPartitionActor",
+      "position": [
+        115200.0,
+        -12800.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-5_2",
+      "class": "PCGPartitionActor",
+      "position": [
+        -115200.0,
+        64000.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-5_3",
+      "class": "PCGPartitionActor",
+      "position": [
+        -115200.0,
+        89600.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-4_2",
+      "class": "PCGPartitionActor",
+      "position": [
+        -89600.0,
+        64000.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-4_3",
+      "class": "PCGPartitionActor",
+      "position": [
+        -89600.0,
+        89600.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-3_2",
+      "class": "PCGPartitionActor",
+      "position": [
+        -64000.0,
+        64000.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-3_3",
+      "class": "PCGPartitionActor",
+      "position": [
+        -64000.0,
+        89600.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "Rural loop 1-20",
+      "class": "RVRegionRoad",
+      "position": [
+        -23636.36363636364,
+        35939.393939393936,
+        94.14058325932865
+      ]
+    },
+    {
+      "label": "Rural loop 1-25",
+      "class": "RVRegionRoad",
+      "position": [
+        -14545.454545454544,
+        39424.242424242424,
+        320.9432696845344
+      ]
+    },
+    {
+      "label": "Sign HAWTHORNE FARM",
+      "class": "TextRenderActor",
+      "position": [
+        0.0,
+        46278.0,
+        919.174526276537
+      ]
+    },
+    {
+      "label": "HAWTHORNE FARM foundation",
+      "class": "StaticMeshActor",
+      "position": [
+        0.0,
+        47000.0,
+        624.174526276537
+      ]
+    },
+    {
+      "label": "Hawthorne kitchen cupboard furniture",
+      "class": "StaticMeshActor",
+      "position": [
+        -250.0,
+        47400.0,
+        704.174526276537
+      ]
+    },
+    {
+      "label": "Farm dining bench",
+      "class": "StaticMeshActor",
+      "position": [
+        0.0,
+        46890.0,
+        694.174526276537
+      ]
+    },
+    {
+      "label": "HAWTHORNE FARM rear wall",
+      "class": "StaticMeshActor",
+      "position": [
+        0.0,
+        47700.0,
+        799.174526276537
+      ]
+    },
+    {
+      "label": "Rural loop 2-0",
+      "class": "RVRegionRoad",
+      "position": [
+        0.0,
+        45000.0,
+        645.0009600708269
+      ]
+    },
+    {
+      "label": "HAWTHORNE FARM west wall",
+      "class": "StaticMeshActor",
+      "position": [
+        -550.0,
+        47000.0,
+        799.174526276537
+      ]
+    },
+    {
+      "label": "HAWTHORNE FARM entrance lintel",
+      "class": "StaticMeshActor",
+      "position": [
+        0.0,
+        46300.0,
+        919.174526276537
+      ]
+    },
+    {
+      "label": "HAWTHORNE FARM glazing-1",
+      "class": "StaticMeshActor",
+      "position": [
+        -352.0,
+        46288.0,
+        819.174526276537
+      ]
+    },
+    {
+      "label": "Rural loop 1-30",
+      "class": "RVRegionRoad",
+      "position": [
+        -5454.545454545456,
+        42909.09090909091,
+        530.2624586886099
+      ]
+    },
+    {
+      "label": "HAWTHORNE FARM porch",
+      "class": "StaticMeshActor",
+      "position": [
+        0.0,
+        46160.0,
+        639.174526276537
+      ]
+    },
+    {
+      "label": "HAWTHORNE FARM entry step",
+      "class": "StaticMeshActor",
+      "position": [
+        0.0,
+        46010.0,
+        624.174526276537
+      ]
+    },
+    {
+      "label": "HAWTHORNE FARM sill-1",
+      "class": "StaticMeshActor",
+      "position": [
+        -352.0,
+        46284.0,
+        754.174526276537
+      ]
+    },
+    {
+      "label": "HAWTHORNE FARM RV parking",
+      "class": "StaticMeshActor",
+      "position": [
+        0.0,
+        44300.0,
+        646.8873777333515
+      ]
+    },
+    {
+      "label": "Hawthorne kitchen cupboard",
+      "class": "RVScavengeContainer",
+      "position": [
+        -250.0,
+        47368.5,
+        704.174526276537
+      ]
+    },
+    {
+      "label": "HAWTHORNE FARM floor",
+      "class": "StaticMeshActor",
+      "position": [
+        0.0,
+        47000.0,
+        649.174526276537
+      ]
+    },
+    {
+      "label": "Farm dining table",
+      "class": "StaticMeshActor",
+      "position": [
+        0.0,
+        47000.0,
+        724.174526276537
+      ]
+    },
+    {
+      "label": "HAWTHORNE FARM front pier-1",
+      "class": "StaticMeshActor",
+      "position": [
+        -320.0,
+        46300.0,
+        799.174526276537
+      ]
+    },
+    {
+      "label": "HAWTHORNE FARM roof",
+      "class": "StaticMeshActor",
+      "position": [
+        0.0,
+        47000.0,
+        964.174526276537
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-2_2",
+      "class": "PCGPartitionActor",
+      "position": [
+        -38400.0,
+        64000.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-2_3",
+      "class": "PCGPartitionActor",
+      "position": [
+        -38400.0,
+        89600.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-1_2",
+      "class": "PCGPartitionActor",
+      "position": [
+        -12800.0,
+        64000.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_-1_3",
+      "class": "PCGPartitionActor",
+      "position": [
+        -12800.0,
+        89600.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "HAWTHORNE OUTBUILDING floor",
+      "class": "StaticMeshActor",
+      "position": [
+        2000.0,
+        47800.0,
+        686.1433193479269
+      ]
+    },
+    {
+      "label": "HAWTHORNE OUTBUILDING roof",
+      "class": "StaticMeshActor",
+      "position": [
+        2000.0,
+        47800.0,
+        1001.1433193479269
+      ]
+    },
+    {
+      "label": "Hawthorne medicine cabinet",
+      "class": "RVScavengeContainer",
+      "position": [
+        280.0,
+        47378.5,
+        779.174526276537
+      ]
+    },
+    {
+      "label": "HAWTHORNE OUTBUILDING sill-1",
+      "class": "StaticMeshActor",
+      "position": [
+        1712.0,
+        47284.0,
+        791.1433193479269
+      ]
+    },
+    {
+      "label": "HAWTHORNE FARM east wall",
+      "class": "StaticMeshActor",
+      "position": [
+        550.0,
+        47000.0,
+        799.174526276537
+      ]
+    },
+    {
+      "label": "HAWTHORNE FARM sill1",
+      "class": "StaticMeshActor",
+      "position": [
+        352.0,
+        46284.0,
+        754.174526276537
+      ]
+    },
+    {
+      "label": "HAWTHORNE OUTBUILDING glazing1",
+      "class": "StaticMeshActor",
+      "position": [
+        2288.0,
+        47288.0,
+        856.1433193479269
+      ]
+    },
+    {
+      "label": "HAWTHORNE OUTBUILDING sill1",
+      "class": "StaticMeshActor",
+      "position": [
+        2288.0,
+        47284.0,
+        791.1433193479269
+      ]
+    },
+    {
+      "label": "HAWTHORNE OUTBUILDING foundation",
+      "class": "StaticMeshActor",
+      "position": [
+        2000.0,
+        47800.0,
+        661.1433193479269
+      ]
+    },
+    {
+      "label": "HAWTHORNE OUTBUILDING east wall",
+      "class": "StaticMeshActor",
+      "position": [
+        2450.0,
+        47800.0,
+        836.1433193479269
+      ]
+    },
+    {
+      "label": "Sign HAWTHORNE OUTBUILDING",
+      "class": "TextRenderActor",
+      "position": [
+        2000.0,
+        47278.0,
+        956.1433193479269
+      ]
+    },
+    {
+      "label": "HAWTHORNE OUTBUILDING front pier-1",
+      "class": "StaticMeshActor",
+      "position": [
+        1730.0,
+        47300.0,
+        836.1433193479269
+      ]
+    },
+    {
+      "label": "HAWTHORNE FARM front pier1",
+      "class": "StaticMeshActor",
+      "position": [
+        320.0,
+        46300.0,
+        799.174526276537
+      ]
+    },
+    {
+      "label": "HAWTHORNE OUTBUILDING entry step",
+      "class": "StaticMeshActor",
+      "position": [
+        2000.0,
+        47010.0,
+        661.1433193479269
+      ]
+    },
+    {
+      "label": "HAWTHORNE OUTBUILDING rear wall",
+      "class": "StaticMeshActor",
+      "position": [
+        2000.0,
+        48300.0,
+        836.1433193479269
+      ]
+    },
+    {
+      "label": "Rural loop 2-5",
+      "class": "RVRegionRoad",
+      "position": [
+        9868.421052631578,
+        45000.0,
+        865.7700330819912
+      ]
+    },
+    {
+      "label": "Hawthorne medicine cabinet furniture",
+      "class": "StaticMeshActor",
+      "position": [
+        280.0,
+        47400.0,
+        779.174526276537
+      ]
+    },
+    {
+      "label": "HAWTHORNE OUTBUILDING glazing-1",
+      "class": "StaticMeshActor",
+      "position": [
+        1712.0,
+        47288.0,
+        856.1433193479269
+      ]
+    },
+    {
+      "label": "HAWTHORNE OUTBUILDING entrance lintel",
+      "class": "StaticMeshActor",
+      "position": [
+        2000.0,
+        47300.0,
+        956.1433193479269
+      ]
+    },
+    {
+      "label": "HAWTHORNE FARM glazing1",
+      "class": "StaticMeshActor",
+      "position": [
+        352.0,
+        46288.0,
+        819.174526276537
+      ]
+    },
+    {
+      "label": "HAWTHORNE OUTBUILDING porch",
+      "class": "StaticMeshActor",
+      "position": [
+        2000.0,
+        47160.0,
+        676.1433193479269
+      ]
+    },
+    {
+      "label": "HAWTHORNE OUTBUILDING west wall",
+      "class": "StaticMeshActor",
+      "position": [
+        1550.0,
+        47800.0,
+        836.1433193479269
+      ]
+    },
+    {
+      "label": "HAWTHORNE OUTBUILDING front pier1",
+      "class": "StaticMeshActor",
+      "position": [
+        2270.0,
+        47300.0,
+        836.1433193479269
+      ]
+    },
+    {
+      "label": "Rural loop 2-10",
+      "class": "RVRegionRoad",
+      "position": [
+        19736.842105263157,
+        45000.0,
+        1081.460172905247
+      ]
+    },
+    {
+      "label": "Rural loop 2-15",
+      "class": "RVRegionRoad",
+      "position": [
+        29605.263157894737,
+        45000.0,
+        1287.1092904467214
+      ]
+    },
+    {
+      "label": "Rural loop 2-25",
+      "class": "RVRegionRoad",
+      "position": [
+        49342.10526315789,
+        45000.0,
+        1649.6999446014215
+      ]
+    },
+    {
+      "label": "Rural loop 2-20",
+      "class": "RVRegionRoad",
+      "position": [
+        39473.68421052631,
+        45000.0,
+        1477.9862967277847
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_0_2",
+      "class": "PCGPartitionActor",
+      "position": [
+        12800.0,
+        64000.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_0_3",
+      "class": "PCGPartitionActor",
+      "position": [
+        12800.0,
+        89600.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_1_2",
+      "class": "PCGPartitionActor",
+      "position": [
+        38400.0,
+        64000.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_1_3",
+      "class": "PCGPartitionActor",
+      "position": [
+        38400.0,
+        89600.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "Rural loop 2-30",
+      "class": "RVRegionRoad",
+      "position": [
+        59210.52631578947,
+        45000.0,
+        1798.2998521907357
+      ]
+    },
+    {
+      "label": "Rural loop 2-35",
+      "class": "RVRegionRoad",
+      "position": [
+        69078.94736842105,
+        45000.0,
+        1920.3673839410217
+      ]
+    },
+    {
+      "label": "Picnic support 1 -1",
+      "class": "StaticMeshActor",
+      "position": [
+        73335.0,
+        49200.0,
+        1901.3607110979367
+      ]
+    },
+    {
+      "label": "Rural loop 3-0",
+      "class": "RVRegionRoad",
+      "position": [
+        75000.0,
+        45000.0,
+        1979.676701287036
+      ]
+    },
+    {
+      "label": "Campsite picnic tabletop 3",
+      "class": "StaticMeshActor",
+      "position": [
+        76600.0,
+        49200.0,
+        1969.1872090666207
+      ]
+    },
+    {
+      "label": "Campsite bench 0",
+      "class": "StaticMeshActor",
+      "position": [
+        71800.0,
+        49100.0,
+        1891.2962180587956
+      ]
+    },
+    {
+      "label": "Campsite bench 3",
+      "class": "StaticMeshActor",
+      "position": [
+        76600.0,
+        49100.0,
+        1934.1872090666207
+      ]
+    },
+    {
+      "label": "Picnic support 1 1",
+      "class": "StaticMeshActor",
+      "position": [
+        73465.0,
+        49200.0,
+        1901.3607110979367
+      ]
+    },
+    {
+      "label": "Campsite picnic tabletop 2",
+      "class": "StaticMeshActor",
+      "position": [
+        75000.0,
+        49200.0,
+        1955.6605961366238
+      ]
+    },
+    {
+      "label": "MAPLE RUN CAMPGROUND rear wall",
+      "class": "StaticMeshActor",
+      "position": [
+        75000.0,
+        47450.0,
+        2106.590269684087
+      ]
+    },
+    {
+      "label": "Picnic support 0 1",
+      "class": "StaticMeshActor",
+      "position": [
+        71865.0,
+        49200.0,
+        1886.2962180587956
+      ]
+    },
+    {
+      "label": "MAPLE RUN CAMPGROUND roof",
+      "class": "StaticMeshActor",
+      "position": [
+        75000.0,
+        47000.0,
+        2271.590269684087
+      ]
+    },
+    {
+      "label": "MAPLE RUN CAMPGROUND glazing1",
+      "class": "StaticMeshActor",
+      "position": [
+        75320.0,
+        46538.0,
+        2126.590269684087
+      ]
+    },
+    {
+      "label": "MAPLE RUN CAMPGROUND west wall",
+      "class": "StaticMeshActor",
+      "position": [
+        74500.0,
+        47000.0,
+        2106.590269684087
+      ]
+    },
+    {
+      "label": "Picnic support 0 -1",
+      "class": "StaticMeshActor",
+      "position": [
+        71735.0,
+        49200.0,
+        1886.2962180587956
+      ]
+    },
+    {
+      "label": "MAPLE RUN CAMPGROUND sill1",
+      "class": "StaticMeshActor",
+      "position": [
+        75320.0,
+        46534.0,
+        2061.590269684087
+      ]
+    },
+    {
+      "label": "MAPLE RUN CAMPGROUND foundation",
+      "class": "StaticMeshActor",
+      "position": [
+        75000.0,
+        47000.0,
+        1931.5902696840872
+      ]
+    },
+    {
+      "label": "MAPLE RUN CAMPGROUND glazing-1",
+      "class": "StaticMeshActor",
+      "position": [
+        74680.0,
+        46538.0,
+        2126.590269684087
+      ]
+    },
+    {
+      "label": "Picnic support 2 -1",
+      "class": "StaticMeshActor",
+      "position": [
+        74935.0,
+        49200.0,
+        1915.6605961366238
+      ]
+    },
+    {
+      "label": "MAPLE RUN CAMPGROUND east wall",
+      "class": "StaticMeshActor",
+      "position": [
+        75500.0,
+        47000.0,
+        2106.590269684087
+      ]
+    },
+    {
+      "label": "MAPLE RUN CAMPGROUND front pier-1",
+      "class": "StaticMeshActor",
+      "position": [
+        74705.0,
+        46550.0,
+        2106.590269684087
+      ]
+    },
+    {
+      "label": "MAPLE RUN CAMPGROUND porch",
+      "class": "StaticMeshActor",
+      "position": [
+        75000.0,
+        46410.0,
+        1946.5902696840872
+      ]
+    },
+    {
+      "label": "MAPLE RUN CAMPGROUND front pier1",
+      "class": "StaticMeshActor",
+      "position": [
+        75295.0,
+        46550.0,
+        2106.590269684087
+      ]
+    },
+    {
+      "label": "Picnic support 2 1",
+      "class": "StaticMeshActor",
+      "position": [
+        75065.0,
+        49200.0,
+        1915.6605961366238
+      ]
+    },
+    {
+      "label": "MAPLE RUN CAMPGROUND entrance lintel",
+      "class": "StaticMeshActor",
+      "position": [
+        75000.0,
+        46550.0,
+        2226.590269684087
+      ]
+    },
+    {
+      "label": "MAPLE RUN CAMPGROUND floor",
+      "class": "StaticMeshActor",
+      "position": [
+        75000.0,
+        47000.0,
+        1956.5902696840872
+      ]
+    },
+    {
+      "label": "Fire ring 0",
+      "class": "StaticMeshActor",
+      "position": [
+        72150.0,
+        49200.0,
+        1864.2962180587956
+      ]
+    },
+    {
+      "label": "Maple Run camp office supplies",
+      "class": "RVScavengeContainer",
+      "position": [
+        75000.0,
+        47168.5,
+        2011.5902696840872
+      ]
+    },
+    {
+      "label": "MAPLE RUN CAMPGROUND RV parking",
+      "class": "StaticMeshActor",
+      "position": [
+        75000.0,
+        44550.0,
+        1986.2245955126857
+      ]
+    },
+    {
+      "label": "Sign MAPLE RUN CAMPGROUND",
+      "class": "TextRenderActor",
+      "position": [
+        75000.0,
+        46528.0,
+        2226.590269684087
+      ]
+    },
+    {
+      "label": "Maple Run camp office supplies furniture",
+      "class": "StaticMeshActor",
+      "position": [
+        75000.0,
+        47200.0,
+        2011.5902696840872
+      ]
+    },
+    {
+      "label": "MAPLE RUN CAMPGROUND sill-1",
+      "class": "StaticMeshActor",
+      "position": [
+        74680.0,
+        46534.0,
+        2061.590269684087
+      ]
+    },
+    {
+      "label": "Fire ring 2",
+      "class": "StaticMeshActor",
+      "position": [
+        75350.0,
+        49200.0,
+        1893.6605961366238
+      ]
+    },
+    {
+      "label": "Campsite bench 2",
+      "class": "StaticMeshActor",
+      "position": [
+        75000.0,
+        49100.0,
+        1920.6605961366238
+      ]
+    },
+    {
+      "label": "Fire ring 1",
+      "class": "StaticMeshActor",
+      "position": [
+        73750.0,
+        49200.0,
+        1879.3607110979367
+      ]
+    },
+    {
+      "label": "Campsite picnic tabletop 1",
+      "class": "StaticMeshActor",
+      "position": [
+        73400.0,
+        49200.0,
+        1941.3607110979367
+      ]
+    },
+    {
+      "label": "Picnic support 3 -1",
+      "class": "StaticMeshActor",
+      "position": [
+        76535.0,
+        49200.0,
+        1929.1872090666207
+      ]
+    },
+    {
+      "label": "MAPLE RUN CAMPGROUND entry step",
+      "class": "StaticMeshActor",
+      "position": [
+        75000.0,
+        46260.0,
+        1931.5902696840872
+      ]
+    },
+    {
+      "label": "Campsite picnic tabletop 0",
+      "class": "StaticMeshActor",
+      "position": [
+        71800.0,
+        49200.0,
+        1926.2962180587956
+      ]
+    },
+    {
+      "label": "Campsite bench 1",
+      "class": "StaticMeshActor",
+      "position": [
+        73400.0,
+        49100.0,
+        1906.3607110979367
+      ]
+    },
+    {
+      "label": "Picnic support 3 1",
+      "class": "StaticMeshActor",
+      "position": [
+        76665.0,
+        49200.0,
+        1929.1872090666207
+      ]
+    },
+    {
+      "label": "Rural loop 3-15",
+      "class": "RVRegionRoad",
+      "position": [
+        100000.0,
+        30000.0,
+        2262.9625237977384
+      ]
+    },
+    {
+      "label": "Rural loop 3-5",
+      "class": "RVRegionRoad",
+      "position": [
+        83333.33333333333,
+        40000.0,
+        2127.7067246050483
+      ]
+    },
+    {
+      "label": "Picnic support 4 1",
+      "class": "StaticMeshActor",
+      "position": [
+        78265.0,
+        49200.0,
+        1941.9323542948725
+      ]
+    },
+    {
+      "label": "Campsite bench 4",
+      "class": "StaticMeshActor",
+      "position": [
+        78200.0,
+        49100.0,
+        1946.9323542948725
+      ]
+    },
+    {
+      "label": "Campsite picnic tabletop 4",
+      "class": "StaticMeshActor",
+      "position": [
+        78200.0,
+        49200.0,
+        1981.9323542948725
+      ]
+    },
+    {
+      "label": "Fire ring 4",
+      "class": "StaticMeshActor",
+      "position": [
+        78550.0,
+        49200.0,
+        1919.9323542948725
+      ]
+    },
+    {
+      "label": "Fire ring 3",
+      "class": "StaticMeshActor",
+      "position": [
+        76950.0,
+        49200.0,
+        1907.1872090666207
+      ]
+    },
+    {
+      "label": "Picnic support 4 -1",
+      "class": "StaticMeshActor",
+      "position": [
+        78135.0,
+        49200.0,
+        1941.9323542948725
+      ]
+    },
+    {
+      "label": "Rural loop 3-10",
+      "class": "RVRegionRoad",
+      "position": [
+        91666.66666666667,
+        35000.0,
+        2223.5591651586046
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_2_2",
+      "class": "PCGPartitionActor",
+      "position": [
+        64000.0,
+        64000.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_2_3",
+      "class": "PCGPartitionActor",
+      "position": [
+        64000.0,
+        89600.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_3_2",
+      "class": "PCGPartitionActor",
+      "position": [
+        89600.0,
+        64000.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_3_3",
+      "class": "PCGPartitionActor",
+      "position": [
+        89600.0,
+        89600.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_4_2",
+      "class": "PCGPartitionActor",
+      "position": [
+        115200.0,
+        64000.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "PCGPartitionGridActor_25600_4_3",
+      "class": "PCGPartitionActor",
+      "position": [
+        115200.0,
+        89600.0,
+        12800.0
+      ]
+    },
+    {
+      "label": "RecastNavMesh-Default",
+      "class": "RecastNavMesh",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "stats": {
+    "Pending": 0,
+    "Instances": 4594,
+    "Components": 186
+  }
+}

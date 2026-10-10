@@ -3,9 +3,21 @@
 #include "World/RVRegionStateSubsystem.h"
 #include "Engine/World.h"
 #include "Engine/Engine.h"
+#include "WorldPartition/WorldPartition.h"
+#include "PCGGraph.h"
+#include "PCGNode.h"
+#include "PCGComponent.h"
+#include "Components/InstancedStaticMeshComponent.h"
+#include "EngineUtils.h"
+#include "Elements/PCGTypedGetter.h"
+#include "Elements/PCGSurfaceSampler.h"
+#include "Elements/PCGTransformPoints.h"
+#include "Elements/PCGStaticMeshSpawner.h"
+#include "MeshSelectors/PCGMeshSelectorWeighted.h"
 #if WITH_EDITOR
 #include "Landscape.h"
 #include "LandscapeInfo.h"
+#include "AssetRegistry/AssetRegistryModule.h"
 #endif
 
 AActor* URVWorldContentLibrary::CreateRegionLandscape(UObject* Context,int32 Components,float Spacing)
@@ -70,4 +82,91 @@ TMap<FString,bool> URVWorldContentLibrary::ValidateLootLifecycle(UObject* Contex
     Reloaded->Destroy();Receiver->Destroy();World->GetSubsystem<URVRegionStateSubsystem>()->Containers.Remove(Id);
 #endif
     return Results;
+}
+
+UPCGGraph* URVWorldContentLibrary::CreateBiomeGraph(const FString& Path,const TArray<UStaticMesh*>& Meshes,float Density,bool Collision)
+{
+#if WITH_EDITOR
+    if(Meshes.IsEmpty() || !Path.StartsWith(TEXT("/Game/World/WNY/")) || !FMath::IsFinite(Density) || Density<=0 || Density>.1f)return nullptr;
+    if(auto* Existing=LoadObject<UPCGGraph>(nullptr,*(Path+TEXT(".")+FPackageName::GetLongPackageAssetName(Path))))return Existing;
+    auto* Package=CreatePackage(*Path);
+    auto* Graph=NewObject<UPCGGraph>(Package,*FPackageName::GetLongPackageAssetName(Path),RF_Public|RF_Standalone|RF_Transactional);
+    UPCGGetLandscapeSettings* Landscape=nullptr;auto* Get=Graph->AddNodeOfType(Landscape);
+    Landscape->bUnbounded=false;
+    UPCGSurfaceSamplerSettings* Sampler=nullptr;auto* Sample=Graph->AddNodeOfType(Sampler);
+    Sampler->PointsPerSquaredMeter=Density;Sampler->PointExtents=FVector(150);Sampler->bUnbounded=false;
+    UPCGTransformPointsSettings* Transform=nullptr;auto* Rotate=Graph->AddNodeOfType(Transform);
+    Transform->bAbsoluteRotation=true;Transform->RotationMax=FRotator(0,360,0);
+    Transform->ScaleMin=FVector(.8);Transform->ScaleMax=FVector(1.2);Transform->bUniformScale=true;
+    UPCGStaticMeshSpawnerSettings* Spawner=nullptr;auto* Spawn=Graph->AddNodeOfType(Spawner);
+    Spawner->SetMeshSelectorType(UPCGMeshSelectorWeighted::StaticClass());
+    auto* Selector=CastChecked<UPCGMeshSelectorWeighted>(Spawner->MeshSelectorParameters);
+    for(auto* Mesh:Meshes)if(Mesh)
+    {
+        FPCGMeshSelectorWeightedEntry Entry(Mesh,1);
+        Entry.Descriptor.BodyInstance.SetCollisionProfileName(Collision?TEXT("BlockAll"):TEXT("NoCollision"));
+        Selector->MeshEntries.Add(Entry);
+    }
+    Graph->AddEdge(Get,TEXT("Out"),Sample,TEXT("Surface"));
+    Graph->AddEdge(Sample,TEXT("Out"),Rotate,TEXT("In"));
+    Graph->AddEdge(Rotate,TEXT("Out"),Spawn,TEXT("In"));
+    Graph->AddEdge(Spawn,TEXT("Out"),Graph->GetOutputNode(),TEXT("Out"));
+    FAssetRegistryModule::AssetCreated(Graph);Graph->MarkPackageDirty();return Graph;
+#else
+    return nullptr;
+#endif
+}
+TMap<FString,int32> URVWorldContentLibrary::GetDressingStats(UObject* Context)
+{
+    TMap<FString,int32> Result;Result.Add(TEXT("Pending"),0);Result.Add(TEXT("Instances"),0);Result.Add(TEXT("Components"),0);
+    if(auto* World=Context?Context->GetWorld():nullptr)
+        for(TActorIterator<AActor> It(World);It;++It)
+        {
+            TArray<UPCGComponent*> PCG;It->GetComponents(PCG);
+            for(auto* C:PCG){++Result[TEXT("Components")];if(C->IsGenerating())++Result[TEXT("Pending")];}
+            TArray<UInstancedStaticMeshComponent*> Instances;It->GetComponents(Instances);
+            for(auto* C:Instances)Result[TEXT("Instances")]+=C->GetInstanceCount();
+        }
+    return Result;
+}
+
+bool URVWorldContentLibrary::ConfigureRegionStreaming(UObject* Context)
+{
+#if WITH_EDITOR
+    auto* World=Context?Context->GetWorld():nullptr;
+    if(!World || World->IsGameWorld() || World->GetPackage()->GetName()!=TEXT("/Game/Maps/WNY_PrototypeRegion")) return false;
+    auto* Partition=World->GetWorldPartition();if(!Partition) return false;
+    Partition->Modify();Partition->SetEnableStreaming(true);
+    Partition->ServerStreamingMode=EWorldPartitionServerStreamingMode::Enabled;
+    Partition->ServerStreamingOutMode=EWorldPartitionServerStreamingOutMode::Enabled;
+    World->MarkPackageDirty();return true;
+#else
+    return false;
+#endif
+}
+TMap<FString,FString> URVWorldContentLibrary::InspectRegion(UObject* Context)
+{
+    TMap<FString,FString> Result;
+    auto* World=Context?Context->GetWorld():nullptr;if(!World)return Result;
+    if(auto* Partition=World->GetWorldPartition())
+    {
+        Result.Add(TEXT("Streaming enabled"),Partition->IsStreamingEnabled()?TEXT("true"):TEXT("false"));
+        Result.Add(TEXT("Server streaming mode"),FString::FromInt(int32(Partition->ServerStreamingMode)));
+        Result.Add(TEXT("Server streaming out mode"),FString::FromInt(int32(Partition->ServerStreamingOutMode)));
+    }
+    for(TActorIterator<AActor> It(World);It;++It)
+    {
+        TArray<UPCGComponent*> Components;It->GetComponents(Components);
+        for(auto* C:Components)
+        {
+            const FString Key=It->GetName()+TEXT("/")+C->GetName();
+            Result.Add(Key,FString::Printf(TEXT("Graph=%s;Generating=%d;Partitioned=%d"),
+                *GetNameSafe(C->GetGraph()),C->IsGenerating(),C->bIsComponentPartitioned));
+        }
+        TArray<UInstancedStaticMeshComponent*> Instances;It->GetComponents(Instances);
+        for(auto* C:Instances)
+            Result.Add(It->GetName()+TEXT("/")+C->GetName(),FString::Printf(TEXT("Mesh=%s;Instances=%d"),
+                *GetNameSafe(C->GetStaticMesh()),C->GetInstanceCount()));
+    }
+    return Result;
 }

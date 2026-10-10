@@ -51,3 +51,29 @@ population, quiet encounter outcomes, actual drive/scavenge/store playthrough,
 stream-out/return conservation, separate-process host/client and representative
 100 ms/2% loss, performance observations, targeted regressions, final build,
 108 vendor hashes and clean editor shutdown.
+
+## Additional foundation work - 2026-10-10
+
+- ae5a573 saved the native spline road network: 6.0106 km of authored route,
+  12 m main road and 9 m secondary road. Actual driving validation is pending.
+- Partitioned native PCG generated 6019 aggregate instances, but scheduling
+  aborts occurred. Aggregate counts are not acceptance evidence; per-component
+  generation and saved-state inspection remain required.
+- Five enterable prototype location shells and ten contextual supply containers
+  were saved. Interior visual/player-path validation and navigation are pending.
+- Location automation first failed on Python GUID construction; corrected to
+  GuidLibrary parsing and label-based resumable authoring, with saves per site.
+- A failed editor remained alive after destroying its windows and reaching
+  "Preparing to exit". A second editor could not replace the map file held by
+  that process. After stopping the already-failed shutdown process, the single
+  editor retry saved all five sites. Clean shutdown is NOT yet confirmed for
+  this sequence; a post-startup/post-tick audit is being used to investigate.
+- Development Editor/Win64 build succeeded after adding native streaming audit
+  controls and guarding partial loot restoration against snapshot loss.
+- Gate 10 remains NOT ACCEPTED/in progress. No Gate 11 work.
+- Delaying the audit/load/save work until after startup and requesting quit from
+  a later Slate tick completed full editor shutdown ("Object subsystem
+  successfully closed" and "Exiting"). No leak detector suppression. Native
+  streaming flags saved as enabled/server mode 2/server stream-out mode 2.
+  Current editor-loaded subset contains 66 biome parents and 4594 saved instances;
+  this is not a whole-region completeness test.

@@ -29,7 +29,10 @@ void ARVScavengeContainer::BeginPlay()
         for(const auto& Item:Record.Items)
             if(!Retained.ContainsByPredicate([&Item](const auto& Existing){return Existing.Id==Item.Id;})
                 && !Container->AddAuthority(Item,Error))
-                UE_LOG(LogTemp,Error,TEXT("Unable to restore %s: %s"),*GetName(),*Error);
+            {
+                bRestoreIncomplete=true;
+                UE_LOG(LogTemp,Error,TEXT("Unable to restore %s; preserving ledger snapshot: %s"),*GetName(),*Error);
+            }
         return;
     }
     // Mark even an empty result as generated; revisiting never rerolls depleted supplies.
@@ -62,13 +65,14 @@ void ARVScavengeContainer::EndPlay(const EEndPlayReason::Type Reason)
         if(auto* Ledger=GetWorld()->GetSubsystem<URVRegionStateSubsystem>())
         {
             auto& Record=Ledger->Containers.FindOrAdd(ContainerId);
-            Record.Items=Container->GetItems();Record.bSearched=bSearched;
+            if(!bRestoreIncomplete) Record.Items=Container->GetItems();
+            Record.bSearched=bSearched;
             Ledger->Release(ContainerId,this);
         }
     Super::EndPlay(Reason);
 }
 bool ARVScavengeContainer::CanInteract_Implementation(APawn* Pawn) const
-{return Super::CanInteract_Implementation(Pawn) && (!HasAuthority() || bOwnsIdentity);}
+{return Super::CanInteract_Implementation(Pawn) && (!HasAuthority() || (bOwnsIdentity && !bRestoreIncomplete));}
 void ARVScavengeContainer::CompleteInteraction_Implementation(APawn* Pawn)
 {
     if(!HasAuthority() || !CanInteract_Implementation(Pawn)) return;
