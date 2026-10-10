@@ -122,3 +122,13 @@ replenishment after recreation. This is NOT actual WP streaming, multiplayer or
 normal-player scavenging acceptance evidence. The visible landscape remains too
 uniform and nearby dressing sparse. Runtime world loop, environment refinement,
 encounters, multiplayer and performance validation remain unfinished.
+
+## Environment and automation refinement checkpoint
+
+Imported four Electric Dreams ground texture packages (157841645 bytes) with source hashes unchanged. WNY material uses project-side non-virtual-texture derivatives and native world-space texture/noise blending; imported originals are unchanged. Added 129 bounded roadside PCG parents. Saved-state generation has 231 parents total, 576 PCG components and 8572 persisted instances. The guarded final run had zero PCG scheduling errors and clean shutdown. Visual review remains pending; counts do not prove world quality.
+
+Initial generation during parent creation again lacked loaded local partition actors; authoring now saves parents first and generation runs in the next clean fully loaded session. Material scripting encountered native UV/Noise/Clamp input-name mismatches; corrected from engine-reported input names. Roadside authoring used an unsupported Transform constructor keyword; corrected to the actor's native transform and resumed saved work.
+
+Save callbacks could be re-entered by Slate ticks while native save pumped UI messages. This caused nested save assertions (native SaveWorld rejects reentrancy) and premature quit requests. Added busy phase before prepare/save, returning to quit phase only after scoped references unwind. Repeated guarded generation/save completed successfully (2026-10-10 04:22:26 local), clean Exiting at 04:22:29. Earlier failed receipts are retained; no world leak detection suppression or fatal world-leak crash.
+
+Authored five static abandoned trail vehicles using existing Epic off-road template art, simplified project-side body collision, stable finite cargo containers, a partial road obstruction/alternate-loop choice, roadside poles and field fences. Player/visual/nav validation remains pending; these are not additional drivable vehicle systems. Prior art packages are unchanged.

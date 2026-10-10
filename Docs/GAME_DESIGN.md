@@ -70,3 +70,7 @@ advanced ballistics and future encounter populations remain later work.
 Ordinary loot uses tap interaction; treatment, revive, repair and committed actions remain timed. Grounded defensive shove and one crowbar complement firearms. Melee effort uses fatigue rather than a new arcade stamina meter. Free M1911 is .45 ACP/seven rounds, independent of retained 9mm.
 
 Relaxed, Standard, Harsh and Custom expose tunable survival/consequence/combat/RV multipliers. Personal controls/view preferences are local; world rules belong to the host. Loot/population fields are preparation only, without generation. Final balance is not established. RV remains the central survival base; Gate10 is outside this refinement.
+
+## Gate 10 first playable region — in progress
+
+WNY_PrototypeRegion combines an authored 4032 m rolling Landscape and approximately 6 km of two-lane routes with five rural locations: Pine Creek Fuel, Erie Road Service, Hawthorne Farm, Maple Run Campground and Rowland Crossroads. Contextual finite supplies, quiet travel and small infected clusters support drive/park/scavenge/return-to-RV decisions. Editor PCG dresses authored geography; it does not generate the campaign. Regional Loot/Population host rules become active only in the WNY mode. Full persistence and cross-region travel remain future work. Current visual/world-loop validation is unfinished.

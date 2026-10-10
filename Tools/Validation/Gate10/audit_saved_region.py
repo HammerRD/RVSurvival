@@ -20,10 +20,10 @@ def audit():
 def tick(delta):
  global phase,handle
  if phase==0 and time.time()-started>5:
-  phase=1
+  phase=10
   try:audit()
   except Exception:(out/'saved-region-audit-error.txt').write_text(traceback.format_exc())
-  gc.collect()
+  gc.collect();phase=1
  elif phase==1 and time.time()-started>20:
   unreal.unregister_slate_post_tick_callback(handle);handle=None;phase=2
   gc.collect();unreal.SystemLibrary.quit_editor()

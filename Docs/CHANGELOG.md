@@ -328,3 +328,7 @@ not edited.
 ## 2026-10-10 — Gate 10 navigation and initial PIE checkpoint
 
 Saved native partitioned navigation and non-spatial WNY mobile RV/start. Native navigation builder exited successfully with no errors; runtime path-following remains pending. Normal E/W/S player input opened the side door and physically entered the RV; visible interior, walking movement and reference-frame registration confirmed. Stopped PIE and closed editor cleanly. Finite-loot lifecycle diagnostics passed targeted identity/transfer/restore/depletion checks, but actual streaming/multiplayer world-loop acceptance remains pending. Landscape/nearby dressing requires further visual refinement. Gate 10 remains in progress; no Gate 11.
+
+## 2026-10-10 — Gate 10 environment refinement checkpoint
+
+Saved project-side woodland terrain material, 129 additional bounded roadside PCG parents, five static abandoned trail vehicles with finite cargo, roadside obstruction/route choice, poles and fences. Selective Epic sample texture import preserves source hashes. Final saved-state PCG run: 231 parents, 8572 instances, zero scheduling errors and clean shutdown. Fixed Slate callback reentrancy in author/save automation; native save now completes before quit phase. Scene/player-path/nav/multiplayer validation remains pending. Gate 10 not accepted; no Gate 11.

@@ -143,3 +143,7 @@ dinette, bed, physical door entry, roof/ladder and seven exterior compartments r
 their architecture. Guns/magazines use ordinary configurable storage after unloading.
 Moving armed-passenger and normal-control regressions are recorded in Gate 9 evidence.
 Purchased source art, vehicle physics and reference-frame movement are preserved.
+
+## Gate 10 playable-world integration — in progress
+
+WNY uses the accepted purchased Class C motorhome Blueprint and unchanged seats, physical side entry, moving reference frame, storage, needs, resources and mechanics. The mobile base is a non-spatial actor so its authored spawn cell cannot unload it after driving. Roads/location approaches use RV-sized clearances. Initial normal E/W/S physical-entry check passed in the new map; driving/scavenging/return-to-storage and streamed multiplayer remain pending. No vendor source or prior gate map is edited.

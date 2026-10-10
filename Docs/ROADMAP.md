@@ -52,3 +52,7 @@ and explicit authorization for later work; Gate10 has not begun.
 Gate9.5 is the authorized combat/input/difficulty/free-asset refinement before Gate10, tracked in GATE_9_5_VALIDATION.md. World/scavenging, director, population and region systems are not implemented. Acceptance requires rendered controls/combat, separate-process authority, emulation and selected regressions.
 
 Gate9.5 closure: ACCEPTED at prototype quality; see GATE_9_5_VALIDATION.md. Gate10 has not started.
+
+## Gate 10 authorized development — 2026-10-10
+
+The user accepted Gate 9.5 at 81b65c9 and authorized Gate 10 only. The first WNY playable region, finite contextual scavenging and bounded encounter foundation are in progress; see GATE_10_VALIDATION.md. Historical notes that Gate 10 was not started describe prior checkpoints. Gate 11 is not started. Acceptance requires actual driving/scavenging, streamed multiplayer state and performance validation.

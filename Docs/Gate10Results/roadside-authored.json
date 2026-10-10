@@ -1,0 +1,52 @@
+{
+  "saved": true,
+  "abandoned_vehicles": [
+    {
+      "label": "Abandoned trail vehicle 0",
+      "container_id": "1b9eb821-3d13-5605-921b-19f660bdeb91",
+      "position": [
+        -129000,
+        3400,
+        -33.93667808683535
+      ]
+    },
+    {
+      "label": "Abandoned trail vehicle 1",
+      "container_id": "e0d07b07-f879-5ef9-8f3e-56eb1468b114",
+      "position": [
+        -61600,
+        -11000,
+        -1129.708311870525
+      ]
+    },
+    {
+      "label": "Abandoned trail vehicle 2",
+      "container_id": "ff628fa9-c6fb-5532-93e4-ca095869538a",
+      "position": [
+        73500,
+        49200,
+        1880.2769467759315
+      ]
+    },
+    {
+      "label": "Abandoned trail vehicle 3",
+      "container_id": "82d215d5-7d69-5c7b-b2cb-73d970a25bf4",
+      "position": [
+        35000,
+        -150,
+        18.0
+      ]
+    },
+    {
+      "label": "Abandoned trail vehicle 4",
+      "container_id": "415a4c36-8731-5bf7-ba6d-9e48f7fc36fe",
+      "position": [
+        35350,
+        100,
+        18.0
+      ]
+    }
+  ],
+  "visual_and_player_collision_validation": "pending",
+  "source": "existing Epic vehicle template; original assets unchanged"
+}

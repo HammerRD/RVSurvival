@@ -1,0 +1,30 @@
+{
+  "seeds": [
+    "/Game/Megascans/Surfaces/MossyGrass/T_MossyGrass_01_BC",
+    "/Game/Megascans/Surfaces/MossyGrass/T_MossyGrass_01_N",
+    "/Game/Megascans/Surfaces/DriedGrassOnDampSoil/T_DriedGrassOnDampSoil_01_BC",
+    "/Game/Megascans/Surfaces/DriedGrassOnDampSoil/T_DriedGrassOnDampSoil_01_N"
+  ],
+  "files": [
+    {
+      "package": "/Game/Megascans/Surfaces/DriedGrassOnDampSoil/T_DriedGrassOnDampSoil_01_BC",
+      "bytes": 30764472,
+      "sha256": "61e3ff08f5e863f7b67b06a9162fa77810d6f72613bd1678ba71fc48c237c40c"
+    },
+    {
+      "package": "/Game/Megascans/Surfaces/DriedGrassOnDampSoil/T_DriedGrassOnDampSoil_01_N",
+      "bytes": 34331502,
+      "sha256": "a75e754821385f22d41513cd440e31ce0defcf54d6c6c20a932d8007b383107e"
+    },
+    {
+      "package": "/Game/Megascans/Surfaces/MossyGrass/T_MossyGrass_01_BC",
+      "bytes": 39213797,
+      "sha256": "bb757f17120c53ee32f6a9ed4e98e330b46ff81f81d30b7d2b6a81350722ab84"
+    },
+    {
+      "package": "/Game/Megascans/Surfaces/MossyGrass/T_MossyGrass_01_N",
+      "bytes": 53531874,
+      "sha256": "c7c336b226f6a48b13b468ca75c3d98b295d940eb889cf00c98e2e03e9e03cec"
+    }
+  ]
+}

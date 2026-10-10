@@ -32,3 +32,9 @@
 - Purpose: .45 ACP handgun and magazine visual.
 - Changes: imported non-rigged FBX and Unreal PBR textures; configured project-side materials. Source files preserved.
 - No paid transaction, AI-generated alteration, model training or external redistribution performed.
+
+### Gate 10 ground surfaces and existing vehicle reuse
+
+Electric Dreams UE-Only sample: MossyGrass and DriedGrassOnDampSoil BC/normal textures, four packages/157841645 bytes under /Game/Megascans/Surfaces. Original sample hashes unchanged. WNY-specific non-VT derivatives and material under /Game/World/WNY/Materials; original imported packages preserved. Used for prototype woodland/field terrain. Same Epic source/license recorded above; no purchase or redistribution.
+
+Existing Epic UE vehicle-template /Game/Vehicles/OffroadCar/SKM_Offroad is reused as static abandoned trail/utility vehicle art. No new download or source edit. Simplified collision and cargo identity are project-side map content. Visual validation is pending.

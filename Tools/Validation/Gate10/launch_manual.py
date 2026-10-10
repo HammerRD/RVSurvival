@@ -11,7 +11,8 @@ def launch():
   if a.get_actor_label() in ['WNY mobile survival base','WNY Player Start']:
    a.modify();a.set_editor_property('bIsSpatiallyLoaded',False);changed.append(a.get_actor_label())
  assert len(changed)==2,changed
- assert levels.save_current_level();assert unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True,True)
+ assert unreal.EditorLoadingAndSavingUtils.save_map(world,'/Game/Maps/WNY_PrototypeRegion')
+ assert unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True,True)
  assert unreal.RVWorldContentLibrary.set_region_authoring_loaded(world,False)
  settings=unreal.get_default_object(unreal.load_class(None,'/Script/UnrealEd.LevelEditorPlaySettings'));settings.set_editor_property('RunUnderOneProcess',True);settings.set_editor_property('PlayNumberOfClients',1);settings.set_editor_property('AdditionalLaunchParameters','')
  network=settings.get_editor_property('NetworkEmulationSettings');network.set_editor_property('bIsNetworkEmulationEnabled',False);settings.set_editor_property('NetworkEmulationSettings',network)

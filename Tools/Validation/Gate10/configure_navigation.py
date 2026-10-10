@@ -15,10 +15,10 @@ def configure():
 def tick(delta):
  global phase,handle
  if phase==0 and time.time()-started>5:
-  phase=1
+  phase=10
   try:configure()
   except Exception:(out/'navigation-configuration-error.txt').write_text(traceback.format_exc())
-  gc.collect()
+  gc.collect();phase=1
  elif phase==1 and time.time()-started>20:
   unreal.unregister_slate_post_tick_callback(handle);handle=None;phase=2;gc.collect();unreal.SystemLibrary.quit_editor()
 handle=unreal.register_slate_post_tick_callback(tick)
