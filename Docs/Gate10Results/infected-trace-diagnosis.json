@@ -1,0 +1,56 @@
+[
+  {
+    "actor": "RVInfected_0",
+    "profile": "/Game/Combat/DA_PrototypeInfected.DA_PrototypeInfected",
+    "vitality": 65.0,
+    "position": "<Struct 'Vector' (0x000001801DAC60E0) {x: -128485.750310, y: 8343.299812, z: -546.972406}>",
+    "head": "<Struct 'Vector' (0x000001801DAC60E0) {x: -128493.260534, y: 8346.886594, z: -475.196783}>",
+    "collision": "<CollisionEnabled.QUERY_ONLY: 1>",
+    "rays": [
+      {
+        "target": "head",
+        "result": "(True, False, 0.20776444673538208, 1239.729248046875, <Struct 'Vector' (0x000001801DAC7080) {x: -129861.483055, y: 3849.999969, z: 27.805389}>, <Struct 'Vector' (0x000001801DAC74E0) {x: -129861.483047, y: 3850.000000, z: 27.805376}>, <Struct 'Vector' (0x000001801DAC7030) {x: 0.000000, y: -1.000000, z: 0.000000}>, <Struct 'Vector' (0x000001801DAC7350) {x: 0.000000, y: -1.000000, z: 0.000000}>, <Object '/Engine/EngineMaterials/DefaultPhysicalMaterial.DefaultPhysicalMaterial' (0x0000017F54FFD140) Class 'PhysicalMaterial'>, <Object '/Memory/UEDPIE_0_WNY_PrototypeRegion_DI32TLR90OF13FZPZIG04CTJV.WNY_PrototypeRegion:PersistentLevel.StaticMeshActor_UAID_64497D559D93AD0903_1894748804' (0x000001805FF43200) Class 'StaticMeshActor'>, <Object '/Memory/UEDPIE_0_WNY_PrototypeRegion_DI32TLR90OF13FZPZIG04CTJV.WNY_PrototypeRegion:PersistentLevel.StaticMeshActor_UAID_64497D559D93AD0903_1894748804.StaticMeshComponent0' (0x000001805F533200) Class 'StaticMeshComponent'>, Name(\"None\"), Name(\"None\"), -1, 1, 39, <Struct 'Vector' (0x000001801DAC7710) {x: -130220.300573, y: 2670.687633, z: 159.718136}>, <Struct 'Vector' (0x000001801DAD8C40) {x: -128493.260534, y: 8346.886594, z: -475.196783}>)"
+      },
+      {
+        "target": "torso",
+        "result": "(True, False, 0.20789583027362823, 1241.4486083984375, <Struct 'Vector' (0x000001801DAC7080) {x: -129859.694806, y: 3850.000052, z: 16.958035}>, <Struct 'Vector' (0x000001801DAC74E0) {x: -129859.694809, y: 3850.000000, z: 16.958037}>, <Struct 'Vector' (0x000001801DAC7030) {x: 0.000000, y: -1.000000, z: 0.000000}>, <Struct 'Vector' (0x000001801DAC7350) {x: 0.000000, y: -1.000000, z: 0.000000}>, <Object '/Engine/EngineMaterials/DefaultPhysicalMaterial.DefaultPhysicalMaterial' (0x0000017F54FFD140) Class 'PhysicalMaterial'>, <Object '/Memory/UEDPIE_0_WNY_PrototypeRegion_DI32TLR90OF13FZPZIG04CTJV.WNY_PrototypeRegion:PersistentLevel.StaticMeshActor_UAID_64497D559D93AD0903_1894748804' (0x000001805FF43200) Class 'StaticMeshActor'>, <Object '/Memory/UEDPIE_0_WNY_PrototypeRegion_DI32TLR90OF13FZPZIG04CTJV.WNY_PrototypeRegion:PersistentLevel.StaticMeshActor_UAID_64497D559D93AD0903_1894748804.StaticMeshComponent0' (0x000001805F533200) Class 'StaticMeshComponent'>, Name(\"None\"), Name(\"None\"), -1, 1, 38, <Struct 'Vector' (0x000001801DAC7710) {x: -130220.300573, y: 2670.687633, z: 159.718136}>, <Struct 'Vector' (0x000001801DAD8C40) {x: -128485.750310, y: 8343.299812, z: -526.972406}>)"
+      }
+    ]
+  },
+  {
+    "actor": "RVInfected_1",
+    "profile": "/Game/Combat/DA_PrototypeInfected.DA_PrototypeInfected",
+    "vitality": 65.0,
+    "position": "<Struct 'Vector' (0x000001801DAC60E0) {x: -131224.557300, y: 8119.186722, z: -509.536615}>",
+    "head": "<Struct 'Vector' (0x000001801DAC60E0) {x: -131219.745955, y: 8126.764542, z: -437.878978}>",
+    "collision": "<CollisionEnabled.QUERY_ONLY: 1>",
+    "rays": [
+      {
+        "target": "head",
+        "result": "(True, False, 0.2199091613292694, 1226.8642578125, <Struct 'Vector' (0x000001801DAC77B0) {x: -130440.087769, y: 3870.528930, z: 28.301056}>, <Struct 'Vector' (0x000001801DAC74E0) {x: -130440.087769, y: 3870.528870, z: 28.301066}>, <Struct 'Vector' (0x000001801DAC7080) {x: 0.000000, y: 0.000000, z: 1.000000}>, <Struct 'Vector' (0x000001801DAC7350) {x: 0.000000, y: 0.000000, z: 1.000000}>, <Object '/Engine/EngineMaterials/DefaultPhysicalMaterial.DefaultPhysicalMaterial' (0x0000017F54FFD140) Class 'PhysicalMaterial'>, <Object '/Memory/UEDPIE_0_WNY_PrototypeRegion_DI32TLR90OF13FZPZIG04CTJV.WNY_PrototypeRegion:PersistentLevel.StaticMeshActor_UAID_64497D559D93AD0903_1894748804' (0x000001805FF43200) Class 'StaticMeshActor'>, <Object '/Memory/UEDPIE_0_WNY_PrototypeRegion_DI32TLR90OF13FZPZIG04CTJV.WNY_PrototypeRegion:PersistentLevel.StaticMeshActor_UAID_64497D559D93AD0903_1894748804.StaticMeshComponent0' (0x000001805F533200) Class 'StaticMeshComponent'>, Name(\"None\"), Name(\"None\"), -1, 1, 15, <Struct 'Vector' (0x000001801DAC7710) {x: -130220.300573, y: 2670.687633, z: 159.718136}>, <Struct 'Vector' (0x000001801DAD8C40) {x: -131219.745955, y: 8126.764542, z: -437.878978}>)"
+      },
+      {
+        "target": "torso",
+        "result": "(True, False, 0.21644721925258636, 1207.3836669921875, <Struct 'Vector' (0x000001801DAC77B0) {x: -130437.669149, y: 3850.000110, z: 19.188751}>, <Struct 'Vector' (0x000001801DAC74E0) {x: -130437.669189, y: 3850.000000, z: 19.188749}>, <Struct 'Vector' (0x000001801DAC7080) {x: 0.000000, y: -1.000000, z: 0.000000}>, <Struct 'Vector' (0x000001801DAC7350) {x: 0.000000, y: -1.000000, z: 0.000000}>, <Object '/Engine/EngineMaterials/DefaultPhysicalMaterial.DefaultPhysicalMaterial' (0x0000017F54FFD140) Class 'PhysicalMaterial'>, <Object '/Memory/UEDPIE_0_WNY_PrototypeRegion_DI32TLR90OF13FZPZIG04CTJV.WNY_PrototypeRegion:PersistentLevel.StaticMeshActor_UAID_64497D559D93AD0903_1894748804' (0x000001805FF43200) Class 'StaticMeshActor'>, <Object '/Memory/UEDPIE_0_WNY_PrototypeRegion_DI32TLR90OF13FZPZIG04CTJV.WNY_PrototypeRegion:PersistentLevel.StaticMeshActor_UAID_64497D559D93AD0903_1894748804.StaticMeshComponent0' (0x000001805F533200) Class 'StaticMeshComponent'>, Name(\"None\"), Name(\"None\"), -1, 1, 36, <Struct 'Vector' (0x000001801DAC7710) {x: -130220.300573, y: 2670.687633, z: 159.718136}>, <Struct 'Vector' (0x000001801DAD8C40) {x: -131224.557300, y: 8119.186722, z: -489.536615}>)"
+      }
+    ]
+  },
+  {
+    "actor": "RVInfected_2",
+    "profile": "/Game/Combat/DA_PrototypeInfected.DA_PrototypeInfected",
+    "vitality": 65.0,
+    "position": "<Struct 'Vector' (0x000001801DAC60E0) {x: -131800.531772, y: 4916.919119, z: -147.608363}>",
+    "head": "<Struct 'Vector' (0x000001801DAC60E0) {x: -131798.280919, y: 4924.967027, z: -82.827167}>",
+    "collision": "<CollisionEnabled.QUERY_ONLY: 1>",
+    "rays": [
+      {
+        "target": "head",
+        "result": "(True, False, 0.5418248176574707, 1496.7144775390625, <Struct 'Vector' (0x000001801DAC7030) {x: -131075.289486, y: 3892.112154, z: 28.301071}>, <Struct 'Vector' (0x000001801DAC74E0) {x: -131075.289551, y: 3892.112122, z: 28.301066}>, <Struct 'Vector' (0x000001801DAC77B0) {x: 0.000000, y: 0.000000, z: 1.000000}>, <Struct 'Vector' (0x000001801DAC7350) {x: 0.000000, y: 0.000000, z: 1.000000}>, <Object '/Engine/EngineMaterials/DefaultPhysicalMaterial.DefaultPhysicalMaterial' (0x0000017F54FFD140) Class 'PhysicalMaterial'>, <Object '/Memory/UEDPIE_0_WNY_PrototypeRegion_DI32TLR90OF13FZPZIG04CTJV.WNY_PrototypeRegion:PersistentLevel.StaticMeshActor_UAID_64497D559D93AD0903_1894748804' (0x000001805FF43200) Class 'StaticMeshActor'>, <Object '/Memory/UEDPIE_0_WNY_PrototypeRegion_DI32TLR90OF13FZPZIG04CTJV.WNY_PrototypeRegion:PersistentLevel.StaticMeshActor_UAID_64497D559D93AD0903_1894748804.StaticMeshComponent0' (0x000001805F533200) Class 'StaticMeshComponent'>, Name(\"None\"), Name(\"None\"), -1, 1, 15, <Struct 'Vector' (0x000001801DAC7710) {x: -130220.300573, y: 2670.687633, z: 159.718136}>, <Struct 'Vector' (0x000001801DAD8C40) {x: -131798.280919, y: 4924.967027, z: -82.827167}>)"
+      },
+      {
+        "target": "torso",
+        "result": "(True, False, 0.5250182151794434, 1449.7769775390625, <Struct 'Vector' (0x000001801DAC7030) {x: -131049.950737, y: 3850.000079, z: 8.866490}>, <Struct 'Vector' (0x000001801DAC74E0) {x: -131049.950684, y: 3850.000000, z: 8.866501}>, <Struct 'Vector' (0x000001801DAC77B0) {x: 0.000000, y: -1.000000, z: 0.000000}>, <Struct 'Vector' (0x000001801DAC7350) {x: 0.000000, y: -1.000000, z: 0.000000}>, <Object '/Engine/EngineMaterials/DefaultPhysicalMaterial.DefaultPhysicalMaterial' (0x0000017F54FFD140) Class 'PhysicalMaterial'>, <Object '/Memory/UEDPIE_0_WNY_PrototypeRegion_DI32TLR90OF13FZPZIG04CTJV.WNY_PrototypeRegion:PersistentLevel.StaticMeshActor_UAID_64497D559D93AD0903_1894748804' (0x000001805FF43200) Class 'StaticMeshActor'>, <Object '/Memory/UEDPIE_0_WNY_PrototypeRegion_DI32TLR90OF13FZPZIG04CTJV.WNY_PrototypeRegion:PersistentLevel.StaticMeshActor_UAID_64497D559D93AD0903_1894748804.StaticMeshComponent0' (0x000001805F533200) Class 'StaticMeshComponent'>, Name(\"None\"), Name(\"None\"), -1, 1, 32, <Struct 'Vector' (0x000001801DAC7710) {x: -130220.300573, y: 2670.687633, z: 159.718136}>, <Struct 'Vector' (0x000001801DAD8C40) {x: -131800.531772, y: 4916.919119, z: -127.608363}>)"
+      }
+    ]
+  }
+]
