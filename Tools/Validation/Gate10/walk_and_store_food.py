@@ -17,7 +17,10 @@ def tick(dt):
  global phase,last,event,handle,before
  try:
   now=time.time()
-  if phase==0:before=items(inv());key('I',True);phase=1;last=now
+  if phase==0:
+   before=items(inv())
+   if globals().get('close_inventory',True):key('I',True);phase=1;last=now
+   else:phase=2;last=now
   elif phase==1 and now-last>.5:key('I',False);phase=2
   elif phase==2:
    v=unreal.GameplayStatics.get_all_actors_of_class(p(),unreal.RVInteriorMotorhome)[0];q=v.get_actor_transform().inverse_transform_location(cargo().get_actor_location());target=v.get_actor_transform().transform_location(unreal.Vector(q.x,q.y-190,q.z));pos=p().get_actor_location();dx=target.x-pos.x;dy=target.y-pos.y;distance=math.hypot(dx,dy)
@@ -38,3 +41,4 @@ def tick(dt):
    if hasattr(sys,k):setattr(sys,k,None)
   gc.collect()
 handle=unreal.register_slate_post_tick_callback(tick)
+
