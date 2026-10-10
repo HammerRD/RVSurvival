@@ -13,6 +13,14 @@ void ARVRegionGameMode::BeginPlay()
 {
     Super::BeginPlay();
     if(!HasAuthority() || !GetWorld()->GetWorldPartition())return;
+    if(bKeepConnectionStartupNeighborhoodLoaded)
+    {
+        // Use the same native grid loading ranges as the initial client view at
+        // world origin. This is a bounded region workaround for pending-join
+        // visibility ordering, not a missing-package validation bypass.
+        auto* StartupSource=NewObject<UWorldPartitionStreamingSourceComponent>(this,TEXT("ConnectionStartupStreamingSource"));
+        AddInstanceComponent(StartupSource);StartupSource->RegisterComponent();
+    }
     for(TActorIterator<ARVInteriorMotorhome> It(GetWorld());It;++It)
     {
         auto* Vehicle=*It;

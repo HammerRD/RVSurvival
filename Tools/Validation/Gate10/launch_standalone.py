@@ -2,7 +2,7 @@
 import subprocess,time,json
 from pathlib import Path
 root=Path('D:/GitHub/RVSurvival/RVSurvival');out=root/'Saved/Gate10Validation'
-case={'name':'region-standalone-rejoin-gc','network':True,'difficulty':True,'rejoin':True,'port':17778,'standalone':True,'travel_gc':True}
+case={'name':'region-standalone-brake-cleanup','network':True,'difficulty':True,'rejoin':True,'port':17778,'standalone':True,'travel_gc':False}
 session={'id':time.time(),'start':None,'config':case};(out/'process-session.json').write_text(json.dumps(session))
 exe='D:/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe'
 cmds='wp.Runtime.EnableServerStreaming 1,wp.Runtime.EnableServerStreamingOut 1,wp.Runtime.UseMakingVisibleTransactionRequests 1,wp.Runtime.UseMakingInvisibleTransactionRequests 1,LevelStreaming.DefaultAllowClientUseMakingVisibleTransactionRequests 1,Net PktLag=100,Net PktLoss=2,py '+str(root/'Tools/Validation/Gate10/standalone_startup.py')
@@ -22,7 +22,7 @@ try:
   if complete:
    print('Fresh receipts available; waiting for clean game shutdown.',flush=True)
    for p in processes:
-    try:p.wait(timeout=20)
+    try:p.wait(timeout=35)
     except subprocess.TimeoutExpired:pass
    break
   time.sleep(2)

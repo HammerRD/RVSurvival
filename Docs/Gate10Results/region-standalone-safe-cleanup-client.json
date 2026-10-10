@@ -1,0 +1,130 @@
+{
+  "session": 1791628382.6378672,
+  "error": "",
+  "evidence": "two-process normal E + accepted server inventory transaction; server relocation fixture for cell traversal, not driven-loop proof",
+  "results": [
+    {
+      "case": "saved_region_mobile_base_arrival",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x0000014F49E650F0) {x: 14.998143, y: -0.000034, z: 177.189980}>"
+    },
+    {
+      "case": "own_survivor_and_inventory",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "finite_supplies_replicated",
+      "pass": true,
+      "detail": [
+        {
+          "id": "E673CF29467AECFDCCFB6685116E760B",
+          "quantity": 1,
+          "condition": 0.8461890816688538,
+          "definition": "/Game/Items/DA_Food.DA_Food"
+        },
+        {
+          "id": "DA5775B548B2DE3E82215ABD7C299A44",
+          "quantity": 2,
+          "condition": 0.6978617906570435,
+          "definition": "/Game/Items/DA_Water.DA_Water"
+        }
+      ]
+    },
+    {
+      "case": "host_rules_replicate_client_override_rejected",
+      "pass": true,
+      "detail": {
+        "preset": "Custom",
+        "rules": {
+          "Loot": 1.5,
+          "Population": 0.25
+        }
+      }
+    },
+    {
+      "case": "normal_E_opens_streamed_container",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shared_container_post_contention",
+      "pass": true,
+      "detail": [
+        {
+          "id": "DA5775B548B2DE3E82215ABD7C299A44",
+          "quantity": 2,
+          "condition": 0.6978617906570435,
+          "definition": "/Game/Items/DA_Water.DA_Water"
+        }
+      ]
+    },
+    {
+      "case": "actual_partition_unloads_target",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "quiet_travel_between_bounded_events",
+      "pass": true,
+      "detail": [
+        "<Struct 'Guid' (0x000001506566DB68) {}>"
+      ]
+    },
+    {
+      "case": "actual_streamed_contents_preserved",
+      "pass": true,
+      "detail": [
+        {
+          "id": "DA5775B548B2DE3E82215ABD7C299A44",
+          "quantity": 2,
+          "condition": 0.6978617906570435,
+          "definition": "/Game/Items/DA_Water.DA_Water"
+        }
+      ]
+    },
+    {
+      "case": "searched_flag_survives_streaming",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "region_shared_difficulty_received",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bounded_infected_population",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "case": "late_join_arrives_current_moving_base",
+      "pass": true,
+      "detail": {
+        "relative": "<Struct 'Vector' (0x0000014F40749780) {x: 87.800934, y: -7.026492, z: 176.929742}>",
+        "vehicle_speed": 3835.0248841724174
+      }
+    },
+    {
+      "case": "late_join_can_walk_in_moving_base",
+      "pass": true,
+      "detail": {
+        "relative": "<Struct 'Vector' (0x0000014F40749780) {x: -104.154938, y: -6.933730, z: 191.345428}>",
+        "movement": "<MovementMode.MOVE_WALKING: 1>"
+      }
+    },
+    {
+      "case": "rejoin_does_not_replenish_shared_loot",
+      "pass": true,
+      "detail": [
+        {
+          "id": "DA5775B548B2DE3E82215ABD7C299A44",
+          "quantity": 2,
+          "condition": 0.6978617906570435,
+          "definition": "/Game/Items/DA_Water.DA_Water"
+        }
+      ]
+    }
+  ]
+}

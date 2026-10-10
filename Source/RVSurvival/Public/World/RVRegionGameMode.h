@@ -15,6 +15,9 @@ public:
     UPROPERTY(EditAnywhere,BlueprintReadOnly) FName MobileBaseTag=TEXT("PlayerMobileBase");
     /** Native source keeps a parked base's terrain available while survivors explore. */
     UPROPERTY(EditAnywhere,BlueprintReadOnly,meta=(ClampMin="5000",ClampMax="30000")) float MobileBaseLoadingRadiusCm=12000;
+    /** Prewarm the native default-view neighborhood during pending connections.
+     *  UE 5.8 can publish client-visible cells before visibility acks are active. */
+    UPROPERTY(EditAnywhere,BlueprintReadOnly) bool bKeepConnectionStartupNeighborhoodLoaded=true;
 private:
     void PlaceAtMobileBase(AController* Controller);
 };

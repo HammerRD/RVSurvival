@@ -1,0 +1,102 @@
+{
+  "session": 1791627787.7074585,
+  "error": "Traceback (most recent call last):\n  File \"D:/GitHub/RVSurvival/RVSurvival/Tools/Validation/Gate10/process_region.py\", line 138, in tick\n    if t>=at and name not in done:done.add(name);fn();break\n                                                 ^^^^\n  File \"D:/GitHub/RVSurvival/RVSurvival/Tools/Validation/Gate10/process_region.py\", line 95, in moving_arrival\n    v=unreal.GameplayStatics.get_all_actors_of_class(world(),unreal.RVInteriorMotorhome)[0]\n                                                     ^^^^^^^\n  File \"D:/GitHub/RVSurvival/RVSurvival/Tools/Validation/Gate10/process_region.py\", line 6, in world\n    return next(w for w in unreal.ObjectIterator(unreal.World) if w.get_name()=='WNY_PrototypeRegion' and unreal.GameplayStatics.get_player_controller(w,0) and unreal.GameplayStatics.get_game_state(w))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nStopIteration\n",
+  "evidence": "two-process normal E + accepted server inventory transaction; server relocation fixture for cell traversal, not driven-loop proof",
+  "results": [
+    {
+      "case": "saved_region_mobile_base_arrival",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000001EDD56F44C0) {x: 14.995613, y: 0.000759, z: 177.189887}>"
+    },
+    {
+      "case": "own_survivor_and_inventory",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "finite_supplies_replicated",
+      "pass": true,
+      "detail": [
+        {
+          "id": "96CA01344CA2955412FFDC8D0AE0048D",
+          "quantity": 1,
+          "condition": 0.8461890816688538,
+          "definition": "/Game/Items/DA_Food.DA_Food"
+        },
+        {
+          "id": "D5EEDAF449E2161DBFAE938657F6BDE9",
+          "quantity": 2,
+          "condition": 0.6978617906570435,
+          "definition": "/Game/Items/DA_Water.DA_Water"
+        }
+      ]
+    },
+    {
+      "case": "host_rules_replicate_client_override_rejected",
+      "pass": true,
+      "detail": {
+        "preset": "Custom",
+        "rules": {
+          "Loot": 1.5,
+          "Population": 0.25
+        }
+      }
+    },
+    {
+      "case": "normal_E_opens_streamed_container",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "shared_container_post_contention",
+      "pass": true,
+      "detail": [
+        {
+          "id": "D5EEDAF449E2161DBFAE938657F6BDE9",
+          "quantity": 2,
+          "condition": 0.6978617906570435,
+          "definition": "/Game/Items/DA_Water.DA_Water"
+        }
+      ]
+    },
+    {
+      "case": "parked_base_source_retains_nearby_cell",
+      "pass": false,
+      "detail": "Gas lies in the base loading neighborhood; actual unload is covered by the earlier source-free traversal probe."
+    },
+    {
+      "case": "quiet_travel_between_bounded_events",
+      "pass": true,
+      "detail": [
+        "<Struct 'Guid' (0x000001EEEEA94A68) {}>"
+      ]
+    },
+    {
+      "case": "actual_streamed_contents_preserved",
+      "pass": true,
+      "detail": [
+        {
+          "id": "D5EEDAF449E2161DBFAE938657F6BDE9",
+          "quantity": 2,
+          "condition": 0.6978617906570435,
+          "definition": "/Game/Items/DA_Water.DA_Water"
+        }
+      ]
+    },
+    {
+      "case": "searched_flag_survives_streaming",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "region_shared_difficulty_received",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "bounded_infected_population",
+      "pass": true,
+      "detail": 1
+    }
+  ]
+}

@@ -10,7 +10,7 @@ def items(c):return [{'id':unreal.GuidLibrary.conv_guid_to_string(i.id),'definit
 def key(k,on):unreal.RVInteriorMotorhome.dispatch_development_key(pc(),k,on)
 def finish():
  global handle
- a=items(inv());b=items(cargo().container);food=next(x for x in before if '/DA_Food.' in x['definition'])
+ a=items(inv());b=items(cargo().container);food=next(x for x in before if '/DA_Food.' in x['definition'] and x['condition']<.999)
  (out/'normal-store-conservation.json').write_text(json.dumps({'pass':food in b and all(x['id']!=food['id'] for x in a),'evidence':'W perpendicular approach/E/Down/T normal inputs; no direct transfer fixture','before':before,'player_after':a,'cargo_after':b,'feedback':inv().feedback},indent=2))
  key('W',False);unreal.unregister_slate_post_tick_callback(handle);handle=None;gc.collect()
 def tick(dt):

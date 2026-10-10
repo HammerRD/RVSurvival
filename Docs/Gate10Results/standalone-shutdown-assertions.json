@@ -1,0 +1,17 @@
+[
+  {
+    "error": "Assertion failed: IsNetMode(NM_ListenServer) || IsNetMode(NM_DedicatedServer) [File:D:\\build\\++UE5\\Sync\\Engine\\Source\\Runtime\\Engine\\Private\\World.cpp] [Line: 4152] \n\n",
+    "listen_server": true,
+    "time": 1791628222.1606388
+  },
+  {
+    "error": "Assertion failed: IsNetMode(NM_ListenServer) || IsNetMode(NM_DedicatedServer) [File:D:\\build\\++UE5\\Sync\\Engine\\Source\\Runtime\\Engine\\Private\\World.cpp] [Line: 4152] \n\n",
+    "listen_server": true,
+    "time": 1791627947.0687003
+  },
+  {
+    "error": "Assertion failed: IsNetMode(NM_ListenServer) || IsNetMode(NM_DedicatedServer) [File:D:\\build\\++UE5\\Sync\\Engine\\Source\\Runtime\\Engine\\Private\\World.cpp] [Line: 4152] \n\n",
+    "listen_server": true,
+    "time": 1791627671.5185964
+  }
+]

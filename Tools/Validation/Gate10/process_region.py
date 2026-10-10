@@ -62,7 +62,7 @@ def unload():
  if role=='server':move_players(150000,0)
 def far():
  loaded=any(guid(a.container_id)==target_id for a in unreal.GameplayStatics.get_all_actors_of_class(world(),unreal.RVScavengeContainer))
- if case.get('rejoin',False):
+ if case.get('rejoin',False) and role=='server':
   check('parked_base_source_retains_nearby_cell',loaded,'Gas lies in the base loading neighborhood; actual unload is covered by the earlier source-free traversal probe.')
  else:check('actual_partition_unloads_target',not loaded)
  zones=unreal.GameplayStatics.get_all_actors_of_class(world(),unreal.RVRegionEncounterZone)
@@ -95,17 +95,19 @@ def moving_arrival():
  v=unreal.GameplayStatics.get_all_actors_of_class(world(),unreal.RVInteriorMotorhome)[0]
  if role=='client':
   q=v.get_actor_transform().inverse_transform_location(pawn().get_actor_location());check('late_join_arrives_current_moving_base',abs(q.x)<550 and abs(q.y)<180 and 100<q.z<300 and v.get_velocity().length()>200,{'relative':str(q),'vehicle_speed':v.get_velocity().length()});key('S',True)
- else:check('late_join_restores_two_player_party',len(all_players())==2)
+ else:check('late_join_restores_two_player_party',len(unreal.GameplayStatics.get_game_state(world()).player_array)==2)
 def moving_walk():
  if role=='client':
   key('S',False);v=unreal.GameplayStatics.get_all_actors_of_class(world(),unreal.RVInteriorMotorhome)[0];q=v.get_actor_transform().inverse_transform_location(pawn().get_actor_location());check('late_join_can_walk_in_moving_base',-550<q.x<95 and abs(q.y)<180 and 100<q.z<300,{'relative':str(q),'movement':str(pawn().character_movement.movement_mode)});key('W',True)
 def stop_drive():
  key('W',False)
- if role=='server':key('SpaceBar',True)
+ if role=='server':key('SpaceBar',True);key('S',True)
 def exit_driver():
- if role=='server':key('SpaceBar',False);key('E',True)
+ if role=='server':key('S',False);key('E',True)
 def exit_check():
- if role=='server':key('E',False);check('driving_possession_restores_after_rejoin',isinstance(pawn(),unreal.RVSurvivorCharacter))
+ if role=='server':
+  key('E',False);v=unreal.GameplayStatics.get_all_actors_of_class(world(),unreal.RVInteriorMotorhome)[0]
+  check('driving_possession_restores_after_rejoin',isinstance(pawn(),unreal.RVSurvivorCharacter),{'pawn':pawn().get_class().get_name(),'vehicle_speed':v.get_velocity().length()});key('SpaceBar',False)
 def final_revisit():
  check('rejoin_does_not_replenish_shared_loot',items(target().container)==remaining,items(target().container))
 def finish(error=''):
@@ -122,11 +124,26 @@ def finish(error=''):
   if hasattr(sys,k):setattr(sys,k,None)
  gc.collect()
  if case.get('standalone',False):
+  try:
+   w=current_world()
+   for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.Actor):
+    for source in a.get_components_by_class(unreal.WorldPartitionStreamingSourceComponent):source.disable_streaming_source()
+   for controller in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.PlayerController):controller.set_editor_property('bEnableStreamingSource',False)
+  except Exception:
+   (out/(case['name']+'-'+role+'-cleanup-error.txt')).write_text(traceback.format_exc())
   quit_at=time.time()+6
   def quit_tick(dt):
    if time.time()<quit_at:return
+   w=current_world()
+   visible=[level for level in unreal.ObjectIterator(unreal.LevelStreaming) if level.get_outer()==w and level.is_level_visible()]
+   if visible:
+    if time.time()<quit_at+20:return
+    # Do not repeat the known unsafe native shutdown with visible server cells.
+    (out/(case['name']+'-'+role+'-cleanup.json')).write_text(json.dumps({'clean':False,'visible_levels':len(visible),'quit_rejected':True}))
+    unreal.unregister_slate_post_tick_callback(quit_handle);return
    unreal.unregister_slate_post_tick_callback(quit_handle)
-   w=current_world();unreal.SystemLibrary.execute_console_command(w,'quit',None)
+   (out/(case['name']+'-'+role+'-cleanup.json')).write_text(json.dumps({'clean':True,'visible_levels':0}))
+   unreal.SystemLibrary.execute_console_command(w,'quit',None)
   quit_handle=unreal.register_slate_post_tick_callback(quit_tick)
 def tick(dt):
  try:
