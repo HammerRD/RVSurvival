@@ -4,9 +4,25 @@
 #include "Player/RVPassengerReferenceFrameComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Components/PrimitiveComponent.h"
+#include "Components/WorldPartitionStreamingSourceComponent.h"
 #include "EngineUtils.h"
 #include "Engine/World.h"
 #include "TimerManager.h"
+
+void ARVRegionGameMode::BeginPlay()
+{
+    Super::BeginPlay();
+    if(!HasAuthority() || !GetWorld()->GetWorldPartition())return;
+    for(TActorIterator<ARVInteriorMotorhome> It(GetWorld());It;++It)
+    {
+        auto* Vehicle=*It;
+        if(!Vehicle->ActorHasTag(MobileBaseTag) || Vehicle->FindComponentByClass<UWorldPartitionStreamingSourceComponent>())continue;
+        auto* Source=NewObject<UWorldPartitionStreamingSourceComponent>(Vehicle,TEXT("MobileBaseStreamingSource"));
+        FStreamingSourceShape Shape;Shape.bUseGridLoadingRange=false;
+        Shape.Radius=FMath::Clamp(MobileBaseLoadingRadiusCm,5000.f,30000.f);
+        Source->Shapes.Add(Shape);Vehicle->AddInstanceComponent(Source);Source->RegisterComponent();
+    }
+}
 
 void ARVRegionGameMode::RestartPlayer(AController* NewPlayer)
 {

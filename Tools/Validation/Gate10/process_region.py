@@ -61,7 +61,10 @@ def difficulty_check():
 def unload():
  if role=='server':move_players(150000,0)
 def far():
- check('actual_partition_unloads_target',all(guid(a.container_id)!=target_id for a in unreal.GameplayStatics.get_all_actors_of_class(world(),unreal.RVScavengeContainer)))
+ loaded=any(guid(a.container_id)==target_id for a in unreal.GameplayStatics.get_all_actors_of_class(world(),unreal.RVScavengeContainer))
+ if case.get('rejoin',False):
+  check('parked_base_source_retains_nearby_cell',loaded,'Gas lies in the base loading neighborhood; actual unload is covered by the earlier source-free traversal probe.')
+ else:check('actual_partition_unloads_target',not loaded)
  zones=unreal.GameplayStatics.get_all_actors_of_class(world(),unreal.RVRegionEncounterZone)
  quiet=[str(z.zone_id) for z in zones if z.get_editor_property('bEvaluated') and z.outcome==unreal.RVEncounterOutcome.QUIET]
  check('quiet_travel_between_bounded_events',len(quiet)>0,quiet)
@@ -71,17 +74,66 @@ def revisit():
  c=target();check('actual_streamed_contents_preserved',items(c.container)==remaining,items(c.container));check('searched_flag_survives_streaming',c.get_editor_property('bSearched'))
  gs=unreal.GameplayStatics.get_game_state(world());check('region_shared_difficulty_received',any(str(r.id)=='Loot' and not r.preparation_only for r in gs.difficulty_rules))
  infected=unreal.GameplayStatics.get_all_actors_of_class(world(),unreal.RVInfected);check('bounded_infected_population',len(infected)<=12,len(infected))
+def current_world():
+ return next(w for w in unreal.ObjectIterator(unreal.World) if unreal.GameplayStatics.get_player_controller(w,0) and unreal.GameplayStatics.get_game_state(w))
+def disconnect():
+ if role=='client':unreal.SystemLibrary.execute_console_command(world(),'disconnect',pc())
+def pilot_setup():
+ if role!='server':return
+ v=unreal.GameplayStatics.get_all_actors_of_class(world(),unreal.RVInteriorMotorhome)[0]
+ check('parked_base_retains_ground_while_party_explores',v.get_actor_location().z>-50 and v.get_component_by_class(unreal.WorldPartitionStreamingSourceComponent)!=None,str(v.get_actor_location()))
+ entry=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(world(),unreal.RVVehicleEntryPoint) if a.seat and a.seat.get_editor_property('bDriverSeat'))
+ q=v.get_actor_transform().inverse_transform_location(entry.get_actor_location());p=pawn();p.set_actor_location(v.get_actor_transform().transform_location(unreal.Vector(q.x,q.y-125 if q.y<0 else q.y+125,100)),False,True);p.character_movement.stop_movement_immediately();pc().set_control_rotation(unreal.MathLibrary.find_look_at_rotation(p.get_actor_eyes_view_point()[0],entry.get_actor_location()));key('E',True)
+def drive():
+ if role=='server':
+  key('E',False);check('normal_E_driver_before_late_join',isinstance(pawn(),unreal.RVInteriorMotorhome));key('W',True)
+def reconnect():
+ if role=='client':unreal.SystemLibrary.execute_console_command(current_world(),'open 127.0.0.1:'+str(case.get('port',17777)),None)
+def release_travel_cache():
+ if role=='client' and case.get('travel_gc',False):unreal.SystemLibrary.execute_console_command(current_world(),'obj gc',None)
+def moving_arrival():
+ v=unreal.GameplayStatics.get_all_actors_of_class(world(),unreal.RVInteriorMotorhome)[0]
+ if role=='client':
+  q=v.get_actor_transform().inverse_transform_location(pawn().get_actor_location());check('late_join_arrives_current_moving_base',abs(q.x)<550 and abs(q.y)<180 and 100<q.z<300 and v.get_velocity().length()>200,{'relative':str(q),'vehicle_speed':v.get_velocity().length()});key('S',True)
+ else:check('late_join_restores_two_player_party',len(all_players())==2)
+def moving_walk():
+ if role=='client':
+  key('S',False);v=unreal.GameplayStatics.get_all_actors_of_class(world(),unreal.RVInteriorMotorhome)[0];q=v.get_actor_transform().inverse_transform_location(pawn().get_actor_location());check('late_join_can_walk_in_moving_base',-550<q.x<95 and abs(q.y)<180 and 100<q.z<300,{'relative':str(q),'movement':str(pawn().character_movement.movement_mode)});key('W',True)
+def stop_drive():
+ key('W',False)
+ if role=='server':key('SpaceBar',True)
+def exit_driver():
+ if role=='server':key('SpaceBar',False);key('E',True)
+def exit_check():
+ if role=='server':key('E',False);check('driving_possession_restores_after_rejoin',isinstance(pawn(),unreal.RVSurvivorCharacter))
+def final_revisit():
+ check('rejoin_does_not_replenish_shared_loot',items(target().container)==remaining,items(target().container))
 def finish(error=''):
  global handle
- key('E',False);unreal.unregister_slate_post_tick_callback(handle);handle=None
+ # Travel can temporarily remove the region world/controller. Cleanup must still
+ # unregister the callback and write the failure receipt in that interval.
+ try:
+  controller=unreal.GameplayStatics.get_player_controller(current_world(),0)
+  for k in ['E','W','S','SpaceBar']:unreal.RVInteriorMotorhome.dispatch_development_key(controller,k,False)
+ except (StopIteration,RuntimeError):pass
+ unreal.unregister_slate_post_tick_callback(handle);handle=None
  (out/(case['name']+'-'+(role or 'unknown')+'.json')).write_text(json.dumps({'session':session['id'],'error':error,'evidence':'two-process normal E + accepted server inventory transaction; server relocation fixture for cell traversal, not driven-loop proof','results':rows},indent=2))
  for k in ['last_traceback','last_value','last_type','last_exc']:
   if hasattr(sys,k):setattr(sys,k,None)
  gc.collect()
+ if case.get('standalone',False):
+  quit_at=time.time()+6
+  def quit_tick(dt):
+   if time.time()<quit_at:return
+   unreal.unregister_slate_post_tick_callback(quit_handle)
+   w=current_world();unreal.SystemLibrary.execute_console_command(w,'quit',None)
+  quit_handle=unreal.register_slate_post_tick_callback(quit_tick)
 def tick(dt):
  try:
   t=time.time()-start
-  events=[(0,'arrival',arrival),(.6,'host_profile',host_profile),(1.4,'host_population',host_population),(2,'initial_gas_move',lambda:move_players(-130000,5500) if role=='server' else None),(6,'client_override',client_override),(10,'approach',approach),(12,'difficulty_check',difficulty_check),(13,'aim',aim),(14,'Edown',lambda:key('E',True)),(14.5,'Eup',lambda:key('E',False)),(17,'claim',claim),(21,'conserve',conserve),(23,'away',unload),(38,'far',far),(40,'back',back),(55,'revisit',revisit),(58,'finish',finish)]
+  events=[(0,'arrival',arrival),(.6,'host_profile',host_profile),(1.4,'host_population',host_population),(2,'initial_gas_move',lambda:move_players(-130000,5500) if role=='server' else None),(6,'client_override',client_override),(10,'approach',approach),(12,'difficulty_check',difficulty_check),(13,'aim',aim),(14,'Edown',lambda:key('E',True)),(14.5,'Eup',lambda:key('E',False)),(17,'claim',claim),(21,'conserve',conserve),(23,'away',unload),(38,'far',far),(40,'back',back),(55,'revisit',revisit)]
+  if case.get('rejoin',False):events += [(60,'disconnect',disconnect),(65,'pilot_setup',pilot_setup),(66,'release_travel_cache',release_travel_cache),(67,'drive',drive),(70,'reconnect',reconnect),(85,'moving_arrival',moving_arrival),(86,'moving_walk',moving_walk),(87,'stop_client_walk',lambda:key('W',False) if role=='client' else None),(94,'stop_drive',stop_drive),(100,'exit_driver',exit_driver),(101,'exit_check',exit_check),(105,'gas_return',lambda:move_players(-130000,5500) if role=='server' else None),(120,'final_revisit',final_revisit),(123,'finish',finish)]
+  else:events.append((58,'finish',finish))
   for at,name,fn in events:
    if t>=at and name not in done:done.add(name);fn();break
  except Exception:finish(traceback.format_exc())
