@@ -1,0 +1,70 @@
+{
+  "pawn_class": "BP_Gate9_5Survivor_C",
+  "position": [
+    -160000.0,
+    2350.0,
+    90.14999654676075
+  ],
+  "movement_mode": "<MovementMode.MOVE_WALKING: 1>",
+  "loaded_containers": [
+    {
+      "actor": "RVScavengeContainer_UAID_64497D559D93AD0903_1894778810",
+      "items": 3,
+      "searched": false
+    },
+    {
+      "actor": "RVScavengeContainer_UAID_64497D559D93AD0903_1894773808",
+      "items": 3,
+      "searched": false
+    },
+    {
+      "actor": "RVScavengeContainer_UAID_64497D559D93AD0903_1894753806",
+      "items": 2,
+      "searched": false
+    }
+  ],
+  "zones": [
+    {
+      "actor": "RVRegionEncounterZone_UAID_64497D559D93AE0903_1625237962",
+      "evaluated": false,
+      "outcome": "<RVEncounterOutcome.QUIET: 0>"
+    },
+    {
+      "actor": "RVRegionEncounterZone_UAID_64497D559D93AE0903_1625382966",
+      "evaluated": false,
+      "outcome": "<RVEncounterOutcome.QUIET: 0>"
+    },
+    {
+      "actor": "RVRegionEncounterZone_UAID_64497D559D93AE0903_1625276963",
+      "evaluated": false,
+      "outcome": "<RVEncounterOutcome.QUIET: 0>"
+    },
+    {
+      "actor": "RVRegionEncounterZone_UAID_64497D559D93AE0903_1625140960",
+      "evaluated": false,
+      "outcome": "<RVEncounterOutcome.QUIET: 0>"
+    },
+    {
+      "actor": "RVRegionEncounterZone_UAID_64497D559D93AE0903_1625192961",
+      "evaluated": false,
+      "outcome": "<RVEncounterOutcome.QUIET: 0>"
+    },
+    {
+      "actor": "RVRegionEncounterZone_UAID_64497D559D93AE0903_1625348965",
+      "evaluated": false,
+      "outcome": "<RVEncounterOutcome.QUIET: 0>"
+    },
+    {
+      "actor": "RVRegionEncounterZone_UAID_64497D559D93AE0903_1625311964",
+      "evaluated": false,
+      "outcome": "<RVEncounterOutcome.QUIET: 0>"
+    }
+  ],
+  "loot_lifecycle": {
+    "Profile produced supplies": true,
+    "Duplicate authored identity refuses generation": true,
+    "Existing transaction transfers once": true,
+    "Unload recreation preserves remaining GUID quantity condition": true,
+    "Transferred item does not respawn": true
+  }
+}

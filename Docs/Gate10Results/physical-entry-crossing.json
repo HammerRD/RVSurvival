@@ -1,0 +1,19 @@
+{
+  "step": "crossing",
+  "pawn_position": [
+    -159902.4823865071,
+    1577.9803007917221,
+    196.27063671471927
+  ],
+  "vehicle_position": [
+    -159997.66769182874,
+    1600.3587669107017,
+    18.595509622648763
+  ],
+  "vehicle_physics": true,
+  "movement_mode": "<MovementMode.MOVE_WALKING: 1>",
+  "prompt": "",
+  "trace": "blocking=1 actor=BP_ClassCMechanicalMotorhome_C_UAID_64497D559D93AD0903_1897260958 component=LeftWall eye=X=-159902.482 Y=1577.980 Z=264.271 impact=X=-159898.173 Y=1482.471 Z=265.445 distance=95.61",
+  "door_open": true,
+  "frame_registered": true
+}

@@ -100,3 +100,25 @@ in the corrected receipt. Full editor shutdown confirmed again. Navigation showe
 735 tiles, but the explicit Build call logged build-lock flags 0x20; navigation
 correctness and streaming are NOT claimed. Native partition-aware navigation setup
 and gameplay projection tests are next.
+
+## Saved navigation and initial player-path inspection
+
+Native WorldPartitionNavigationDataBuilder completed successfully (exit 0, no
+errors). Static partitioned navigation uses a 42 cm agent radius and 192 cm height.
+One CrowdManager warning occurred during cell cleanup; runtime projection and AI
+path-following remain pending. WNY mobile RV and initial PlayerStart are
+non-spatial; regional scenery/containers remain spatial. Prior maps unchanged.
+
+Initial one-player PIE used normal Enhanced Input E/W/S input. The fourth approach
+opened the door and physically walked onto the RV interior floor (capsule center
+Z 196.27 cm, MOVE_WALKING); visible inspection confirmed the interior view.
+Earlier probes aimed incorrectly, obstructed the swing, or stopped outside range;
+those are harness failures, not passing entry tests. PIE stopped cleanly and
+normal editor close reached LogExit: Exiting.
+
+Native loot lifecycle diagnostics passed duplicate identity rejection, single
+transfer/stale transfer rejection, restored quantity/condition/GUID, and no
+replenishment after recreation. This is NOT actual WP streaming, multiplayer or
+normal-player scavenging acceptance evidence. The visible landscape remains too
+uniform and nearby dressing sparse. Runtime world loop, environment refinement,
+encounters, multiplayer and performance validation remain unfinished.

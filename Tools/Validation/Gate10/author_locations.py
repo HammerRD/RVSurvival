@@ -32,7 +32,7 @@ def build():
   a.tags=['WNYLocationsMilestone'];c=a.static_mesh_component;c.set_static_mesh(mesh or cube);c.set_material(0,mats[material]);c.set_mobility(unreal.ComponentMobility.STATIC)
   a.set_actor_scale3d(unreal.Vector(*(v/100 for v in size)));return a
  def label(text,pos):
-  a=spawn(unreal.TextRenderActor,'Sign '+text,pos,unreal.Rotator(0,-90,0))
+  a=spawn(unreal.TextRenderActor,'Sign '+text,pos,unreal.Rotator(yaw=-90))
   c=a.get_component_by_class(unreal.TextRenderComponent);c.set_text(text);c.set_world_size(38);c.set_horizontal_alignment(unreal.HorizTextAligment.EHTA_CENTER)
  def profile(name,paths):
   path='/Game/World/WNY/Loot';f=unreal.DataAssetFactory();f.set_editor_property('DataAssetClass',unreal.RVLootProfile)
@@ -119,5 +119,6 @@ if __name__=='__main__':
  try:(out/'locations-foundation.json').write_text(json.dumps(build(),indent=2))
  except Exception:(out/'locations-foundation-error.txt').write_text(traceback.format_exc());traceback.print_exc()
  finally:gc.collect();unreal.SystemLibrary.quit_editor()
+
 
 

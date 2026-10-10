@@ -324,3 +324,7 @@ passes. PCG scheduling aborts, editor shutdown behavior, actual traversal,
 multiplayer streaming, encounters and visual validation remain unresolved or
 untested; this is not Gate 10 acceptance. Prior accepted maps/vendor files are
 not edited.
+
+## 2026-10-10 — Gate 10 navigation and initial PIE checkpoint
+
+Saved native partitioned navigation and non-spatial WNY mobile RV/start. Native navigation builder exited successfully with no errors; runtime path-following remains pending. Normal E/W/S player input opened the side door and physically entered the RV; visible interior, walking movement and reference-frame registration confirmed. Stopped PIE and closed editor cleanly. Finite-loot lifecycle diagnostics passed targeted identity/transfer/restore/depletion checks, but actual streaming/multiplayer world-loop acceptance remains pending. Landscape/nearby dressing requires further visual refinement. Gate 10 remains in progress; no Gate 11.

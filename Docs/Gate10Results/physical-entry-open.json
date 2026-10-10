@@ -1,0 +1,19 @@
+{
+  "step": "open",
+  "pawn_position": [
+    -159912.04501646647,
+    1863.9025893334924,
+    90.15000323036637
+  ],
+  "vehicle_position": [
+    -159997.66769182874,
+    1600.3587669107017,
+    18.595509622648763
+  ],
+  "vehicle_physics": true,
+  "movement_mode": "<MovementMode.MOVE_WALKING: 1>",
+  "prompt": "",
+  "trace": "blocking=0 actor=None component=None eye=X=-159912.045 Y=1863.903 Z=158.150 impact=X=0.000 Y=0.000 Z=0.000 distance=0.00",
+  "door_open": true,
+  "frame_registered": false
+}

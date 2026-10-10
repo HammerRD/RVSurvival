@@ -1,0 +1,7 @@
+{
+  "saved": true,
+  "mode": "native static partitioned navmesh; build via WorldPartitionNavigationDataBuilder",
+  "agent_radius_cm": 42,
+  "agent_height_cm": 192,
+  "build_and_runtime_projection": "pending"
+}
