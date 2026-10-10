@@ -158,3 +158,5 @@ Armed gas attempt consumed all seven rounds without damaging the selected infect
 
 ## Site grading recovery milestone
 Recovery checkpoint a4d60d6 precedes bounded grading. Native FLandscapeEditDataInterface updates only the new region's five pads, including native normals/bounds/collision, with a height-sample guard and one-time saved marker. Five pads changed 2052 vertices; 149 site actors and421 road control points aligned, saved and clean Exiting. One pointer-iteration compile error was corrected; final grading build succeeded. Geometry/nav/PCG/HLOD refresh and visual/runtime validation pending. No accepted infected/gameplay collision changes were made.
+
+Graded-site refresh: native partition navigation saved regenerated chunks and shut down cleanly (one Recast crowd-manager warning during builder teardown). Native HLOD setup/build exit0 and clean Exiting after terrain/PCG refresh. Diagnostic instance counts now separate PCG-owned source instances from other/HLOD instances, avoiding inflated foliage totals. Final build for this instrumentation succeeded. Saved-world normal-control prepared-player/drive/scavenge sequence is being re-run; no acceptance yet.

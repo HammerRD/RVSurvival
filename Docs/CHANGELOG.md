@@ -344,3 +344,5 @@ Saved project-side woodland terrain material, 129 additional bounded roadside PC
 - Added bounded native Landscape grading for five prototype sites and aligned site geometry/road approaches.
 - Recorded actual door/pickup/firearm preparation control paths; corrected harness pivot aim and numeric key naming.
 - Recovery a4d60d6 preserves pre-grading world. Gate10 remains in progress, NOT ACCEPTED.
+
+Graded-site refresh: native partition navigation saved regenerated chunks and shut down cleanly (one Recast crowd-manager warning during builder teardown). Native HLOD setup/build exit0 and clean Exiting after terrain/PCG refresh. Diagnostic instance counts now separate PCG-owned source instances from other/HLOD instances, avoiding inflated foliage totals. Final build for this instrumentation succeeded. Saved-world normal-control prepared-player/drive/scavenge sequence is being re-run; no acceptance yet.

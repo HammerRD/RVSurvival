@@ -23,6 +23,9 @@ def combat(t):
  enemies=[a for a in unreal.GameplayStatics.get_all_actors_of_class(w(),unreal.RVInfected) if a.vitality>0 and a.get_actor_location().distance(p().get_actor_location())<6000 and pc().line_of_sight_to(a)]
  if not enemies:key('RightMouseButton',False);aim_time=-10;return False
  a=min(enemies,key=lambda a:a.get_actor_location().distance(p().get_actor_location()));mesh=a.get_component_by_class(unreal.SkeletalMeshComponent);target=mesh.get_socket_location('head') if mesh.does_socket_exist('head') else a.get_actor_location()+unreal.Vector(0,0,60)
+ ray=unreal.SystemLibrary.line_trace_single(w(),p().get_actor_eyes_view_point()[0],target,unreal.TraceTypeQuery.TRACE_TYPE_QUERY1,True,[p()],unreal.DrawDebugTrace.NONE,True)
+ hit=ray if isinstance(ray,unreal.HitResult) else next((v for v in ray if isinstance(v,unreal.HitResult)),None) if isinstance(ray,tuple) else None
+ if not hit or hit.to_tuple()[9]!=a:key('RightMouseButton',False);return False
  key('W',False);pc().set_control_rotation(unreal.MathLibrary.find_look_at_rotation(p().get_actor_eyes_view_point()[0],target))
  if not held.get('RightMouseButton'):key('RightMouseButton',True);aim_time=t
  c=p().get_component_by_class(unreal.RVCombatComponent)
@@ -56,4 +59,5 @@ def tick(dt):
  except Exception:
   (out/'armed-physical-gas-scavenge-error.txt').write_text(traceback.format_exc());finish('error; not accepted')
 handle=unreal.register_slate_post_tick_callback(tick)
+
 

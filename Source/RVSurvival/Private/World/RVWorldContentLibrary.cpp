@@ -123,14 +123,15 @@ UPCGGraph* URVWorldContentLibrary::CreateBiomeGraph(const FString& Path,const TA
 }
 TMap<FString,int32> URVWorldContentLibrary::GetDressingStats(UObject* Context)
 {
-    TMap<FString,int32> Result;Result.Add(TEXT("Pending"),0);Result.Add(TEXT("Instances"),0);Result.Add(TEXT("Components"),0);
+    TMap<FString,int32> Result;Result.Add(TEXT("Pending"),0);Result.Add(TEXT("Instances"),0);Result.Add(TEXT("OtherInstances"),0);Result.Add(TEXT("Components"),0);
     if(auto* World=Context?Context->GetWorld():nullptr)
         for(TActorIterator<AActor> It(World);It;++It)
         {
             TArray<UPCGComponent*> PCG;It->GetComponents(PCG);
             for(auto* C:PCG){++Result[TEXT("Components")];if(C->IsGenerating())++Result[TEXT("Pending")];}
             TArray<UInstancedStaticMeshComponent*> Instances;It->GetComponents(Instances);
-            for(auto* C:Instances)Result[TEXT("Instances")]+=C->GetInstanceCount();
+            // Distant HLOD copies are not additional source PCG foliage.
+            for(auto* C:Instances)Result[PCG.Num()>0?TEXT("Instances"):TEXT("OtherInstances")]+=C->GetInstanceCount();
         }
     return Result;
 }
