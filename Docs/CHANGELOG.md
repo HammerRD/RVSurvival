@@ -372,3 +372,4 @@ A layout review found the service garage front parking area outside the original
 Garage derived-data refresh saved: native HLOD and navigation exit0; continued route validation pending.
 Gate10 remains in progress. User-only Windows Firewall prompt interrupted final continued-route review; checkpoint 3cac7c6 preserves saved garage terrain/props/PCG/HLOD/navigation. No Gate11.
 Gate10 resume: retained cargo-approach assertion failure; prepared return-walk/perpendicular-access test correction (runtime retest pending). Windows control helper remains busy after reset; no acceptance claimed.
+Gate10 audit checkpoint d03bef8 preserved completed evidence. Same-session food storage visually/authoritatively passed; longer route timed out after2.42km at garage terrain/driveway mismatch. Retained failure; targeted Landscape diagnosis next, no Gate11.
