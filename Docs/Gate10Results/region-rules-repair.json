@@ -1,0 +1,59 @@
+{
+  "before": {
+    "game_state": "/Game/World/WNY/Gameplay/BP_WNYGameState.BP_WNYGameState_C",
+    "presets": [
+      "/Game/World/WNY/Difficulty/DA_Relaxed.DA_Relaxed",
+      "/Game/World/WNY/Difficulty/DA_Standard.DA_Standard",
+      "/Game/World/WNY/Difficulty/DA_Harsh.DA_Harsh"
+    ]
+  },
+  "saved": true,
+  "after_game_state": "/Game/World/WNY/Gameplay/BP_WNYGameState.BP_WNYGameState_C",
+  "presets": [
+    {
+      "asset": "/Game/World/WNY/Difficulty/DA_Relaxed.DA_Relaxed",
+      "rules": [
+        {
+          "id": "Loot",
+          "future": false,
+          "multiplier": 1.5
+        },
+        {
+          "id": "Population",
+          "future": false,
+          "multiplier": 0.699999988079071
+        }
+      ]
+    },
+    {
+      "asset": "/Game/World/WNY/Difficulty/DA_Standard.DA_Standard",
+      "rules": [
+        {
+          "id": "Loot",
+          "future": false,
+          "multiplier": 1.0
+        },
+        {
+          "id": "Population",
+          "future": false,
+          "multiplier": 1.0
+        }
+      ]
+    },
+    {
+      "asset": "/Game/World/WNY/Difficulty/DA_Harsh.DA_Harsh",
+      "rules": [
+        {
+          "id": "Loot",
+          "future": false,
+          "multiplier": 0.6499999761581421
+        },
+        {
+          "id": "Population",
+          "future": false,
+          "multiplier": 1.399999976158142
+        }
+      ]
+    }
+  ]
+}

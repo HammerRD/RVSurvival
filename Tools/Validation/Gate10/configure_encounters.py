@@ -24,7 +24,7 @@ def configure():
  for name in ['Relaxed','Standard','Harsh']:
   path=folder+'/Difficulty/DA_'+name;source='/Game/Combat/Gate9_5/Difficulty/DA_'+name
   asset=unreal.load_asset(path) or unreal.EditorAssetLibrary.duplicate_asset(source,path);assert asset,source
-  asset.modify();rules=asset.get_editor_property('Rules')
+  asset.modify();rules=list(asset.get_editor_property('Rules'))
   for r in rules:
    key=str(r.get_editor_property('Id'))
    if key in ['Loot','Population']:
