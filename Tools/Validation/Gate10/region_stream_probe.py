@@ -8,7 +8,7 @@ out=Path('D:/GitHub/RVSurvival/RVSurvival/Saved/Gate10Validation');started=time.
 def world():return next(w for w in unreal.ObjectIterator(unreal.World) if w.get_name()=='WNY_PrototypeRegion' and unreal.GameplayStatics.get_game_mode(w) and unreal.GameplayStatics.get_player_controller(w,0))
 def pawn():return unreal.GameplayStatics.get_player_controller(world(),0).get_controlled_pawn()
 def key(k,on):unreal.RVInteriorMotorhome.dispatch_development_key(unreal.GameplayStatics.get_player_controller(world(),0),k,on)
-def guid(g):return g.to_string()
+def guid(g):return unreal.GuidLibrary.conv_guid_to_string(g)
 def target():return next(a for a in unreal.GameplayStatics.get_all_actors_of_class(world(),unreal.RVScavengeContainer) if guid(a.container_id)==target_id)
 def items(c):return [{'id':guid(i.id),'definition':i.definition.get_path_name(),'quantity':i.quantity,'condition':i.condition} for i in c.get_items()]
 def check(name,passed,detail=''):rows.append({'case':name,'pass':bool(passed),'detail':detail})
@@ -27,9 +27,15 @@ def transfer():
  check('normal_E_opens_real_container',inv.open_container==c and target().get_editor_property('bSearched'),p.get_component_by_class(unreal.RVInteractionComponent).debug_trace_description())
  if inv.open_container!=c:return
  record=c.get_items()[0];transferred_id=guid(record.id);inv.request_transfer(record.id,record.quantity,False)
- remaining=items(c);check('normal_transaction_conserves_item',any(i['id']==transferred_id for i in items(inv)) and not any(i['id']==transferred_id for i in remaining))
- inv.request_transfer(record.id,record.quantity,False)
- check('stale_repeated_transfer_rejected',sum(i['id']==transferred_id for i in items(inv))==1)
+def check_transfer():
+ global remaining
+ inv=pawn().get_component_by_class(unreal.RVInventoryComponent);remaining=items(target().container)
+ check('normal_transaction_conserves_item',any(i['id']==transferred_id for i in items(inv)) and not any(i['id']==transferred_id for i in remaining),inv.feedback)
+ record=next((i for i in inv.get_items() if guid(i.id)==transferred_id),None)
+ if record:inv.request_transfer(record.id,record.quantity,False)
+def check_stale():
+ inv=pawn().get_component_by_class(unreal.RVInventoryComponent)
+ check('stale_repeated_transfer_rejected',sum(i['id']==transferred_id for i in items(inv))==1,inv.feedback)
  inv.request_close_container()
 def survey():
  w=world();p=pawn();nav=unreal.NavigationSystemV1.project_point_to_navigation(w,p.get_actor_location(),None,None,unreal.Vector(300,300,2500))
@@ -50,7 +56,7 @@ def finish():
 def tick(dt):
  try:
   t=time.time()-started
-  events=[(1,'gas',lambda:relocate(-130000,5500,130)),(8,'approach',approach),(9,'e_down',lambda:key('E',True)),(9.15,'e_up',lambda:key('E',False)),(11,'transfer',transfer),(13,'survey',survey),(15,'away',lambda:relocate(150000,0,130)),(28,'far',far_check),(30,'back',lambda:relocate(-130000,5500,130)),(43,'revisit',revisit),(45,'finish',finish)]
+  events=[(1,'gas',lambda:relocate(-130000,5500,130)),(8,'approach',approach),(9,'e_down',lambda:key('E',True)),(9.15,'e_up',lambda:key('E',False)),(11,'transfer',transfer),(12,'transfer_check',check_transfer),(13,'stale_check',check_stale),(14,'survey',survey),(16,'away',lambda:relocate(150000,0,130)),(28,'far',far_check),(30,'back',lambda:relocate(-130000,5500,130)),(43,'revisit',revisit),(45,'finish',finish)]
   for at,name,fn in events:
    if t>=at and name not in done:done.add(name);fn();break
  except Exception:

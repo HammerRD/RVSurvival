@@ -1,0 +1,122 @@
+{
+  "evidence": "real E input and existing UI transaction; development relocation for streaming, not driving-loop validation",
+  "results": [
+    {
+      "case": "initial_finite_supplies",
+      "pass": true,
+      "detail": [
+        {
+          "id": "BE4BD9374A1C07A2AAFAFD96EF3B5AE5",
+          "definition": "/Game/Items/DA_Food.DA_Food",
+          "quantity": 1,
+          "condition": 0.8461890816688538
+        },
+        {
+          "id": "063BA0C04783CAC9E3CDADA642FE760D",
+          "definition": "/Game/Items/DA_Water.DA_Water",
+          "quantity": 2,
+          "condition": 0.6978617906570435
+        }
+      ]
+    },
+    {
+      "case": "normal_E_opens_real_container",
+      "pass": true,
+      "detail": "blocking=1 actor=RVScavengeContainer_UAID_64497D559D93AD0903_1894753806 component=Mesh eye=X=-130400.000 Y=6598.500 Z=-232.549 impact=X=-130400.000 Y=6762.500 Z=-336.737 distance=194.30"
+    },
+    {
+      "case": "normal_transaction_conserves_item",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "stale_repeated_transfer_rejected",
+      "pass": true,
+      "detail": "Item no longer available"
+    },
+    {
+      "case": "native_navigation_projects_at_gas",
+      "pass": true,
+      "detail": "<Struct 'Vector' (0x000001644F400420) {x: -130400.000000, y: 6598.500000, z: -379.336216}>"
+    },
+    {
+      "case": "encounter_active_population_bounded",
+      "pass": true,
+      "detail": {
+        "infected": 2,
+        "zones": [
+          {
+            "id": "D52FE094546D5BEA8526F00C111DCAB2",
+            "evaluated": false,
+            "outcome": "<RVEncounterOutcome.QUIET: 0>"
+          },
+          {
+            "id": "3A7DB72A61335495AC723AC983712C3D",
+            "evaluated": false,
+            "outcome": "<RVEncounterOutcome.QUIET: 0>"
+          },
+          {
+            "id": "E7DF488E59C05B8B9BAF072EDFFC2CF1",
+            "evaluated": false,
+            "outcome": "<RVEncounterOutcome.QUIET: 0>"
+          },
+          {
+            "id": "6D8A978C8B625FB1B443B984F17E4AD9",
+            "evaluated": true,
+            "outcome": "<RVEncounterOutcome.INFECTED_CLUSTER: 1>"
+          },
+          {
+            "id": "86CC471F110B5E07B3FAD854D0EC34FD",
+            "evaluated": false,
+            "outcome": "<RVEncounterOutcome.QUIET: 0>"
+          },
+          {
+            "id": "E1FD11FACECD58DEBCD5F6A5C060484A",
+            "evaluated": false,
+            "outcome": "<RVEncounterOutcome.QUIET: 0>"
+          },
+          {
+            "id": "E8480BE9EDDC5C8A898A3102DFDB06BA",
+            "evaluated": false,
+            "outcome": "<RVEncounterOutcome.QUIET: 0>"
+          }
+        ]
+      }
+    },
+    {
+      "case": "actual_partition_unloaded_searched_container",
+      "pass": true,
+      "detail": [
+        "3F16B940046051F99BB4464B954C4FC7",
+        "CDCDDD90CCCA5DDC9A126A07F439F208"
+      ]
+    },
+    {
+      "case": "actual_streamed_revisit_preserves_state",
+      "pass": true,
+      "detail": {
+        "before": [
+          {
+            "id": "063BA0C04783CAC9E3CDADA642FE760D",
+            "definition": "/Game/Items/DA_Water.DA_Water",
+            "quantity": 2,
+            "condition": 0.6978617906570435
+          }
+        ],
+        "after": [
+          {
+            "id": "063BA0C04783CAC9E3CDADA642FE760D",
+            "definition": "/Game/Items/DA_Water.DA_Water",
+            "quantity": 2,
+            "condition": 0.6978617906570435
+          }
+        ]
+      }
+    },
+    {
+      "case": "actual_streamed_searched_flag_retained",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

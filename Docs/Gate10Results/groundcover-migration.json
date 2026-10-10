@@ -1,0 +1,11 @@
+{
+  "migrated": true,
+  "seeds": [
+    "/Game/Megascans/3D_Plants/CloverVarieties/SM_CloverVarieties_01",
+    "/Game/Megascans/3D_Plants/GroundCover/SM_GroundCover_01",
+    "/Game/Megascans/3D_Plants/Elderberry/SM_Elderberry_01"
+  ],
+  "package_count": 36,
+  "bytes": 123978541,
+  "source_unchanged": true
+}

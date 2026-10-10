@@ -1,0 +1,189 @@
+{
+  "seeds": [
+    "/Game/Megascans/3D_Plants/CloverVarieties/SM_CloverVarieties_01",
+    "/Game/Megascans/3D_Plants/GroundCover/SM_GroundCover_01",
+    "/Game/Megascans/3D_Plants/Elderberry/SM_Elderberry_01"
+  ],
+  "files": [
+    {
+      "package": "/Game/Custom/CustomMaterials/Materials/Master_Materials/Custom_MS_Master/M_MS_Foliage_Overwrite/MF_CustomTranslucency",
+      "bytes": 12226,
+      "sha256": "e34253a4c241295fee32e4c9f1e2b3b473fb4972408629a27ce0a887969d585e"
+    },
+    {
+      "package": "/Game/Custom/CustomMaterials/Materials/Master_Materials/Custom_MS_Master/M_MS_Foliage_Overwrite/M_MS_CustomFoliage",
+      "bytes": 83758,
+      "sha256": "66d45e1e2e7374c887df3e109c4cebbfddfa682360e83112cc7f662f2e494de8"
+    },
+    {
+      "package": "/Game/Custom/CustomMaterials/Materials/Master_Materials/Custom_MS_Master/M_MS_Foliage_Overwrite/M_MS_CustomFoliageNoOpacity",
+      "bytes": 69327,
+      "sha256": "4ab60244e9bd45700d8ec4a55d8e1ce8248fe8e2db607adb3dc1cd449a3a5fc4"
+    },
+    {
+      "package": "/Game/Custom/CustomMaterials/Materials/Master_Materials/Custom_MS_Master/M_MS_Foliage_Overwrite/M_MS_CustomFoliageNoWPO",
+      "bytes": 83291,
+      "sha256": "2de56561c209743c2beb9d60fc80800884f6c4ef7c56eb1f1a8c81af75aadc5a"
+    },
+    {
+      "package": "/Game/Custom/CustomMaterials/Materials/Material_Functions/MF_Roughness",
+      "bytes": 13525,
+      "sha256": "e0b0098677489506d3560759725c0ca068d9670060d8986383979befcdc266ab"
+    },
+    {
+      "package": "/Game/Custom/CustomMaterials/Materials/Material_Functions/MF_Specular",
+      "bytes": 17933,
+      "sha256": "f62e1f7e8779f6f20d42d24e80bec6227ff8a87884933131b4714bd7a811b9c9"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_GenerateBranchMask",
+      "bytes": 11453,
+      "sha256": "5532790a6606f32bffdd9c0da98609e74b537d8cd4a0b59761fe0c3943dc11fd"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_LocalGradient_Z",
+      "bytes": 22069,
+      "sha256": "1db3af1964d38f7562f848609cf2e04e21ece4ac57a96ff7d3ca2464fadc4147"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_SimpleWind",
+      "bytes": 51604,
+      "sha256": "272fa755eaead6bc07270e7d42cd43fdc5d6230a41716af5db675acd8bb7f566"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_TwoSidedBaseColor",
+      "bytes": 19672,
+      "sha256": "1dc21e9f2b3dc089ea05bf3783b294d921c0e0f77b11e52eceed07014cdd71bb"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_WindGust",
+      "bytes": 39123,
+      "sha256": "a131253a33b822925017d99a8689ab77a797df5924898d633a124ff3b43b46d3"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_WorldspaceColorVariation",
+      "bytes": 57347,
+      "sha256": "d59a90acb07f7a4c3706ab4edcbcf126a2eb34f7785104ab0aafd43e117b0165"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Textures/T_WindNoise",
+      "bytes": 6910135,
+      "sha256": "7374201cb3e6019bb68f7afa36197d1f677e869fe672980ececd8455c39ae3e1"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialParameterCollection/MPC_GlobalFoliageActor",
+      "bytes": 4732,
+      "sha256": "557c2c396fd524cdca0d117b0aaba9472443bce2e0c9ebe9315058672fe2742f"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/AlexandraPalm/T_AlexandraPalm_01_AoRT",
+      "bytes": 5281147,
+      "sha256": "cf52f8eac38e4a0d6b2f83f65470f209da63250e0e0edd3e284f596af5ef8b1f"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/AlexandraPalm/T_AlexandraPalm_01_BC",
+      "bytes": 20248659,
+      "sha256": "fe2e21fe81ef34deeaffda12ceb2dfd909a30d07503aba598e006dff27f36c09"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/AlexandraPalm/T_AlexandraPalm_01_N",
+      "bytes": 4732478,
+      "sha256": "077bffc7e44b17fb990259d61f0e660406f5f486bc0552cc9e43a64e159f2e5c"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/AlexandraPalm/T_AlexandraPalm_01_T",
+      "bytes": 6472973,
+      "sha256": "52950969d356b3d72777fda7abb92a54c8254895b56f12349470aba4b5848eb7"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/CloverVarieties/MI_CloverVarieties_01",
+      "bytes": 24236,
+      "sha256": "1c6190164f5c9eb726e4ebb1e141f31ef4f466d85eb5b1184e8a8cbbdc0506cf"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/CloverVarieties/SM_CloverVarieties_01",
+      "bytes": 266241,
+      "sha256": "69d8cca5d80f10bed0b5097dec8c5dde2676a99080ea98d9ba0538510fecc52f"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/CloverVarieties/T_CloverVarieties_01_AoRT",
+      "bytes": 1835745,
+      "sha256": "47f5321c825776dbcb3b5c769b0c6a0e8f80272604493497bf5199f79a6ee00a"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/CloverVarieties/T_CloverVarieties_01_BC",
+      "bytes": 2426692,
+      "sha256": "fe86e7b7c9a42316ca2b3e9301c1bf0dace5d4332f155e08a8b1874c1bc44601"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/CloverVarieties/T_CloverVarieties_01_N",
+      "bytes": 1529732,
+      "sha256": "50edadb541f2f781ac0d5ba1f2976cff316d324e317e75535b0ea5c25304fcf8"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/CustomMoss/T_CustomMoss_01_O",
+      "bytes": 80911,
+      "sha256": "8b9f86805004c499747118ed3e08424fc3185a3be3696dd47d32f3843a290e98"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/CustomMoss/T_CustomMoss_01_R",
+      "bytes": 161815,
+      "sha256": "3d8d5e2242665f2c935125e894d3ee2b46bd6d50135e9f83a1d366bb2ad6f2a6"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/Elderberry/MI_Elderberry_01",
+      "bytes": 26084,
+      "sha256": "4c59fc803ae7ad76b8979a0a0e069e60d17c6a0bb7e85a7dffcd227f697a4920"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/Elderberry/SM_Elderberry_01",
+      "bytes": 5928517,
+      "sha256": "199a8c4788a21dff7149f51e4133ae8ddc8da1b1308a71d2e7638509b431d454"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/Elderberry/T_Elderberry_01_AoRT",
+      "bytes": 5546555,
+      "sha256": "0858c6349cc950dec7081d5f07f71b9d883b04c3e63a5708dd470610934834d1"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/Elderberry/T_Elderberry_01_BC",
+      "bytes": 20105976,
+      "sha256": "6b35532a31b4959362a70bb36cb5aad62a8c862e0eb127a9eacd07863eabd6bc"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/Elderberry/T_Elderberry_01_N",
+      "bytes": 23333096,
+      "sha256": "ff7ff00a6d7a7c3c303a78a8bc75b79f4e1fcbeccf44333197c119a5b74385a5"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/Elderberry/T_Elderberry_01_T",
+      "bytes": 6536953,
+      "sha256": "3d5492d8fabbd9231e48a0cef727bf10d6c742acf23bb25bd8797a8044a0504f"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/GroundCover/MI_GroundCover_01",
+      "bytes": 23224,
+      "sha256": "9cf0ef0dd0d52c100de599c13e5837baee11b8d5940944c41212bf615403ea91"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/GroundCover/SM_GroundCover_01",
+      "bytes": 41646,
+      "sha256": "15edb2ea3d7d2816d65f2d09a5e9cb935f9782408f49b4646eb23b04e6dc1204"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/GroundCover/T_GroundCover_01_AoRT",
+      "bytes": 3535861,
+      "sha256": "4c672888d5040d5a94b542dae66faf154317345127b2869f4b15faf8dc959f11"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/GroundCover/T_GroundCover_01_BC",
+      "bytes": 3536721,
+      "sha256": "5cbec8a6659a569ed73ebd6146896107853411843285c51bc2bc8b5a6a7afa82"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/GroundCover/T_GroundCover_01_N",
+      "bytes": 4907084,
+      "sha256": "312d888feeb17292ce7089b4086f626cc0adbe7e423a0541ad7a315f9ac50cfb"
+    }
+  ]
+}

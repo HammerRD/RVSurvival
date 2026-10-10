@@ -38,3 +38,7 @@
 Electric Dreams UE-Only sample: MossyGrass and DriedGrassOnDampSoil BC/normal textures, four packages/157841645 bytes under /Game/Megascans/Surfaces. Original sample hashes unchanged. WNY-specific non-VT derivatives and material under /Game/World/WNY/Materials; original imported packages preserved. Used for prototype woodland/field terrain. Same Epic source/license recorded above; no purchase or redistribution.
 
 Existing Epic UE vehicle-template /Game/Vehicles/OffroadCar/SKM_Offroad is reused as static abandoned trail/utility vehicle art. No new download or source edit. Simplified collision and cargo identity are project-side map content. Visual validation is pending.
+
+### Gate 10 selective groundcover/shrub subset
+
+Electric Dreams UE-Only: CloverVarieties_01, GroundCover_01 and Elderberry_01, 36 dependency packages/123978541 bytes under /Game/Megascans and shared material closure. Native migration verified source hashes unchanged. Prototype roadside groundcover/hedgerows only, not a claim of exact native botanical taxonomy. No new download or purchase.
