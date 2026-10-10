@@ -21,4 +21,6 @@ public:
     static bool ConfigureRegionStreaming(UObject* Context);
     UFUNCTION(BlueprintPure,meta=(DevelopmentOnly,WorldContext="Context"))
     static TMap<FString,FString> InspectRegion(UObject* Context);
+    UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly,WorldContext="Context"))
+    static bool SetRegionAuthoringLoaded(UObject* Context,bool Loaded);
 };

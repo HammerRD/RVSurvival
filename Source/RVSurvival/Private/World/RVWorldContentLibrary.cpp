@@ -17,6 +17,7 @@
 #if WITH_EDITOR
 #include "Landscape.h"
 #include "LandscapeInfo.h"
+#include "WorldPartition/LoaderAdapter/LoaderAdapterShape.h"
 #include "AssetRegistry/AssetRegistryModule.h"
 #endif
 
@@ -169,4 +170,28 @@ TMap<FString,FString> URVWorldContentLibrary::InspectRegion(UObject* Context)
                 *GetNameSafe(C->GetStaticMesh()),C->GetInstanceCount()));
     }
     return Result;
+}
+bool URVWorldContentLibrary::SetRegionAuthoringLoaded(UObject* Context,bool Loaded)
+{
+#if WITH_EDITOR
+    auto* World=Context?Context->GetWorld():nullptr;
+    if(!World || World->IsGameWorld() || World->GetPackage()->GetName()!=TEXT("/Game/Maps/WNY_PrototypeRegion")) return false;
+    auto* Partition=World->GetWorldPartition();if(!Partition) return false;
+    const FString Label(TEXT("WNY authoring audit"));
+    for(const auto& Adapter:Partition->GetRegisteredEditorLoaderAdapters())
+        if(Adapter && Adapter->GetLoaderAdapter() && Adapter->GetLoaderAdapter()->GetLabel()==Label)
+        {
+            if(!Loaded)Partition->ReleaseEditorLoaderAdapter(Adapter);
+            return true;
+        }
+    if(Loaded)
+    {
+        auto* Adapter=Partition->CreateEditorLoaderAdapter<FLoaderAdapterShape>(World,
+            FBox(FVector(-205000,-205000,-30000),FVector(205000,205000,30000)),Label);
+        Adapter->GetLoaderAdapter()->Load();
+    }
+    return true;
+#else
+    return false;
+#endif
 }

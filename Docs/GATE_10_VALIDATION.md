@@ -77,3 +77,26 @@ stream-out/return conservation, separate-process host/client and representative
   streaming flags saved as enabled/server mode 2/server stream-out mode 2.
   Current editor-loaded subset contains 66 biome parents and 4594 saved instances;
   this is not a whole-region completeness test.
+- Full-authoring-bounds PCG retry: 102 parents, 258 total components, 6019
+  persisted instances; zero LogPCG scheduling errors or aborts in that run.
+  Native editor loader adapter released after save; full clean shutdown confirmed.
+  Initial failures are consistent with partition components lacking loaded local
+  partition actors. Native bounded editor loading resolves the reproduced sequence.
+- WIP recovery checkpoint 7f5b913 preserves locations/PCG/streaming diagnostics.
+
+## Encounter/difficulty foundation
+
+Compiled native server-only encounter director and authored zone actors; saved seven
+contextual profiles/zones with Quiet, Infected Cluster and Supply Cache choices.
+Native navigation/perception and accepted infected implementation are reused.
+Regional difficulty profiles are project-side derivatives of accepted presets;
+Loot/Population controls become active only in the new WNY game mode. Old maps and
+accepted presets are unchanged. Population outcome/health/death session snapshots,
+weak actor registry and global cap are implemented, not yet runtime validated.
+
+The location retry with all editor cells loaded preserved authored actors by label,
+removed only the new OpenWorld template PlayerStart, and saved real GUID strings
+in the corrected receipt. Full editor shutdown confirmed again. Navigation showed
+735 tiles, but the explicit Build call logged build-lock flags 0x20; navigation
+correctness and streaming are NOT claimed. Native partition-aware navigation setup
+and gameplay projection tests are next.

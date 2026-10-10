@@ -8,6 +8,7 @@ def terrain(x,y):return (1800*math.sin(x/65000)*math.cos(y/72000)+650*math.sin(y
 def build():
  levels=unreal.get_editor_subsystem(unreal.LevelEditorSubsystem);assert levels.load_level('/Game/Maps/WNY_PrototypeRegion')
  world=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
+ assert unreal.RVWorldContentLibrary.set_region_authoring_loaded(world,True)
  actors=unreal.get_editor_subsystem(unreal.EditorActorSubsystem);tools=unreal.AssetToolsHelpers.get_asset_tools()
  existing={a.get_actor_label():a for a in actors.get_all_level_actors() if a.actor_has_tag('WNYLocationsMilestone')}
  def spawn(cls,name,pos,rotation=None):
@@ -114,7 +115,9 @@ def build():
  world.get_world_settings().set_editor_property('DefaultGameMode',unreal.EditorAssetLibrary.load_blueprint_class('/Game/Combat/Gate9_5/BP_Gate9_5GameMode'))
  assert levels.save_current_level() and unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True,True)
  return {'saved':True,'locations':[v[0] for v in locations],'containers':ids,'manual_navigation_and_visual_validation':'pending','asset_refinement':'rural cabin acquisition awaiting Epic sign-in'}
-try:(out/'locations-foundation.json').write_text(json.dumps(build(),indent=2))
-except Exception:(out/'locations-foundation-error.txt').write_text(traceback.format_exc());traceback.print_exc()
-finally:gc.collect();unreal.SystemLibrary.quit_editor()
+if __name__=='__main__':
+ try:(out/'locations-foundation.json').write_text(json.dumps(build(),indent=2))
+ except Exception:(out/'locations-foundation-error.txt').write_text(traceback.format_exc());traceback.print_exc()
+ finally:gc.collect();unreal.SystemLibrary.quit_editor()
+
 

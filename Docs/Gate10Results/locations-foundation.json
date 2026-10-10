@@ -10,7 +10,7 @@
   "containers": [
     {
       "name": "Pine Creek packaged supplies",
-      "id": "<Struct 'Guid' (0x000001969EB680C0) {}>",
+      "id": "9e75fc4e-f20f-5e59-b20f-aad56597b8c8",
       "profile": "Kitchen",
       "position": [
         -130400,
@@ -20,7 +20,7 @@
     },
     {
       "name": "Pine Creek first aid cabinet",
-      "id": "<Struct 'Guid' (0x000001969EB686F0) {}>",
+      "id": "4ab25d01-5ffe-58b7-86cd-55b909096273",
       "profile": "Medical",
       "position": [
         -129600,
@@ -30,7 +30,7 @@
     },
     {
       "name": "Pine Creek road supplies",
-      "id": "<Struct 'Guid' (0x000001969EB675A0) {}>",
+      "id": "43f9ab67-6616-52d0-83d2-cdf084fce104",
       "profile": "RoadSupplies",
       "position": [
         -129600,
@@ -40,7 +40,7 @@
     },
     {
       "name": "Erie Service tool chest",
-      "id": "<Struct 'Guid' (0x00000196D2D26BB0) {}>",
+      "id": "4fc8e569-6a46-5ab4-b05b-a16c5d08192b",
       "profile": "Garage",
       "position": [
         -60450,
@@ -50,7 +50,7 @@
     },
     {
       "name": "Erie Service parts shelf",
-      "id": "<Struct 'Guid' (0x00000196D2D26F10) {}>",
+      "id": "80241a22-65d3-57fe-aac3-125c50d20527",
       "profile": "Garage",
       "position": [
         -59550,
@@ -60,7 +60,7 @@
     },
     {
       "name": "Hawthorne kitchen cupboard",
-      "id": "<Struct 'Guid' (0x00000196D2D27B60) {}>",
+      "id": "479a2b0d-d475-5623-ac79-880bfcea2905",
       "profile": "Kitchen",
       "position": [
         -250,
@@ -70,7 +70,7 @@
     },
     {
       "name": "Hawthorne medicine cabinet",
-      "id": "<Struct 'Guid' (0x00000196D2D26F50) {}>",
+      "id": "e5dfe39a-b8f9-55e8-a0f2-ce1ffa69b66c",
       "profile": "Medical",
       "position": [
         280,
@@ -80,7 +80,7 @@
     },
     {
       "name": "Maple Run camp office supplies",
-      "id": "<Struct 'Guid' (0x00000196D2D28BC0) {}>",
+      "id": "0381957d-3b54-59b7-bb0f-03ce98233ecc",
       "profile": "Camp",
       "position": [
         75000,
@@ -90,7 +90,7 @@
     },
     {
       "name": "Rowland diner pantry",
-      "id": "<Struct 'Guid' (0x00000196D2D2AAA0) {}>",
+      "id": "cdcddd90-ccca-5ddc-9a12-6a07f439f208",
       "profile": "Kitchen",
       "position": [
         139650,
@@ -100,7 +100,7 @@
     },
     {
       "name": "Rowland community supplies",
-      "id": "<Struct 'Guid' (0x00000196D2D2AEC0) {}>",
+      "id": "3f16b940-0460-51f9-9bb4-464b954c4fc7",
       "profile": "RoadSupplies",
       "position": [
         140350,

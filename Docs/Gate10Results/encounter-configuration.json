@@ -1,0 +1,81 @@
+{
+  "saved": true,
+  "zones": [
+    {
+      "name": "Pine Creek",
+      "id": "6d8a978c-8b62-5fb1-b443-b984f17e4ad9",
+      "context": "GasStation",
+      "quiet_weight": 0.2,
+      "cluster_weight": 0.65,
+      "supply_weight": 0.15
+    },
+    {
+      "name": "Erie Service",
+      "id": "86cc471f-110b-5e07-b3fa-d854d0ec34fd",
+      "context": "AutomotiveGarage",
+      "quiet_weight": 0.3,
+      "cluster_weight": 0.5,
+      "supply_weight": 0.2
+    },
+    {
+      "name": "Hawthorne",
+      "id": "d52fe094-546d-5bea-8526-f00c111dcab2",
+      "context": "Farmhouse",
+      "quiet_weight": 0.5,
+      "cluster_weight": 0.3,
+      "supply_weight": 0.2
+    },
+    {
+      "name": "Maple Run",
+      "id": "e7df488e-59c0-5b8b-9baf-072edffc2cf1",
+      "context": "Campground",
+      "quiet_weight": 0.6,
+      "cluster_weight": 0.2,
+      "supply_weight": 0.2
+    },
+    {
+      "name": "Rowland",
+      "id": "e8480be9-eddc-5c8a-898a-3102dfdb06ba",
+      "context": "Crossroads",
+      "quiet_weight": 0.3,
+      "cluster_weight": 0.5,
+      "supply_weight": 0.2
+    },
+    {
+      "name": "Roadside West",
+      "id": "e1fd11fa-cecd-58de-bcd5-f6a5c060484a",
+      "context": "Roadside",
+      "quiet_weight": 0.7,
+      "cluster_weight": 0.1,
+      "supply_weight": 0.2
+    },
+    {
+      "name": "Roadside East",
+      "id": "3a7db72a-6133-5495-ac72-3ac983712c3d",
+      "context": "Roadside",
+      "quiet_weight": 0.7,
+      "cluster_weight": 0.15,
+      "supply_weight": 0.15
+    }
+  ],
+  "navigation": {
+    "MAPLE RUN CAMPGROUND rear wall": "navRelevant=1 collision=BlockAll mobility=0",
+    "MAPLE RUN CAMPGROUND roof": "navRelevant=1 collision=BlockAll mobility=0",
+    "MAPLE RUN CAMPGROUND glazing1": "navRelevant=1 collision=BlockAll mobility=0",
+    "MAPLE RUN CAMPGROUND west wall": "navRelevant=1 collision=BlockAll mobility=0",
+    "MAPLE RUN CAMPGROUND sill1": "navRelevant=1 collision=BlockAll mobility=0",
+    "MAPLE RUN CAMPGROUND foundation": "navRelevant=1 collision=BlockAll mobility=0",
+    "MAPLE RUN CAMPGROUND glazing-1": "navRelevant=1 collision=BlockAll mobility=0",
+    "MAPLE RUN CAMPGROUND east wall": "navRelevant=1 collision=BlockAll mobility=0",
+    "MAPLE RUN CAMPGROUND front pier-1": "navRelevant=1 collision=BlockAll mobility=0",
+    "MAPLE RUN CAMPGROUND porch": "navRelevant=1 collision=BlockAll mobility=0",
+    "MAPLE RUN CAMPGROUND front pier1": "navRelevant=1 collision=BlockAll mobility=0",
+    "MAPLE RUN CAMPGROUND entrance lintel": "navRelevant=1 collision=BlockAll mobility=0",
+    "MAPLE RUN CAMPGROUND floor": "navRelevant=1 collision=BlockAll mobility=0",
+    "MAPLE RUN CAMPGROUND RV parking": "navRelevant=1 collision=BlockAll mobility=0",
+    "MAPLE RUN CAMPGROUND sill-1": "navRelevant=1 collision=BlockAll mobility=0",
+    "MAPLE RUN CAMPGROUND entry step": "navRelevant=1 collision=BlockAll mobility=0",
+    "RecastNavMesh_UAID_64497D559D93AE0903-Default": "tiles=735 radius=35.0 height=144.0"
+  },
+  "runtime_and_manual_validation": "pending"
+}
