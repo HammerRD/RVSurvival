@@ -1,0 +1,27 @@
+{
+  "-62500,-6500": {
+    "texture_sample": "Vertex=(348,488);Raw=32175;TextureZ=-463.281",
+    "collision": "CollisionZ=-478.140",
+    "ray": "RayZ=18.000;Actor=RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
+  },
+  "-60000,-11000": {
+    "texture_sample": "Vertex=(354,477);Raw=31360;TextureZ=-1100.000",
+    "collision": "CollisionZ=-1130.874",
+    "ray": "RayZ=19.000;Actor=StaticMeshActor_UAID_64497D559D93AD0903_1895127828"
+  },
+  "-60000,-7000": {
+    "texture_sample": "Vertex=(354,487);Raw=32117;TextureZ=-508.594",
+    "collision": "CollisionZ=-536.742",
+    "ray": "RayZ=-536.742;Actor=LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+  },
+  "-60000,0": {
+    "texture_sample": "Vertex=(354,504);Raw=32768;TextureZ=0.000",
+    "collision": "CollisionZ=0.000",
+    "ray": "RayZ=18.000;Actor=RVRegionRoad_UAID_64497D559D93AC0903_1984994669"
+  },
+  "-62600,-5400": {
+    "texture_sample": "Vertex=(348,491);Raw=32391;TextureZ=-294.531",
+    "collision": "CollisionZ=-323.075",
+    "ray": "RayZ=-323.075;Actor=LandscapeStreamingProxy_DR6RXMN667BKZDS0YUZ08JUD7_126_2_3_0"
+  }
+}

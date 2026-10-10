@@ -281,3 +281,30 @@ TMap<FString,int32> URVWorldContentLibrary::GradeRegionSitePads(UObject* Context
 }
 
 
+
+TMap<FString,FString> URVWorldContentLibrary::AuditRegionTerrain(UObject* Context)
+{
+    TMap<FString,FString> Result;
+#if WITH_EDITOR
+    UWorld* World=Context?Context->GetWorld():nullptr;
+    if(!World || World->IsGameWorld() || !World->GetPackage()->GetName().EndsWith(TEXT("/WNY_PrototypeRegion")))return Result;
+    ALandscape* Terrain=nullptr;for(TActorIterator<ALandscape> It(World);It;++It)Terrain=*It;
+    if(!Terrain || !Terrain->GetLandscapeInfo())return Result;
+    FLandscapeEditDataInterface Edit(Terrain->GetLandscapeInfo());
+    const FVector2D Samples[]={{-62600,-5400},{-60000,-7000},{-62500,-6500},{-60000,-11000},{-60000,0}};
+    for(const auto& P:Samples)
+    {
+        const FVector Local=Terrain->GetActorTransform().InverseTransformPosition(FVector(P.X,P.Y,0));
+        const int32 X=FMath::RoundToInt(Local.X),Y=FMath::RoundToInt(Local.Y);
+        uint16 Height=0;Edit.GetHeightDataFast(X,Y,X,Y,&Height,1);
+        FString Value=FString::Printf(TEXT("Vertex=(%d,%d);Raw=%u;TextureZ=%.3f"),X,Y,Height,(int32(Height)-32768)*100./128.);
+        for(TActorIterator<ALandscapeProxy> It(World);It;++It)
+            if(const auto Cached=It->GetHeightAtLocation(FVector(P.X,P.Y,0));Cached.IsSet())Value+=FString::Printf(TEXT(";CollisionZ=%.3f;Proxy=%s"),Cached.GetValue(),*It->GetName());
+        FHitResult Hit;FCollisionQueryParams Params(SCENE_QUERY_STAT(RVRegionTerrainAudit),false);
+        if(World->LineTraceSingleByChannel(Hit,FVector(P.X,P.Y,3000),FVector(P.X,P.Y,-4000),ECC_Visibility,Params))
+            Value+=FString::Printf(TEXT(";RayZ=%.3f;Actor=%s"),Hit.ImpactPoint.Z,*GetNameSafe(Hit.GetActor()));
+        Result.Add(FString::Printf(TEXT("%.0f,%.0f"),P.X,P.Y),Value);
+    }
+#endif
+    return Result;
+}
