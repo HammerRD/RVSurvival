@@ -338,3 +338,9 @@ Saved project-side woodland terrain material, 129 additional bounded roadside PC
 - Saved native PCG regeneration (14,694 instances) with no scheduling errors and clean shutdown.
 - Added region-only validated mobile-base arrival with safe ground fallback; preserved inherited survivor settings during Blueprint reparenting. Runtime join and multiplayer validation still pending.
 - Gate 10 remains NOT ACCEPTED; no Gate 11 work.
+
+### Gate 10 site grading — saved authoring milestone, validation pending
+- Diagnosed low gas canopy from inconsistent terrain references; visibility rays correctly blocked firearm shots.
+- Added bounded native Landscape grading for five prototype sites and aligned site geometry/road approaches.
+- Recorded actual door/pickup/firearm preparation control paths; corrected harness pivot aim and numeric key naming.
+- Recovery a4d60d6 preserves pre-grading world. Gate10 remains in progress, NOT ACCEPTED.

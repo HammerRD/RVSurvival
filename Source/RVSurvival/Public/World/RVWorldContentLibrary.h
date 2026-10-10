@@ -26,4 +26,7 @@ public:
     /** Convert only the new WNY terrain through Unreal's native Landscape subsystem. */
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly,WorldContext="Context"))
     static TMap<FString,int32> PartitionRegionLandscape(UObject* Context);
+    /** Editor-only grading of the five prototype sites; never edits accepted maps. */
+    UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly,WorldContext="Context"))
+    static TMap<FString,int32> GradeRegionSitePads(UObject* Context);
 };
