@@ -1,0 +1,16 @@
+{
+  "mode": "BP_WNYGameMode_C",
+  "parent": "",
+  "enabled": true,
+  "pawn": "BP_Gate9_5Survivor_C",
+  "position": "<Struct 'Vector' (0x000001C19F7948D0) {x: -159900.688505, y: 1600.185756, z: 195.198175}>",
+  "vehicles": [
+    {
+      "tags": [
+        "WNYLocationsMilestone",
+        "PlayerMobileBase"
+      ],
+      "position": "<Struct 'Vector' (0x000001C19F795BE0) {x: -159995.642587, y: 1600.186192, z: 17.959291}>"
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "result": "normal walking entrance and container input executed; inspect inventory conservation",
+  "evidence": "continued actual driven parking with normal E exit/W walking/E interaction/T transfer; no pawn relocation",
+  "samples": [
+    {
+      "stage": "normal exit",
+      "position": [
+        -130212.75022552085,
+        2416.48207119127,
+        100.5493966846513
+      ],
+      "pawn": "BP_Gate9_5Survivor_C",
+      "movement": "<MovementMode.MOVE_WALKING: 1>",
+      "inventory": 0,
+      "feedback": ""
+    },
+    {
+      "stage": "walking 0",
+      "position": [
+        -130311.72653049798,
+        2555.549723997704,
+        95.85748014015576
+      ],
+      "pawn": "BP_Gate9_5Survivor_C",
+      "movement": "<MovementMode.MOVE_WALKING: 1>",
+      "inventory": 0,
+      "feedback": ""
+    },
+    {
+      "stage": "walking 0",
+      "position": [
+        -130285.48193988172,
+        2593.9950822288884,
+        94.33109101814648
+      ],
+      "pawn": "BP_Gate9_5Survivor_C",
+      "movement": "<MovementMode.MOVE_WALKING: 1>",
+      "inventory": 0,
+      "feedback": ""
+    },
+    {
+      "stage": "walking 0",
+      "position": [
+        -130270.54703973062,
+        2615.87431588868,
+        93.5758919873849
+      ],
+      "pawn": "BP_Gate9_5Survivor_C",
+      "movement": "<MovementMode.MOVE_WALKING: 1>",
+      "inventory": 0,
+      "feedback": ""
+    },
+    {
+      "stage": "walking 0",
+      "position": [
+        -130261.80949725995,
+        2628.693071070684,
+        93.32486369500923
+      ],
+      "pawn": "BP_Gate9_5Survivor_C",
+      "movement": "<MovementMode.MOVE_WALKING: 1>",
+      "inventory": 0,
+      "feedback": ""
+    },
+    {
+      "stage": "walking 0",
+      "position": [
+        -131394.77879783392,
+        3431.033260143429,
+        35.298754900549454
+      ],
+      "pawn": "BP_Gate9_5Survivor_C",
+      "movement": "<MovementMode.MOVE_WALKING: 1>",
+      "inventory": 0,
+      "feedback": ""
+    },
+    {
+      "stage": "walking 1",
+      "position": [
+        -131184.0674001138,
+        4433.084298359902,
+        -5.850919431299197
+      ],
+      "pawn": "BP_Gate9_5Survivor_C",
+      "movement": "<MovementMode.MOVE_WALKING: 1>",
+      "inventory": 0,
+      "feedback": ""
+    },
+    {
+      "stage": "walking 1",
+      "position": [
+        -131079.21725272157,
+        4804.569238024596,
+        -5.850919401201743
+      ],
+      "pawn": "BP_Gate9_5Survivor_C",
+      "movement": "<MovementMode.MOVE_WALKING: 1>",
+      "inventory": 0,
+      "feedback": ""
+    },
+    {
+      "stage": "walking 2",
+      "position": [
+        -129996.29152956985,
+        5704.463806084391,
+        -244.535149569332
+      ],
+      "pawn": "BP_Gate9_5Survivor_C",
+      "movement": "<MovementMode.MOVE_WALKING: 1>",
+      "inventory": 0,
+      "feedback": ""
+    },
+    {
+      "stage": "container opened",
+      "position": [
+        -130375.35528264305,
+        6597.635585926416,
+        -300.54893619306955
+      ],
+      "pawn": "BP_Gate9_5Survivor_C",
+      "movement": "<MovementMode.MOVE_WALKING: 1>",
+      "inventory": 0,
+      "feedback": ""
+    },
+    {
+      "stage": "after normal T",
+      "position": [
+        -130375.35528264305,
+        6597.635585926416,
+        -300.54893619306955
+      ],
+      "pawn": "BP_Gate9_5Survivor_C",
+      "movement": "<MovementMode.MOVE_WALKING: 1>",
+      "inventory": 0,
+      "feedback": ""
+    }
+  ]
+}

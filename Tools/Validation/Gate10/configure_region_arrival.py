@@ -8,7 +8,7 @@ def configure():
  actors=unreal.get_editor_subsystem(unreal.EditorActorSubsystem);labels={a.get_actor_label():a for a in actors.get_all_level_actors()}
  vehicle=labels['WNY mobile survival base'];tags=list(vehicle.tags)
  if 'PlayerMobileBase' not in [str(t) for t in tags]:tags.append('PlayerMobileBase')
- vehicle.tags=tags
+ vehicle.modify();vehicle.tags=tags
  r=vehicle.get_actor_location()
  for name,offset in [('WNY Player Start',unreal.Vector(0,750,-40)),('WNY Second Player Start',unreal.Vector(-220,750,-40))]:
   a=labels[name];a.modify();a.set_actor_location(r+offset,False,False);a.set_editor_property('bIsSpatiallyLoaded',False)
@@ -37,5 +37,6 @@ def tick(dt):
  elif phase==1:
   phase=2;unreal.unregister_slate_post_tick_callback(handle);handle=None;gc.collect();unreal.SystemLibrary.quit_editor()
 handle=unreal.register_slate_post_tick_callback(tick)
+
 
 

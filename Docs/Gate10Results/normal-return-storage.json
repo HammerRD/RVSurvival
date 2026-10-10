@@ -1,0 +1,19 @@
+{
+  "result": "return walking timeout; not accepted",
+  "evidence": "normal Tab/T/I/W/E controls from actual driven gas visit; no player relocation",
+  "samples": [
+    {
+      "stage": "food transferred with Tab/T",
+      "position": "<Struct 'Vector' (0x000001C19F4D96E0) {x: -130375.355283, y: 6597.635586, z: -300.548936}>",
+      "items": [
+        {
+          "id": "FACE847540CC73A90E2F83A859A6D950",
+          "quantity": 1,
+          "condition": 0.8461890816688538
+        }
+      ],
+      "container": "Pine Creek packaged supplies",
+      "feedback": ""
+    }
+  ]
+}

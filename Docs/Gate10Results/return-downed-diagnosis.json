@@ -1,0 +1,55 @@
+{
+  "player_position": "<Struct 'Vector' (0x000001C19F6EF8F0) {x: -130000.016833, y: 5233.942815, z: -170.068328}>",
+  "life": "<RVMedicalLifeState.DOWNED: 1>",
+  "injuries": [
+    {
+      "kind": "<RVInjuryKind.WOUND: 0>",
+      "region": "<RVBodyRegion.LEFT_ARM: 2>",
+      "severity": 2.0
+    },
+    {
+      "kind": "<RVInjuryKind.WOUND: 0>",
+      "region": "<RVBodyRegion.LEFT_ARM: 2>",
+      "severity": 2.0
+    },
+    {
+      "kind": "<RVInjuryKind.WOUND: 0>",
+      "region": "<RVBodyRegion.LEFT_ARM: 2>",
+      "severity": 2.0
+    },
+    {
+      "kind": "<RVInjuryKind.WOUND: 0>",
+      "region": "<RVBodyRegion.LEFT_ARM: 2>",
+      "severity": 2.0
+    },
+    {
+      "kind": "<RVInjuryKind.WOUND: 0>",
+      "region": "<RVBodyRegion.LEFT_ARM: 2>",
+      "severity": 2.0
+    },
+    {
+      "kind": "<RVInjuryKind.WOUND: 0>",
+      "region": "<RVBodyRegion.LEFT_ARM: 2>",
+      "severity": 2.0
+    },
+    {
+      "kind": "<RVInjuryKind.WOUND: 0>",
+      "region": "<RVBodyRegion.LEFT_ARM: 2>",
+      "severity": 2.0
+    }
+  ],
+  "infected": [
+    {
+      "position": "<Struct 'Vector' (0x000001C19F7A88D0) {x: -128631.273166, y: 8281.715808, z: -539.515958}>",
+      "distance_cm": 3361.379329078791
+    },
+    {
+      "position": "<Struct 'Vector' (0x000001C19F7A8790) {x: -131613.722149, y: 8017.136847, z: -496.635650}>",
+      "distance_cm": 3233.7068646049734
+    },
+    {
+      "position": "<Struct 'Vector' (0x000001C19F7A88D0) {x: -131784.055566, y: 5068.261770, z: -165.533408}>",
+      "distance_cm": 1791.721232198142
+    }
+  ]
+}
