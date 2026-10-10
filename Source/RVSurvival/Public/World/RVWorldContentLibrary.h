@@ -31,5 +31,8 @@ public:
     static TMap<FString,int32> GradeRegionSitePads(UObject* Context,bool bExtendGarage=false);
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly,WorldContext="Context"))
     static TMap<FString,FString> AuditRegionTerrain(UObject* Context);
+    /** Read-only: final heightmap, each edit layer, collision and rays at world XY samples, as JSON. */
+    UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly,WorldContext="Context"))
+    static FString AuditRegionTerrainSamples(UObject* Context,const TArray<FVector2D>& Points);
 };
 

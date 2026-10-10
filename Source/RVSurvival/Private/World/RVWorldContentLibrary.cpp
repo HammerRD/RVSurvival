@@ -21,6 +21,9 @@
 #include "LandscapeSubsystem.h"
 #include "LandscapeEdit.h"
 #include "LandscapeComponent.h"
+#include "LandscapeEditLayer.h"
+#include "LandscapeDataAccess.h"
+#include "LandscapeSplinesComponent.h"
 #include "WorldPartition/LoaderAdapter/LoaderAdapterShape.h"
 #include "AssetRegistry/AssetRegistryModule.h"
 #endif
@@ -307,4 +310,69 @@ TMap<FString,FString> URVWorldContentLibrary::AuditRegionTerrain(UObject* Contex
     }
 #endif
     return Result;
+}
+
+FString URVWorldContentLibrary::AuditRegionTerrainSamples(UObject* Context,const TArray<FVector2D>& Points)
+{
+#if WITH_EDITOR
+    UWorld* World=Context?Context->GetWorld():nullptr;
+    if(!World || World->IsGameWorld() || !World->GetPackage()->GetName().EndsWith(TEXT("/WNY_PrototypeRegion")))return FString();
+    ALandscape* Terrain=nullptr;int32 Landscapes=0;for(TActorIterator<ALandscape> It(World);It;++It){Terrain=*It;++Landscapes;}
+    ULandscapeInfo* Info=Terrain?Terrain->GetLandscapeInfo():nullptr;int32 MinX,MinY,MaxX,MaxY;
+    if(!Info || !Info->GetLandscapeExtent(MinX,MinY,MaxX,MaxY) || MaxX-MinX>2048 || MaxY-MinY>2048)return FString();
+    const int32 Width=MaxX-MinX+1,Height=MaxY-MinY+1;const FTransform Transform=Terrain->GetActorTransform();
+    // Read-only copies: the final merged heightmap (invalid GUID) and every edit layer's own heightmap.
+    struct FGrid{FGuid Guid;FString Name;TArray<uint16> Data;};TArray<FGrid> Grids;
+    auto Read=[&](const FGuid& Guid,const FString& Name)
+    {
+        FGrid& Grid=Grids.AddDefaulted_GetRef();Grid.Guid=Guid;Grid.Name=Name;Grid.Data.SetNumZeroed(Width*Height);
+        FLandscapeEditDataInterface Edit(Info);Edit.SetEditLayer(Guid);Edit.GetHeightDataFast(MinX,MinY,MaxX,MaxY,Grid.Data.GetData(),Width);
+    };
+    Read(FGuid(),TEXT("Final"));
+    FString Layers;int32 LayerIndex=0;
+    for(const ULandscapeEditLayerBase* Layer:Terrain->GetEditLayersConst())
+    {
+        if(!Layer){++LayerIndex;continue;}
+        Read(Layer->GetGuid(),Layer->GetName().ToString());
+        int32 ComponentsWithData=0;
+        for(TActorIterator<ALandscapeProxy> It(World);It;++It)for(const auto& Component:It->LandscapeComponents)
+            if(Component && Component->GetLayerData(Layer->GetGuid()))++ComponentsWithData;
+        Layers+=FString::Printf(TEXT("%s{\"Index\":%d,\"Name\":\"%s\",\"Guid\":\"%s\",\"Class\":\"%s\",\"Visible\":%s,\"Locked\":%s,\"HeightAlpha\":%.3f,\"ComponentsWithData\":%d}"),
+            Layers.IsEmpty()?TEXT(""):TEXT(","),LayerIndex++,*Layer->GetName().ToString(),*Layer->GetGuid().ToString(),*GetNameSafe(Layer->GetClass()),
+            Layer->IsVisible()?TEXT("true"):TEXT("false"),Layer->IsLocked()?TEXT("true"):TEXT("false"),Layer->GetAlphaForTargetType(ELandscapeToolTargetType::Heightmap),ComponentsWithData);
+    }
+    int32 Components=0,SplineControlPoints=0;TArray<const AActor*> Proxies;
+    for(TActorIterator<ALandscapeProxy> It(World);It;++It)
+    {
+        Proxies.Add(*It);Components+=It->LandscapeComponents.Num();
+        if(const auto* Splines=It->GetSplinesComponent())SplineControlPoints+=Splines->GetControlPoints().Num();
+    }
+    FString Json=FString::Printf(TEXT("{\"Landscapes\":%d,\"Proxies\":%d,\"Components\":%d,\"Extent\":[%d,%d,%d,%d],\"EditingLayer\":\"%s\",\"LandscapeSplineControlPoints\":%d,\"Tags\":\"%s\",\"EditLayers\":[%s],\"Samples\":["),
+        Landscapes,Proxies.Num(),Components,MinX,MinY,MaxX,MaxY,*Terrain->GetEditingLayer().ToString(),SplineControlPoints,
+        *FString::JoinBy(Terrain->Tags,TEXT("|"),[](const FName& Tag){return Tag.ToString();}),*Layers);
+    FCollisionQueryParams Any(SCENE_QUERY_STAT(RVRegionTerrainSamples),false),NonLandscape=Any;NonLandscape.AddIgnoredActors(Proxies);
+    for(int32 Index=0;Index<Points.Num();++Index)
+    {
+        const FVector2D P=Points[Index];const FVector Local=Transform.InverseTransformPosition(FVector(P.X,P.Y,0));
+        const int32 X0=FMath::FloorToInt(Local.X),Y0=FMath::FloorToInt(Local.Y);const double FX=Local.X-X0,FY=Local.Y-Y0;
+        FString Sample=FString::Printf(TEXT("%s{\"X\":%.1f,\"Y\":%.1f"),Index?TEXT(","):TEXT(""),P.X,P.Y);
+        if(X0>=MinX && Y0>=MinY && X0<MaxX && Y0<MaxY)for(const FGrid& Grid:Grids)
+        {
+            auto At=[&](int32 X,int32 Y){return LandscapeDataAccess::GetLocalHeight(Grid.Data[(Y-MinY)*Width+X-MinX]);};
+            const double LocalZ=FMath::Lerp(FMath::Lerp(At(X0,Y0),At(X0+1,Y0),FX),FMath::Lerp(At(X0,Y0+1),At(X0+1,Y0+1),FX),FY);
+            Sample+=FString::Printf(TEXT(",\"%sZ\":%.3f"),*Grid.Name,Transform.TransformPosition(FVector(Local.X,Local.Y,LocalZ)).Z);
+        }
+        for(const AActor* Proxy:Proxies)
+            if(const auto Z=CastChecked<ALandscapeProxy>(Proxy)->GetHeightAtLocation(FVector(P.X,P.Y,0));Z.IsSet()){Sample+=FString::Printf(TEXT(",\"CollisionZ\":%.3f"),Z.GetValue());break;}
+        FHitResult Hit;
+        if(World->LineTraceSingleByChannel(Hit,FVector(P.X,P.Y,6000),FVector(P.X,P.Y,-6000),ECC_Visibility,Any))
+            Sample+=FString::Printf(TEXT(",\"FirstHitZ\":%.3f,\"FirstHitActor\":\"%s\""),Hit.ImpactPoint.Z,*GetNameSafe(Hit.GetActor()));
+        if(World->LineTraceSingleByChannel(Hit,FVector(P.X,P.Y,6000),FVector(P.X,P.Y,-6000),ECC_Visibility,NonLandscape))
+            Sample+=FString::Printf(TEXT(",\"MeshZ\":%.3f,\"MeshActor\":\"%s\",\"MeshClass\":\"%s\""),Hit.ImpactPoint.Z,*GetNameSafe(Hit.GetActor()),*GetNameSafe(Hit.GetActor()?Hit.GetActor()->GetClass():nullptr));
+        Json+=Sample+TEXT("}");
+    }
+    return Json+TEXT("]}");
+#else
+    return FString();
+#endif
 }
