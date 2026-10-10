@@ -1,0 +1,8 @@
+{
+  "map": "/Game/Maps/WNY_PrototypeRegion",
+  "terrain_span_m": 4032,
+  "components_per_axis": 16,
+  "vertex_spacing_cm": 400,
+  "saved": true,
+  "acceptance": "IN PROGRESS; no playable-loop validation yet"
+}

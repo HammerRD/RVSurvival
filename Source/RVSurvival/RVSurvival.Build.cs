@@ -8,7 +8,7 @@ public class RVSurvival : ModuleRules
         PublicDependencyModuleNames.AddRange(new[] { "GameplayAbilities", "GameplayTasks" });
         PrivateDependencyModuleNames.AddRange(new[] { "Slate", "SlateCore", "AnimGraphRuntime", "EngineCameras" });
         PublicDependencyModuleNames.AddRange(new[] { "AIModule", "NavigationSystem" });
-        if (Target.bBuildEditor) PrivateDependencyModuleNames.AddRange(new[] { "MeshDescription", "StaticMeshDescription", "UnrealEd", "AnimGraph", "BlueprintGraph", "KismetCompiler", "AssetRegistry" });
+        if (Target.bBuildEditor) PrivateDependencyModuleNames.AddRange(new[] { "MeshDescription", "StaticMeshDescription", "UnrealEd", "AnimGraph", "BlueprintGraph", "KismetCompiler", "AssetRegistry", "Landscape" });
     }
 }
 
