@@ -1,0 +1,8 @@
+{
+  "saved": true,
+  "parent": "ARVRegionGameMode",
+  "pawn": "accepted BP_Gate9_5Survivor",
+  "native_fallback": "two clear ground PlayerStarts",
+  "arrival": "single server-validated current mobile-base aisle placement and accepted native moving-base registration",
+  "runtime_join_and_moving_validation": "pending"
+}

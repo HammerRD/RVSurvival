@@ -23,4 +23,7 @@ public:
     static TMap<FString,FString> InspectRegion(UObject* Context);
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly,WorldContext="Context"))
     static bool SetRegionAuthoringLoaded(UObject* Context,bool Loaded);
+    /** Convert only the new WNY terrain through Unreal's native Landscape subsystem. */
+    UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly,WorldContext="Context"))
+    static TMap<FString,int32> PartitionRegionLandscape(UObject* Context);
 };

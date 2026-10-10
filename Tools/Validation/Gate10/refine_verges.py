@@ -32,10 +32,10 @@ def prepare():
     a=labels.get(name) or actors.spawn_actor_from_class(unreal.RVBiomePatch,unreal.Vector(x,y,0));a.set_actor_label(name);a.tags=['WNYVergeMilestone']
     a.get_editor_property('bounds').set_box_extent(unreal.Vector(6000,900 if layer==0 else 400,20000))
     c=a.get_editor_property('dressing');c.set_graph(graph);c.set_editor_property('seed',4800+index*19+side*3+layer);count+=1
- # RV arrival begins inside the accepted aisle; second player has a separate safe aisle start.
+ # Native ground starts remain safe if the tagged mobile base is unavailable.
  rv=labels['WNY mobile survival base'];r=rv.get_actor_location()
- start=labels['WNY Player Start'];start.set_actor_location(r+unreal.Vector(95,0,180),False,False);start.set_actor_rotation(unreal.Rotator(yaw=180),False)
- second=labels.get('WNY Second Player Start') or actors.spawn_actor_from_class(unreal.PlayerStart,r+unreal.Vector(-120,0,180))
+ start=labels['WNY Player Start'];start.set_actor_location(r+unreal.Vector(0,750,-40),False,False);start.set_actor_rotation(unreal.Rotator(yaw=180),False)
+ second=labels.get('WNY Second Player Start') or actors.spawn_actor_from_class(unreal.PlayerStart,r+unreal.Vector(-220,750,-40))
  second.set_actor_label('WNY Second Player Start');second.tags=['WNYLocationsMilestone'];second.modify();second.set_editor_property('bIsSpatiallyLoaded',False)
  cube=unreal.load_asset('/Engine/BasicShapes/Cube');roof_material=unreal.load_asset('/Game/World/WNY/Materials/M_Roof');trim=unreal.load_asset('/Game/World/WNY/Materials/M_CreamTrim')
  for name,x,y,w,d in [('HAWTHORNE FARM',0,47000,1100,1400),('MAPLE RUN CAMPGROUND',75000,47000,1000,900)]:
@@ -51,7 +51,7 @@ def prepare():
     a.set_actor_label(label);a.tags=['WNYVergeMilestone'];a.set_actor_scale3d(unreal.Vector(width/100,.18,height/100));c=a.static_mesh_component;c.set_static_mesh(cube);c.set_material(0,trim)
  assert unreal.EditorLoadingAndSavingUtils.save_map(world,'/Game/Maps/WNY_PrototypeRegion');assert unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True,True)
  assert unreal.RVWorldContentLibrary.set_region_authoring_loaded(world,False)
- (out/'verge-authoring.json').write_text(json.dumps({'saved':True,'verge_patches':count,'generation':'next clean session with saved partitions loaded','start':'two distinct interior aisle starts; actual safe spawn validation pending','visual_validation':'pending'},indent=2))
+ (out/'verge-authoring.json').write_text(json.dumps({'saved':True,'verge_patches':count,'generation':'next clean session with saved partitions loaded','start':'safe ground fallback; native regional arrival uses current RV aisle','visual_validation':'pending'},indent=2))
 def tick(dt):
  global phase,handle
  if phase==0 and time.time()-started>5:

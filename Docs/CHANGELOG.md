@@ -332,3 +332,9 @@ Saved native partitioned navigation and non-spatial WNY mobile RV/start. Native 
 ## 2026-10-10 — Gate 10 environment refinement checkpoint
 
 Saved project-side woodland terrain material, 129 additional bounded roadside PCG parents, five static abandoned trail vehicles with finite cargo, roadside obstruction/route choice, poles and fences. Selective Epic sample texture import preserves source hashes. Final saved-state PCG run: 231 parents, 8572 instances, zero scheduling errors and clean shutdown. Fixed Slate callback reentrancy in author/save automation; native save now completes before quit phase. Scene/player-path/nav/multiplayer validation remains pending. Gate 10 not accepted; no Gate 11.
+
+### Gate 10 streaming/arrival recovery checkpoint — in progress
+- Saved native 64-proxy landscape conversion, road-clearance PCG bounds review, rural groves and parallel highway geometry.
+- Saved native PCG regeneration (14,694 instances) with no scheduling errors and clean shutdown.
+- Added region-only validated mobile-base arrival with safe ground fallback; preserved inherited survivor settings during Blueprint reparenting. Runtime join and multiplayer validation still pending.
+- Gate 10 remains NOT ACCEPTED; no Gate 11 work.

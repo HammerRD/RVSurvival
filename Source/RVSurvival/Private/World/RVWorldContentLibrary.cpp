@@ -17,6 +17,8 @@
 #if WITH_EDITOR
 #include "Landscape.h"
 #include "LandscapeInfo.h"
+#include "LandscapeStreamingProxy.h"
+#include "LandscapeSubsystem.h"
 #include "WorldPartition/LoaderAdapter/LoaderAdapterShape.h"
 #include "AssetRegistry/AssetRegistryModule.h"
 #endif
@@ -194,4 +196,34 @@ bool URVWorldContentLibrary::SetRegionAuthoringLoaded(UObject* Context,bool Load
 #else
     return false;
 #endif
+}
+
+TMap<FString,int32> URVWorldContentLibrary::PartitionRegionLandscape(UObject* Context)
+{
+    TMap<FString,int32> Result;
+#if WITH_EDITOR
+    auto* World=Context?Context->GetWorld():nullptr;
+    if(!World || World->IsGameWorld() || World->GetPackage()->GetName()!=TEXT("/Game/Maps/WNY_PrototypeRegion") || !World->GetWorldPartition())return Result;
+    ALandscape* Terrain=nullptr;int32 Parents=0;
+    for(TActorIterator<ALandscape> It(World);It;++It){Terrain=*It;++Parents;}
+    Result.Add(TEXT("Landscape parents"),Parents);
+    if(Parents!=1 || !Terrain || !Terrain->GetLandscapeInfo())return Result;
+    int32 Proxies=0;
+    for(TActorIterator<ALandscapeStreamingProxy> It(World);It;++It)if(It->GetLandscapeActor()==Terrain)++Proxies;
+    if(Proxies==0)
+    {
+        // This supported engine path converts non-grid terrain, not an arbitrary
+        // regrid of previously authored landscapes. Never touch accepted maps.
+        if(auto* Subsystem=World->GetSubsystem<ULandscapeSubsystem>())
+        {
+            Terrain->Modify();Subsystem->ChangeGridSize(Terrain->GetLandscapeInfo(),2);
+            Terrain->MarkPackageDirty();
+        }
+    }
+    Proxies=0;int32 Components=Terrain->LandscapeComponents.Num();
+    for(TActorIterator<ALandscapeStreamingProxy> It(World);It;++It)
+        if(It->GetLandscapeActor()==Terrain){++Proxies;Components+=It->LandscapeComponents.Num();It->MarkPackageDirty();}
+    Result.Add(TEXT("Streaming proxies"),Proxies);Result.Add(TEXT("Terrain components"),Components);
+#endif
+    return Result;
 }

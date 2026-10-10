@@ -1,0 +1,10 @@
+{
+  "saved": true,
+  "native_conversion": {
+    "Landscape parents": 1,
+    "Streaming proxies": 64,
+    "Terrain components": 256
+  },
+  "heightfield": "retained, not regenerated",
+  "runtime_cell_floor_and_pcg_validation": "pending"
+}
