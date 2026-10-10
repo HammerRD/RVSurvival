@@ -1,5 +1,18 @@
 # Third-party asset attribution
 
+## Epic Games - Electric Dreams selected environment content
+
+- Source: installed Epic Electric Dreams sample; https://www.fab.com/listings/d79688f5-29be-4fb2-a650-2d4a813f5306
+- License/source: Epic sample UE-Only Content, licensed for Unreal Engine-based products.
+- Purpose: Gate 10 deciduous forest dressing and rocks; no jungle level imported.
+- Imported paths: /Game/Megascans/3D_Plants/EuropeanHornbeam,
+  /Game/Megascans/3D_Plants/BeechFern, /Game/Megascans/3D_Assets/ForestRockSlab,
+  and their native AssetTools dependency closure under /Game/Megascans and /Game/MSPresets.
+- Selected meshes: Hornbeam Field_01, Forest_01, Sapling_01; BeechFern_01; ForestRockSlab_01.
+- 95 dependency packages, 950554631 bytes. Installed source files preserved and hashed.
+- No purchase, external redistribution, asset training or generative alteration.
+- European hornbeam is a prototype deciduous stand-in, not a claim of native WNY species accuracy.
+
 ## RED2000 — Crowbar
 
 - Creator: RED2000.

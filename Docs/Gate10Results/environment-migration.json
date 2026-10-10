@@ -1,0 +1,13 @@
+{
+  "migrated": true,
+  "seeds": [
+    "/Game/Megascans/3D_Plants/EuropeanHornbeam/Geometry/SimpleWind/SM_EuropeanHornbeam_Field_01",
+    "/Game/Megascans/3D_Plants/EuropeanHornbeam/Geometry/SimpleWind/SM_EuropeanHornbeam_Forest_01",
+    "/Game/Megascans/3D_Plants/EuropeanHornbeam/Geometry/SimpleWind/SM_EuropeanHornbeam_Sapling_01",
+    "/Game/Megascans/3D_Plants/BeechFern/SM_BeechFern_01",
+    "/Game/Megascans/3D_Assets/ForestRockSlab/SM_ForestRockSlab_01"
+  ],
+  "package_count": 95,
+  "bytes": 950554631,
+  "source_unchanged": true
+}

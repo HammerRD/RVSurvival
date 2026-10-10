@@ -30,6 +30,19 @@ changes: Config/DefaultEngine.ini, .vsconfig, Automation_RVSurvival.slnx,
 RVSurvival.slnx. These are excluded from Gate 10 work. Prior maps/vendor content are
 preserved. No new assets, world, runtime tests or acceptance results are claimed yet.
 
+## Saved foundation checkpoints
+
+- d03ee50: framework review before world changes.
+- 34938ed: compiled loot/session ledger and native Landscape bridge; saved new
+  World Partition map and external actor packages. Terrain span 4032 m.
+- First save automation used an unavailable LevelEditorSubsystem SaveAs method;
+  corrected to native EditorLoadingAndSavingUtils.SaveMap. Failed receipt retained
+  locally; retry saved successfully and editor exited cleanly. No world-leak crash.
+- Selective native AssetTools migration completed: five Epic Electric Dreams
+  deciduous vegetation/rock mesh seeds, 95 dependency packages, 950554631 bytes.
+  Original installed sample SHA256 values were checked unchanged after migration.
+  No paid download or full sample map import. Runtime/material/PCG use is pending.
+
 ## Required closure evidence
 
 Pending: saved World Partition/Landscape world, 4-6 km useful road route, five authored

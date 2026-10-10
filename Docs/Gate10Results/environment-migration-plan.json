@@ -1,0 +1,486 @@
+{
+  "seeds": [
+    "/Game/Megascans/3D_Plants/EuropeanHornbeam/Geometry/SimpleWind/SM_EuropeanHornbeam_Field_01",
+    "/Game/Megascans/3D_Plants/EuropeanHornbeam/Geometry/SimpleWind/SM_EuropeanHornbeam_Forest_01",
+    "/Game/Megascans/3D_Plants/EuropeanHornbeam/Geometry/SimpleWind/SM_EuropeanHornbeam_Sapling_01",
+    "/Game/Megascans/3D_Plants/BeechFern/SM_BeechFern_01",
+    "/Game/Megascans/3D_Assets/ForestRockSlab/SM_ForestRockSlab_01"
+  ],
+  "files": [
+    {
+      "package": "/Game/Custom/CustomMaterials/Materials/Master_Materials/Custom_MS_Master/M_MS_Default_Overwrite/Functions/MF_Custom_ObjAdjustments",
+      "bytes": 48645,
+      "sha256": "73ba140a1da21112a25426cddcad9a88ed178a542e7bbe2e7dce3556ff5b7238"
+    },
+    {
+      "package": "/Game/Custom/CustomMaterials/Materials/Master_Materials/Custom_MS_Master/M_MS_Foliage_Overwrite/MF_CustomTranslucency",
+      "bytes": 12226,
+      "sha256": "e34253a4c241295fee32e4c9f1e2b3b473fb4972408629a27ce0a887969d585e"
+    },
+    {
+      "package": "/Game/Custom/CustomMaterials/Materials/Master_Materials/Custom_MS_Master/M_MS_Foliage_Overwrite/M_MS_CustomFoliageNoOpacity",
+      "bytes": 69327,
+      "sha256": "4ab60244e9bd45700d8ec4a55d8e1ce8248fe8e2db607adb3dc1cd449a3a5fc4"
+    },
+    {
+      "package": "/Game/Custom/CustomMaterials/Materials/Master_Materials/MF_WaterEffect",
+      "bytes": 136685,
+      "sha256": "0b797b9c97914d6c4e1ac02b78b3039dce62c82193c618666ad3ebc7264d67bb"
+    },
+    {
+      "package": "/Game/Custom/CustomMaterials/Materials/Master_Materials/M_MS_Default_Material_VT_DynamicLayering",
+      "bytes": 48556,
+      "sha256": "8041e819c7c8de3beb5d166f62925394d8b2e30847283880ef0a75e766bfb831"
+    },
+    {
+      "package": "/Game/Custom/CustomMaterials/Materials/Master_Materials/T_NoiseMask_RGB",
+      "bytes": 41673620,
+      "sha256": "7fcff684156a618a4d5e6a133c96761e83c9a0a0659d91b8da62fea1088ae70e"
+    },
+    {
+      "package": "/Game/Custom/CustomMaterials/Materials/Material_Functions/MF_Roughness",
+      "bytes": 13525,
+      "sha256": "e0b0098677489506d3560759725c0ca068d9670060d8986383979befcdc266ab"
+    },
+    {
+      "package": "/Game/Custom/CustomMaterials/Materials/Material_Functions/MF_Specular",
+      "bytes": 17933,
+      "sha256": "f62e1f7e8779f6f20d42d24e80bec6227ff8a87884933131b4714bd7a811b9c9"
+    },
+    {
+      "package": "/Game/MSPresets/MSVTTextures/DefaultDiffuse",
+      "bytes": 2133203,
+      "sha256": "eac551ad8fa6ab81762eb048ddf880715e56b3a099177ac5ee02568cb90e5435"
+    },
+    {
+      "package": "/Game/MSPresets/MSVTTextures/Placeholder_Normal",
+      "bytes": 5208,
+      "sha256": "7c99e7f75ee28f58271a8a74ae27c7d45e000d0149507e724cad0b8db5662b51"
+    },
+    {
+      "package": "/Game/MSPresets/MSVTTextures/T_Default_01",
+      "bytes": 2132883,
+      "sha256": "ee0b3e76f5a89f370b8b11d12c409ca70b80aef5e4e69bfb6f5c9e6a3474e8bf"
+    },
+    {
+      "package": "/Game/MSPresets/MSVTTextures/T_Placeholder_01_N",
+      "bytes": 4868,
+      "sha256": "5e9131e0befa11ad7f79a82bb7a5b8d16347b26792a59eb980bcead64fa2ea31"
+    },
+    {
+      "package": "/Game/MSPresets/MSVTTextures/T_WhitePlaceholder_01",
+      "bytes": 4546,
+      "sha256": "b97fd616de597b1fb0a439b6dcf67a07c2ed6bfce560d10c388bf9809ab534c3"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MasterMaterials/M_Foliage",
+      "bytes": 27444,
+      "sha256": "69a76db5344e805d5277986c9e4053e90553b638c485912f77fd0c17bf3dd1ce"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_BarkDetailer",
+      "bytes": 108926,
+      "sha256": "7d84f0540b031f5ef04e730f3594c6db4c6f0f171abbc24e9e1690a17efb6132"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_BranchBlending",
+      "bytes": 113029,
+      "sha256": "337f0388375dbb671ce0414b21fde8cec466a2996d4d358f162d31148894d3af"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_DecorationBlending",
+      "bytes": 110111,
+      "sha256": "dac8b53e675d3f68726dc02a682da8edfcd3f2bcd62508f215d738a72f283af5"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_DefaultLit_Trunk",
+      "bytes": 48183,
+      "sha256": "2f2fe54cc641d56b41049291fd121e14721298d34cdac0ebad8a78aa3d36c725"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_DistanceBasedOpacity",
+      "bytes": 117909,
+      "sha256": "a83b90bf92a7180d162cc75cf6dbc824f6c40752f0230575adccaf0400af8052"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_GenerateBranchMask",
+      "bytes": 11453,
+      "sha256": "5532790a6606f32bffdd9c0da98609e74b537d8cd4a0b59761fe0c3943dc11fd"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_HealthSeason",
+      "bytes": 63982,
+      "sha256": "707d7c2287c6acd05a2d877fa2c18b00ea5d90954c4fad9469af40afce937df7"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_Lichen",
+      "bytes": 95947,
+      "sha256": "9790b2ef8ad24939b0586fe0c08ca887d60c273ac57072ee24e2379cc902a369"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_LightInfluenceColorVariation",
+      "bytes": 127309,
+      "sha256": "8883ae2a3776c74406f8a71b979080e905b381dc32c115473381b4fe6a24cd6c"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_LocalGradient_Z",
+      "bytes": 22069,
+      "sha256": "1db3af1964d38f7562f848609cf2e04e21ece4ac57a96ff7d3ca2464fadc4147"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_Roughness",
+      "bytes": 18423,
+      "sha256": "8a3085d46c5e730e1169ebba1b39cb16a8968f65c425ffd2cf73e0f1ec1cb66c"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_SimpleWind",
+      "bytes": 51604,
+      "sha256": "272fa755eaead6bc07270e7d42cd43fdc5d6230a41716af5db675acd8bb7f566"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_TwoSidedBaseColor",
+      "bytes": 19672,
+      "sha256": "1dc21e9f2b3dc089ea05bf3783b294d921c0e0f77b11e52eceed07014cdd71bb"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_TwoSidedRoughness",
+      "bytes": 36215,
+      "sha256": "66bc2e8b84f6d2893c3a1b20003c550100bc9588df959bb704a57a78a771ae70"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_TwoSided_Decoration",
+      "bytes": 42345,
+      "sha256": "5aaf91656a3e51f09823b6ef2ef3e2f81718d220406c1993fbb064767093881f"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_TwoSided_Leaves",
+      "bytes": 48003,
+      "sha256": "88e906db64bdacc287e5b21a28bd8b1c729190b5b820c3c6c6e65dc66f2e001e"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_WindGust",
+      "bytes": 39123,
+      "sha256": "a131253a33b822925017d99a8689ab77a797df5924898d633a124ff3b43b46d3"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_WorldspaceColorVariation",
+      "bytes": 57347,
+      "sha256": "d59a90acb07f7a4c3706ab4edcbcf126a2eb34f7785104ab0aafd43e117b0165"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_adjustBaseColor",
+      "bytes": 112988,
+      "sha256": "636173da646d750d39f9b4e181323a61e3c111cb2f1a428f71a6d5f06403416b"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_adjustNormal",
+      "bytes": 104866,
+      "sha256": "a017154c9a3780ff06d952c29fa18fa16c7f801f6074dd236e6a96c224151daf"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_adjustTwoSidedBaseColor",
+      "bytes": 135618,
+      "sha256": "ac1e18c1728094d9b27ab63b6dc183df6b734b4af10d1c7dd97af65465e2ab77"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_adjustTwoSidedNormal",
+      "bytes": 106160,
+      "sha256": "0bbdc790a72ff66a83f47fdf19abb8a3bad8b4d00f25028dcd11bb14a352a041"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_generateSpecular",
+      "bytes": 16606,
+      "sha256": "4e6a6afeec986bf24d545e4d33c9d640f6b8e2180046e6153da5d33cfc8b714c"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_generateTranslucency",
+      "bytes": 21428,
+      "sha256": "a65a003d3d1dc20f48876487c11e4fa30d95936fe02107539e002b1b6b44b04e"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Foliage/MF_generateTwoSidedSpecular",
+      "bytes": 122419,
+      "sha256": "a76d66d7783faaea45c684d73a6381cdd697b0c69846160c115f55e3d711c752"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialFunctions/Textures/T_WindNoise",
+      "bytes": 6910135,
+      "sha256": "7374201cb3e6019bb68f7afa36197d1f677e869fe672980ececd8455c39ae3e1"
+    },
+    {
+      "package": "/Game/MSPresets/MS_Foliage_Material_LATEST/MaterialParameterCollection/MPC_GlobalFoliageActor",
+      "bytes": 4732,
+      "sha256": "557c2c396fd524cdca0d117b0aaba9472443bce2e0c9ebe9315058672fe2742f"
+    },
+    {
+      "package": "/Game/Megascans/3D_Assets/ForestRockSlab/MI_ForestRockSlab_01",
+      "bytes": 13882,
+      "sha256": "0caae46668c5272302db9bb4418db18e252aff1701770e306078c56ed282113d"
+    },
+    {
+      "package": "/Game/Megascans/3D_Assets/ForestRockSlab/SM_ForestRockSlab_01",
+      "bytes": 68282095,
+      "sha256": "52d79b3b5c1dd84d89ee25f37ecf353db04214b781aed1b67882f2a351e8e38e"
+    },
+    {
+      "package": "/Game/Megascans/3D_Assets/ForestRockSlab/T_ForestRockSlab_01_BC",
+      "bytes": 31951050,
+      "sha256": "e0564b3ad55a20e4449a9c9f07a7d34ab5bc4688ab9e841d13a1441015772ba7"
+    },
+    {
+      "package": "/Game/Megascans/3D_Assets/ForestRockSlab/T_ForestRockSlab_01_DpR",
+      "bytes": 15293288,
+      "sha256": "0ac95502542189bd8af2e9c877b105fef007fd49cb87e71fabae9ce290a9ae3a"
+    },
+    {
+      "package": "/Game/Megascans/3D_Assets/ForestRockSlab/T_ForestRockSlab_01_N",
+      "bytes": 33406072,
+      "sha256": "38c3997a0e5702db1edf47bd511bfe58ba9d46be2366d97cd6e2e1d113fb6388"
+    },
+    {
+      "package": "/Game/Megascans/3D_Assets/HugeNordicCoastalCliff/T_WhitePlaceholder_01",
+      "bytes": 4655,
+      "sha256": "02fdaad5b68168fe57b04d24291cfb52a3dcc2b59fcc3ff0b39ad308ca3ebd6e"
+    },
+    {
+      "package": "/Game/Megascans/3D_Assets/MossyForestBoulder/T_MossyForestBoulder_04_BC",
+      "bytes": 32047678,
+      "sha256": "9a17da64e513ceec233ce43d9ac144ef4f5f8763ca4b32de3b3b5daf20c98a49"
+    },
+    {
+      "package": "/Game/Megascans/3D_Assets/MossyForestBoulder/T_MossyForestBoulder_04_DpRF",
+      "bytes": 17151767,
+      "sha256": "d8efcc2033ad62f22cb74e01b303e61acd3735b55328973e3d19c5c33bb8c557"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/AlexandraPalm/T_AlexandraPalm_01_AoRT",
+      "bytes": 5281147,
+      "sha256": "cf52f8eac38e4a0d6b2f83f65470f209da63250e0e0edd3e284f596af5ef8b1f"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/AlexandraPalm/T_AlexandraPalm_01_BC",
+      "bytes": 20248659,
+      "sha256": "fe2e21fe81ef34deeaffda12ceb2dfd909a30d07503aba598e006dff27f36c09"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/AlexandraPalm/T_AlexandraPalm_01_N",
+      "bytes": 4732478,
+      "sha256": "077bffc7e44b17fb990259d61f0e660406f5f486bc0552cc9e43a64e159f2e5c"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/AlexandraPalm/T_AlexandraPalm_01_T",
+      "bytes": 6472973,
+      "sha256": "52950969d356b3d72777fda7abb92a54c8254895b56f12349470aba4b5848eb7"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/BeechFern/MI_BeechFern_02",
+      "bytes": 26185,
+      "sha256": "d93ebef50871ec051332a64606d4ecddc2015cd91785e27c82029ac209498a78"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/BeechFern/SM_BeechFern_01",
+      "bytes": 5357163,
+      "sha256": "e337c69344aca3581a5f066baa186e357d1b34dd1edd691e7a89aa778deb269d"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/BeechFern/T_BeechFern_01_AoRT",
+      "bytes": 4741153,
+      "sha256": "94002724f52a2704a781f91c148d5716dc21fa857454e8847cbaa6e3e257acf6"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/BeechFern/T_BeechFern_01_BC",
+      "bytes": 17797841,
+      "sha256": "2eba1db5d15338f34cec3e571673566df2f0ce7d790fe4def19bf424fee83815"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/BeechFern/T_BeechFern_01_N",
+      "bytes": 17682562,
+      "sha256": "14f7554836ca0b9fd38814b03dd03f875016d9473fb6b932f731390ca4a8c9b9"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/BeechFern/T_BeechFern_01_R",
+      "bytes": 1463031,
+      "sha256": "5da69029aa571b0aceb729fb71d5c67b60940579817c802df732b70291668645"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/BeechFern/T_BeechFern_01_T",
+      "bytes": 5963493,
+      "sha256": "953b2f41c72fc76884d607bd212010aece1590e5393ea7e0b1d13c5b95d62bc6"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/CustomMoss/T_CustomMoss_01_R",
+      "bytes": 161815,
+      "sha256": "3d8d5e2242665f2c935125e894d3ee2b46bd6d50135e9f83a1d366bb2ad6f2a6"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Geometry/SimpleWind/SM_EuropeanHornbeam_Field_01",
+      "bytes": 39740161,
+      "sha256": "de255b2f6fd6e1e4ed160fb7abc9bc68d8182fe20f3860507e44cacbbdeff34c"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Geometry/SimpleWind/SM_EuropeanHornbeam_Forest_01",
+      "bytes": 20860704,
+      "sha256": "554db59566b9d952d328fcb99ab1038fc2688f558fc0d8521fb097018685b63e"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Geometry/SimpleWind/SM_EuropeanHornbeam_Sapling_01",
+      "bytes": 2825810,
+      "sha256": "2164b474345a28fad302e5308b1aa354e2dba668fda9e1cb46acf529ae609b5d"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Materials/SimpleWind/MI_EuropeanHornbeam_01",
+      "bytes": 11954,
+      "sha256": "5b57b868afffb84e1ce442e742067edc6609c18a7f4bbbe6081b9c35840904c5"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Materials/SimpleWind/MI_EuropeanHornbeam_Decoration",
+      "bytes": 23032,
+      "sha256": "a77b2d0a70896d9f4c208d40b9782802cff0bb01b42b6a55f14086b5378b5e86"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Materials/SimpleWind/MI_EuropeanHornbeam_Tileable",
+      "bytes": 25579,
+      "sha256": "988097b342ccf99dc411c639da7928d3010a4a3eaa73e2813246775f99f6aa39"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Materials/SimpleWind/MI_EuropeanHornbeam_Trunk_01",
+      "bytes": 24507,
+      "sha256": "43cd192a3a44223b3f8ca299ad2003de9f9471db9626c6f4a484c71136b887ff"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Materials/SimpleWind/MI_EuropeanHornbeam_TwoSided",
+      "bytes": 30742,
+      "sha256": "a7206242046b61ce6d64f3d13234b28a4d94f7db189ed7d4480659b6d48def8e"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Textures/Decoration/T_EuropeanHornbeam_Decoration_Albedo",
+      "bytes": 24290304,
+      "sha256": "77a94ef0e72c41dc8661789736059ace0fff045e68ea35f6458a9a575e672d05"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Textures/Decoration/T_EuropeanHornbeam_Decoration_Mask",
+      "bytes": 27615893,
+      "sha256": "effc433311737b3bf390162d0ad531f8cc12fd646c75adf5f990825d3ce68fef"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Textures/Decoration/T_EuropeanHornbeam_Decoration_Normal",
+      "bytes": 31916775,
+      "sha256": "11c50a5974a984b6361f6ebf0c150b376acd9d195d9931254b21107cbd47a9f0"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Textures/Tileable/T_EuropeanHornbeam_Tileable_Albedo",
+      "bytes": 35998307,
+      "sha256": "2410f357d5aab5c6ebd33bab8484971f995795a905ee9e77292a2d78a45e13bb"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Textures/Tileable/T_EuropeanHornbeam_Tileable_Mask",
+      "bytes": 39497390,
+      "sha256": "bdaa045552ed7057abddc7be3c00d63ad79d7f7f015110c26412083131350e87"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Textures/Tileable/T_EuropeanHornbeam_Tileable_Normal",
+      "bytes": 39551033,
+      "sha256": "b6dad2b63d08fdd1dd17cc172907feb01efee9ba20db25218962dc426198fbba"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Textures/Trunk/Trunk_01/T_EuropeanHornbeam_Trunk_01_Albedo",
+      "bytes": 32929455,
+      "sha256": "bbb5617910968005326f59b84bce61831894c9b5512e735c045b418d09d9f7eb"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Textures/Trunk/Trunk_01/T_EuropeanHornbeam_Trunk_01_Mask",
+      "bytes": 38632313,
+      "sha256": "58778c5caa64fddfe49f93f2a16ef2b43eba06636796908659a09d3596e33e44"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Textures/Trunk/Trunk_01/T_EuropeanHornbeam_Trunk_01_Normal",
+      "bytes": 37429406,
+      "sha256": "0dbcef986d49ccfa1a6093399ecb127136340e803b4ba12d42599fa755e221f5"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Textures/TwoSided/Summer/T_EuropeanHornbeam_TwoSided_Summer_Albedo",
+      "bytes": 11055550,
+      "sha256": "da5b88ab8e3c3805716cd9a6ceb897ab9f6d3a765c66f3aa6526e61687cffb2c"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Textures/TwoSided/Summer/T_EuropeanHornbeam_TwoSided_Summer_Mask",
+      "bytes": 24359377,
+      "sha256": "5388dd5094c9b5d7dc38c5ce938a17bf0591e851692164ff3a9f7be6f806e892"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Textures/TwoSided/Summer/T_EuropeanHornbeam_TwoSided_Summer_Normal",
+      "bytes": 23013114,
+      "sha256": "bce5445ecd3d45b9337521dca025a900275fdf8ee6be0d0d73be253550eff185"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Textures/TwoSided/Winter/T_EuropeanHornbeam_TwoSided_Winter_Albedo",
+      "bytes": 4019229,
+      "sha256": "e3ea1aae9ebb8d3f31db1a281eeaea0135d140623862fdce874a01f4c95e0066"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Textures/TwoSided/Winter/T_EuropeanHornbeam_TwoSided_Winter_Mask",
+      "bytes": 7923641,
+      "sha256": "17d84cfc525f5c007e6765c4e4cdb3862eec19fff69c352643e68f5b6550fe40"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/EuropeanHornbeam/Textures/TwoSided/Winter/T_EuropeanHornbeam_TwoSided_Winter_Normal",
+      "bytes": 10962644,
+      "sha256": "f01936062ba7136fe45f5d8428b1e5a62c1a7fb42acc1d02284ef19f949a2165"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/Lichen/T_Lichen_01_BC",
+      "bytes": 4561187,
+      "sha256": "27a43272b5c8c9dda58d7c1f644b437f1a22874f3830c184d70da727d843b286"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/Lichen/T_Lichen_01_Density",
+      "bytes": 2628515,
+      "sha256": "589dcd44ff827b77226abd58eb2a51c435d041b038c748a156b35e671f8748db"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/Lichen/T_Lichen_01_M",
+      "bytes": 6658423,
+      "sha256": "b696161f2792f3692a074c49c8eda001a4d700e6cbdb225a77f6c3a0c99c5379"
+    },
+    {
+      "package": "/Game/Megascans/3D_Plants/Lichen/T_Lichen_01_N",
+      "bytes": 9166234,
+      "sha256": "e6995c7512f527baaec97894adc556faacc6a8b45568db35be3950a3668dedc5"
+    },
+    {
+      "package": "/Game/Megascans/Surfaces/IcelandicQuarryRock/T_IcelandicQuarryRock_01_AoRDp",
+      "bytes": 8383461,
+      "sha256": "ea649610612c150ecba0653efb3eb62050aea1221faed93d4a7f7d7f908ad497"
+    },
+    {
+      "package": "/Game/Megascans/Surfaces/IcelandicQuarryRock/T_IcelandicQuarryRock_01_BC",
+      "bytes": 26801170,
+      "sha256": "16264b4e047820e3e07ab860c272196dd1a0359cf41300cb48f0aca7627f00d2"
+    },
+    {
+      "package": "/Game/Megascans/Surfaces/NordicMoss/T_NordicMoss_01_AoRDp",
+      "bytes": 10544972,
+      "sha256": "5c6f56ac48d619d25b46f7c4e72a1a56bd58e0544bbea9fb691657f84e00f266"
+    },
+    {
+      "package": "/Game/Megascans/Surfaces/NordicMoss/T_NordicMoss_01_BC",
+      "bytes": 39225559,
+      "sha256": "cb8f6c47bf8efac78f3709682a8277f272b130329b814b4ca87195abafa20555"
+    },
+    {
+      "package": "/Game/Megascans/Surfaces/NordicMoss/T_NordicMoss_01_N",
+      "bytes": 46667225,
+      "sha256": "d2d040dd7480997a2953681f257ab3209f2b5355f0dd06a1cb61cca8c740ee66"
+    },
+    {
+      "package": "/Game/Meshes/_GENERATED/RockFormation/SM_ForestRockShelf_03",
+      "bytes": 105170,
+      "sha256": "7263ba7b0a0f3f85fd124bd8ad80a9d3aa0aadabae53d331a001db728f45e83d"
+    },
+    {
+      "package": "/Game/PhysicalMaterials/PhysMat_SolidRock",
+      "bytes": 1537,
+      "sha256": "9fecb0278f9c8083698e70e06e06148e3076335c3ceb1a53e285df9554f2a3c7"
+    }
+  ]
+}
