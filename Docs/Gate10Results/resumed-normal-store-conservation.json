@@ -1,0 +1,71 @@
+{
+  "pass": true,
+  "evidence": "normal Tab/Down/T selection; original GUID/quantity/condition conserved",
+  "before": [
+    {
+      "id": "99B42B3049ECA8F021BF3BB50D674E3F",
+      "definition": "/Game/Items/DA_Water.DA_Water",
+      "quantity": 1,
+      "condition": 1.0
+    },
+    {
+      "id": "85B0E38A442CE460176D7AB31A01A5B2",
+      "definition": "/Game/Combat/Gate9_5/Items/DA_PrototypeCrowbar.DA_PrototypeCrowbar",
+      "quantity": 1,
+      "condition": 1.0
+    },
+    {
+      "id": "64E7CF424C915E83483D98905113A61D",
+      "definition": "/Game/Combat/Gate9_5/Items/DA_45ACPMagazine.DA_45ACPMagazine",
+      "quantity": 1,
+      "condition": 1.0
+    },
+    {
+      "id": "4128871C44A461E4D51569A3B70741F2",
+      "definition": "/Game/Combat/Gate9_5/Items/DA_M1911_45ACP.DA_M1911_45ACP",
+      "quantity": 1,
+      "condition": 1.0
+    },
+    {
+      "id": "5ED732494D348A31A6001BB4181960CF",
+      "definition": "/Game/Items/DA_Food.DA_Food",
+      "quantity": 1,
+      "condition": 0.8461890816688538
+    }
+  ],
+  "player_after": [
+    {
+      "id": "99B42B3049ECA8F021BF3BB50D674E3F",
+      "definition": "/Game/Items/DA_Water.DA_Water",
+      "quantity": 1,
+      "condition": 1.0
+    },
+    {
+      "id": "85B0E38A442CE460176D7AB31A01A5B2",
+      "definition": "/Game/Combat/Gate9_5/Items/DA_PrototypeCrowbar.DA_PrototypeCrowbar",
+      "quantity": 1,
+      "condition": 1.0
+    },
+    {
+      "id": "64E7CF424C915E83483D98905113A61D",
+      "definition": "/Game/Combat/Gate9_5/Items/DA_45ACPMagazine.DA_45ACPMagazine",
+      "quantity": 1,
+      "condition": 1.0
+    },
+    {
+      "id": "4128871C44A461E4D51569A3B70741F2",
+      "definition": "/Game/Combat/Gate9_5/Items/DA_M1911_45ACP.DA_M1911_45ACP",
+      "quantity": 1,
+      "condition": 1.0
+    }
+  ],
+  "cargo_after": [
+    {
+      "id": "5ED732494D348A31A6001BB4181960CF",
+      "definition": "/Game/Items/DA_Food.DA_Food",
+      "quantity": 1,
+      "condition": 0.8461890816688538
+    }
+  ],
+  "feedback": ""
+}

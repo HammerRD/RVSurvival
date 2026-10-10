@@ -30,7 +30,7 @@ def tick(dt):
   elif phase==4 and now-last>1:
    assert inv().open_container==cargo().container,'normal E cargo unavailable';phase=5;last=now
   elif phase==5 and now-last>.6:
-   seq=[('Down',True),('Down',False)]*4+[('T',True),('T',False)]
+   seq=[('Tab',True),('Tab',False)]+[('Down',True),('Down',False)]*4+[('T',True),('T',False)]
    key(*seq[event]);event+=1;last=now
    if event==len(seq):phase=6
   elif phase==6 and now-last>1:finish()
@@ -41,4 +41,5 @@ def tick(dt):
    if hasattr(sys,k):setattr(sys,k,None)
   gc.collect()
 handle=unreal.register_slate_post_tick_callback(tick)
+
 
