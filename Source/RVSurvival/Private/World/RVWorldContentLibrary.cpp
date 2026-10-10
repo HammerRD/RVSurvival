@@ -240,45 +240,55 @@ TMap<FString,int32> URVWorldContentLibrary::GradeRegionSitePads(UObject* Context
 #if WITH_EDITOR
     UWorld* World=Context?Context->GetWorld():nullptr;
     if(!World || World->IsGameWorld() || !World->GetPackage()->GetName().EndsWith(TEXT("/WNY_PrototypeRegion")))return Result;
+    // V3 grades the sites and the garage extension together; the separate V2-only pass is superseded.
+    if(bExtendGarage)return Result;
     ALandscape* Landscape=nullptr;
     for(TActorIterator<ALandscape> It(World);It;++It){if(Landscape)return Result;Landscape=*It;}
-    const FName Marker=bExtendGarage?TEXT("WNYGarageApproachV2"):TEXT("WNYGradedSitesV1");
+    // V1/V2 tags were saved although their final-heightmap writes were discarded by the edit layer merge.
+    const FName Marker=TEXT("WNYGradedSitesV3");
     if(!Landscape || Landscape->ActorHasTag(Marker))return Result;
-    if(bExtendGarage && !Landscape->ActorHasTag(TEXT("WNYGradedSitesV1")))return Result;
     auto* Info=Landscape->GetLandscapeInfo();int32 MinX,MinY,MaxX,MaxY;
     if(!Info || !Info->GetLandscapeExtent(MinX,MinY,MaxX,MaxY) || MaxX-MinX>2048 || MaxY-MinY>2048)return Result;
+    const TArray<const ULandscapeEditLayerBase*> Layers=Landscape->GetEditLayersConst();
+    if(Layers.Num()!=1 || !Layers[0] || Layers[0]->IsLocked())return Result;
     const auto OriginalHeight=[](double X,double Y)
     {return (1800*FMath::Sin(X/65000)*FMath::Cos(Y/72000)+650*FMath::Sin(Y/25000))*FMath::Clamp((FMath::Abs(Y)-3000)/12000,0.,1.);};
     struct FSite{FVector2D Center,Half;double Height;};
     TArray<FSite> Sites={{{-130000,4900},{2500,2900},0},{{-60000,-5500},{3000,4100},0},
         {{0,46000},{2800,3500},OriginalHeight(0,45000)},{{75000,46000},{2800,3500},OriginalHeight(75000,45000)},
         {{140000,5000},{2500,3900},0}};
-    if(bExtendGarage)Sites={{{-60000,-7000},{4000,6600},0}};
-    const double Falloff=bExtendGarage?9000.:1400.;
+    // One 400 cm Landscape quad beyond each authored pad keeps the pad edge flat instead of interpolating into the falloff.
+    for(FSite& Site:Sites)Site.Half+=FVector2D(400,400);
+    const TArray<FSite> Garage={{{-60000,-7000},{4000,6600},0}};
+    const TPair<const TArray<FSite>*,double> Passes[]={{&Sites,1400.},{&Garage,9000.}};
     for(TActorIterator<ALandscapeProxy> It(World);It;++It)
     {It->Modify();for(const auto& Component:It->LandscapeComponents)if(Component)Component->Modify();}
-    const int32 Width=MaxX-MinX+1;TArray<uint16> Heights;Heights.SetNumUninitialized(Width*(MaxY-MinY+1));
-    FLandscapeEditDataInterface Edit(Info);Edit.GetHeightDataFast(MinX,MinY,MaxX,MaxY,Heights.GetData(),Width);
-    for(const uint16 Height:Heights)if(Height<28000 || Height>38000)return Result; // Refuse unloaded/missing terrain samples.
-    int32 Changed=0;
-    for(int32 Y=MinY;Y<=MaxY;++Y)for(int32 X=MinX;X<=MaxX;++X)
+    const int32 Width=MaxX-MinX+1;TArray<uint16> Heights;Heights.SetNumUninitialized(Width*(MaxY-MinY+1));int32 Changed=0;
     {
-        const FVector P=Landscape->GetActorTransform().TransformPosition(FVector(X,Y,0));
-        const int32 Index=(Y-MinY)*Width+X-MinX;double Height=(int32(Heights[Index])-32768)*100./128.;
-        for(const auto& Site:Sites)
+        // Read and write the persistent edit layer itself; the final heightmap is regenerated from it.
+        FScopedSetLandscapeEditingLayer Scope(Landscape,Layers[0]->GetGuid());
+        FLandscapeEditDataInterface Edit(Info);Edit.GetHeightDataFast(MinX,MinY,MaxX,MaxY,Heights.GetData(),Width);
+        for(const uint16 Height:Heights)if(Height<28000 || Height>38000)return Result; // Refuse unloaded/missing terrain samples.
+        for(int32 Y=MinY;Y<=MaxY;++Y)for(int32 X=MinX;X<=MaxX;++X)
         {
-            const double Outside=FMath::Max(FMath::Abs(P.X-Site.Center.X)-Site.Half.X,FMath::Abs(P.Y-Site.Center.Y)-Site.Half.Y);
-            const double Alpha=FMath::SmoothStep(0.,1.,FMath::Clamp(1.-FMath::Max(0.,Outside)/Falloff,0.,1.));
-            Height=FMath::Lerp(Height,Site.Height,Alpha);
+            const FVector P=Landscape->GetActorTransform().TransformPosition(FVector(X,Y,0));
+            const int32 Index=(Y-MinY)*Width+X-MinX;double Height=(int32(Heights[Index])-32768)*100./128.;
+            for(const auto& Pass:Passes)for(const auto& Site:*Pass.Key)
+            {
+                const double Outside=FMath::Max(FMath::Abs(P.X-Site.Center.X)-Site.Half.X,FMath::Abs(P.Y-Site.Center.Y)-Site.Half.Y);
+                const double Alpha=FMath::SmoothStep(0.,1.,FMath::Clamp(1.-FMath::Max(0.,Outside)/Pass.Value,0.,1.));
+                Height=FMath::Lerp(Height,Site.Height,Alpha);
+            }
+            const uint16 Value=uint16(FMath::Clamp(FMath::RoundToInt(32768.+Height*128./100.),0,65535));
+            if(Value!=Heights[Index]){Heights[Index]=Value;++Changed;}
         }
-        const uint16 Value=uint16(FMath::Clamp(FMath::RoundToInt(32768.+Height*128./100.),0,65535));
-        if(Value!=Heights[Index]){Heights[Index]=Value;++Changed;}
+        Edit.SetHeightData(MinX,MinY,MaxX,MaxY,Heights.GetData(),Width,true);Edit.Flush();
     }
-    // Native edit updates height textures, normals, bounds and walkable collision.
-    Edit.SetHeightData(MinX,MinY,MaxX,MaxY,Heights.GetData(),Width,true);Edit.Flush();
+    // Merge the edited layer into the final heightmap, normals and collision now, not on a later tick.
+    Landscape->RequestLayersContentUpdateForceAll(ELandscapeLayerUpdateMode::Update_All);Landscape->ForceUpdateLayersContent();
     Landscape->Tags.Add(Marker);Landscape->MarkPackageDirty();
     for(TActorIterator<ALandscapeProxy> It(World);It;++It)It->MarkPackageDirty();
-    Result.Add(TEXT("ChangedVertices"),Changed);Result.Add(TEXT("GradedSites"),Sites.Num());
+    Result.Add(TEXT("ChangedVertices"),Changed);Result.Add(TEXT("GradedSites"),Sites.Num()+Garage.Num());
 #endif
     return Result;
 }
