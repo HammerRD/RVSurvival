@@ -34,7 +34,24 @@ def collect(w):
    d=0.0
    while d<=length:
     v=spline.get_location_at_distance_along_spline(d,unreal.SplineCoordinateSpace.WORLD);requests.append(('road_dense',label,v.x,v.y,{'distance_cm':round(d),'spline_z':v.z}));d+=1000
+   # Pavement edge pairs every 5 m: 50 cm inside each edge (pavement top) and 50 cm outside (terrain).
+   half=a.get_editor_property('WidthCm')/2;d=0.0;n=0
+   while d<=length:
+    v=spline.get_location_at_distance_along_spline(d,unreal.SplineCoordinateSpace.WORLD);rt=spline.get_right_vector_at_distance_along_spline(d,unreal.SplineCoordinateSpace.WORLD)
+    for side in (-1,1):
+     pair=f'{label}|{n}|{side}'
+     requests.append(('edge_in',label,v.x+rt.x*side*(half-50),v.y+rt.y*side*(half-50),{'pair':pair,'surface':'road','distance_cm':round(d)}))
+     requests.append(('edge_out',label,v.x+rt.x*side*(half+50),v.y+rt.y*side*(half+50),{'pair':pair,'surface':'road','distance_cm':round(d)}))
+    d+=500;n+=1
    spline=None
+  elif isinstance(a,unreal.StaticMeshActor) and a.get_actor_label().endswith(' RV parking'):
+   label=a.get_actor_label();name=a.get_name();o,e=a.get_actor_bounds(False);n=0
+   for x0,y0,x1,y1,ox,oy in [(o.x-e.x,o.y-e.y,o.x+e.x,o.y-e.y,0,-1),(o.x+e.x,o.y-e.y,o.x+e.x,o.y+e.y,1,0),(o.x+e.x,o.y+e.y,o.x-e.x,o.y+e.y,0,1),(o.x-e.x,o.y+e.y,o.x-e.x,o.y-e.y,-1,0)]:
+    steps=max(1,int(math.hypot(x1-x0,y1-y0)/200))
+    for i in range(1,steps):
+     x=x0+(x1-x0)*i/steps;y=y0+(y1-y0)*i/steps;pair=f'{label}|{n}';n+=1
+     requests.append(('edge_in',label,x-ox*50,y-oy*50,{'pair':pair,'surface':'slab','actor':name}))
+     requests.append(('edge_out',label,x+ox*50,y+oy*50,{'pair':pair,'surface':'slab','actor':name}))
   a=None
  raw=json.loads(unreal.RVWorldContentLibrary.audit_region_terrain_samples(w,[unreal.Vector2D(r[2],r[3]) for r in requests]))
  assert len(raw['Samples'])==len(requests),'sample count mismatch'
@@ -68,15 +85,41 @@ def collect(w):
  roads_hit=[r for r in rows if r['kind']=='road_point' and r['road_surface_z'] is not None]
  summary['all_road_points']={'road_surface_minus_intended':stats([r['road_surface_z']-r['intended_z'] for r in roads_hit]),'road_surface_minus_collision':stats([r['road_surface_z']-r['CollisionZ'] for r in roads_hit if 'CollisionZ' in r]),
   'off_by_more_than_30cm':sum(abs(r['road_surface_z']-r.get('CollisionZ',r['road_surface_z']))>30 for r in roads_hit),'no_road_mesh_hit':sum(r['kind']=='road_point' and r['road_surface_z'] is None for r in rows)}
+ edges={}
+ for r in rows:
+  if r['kind'] in ('edge_in','edge_out'):edges.setdefault(r['pair'],{})[r['kind']]=r
+ steps=[];unmatched=0
+ for pair,e in edges.items():
+  i,o=e.get('edge_in'),e.get('edge_out')
+  ok=i and o and ((i['surface']=='road' and i.get('MeshClass')=='RVRegionRoad') or (i['surface']=='slab' and i.get('MeshActor')==i.get('actor')))
+  if not ok or 'CollisionZ' not in o or 'CollisionZ' not in i:unmatched+=1;continue
+  steps.append({'pair':pair,'surface':i['surface'],'x':o['x'],'y':o['y'],'pavement_z':round(i['MeshZ'],2),'terrain_out_z':round(o['CollisionZ'],2),'terrain_under_z':round(i['CollisionZ'],2),
+   'step_cm':round(i['MeshZ']-o['CollisionZ'],2),'terrain_above_pavement_cm':round(i['CollisionZ']-i['MeshZ'],2)})
+ summary['edge_steps']={'pairs':len(edges),'measured':len(steps),'unmatched':unmatched,
+  'road':stats([e['step_cm'] for e in steps if e['surface']=='road']),'slab':stats([e['step_cm'] for e in steps if e['surface']=='slab']),
+  'terrain_above_pavement':stats([e['terrain_above_pavement_cm'] for e in steps]),
+  'worst':sorted(steps,key=lambda e:-abs(e['step_cm']))[:15],'worst_poke':sorted(steps,key=lambda e:-e['terrain_above_pavement_cm'])[:5]}
+ summary['_edge_rows']=steps
  summary['all_samples_collision_minus_original']=stats([r['CollisionZ']-r['original_z'] for r in rows if 'CollisionZ' in r])
  return summary,rows
-def passes(summary,rows,tolerance=3.0,road_tolerance=10.0):
- """Graded pads must be at target in final heightmap, edit layer and collision; roads ~18 cm above terrain."""
- failures=[]
+def passes(summary,rows,tolerance=3.0,step_tolerance=10.0,poke_tolerance=2.0):
+ """Pavement edges have no step (|pavement - terrain just outside| within step_tolerance) and terrain never rises above
+ pavement; pad samples beyond the 4-quad blend (24 m) stay at their graded target; the heightmap, edit layer and collision agree."""
+ failures=[];edges=summary.get('_edge_rows',[])
+ for e in edges:
+  if abs(e['step_cm'])>step_tolerance:failures.append((e['pair'],e['x'],e['y'],'step_cm',e['step_cm']))
+  if e['terrain_above_pavement_cm']>poke_tolerance:failures.append((e['pair'],e['x'],e['y'],'terrain_above_pavement_cm',e['terrain_above_pavement_cm']))
+ paved=[(r['x'],r['y']) for r in rows if r.get('MeshClass')=='RVRegionRoad' or (r['kind']=='edge_in')]+[(r['x'],r['y']) for r in rows if r['kind']=='pad' and str(r.get('MeshActor','')).startswith('StaticMeshActor') and r.get('FirstHitActor','').startswith('StaticMeshActor')]
+ grid={}
+ for x,y in paved:grid.setdefault((int(x//2400),int(y//2400)),[]).append((x,y))
+ def near_paved(x,y):
+  gx,gy=int(x//2400),int(y//2400)
+  return any(math.hypot(px-x,py-y)<=2400 for dx in (-1,0,1) for dy in (-1,0,1) for px,py in grid.get((gx+dx,gy+dy),[]))
  for r in rows:
-  if r['kind']=='pad':
+  if 'FinalZ' in r and 'LayerZ' in r and abs(r['FinalZ']-r['LayerZ'])>1:failures.append((r['site'],r['x'],r['y'],'final_vs_layer',r['FinalZ']-r['LayerZ']))
+  if 'FinalZ' in r and 'CollisionZ' in r and abs(r['FinalZ']-r['CollisionZ'])>tolerance:failures.append((r['site'],r['x'],r['y'],'final_vs_collision',r['FinalZ']-r['CollisionZ']))
+  if r['kind']=='pad' and not near_paved(r['x'],r['y']):
    for k in [k for k in r if k.startswith('d_') and k!='d_FirstHitZ']:
     if r[k] is None or abs(r[k])>tolerance:failures.append((r['site'],r['x'],r['y'],k,r[k]))
-  elif r['kind']=='road_point' and r.get('road_surface_z') is not None and r.get('road_minus_CollisionZ') is not None and abs(r['road_minus_CollisionZ']-18)>road_tolerance:
-   failures.append((r['site'],r.get('index'),r['x'],r['y'],'road_minus_CollisionZ',r['road_minus_CollisionZ']))
+ if summary['edge_steps']['measured']<0.9*summary['edge_steps']['pairs']:failures.append(('edges','measured',summary['edge_steps']['measured'],'of',summary['edge_steps']['pairs']))
  return failures

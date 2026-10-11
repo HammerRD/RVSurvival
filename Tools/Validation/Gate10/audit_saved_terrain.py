@@ -8,7 +8,7 @@ def audit():
  (out/'saved-terrain-audit.json').write_text(json.dumps(dict(unreal.RVWorldContentLibrary.audit_region_terrain(w)),indent=2))
  summary,rows=terrain_audit_common.collect(w);w=None
  failures=terrain_audit_common.passes(summary,rows);summary['pass']=not failures;summary['failures']=len(failures);summary['first_failures']=failures[:20]
- (out/'saved-terrain-full-samples.json').write_text(json.dumps(rows,indent=1))
+ (out/'saved-terrain-edge-steps.json').write_text(json.dumps(summary.pop('_edge_rows'),indent=1));(out/'saved-terrain-full-samples.json').write_text(json.dumps(rows,indent=1))
  docs.joinpath('saved-terrain-full-audit.json').write_text(json.dumps(summary,indent=2))
 def tick(dt):
  global phase,handle,loaded_at

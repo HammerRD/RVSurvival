@@ -24,6 +24,9 @@
 #include "LandscapeEditLayer.h"
 #include "LandscapeDataAccess.h"
 #include "LandscapeSplinesComponent.h"
+#include "Components/SplineMeshComponent.h"
+#include "Engine/StaticMeshActor.h"
+#include "World/RVRegionRoad.h"
 #include "WorldPartition/LoaderAdapter/LoaderAdapterShape.h"
 #include "AssetRegistry/AssetRegistryModule.h"
 #endif
@@ -295,6 +298,162 @@ TMap<FString,int32> URVWorldContentLibrary::GradeRegionSitePads(UObject* Context
 
 
 
+TMap<FString,int32> URVWorldContentLibrary::BlendRegionTerrainToPavement(UObject* Context)
+{
+    TMap<FString,int32> Result;
+#if WITH_EDITOR
+    UWorld* World=Context?Context->GetWorld():nullptr;
+    if(!World || World->IsGameWorld() || !World->GetPackage()->GetName().EndsWith(TEXT("/WNY_PrototypeRegion")))return Result;
+    ALandscape* Landscape=nullptr;
+    for(TActorIterator<ALandscape> It(World);It;++It){if(Landscape)return Result;Landscape=*It;}
+    const FName Marker=TEXT("WNYPavedEdgesV1");
+    if(!Landscape || Landscape->ActorHasTag(Marker) || !Landscape->ActorHasTag(TEXT("WNYGradedSitesV3")))return Result;
+    auto* Info=Landscape->GetLandscapeInfo();int32 MinX,MinY,MaxX,MaxY;
+    if(!Info || !Info->GetLandscapeExtent(MinX,MinY,MaxX,MaxY) || MaxX-MinX>2048 || MaxY-MinY>2048)return Result;
+    const TArray<const ULandscapeEditLayerBase*> Layers=Landscape->GetEditLayersConst();
+    if(Layers.Num()!=1 || !Layers[0] || Layers[0]->IsLocked())return Result;
+    // Paved surfaces: every road spline mesh with collision and each site's "RV parking" slab.
+    TArray<UPrimitiveComponent*> Paved;int32 Slabs=0;
+    for(TActorIterator<AActor> It(World);It;++It)
+    {
+        if(Cast<ARVRegionRoad>(*It))
+        {
+            TArray<USplineMeshComponent*> Meshes;It->GetComponents(Meshes);
+            for(auto* Mesh:Meshes)if(Mesh && Mesh->IsQueryCollisionEnabled())Paved.Add(Mesh);
+        }
+        else if(Cast<AStaticMeshActor>(*It) && It->GetActorLabel().EndsWith(TEXT(" RV parking")))
+        {Paved.Add(CastChecked<AStaticMeshActor>(*It)->GetStaticMeshComponent());++Slabs;}
+    }
+    if(Paved.IsEmpty() || Slabs!=5)return Result;
+    const double Bucket=2000;TMap<FIntPoint,TArray<int32>> Buckets;
+    for(int32 Index=0;Index<Paved.Num();++Index)
+    {
+        const FBox Box=Paved[Index]->Bounds.GetBox();
+        for(int32 BX=FMath::FloorToInt(Box.Min.X/Bucket);BX<=FMath::FloorToInt(Box.Max.X/Bucket);++BX)
+            for(int32 BY=FMath::FloorToInt(Box.Min.Y/Bucket);BY<=FMath::FloorToInt(Box.Max.Y/Bucket);++BY)Buckets.FindOrAdd({BX,BY}).Add(Index);
+    }
+    const int32 Width=MaxX-MinX+1,Height=MaxY-MinY+1,Count=Width*Height;const FTransform Transform=Landscape->GetActorTransform();
+    // Paved vertices sit 6 cm under the pavement top; the first ring meets the traced pavement edge 3 cm low; then a smooth 3-quad blend.
+    constexpr double SurfaceOffset=-6,EdgeOffset=-3;constexpr int32 Blend=4;
+    TArray<double> Source;Source.Init(TNumericLimits<double>::Lowest(),Count);TArray<int32> Distance;Distance.Init(MAX_int32,Count);TArray<int32> Queue;
+    FCollisionQueryParams Params(SCENE_QUERY_STAT(RVPavementBlend),false); // Simple collision: what vehicles actually drive on.
+    const auto TopAt=[&](double PX,double PY)
+    {
+        double Top=TNumericLimits<double>::Lowest();
+        if(const TArray<int32>* Candidates=Buckets.Find(FIntPoint(int32(FMath::FloorToInt(PX/Bucket)),int32(FMath::FloorToInt(PY/Bucket)))))
+            for(const int32 Candidate:*Candidates)
+            {
+                const FBox Box=Paved[Candidate]->Bounds.GetBox();
+                if(PX<Box.Min.X || PX>Box.Max.X || PY<Box.Min.Y || PY>Box.Max.Y)continue;
+                FHitResult Hit;
+                if(Paved[Candidate]->LineTraceComponent(Hit,FVector(PX,PY,Box.Max.Z+100),FVector(PX,PY,Box.Min.Z-100),Params))Top=FMath::Max(Top,Hit.ImpactPoint.Z);
+            }
+        return Top;
+    };
+    for(int32 Y=MinY;Y<=MaxY;++Y)for(int32 X=MinX;X<=MaxX;++X)
+    {
+        const FVector P=Transform.TransformPosition(FVector(X,Y,0));const double Top=TopAt(P.X,P.Y);
+        if(Top>TNumericLimits<double>::Lowest())
+        {const int32 Index=(Y-MinY)*Width+X-MinX;Source[Index]=Top+SurfaceOffset;Distance[Index]=0;Queue.Add(Index);}
+    }
+    if(Queue.IsEmpty())return Result;
+    const int32 PavedVertices=Queue.Num();
+    // Ring by ring, each vertex takes the mean of its inner-ring neighbours, so slopes along a road cancel instead of copying one uphill/downhill neighbour.
+    for(int32 Head=0;Head<Queue.Num();++Head)
+    {
+        const int32 Index=Queue[Head],X=Index%Width,Y=Index/Width;if(Distance[Index]>=Blend)continue;
+        for(int32 DY=-1;DY<=1;++DY)for(int32 DX=-1;DX<=1;++DX)
+        {
+            const int32 NX=X+DX,NY=Y+DY;if(NX<0 || NY<0 || NX>=Width || NY>=Height)continue;
+            const int32 Next=NY*Width+NX;if(Distance[Next]!=MAX_int32)continue;
+            Distance[Next]=Distance[Index]+1;Queue.Add(Next);
+            double Sum=0;int32 Inner=0;
+            for(int32 EY=-1;EY<=1;++EY)for(int32 EX=-1;EX<=1;++EX)
+            {
+                const int32 MX=NX+EX,MY=NY+EY;if(MX<0 || MY<0 || MX>=Width || MY>=Height)continue;
+                const int32 Neighbour=MY*Width+MX;if(Distance[Neighbour]==Distance[Next]-1){Sum+=Source[Neighbour];++Inner;}
+            }
+            Source[Next]=Sum/Inner;
+            if(Distance[Next]==1)
+            {
+                // First ring: take the pavement edge height itself, found by stepping from this vertex toward each paved neighbour.
+                const FVector P=Transform.TransformPosition(FVector(NX+MinX,NY+MinY,0));double EdgeSum=0;int32 Edges=0;
+                for(int32 EY=-1;EY<=1;++EY)for(int32 EX=-1;EX<=1;++EX)
+                {
+                    const int32 MX=NX+EX,MY=NY+EY;if(MX<0 || MY<0 || MX>=Width || MY>=Height || Distance[MY*Width+MX]!=0)continue;
+                    const FVector Q=Transform.TransformPosition(FVector(MX+MinX,MY+MinY,0));
+                    for(double T=0.05;T<=1.;T+=0.05)
+                        if(const double Top=TopAt(FMath::Lerp(P.X,Q.X,T),FMath::Lerp(P.Y,Q.Y,T));Top>TNumericLimits<double>::Lowest()){EdgeSum+=Top;++Edges;break;}
+                }
+                if(Edges)Source[Next]=EdgeSum/Edges+EdgeOffset;
+            }
+        }
+    }
+    for(TActorIterator<ALandscapeProxy> It(World);It;++It)
+    {It->Modify();for(const auto& Component:It->LandscapeComponents)if(Component)Component->Modify();}
+    TArray<uint16> Heights;Heights.SetNumUninitialized(Count);int32 Changed=0;double MaxRaise=0,MaxLower=0;
+    {
+        FScopedSetLandscapeEditingLayer Scope(Landscape,Layers[0]->GetGuid());
+        FLandscapeEditDataInterface Edit(Info);Edit.GetHeightDataFast(MinX,MinY,MaxX,MaxY,Heights.GetData(),Width);
+        for(const uint16 Value:Heights)if(Value<28000 || Value>38000)return Result; // Refuse unloaded/missing terrain samples.
+        TArray<double> H;H.SetNumUninitialized(Count);for(int32 Index=0;Index<Count;++Index)H[Index]=(int32(Heights[Index])-32768)*100./128.;
+        const TArray<double> Original=H;
+        for(const int32 Index:Queue)
+        {
+            const double Alpha=Distance[Index]<=1?1.:FMath::SmoothStep(0.,1.,1.-double(Distance[Index]-1)/Blend);
+            H[Index]=FMath::Lerp(H[Index],Source[Index],Alpha);
+        }
+        // Second smoothing pass: sample 16 points in every quad touching the pavement and nudge the corner vertices until the
+        // interpolated terrain sits 6 cm under the pavement inside it and 3 cm under the nearest pavement edge within 1 m outside it.
+        TSet<int32> Quads;
+        for(const int32 Index:Queue)if(Distance[Index]<=1)
+        {const int32 X=Index%Width,Y=Index/Width;for(int32 DY=-1;DY<=0;++DY)for(int32 DX=-1;DX<=0;++DX)if(X+DX>=0 && Y+DY>=0 && X+DX<Width-1 && Y+DY<Height-1)Quads.Add((Y+DY)*Width+X+DX);}
+        struct FFine{int32 Quad;double U,V,Desired;};TArray<FFine> Fine;
+        static const FVector2D Directions[]={{1,0},{-1,0},{0,1},{0,-1},{.7071,.7071},{.7071,-.7071},{-.7071,.7071},{-.7071,-.7071}};
+        for(const int32 Quad:Quads)
+        {
+            const int32 X=Quad%Width,Y=Quad/Width;
+            for(const double U:{.125,.375,.625,.875})for(const double V:{.125,.375,.625,.875})
+            {
+                const FVector P=Transform.TransformPosition(FVector(X+MinX+U,Y+MinY+V,0));const double Top=TopAt(P.X,P.Y);
+                if(Top>TNumericLimits<double>::Lowest()){Fine.Add({Quad,U,V,Top-6});continue;}
+                double Edge=TNumericLimits<double>::Lowest();
+                for(const FVector2D& D:Directions)Edge=FMath::Max(Edge,TopAt(P.X+D.X*100,P.Y+D.Y*100));
+                if(Edge>TNumericLimits<double>::Lowest())Fine.Add({Quad,U,V,Edge-3});
+            }
+        }
+        TArray<double> Num,Den;
+        for(int32 Iteration=0;Iteration<16;++Iteration)
+        {
+            Num.Init(0,Count);Den.Init(0,Count);
+            for(const FFine& F:Fine)
+            {
+                // Same split as Chaos heightfield collision (diagonal from cell origin to its far corner).
+                const int32 C[4]={F.Quad,F.Quad+1,F.Quad+Width,F.Quad+Width+1};
+                const double W[4]={F.U<F.V?1-F.V:1-F.U,F.U<F.V?0:F.U-F.V,F.U<F.V?F.V-F.U:0,F.U<F.V?F.U:F.V};
+                const double Error=F.Desired-(W[0]*H[C[0]]+W[1]*H[C[1]]+W[2]*H[C[2]]+W[3]*H[C[3]]);
+                for(int32 K=0;K<4;++K){Num[C[K]]+=W[K]*Error;Den[C[K]]+=W[K];}
+            }
+            for(const int32 Index:Queue)if(Den[Index]>0 && Distance[Index]<=3)H[Index]+=FMath::Clamp(Num[Index]/Den[Index],-30.,30.);
+        }
+        for(const int32 Index:Queue)
+        {
+            const uint16 Value=uint16(FMath::Clamp(FMath::RoundToInt(32768.+H[Index]*128./100.),0,65535));
+            if(Value!=Heights[Index]){MaxRaise=FMath::Max(MaxRaise,H[Index]-Original[Index]);MaxLower=FMath::Min(MaxLower,H[Index]-Original[Index]);Heights[Index]=Value;++Changed;}
+        }
+        Result.Add(TEXT("SmoothingSamples"),Fine.Num());Result.Add(TEXT("SmoothingQuads"),Quads.Num());
+        Edit.SetHeightData(MinX,MinY,MaxX,MaxY,Heights.GetData(),Width,true);Edit.Flush();
+    }
+    Landscape->RequestLayersContentUpdateForceAll(ELandscapeLayerUpdateMode::Update_All);Landscape->ForceUpdateLayersContent();
+    Landscape->Tags.Add(Marker);Landscape->MarkPackageDirty();
+    for(TActorIterator<ALandscapeProxy> It(World);It;++It)It->MarkPackageDirty();
+    Result.Add(TEXT("PavedComponents"),Paved.Num());Result.Add(TEXT("ParkingSlabs"),Slabs);Result.Add(TEXT("PavedVertices"),PavedVertices);
+    Result.Add(TEXT("BlendedVertices"),Queue.Num());Result.Add(TEXT("ChangedVertices"),Changed);
+    Result.Add(TEXT("MaxRaiseCm"),FMath::RoundToInt(MaxRaise));Result.Add(TEXT("MaxLowerCm"),FMath::RoundToInt(MaxLower));
+#endif
+    return Result;
+}
+
 TMap<FString,FString> URVWorldContentLibrary::AuditRegionTerrain(UObject* Context)
 {
     TMap<FString,FString> Result;
@@ -369,7 +528,8 @@ FString URVWorldContentLibrary::AuditRegionTerrainSamples(UObject* Context,const
         if(X0>=MinX && Y0>=MinY && X0<MaxX && Y0<MaxY)for(const FGrid& Grid:Grids)
         {
             auto At=[&](int32 X,int32 Y){return LandscapeDataAccess::GetLocalHeight(Grid.Data[(Y-MinY)*Width+X-MinX]);};
-            const double LocalZ=FMath::Lerp(FMath::Lerp(At(X0,Y0),At(X0+1,Y0),FX),FMath::Lerp(At(X0,Y0+1),At(X0+1,Y0+1),FX),FY);
+            // Triangulated like Chaos heightfield collision, so texture and collision samples are directly comparable.
+            const double LocalZ=FX<FY?At(X0,Y0)*(1-FY)+At(X0+1,Y0+1)*FX+At(X0,Y0+1)*(FY-FX):At(X0,Y0)*(1-FX)+At(X0+1,Y0)*(FX-FY)+At(X0+1,Y0+1)*FY;
             Sample+=FString::Printf(TEXT(",\"%sZ\":%.3f"),*Grid.Name,Transform.TransformPosition(FVector(Local.X,Local.Y,LocalZ)).Z);
         }
         for(const AActor* Proxy:Proxies)

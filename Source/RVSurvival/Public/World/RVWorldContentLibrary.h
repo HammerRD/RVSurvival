@@ -29,6 +29,9 @@ public:
     /** Editor-only grading of the five prototype sites; never edits accepted maps. */
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly,WorldContext="Context"))
     static TMap<FString,int32> GradeRegionSitePads(UObject* Context,bool bExtendGarage=false);
+    /** Blend graded terrain up to road and parking-slab surfaces through the edit layer so pavement edges have no step. */
+    UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly,WorldContext="Context"))
+    static TMap<FString,int32> BlendRegionTerrainToPavement(UObject* Context);
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly,WorldContext="Context"))
     static TMap<FString,FString> AuditRegionTerrain(UObject* Context);
     /** Read-only: final heightmap, each edit layer, collision and rays at world XY samples, as JSON. */
