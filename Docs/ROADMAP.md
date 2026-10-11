@@ -59,3 +59,5 @@ The user accepted Gate 9.5 at 81b65c9 and authorized Gate 10 only. The first WNY
 
 ## Gate 10 closure — 2026-10-10
 Gate 10 (Western NY playable region) is complete as a gameplay prototype and READY FOR OWNER ACCEPTANCE pending the owner's visual walk-through; see GATE_10_VALIDATION.md and GATE_10_HANDOFF.md. Next step (owner decision): a dedicated art/"world look" pass, before Gate 11. Gate 11 is not started or authorized.
+
+10. Western NY playable region: ACCEPTED on 2026-10-10 as a gameplay prototype after the owner's walk-through; see GATE_10_VALIDATION.md and GATE_10_HANDOFF.md. Next: art/"world look" pass. Gate 11 not started.

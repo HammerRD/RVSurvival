@@ -1,13 +1,13 @@
-# Gate 10 handoff — Western NY playable region (gameplay prototype)
+# Gate 10 handoff — Western NY playable region (gameplay prototype, ACCEPTED)
 
 Prepared 2026-10-10 for the next development agent. Read this file first, then
 `ROADMAP.md`, `WORLD_ARCHITECTURE.md`, `ENCOUNTER_SYSTEM.md` and `GATE_10_VALIDATION.md`.
 
 ## Status
 
-- **Gate 10 is complete as a gameplay prototype and ready for the owner's acceptance.**
-  It is not accepted until the owner (Bobby) says so after his own visual/interior
-  walk-through. Gate 11 has not been started or authorized.
+- **Gate 10 is ACCEPTED (2026-10-10)** as a gameplay prototype. The owner (Bobby) completed
+  the visual/interior walk-through of all five sites and accepted it; no defects were
+  reported. Gate 11 has not been started or authorized.
 - **Scope decision (owner, 2026-10-10):** Gate 10 closes as a *gameplay* prototype. The
   world currently looks barren/flat and the roads look synthetic; that is expected.
   A dedicated **art/"world look" pass is the next step, run as its own step right after
@@ -102,7 +102,7 @@ failed attempts were never saved and their evidence is kept in `Saved/Gate10Vali
   uncapped development-PIE frames median 8.34 ms, p95 8.71 ms, p99 9.01 ms; peak editor
   working set 4.4 GB. Evidence: `Docs/Gate10Results/closure-checks.json`.
 - Final editor build succeeded; every scripted editor and builder run exited cleanly.
-- Still the owner's: visual/interior walk-through of all five sites and the acceptance decision.
+- Owner walk-through of all five sites completed; Gate 10 accepted 2026-10-10.
 
 ## Known issues and limits (not blockers for a gameplay prototype)
 

@@ -227,3 +227,6 @@ Closure checks (one-player PIE on the saved map, no saves; `Tools/Validation/Gat
 - Clean editor exit, no ensures/assertions/Python errors; editor target build succeeded.
 Representative regression basis: since Gate 9.5 acceptance (81b65c9) only new `World/` source files, Build.cs dependencies, the XGEController plugin opt-out and region content were added; no accepted vehicle, inventory, survival, mechanical, medical, combat or character code, prior map or vendor/imported asset was modified (`git diff --name-status 81b65c9`). The 4.465 km route drive re-exercised physical RV entry/exit, driving, cooling and seating on the final world; separate-process network, loot and rejoin evidence above stands.
 Remaining for the owner: visual/interior walk-through of the five sites and the acceptance decision. Handoff: `Docs/GATE_10_HANDOFF.md`. No Gate 11.
+
+## Gate 10 ACCEPTED — 2026-10-10
+The owner completed the visual/interior walk-through of the five sites and ACCEPTED Gate 10 on 2026-10-10 (accepted at 89c5520 plus this record) as a gameplay prototype; no defects were reported. Next step: the dedicated art/"world look" pass. Gate 11 is not started or authorized.

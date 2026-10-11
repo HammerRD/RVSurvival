@@ -392,3 +392,6 @@ Full regraded route drive after the pavement blend (same normal-input harness an
 - Prewarm: player ready 1.28 s after PIE start with the RV area streamed; uncapped PIE frames median 8.34 ms / p95 8.71 ms; clean exit.
 - No prior gate code, map or vendor asset changed since 81b65c9. Art pass is the next step; Gate 11 not started.
 - Handoff for the next agent: `Docs/GATE_10_HANDOFF.md`.
+
+## 2026-10-10 — Gate 10 ACCEPTED
+The owner completed the visual/interior walk-through of the five sites and ACCEPTED Gate 10 on 2026-10-10 (accepted at 89c5520 plus this record) as a gameplay prototype; no defects were reported. Next step: the dedicated art/"world look" pass. Gate 11 is not started or authorized.
