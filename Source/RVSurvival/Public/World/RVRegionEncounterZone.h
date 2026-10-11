@@ -20,6 +20,7 @@ public:
  UPROPERTY(Replicated,BlueprintReadOnly) ERVEncounterOutcome Outcome=ERVEncounterOutcome::Quiet;
  UPROPERTY(Replicated,BlueprintReadOnly) bool bEvaluated=false;
 private:
+ friend class URVWorldContentLibrary; // Development-only bookkeeping validation.
  void UpdateAuthority();
  void SuspendAuthority();
  bool IsSafeSpawn(const FVector& Position,float Radius,float HalfHeight) const;

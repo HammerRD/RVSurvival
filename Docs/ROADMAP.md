@@ -56,3 +56,6 @@ Gate9.5 closure: ACCEPTED at prototype quality; see GATE_9_5_VALIDATION.md. Gate
 ## Gate 10 authorized development — 2026-10-10
 
 The user accepted Gate 9.5 at 81b65c9 and authorized Gate 10 only. The first WNY playable region, finite contextual scavenging and bounded encounter foundation are in progress; see GATE_10_VALIDATION.md. Historical notes that Gate 10 was not started describe prior checkpoints. Gate 11 is not started. Acceptance requires actual driving/scavenging, streamed multiplayer state and performance validation.
+
+## Gate 10 closure — 2026-10-10
+Gate 10 (Western NY playable region) is complete as a gameplay prototype and READY FOR OWNER ACCEPTANCE pending the owner's visual walk-through; see GATE_10_VALIDATION.md and GATE_10_HANDOFF.md. Next step (owner decision): a dedicated art/"world look" pass, before Gate 11. Gate 11 is not started or authorized.

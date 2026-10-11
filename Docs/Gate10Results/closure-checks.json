@@ -1,0 +1,36 @@
+{
+  "evidence": "one-player PIE on the saved WNY map; no map or asset save",
+  "pie_start_to_player_s": 1.28,
+  "streaming_at_player": {
+    "loaded": 1157,
+    "landscape_proxies": 24
+  },
+  "prewarm_settled_after_player_s": 0.24,
+  "streaming_settled": {
+    "loaded": 1155,
+    "landscape_proxies": 24
+  },
+  "encounter_bookkeeping": {
+    "Non-quiet selection starts the global cooldown": "true: next=215.58 now=65.58",
+    "Zone evaluated during cooldown stays quiet with no population": "true: cooldown blocks a second non-quiet outcome",
+    "Selected outcomes stay stable for the session": "true: re-selection after cooldown does not reroll",
+    "Profile without weighted quiet travel falls back to quiet": "true: guard against constant action",
+    "Killed member is recorded dead on suspend": "true: normal TakeDamage death",
+    "Living member keeps vitality and position on suspend": "true: vitality=55.00 of 65.00",
+    "Suspend releases member actors": "true: no retained actor",
+    "Externally destroyed member is exhausted, never respawned": "true: missing actor at suspend",
+    "Suspend destroys the cache actor": "true: cache released with the zone",
+    "Cache revisit restores remaining GUID/quantity/condition": "true: initial=2 remaining=1 restored=1",
+    "Taken cache item does not respawn": "true: searched/taken state kept",
+    "Transient records removed and session pacing restored": "true: records=0"
+  },
+  "encounter_pass": true,
+  "frame_ms": {
+    "samples": 7198,
+    "median": 8.34,
+    "p95": 8.71,
+    "p99": 9.01,
+    "max": 29.2,
+    "mean": 8.34
+  }
+}

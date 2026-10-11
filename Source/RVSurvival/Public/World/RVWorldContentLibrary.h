@@ -13,6 +13,9 @@ public:
     static AActor* CreateRegionLandscape(UObject* Context,int32 Components,float VertexSpacingCm);
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly,WorldContext="Context"))
     static TMap<FString,bool> ValidateLootLifecycle(UObject* Context,class URVLootProfile* Profile);
+    /** Server PIE only: cooldown/quiet selection, dead and suspended member snapshots, and supply-cache conservation, using transient records it removes again. */
+    UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly,WorldContext="Context"))
+    static TMap<FString,FString> ValidateEncounterBookkeeping(UObject* Context);
     UFUNCTION(BlueprintCallable,meta=(DevelopmentOnly))
     static class UPCGGraph* CreateBiomeGraph(const FString& AssetPath,const TArray<class UStaticMesh*>& Meshes,float PointsPerSquareMetre,bool Collision);
     UFUNCTION(BlueprintPure,meta=(DevelopmentOnly,WorldContext="Context"))

@@ -1,6 +1,13 @@
 #include "World/RVWorldContentLibrary.h"
 #include "World/RVScavengeContainer.h"
 #include "World/RVRegionStateSubsystem.h"
+#include "World/RVEncounterDirector.h"
+#include "World/RVRegionEncounterZone.h"
+#include "Combat/RVInfected.h"
+#include "Combat/RVInfectedProfile.h"
+#include "Engine/DamageEvents.h"
+#include "Inventory/RVWorldItem.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "Engine/World.h"
 #include "Engine/Engine.h"
 #include "WorldPartition/WorldPartition.h"
@@ -93,6 +100,92 @@ TMap<FString,bool> URVWorldContentLibrary::ValidateLootLifecycle(UObject* Contex
     Reloaded->Destroy();Receiver->Destroy();World->GetSubsystem<URVRegionStateSubsystem>()->Containers.Remove(Id);
 #endif
     return Results;
+}
+
+TMap<FString,FString> URVWorldContentLibrary::ValidateEncounterBookkeeping(UObject* Context)
+{
+    TMap<FString,FString> R;
+#if !UE_BUILD_SHIPPING
+    UWorld* World=Context?Context->GetWorld():nullptr;
+    if(!World || !World->IsGameWorld() || World->GetNetMode()==NM_Client)return R;
+    auto* Director=World->GetSubsystem<URVEncounterDirector>();auto* State=World->GetSubsystem<URVRegionStateSubsystem>();
+    const ARVRegionEncounterZone* Authored=nullptr;
+    for(TActorIterator<ARVRegionEncounterZone> It(World);It;++It)if(It->Profile && It->Profile->InfectedProfile && It->Profile->SupplyProfile && It->SupplyCacheClass){Authored=*It;break;}
+    if(!Director || !State || !Authored){R.Add(TEXT("Setup"),TEXT("false: needs region director and an authored zone with infected/supply profiles"));return R;}
+    auto Pass=[&](const TCHAR* Name,bool Ok,const FString& Detail){R.Add(Name,FString::Printf(TEXT("%s: %s"),Ok?TEXT("true"):TEXT("false"),*Detail));};
+    // Preserve the live session pacing; every record added below is removed again.
+    const double SavedNext=Director->NextEventTime;const TArray<ERVEncounterOutcome> SavedRecent=Director->Recent;
+    auto* Profile=NewObject<URVEncounterProfile>(GetTransientPackage());
+    Profile->InfectedProfile=Authored->Profile->InfectedProfile;Profile->SupplyProfile=Authored->Profile->SupplyProfile;Profile->EventCooldown=150;
+    {FRVEncounterChoice Quiet;Quiet.Outcome=ERVEncounterOutcome::Quiet;Quiet.Weight=.01f;FRVEncounterChoice Cluster;Cluster.Outcome=ERVEncounterOutcome::InfectedCluster;Cluster.Weight=100.f;Cluster.InfectedCount=2;Profile->Choices={Quiet,Cluster};}
+    const TArray<FVector> Positions={FVector(0,0,-30000),FVector(300,0,-30000)};
+    TArray<FGuid> TestIds;FGuid Cluster;
+    for(int32 Attempt=0;Attempt<32 && !Cluster.IsValid();++Attempt)
+    {
+        const FGuid Id=FGuid::NewGuid();TestIds.Add(Id);Director->NextEventTime=0;Director->Recent.Reset();
+        if(Director->SelectAuthority(Id,Profile,Positions).Outcome==ERVEncounterOutcome::InfectedCluster)Cluster=Id;
+    }
+    const double Now=World->GetTimeSeconds();
+    Pass(TEXT("Non-quiet selection starts the global cooldown"),Cluster.IsValid() && FMath::IsNearlyEqual(Director->NextEventTime,Now+150,0.5),FString::Printf(TEXT("next=%.2f now=%.2f"),Director->NextEventTime,Now));
+    const FGuid During=FGuid::NewGuid();TestIds.Add(During);
+    {const FRVEncounterSnapshot Cooled=Director->SelectAuthority(During,Profile,Positions);
+     Pass(TEXT("Zone evaluated during cooldown stays quiet with no population"),Cooled.bSelected && Cooled.Outcome==ERVEncounterOutcome::Quiet && Cooled.Infected.IsEmpty(),TEXT("cooldown blocks a second non-quiet outcome"));}
+    Director->NextEventTime=0;
+    {const FRVEncounterSnapshot Again=Director->SelectAuthority(During,Profile,Positions);const FRVEncounterSnapshot First=Director->SelectAuthority(Cluster,Profile,Positions);
+     Pass(TEXT("Selected outcomes stay stable for the session"),Again.Outcome==ERVEncounterOutcome::Quiet && First.Outcome==ERVEncounterOutcome::InfectedCluster,TEXT("re-selection after cooldown does not reroll"));}
+    auto* NoQuiet=NewObject<URVEncounterProfile>(GetTransientPackage());
+    {FRVEncounterChoice Only;Only.Outcome=ERVEncounterOutcome::InfectedCluster;Only.Weight=1.f;NoQuiet->Choices={Only};}
+    const FGuid Unsafe=FGuid::NewGuid();TestIds.Add(Unsafe);Director->NextEventTime=0;
+    Pass(TEXT("Profile without weighted quiet travel falls back to quiet"),Director->SelectAuthority(Unsafe,NoQuiet,Positions).Outcome==ERVEncounterOutcome::Quiet,TEXT("guard against constant action"));
+    // Dead/suspended member bookkeeping through the real zone suspend path, far below the playable terrain.
+    auto* Zone=World->SpawnActorDeferred<ARVRegionEncounterZone>(ARVRegionEncounterZone::StaticClass(),FTransform(FVector(0,0,-30000)));
+    Zone->ZoneId=Cluster;Zone->Profile=Profile;Zone->SupplyCacheClass=Authored->SupplyCacheClass;Zone->FinishSpawning(FTransform(FVector(0,0,-30000)));
+    auto Spawn=[&](const FVector& At)
+    {
+        auto* I=World->SpawnActorDeferred<ARVInfected>(ARVInfected::StaticClass(),FTransform(At),nullptr,nullptr,ESpawnActorCollisionHandlingMethod::AlwaysSpawn);
+        I->Profile=Profile->InfectedProfile;I->FinishSpawning(FTransform(At));
+        I->GetCharacterMovement()->DisableMovement();I->GetCharacterMovement()->GravityScale=0;Director->ActiveInfected.Add(I);return I;
+    };
+    FRVEncounterSnapshot* Record=Director->Encounters.Find(Cluster);
+    if(Record && Record->Infected.Num()==2 && Zone->bOwnsIdentity)
+    {
+        auto* Killed=Spawn(FVector(0,0,-30000));auto* Hurt=Spawn(FVector(400,0,-30000));
+        Zone->Members.Add(0,Killed);Zone->Members.Add(1,Hurt);Zone->bActive=true;
+        Killed->TakeDamage(100000,FDamageEvent(),nullptr,nullptr);Hurt->TakeDamage(10,FDamageEvent(),nullptr,nullptr);
+        const float HurtVitality=Hurt->Vitality;const FVector HurtAt=Hurt->GetActorLocation();const bool KilledDead=Killed->State==ERVInfectedState::Dead;
+        Zone->SuspendAuthority();Record=Director->Encounters.Find(Cluster);
+        Pass(TEXT("Killed member is recorded dead on suspend"),KilledDead && Record->Infected[0].bDead,TEXT("normal TakeDamage death"));
+        Pass(TEXT("Living member keeps vitality and position on suspend"),!Record->Infected[1].bDead && FMath::IsNearlyEqual(Record->Infected[1].Vitality,HurtVitality) && Record->Infected[1].Position.Equals(HurtAt,1),FString::Printf(TEXT("vitality=%.2f of %.2f"),Record->Infected[1].Vitality,Profile->InfectedProfile?Profile->InfectedProfile->Vitality:0.f));
+        Pass(TEXT("Suspend releases member actors"),(!IsValid(Killed) || Killed->IsActorBeingDestroyed()) && (!IsValid(Hurt) || Hurt->IsActorBeingDestroyed()) && Zone->Members.IsEmpty(),TEXT("no retained actor"));
+        auto* Lost=Spawn(FVector(800,0,-30000));Zone->Members.Add(1,Lost);Zone->bActive=true;Lost->Destroy();
+        Zone->SuspendAuthority();Record=Director->Encounters.Find(Cluster);
+        Pass(TEXT("Externally destroyed member is exhausted, never respawned"),Record->Infected[1].bDead,TEXT("missing actor at suspend"));
+    }
+    else Pass(TEXT("Cluster record prepared"),false,FString::Printf(TEXT("record=%d owns=%d"),Record!=nullptr,Zone->bOwnsIdentity));
+    // Supply cache: the zone's cache uses a stable derived GUID, so revisits restore only what remains.
+    const FGuid CacheId(Cluster.A^0xA70C164D,Cluster.B,Cluster.C,Cluster.D);
+    auto SpawnCache=[&]()
+    {
+        auto* C=World->SpawnActorDeferred<ARVScavengeContainer>(Authored->SupplyCacheClass,FTransform(FVector(0,800,-30000)),nullptr,nullptr,ESpawnActorCollisionHandlingMethod::AlwaysSpawn);
+        C->ContainerId=CacheId;C->LootProfile=Profile->SupplyProfile;C->FinishSpawning(C->GetActorTransform());return C;
+    };
+    auto* First=SpawnCache();Zone->Cache=First;Zone->bActive=true;const auto Initial=First->Container->GetItems();
+    auto* Receiver=World->SpawnActor<ARVStoragePoint>(FVector(0,1600,-30000),FRotator::ZeroRotator);FString Error;bool Moved=false;
+    if(!Initial.IsEmpty())Moved=First->Container->TransferAuthority(Receiver->Container,Initial[0].Id,Initial[0].Quantity,Error);
+    const auto Remaining=First->Container->GetItems();
+    Zone->SuspendAuthority();
+    Pass(TEXT("Suspend destroys the cache actor"),!IsValid(First) || First->IsActorBeingDestroyed(),TEXT("cache released with the zone"));
+    auto* Revisit=SpawnCache();const auto Restored=Revisit->Container->GetItems();bool Same=Restored.Num()==Remaining.Num();
+    for(const auto& Item:Remaining)Same&=Restored.ContainsByPredicate([&](const auto& X){return X.Id==Item.Id && X.Quantity==Item.Quantity && X.Condition==Item.Condition;});
+    Pass(TEXT("Cache revisit restores remaining GUID/quantity/condition"),!Initial.IsEmpty() && Moved && Same,FString::Printf(TEXT("initial=%d remaining=%d restored=%d"),Initial.Num(),Remaining.Num(),Restored.Num()));
+    Pass(TEXT("Taken cache item does not respawn"),!Initial.IsEmpty() && !Restored.ContainsByPredicate([&](const auto& X){return X.Id==Initial[0].Id;}),TEXT("searched/taken state kept"));
+    Revisit->Destroy();Receiver->Destroy();Zone->Destroy();
+    for(const FGuid& Id:TestIds)Director->Encounters.Remove(Id);
+    State->Containers.Remove(CacheId);State->ActiveContainers.Remove(CacheId);
+    Director->NextEventTime=SavedNext;Director->Recent=SavedRecent;
+    Pass(TEXT("Transient records removed and session pacing restored"),!Director->Encounters.Contains(Cluster) && Director->NextEventTime==SavedNext,FString::Printf(TEXT("records=%d"),Director->Encounters.Num()));
+#endif
+    return R;
 }
 
 UPCGGraph* URVWorldContentLibrary::CreateBiomeGraph(const FString& Path,const TArray<UStaticMesh*>& Meshes,float Density,bool Collision)
